@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
 
         <div className="space-y-12">
           {/* Introduction */}
-          <section className="glass rounded-3xl p-8 md:p-10 ornate-border">
+          <section id="privacy" className="glass rounded-3xl p-8 md:p-10 ornate-border scroll-mt-20">
             <h2 className="text-2xl font-serif mb-6">Introduction</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
@@ -225,6 +225,91 @@ export default function PrivacyPolicyPage() {
             <p className="text-muted-foreground leading-relaxed">
               We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically for any changes.
             </p>
+          </section>
+
+          {/* Terms of Service */}
+          <section id="terms" className="glass rounded-3xl p-8 md:p-10 ornate-border scroll-mt-20">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-500">
+                <FileText className="w-6 h-6" />
+              </div>
+              <h2 className="text-2xl font-serif">Terms of Service</h2>
+            </div>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p className="font-medium text-foreground">Effective Date: December 26, 2025</p>
+              <p>
+                By downloading, installing, accessing, or using Divya Darshan 360 ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.
+              </p>
+              <div className="space-y-4 mt-6">
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">1. Acceptance of Terms</h3>
+                  <p className="text-sm">
+                    These Terms constitute a legally binding agreement between you and TellMe Digi Infotech Pvt Ltd. By using the App, you acknowledge that you have read, understood, and agree to be bound by these Terms.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">2. Use of Content</h3>
+                  <p className="text-sm">
+                    All content available through the App, including but not limited to 360° videos, temple darshans, aartis, and spiritual content, is the exclusive property of TellMe Digi Infotech Pvt Ltd and its licensors. You agree to use the content solely for personal, non-commercial spiritual purposes. Recording, redistributing, or reproducing any content is strictly prohibited.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">3. User Conduct</h3>
+                  <p className="text-sm">
+                    You agree to use the App in a respectful manner consistent with its spiritual purpose. You shall not misuse, abuse, or exploit the App or its content in any way that violates applicable laws or regulations.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">4. Intellectual Property</h3>
+                  <p className="text-sm">
+                    All intellectual property rights in the App, including trademarks, copyrights, and proprietary technology, remain the exclusive property of TellMe Digi Infotech Pvt Ltd.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">5. Limitation of Liability</h3>
+                  <p className="text-sm">
+                    The App is provided "as is" without warranties of any kind. TellMe Digi Infotech Pvt Ltd shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Cookie Policy */}
+          <section id="cookies" className="glass rounded-3xl p-8 md:p-10 ornate-border scroll-mt-20">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-2 rounded-lg bg-teal-500/10 text-teal-500">
+                <Shield className="w-6 h-6" />
+              </div>
+              <h2 className="text-2xl font-serif">Cookie Policy</h2>
+            </div>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Divya Darshan 360 may use cookies and similar tracking technologies to enhance your experience, analyze usage patterns, and improve our services.
+              </p>
+              <div className="space-y-4 mt-6">
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">What Are Cookies?</h3>
+                  <p className="text-sm">
+                    Cookies are small text files stored on your device when you visit a website or use an app. They help us remember your preferences and understand how you interact with our App.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">How We Use Cookies</h3>
+                  <ul className="list-disc pl-5 space-y-2 text-sm">
+                    <li><strong>Essential Cookies:</strong> Required for the App to function properly and cannot be disabled.</li>
+                    <li><strong>Analytics Cookies:</strong> Help us understand how users interact with the App to improve performance and user experience.</li>
+                    <li><strong>Preference Cookies:</strong> Remember your settings and preferences for a personalized experience.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-foreground font-medium mb-2">Managing Cookies</h3>
+                  <p className="text-sm">
+                    You can manage cookie preferences through your device settings or browser. However, disabling certain cookies may affect the functionality of the App.
+                  </p>
+                </div>
+              </div>
+            </div>
           </section>
 
           {/* Contact Us */}

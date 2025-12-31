@@ -10,6 +10,7 @@ import { SacredChakra } from "@/components/sacred-chakra"
 import { AppShowcase } from "@/components/app-showcase"
 import { FloatingDiya } from "@/components/floating-diya"
 import { DivineParticles } from "@/components/divine-particles"
+import { DemoVideo } from "@/components/demo-video"
 
 export default function LandingPage() {
   return (
@@ -81,6 +82,9 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Product Demo Video */}
+      <DemoVideo />
 
       {/* NEW: Exclusivity Banner - Softened borders and gradient */}
       <section className="py-20 relative overflow-hidden bg-gradient-to-r from-transparent via-primary/5 to-transparent">
@@ -295,15 +299,15 @@ export default function LandingPage() {
           <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
             <p>© 2025 Divya Darshan 360. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="/privacy-policy#privacy" className="hover:text-foreground">
+              <Link href="/privacy#privacy" className="hover:text-foreground">
                 Privacy Policy
-              </a>
-              <a href="/privacy-policy#terms" className="hover:text-foreground">
+              </Link>
+              <Link href="/privacy#terms" className="hover:text-foreground">
                 Terms of Service
-              </a>
-              <a href="/privacy-policy#cookies" className="hover:text-foreground">
+              </Link>
+              <Link href="/privacy#cookies" className="hover:text-foreground">
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>
