@@ -1,72 +1,95 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Layers, Sparkles, Mountain } from "lucide-react"
 
-const experiences = [
+const categories = [
   {
     title: "Jyotirlingas",
-    time: "18:00 MIN",
+    subtitle: "12 Sacred Shrines",
     image: "/sacred-jyotirlinga-shiva-temple-360-view.jpg",
     color: "from-orange-500/20",
-    isExclusive: true,
+    icon: Sparkles,
+    count: "Premium Collection",
     description: "Sacred Shiva Temples",
   },
   {
     title: "Ashtavinayak",
-    time: "15:30 MIN",
+    subtitle: "8 Ganesh Shrines",
     image: "/ashtavinayak-ganesh-temple-spiritual-darshan.jpg",
     color: "from-yellow-500/20",
-    isExclusive: true,
-    description: "Eight Ganesh Shrines",
+    icon: Layers,
+    count: " exclusive Series",
+    description: "Eight Divine Forms",
   },
   {
     title: "Shakti Peeths",
-    time: "20:45 MIN",
+    subtitle: "Divine Mother",
     image: "/shakti-peeth-divine-goddess-temple-sacred-atmosphe.jpg",
     color: "from-red-500/20",
-    isExclusive: true,
-    description: "Divine Goddess Temples",
+    icon: Mountain, // Using Mountain as generic spiritual icon or similar
+    count: "Devi Darshan",
+    description: "Goddess Temples",
   },
 ]
 
 export function ExperienceCards() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
-      {experiences.map((exp, i) => (
+      {categories.map((cat, i) => (
         <motion.div
-          key={exp.title}
+          key={cat.title}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: i * 0.2 }}
           viewport={{ once: true }}
-          className="group relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl"
+          className="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-2xl cursor-default"
         >
-          <img
-            src={exp.image || "/placeholder.svg"}
-            alt={exp.title}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-          />
-          <div className={`absolute inset-0 bg-gradient-to-t ${exp.color} to-transparent opacity-60`} />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+          {/* Image Background */}
+          <div className="absolute inset-0 bg-zinc-900">
+            <img
+              src={cat.image || "/placeholder.svg"}
+              alt={cat.title}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+            />
+          </div>
 
-          <div className="absolute inset-0 p-8 flex flex-col justify-end">
-            <div className="absolute top-8 left-8">
-              {exp.isExclusive && (
-                <span className="px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-[10px] tracking-[0.2em] uppercase text-primary font-bold">
-                  Platform Exclusive
+          {/* Gradients */}
+          <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} to-transparent opacity-60 mix-blend-overlay`} />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+          {/* Content */}
+          <div className="absolute inset-0 p-8 flex flex-col justify-end relative z-10">
+            {/* Top Badge */}
+            <div className="absolute top-6 left-6">
+              <div className="glass px-4 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
+                <cat.icon className="w-3 h-3 text-primary" />
+                <span className="text-[10px] tracking-[0.2em] uppercase text-white/90 font-bold">
+                  {cat.count}
                 </span>
-              )}
+              </div>
             </div>
-            <div className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <span className="text-xs tracking-[0.2em] uppercase text-primary font-medium">{exp.description}</span>
+
+            {/* Description Animation */}
+            <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <span className="text-xs tracking-[0.2em] uppercase text-primary font-medium border-b border-primary/30 pb-1">
+                  {cat.description}
+                </span>
+              </div>
+
+              <h3 className="text-4xl font-serif text-white mb-3 leading-none tracking-tight">
+                {cat.title}
+              </h3>
+
+              <p className="text-white/70 text-lg font-light flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-primary/50 block"></span>
+                {cat.subtitle}
+              </p>
             </div>
-            <h3 className="text-3xl font-serif text-white mb-2 leading-tight">{exp.title}</h3>
-            <div className="flex items-center gap-4 text-white/60 text-sm">
-              <span>{exp.time}</span>
-              <div className="w-1 h-1 rounded-full bg-white/30" />
-              <span>360° VR</span>
-            </div>
-            {/* <CHANGE> Removed the play button as these are category cards, not video players */}
+
+            {/* Decorative Overlay Border */}
+            <div className="absolute inset-4 rounded-[2rem] border border-white/5 pointer-events-none group-hover:border-primary/20 transition-colors duration-500" />
           </div>
         </motion.div>
       ))}
