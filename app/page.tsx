@@ -1,4 +1,5 @@
 "use client"
+// Landing page for Divya Darshan 360
 import { FeaturesGrid } from "@/components/features-grid"
 import { Button } from "@/components/ui/button"
 import { Mail, Instagram, Twitter, Facebook, ShieldCheck, Sparkles, Star, Focus as Lotus } from "lucide-react"
