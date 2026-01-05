@@ -53,7 +53,7 @@ export default function LandingPage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-32">
             <Link
-              href="https://play.google.com/store/apps/details?id=com.tellme.divyadarshan360"
+              href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
               target="_blank"
               className="group relative flex items-center gap-5 bg-zinc-950 px-10 py-5 rounded-[1.5rem] border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
             >

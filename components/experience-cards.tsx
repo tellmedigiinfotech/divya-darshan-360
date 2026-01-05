@@ -6,7 +6,7 @@ import { Play, MapPin, Calendar, Star } from "lucide-react"
 const experiences = [
   {
     id: 1,
-    title: "12 Jyotirlingas",
+    title: "Jyotirlingas",
     location: "Sacred India",
     date: "Divine Shiva Darshan",
     rating: "5.0",
@@ -24,7 +24,7 @@ const experiences = [
   },
   {
     id: 3,
-    title: "51 Shakti Peethas",
+    title: "Shakti Peethas",
     location: "Indian Subcontinent",
     date: "Devi Worship",
     rating: "5.0",
