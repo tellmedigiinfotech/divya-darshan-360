@@ -11,6 +11,7 @@ import { SacredChakra } from "@/components/sacred-chakra"
 import { AppShowcase } from "@/components/app-showcase"
 import { FloatingDiya } from "@/components/floating-diya"
 import { DivineParticles } from "@/components/divine-particles"
+import { BackgroundLotus } from "@/components/background-lotus"
 import { DemoVideo } from "@/components/demo-video"
 
 export default function LandingPage() {
@@ -24,6 +25,12 @@ export default function LandingPage() {
       <FloatingDiya className="absolute top-[40%] right-[15%] scale-125 hidden md:block" />
       <FloatingDiya className="absolute bottom-[20%] left-[20%] scale-75 hidden md:block" />
       <FloatingDiya className="absolute bottom-[10%] right-[5%] scale-110 hidden md:block" />
+
+      {/* Scattered Sacred Lotus Elements */}
+      <BackgroundLotus className="top-[5%] right-[-10%]" size={600} opacity={0.15} duration={180} />
+      <BackgroundLotus className="top-[35%] left-[-15%]" size={500} opacity={0.1} duration={220} delay={10} />
+      <BackgroundLotus className="bottom-[15%] right-[-5%]" size={400} opacity={0.15} duration={200} delay={20} />
+      <BackgroundLotus className="bottom-[-10%] left-[10%]" size={300} opacity={0.1} duration={250} delay={5} />
 
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-20">
         <div className="absolute top-20 left-10 w-96 h-96 bg-primary blur-[120px] animate-glow" />
@@ -55,7 +62,7 @@ export default function LandingPage() {
             <Link
               href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
               target="_blank"
-              className="group relative flex items-center gap-5 bg-zinc-950 px-10 py-5 rounded-[1.5rem] border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
+              className="group relative flex items-center gap-5 bg-white/80 backdrop-blur-md px-10 py-5 rounded-[1.5rem] border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
             >
               <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-shimmer pointer-events-none" />
@@ -128,6 +135,7 @@ export default function LandingPage() {
       <section className="py-32 relative overflow-hidden">
         {/* Softened skew background */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent -skew-y-3 translate-y-20 pointer-events-none blur-3xl opacity-50" />
+        <BackgroundLotus className="bottom-[10%] left-[-5%]" size={350} opacity={0.08} duration={300} delay={15} />
         <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
           <h2 className="text-4xl md:text-6xl font-serif mb-6">Sacred Journeys</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -142,6 +150,7 @@ export default function LandingPage() {
       <section className="py-32 px-6 relative">
         {/* Center ambient glow for features */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse-slow" />
+        <BackgroundLotus className="top-[10%] right-[5%]" size={450} opacity={0.1} duration={240} delay={5} />
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-24">
             <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Core Offerings</span>
@@ -232,6 +241,8 @@ export default function LandingPage() {
             A beautifully crafted mobile experience designed for spiritual seekers
           </p>
         </div>
+
+        <BackgroundLotus className="top-[20%] left-[10%]" size={500} opacity={0.05} duration={350} />
         <AppShowcase />
       </section>
 
@@ -313,6 +324,6 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
-    </main>
+    </main >
   )
 }

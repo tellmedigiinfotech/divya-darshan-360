@@ -186,7 +186,12 @@ export default function PrivacyPolicyPage() {
                 <li><strong>Opt-Out:</strong> Opt out of certain data collection or marketing communications.</li>
                 <li><strong>Data Portability:</strong> Request a copy of your data in a portable format.</li>
               </ul>
-              <p>To exercise these rights, please contact us at the information provided below.</p>
+              <p>To exercise your rights to access, correction, deletion, withdrawal of consent, or other privacy‑related requests, you may:</p>
+              <ul className="list-disc pl-5 space-y-2 mt-2">
+                <li>Use the in‑app settings (where available); or</li>
+                <li>Write to us at <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a> or contact the Grievance Officer with details of your request.</li>
+              </ul>
+              <p className="mt-4">We may request additional information to verify your identity and may retain certain data where required under Indian law (for example, for accounting, tax, or dispute‑resolution purposes).</p>
             </div>
           </section>
 
@@ -309,6 +314,53 @@ export default function PrivacyPolicyPage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* Governing Law and Jurisdiction */}
+          <section className="glass rounded-3xl p-8 md:p-10 ornate-border">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-2 rounded-lg bg-red-500/10 text-red-500">
+                <FileText className="w-6 h-6" />
+              </div>
+              <h2 className="text-2xl font-serif">Governing Law and Jurisdiction</h2>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              This Privacy Policy shall be governed by and construed in accordance with the laws of India. Any disputes arising out of or in connection with this Privacy Policy shall be subject to the exclusive jurisdiction of the courts located in Pune,Maharashtra India.
+            </p>
+          </section>
+
+          {/* Grievance Officer */}
+          <section className="glass rounded-3xl p-8 md:p-10 ornate-border">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">
+                <Users className="w-6 h-6" />
+              </div>
+              <h2 className="text-2xl font-serif">Grievance Officer</h2>
+            </div>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>In accordance with applicable Indian law, the details of the Grievance Officer are as follows:</p>
+              <div className="bg-white/5 rounded-xl p-6 border border-white/5 space-y-2">
+                <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2">
+                  <span className="font-medium text-foreground">Name:</span>
+                  <span></span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2">
+                  <span className="font-medium text-foreground">Designation:</span>
+                  <span>Grievance Officer</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2">
+                  <span className="font-medium text-foreground">Email:</span>
+                  <a href="mailto:Connect@youtellme.ai" className="text-primary hover:underline">Connect@youtellme.ai</a>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2">
+                  <span className="font-medium text-foreground">Address:</span>
+                  <span>218 , Akshay Complex, Dhole patil Road, Pune - 411001</span>
+                </div>
+              </div>
+              <p>
+                Users in India may contact the Grievance Officer with concerns or grievances regarding their personal information. The Grievance Officer will acknowledge and resolve grievances within a reasonable time, typically within 30 days.
+              </p>
             </div>
           </section>
 

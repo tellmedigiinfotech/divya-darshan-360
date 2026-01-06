@@ -4,61 +4,65 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Refined Spiritual Premium Palette with deeper contrasts */
-  --background: oklch(0.12 0.03 30);
-  /* Even deeper Maroon/Earth Brown */
-  --foreground: oklch(0.98 0.01 45);
-  /* Brighter Cream/Off-white */
+  /* Rich Divine Theme - Deep Saffron & Gold */
+  --background: oklch(0.99 0.01 85);
+  /* Warm White/Cream */
+  --foreground: oklch(0.2 0.05 45);
+  /* Deep Brown text */
 
-  --card: oklch(0.18 0.06 30);
-  --card-foreground: oklch(0.95 0.02 45);
+  --card: oklch(1 0 0);
+  /* Pure White */
+  --card-foreground: oklch(0.2 0.05 45);
 
-  --popover: oklch(0.18 0.06 30);
-  --popover-foreground: oklch(0.95 0.02 45);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.05 45);
 
-  --primary: oklch(0.8 0.18 65);
-  /* Vibrant Saffron Gold */
-  --primary-foreground: oklch(0.15 0.05 30);
+  --primary: oklch(0.6 0.22 45);
+  /* Intense Saffron/Orange */
+  --primary-foreground: oklch(0.98 0.02 95);
+  /* Warm White text */
 
-  --secondary: oklch(0.4 0.15 320);
-  /* Deeper Royal Purple */
-  --secondary-foreground: oklch(0.95 0.02 45);
+  --secondary: oklch(0.96 0.04 85);
+  /* Light Gold tint */
+  --secondary-foreground: oklch(0.6 0.22 45);
 
-  --muted: oklch(0.25 0.04 30);
-  --muted-foreground: oklch(0.75 0.03 45);
+  --muted: oklch(0.97 0.02 85);
+  --muted-foreground: oklch(0.5 0.05 45);
 
-  --accent: oklch(0.7 0.1 60);
-  /* Brass/Gold Accent */
-  --accent-foreground: oklch(0.15 0.05 30);
+  --accent: oklch(0.92 0.1 85);
+  /* Golden Glow */
+  --accent-foreground: oklch(0.6 0.22 45);
 
   --destructive: oklch(0.5 0.2 25);
-  --destructive-foreground: oklch(0.95 0.02 45);
+  --destructive-foreground: oklch(0.98 0 0);
 
-  --border: oklch(0.25 0.05 40);
-  --input: oklch(0.25 0.05 40);
-  --ring: oklch(0.75 0.15 50);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --border: oklch(0.92 0.04 85);
+  --input: oklch(0.92 0.04 85);
+  --ring: oklch(0.6 0.22 45);
 
-  /* Added RGB variable for saffron glow effects */
-  --primary-rgb: 212, 163, 115;
+  --chart-1: oklch(0.6 0.22 45);
+  --chart-2: oklch(0.75 0.18 65);
+  --chart-3: oklch(0.85 0.15 85);
+  --chart-4: oklch(0.9 0.1 95);
+  --chart-5: oklch(0.95 0.05 105);
+
+  /* RGB variables for glow effects */
+  --primary-rgb: 255, 100, 0;
 
   --radius: 1rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
 
-  /* Added specific glow and shadow tokens */
-  --saffron-glow: 0 0 30px oklch(0.8 0.18 65 / 0.3);
-  --divine-shadow: 0 20px 50px oklch(0 0 0 / 0.5);
+  --sidebar: oklch(0.99 0.01 85);
+  --sidebar-foreground: oklch(0.2 0.05 45);
+  --sidebar-primary: oklch(0.6 0.22 45);
+  --sidebar-primary-foreground: oklch(0.98 0.02 95);
+  --sidebar-accent: oklch(0.96 0.04 85);
+  --sidebar-accent-foreground: oklch(0.6 0.22 45);
+  --sidebar-border: oklch(0.92 0.04 85);
+  --sidebar-ring: oklch(0.6 0.22 45);
+
+  /* Specific glow and shadow tokens */
+  --saffron-glow: 0 0 40px oklch(0.6 0.22 45 / 0.4);
+  --divine-shadow: 0 25px 60px oklch(0.6 0.22 45 / 0.2);
 }
 
 .dark {
@@ -273,14 +277,14 @@
   body {
     /* Replaced star/generic background with a layered spiritual texture including a sacred geometry grid and refined gradients */
     background-image:
-      /* Top-center spiritual glow (Saffron) - slightly richer */
-      radial-gradient(circle at 50% 0%, oklch(0.8 0.18 65 / 0.18), transparent 70%),
-      /* Bottom-right secondary glow (Royal Purple) */
-      radial-gradient(circle at 100% 100%, oklch(0.4 0.15 320 / 0.15), transparent 60%),
-      /* Bottom-left deeply grounded glow (Deep Maroon) */
-      radial-gradient(circle at 0% 100%, oklch(0.5 0.2 25 / 0.15), transparent 60%),
-      /* Subtle noise texture for realism - kept as it adds depth without boxiness */
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+      /* Top-center spiritual glow (Saffron) */
+      radial-gradient(circle at 50% 0%, oklch(0.65 0.22 45 / 0.1), transparent 70%),
+      /* Bottom-right secondary glow (Soft Orange) */
+      radial-gradient(circle at 100% 100%, oklch(0.7 0.18 55 / 0.1), transparent 60%),
+      /* Bottom-left deeply grounded glow (Warm White) */
+      radial-gradient(circle at 0% 100%, oklch(0.98 0.01 45 / 0.5), transparent 60%),
+      /* Subtle noise texture for realism */
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
     background-size: 100% 100%, 100% 100%, 100% 100%, 200px 200px;
     background-attachment: fixed;
     animation: divine-glow 20s ease-in-out infinite alternate;
@@ -300,7 +304,7 @@
 
 .glass {
   /* Softer border, slightly more blur */
-  @apply bg-white/5 backdrop-blur-2xl border border-white/5 shadow-lg shadow-black/5;
+  @apply bg-white/60 backdrop-blur-2xl border border-white/20 shadow-lg shadow-black/5;
 }
 
 .ornate-border {
