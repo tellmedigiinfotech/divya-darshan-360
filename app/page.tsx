@@ -62,7 +62,7 @@ export default function LandingPage() {
             <Link
               href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
               target="_blank"
-              className="group relative flex items-center gap-5 bg-white/80 backdrop-blur-md px-10 py-5 rounded-[1.5rem] border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
+              className="group relative flex items-center gap-5 bg-white/80 backdrop-blur-md px-10 py-5 rounded-[15rem] border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
             >
               <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-shimmer pointer-events-none" />
@@ -207,7 +207,7 @@ export default function LandingPage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative aspect-[4/5] glass rounded-[3rem] p-4 ornate-border overflow-hidden group border-0 ring-0">
+              <div className="relative aspect-4/5 glass rounded-[3rem] p-4 ornate-border overflow-hidden group border-0 ring-0">
                 <img
                   src="/vr-divine-experience.png"
                   alt="Immersive Spiritual VR Experience"
