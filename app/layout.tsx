@@ -158,9 +158,9 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: light)", color: "#8b5cf6" },
     { media: "(prefers-color-scheme: dark)", color: "#8b5cf6" },
   ],
-  verification: {
-    google: "UOrO6_Fuc9keS685cxQVjNrYxwPNoFkfCjTsaZXhizA",
-  },
+  //verification: {
+    //google: "UOrO6_Fuc9keS685cxQVjNrYxwPNoFkfCjTsaZXhizA",
+  //},
 }
 
 export default function RootLayout({
