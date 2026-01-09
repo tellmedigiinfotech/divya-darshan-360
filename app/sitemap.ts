@@ -3,17 +3,21 @@ import { MetadataRoute } from 'next'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://divyadarshan360.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
+  const baseUrl = siteUrl
+  const currentDate = new Date()
+
+  // Main pages with their SEO priorities
+  const routes: MetadataRoute.Sitemap = [
     {
-      url: siteUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 1,
+      url: baseUrl,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 1.0,
     },
     {
-      url: `${siteUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      url: `${baseUrl}/privacy`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
       priority: 0.5,
     },
   ]
