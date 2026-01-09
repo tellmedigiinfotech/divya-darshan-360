@@ -132,22 +132,34 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
+        url: "/icons/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
       },
       {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
+        url: "/icons/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
       },
       {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/icons/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/icons/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+      {
+        url: "/icons/favicon.ico",
+        sizes: "any",
       },
     ],
-    apple: "/apple-icon.png",
-    shortcut: "/icon-light-32x32.png",
+    apple: "/icons/apple-touch-icon.png",
+    shortcut: "/icons/favicon.ico",
   },
-  manifest: "/manifest.json",
+  manifest: "/icons/site.webmanifest",
   other: {
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-capable": "yes",
@@ -176,7 +188,7 @@ export default function RootLayout({
     name: "Divya Darshan 360",
     alternateName: "Divya Darshan",
     url: siteUrl,
-    logo: `${siteUrl}/icon.svg`,
+    logo: `${siteUrl}/icons/android-chrome-512x512.png`,
     description: "Immersive 360° virtual reality experiences of sacred Hindu temples, aartis, and spiritual wisdom.",
     foundingOrganization: {
       "@type": "Organization",
