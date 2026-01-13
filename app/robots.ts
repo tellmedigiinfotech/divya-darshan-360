@@ -1,16 +1,13 @@
 import { MetadataRoute } from 'next'
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://divyadarshan360.com'
+import { siteUrl } from '@/lib/seo-config'
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/admin/', '/_next/'],
-      },
-    ],
+    rules: {
+      userAgent: '*',
+      allow: '/',
+      disallow: '/private/',
+    },
     sitemap: `${siteUrl}/sitemap.xml`,
   }
 }
