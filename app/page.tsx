@@ -21,10 +21,7 @@ export default function LandingPage() {
     <main className="min-h-screen relative overflow-hidden selection:bg-primary/30">
       {/* ... (existing code) ... */}
 
-      <AppShowcase />
 
-      {/* FAQ Section */}
-      <FaqSection />
 
       {/* Privacy & Terms */}
       <DivineParticles />
