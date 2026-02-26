@@ -6,67 +6,17 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import Script from "next/script"
 
+import { seoKeywords, siteUrl, defaultMetadata } from "@/lib/seo-config"
+
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://divyadarshan360.com"
-
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
-	title: {
-		default: "Divya Darshan 360 | Experience Divine VR Darshan",
-		template: "%s | Divya Darshan 360",
-	},
-	description: "Immersive 360° virtual reality experiences of sacred Hindu temples, aartis, and spiritual wisdom. Experience divine darshan from anywhere in the world.",
-	keywords: [
-		"Divya Darshan 360",
-		"Divya Darshan",
-		"Durlabh Darshan",
-		"VR temple darshan",
-		"360 temple experience",
-		"virtual reality temples",
-		"Hindu temple VR",
-		"spiritual VR experience",
-		"temple aarti VR",
-		"divine darshan",
-		"virtual temple visit",
-		"sacred places VR",
-		"spiritual technology",
-		"immersive temple experience",
-		"360 degree temple tour",
-		"virtual darshan",
-		"online temple visit",
-		"VR pilgrimage",
-		"digital temple experience",
-		"Hindu temples online",
-		"spiritual VR app",
-		"temple virtual tour",
-		"sacred sites VR",
-		"devotional VR",
-		"temple 360 video",
-		"virtual worship",
-		"online aarti",
-		"temple livestream",
-		"spiritual immersion",
-		"VR religious experience",
-		"Hindu devotional VR",
-		"temple darshan online",
-		"sacred VR journey",
-		"immersive spirituality",
-		"virtual pilgrimage experience",
-		"temple exploration VR",
-		"divine experience VR",
-		"spiritual meditation VR",
-		"Hindu culture VR",
-		"temple architecture VR",
-		"religious tourism VR",
-		"sanctuary VR",
-		"temple prayers VR",
-		"spiritual enlightenment VR",
-		"devotional technology",
-		"sacred space VR",
-	],
+	title: defaultMetadata.title,
+	description: defaultMetadata.description,
+	keywords: seoKeywords,
 	authors: [
 		{
 			name: "TellMe Digi Infotech Pvt Ltd",
@@ -186,7 +136,8 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://divyadarshan360.com"
+	// const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://divyadarshan360.com" (Removed, using imported)
+
 
 	const organizationSchema = {
 		"@context": "https://schema.org",
@@ -196,6 +147,10 @@ export default function RootLayout({
 		url: siteUrl,
 		logo: `${siteUrl}/icons/android-chrome-512x512.png`,
 		description: "Immersive 360° virtual reality experiences of sacred Hindu temples, aartis, and spiritual wisdom.",
+		areaServed: {
+			"@type": "GeoShape",
+			"box": "World"
+		},
 		foundingOrganization: {
 			"@type": "Organization",
 			name: "TellMe Digi Infotech Pvt Ltd",
@@ -304,6 +259,64 @@ export default function RootLayout({
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+				/>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "VideoObject",
+							name: "Experience the Divine with Divya Darshan 360",
+							description: "Watch how Divya Darshan 360 brings the temple directly to your home with immersive 360° VR technology.",
+							thumbnailUrl: "https://i.ytimg.com/vi/6gDBq8M_JOg/maxresdefault.jpg",
+							uploadDate: "2024-01-01T08:00:00+08:00",
+							contentUrl: "https://www.youtube.com/watch?v=6gDBq8M_JOg",
+							embedUrl: "https://www.youtube.com/embed/6gDBq8M_JOg",
+							publisher: {
+								"@type": "Organization",
+								name: "Divya Darshan 360",
+								logo: {
+									"@type": "ImageObject",
+									url: `${siteUrl}/icons/android-chrome-512x512.png`
+								}
+							}
+						}),
+					}}
+				/>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "FAQPage",
+							mainEntity: [
+								{
+									"@type": "Question",
+									name: "What is Divya Darshan 360?",
+									acceptedAnswer: {
+										"@type": "Answer",
+										text: "Divya Darshan 360 is a premier virtual reality platform that offers immersive 360-degree experiences of sacred Hindu temples. It allows you to perform digital darshan of famous pilgrimages like Jyotirlingas and Shakti Peethas from the comfort of your home."
+									}
+								},
+								{
+									"@type": "Question",
+									name: "Is the Divya Darshan 360 app free?",
+									acceptedAnswer: {
+										"@type": "Answer",
+										text: "Yes, the Divya Darshan 360 app is free to download on the Google Play Store. We offer a range of free darshan experiences."
+									}
+								},
+								{
+									"@type": "Question",
+									name: "Do I need a VR headset to use the app?",
+									acceptedAnswer: {
+										"@type": "Answer",
+										text: "No, a VR headset is not strictly required. You can experience the 360-degree videos directly on your smartphone by moving your device around (Magic Window mode)."
+									}
+								}
+							]
+						})
+					}}
 				/>
 
 				{children}

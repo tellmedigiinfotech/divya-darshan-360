@@ -10,13 +10,20 @@ import { ExperienceCards } from "@/components/experience-cards"
 import { SacredChakra } from "@/components/sacred-chakra"
 import { AppShowcase } from "@/components/app-showcase"
 import { FloatingDiya } from "@/components/floating-diya"
+
 import { DivineParticles } from "@/components/divine-particles"
 import { BackgroundLotus } from "@/components/background-lotus"
 import { DemoVideo } from "@/components/demo-video"
+import { FaqSection } from "@/components/faq-section"
 
 export default function LandingPage() {
   return (
     <main className="min-h-screen relative overflow-hidden selection:bg-primary/30">
+      {/* ... (existing code) ... */}
+
+
+
+      {/* Privacy & Terms */}
       <DivineParticles />
       <SacredChakra />
 
@@ -275,6 +282,9 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      {/* FAQ Section */}
+      <FaqSection />
+
 
       {/* Privacy & Terms */}
       <section className="py-24 px-6 relative">
