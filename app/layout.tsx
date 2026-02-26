@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import type { Viewport } from "next"
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
@@ -166,14 +167,18 @@ export const metadata: Metadata = {
 		"apple-mobile-web-app-capable": "yes",
 		"apple-mobile-web-app-status-bar-style": "black-translucent",
 	},
+	// Moved `colorScheme` and `themeColor` to `viewport` export (Next.js 16+)
+	//verification: {
+	//google: "UOrO6_Fuc9keS685cxQVjNrYxwPNoFkfCjTsaZXhizA",
+	//},
+}
+
+export const viewport: Viewport = {
 	colorScheme: "dark light",
 	themeColor: [
 		{ media: "(prefers-color-scheme: light)", color: "#8b5cf6" },
 		{ media: "(prefers-color-scheme: dark)", color: "#8b5cf6" },
 	],
-	//verification: {
-	//google: "UOrO6_Fuc9keS685cxQVjNrYxwPNoFkfCjTsaZXhizA",
-	//},
 }
 
 export default function RootLayout({

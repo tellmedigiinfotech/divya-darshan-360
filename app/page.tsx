@@ -246,6 +246,36 @@ export default function LandingPage() {
         <AppShowcase />
       </section>
 
+      {/* Blog Section */}
+      <section className="py-32 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
+        <BackgroundLotus className="top-[10%] right-[5%]" size={450} opacity={0.1} duration={240} delay={5} />
+        <div className="max-w-7xl mx-auto">
+          <div className="glass rounded-[3rem] p-8 md:p-12 border border-white/20 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Temple Knowledge</span>
+                <h2 className="text-4xl md:text-6xl font-serif mb-6">Explore Sacred Temples</h2>
+                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                  Discover detailed information about sacred temples across India. Learn about their history, 
+                  significance, timings, and plan your spiritual journey.
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <Link
+                  href="/blog"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+                >
+                  <span>Visit Temple Blog</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Privacy & Terms */}
       <section className="py-24 px-6 relative">
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[150px] -z-10 animate-pulse-slow" />
@@ -310,7 +340,10 @@ export default function LandingPage() {
 
           <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
             <p>© 2025 Divya Darshan 360. All rights reserved.</p>
-            <div className="flex gap-6">
+            <div className="flex gap-6 flex-wrap justify-center">
+              <Link href="/blog" className="hover:text-primary transition-colors">
+                Blog
+              </Link>
               <Link href="/privacy#privacy" className="hover:text-foreground">
                 Privacy Policy
               </Link>
