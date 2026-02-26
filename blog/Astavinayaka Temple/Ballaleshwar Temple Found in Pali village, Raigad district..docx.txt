@@ -78,7 +78,7 @@ d.Accommodation Booking: Facility to book guest houses and other accommodations.
  
 Service Provider: Ballaleshwar Temple Trust
 
-8.       Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?
+8.Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?
 Dress Code for Ballaleshwar Temple, Pali 
 General Guidelines: 
 
@@ -87,14 +87,14 @@ b.Women: Sarees or salwar kameez are preferred. Avoid short skirts, sleeveless t
 c.Special Pooja and Festival Days: 
 It is advised to wear traditional Indian attire to show respect and enhance the spiritual experience.
 
-9.       Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?
+9.Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?
 Policy on Electronic Gadgets at Ballaleshwar Temple, Pali 
 
 Allowed Gadgets: Mobile phones, cameras, laptops, and other electronic devices are generally not allowed inside the main temple premises. 
 Deposit Facility: 
 
 Electronic gadgets can be deposited at the designated cloakroom or locker facilities near the temple entrance.
-10.   Is Photography allowed? If yes, any fee prescribed?
+10.Is Photography allowed? If yes, any fee prescribed?
 Photography Policy at Ballaleshwar Temple, Pali 
 
 a.Inside the Temple: Not allowed to maintain the sanctity of the temple. 
@@ -102,13 +102,13 @@ b.Outside the Temple: Allowed in the outer premises and surrounding areas.
  
 Fee: There is typically no fee for photography in the allowed areas outside the main temple premises. For any specific permissions or fees related to professional photography or videography, it is advisable to inquire at the temple office.
 
-11.   Is there a LIFT /Elevator or any other  facility for physically handicapped ?
+11.Is there a LIFT /Elevator or any other  facility for physically handicapped ?
 Accessibility Facilities at Ballaleshwar Temple, Pali 
 Facilities for Physically Handicapped: 
 
 The temple provides ramps and wheelchair assistance to ensure ease of access for physically handicapped visitors. 
 There is no specific mention of a lift or elevator facility within the temple premises.
-12.   Facility of WheelChair for elderly and physically challenged.
+12.Facility of WheelChair for elderly and physically challenged.
 Wheelchair Facility at Ballaleshwar Temple, Pali 
 Availability: 
 
@@ -213,7 +213,8 @@ Cheque or Demand Draft: Some temples accept donations through cheques or demand 
 Mobile Payment Apps: In some cases, temples may have tie-ups with mobile payment apps, allowing you to donate using these platforms. 
 
 When making donations, it's essential to specify the purpose if there are specific projects or causes you wish to support, such as temple maintenance, charity programs, educational initiatives, etc. Make sure to verify the authenticity of the temple and its donation procedures to ensure your contribution reaches the intended recipients.
-23.  Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc. 
+
+23.Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc. 
 Yes, many temples and religious institutions offer privileges or benefits associated with donations made by devotees. These privileges can vary depending on the temple and the specific donation program. Some common privileges associated with donations include: 
 
 Special Entry Tickets: Donors may receive special entry tickets or passes that allow them to bypass long queues and gain quicker access to the temple or specific areas within the temple premises. 
@@ -245,6 +246,7 @@ Scientific Aspects: While the temple's construction primarily reflects tradition
 Conservation Efforts: Given its historical and religious significance, efforts are likely undertaken to conserve and maintain the temple's architectural heritage. Conservation projects may involve structural repairs, restoration of carvings, and preservation of historical artifacts associated with the temple. 
 
 Overall, the Ballaleshwar Temple stands as a testament to the rich architectural heritage and religious traditions of Maharashtra, attracting devotees and visitors from far and wide to experience its spiritual aura and historical significance.
+
 25.Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-
 “ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”
 The Ballaleshwar Temple in Pali village, Maharashtra, doesn't have the same kind of widely known or scientifically documented special significance related to geomagnetism or cosmic energy as Kasar Devi Temple in Uttarakhand. 
@@ -252,7 +254,8 @@ The Ballaleshwar Temple in Pali village, Maharashtra, doesn't have the same kind
 However, many temples in India are believed to be located in places with unique spiritual energies or natural phenomena associated with them. These beliefs often stem from local folklore, historical events, or geological features. While there may not be scientific evidence supporting these claims, they hold deep cultural and religious significance for devotees and locals. 
 
 In the case of the Ballaleshwar Temple, its significance lies more in its historical and religious importance, particularly as a place of worship dedicated to Lord Ganesha and its association with the legend of Ballala. Devotees visit the temple to seek blessings, offer prayers, and participate in religious ceremonies, contributing to its spiritual atmosphere and cultural heritage.
-26. Information which a foreigner would like to know- focussing more on spirituality rather than religion.
+
+26.Information which a foreigner would like to know- focussing more on spirituality rather than religion.
 For a foreigner interested in visiting the Ballaleshwar Temple in Pali village, Maharashtra, and exploring its spiritual aspects rather than just religious rituals, here are some key points they might find intriguing: 
 
 Historical Legend: Understanding the legend of Ballala, a devotee of Lord Ganesha, and his unwavering faith and devotion can provide insight into the spiritual significance of the temple beyond its religious practices. 
@@ -270,7 +273,7 @@ Reflection and Contemplation: Encouraging visitors to take moments of quiet refl
 By focusing on these aspects, foreigners can approach their visit to the Ballaleshwar Temple as a journey of spiritual exploration and personal growth, fostering a deeper connection with the essence of spirituality present in the temple's atmosphere and surroundings.
 
 
-27 Call to action  or interaction links- here in it could be for:
+27.Call to action  or interaction links- here in it could be for:
 a. Puja ( as and when we tie up) or link to the puja facility on the temple web site( back linking)
 b. Donation ( link)
 c. Accommodation - here link to our site where we have listed accommodation of all types with an enquiry form
@@ -291,6 +294,7 @@ Remember to make these links prominent on your website, possibly in the main nav
 
 28. Annual Event of the temple day and date.
 The annual event at Ballaleshwar Temple in Pali, Maharashtra, India, typically occurs on Magha Shukla Chaturthi, which is the fourth day of the waxing phase of the moon in the Hindu lunar month of Magha. However, I recommend verifying the specific date for this year's event as it may vary based on the lunar calendar. You can check the temple's official website or contact them directly for the most accurate information.
+
 29. Monthly Event of the temple - day and date.
 The monthly event at Ballaleshwar Temple could be the Pradosha Puja, which is commonly observed in many Hindu temples dedicated to Lord Shiva. Pradosha occurs twice a month, specifically on the 13th day of both the waxing (Shukla Paksha) and waning (Krishna Paksha) lunar phases. These days are considered auspicious for worshiping Lord Shiva, and devotees often gather at temples to participate in special prayers and rituals during this time. 
 
