@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -123,13 +70,6 @@
 							</div>
 						</div>
 						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
-							</div>
-						</div>
-						<div class="key-info__item">
 							<div class="key-info__icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
 							<div>
 								<div class="key-info__label">Contact</div>
@@ -147,612 +87,520 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Name:</h3>
-  <p>Udupi Sri Krishna Matha</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Full Address:</h3>
-  <p>Temple Car Street, Sri Krishna Temple Complex, Thenkpete, Maruthi Veethika, Udupi, Karnataka 576101, India</p>
-  <h5 class="section__sub-b">Phone/Contact Number</h5>
-  <p>+91-820-2520598</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Condensed Information about Udupi Sri Krishna Matha:</h3>
-  <h5 class="section__sub-b">A. Main Deity</h5>
-  <p>The main deity worshiped here is Lord Krishna in his child form, known as Balkrishna.</p>
-  <h5 class="section__sub-b">B. Other Deities (Sub Deities)</h5>
-  <p>The temple complex also includes other deities such as Lord Hanumana and Lord Panduranga. Additionally, there is a Panchadhatu (five metals) figure of Lord Vishnu mounted on his vehicle, Garuda, holding a conch and discus, which is part of the temple&#x27;s rich iconography.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <p>(a) general</p>
-  <p>(b) on special days like festivals and utsavas</p>
-  <h5 class="section__sub-b">A. General Daily Timings</h5>
-  <ul class="bullet-list">
-    <li>Opening Time: 5:00 AM</li>
-    <li>Closing Time: 9:00 PM</li>
-  </ul>
-  <p>These times are typical for regular days, allowing devotees to participate in various rituals and pujas from early morning till late evening.</p>
-  <p>B. Special Days like Festivals and Utsavas: During festivals and special celebrations like Saptotsava, Vasantotsava, Krishna Leelotsava, and Laksha Deepotsava, the temple often adjusts its schedule to accommodate the increased number of rituals and the influx of devotees. These adjustments typically include extended hours for darshan and special aartis.</p>
-  <p>For example, during major festivals like Janmashtami, the temple might remain open longer, sometimes even throughout the night, to allow all devotees to participate in the festivities and rituals. It&#x27;s advisable to check the temple&#x27;s official website or contact them directly for specific timings on these special days as they can vary from year to year.</p>
-  <p>For the most accurate and updated information regarding the opening and closing times on special days, you should refer directly to the temple&#x27;s official communication or local announcements​ (Travel Blog | Voyager - Sandy &amp; Vyjay)​​ (Karnataka.com)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Fees: There is no entry fee to visit Udupi Sri Krishna Matha. The temple is open to all, and visitors can enter free of charge.</h3>
-  <h5 class="section__sub-b">Privileges</h5>
-  <ul class="bullet-list">
-    <li>Quick Darshan: Generally, there is no provision for paid quick darshan services that expedite entry or provide closer access to the deity. The temple maintains a common queue system for all visitors.</li>
-    <li>Special Gate: No specific gates offer expedited entry for a fee. All visitors use the same entry points.</li>
-    <li>Longer View of Deity: The viewing (darshan) of the deity, Lord Krishna, is through a nine-holed window known as the Kanakana Kindi. This traditional viewing method is the same for all visitors.</li>
-    <li>Prasad and Puja: While there are no special fees tied to prasad distribution, visitors can participate in the daily free meal service known as &#x27;Annadanam&#x27; provided by the temple. Devotees can sponsor pujas and rituals, which are conducted by the temple priests.</li>
-  </ul>
-  <p>Entry Restrictions for Foreigners: There are no specific restrictions or additional fees for foreigners visiting Udupi Sri Krishna Matha. Visitors from all backgrounds and nationalities are welcome to visit and participate in temple activities. However, like in many sacred places, appropriate decorum and dress code are expected to be followed by all visitors to maintain the sanctity of the temple.</p>
-  <h5 class="section__sub-b">Additional Considerations</h5>
-  <ul class="bullet-list">
-    <li>Dress Code: Modest attire is recommended, in line with the customs of most Hindu temples. Visitors should wear clothes that cover their shoulders and knees.</li>
-    <li>Photography: Photography is generally restricted within the temple premises, especially near the deity to preserve the sanctity of the worship area.</li>
-    <li>Declaration: There&#x27;s usually no need for any special declarations by foreigners or any visitors upon entry, but it&#x27;s good practice to observe and respect local customs and traditions.</li>
-  </ul>
-  <p>For the most current and detailed information, especially if planning a visit during special events or festivals, checking the temple’s official website or contacting them directly for any updates or changes in rules is advisable.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
-  <p>By Air: The nearest airport to Udupi is Mangalore International Airport (IXG), located about 59 kilometers from the temple. This airport is well connected with major cities like Bangalore, Mumbai, Chennai, and Hyderabad. From the airport, visitors can hire taxis or take buses to reach Udupi.</p>
-  <p>By Train: Udupi railway station is well-connected to major cities across India through the Konkan Railway line. The railway station is approximately 4 kilometers from the temple. Auto-rickshaws and taxis are readily available outside the station to take visitors to the temple.</p>
-  <p>By Bus: Udupi is well-connected by road with major cities and towns in Karnataka and neighboring states. Both Karnataka State Road Transport Corporation (KSRTC) and private buses operate frequent services to Udupi. The bus stand is centrally located and close to the temple area.</p>
-  <p>By Taxi: Taxis are available from major cities like Bangalore, Mangalore, and Goa. This is a convenient option for those who prefer a comfortable journey directly to the temple.</p>
-  <p>By Ferry/Port: While Udupi does not have a ferry service, the nearby coastal city of Mangalore can be reached by sea, and from there, road transport can be used to reach Udupi.</p>
-  <p>Local Commuting: Once in Udupi, local transport options include auto-rickshaws and private cabs, which can be used to commute within the city and to the temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
-  <p>At Udupi Sri Krishna Matha, a variety of special pujas and rituals are conducted daily, reflecting the rich spiritual traditions of the temple.</p>
-  <h5 class="section__sub-b">Special Pujas and Rituals</h5>
-  <ul class="bullet-list">
-    <li>Daily Pujas: These include Ushakala Pooja (early morning), Panchamrithabhisheka (a ritual bathing of the deity with five sacred substances), and several other offerings throughout the day ending with the Shayanotsava (night-time ritual)​ (Temple Info)​.</li>
-    <li>Specific Sevas: The temple also offers special sevas like the Pavamana Homa, Aslesha Bali, and Naga Prathishte among others, each carrying different significance and performed to invoke specific blessings​ (Templesinindiainfo)​.</li>
-  </ul>
-  <h5 class="section__sub-b">Timing and Rates</h5>
-  <ul class="bullet-list">
-    <li>Most daily rituals begin early in the morning around 5:00 AM and continue at various intervals until about 10:00 PM​ (Templesinindiainfo)​.</li>
-    <li>Prices for these sevas vary, ranging from small offerings like the Gopooja at Rs. 200 to more elaborate services like the Akhanda Saptosava which is performed for seven days and costs Rs. 126550​ (Templesinindiainfo)​​ (Temple Info)​.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking Procedure</h5>
-  <p>Advance booking for these pujas and sevas can typically be made online or directly at the temple. The temple&#x27;s official website or contact center can provide details on how to proceed with bookings and the availability of specific pujas.</p>
-  <p>For anyone planning to visit or participate in these rituals, it&#x27;s recommended to check the latest details directly through the temple&#x27;s official communication channels to ensure the most accurate and updated information.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>Yes, Udupi Sri Krishna Matha offers online services for booking various sevas and rituals. These services are managed by the temple itself, ensuring that devotees can directly engage with temple activities and offerings from anywhere. The online platform allows for booking different types of sevas, each with specific rituals and associated costs. For instance, there are services like Akhanda Saptosava, various Poojas, and even Rathotsavas that can be booked online through the official temple portal.</p>
-  <p>To book these services, devotees need to visit the official temple website or the designated online booking platform provided by the temple. The process typically involves selecting the desired seva, filling out necessary details, and completing the payment online. This system ensures that the booking is straightforward and accessible to devotees worldwide, enhancing their spiritual engagement with the temple from afar.</p>
-  <p>For more detailed information and to make bookings, you should check the temple&#x27;s official website or the specific online booking section provided for these services.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
-  <h5 class="section__sub-b">General Dress Code</h5>
-  <ul class="bullet-list">
-    <li>For Men: Traditional attire like dhotis or pants with shirts is recommended. Shorts, bermudas, vests, and other casual wear like T-shirts are usually not permitted inside the temple premises.</li>
-    <li>For Women: Sarees, half-sarees, churidars, and salwar kameez are appropriate. Western outfits like skirts, jeans, and short dresses are generally discouraged.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Pujas and Festival Days</h5>
-  <p>During special events and pujas, it is advisable to wear more traditional and conservative attire. This not only respects the temple&#x27;s cultural norms but also aligns with the devotional atmosphere during these important times.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <p>Udupi Sri Krishna Matha has specific guidelines regarding the use of electronic gadgets within the temple premises:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Storage Facilities: For visitors carrying mobile phones or other electronic gadgets, storage facilities are typically available at the temple entrance or nearby. These secure spaces allow visitors to deposit their gadgets safely before entering the temple.</h3>
-  <p>It is advisable to check with the temple&#x27;s official website or directly contact the temple administration for the most current guidelines and facilities related to electronic gadgets, as policies can occasionally be updated or changed based on specific events or security considerations.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography inside Udupi Sri Krishna Matha is generally not allowed, especially in the areas close to the deity or within the main worship hall. This restriction is in place to maintain the sanctity and the devotional atmosphere of the temple.</h3>
-  <p>There is typically no option to pay a fee for permission to take photographs; the ban is applied uniformly to all visitors to ensure respect and reverence are maintained during temple visits.</p>
-  <p>If you are visiting and wish to capture memories of the surrounding areas where photography might be less restricted, it&#x27;s always a good idea to confirm current policies at the temple entrance or inquire with temple authorities upon arrival. This way, you can ensure that you comply with all temple regulations and respect the spiritual significance of the site.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <p>Udupi Sri Krishna Matha is equipped with facilities to assist physically handicapped visitors. While specific details about lifts or elevators are not mentioned widely, the temple complex generally ensures accessibility for all visitors, including those with mobility challenges. This includes possible ramps and designated pathways to accommodate wheelchairs and other mobility aids.</p>
-  <p>For the most accurate and up-to-date information on specific facilities like lifts or other aids for physically handicapped individuals, it&#x27;s recommended to contact the temple administration directly before visiting. This will ensure you have the latest information and can plan your visit accordingly.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
-  <p>Yes, Udupi Sri Krishna Matha provides wheelchair facilities for elderly and physically challenged visitors to ensure accessibility. The temple management is attentive to the needs of all devotees, including those who require mobility assistance, making it easier for them to participate in the spiritual and religious activities at the temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
-  <p>Udupi Sri Krishna Matha does not specifically mention separate entry or special darshan timings for senior citizens, sick individuals, or physically challenged persons on the usual resources online. However, most temples, including Udupi, are generally accommodating and provide assistance to those in need, especially for accessing easier darshan routes or offering priority in queues.</p>
-  <p>For the most accurate and detailed information regarding any special accommodations or services for these groups, it&#x27;s recommended to contact the temple administration directly. They can provide the most current updates and specific arrangements that may be in place during your visit. This ensures that all visitors, regardless of their physical condition, can have a fulfilling and respectful experience at the temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <p>Yes, Udupi Sri Krishna Matha performs vehicle poojas daily. The cost for a four-wheeler pooja is Rs. 200, and for a two-wheeler, it is Rs. 100. These poojas are generally conducted throughout the day as part of the daily services offered by the temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
-  <p>Yes, Udupi Sri Krishna Matha provides accommodation facilities for pilgrims. Here are the details regarding the types of accommodation, costs, and booking procedures:</p>
-  <p>Types of Accommodation</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Nearby hotels and lodges also offer various accommodations ranging from basic to more comfortable options.</h3>
-  <p>Costs</p>
-  <ul class="bullet-list">
-    <li>Dormitory Hall (Capacity of 25 members): Approximately Rs. 3500</li>
-    <li>Non-Ac Rooms for 3 members: About Rs. 900</li>
-    <li>Ac Rooms for 3 members: Around Rs. 1500</li>
-  </ul>
-  <p>Prices may vary based on the specific guesthouse or hotel and the time of year.</p>
-  <p>Booking Procedure</p>
-  <ul class="bullet-list">
-    <li>Direct Booking: Accommodations typically need to be booked directly at the counter of the respective guesthouse or mutt. For nearby hotels, you may book via their individual websites or contact them directly by phone.</li>
-    <li>Advance Bookings: For mutt accommodations, it&#x27;s advisable to call ahead and confirm availability, especially during festival seasons or weekends.</li>
-    <li>Identification Requirement: Valid photo ID proofs are mandatory for room allotment.</li>
-  </ul>
-  <p>Please note that unmarried or unrelated couples are not allotted rooms, and consumption of non-veg food, alcohol, and smoking is strictly prohibited in temple accommodations.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
-  <p>Udupi Sri Krishna Matha has a well-organized parking system, especially during major festivals and events, through a Digital Traffic and Vehicle Parking Management System. This system uses GPS technology to help visitors locate parking spots efficiently. Approximately 25 parking locations are designated within a 2-3 km radius of the temple, clearly marked for different types of vehicles including cars, minibusses, and two-wheelers. Specific areas are also reserved for VIP and VVIP parking. This system not only streamlines traffic flow around the temple area but also helps in reducing congestion during peak times.</p>
-  <p>For regular days, the temple vicinity has ample parking space available for cars, minibusses, and two-wheelers, ensuring that pilgrims and visitors can conveniently access the temple without much hassle.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
-  <p>At Udupi Sri Krishna Temple, the prasadam service is a central aspect of the temple&#x27;s offerings, known as Annadanam, which provides free meals to visitors:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Meal Service (Prasadam) Details:</h3>
-  <ul class="bullet-list">
-    <li>Timings: Meals are served twice daily.</li>
-    <li>Lunch: From 11:30 AM to 2:30 PM.</li>
-    <li>Dinner: From 8:00 PM to 9:30 PM.</li>
-    <li>Cost: The meals are offered free of charge to all devotees, embodying the temple&#x27;s ethos of hospitality and charity.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Procedure:</h3>
-  <ul class="bullet-list">
-    <li>No Tickets: There is no need to buy tickets for meals.</li>
-    <li>Serving Areas: Meals are served in the temple&#x27;s dining halls, which are spacious and designed to accommodate a large number of devotees efficiently.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Different Classes/Lines:</h3>
-  <ul class="bullet-list">
-    <li>The temple has three separate dining halls:</li>
-    <li>One for the general public where most visitors eat.</li>
-    <li>Exclusive areas for invited guests, Brahmins, scholars, and donors, which provide a more private dining experience.</li>
-    <li>The food is served on a first-come, first-served basis, and everyone is welcome to partake in the meals, reflecting the inclusive spirit of the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Types of Food Served:</h3>
-  <ul class="bullet-list">
-    <li>The meals are strictly vegetarian and are prepared in a &#x27;satvik&#x27; manner, which means they do not contain onions, garlic, or other tamasic ingredients. Common dishes include rice, sambar, rasam, and a variety of vegetable preparations.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <p>Udupi Sri Krishna Temple offers prasadam to devotees, which can also be taken home. This prasadam typically includes items like laddus, chakkuli, and other sweets which are made in the temple kitchens. These items are considered sacred as they are blessed during temple rituals.</p>
-  <h5 class="section__sub-b">Cost and Purchase</h5>
-  <ul class="bullet-list">
-    <li>The cost of prasadam varies depending on the type and quantity.</li>
-    <li>Devotees can purchase prasadam directly at the temple. There are specific counters within the temple premises where prasadam is distributed or sold.</li>
-  </ul>
-  <p>It&#x27;s recommended to visit the temple or check its official website for the most current details on the types of prasadam available and their prices.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <p>If you lose an item at a temple, here’s a general procedure you can follow to report and possibly recover it:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Locate the Information Desk or Lost and Found Office:</h3>
-  <ul class="bullet-list">
-    <li>Most temples have an information desk or a specific lost and found office. This is the first place you should go to report your lost item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Report the Lost Item:</h3>
-  <ul class="bullet-list">
-    <li>Provide a detailed description of the lost item, including any unique features that can help identify it.</li>
-    <li>Mention the approximate time and place where you believe the item was lost.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Fill Out a Lost Item Form:</h3>
-  <ul class="bullet-list">
-    <li>Some temples may have a specific form for reporting lost items. Fill this out with all necessary details.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Leave Your Contact Information:</h3>
-  <ul class="bullet-list">
-    <li>Ensure you provide your contact details so that the temple staff can reach you if your item is found.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Check Back Regularly:</h3>
-  <ul class="bullet-list">
-    <li>Revisit the lost and found office periodically or call them to check if your item has been recovered.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Announce Over Public Address System (if available):</h3>
-  <ul class="bullet-list">
-    <li>In larger temples, there might be a public address system where announcements can be made regarding lost items.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Reporting:</h3>
-  <ul class="bullet-list">
-    <li>Some larger temples might have an online portal or website where you can report lost items. Check the temple’s official website for this option.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>If a group member goes missing at Udupi Sri Krishna Matha or any large temple, here are the steps you should follow to report the missing person and ensure a safe reunion:</p>
-  <h5 class="section__sub-b">Reporting a Missing Person</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Go to the Information Desk or Lost and Found Office:</h3>
-  <ul class="bullet-list">
-    <li>Most temples, including Udupi Sri Krishna Matha, have an information desk or a designated lost and found office. This should be your first stop to report a missing person.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Provide Detailed Information:</h3>
-  <ul class="bullet-list">
-    <li>Give a detailed description of the missing person, including their name, age, physical appearance, clothing, and any distinguishing features.</li>
-    <li>Mention the last known location and time you were together.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Fill Out a Missing Person Report:</h3>
-  <ul class="bullet-list">
-    <li>If the temple has a formal procedure, you might need to fill out a missing person report form with all the relevant details.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Announce Over the Public Address System:</h3>
-  <ul class="bullet-list">
-    <li>Request an announcement to be made over the temple&#x27;s public address system. This can help in quickly spreading the word and reuniting with the missing person.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
-  <p>Yes, Udupi Sri Krishna Matha is registered under the administration of the Karnataka state government. The temple is managed by the Ashta Mathas (eight monasteries), each of which takes turns overseeing the temple administration for two years. The government of Karnataka and the Udupi District Administration oversee and support the activities of the temple, ensuring it operates smoothly and maintains its cultural and spiritual significance.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Donations to Udupi Sri Krishna Matha can be made through various means besides the traditional hundi offerings in the temple. Here are the details on how to make donations, the purposes for which they can be used, and the bank account information:</h3>
-  <h5 class="section__sub-b">How to Make Donations</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>Official Website: You can make donations directly through the temple&#x27;s official website or through specific online donation portals associated with the temple.</li>
-    <li>Donation Page: Look for a dedicated donation page where you can select the amount and purpose of your donation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bank Transfers:</h3>
-  <ul class="bullet-list">
-    <li>Account Details: The temple provides specific bank account details where donations can be transferred. Ensure to get these details from the official sources to avoid any discrepancies.</li>
-    <li>Purpose Specification: When making a bank transfer, specify the purpose of your donation in the transaction description (e.g., Annadanam, Temple Renovation, Education Fund).</li>
-  </ul>
-  <h5 class="section__sub-b">Purposes for Donations</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Annadanam (Free Meals):</h3>
-  <ul class="bullet-list">
-    <li>Contributions to the Annadanam fund help provide free meals to thousands of devotees daily.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Maintenance and Renovation:</h3>
-  <ul class="bullet-list">
-    <li>Donations can be directed towards the maintenance and renovation of the temple premises, ensuring the upkeep of the temple’s infrastructure.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Educational and Cultural Activities:</h3>
-  <ul class="bullet-list">
-    <li>Support for educational programs and cultural activities organized by the temple and its associated institutions.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Medical Aid and Social Services:</h3>
-  <ul class="bullet-list">
-    <li>Contributions to support medical camps, healthcare facilities, and other social services provided by the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Bank Account Information</h5>
-  <p>It is crucial to obtain the bank account details from the official temple sources or the temple&#x27;s administration office to ensure accuracy. Here’s an example of the kind of information you might need to look for:</p>
-  <ul class="bullet-list">
-    <li>Account Name: Udupi Sri Krishna Matha Donation Account</li>
-    <li>Bank Name: [Specific Bank Name]</li>
-    <li>Branch: [Branch Name]</li>
-    <li>Account Number: [Account Number]</li>
-    <li>IFSC Code: [IFSC Code]</li>
-    <li>Purpose: (e.g., Annadanam, Renovation, Education)</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <p>At Udupi Sri Krishna Matha, donations, similar to those made at Tirupati and Shirdi, come with specific benefits and purposes. While the temple focuses more on the spiritual benefits and communal support rather than tangible privileges, here are some key aspects of how donations are utilized and any associated privileges:</p>
-  <h5 class="section__sub-b">Utilization of Donations</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Annadanam (Free Meals):</h3>
-  <ul class="bullet-list">
-    <li>Donations contribute to the Annadanam fund, providing free meals to thousands of devotees daily. This is a significant service that ensures no visitor leaves the temple hungry.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Maintenance and Renovation:</h3>
-  <ul class="bullet-list">
-    <li>Funds are used for the maintenance and renovation of the temple premises, ensuring the upkeep of the sacred site.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Educational and Cultural Activities:</h3>
-  <ul class="bullet-list">
-    <li>Support for educational programs and cultural activities organized by the temple and its associated institutions.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Medical Aid and Social Services:</h3>
-  <ul class="bullet-list">
-    <li>Contributions support medical camps, healthcare facilities, and other social services provided by the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Privileges for Donors</h5>
-  <p>While Udupi Sri Krishna Matha does not have a widely publicized list of privileges like special entry tickets or preferential treatment for accommodations, there are certain benefits that donors might receive:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Acknowledgment:</h3>
-  <ul class="bullet-list">
-    <li>Donors might be acknowledged during temple events or through plaques for significant contributions.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Pujas and Rituals:</h3>
-  <ul class="bullet-list">
-    <li>Donors can sponsor specific pujas and rituals. Depending on the donation, these rituals can be performed in the name of the donor or their family.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Tax Exemptions:</h3>
-  <ul class="bullet-list">
-    <li>Donations are typically eligible for tax exemptions under Section 80G of the Income Tax Act, providing financial benefits to the donors.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Community Recognition:</h3>
-  <ul class="bullet-list">
-    <li>Significant donors may receive recognition within the community and be invited to special events or ceremonies held by the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Construction and Scientific Information about Udupi Sri Krishna Matha</h3>
-  <h5 class="section__sub-b">Historical and Architectural Significance</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Founding and Architecture:</h3>
-  <ul class="bullet-list">
-    <li>Udupi Sri Krishna Matha was established in the 13th century by the Vaishnavite saint Madhvacharya. The temple is built in the Dravidian architectural style, which is prominent in South India. The construction involves intricate woodwork and stone carvings typical of the period.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Main Structure:</h3>
-  <ul class="bullet-list">
-    <li>The temple features a sanctum sanctorum where the deity Lord Krishna is enshrined. The idol of Lord Krishna is viewed through a unique window called the &quot;Navagraha Kitiki&quot; (nine-holed window), designed to symbolize the nine planets in Hindu astrology. This feature allows devotees to have darshan (viewing) of the deity in a distinctive manner​ (Travel Blog | Voyager - Sandy &amp; Vyjay)​​ (www.Pilgrimaide.Com)​.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Materials Used:</h3>
-  <ul class="bullet-list">
-    <li>Traditional materials like granite, wood, and brass were used in the construction of the temple. The outer structure is predominantly granite, while the interior features extensive use of wood for the ceilings and support beams. The doors and windows are often adorned with brass and silver plating, adding to the temple&#x27;s ornate aesthetic​ (Wikipedia)​.</li>
-  </ul>
-  <h5 class="section__sub-b">Scientific and Environmental Aspects</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Structural Design:</h3>
-  <ul class="bullet-list">
-    <li>The temple&#x27;s design incorporates traditional Vastu Shastra principles, ensuring that the layout aligns with natural elements and promotes spiritual harmony. The structure is oriented in such a way that it maximizes natural light and ventilation, creating a serene and conducive environment for worship.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sustainability Practices:</h3>
-  <ul class="bullet-list">
-    <li>The temple complex includes a sacred tank called &quot;Madhwa Sarovara,&quot; which is used for various religious rituals. This water body is an example of ancient water management systems, ensuring a sustainable supply of water for temple activities and maintaining ecological balance​ (Travel Blog | Voyager - Sandy &amp; Vyjay)​.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural and Educational Impact:</h3>
-  <ul class="bullet-list">
-    <li>The temple is not only a place of worship but also a center for cultural and educational activities. It promotes the study of Dvaita Vedanta philosophy, Sanskrit, and traditional arts, ensuring the preservation and transmission of ancient knowledge systems</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-  <p>The Udupi Sri Krishna Matha does not have any widely recognized geomagnetic or paramagnetic significance akin to that of Kasar Devi Temple in Uttarakhand. However, the temple holds immense spiritual and cultural significance due to its unique historical, architectural, and religious features.</p>
-  <h5 class="section__sub-b">Unique Features and Significance of Udupi Sri Krishna Matha</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Spiritual Significance:</h3>
-  <ul class="bullet-list">
-    <li>Founded by Madhvacharya: The temple was established by the philosopher Madhvacharya in the 13th century, making it a central site for followers of Dvaita Vedanta, a dualistic interpretation of the Vedas.</li>
-    <li>Kanakana Kindi: The temple features a unique window known as &quot;Kanakana Kindi&quot; or the nine-holed window through which devotees view the deity. This design is deeply symbolic and ties into the story of Kanakadasa, a devout follower who was granted a vision of Lord Krishna through this window despite being denied entry due to his lower caste.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Architectural Significance:</h3>
-  <ul class="bullet-list">
-    <li>The temple’s architecture adheres to traditional Dravidian styles, incorporating intricate carvings, woodwork, and the use of sacred geometry as per Vastu Shastra principles. The design aims to create a serene environment conducive to spiritual activities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural and Educational Impact:</h3>
-  <ul class="bullet-list">
-    <li>The temple is a major center for cultural and educational activities, including the study of Dvaita philosophy, Sanskrit, and traditional arts. It serves as a hub for disseminating ancient knowledge and promoting spiritual literature, such as Daasa Sahitya.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Historical Legends:</h3>
-  <ul class="bullet-list">
-    <li>The idol of Lord Krishna at Udupi is believed to have been brought from Dwarka and was discovered by Madhvacharya. The story of its discovery and installation adds to the temple&#x27;s spiritual lore.</li>
-  </ul>
-  <p>While Udupi Sri Krishna Matha may not have documented geomagnetic fields or cosmic energy like Kasar Devi, its significance lies in its spiritual history, unique architectural elements, and its role as a center for religious education and cultural preservation.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
-  <p>For foreigners interested in exploring spirituality more than religious practices, visiting Udupi Sri Krishna Matha can offer a unique and enriching experience. Here’s what might particularly appeal to those seeking spiritual insight:</p>
-  <h5 class="section__sub-b">Spiritual Heritage of Udupi Sri Krishna Matha</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Philosophy and Teachings:</h3>
-  <ul class="bullet-list">
-    <li>Dvaita Vedanta: Udupi Sri Krishna Matha is the epicenter of Dvaita Vedanta, a dualistic school of Hindu philosophy founded by the sage Madhvacharya. This philosophy emphasizes the distinct and eternal difference between the individual soul (Atman) and the supreme soul (Brahman or Vishnu). Understanding this philosophy can offer deep insights into the nature of existence and the relationship between the self and the divine.</li>
-    <li>Spiritual Literature: The temple is a hub for Daasa Sahitya, a form of devotional literature that originated in Karnataka. This literature, composed by saints and poets, is rich in spiritual wisdom and can offer profound insights into devotion and the nature of the divine.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Unique Spiritual Practices:</h3>
-  <ul class="bullet-list">
-    <li>Kanakana Kindi: The temple features the unique &quot;Kanakana Kindi&quot; or nine-holed window through which devotees view the deity. This symbolizes that the divine can be accessed by anyone with sincere devotion, regardless of social status or caste.</li>
-    <li>Daily Rituals and Pujas: Observing the daily rituals, including the early morning Nirmalya Visarjana Pooja and the evening Ranga Pooja, can provide a deep sense of peace and connection to ancient spiritual practices.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Meditation and Reflection:</h3>
-  <ul class="bullet-list">
-    <li>The serene environment of the temple, coupled with its traditional architecture, provides an ideal setting for meditation and reflection. The sacred tank, Madhwa Sarovara, and the temple’s tranquil surroundings offer a perfect backdrop for introspection and spiritual rejuvenation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural and Spiritual Programs:</h3>
-  <ul class="bullet-list">
-    <li>Educational Activities: The temple often hosts lectures and discussions on various aspects of Hindu philosophy, spirituality, and the teachings of Madhvacharya. Participating in these sessions can provide valuable spiritual insights.</li>
-    <li>Festivals and Celebrations: Festivals like Krishna Janmashtami, Navaratri, and the biennial Paryaya festival are celebrated with great fervor. These events provide a glimpse into the vibrant cultural and spiritual life of the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Community and Service:</h3>
-  <ul class="bullet-list">
-    <li>Annadanam (Free Meals): The temple offers free meals to all visitors, reflecting the principle of selfless service. Participating in or contributing to this service can be a spiritually fulfilling experience.</li>
-    <li>Social Services: The temple is involved in various social services, including educational and medical aid, which align with the principles of compassion and community welfare.</li>
-  </ul>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
-  <p>b.Donation ( link)</p>
-  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
-  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-  <p>Here are some call-to-action links and interaction details that can enhance user engagement with Udupi Sri Krishna Matha:</p>
-  <p>a. Puja Services</p>
-  <p>Book a Puja</p>
-  <ul class="bullet-list">
-    <li>Description: Experience divine blessings by booking a puja at Udupi Sri Krishna Matha.</li>
-    <li>Call to Action: &quot;Book Your Puja Now&quot;</li>
-    <li>Link: Puja Services at Udupi Sri Krishna Matha (This is a placeholder link; you should replace it with the actual URL from the temple’s website when available.)</li>
-  </ul>
-  <p>b. Donations</p>
-  <p>Make a Donation</p>
-  <ul class="bullet-list">
-    <li>Description: Support the temple’s activities and services by making a donation. Contributions are used for Annadanam, temple maintenance, educational programs, and medical aid.</li>
-    <li>Call to Action: &quot;Support Our Sacred Cause&quot;</li>
-    <li>Link: Donate to Udupi Sri Krishna Matha (This is a placeholder link; you should replace it with the actual URL from the temple’s website.)</li>
-  </ul>
-  <p>c. Accommodation</p>
-  <p>Find Accommodation Near Udupi Sri Krishna Matha</p>
-  <ul class="bullet-list">
-    <li>Description: Discover a range of accommodation options near the temple, from budget lodgings to luxury hotels.</li>
-    <li>Call to Action: &quot;Stay Near the Divine&quot;</li>
-    <li>Link: Accommodations near Udupi Sri Krishna Matha (This is a placeholder link; replace it with your site’s specific URL for accommodation listings.)</li>
-  </ul>
-  <p>d. Tax Exemptions</p>
-  <p>Tax Exemption Information</p>
-  <ul class="bullet-list">
-    <li>Description: Donations to Udupi Sri Krishna Matha are eligible for tax exemptions under Section 80G of the Income Tax Act. Contribute and enjoy tax benefits while supporting noble causes.</li>
-    <li>Call to Action: &quot;Make a Tax-Exempt Donation&quot;</li>
-    <li>Link: Tax Benefits for Donations (This is a placeholder link; replace it with the actual URL from the temple’s website or a dedicated page explaining the tax benefits.)</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event at Udupi Sri Krishna Matha</h3>
-  <p>Paryaya Festival</p>
-  <h5 class="section__sub-b">Date and Significance</h5>
-  <ul class="bullet-list">
-    <li>Frequency: The Paryaya festival is held once every two years on January 18th.</li>
-    <li>Significance: This event marks the transfer of temple management from one of the Ashta Mathas (eight monasteries) to another. The swamis of these monasteries take turns managing the temple, each for a two-year period.</li>
-  </ul>
-  <h5 class="section__sub-b">Highlights of the Festival</h5>
-  <ul class="bullet-list">
-    <li>Pomp and Ceremony: The festival includes grand processions, cultural performances, and religious rituals.</li>
-    <li>Religious Observances: Special pujas and ceremonies are conducted, and thousands of devotees participate in the festivities.</li>
-    <li>Historical Tradition: The Paryaya festival has a history of over 500 years and is a vital part of the temple&#x27;s cultural and spiritual life.</li>
-  </ul>
-  <h5 class="section__sub-b">Other Major Annual Festivals</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Krishna Janmashtami:</h3>
-  <ul class="bullet-list">
-    <li>Date: Celebrated in August (date varies according to the Hindu lunar calendar).</li>
-    <li>Significance: Marks the birth of Lord Krishna. The temple is beautifully decorated, and special midnight prayers and celebrations are held.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ratha Sapthami:</h3>
-  <ul class="bullet-list">
-    <li>Date: Celebrated in February.</li>
-    <li>Significance: This festival is dedicated to Lord Surya (Sun God). The temple organizes a grand chariot procession during this festival.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Makara Sankranti:</h3>
-  <ul class="bullet-list">
-    <li>Date: Celebrated in January.</li>
-    <li>Significance: Marks the transition of the sun into the zodiac sign of Capricorn (Makara). It is a time for new beginnings and harvest celebrations.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Navaratri and Vijayadashami:</h3>
-  <ul class="bullet-list">
-    <li>Date: Celebrated in October.</li>
-    <li>Significance: Navaratri is a nine-night festival dedicated to the Goddess Durga, and Vijayadashami marks the victory of good over evil.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Deepavali (Diwali):</h3>
-  <ul class="bullet-list">
-    <li>Date: Celebrated in October/November.</li>
-    <li>Significance: The festival of lights, celebrating the victory of light over darkness.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Event at Udupi Sri Krishna Matha</h3>
-  <p>Ekadashi Celebrations</p>
-  <h5 class="section__sub-b">Frequency</h5>
-  <ul class="bullet-list">
-    <li>Monthly Event: Ekadashi occurs twice a month according to the lunar calendar—once during the waxing phase (Shukla Paksha) and once during the waning phase (Krishna Paksha).</li>
-  </ul>
-  <h5 class="section__sub-b">Significance</h5>
-  <ul class="bullet-list">
-    <li>Spiritual Importance: Ekadashi is considered highly auspicious in Hinduism and is dedicated to Lord Vishnu, of whom Lord Krishna is an avatar. It is a day for fasting, prayer, and seeking spiritual growth.</li>
-    <li>Observances: Devotees observe fasting and participate in special prayers and rituals. The temple organizes additional pujas and readings of sacred texts on these days.</li>
-  </ul>
-  <h5 class="section__sub-b">Dates</h5>
-  <ul class="bullet-list">
-    <li>Variable Dates: Since Ekadashi is based on the lunar calendar, the exact dates vary each month. Devotees can refer to a Hindu calendar (Panchang) for the specific dates of Ekadashi each month.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Participate</h5>
-  <ul class="bullet-list">
-    <li>Temple Schedule: On Ekadashi days, the temple might have extended hours for darshan and special puja timings. It&#x27;s advisable to check with the temple&#x27;s official website or contact their administration for detailed schedules.</li>
-    <li>-------------</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Name:</h3>
+					  <p>Udupi Sri Krishna Matha</p>
+					  <h5 class="section__sub-b">2. Full Address</h5>
+					  <p>Temple Car Street, Sri Krishna Temple Complex, Thenkpete, Maruthi Veethika, Udupi, Karnataka 576101, India</p>
+					  <h5 class="section__sub-b">Phone/Contact Number</h5>
+					  <p>+91-820-2520598</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Condensed Information about Udupi Sri Krishna Matha:</h3>
+					  <h5 class="section__sub-b">A. Main Deity</h5>
+					  <p>The main deity worshiped here is Lord Krishna in his child form, known as Balkrishna.</p>
+					  <h5 class="section__sub-b">B. Other Deities (Sub Deities)</h5>
+					  <p>The temple complex also includes other deities such as Lord Hanumana and Lord Panduranga. Additionally, there is a Panchadhatu (five metals) figure of Lord Vishnu mounted on his vehicle, Garuda, holding a conch and discus, which is part of the temple&#x27;s rich iconography.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <p>(a) general</p>
+					  <p>(b) on special days like festivals and utsavas</p>
+					  <h5 class="section__sub-b">A. General Daily Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Opening Time: 5:00 AM</li>
+					    <li>Closing Time: 9:00 PM</li>
+					  </ul>
+					  <p>These times are typical for regular days, allowing devotees to participate in various rituals and pujas from early morning till late evening.</p>
+					  <p>B. Special Days like Festivals and Utsavas: During festivals and special celebrations like Saptotsava, Vasantotsava, Krishna Leelotsava, and Laksha Deepotsava, the temple often adjusts its schedule to accommodate the increased number of rituals and the influx of devotees. These adjustments typically include extended hours for darshan and special aartis.</p>
+					  <p>For example, during major festivals like Janmashtami, the temple might remain open longer, sometimes even throughout the night, to allow all devotees to participate in the festivities and rituals. It&#x27;s advisable to check the temple&#x27;s official website or contact them directly for specific timings on these special days as they can vary from year to year.</p>
+					  <p>For the most accurate and updated information regarding the opening and closing times on special days, you should refer directly to the temple&#x27;s official communication or local announcements​ (Travel Blog | Voyager - Sandy &amp; Vyjay)​​ (Karnataka.com)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Entry Fees: There is no entry fee to visit Udupi Sri Krishna Matha. The temple is open to all, and visitors can enter free of charge.</h3>
+					  <h5 class="section__sub-b">Privileges</h5>
+					  <ul class="bullet-list">
+					    <li>Quick Darshan: Generally, there is no provision for paid quick darshan services that expedite entry or provide closer access to the deity. The temple maintains a common queue system for all visitors.</li>
+					    <li>Special Gate: No specific gates offer expedited entry for a fee. All visitors use the same entry points.</li>
+					    <li>Longer View of Deity: The viewing (darshan) of the deity, Lord Krishna, is through a nine-holed window known as the Kanakana Kindi. This traditional viewing method is the same for all visitors.</li>
+					    <li>Prasad and Puja: While there are no special fees tied to prasad distribution, visitors can participate in the daily free meal service known as &#x27;Annadanam&#x27; provided by the temple. Devotees can sponsor pujas and rituals, which are conducted by the temple priests.</li>
+					  </ul>
+					  <p>Entry Restrictions for Foreigners: There are no specific restrictions or additional fees for foreigners visiting Udupi Sri Krishna Matha. Visitors from all backgrounds and nationalities are welcome to visit and participate in temple activities. However, like in many sacred places, appropriate decorum and dress code are expected to be followed by all visitors to maintain the sanctity of the temple.</p>
+					  <h5 class="section__sub-b">Additional Considerations</h5>
+					  <ul class="bullet-list">
+					    <li>Dress Code: Modest attire is recommended, in line with the customs of most Hindu temples. Visitors should wear clothes that cover their shoulders and knees.</li>
+					    <li>Photography: Photography is generally restricted within the temple premises, especially near the deity to preserve the sanctity of the worship area.</li>
+					    <li>Declaration: There&#x27;s usually no need for any special declarations by foreigners or any visitors upon entry, but it&#x27;s good practice to observe and respect local customs and traditions.</li>
+					  </ul>
+					  <p>For the most current and detailed information, especially if planning a visit during special events or festivals, checking the temple’s official website or contacting them directly for any updates or changes in rules is advisable.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
+					  <p>By Air: The nearest airport to Udupi is Mangalore International Airport (IXG), located about 59 kilometers from the temple. This airport is well connected with major cities like Bangalore, Mumbai, Chennai, and Hyderabad. From the airport, visitors can hire taxis or take buses to reach Udupi.</p>
+					  <p>By Train: Udupi railway station is well-connected to major cities across India through the Konkan Railway line. The railway station is approximately 4 kilometers from the temple. Auto-rickshaws and taxis are readily available outside the station to take visitors to the temple.</p>
+					  <p>By Bus: Udupi is well-connected by road with major cities and towns in Karnataka and neighboring states. Both Karnataka State Road Transport Corporation (KSRTC) and private buses operate frequent services to Udupi. The bus stand is centrally located and close to the temple area.</p>
+					  <p>By Taxi: Taxis are available from major cities like Bangalore, Mangalore, and Goa. This is a convenient option for those who prefer a comfortable journey directly to the temple.</p>
+					  <p>By Ferry/Port: While Udupi does not have a ferry service, the nearby coastal city of Mangalore can be reached by sea, and from there, road transport can be used to reach Udupi.</p>
+					  <p>Local Commuting: Once in Udupi, local transport options include auto-rickshaws and private cabs, which can be used to commute within the city and to the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <p>At Udupi Sri Krishna Matha, a variety of special pujas and rituals are conducted daily, reflecting the rich spiritual traditions of the temple.</p>
+					  <h5 class="section__sub-b">Special Pujas and Rituals</h5>
+					  <ul class="bullet-list">
+					    <li>Daily Pujas: These include Ushakala Pooja (early morning), Panchamrithabhisheka (a ritual bathing of the deity with five sacred substances), and several other offerings throughout the day ending with the Shayanotsava (night-time ritual)​ (Temple Info)​.</li>
+					    <li>Specific Sevas: The temple also offers special sevas like the Pavamana Homa, Aslesha Bali, and Naga Prathishte among others, each carrying different significance and performed to invoke specific blessings​ (Templesinindiainfo)​.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Timing and Rates</h5>
+					  <ul class="bullet-list">
+					    <li>Most daily rituals begin early in the morning around 5:00 AM and continue at various intervals until about 10:00 PM​ (Templesinindiainfo)​.</li>
+					    <li>Prices for these sevas vary, ranging from small offerings like the Gopooja at Rs. 200 to more elaborate services like the Akhanda Saptosava which is performed for seven days and costs Rs. 126550​ (Templesinindiainfo)​​ (Temple Info)​.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking Procedure</h5>
+					  <p>Advance booking for these pujas and sevas can typically be made online or directly at the temple. The temple&#x27;s official website or contact center can provide details on how to proceed with bookings and the availability of specific pujas.</p>
+					  <p>For anyone planning to visit or participate in these rituals, it&#x27;s recommended to check the latest details directly through the temple&#x27;s official communication channels to ensure the most accurate and updated information.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Yes, Udupi Sri Krishna Matha offers online services for booking various sevas and rituals. These services are managed by the temple itself, ensuring that devotees can directly engage with temple activities and offerings from anywhere. The online platform allows for booking different types of sevas, each with specific rituals and associated costs. For instance, there are services like Akhanda Saptosava, various Poojas, and even Rathotsavas that can be booked online through the official temple portal.</p>
+					  <p>To book these services, devotees need to visit the official temple website or the designated online booking platform provided by the temple. The process typically involves selecting the desired seva, filling out necessary details, and completing the payment online. This system ensures that the booking is straightforward and accessible to devotees worldwide, enhancing their spiritual engagement with the temple from afar.</p>
+					  <p>For more detailed information and to make bookings, you should check the temple&#x27;s official website or the specific online booking section provided for these services.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <h5 class="section__sub-b">General Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>For Men: Traditional attire like dhotis or pants with shirts is recommended. Shorts, bermudas, vests, and other casual wear like T-shirts are usually not permitted inside the temple premises.</li>
+					    <li>For Women: Sarees, half-sarees, churidars, and salwar kameez are appropriate. Western outfits like skirts, jeans, and short dresses are generally discouraged.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Pujas and Festival Days</h5>
+					  <p>During special events and pujas, it is advisable to wear more traditional and conservative attire. This not only respects the temple&#x27;s cultural norms but also aligns with the devotional atmosphere during these important times.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>Udupi Sri Krishna Matha has specific guidelines regarding the use of electronic gadgets within the temple premises:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Storage Facilities: For visitors carrying mobile phones or other electronic gadgets, storage facilities are typically available at the temple entrance or nearby. These secure spaces allow visitors to deposit their gadgets safely before entering the temple.</h3>
+					  <p>It is advisable to check with the temple&#x27;s official website or directly contact the temple administration for the most current guidelines and facilities related to electronic gadgets, as policies can occasionally be updated or changed based on specific events or security considerations.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Photography inside Udupi Sri Krishna Matha is generally not allowed, especially in the areas close to the deity or within the main worship hall. This restriction is in place to maintain the sanctity and the devotional atmosphere of the temple.</h3>
+					  <p>There is typically no option to pay a fee for permission to take photographs; the ban is applied uniformly to all visitors to ensure respect and reverence are maintained during temple visits.</p>
+					  <p>If you are visiting and wish to capture memories of the surrounding areas where photography might be less restricted, it&#x27;s always a good idea to confirm current policies at the temple entrance or inquire with temple authorities upon arrival. This way, you can ensure that you comply with all temple regulations and respect the spiritual significance of the site.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>Udupi Sri Krishna Matha is equipped with facilities to assist physically handicapped visitors. While specific details about lifts or elevators are not mentioned widely, the temple complex generally ensures accessibility for all visitors, including those with mobility challenges. This includes possible ramps and designated pathways to accommodate wheelchairs and other mobility aids.</p>
+					  <p>For the most accurate and up-to-date information on specific facilities like lifts or other aids for physically handicapped individuals, it&#x27;s recommended to contact the temple administration directly before visiting. This will ensure you have the latest information and can plan your visit accordingly.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>Yes, Udupi Sri Krishna Matha provides wheelchair facilities for elderly and physically challenged visitors to ensure accessibility. The temple management is attentive to the needs of all devotees, including those who require mobility assistance, making it easier for them to participate in the spiritual and religious activities at the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <p>Udupi Sri Krishna Matha does not specifically mention separate entry or special darshan timings for senior citizens, sick individuals, or physically challenged persons on the usual resources online. However, most temples, including Udupi, are generally accommodating and provide assistance to those in need, especially for accessing easier darshan routes or offering priority in queues.</p>
+					  <p>For the most accurate and detailed information regarding any special accommodations or services for these groups, it&#x27;s recommended to contact the temple administration directly. They can provide the most current updates and specific arrangements that may be in place during your visit. This ensures that all visitors, regardless of their physical condition, can have a fulfilling and respectful experience at the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>Yes, Udupi Sri Krishna Matha performs vehicle poojas daily. The cost for a four-wheeler pooja is Rs. 200, and for a two-wheeler, it is Rs. 100. These poojas are generally conducted throughout the day as part of the daily services offered by the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>Yes, Udupi Sri Krishna Matha provides accommodation facilities for pilgrims. Here are the details regarding the types of accommodation, costs, and booking procedures:</p>
+					  <p>Types of Accommodation</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Nearby hotels and lodges also offer various accommodations ranging from basic to more comfortable options.</h3>
+					  <p>Costs</p>
+					  <ul class="bullet-list">
+					    <li>Dormitory Hall (Capacity of 25 members): Approximately Rs. 3500</li>
+					    <li>Non-Ac Rooms for 3 members: About Rs. 900</li>
+					    <li>Ac Rooms for 3 members: Around Rs. 1500</li>
+					  </ul>
+					  <p>Prices may vary based on the specific guesthouse or hotel and the time of year.</p>
+					  <p>Booking Procedure</p>
+					  <ul class="bullet-list">
+					    <li>Direct Booking: Accommodations typically need to be booked directly at the counter of the respective guesthouse or mutt. For nearby hotels, you may book via their individual websites or contact them directly by phone.</li>
+					    <li>Advance Bookings: For mutt accommodations, it&#x27;s advisable to call ahead and confirm availability, especially during festival seasons or weekends.</li>
+					    <li>Identification Requirement: Valid photo ID proofs are mandatory for room allotment.</li>
+					  </ul>
+					  <p>Please note that unmarried or unrelated couples are not allotted rooms, and consumption of non-veg food, alcohol, and smoking is strictly prohibited in temple accommodations.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>Udupi Sri Krishna Matha has a well-organized parking system, especially during major festivals and events, through a Digital Traffic and Vehicle Parking Management System. This system uses GPS technology to help visitors locate parking spots efficiently. Approximately 25 parking locations are designated within a 2-3 km radius of the temple, clearly marked for different types of vehicles including cars, minibusses, and two-wheelers. Specific areas are also reserved for VIP and VVIP parking. This system not only streamlines traffic flow around the temple area but also helps in reducing congestion during peak times.</p>
+					  <p>For regular days, the temple vicinity has ample parking space available for cars, minibusses, and two-wheelers, ensuring that pilgrims and visitors can conveniently access the temple without much hassle.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <p>At Udupi Sri Krishna Temple, the prasadam service is a central aspect of the temple&#x27;s offerings, known as Annadanam, which provides free meals to visitors:</p>
+					  <h5 class="section__sub-b">1. Meal Service (Prasadam) Details</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: Meals are served twice daily.</li>
+					    <li>Lunch: From 11:30 AM to 2:30 PM.</li>
+					    <li>Dinner: From 8:00 PM to 9:30 PM.</li>
+					    <li>Cost: The meals are offered free of charge to all devotees, embodying the temple&#x27;s ethos of hospitality and charity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>No Tickets: There is no need to buy tickets for meals.</li>
+					    <li>Serving Areas: Meals are served in the temple&#x27;s dining halls, which are spacious and designed to accommodate a large number of devotees efficiently.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Different Classes/Lines</h5>
+					  <ul class="bullet-list">
+					    <li>The temple has three separate dining halls:</li>
+					    <li>One for the general public where most visitors eat.</li>
+					    <li>Exclusive areas for invited guests, Brahmins, scholars, and donors, which provide a more private dining experience.</li>
+					    <li>The food is served on a first-come, first-served basis, and everyone is welcome to partake in the meals, reflecting the inclusive spirit of the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Types of Food Served</h5>
+					  <ul class="bullet-list">
+					    <li>The meals are strictly vegetarian and are prepared in a &#x27;satvik&#x27; manner, which means they do not contain onions, garlic, or other tamasic ingredients. Common dishes include rice, sambar, rasam, and a variety of vegetable preparations.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>Udupi Sri Krishna Temple offers prasadam to devotees, which can also be taken home. This prasadam typically includes items like laddus, chakkuli, and other sweets which are made in the temple kitchens. These items are considered sacred as they are blessed during temple rituals.</p>
+					  <h5 class="section__sub-b">Cost and Purchase</h5>
+					  <ul class="bullet-list">
+					    <li>The cost of prasadam varies depending on the type and quantity.</li>
+					    <li>Devotees can purchase prasadam directly at the temple. There are specific counters within the temple premises where prasadam is distributed or sold.</li>
+					  </ul>
+					  <p>It&#x27;s recommended to visit the temple or check its official website for the most current details on the types of prasadam available and their prices.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>If you lose an item at a temple, here’s a general procedure you can follow to report and possibly recover it:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Locate the Information Desk or Lost and Found Office:</h3>
+					  <ul class="bullet-list">
+					    <li>Most temples have an information desk or a specific lost and found office. This is the first place you should go to report your lost item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Report the Lost Item</h5>
+					  <ul class="bullet-list">
+					    <li>Provide a detailed description of the lost item, including any unique features that can help identify it.</li>
+					    <li>Mention the approximate time and place where you believe the item was lost.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Fill Out a Lost Item Form</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples may have a specific form for reporting lost items. Fill this out with all necessary details.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Leave Your Contact Information</h5>
+					  <ul class="bullet-list">
+					    <li>Ensure you provide your contact details so that the temple staff can reach you if your item is found.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Check Back Regularly</h5>
+					  <ul class="bullet-list">
+					    <li>Revisit the lost and found office periodically or call them to check if your item has been recovered.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Announce Over Public Address System (if available):</h3>
+					  <ul class="bullet-list">
+					    <li>In larger temples, there might be a public address system where announcements can be made regarding lost items.</li>
+					  </ul>
+					  <h5 class="section__sub-b">7. Online Reporting</h5>
+					  <ul class="bullet-list">
+					    <li>Some larger temples might have an online portal or website where you can report lost items. Check the temple’s official website for this option.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a group member goes missing at Udupi Sri Krishna Matha or any large temple, here are the steps you should follow to report the missing person and ensure a safe reunion:</p>
+					  <h5 class="section__sub-b">Reporting a Missing Person</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Go to the Information Desk or Lost and Found Office:</h3>
+					  <ul class="bullet-list">
+					    <li>Most temples, including Udupi Sri Krishna Matha, have an information desk or a designated lost and found office. This should be your first stop to report a missing person.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Provide Detailed Information</h5>
+					  <ul class="bullet-list">
+					    <li>Give a detailed description of the missing person, including their name, age, physical appearance, clothing, and any distinguishing features.</li>
+					    <li>Mention the last known location and time you were together.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Fill Out a Missing Person Report</h5>
+					  <ul class="bullet-list">
+					    <li>If the temple has a formal procedure, you might need to fill out a missing person report form with all the relevant details.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Announce Over the Public Address System:</h3>
+					  <ul class="bullet-list">
+					    <li>Request an announcement to be made over the temple&#x27;s public address system. This can help in quickly spreading the word and reuniting with the missing person.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
+					  <p>Yes, Udupi Sri Krishna Matha is registered under the administration of the Karnataka state government. The temple is managed by the Ashta Mathas (eight monasteries), each of which takes turns overseeing the temple administration for two years. The government of Karnataka and the Udupi District Administration oversee and support the activities of the temple, ensuring it operates smoothly and maintains its cultural and spiritual significance.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Donations to Udupi Sri Krishna Matha can be made through various means besides the traditional hundi offerings in the temple. Here are the details on how to make donations, the purposes for which they can be used, and the bank account information:</h3>
+					  <h5 class="section__sub-b">How to Make Donations</h5>
+					  <h5 class="section__sub-b">1. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Official Website: You can make donations directly through the temple&#x27;s official website or through specific online donation portals associated with the temple.</li>
+					    <li>Donation Page: Look for a dedicated donation page where you can select the amount and purpose of your donation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Bank Transfers</h5>
+					  <ul class="bullet-list">
+					    <li>Account Details: The temple provides specific bank account details where donations can be transferred. Ensure to get these details from the official sources to avoid any discrepancies.</li>
+					    <li>Purpose Specification: When making a bank transfer, specify the purpose of your donation in the transaction description (e.g., Annadanam, Temple Renovation, Education Fund).</li>
+					  </ul>
+					  <h5 class="section__sub-b">Purposes for Donations</h5>
+					  <h5 class="section__sub-b">1. Annadanam (Free Meals)</h5>
+					  <ul class="bullet-list">
+					    <li>Contributions to the Annadanam fund help provide free meals to thousands of devotees daily.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Temple Maintenance and Renovation</h5>
+					  <ul class="bullet-list">
+					    <li>Donations can be directed towards the maintenance and renovation of the temple premises, ensuring the upkeep of the temple’s infrastructure.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Educational and Cultural Activities</h5>
+					  <ul class="bullet-list">
+					    <li>Support for educational programs and cultural activities organized by the temple and its associated institutions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Medical Aid and Social Services</h5>
+					  <ul class="bullet-list">
+					    <li>Contributions to support medical camps, healthcare facilities, and other social services provided by the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Bank Account Information</h5>
+					  <p>It is crucial to obtain the bank account details from the official temple sources or the temple&#x27;s administration office to ensure accuracy. Here’s an example of the kind of information you might need to look for:</p>
+					  <ul class="bullet-list">
+					    <li>Account Name: Udupi Sri Krishna Matha Donation Account</li>
+					    <li>Bank Name: [Specific Bank Name]</li>
+					    <li>Branch: [Branch Name]</li>
+					    <li>Account Number: [Account Number]</li>
+					    <li>IFSC Code: [IFSC Code]</li>
+					    <li>Purpose: (e.g., Annadanam, Renovation, Education)</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>At Udupi Sri Krishna Matha, donations, similar to those made at Tirupati and Shirdi, come with specific benefits and purposes. While the temple focuses more on the spiritual benefits and communal support rather than tangible privileges, here are some key aspects of how donations are utilized and any associated privileges:</p>
+					  <h5 class="section__sub-b">Utilization of Donations</h5>
+					  <h5 class="section__sub-b">1. Annadanam (Free Meals)</h5>
+					  <ul class="bullet-list">
+					    <li>Donations contribute to the Annadanam fund, providing free meals to thousands of devotees daily. This is a significant service that ensures no visitor leaves the temple hungry.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Temple Maintenance and Renovation</h5>
+					  <ul class="bullet-list">
+					    <li>Funds are used for the maintenance and renovation of the temple premises, ensuring the upkeep of the sacred site.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Educational and Cultural Activities</h5>
+					  <ul class="bullet-list">
+					    <li>Support for educational programs and cultural activities organized by the temple and its associated institutions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Medical Aid and Social Services</h5>
+					  <ul class="bullet-list">
+					    <li>Contributions support medical camps, healthcare facilities, and other social services provided by the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Privileges for Donors</h5>
+					  <p>While Udupi Sri Krishna Matha does not have a widely publicized list of privileges like special entry tickets or preferential treatment for accommodations, there are certain benefits that donors might receive:</p>
+					  <h5 class="section__sub-b">1. Acknowledgment</h5>
+					  <ul class="bullet-list">
+					    <li>Donors might be acknowledged during temple events or through plaques for significant contributions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Special Pujas and Rituals</h5>
+					  <ul class="bullet-list">
+					    <li>Donors can sponsor specific pujas and rituals. Depending on the donation, these rituals can be performed in the name of the donor or their family.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Tax Exemptions</h5>
+					  <ul class="bullet-list">
+					    <li>Donations are typically eligible for tax exemptions under Section 80G of the Income Tax Act, providing financial benefits to the donors.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Community Recognition</h5>
+					  <ul class="bullet-list">
+					    <li>Significant donors may receive recognition within the community and be invited to special events or ceremonies held by the temple.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Construction and Scientific Information about Udupi Sri Krishna Matha</h3>
+					  <h5 class="section__sub-b">Historical and Architectural Significance</h5>
+					  <h5 class="section__sub-b">1. Founding and Architecture</h5>
+					  <ul class="bullet-list">
+					    <li>Udupi Sri Krishna Matha was established in the 13th century by the Vaishnavite saint Madhvacharya. The temple is built in the Dravidian architectural style, which is prominent in South India. The construction involves intricate woodwork and stone carvings typical of the period.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Main Structure</h5>
+					  <ul class="bullet-list">
+					    <li>The temple features a sanctum sanctorum where the deity Lord Krishna is enshrined. The idol of Lord Krishna is viewed through a unique window called the &quot;Navagraha Kitiki&quot; (nine-holed window), designed to symbolize the nine planets in Hindu astrology. This feature allows devotees to have darshan (viewing) of the deity in a distinctive manner​ (Travel Blog | Voyager - Sandy &amp; Vyjay)​​ (www.Pilgrimaide.Com)​.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Materials Used</h5>
+					  <ul class="bullet-list">
+					    <li>Traditional materials like granite, wood, and brass were used in the construction of the temple. The outer structure is predominantly granite, while the interior features extensive use of wood for the ceilings and support beams. The doors and windows are often adorned with brass and silver plating, adding to the temple&#x27;s ornate aesthetic​ (Wikipedia)​.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Scientific and Environmental Aspects</h5>
+					  <h5 class="section__sub-b">1. Structural Design</h5>
+					  <ul class="bullet-list">
+					    <li>The temple&#x27;s design incorporates traditional Vastu Shastra principles, ensuring that the layout aligns with natural elements and promotes spiritual harmony. The structure is oriented in such a way that it maximizes natural light and ventilation, creating a serene and conducive environment for worship.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Sustainability Practices</h5>
+					  <ul class="bullet-list">
+					    <li>The temple complex includes a sacred tank called &quot;Madhwa Sarovara,&quot; which is used for various religious rituals. This water body is an example of ancient water management systems, ensuring a sustainable supply of water for temple activities and maintaining ecological balance​ (Travel Blog | Voyager - Sandy &amp; Vyjay)​.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cultural and Educational Impact</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is not only a place of worship but also a center for cultural and educational activities. It promotes the study of Dvaita Vedanta philosophy, Sanskrit, and traditional arts, ensuring the preservation and transmission of ancient knowledge systems</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>The Udupi Sri Krishna Matha does not have any widely recognized geomagnetic or paramagnetic significance akin to that of Kasar Devi Temple in Uttarakhand. However, the temple holds immense spiritual and cultural significance due to its unique historical, architectural, and religious features.</p>
+					  <h5 class="section__sub-b">Unique Features and Significance of Udupi Sri Krishna Matha</h5>
+					  <h5 class="section__sub-b">1. Spiritual Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Founded by Madhvacharya: The temple was established by the philosopher Madhvacharya in the 13th century, making it a central site for followers of Dvaita Vedanta, a dualistic interpretation of the Vedas.</li>
+					    <li>Kanakana Kindi: The temple features a unique window known as &quot;Kanakana Kindi&quot; or the nine-holed window through which devotees view the deity. This design is deeply symbolic and ties into the story of Kanakadasa, a devout follower who was granted a vision of Lord Krishna through this window despite being denied entry due to his lower caste.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Architectural Significance</h5>
+					  <ul class="bullet-list">
+					    <li>The temple’s architecture adheres to traditional Dravidian styles, incorporating intricate carvings, woodwork, and the use of sacred geometry as per Vastu Shastra principles. The design aims to create a serene environment conducive to spiritual activities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cultural and Educational Impact</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is a major center for cultural and educational activities, including the study of Dvaita philosophy, Sanskrit, and traditional arts. It serves as a hub for disseminating ancient knowledge and promoting spiritual literature, such as Daasa Sahitya.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Historical Legends</h5>
+					  <ul class="bullet-list">
+					    <li>The idol of Lord Krishna at Udupi is believed to have been brought from Dwarka and was discovered by Madhvacharya. The story of its discovery and installation adds to the temple&#x27;s spiritual lore.</li>
+					  </ul>
+					  <p>While Udupi Sri Krishna Matha may not have documented geomagnetic fields or cosmic energy like Kasar Devi, its significance lies in its spiritual history, unique architectural elements, and its role as a center for religious education and cultural preservation.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <p>For foreigners interested in exploring spirituality more than religious practices, visiting Udupi Sri Krishna Matha can offer a unique and enriching experience. Here’s what might particularly appeal to those seeking spiritual insight:</p>
+					  <h5 class="section__sub-b">Spiritual Heritage of Udupi Sri Krishna Matha</h5>
+					  <h5 class="section__sub-b">1. Philosophy and Teachings</h5>
+					  <ul class="bullet-list">
+					    <li>Dvaita Vedanta: Udupi Sri Krishna Matha is the epicenter of Dvaita Vedanta, a dualistic school of Hindu philosophy founded by the sage Madhvacharya. This philosophy emphasizes the distinct and eternal difference between the individual soul (Atman) and the supreme soul (Brahman or Vishnu). Understanding this philosophy can offer deep insights into the nature of existence and the relationship between the self and the divine.</li>
+					    <li>Spiritual Literature: The temple is a hub for Daasa Sahitya, a form of devotional literature that originated in Karnataka. This literature, composed by saints and poets, is rich in spiritual wisdom and can offer profound insights into devotion and the nature of the divine.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Unique Spiritual Practices</h5>
+					  <ul class="bullet-list">
+					    <li>Kanakana Kindi: The temple features the unique &quot;Kanakana Kindi&quot; or nine-holed window through which devotees view the deity. This symbolizes that the divine can be accessed by anyone with sincere devotion, regardless of social status or caste.</li>
+					    <li>Daily Rituals and Pujas: Observing the daily rituals, including the early morning Nirmalya Visarjana Pooja and the evening Ranga Pooja, can provide a deep sense of peace and connection to ancient spiritual practices.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Meditation and Reflection</h5>
+					  <ul class="bullet-list">
+					    <li>The serene environment of the temple, coupled with its traditional architecture, provides an ideal setting for meditation and reflection. The sacred tank, Madhwa Sarovara, and the temple’s tranquil surroundings offer a perfect backdrop for introspection and spiritual rejuvenation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Cultural and Spiritual Programs</h5>
+					  <ul class="bullet-list">
+					    <li>Educational Activities: The temple often hosts lectures and discussions on various aspects of Hindu philosophy, spirituality, and the teachings of Madhvacharya. Participating in these sessions can provide valuable spiritual insights.</li>
+					    <li>Festivals and Celebrations: Festivals like Krishna Janmashtami, Navaratri, and the biennial Paryaya festival are celebrated with great fervor. These events provide a glimpse into the vibrant cultural and spiritual life of the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Community and Service</h5>
+					  <ul class="bullet-list">
+					    <li>Annadanam (Free Meals): The temple offers free meals to all visitors, reflecting the principle of selfless service. Participating in or contributing to this service can be a spiritually fulfilling experience.</li>
+					    <li>Social Services: The temple is involved in various social services, including educational and medical aid, which align with the principles of compassion and community welfare.</li>
+					  </ul>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Donation ( link)</p>
+					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>Here are some call-to-action links and interaction details that can enhance user engagement with Udupi Sri Krishna Matha:</p>
+					  <p>a. Puja Services</p>
+					  <p>Book a Puja</p>
+					  <ul class="bullet-list">
+					    <li>Description: Experience divine blessings by booking a puja at Udupi Sri Krishna Matha.</li>
+					    <li>Call to Action: &quot;Book Your Puja Now&quot;</li>
+					    <li>Link: Puja Services at Udupi Sri Krishna Matha (This is a placeholder link; you should replace it with the actual URL from the temple’s website when available.)</li>
+					  </ul>
+					  <p>b. Donations</p>
+					  <p>Make a Donation</p>
+					  <ul class="bullet-list">
+					    <li>Description: Support the temple’s activities and services by making a donation. Contributions are used for Annadanam, temple maintenance, educational programs, and medical aid.</li>
+					    <li>Call to Action: &quot;Support Our Sacred Cause&quot;</li>
+					    <li>Link: Donate to Udupi Sri Krishna Matha (This is a placeholder link; you should replace it with the actual URL from the temple’s website.)</li>
+					  </ul>
+					  <p>c. Accommodation</p>
+					  <p>Find Accommodation Near Udupi Sri Krishna Matha</p>
+					  <ul class="bullet-list">
+					    <li>Description: Discover a range of accommodation options near the temple, from budget lodgings to luxury hotels.</li>
+					    <li>Call to Action: &quot;Stay Near the Divine&quot;</li>
+					    <li>Link: Accommodations near Udupi Sri Krishna Matha (This is a placeholder link; replace it with your site’s specific URL for accommodation listings.)</li>
+					  </ul>
+					  <p>d. Tax Exemptions</p>
+					  <p>Tax Exemption Information</p>
+					  <ul class="bullet-list">
+					    <li>Description: Donations to Udupi Sri Krishna Matha are eligible for tax exemptions under Section 80G of the Income Tax Act. Contribute and enjoy tax benefits while supporting noble causes.</li>
+					    <li>Call to Action: &quot;Make a Tax-Exempt Donation&quot;</li>
+					    <li>Link: Tax Benefits for Donations (This is a placeholder link; replace it with the actual URL from the temple’s website or a dedicated page explaining the tax benefits.)</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event at Udupi Sri Krishna Matha</h3>
+					  <p>Paryaya Festival</p>
+					  <h5 class="section__sub-b">Date and Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Frequency: The Paryaya festival is held once every two years on January 18th.</li>
+					    <li>Significance: This event marks the transfer of temple management from one of the Ashta Mathas (eight monasteries) to another. The swamis of these monasteries take turns managing the temple, each for a two-year period.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Highlights of the Festival</h5>
+					  <ul class="bullet-list">
+					    <li>Pomp and Ceremony: The festival includes grand processions, cultural performances, and religious rituals.</li>
+					    <li>Religious Observances: Special pujas and ceremonies are conducted, and thousands of devotees participate in the festivities.</li>
+					    <li>Historical Tradition: The Paryaya festival has a history of over 500 years and is a vital part of the temple&#x27;s cultural and spiritual life.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Other Major Annual Festivals</h5>
+					  <h5 class="section__sub-b">1. Krishna Janmashtami</h5>
+					  <ul class="bullet-list">
+					    <li>Date: Celebrated in August (date varies according to the Hindu lunar calendar).</li>
+					    <li>Significance: Marks the birth of Lord Krishna. The temple is beautifully decorated, and special midnight prayers and celebrations are held.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Ratha Sapthami</h5>
+					  <ul class="bullet-list">
+					    <li>Date: Celebrated in February.</li>
+					    <li>Significance: This festival is dedicated to Lord Surya (Sun God). The temple organizes a grand chariot procession during this festival.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Makara Sankranti</h5>
+					  <ul class="bullet-list">
+					    <li>Date: Celebrated in January.</li>
+					    <li>Significance: Marks the transition of the sun into the zodiac sign of Capricorn (Makara). It is a time for new beginnings and harvest celebrations.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Navaratri and Vijayadashami</h5>
+					  <ul class="bullet-list">
+					    <li>Date: Celebrated in October.</li>
+					    <li>Significance: Navaratri is a nine-night festival dedicated to the Goddess Durga, and Vijayadashami marks the victory of good over evil.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Deepavali (Diwali)</h5>
+					  <ul class="bullet-list">
+					    <li>Date: Celebrated in October/November.</li>
+					    <li>Significance: The festival of lights, celebrating the victory of light over darkness.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event at Udupi Sri Krishna Matha</h3>
+					  <p>Ekadashi Celebrations</p>
+					  <h5 class="section__sub-b">Frequency</h5>
+					  <ul class="bullet-list">
+					    <li>Monthly Event: Ekadashi occurs twice a month according to the lunar calendar—once during the waxing phase (Shukla Paksha) and once during the waning phase (Krishna Paksha).</li>
+					  </ul>
+					  <h5 class="section__sub-b">Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Spiritual Importance: Ekadashi is considered highly auspicious in Hinduism and is dedicated to Lord Vishnu, of whom Lord Krishna is an avatar. It is a day for fasting, prayer, and seeking spiritual growth.</li>
+					    <li>Observances: Devotees observe fasting and participate in special prayers and rituals. The temple organizes additional pujas and readings of sacred texts on these days.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Dates</h5>
+					  <ul class="bullet-list">
+					    <li>Variable Dates: Since Ekadashi is based on the lunar calendar, the exact dates vary each month. Devotees can refer to a Hindu calendar (Panchang) for the specific dates of Ekadashi each month.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Participate</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Schedule: On Ekadashi days, the temple might have extended hours for darshan and special puja timings. It&#x27;s advisable to check with the temple&#x27;s official website or contact their administration for detailed schedules.</li>
+					    <li>-------------</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -766,89 +614,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

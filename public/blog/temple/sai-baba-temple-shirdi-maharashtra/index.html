@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -123,13 +70,6 @@
 							</div>
 						</div>
 						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
-							</div>
-						</div>
-						<div class="key-info__item">
 							<div class="key-info__icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
 							<div>
 								<div class="key-info__label">Contact</div>
@@ -147,1012 +87,890 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Condensed Information about the Temple:</h3>
-  <h5 class="section__sub-b">A. Main Deity</h5>
-  <ul class="bullet-list">
-    <li>Sai Baba: Sai Baba of Shirdi, also known as Shirdi Sai Baba, is the primary deity worshipped at this temple. He is revered by people of all faiths and is known for his teachings of love, forgiveness, helping others, charity, contentment, inner peace, devotion to God and guru. His philosophy encapsulated the essence of both Hinduism and Islam.</li>
-  </ul>
-  <h5 class="section__sub-b">B. Other Deities (Sub deities)</h5>
-  <ul class="bullet-list">
-    <li>Khandoba: There is a shrine dedicated to Lord Khandoba, a regional deity, within the temple premises.</li>
-    <li>Gurusthan: A site under a neem tree where Sai Baba was first spotted meditating. It&#x27;s considered a significant spot by devotees.</li>
-    <li>Dwarkamai: The mosque where Sai Baba spent a significant portion of his life and is a place of worship within the temple complex.</li>
-    <li>Chavadi: Another important spot where Sai Baba used to sleep every alternate night.</li>
-    <li>Other shrines: Small shrines dedicated to Lord Ganesha, Lord Shiva, and Lord Shani are also present within the temple complex.</li>
-  </ul>
-  <p>The temple complex also includes various facilities for devotees including accommodation, dining, and medical aid. It actively engages in various charitable activities, supporting initiatives in education, healthcare, and social welfare.</p>
-  <h5 class="section__sub-b">General Days</h5>
-  <ul class="bullet-list">
-    <li>Opening Time: The temple opens at 4:45 AM.</li>
-    <li>Closing Time: The temple closes at 11:00 PM, following the Shej Aarti.</li>
-  </ul>
-  <h5 class="section__sub-b">Daily Schedule</h5>
-  <ul class="bullet-list">
-    <li>The temple conducts four main Aartis during the day:</li>
-    <li>Kakad Aarti at 5:15 AM</li>
-    <li>Midday Aarti at 12:00 Noon</li>
-    <li>Dhoop Aarti at Sunset (approximately 6:30 PM to 7:00 PM depending on the time of year)</li>
-    <li>Shej Aarti at 10:30 PM</li>
-  </ul>
-  <h5 class="section__sub-b">Special Days and Festivals</h5>
-  <ul class="bullet-list">
-    <li>On Thursdays and during major festivals like Ram Navami, Guru Purnima, and Vijaya Dashami, the temple follows a similar opening and closing schedule but may have additional rituals and processions. For example, every Thursday, Baba’s palkhi procession starts at 9:15 PM from the Samadhi Mandir.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <ul class="bullet-list">
-    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
-  </ul>
-  <p>Shirdi Sai Baba Temple - Entry Fees and Privileges</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Fees:</h3>
-  <ul class="bullet-list">
-    <li>General Darshan: There is no entry fee for the general darshan at Shirdi Sai Baba Temple. Devotees can participate in the darshan without any charge.</li>
-    <li>VIP Darshan: For a more expedited and comfortable experience, the temple offers VIP darshan tickets. These tickets can be purchased either online or at the temple&#x27;s ticket counters.</li>
-  </ul>
-  <h5 class="section__sub-b">VIP Darshan Fees</h5>
-  <ul class="bullet-list">
-    <li>Kakad Aarti (Morning): INR 600</li>
-    <li>Madhyan Aarti (Midday): INR 400</li>
-    <li>Dhoop Aarti (Evening): INR 400</li>
-    <li>Shej Aarti (Night): INR 400</li>
-  </ul>
-  <h5 class="section__sub-b">Privileges of VIP Darshan</h5>
-  <ul class="bullet-list">
-    <li>Quick Darshan: VIP darshan tickets grant quicker access to the deity, allowing devotees to avoid long queues.</li>
-    <li>Special Entry Gate: VIP ticket holders may have access to a special entry gate, providing a more streamlined and less crowded entry.</li>
-    <li>Longer Viewing Time: VIP darshan might allow devotees to spend more time in front of the deity.</li>
-    <li>Prasad: Some VIP tickets include special prasad distribution.</li>
-  </ul>
-  <h5 class="section__sub-b">Entry Restrictions for Foreigners</h5>
-  <ul class="bullet-list">
-    <li>General Entry: There are no specific entry restrictions for foreigners. All devotees, regardless of nationality, are welcome to visit the temple.</li>
-    <li>Special Fees: There are no additional fees specifically for foreigners. They can access the same services and facilities as Indian devotees.</li>
-    <li>Declarations: Foreigners do not need to make any special declarations to enter the temple. However, they are expected to follow the temple&#x27;s dress code and conduct guidelines.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking and Advance Reservations</h5>
-  <ul class="bullet-list">
-    <li>Online Booking: VIP darshan tickets and accommodations can be booked online through the temple&#x27;s official website. This allows devotees to secure their darshan slots and stay arrangements in advance.</li>
-    <li>On-Site Booking: Tickets can also be purchased at the temple’s ticket counters on arrival, though it is advisable to book in advance during peak times and festivals to ensure availability</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
-  <p>Shirdi Sai Baba Temple - Location and How to Reach</p>
-  <h5 class="section__sub-b">Location</h5>
-  <ul class="bullet-list">
-    <li>Address: Shri Saibaba Sansthan Trust, Shirdi, PO: Shirdi Tal. Rahata Dist. Ahmednagar, Maharashtra, India, Pincode: 423109.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Reach Shirdi</h5>
-  <h5 class="section__sub-b">By Air</h5>
-  <ul class="bullet-list">
-    <li>Shirdi Airport (SAG): The nearest airport is Shirdi Airport, located about 14 km from the temple. It has regular flights from Mumbai, Hyderabad, Bengaluru, Chennai, and other major cities.</li>
-    <li>Aurangabad Airport (IXU): Located about 125 km from Shirdi, it serves as an alternative with more flight options.</li>
-    <li>Pune Airport (PNQ): Approximately 200 km away, offering more domestic and international connections.</li>
-    <li>Chhatrapati Shivaji Maharaj International Airport (BOM), Mumbai: Located about 240 km from Shirdi, it is one of the major international airports in India.</li>
-  </ul>
-  <h5 class="section__sub-b">By Train</h5>
-  <ul class="bullet-list">
-    <li>Sainagar Shirdi Railway Station (SNSI): Located just 3 km from the temple, it is well-connected with major cities like Mumbai, Chennai, Hyderabad, and Bengaluru.</li>
-    <li>Kopergaon Railway Station: About 16 km from Shirdi, it is another convenient option for train travelers.</li>
-    <li>Manmad Junction: Approximately 58 km away, it serves as a major railway junction with connections to many parts of India.</li>
-  </ul>
-  <h5 class="section__sub-b">By Bus</h5>
-  <ul class="bullet-list">
-    <li>Maharashtra State Road Transport Corporation (MSRTC) Buses: Regular bus services operate from major cities like Mumbai, Pune, Nashik, and Aurangabad to Shirdi.</li>
-    <li>Private Buses: Numerous private operators run daily services to Shirdi from various cities.</li>
-  </ul>
-  <h5 class="section__sub-b">By Car/Taxi</h5>
-  <ul class="bullet-list">
-    <li>From Mumbai: Shirdi is about 240 km from Mumbai and can be reached by car in approximately 5 hours via the NH160 and the Mumbai-Agra Highway.</li>
-    <li>From Pune: The distance is around 200 km, taking approximately 4.5 hours via NH60 and the Pune-Nashik Highway.</li>
-    <li>From Nashik: Shirdi is about 90 km from Nashik, reachable in about 2 hours via the NH160.</li>
-  </ul>
-  <h5 class="section__sub-b">Local Transportation</h5>
-  <ul class="bullet-list">
-    <li>Auto-rickshaws and Taxis: Available for local travel within Shirdi, including travel to and from the railway station and airport.</li>
-    <li>Shuttle Services: Some hotels and guesthouses offer shuttle services to the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Ferry/Port</h5>
-  <ul class="bullet-list">
-    <li>There are no direct ferry or port services to Shirdi as it is an inland location.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">* .What are the rates associated with it? What is the advance booking procedure?</h3>
-  <p>Shirdi Sai Baba Temple - Special Poojas and Rituals</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Sai Satya Vrata Pooja:</h3>
-  <ul class="bullet-list">
-    <li>Timings: Four batches are conducted:</li>
-    <li>First Batch: 7:00 AM - 8:00 AM</li>
-    <li>Second Batch: 9:00 AM - 10:00 AM</li>
-    <li>Third Batch: 11:00 AM - 12:00 PM</li>
-    <li>Additional batches on the full moon day from 1:00 PM - 2:00 PM and 3:00 PM - 4:00 PM</li>
-    <li>Cost: INR 100</li>
-    <li>Booking: Can be done online through the official website or offline at the temple office one day in advance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Abhishek Pooja:</h3>
-  <ul class="bullet-list">
-    <li>Timings: Two batches:</li>
-    <li>First Batch: 7:00 AM - 8:00 AM</li>
-    <li>Second Batch: 9:00 AM - 10:00 AM</li>
-    <li>Cost: INR 100</li>
-    <li>Booking: Online booking is available on the official website or at the temple office one day in advance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Vehicle Pooja:</h3>
-  <ul class="bullet-list">
-    <li>Location: Outside Gate No. 4</li>
-    <li>Booking: Performed on request; details can be obtained and booking can be done at the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Other Regular Poojas</h5>
-  <ul class="bullet-list">
-    <li>Kakad Aarti (Morning): 4:30 AM</li>
-    <li>Midday Aarti: 12:00 PM</li>
-    <li>Dhoop Aarti (Evening): At sunset</li>
-    <li>Shej Aarti (Night): 10:30 PM</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>Shirdi Sai Baba Temple - Online Services</p>
-  <h5 class="section__sub-b">Online Services Available</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Darshan Booking:</h3>
-  <ul class="bullet-list">
-    <li>Service: Devotees can book slots for darshan to avoid long queues and ensure a smooth visit.</li>
-    <li>Provider: Shri Saibaba Sansthan Trust</li>
-    <li>Booking Link: Darshan Booking</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Pooja Booking:</h3>
-  <ul class="bullet-list">
-    <li>Service: Online booking for various poojas and rituals such as Abhishek Pooja, Sai Satya Vrata Pooja, and vehicle poojas.</li>
-    <li>Provider: Shri Saibaba Sansthan Trust</li>
-    <li>Booking Link: Pooja Booking</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation Booking:</h3>
-  <ul class="bullet-list">
-    <li>Service: Booking accommodations in temple-run facilities like Sai Ashram, Dwarawati, and New Bhakta Niwas.</li>
-    <li>Provider: Shri Saibaba Sansthan Trust</li>
-    <li>Booking Link: Accommodation Booking</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Donation:</h3>
-  <ul class="bullet-list">
-    <li>Service: Devotees can make donations online to support various temple activities and charitable initiatives.</li>
-    <li>Provider: Shri Saibaba Sansthan Trust</li>
-    <li>Donation Link: Donation</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Prasad Orders:</h3>
-  <ul class="bullet-list">
-    <li>Service: Devotees can order prasad online to be delivered to their homes.</li>
-    <li>Provider: Shri Saibaba Sansthan Trust</li>
-    <li>Prasad Link: Available on the temple&#x27;s official website.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Live Streaming:</h3>
-  <ul class="bullet-list">
-    <li>Service: Live streaming of aartis and major events is available for devotees who cannot visit the temple in person.</li>
-    <li>Provider: Shri Saibaba Sansthan Trust</li>
-    <li>Streaming Link: Available on the temple&#x27;s official website and YouTube channel.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
-  <h5 class="section__sub-b">General Dress Code</h5>
-  <ul class="bullet-list">
-    <li>Modesty Required: Visitors are expected to dress modestly while visiting the Shirdi Sai Baba Temple. This means avoiding revealing or inappropriate attire.</li>
-    <li>Traditional Attire Preferred: Traditional Indian clothing such as sarees, salwar kameez for women, and dhoti or kurta-pajama for men are preferred, especially during special poojas and festivals.</li>
-    <li>Avoid Shorts: Shorts and other very casual or beachwear clothing are generally discouraged.</li>
-  </ul>
-  <h5 class="section__sub-b">For Special Poojas and Festival Days</h5>
-  <ul class="bullet-list">
-    <li>Festive Traditional Wear: During festivals and special poojas, visitors are encouraged to wear traditional and festive clothing. Women can wear sarees or salwar kameez, while men can wear dhoti-kurta or kurta-pajama.</li>
-    <li>White or Light-Colored Clothes: Light or white-colored clothing is often preferred during certain rituals to symbolize purity and devotion.</li>
-  </ul>
-  <h5 class="section__sub-b">Footwear</h5>
-  <ul class="bullet-list">
-    <li>No Footwear Inside: Footwear must be removed before entering the temple premises. There are designated areas to leave shoes outside the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Head Covering</h5>
-  <ul class="bullet-list">
-    <li>Optional: Covering the head is optional, but some devotees prefer to do so as a mark of respect.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Guidelines</h5>
-  <ul class="bullet-list">
-    <li>Comfortable Clothing: Since the temple can be crowded, wearing comfortable clothing is advisable.</li>
-    <li>Weather Appropriate: Consider the weather when choosing your attire. Shirdi can be hot, so breathable fabrics are recommended.</li>
-  </ul>
-  <p>For more specific details or updates on dress code guidelines, you can visit the official website or contact the temple administration directly. These guidelines help maintain the sanctity and decorum of the temple while ensuring that all devotees have a respectful and enriching spiritual experience​ (Myoksha Travels)​​ (Sai Baba US)​​ (Devotional Yatra)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Electronic Gadgets Allowed:</h3>
-  <ul class="bullet-list">
-    <li>Mobile Phones: Generally, mobile phones are allowed but must be switched to silent mode or turned off to maintain the sanctity and avoid disturbances during darshan and poojas.</li>
-    <li>Cameras: Photography and videography inside the temple premises are generally not allowed to respect the sanctity and privacy of the worshippers and rituals.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Restrictions:</h3>
-  <ul class="bullet-list">
-    <li>Inside Sanctum Sanctorum: Electronic gadgets, including mobile phones and cameras, are typically not allowed inside the inner sanctum (Samadhi Mandir) and during special rituals to preserve the sanctity and avoid distractions.</li>
-    <li>During Aartis and Special Poojas: Usage of gadgets is restricted to maintain a solemn atmosphere during worship.</li>
-  </ul>
-  <h5 class="section__sub-b">Deposit Facilities</h5>
-  <ul class="bullet-list">
-    <li>Cloakrooms: The temple provides cloakrooms where devotees can safely deposit their electronic gadgets, including mobile phones, cameras, and other valuables. These facilities are usually located near the main entrance.</li>
-    <li>Lockers: Lockers are available for devotees to store their belongings securely while they are inside the temple premises. This service is managed by the temple authorities to ensure the safety of deposited items.</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure for Using Deposit Facilities</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Retrieve Items: After your visit, return to the cloakroom or locker area to retrieve your items using the provided token or receipt.</h3>
-  <h5 class="section__sub-b">Additional Guidelines</h5>
-  <ul class="bullet-list">
-    <li>Respect Signs and Announcements: Follow any posted signs and announcements regarding the use of electronic gadgets within the temple premises.</li>
-    <li>Security Checks: Be prepared for security checks at the entrance where electronic gadgets may be screened, and instructions regarding their usage will be provided.</li>
-  </ul>
-  <p>For the most accurate and up-to-date information on the electronic gadgets policy and available facilities, it is recommended to visit the official website of the Shirdi Sai Baba Temple or contact the temple authorities directly​ (Sai Trust)​​ (Sai.org)​​ (Sai Baba US)​​ (Devotional Yatra)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
-  <p>Shirdi Sai Baba Temple - Photography Policy</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography Allowed:</h3>
-  <ul class="bullet-list">
-    <li>General Areas: Photography is generally allowed in the outer premises of the temple, such as the gardens, the pathways, and the general temple compound.</li>
-    <li>Designated Areas: Specific areas may be designated where photography is permitted. These are usually outside the main prayer halls and sanctum sanctorum.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Restrictions:</h3>
-  <ul class="bullet-list">
-    <li>Inside Sanctum Sanctorum: Photography and videography are strictly prohibited inside the sanctum sanctorum (Samadhi Mandir) and during rituals and aartis to maintain the sanctity of the temple and ensure a respectful atmosphere for worshippers.</li>
-    <li>During Rituals: Taking photos during aartis, poojas, and other special ceremonies is not allowed to avoid disturbances and respect the spiritual environment.</li>
-  </ul>
-  <h5 class="section__sub-b">Fees</h5>
-  <ul class="bullet-list">
-    <li>No Specific Fees: Generally, there are no specific fees for photography in the allowed areas. However, rules and regulations can change, so it is advisable to confirm with temple authorities upon arrival.</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure and Guidelines</h5>
-  <ul class="bullet-list">
-    <li>Follow Instructions: Adhere to any instructions or guidelines provided by the temple staff or posted on signs regarding photography.</li>
-    <li>Respect Privacy: Be mindful of the privacy of other devotees and avoid taking intrusive or disrespectful photos.</li>
-    <li>Security Checks: Be prepared for security checks that may include restrictions on carrying cameras or other electronic devices into certain parts of the temple.</li>
-  </ul>
-  <p>For the most accurate and updated information regarding the photography policy and any associated fees, it is best to visit the official website of the Shirdi Sai Baba Temple or contact the temple administration directly. This ensures that you have the latest guidelines and can plan your visit accordingly​ (Sai Trust)​​ (Sai.org)​​ (Sai Baba US)​​ (Devotional Yatra)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <p>Shirdi Sai Baba Temple - Accessibility Facilities</p>
-  <h5 class="section__sub-b">Facilities for Physically Handicapped</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Lifts/Elevators:</h3>
-  <ul class="bullet-list">
-    <li>Availability: The Shirdi Sai Baba Temple is equipped with lifts and elevators to ensure that physically handicapped devotees can access various parts of the temple complex comfortably.</li>
-    <li>Locations: These facilities are typically available in the main temple complex and at accommodations managed by the temple trust.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ramps:</h3>
-  <ul class="bullet-list">
-    <li>Wheelchair Access: The temple premises have ramps installed at key locations to facilitate easy movement for devotees using wheelchairs.</li>
-    <li>Access Points: Ramps are available at the entrance, exit, and key points within the temple to ensure smooth access to the main worship areas.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Wheelchairs:</h3>
-  <ul class="bullet-list">
-    <li>Availability: The temple provides wheelchairs for use by elderly and physically challenged devotees. These can be requested at the entrance or through the temple administration office.</li>
-    <li>Advance Booking: It is advisable to contact the temple administration in advance to ensure the availability of a wheelchair.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Assistance:</h3>
-  <ul class="bullet-list">
-    <li>Temple Staff: Temple staff and volunteers are available to assist physically handicapped devotees in navigating the temple premises and ensuring a comfortable visit.</li>
-    <li>Dedicated Lines: There are special lines and provisions for quick and easy darshan for physically handicapped devotees to avoid long queues.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Accessible Restrooms:</h3>
-  <ul class="bullet-list">
-    <li>Facilities: Accessible restrooms are available within the temple complex, designed to accommodate visitors with disabilities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
-  <p>Shirdi Sai Baba Temple - Wheelchair Facility for Elderly and Physically Challenged</p>
-  <h5 class="section__sub-b">Availability of Wheelchairs</h5>
-  <ul class="bullet-list">
-    <li>Wheelchair Provision: The Shirdi Sai Baba Temple provides wheelchairs for elderly and physically challenged devotees to ensure they can move around the temple complex comfortably.</li>
-    <li>Access Points: Wheelchairs can be requested at the entrance gates and are available for use throughout the temple premises.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Access the Wheelchair Facility</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Advance Booking:</h3>
-  <ul class="bullet-list">
-    <li>It is recommended to contact the temple administration in advance to ensure the availability of a wheelchair, especially during peak visiting times and festivals.</li>
-    <li>Advance bookings can be made through the temple&#x27;s official website or by calling the temple administration office.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">On-Site Request:</h3>
-  <ul class="bullet-list">
-    <li>Wheelchairs can also be requested on-site at the temple. Look for the information desks or help centers near the main entrance gates where temple staff can assist with providing a wheelchair.</li>
-    <li>Contact Information: Temple staff at the entrance gates or information desks can help with the provision and guidance on using the wheelchair facilities.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Assistance</h5>
-  <ul class="bullet-list">
-    <li>Temple Staff and Volunteers: The temple has dedicated staff and volunteers to assist physically challenged and elderly devotees, helping them navigate the temple premises, including access to darshan and participation in rituals.</li>
-    <li>Special Darshan Lines: There are often special lines and priority access points for physically challenged devotees to facilitate quicker and more comfortable darshan experiences.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
-  <p>Shirdi Sai Baba Temple - Special Entry and Darshan Timings for Sick, Senior Citizens, and Physically Challenged Persons</p>
-  <h5 class="section__sub-b">Special Entry Provisions</h5>
-  <ul class="bullet-list">
-    <li>Dedicated Entry Points: The Shirdi Sai Baba Temple provides dedicated entry points for sick individuals, senior citizens, and physically challenged persons to facilitate easier access and avoid long queues.</li>
-    <li>Assistance: Temple staff and volunteers are available to assist these visitors, ensuring they can navigate the temple premises comfortably and safely.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Darshan Timings</h5>
-  <ul class="bullet-list">
-    <li>Priority Darshan: Special darshan timings or priority access may be provided to sick individuals, senior citizens, and physically challenged persons, especially during peak hours or busy festival times. This helps them avoid long waiting times and ensures a more comfortable experience.</li>
-    <li>Specific Timings: While the exact timings for special darshan can vary, it is generally aligned with the temple&#x27;s quieter periods. Early mornings and late evenings are often preferred times for providing special access to these groups.</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure for Accessing Special Entry and Darshan</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact Temple Administration: For specific arrangements and to confirm the availability of special darshan timings, it is recommended to contact the temple administration directly.</h3>
-  <h5 class="section__sub-b">Additional Services</h5>
-  <ul class="bullet-list">
-    <li>Seating Areas: The temple provides special seating or resting areas for elderly and physically challenged visitors to rest before or after darshan.</li>
-    <li>Medical Assistance: Basic medical assistance and first aid are available on-site for those who may need it.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact Information for Special Arrangements</h5>
-  <ul class="bullet-list">
-    <li>Official Website: For the most accurate and up-to-date information, visit the Shirdi Sai Baba Temple official website.</li>
-    <li>Temple Helpdesk: Contact the temple helpdesk or administration office directly to inquire about special entry, darshan timings, and any other assistance required.</li>
-  </ul>
-  <p>These provisions are part of the temple’s efforts to ensure that all devotees, regardless of their physical abilities or health conditions, can have a fulfilling and comfortable spiritual experience at Shirdi Sai Baba Temple​ (Sai.org)​​ (Myoksha Travels)​​ (Sai Baba US)​​ (Devotional Yatra)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <p>Shirdi Sai Baba Temple - Vehicle Pooja</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Vehicle Pooja Details:</h3>
-  <ul class="bullet-list">
-    <li>Location: The vehicle pooja is performed outside Gate No. 4 of the Shirdi Sai Baba Temple premises.</li>
-    <li>Timings: The pooja is conducted daily from 9:00 AM to 11:30 AM and from 1:00 PM to 5:00 PM. Poojas are not conducted during aarti times.</li>
-    <li>Cost:</li>
-    <li>Two-Wheeler: INR 51</li>
-    <li>Four-Wheeler: INR 151</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation Provided by the Temple: The Shri Saibaba Sansthan Trust provides various types of accommodation facilities for pilgrims visiting Shirdi. These accommodations cater to different budget ranges and requirements, ensuring a comfortable stay for all devotees.</h3>
-  <h5 class="section__sub-b">Types of Accommodation</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Sai Ashram:</h3>
-  <ul class="bullet-list">
-    <li>Type: Budget accommodation with basic amenities.</li>
-    <li>Features: Clean rooms with attached bathrooms, 24-hour water supply, and basic furniture.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dwarawati Bhaktiniwas:</h3>
-  <ul class="bullet-list">
-    <li>Type: Mid-range accommodation.</li>
-    <li>Features: Well-furnished rooms with attached bathrooms, 24-hour electricity, water supply, and a common dining area.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">New Bhakta Niwas:</h3>
-  <ul class="bullet-list">
-    <li>Type: Modern accommodation facilities.</li>
-    <li>Features: Spacious rooms with modern amenities, air conditioning, attached bathrooms, and common areas for dining and relaxation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sai Niwas:</h3>
-  <ul class="bullet-list">
-    <li>Type: Premium accommodation.</li>
-    <li>Features: Luxury rooms with high-end amenities, air conditioning, attached bathrooms, and exclusive dining facilities.</li>
-  </ul>
-  <h5 class="section__sub-b">Cost</h5>
-  <ul class="bullet-list">
-    <li>Varies: The cost of accommodation varies depending on the type of room and the facilities provided. Prices are generally nominal to ensure affordability for all devotees.</li>
-    <li>Sai Ashram: Approximately INR 100 to INR 500 per night.</li>
-    <li>Dwarawati Bhaktiniwas: Approximately INR 200 to INR 800 per night.</li>
-    <li>New Bhakta Niwas: Approximately INR 300 to INR 1,200 per night.</li>
-    <li>Sai Niwas: Prices can be higher, around INR 1,000 to INR 2,500 per night, depending on the room type and facilities.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Book in Advance</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Booking:</h3>
-  <ul class="bullet-list">
-    <li>Website: Advance booking can be done through the temple’s official online booking portal.</li>
-    <li>Link: Shirdi Sai Baba Temple Online Booking</li>
-    <li>Steps: Create an account, log in, select the accommodation type, choose the dates, and complete the payment process.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Phone Booking:</h3>
-  <ul class="bullet-list">
-    <li>Contact Numbers: Pilgrims can also book accommodations by calling the temple’s accommodation booking office.</li>
-    <li>Helpline Numbers: +91 7588375204 / 7588371245 / 7588373189 / 7588374469</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">On-Site Booking:</h3>
-  <ul class="bullet-list">
-    <li>Availability: Rooms can be booked on arrival at the temple’s accommodation booking counters, subject to availability.</li>
-    <li>Location: Booking offices are located within the temple premises and near the major accommodation complexes.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Information</h5>
-  <ul class="bullet-list">
-    <li>Check-In/Check-Out: Standard check-in and check-out times are usually 12:00 PM.</li>
-    <li>Documents Required: Valid ID proof is required for booking and check-in.</li>
-  </ul>
-  <p>For more detailed information and to make advance arrangements, you can visit the official Shirdi Sai Baba Temple website​ (Sai.org)​​ (Myoksha Travels)​​ (Sai.org)​​ (Sai Trust)​​ (TempleDairy)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Parking Availability: The Shri Saibaba Sansthan Trust provides ample parking facilities to accommodate the large number of devotees who visit the temple. These facilities are organized to ensure convenience for all types of vehicles, including cars, mini buses, and two-wheelers.</h3>
-  <h5 class="section__sub-b">Types of Parking</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Car Parking:</h3>
-  <ul class="bullet-list">
-    <li>Location: Dedicated parking areas for cars are available near the temple premises. The main car parking area is located near Gate No. 1 and Gate No. 2.</li>
-    <li>Capacity: These parking lots are designed to accommodate a substantial number of cars, ensuring that visitors can park their vehicles safely.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Mini Bus Parking:</h3>
-  <ul class="bullet-list">
-    <li>Location: Parking for larger vehicles like mini buses is available in designated sections within the main parking area, ensuring easy access and maneuverability for buses.</li>
-    <li>Capacity: Special zones are marked for buses to park without causing congestion.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Two-Wheeler Parking:</h3>
-  <ul class="bullet-list">
-    <li>Location: Separate zones for two-wheelers are available near the main temple entrance gates, ensuring that motorcycles and scooters have a secure place to park.</li>
-    <li>Capacity: These zones are organized to maximize space and ensure the safety of two-wheelers.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Information</h5>
-  <ul class="bullet-list">
-    <li>Security: All parking areas are monitored by temple security to ensure the safety of vehicles. CCTV cameras and security personnel are present to prevent any mishaps or thefts.</li>
-    <li>Fees: A nominal parking fee may be charged, which helps in the maintenance of the parking facilities. The exact fees can vary and should be checked upon arrival.</li>
-    <li>Accessibility: The parking areas are located at a convenient distance from the temple, allowing easy access for devotees.</li>
-  </ul>
-  <p>For the most accurate and updated information regarding parking facilities, including exact locations and current fees, it is recommended to visit the official Shirdi Sai Baba Temple website or contact the temple administration directly. This ensures that you have the latest details for a smooth and hassle-free visit.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
-  <p>Shirdi Sai Baba Temple - Prasad Services and Meals</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Prasadalaya (Dining Hall): The Shri Sai Baba Sansthan Trust operates the Shri Sai Prasadalaya, a large dining hall located behind the Shirdi Police Station. It is renowned for being Asia&#x27;s largest solar-powered kitchen, serving free and affordable meals to devotees.</h3>
-  <h5 class="section__sub-b">Timings</h5>
-  <ul class="bullet-list">
-    <li>Food Serving Timings: 10:00 AM to 10:00 PM daily.</li>
-    <li>Ticket Counter Timings: 9:30 AM to 9:30 PM.</li>
-  </ul>
-  <h5 class="section__sub-b">Dining Halls</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Ground Floor Hall:</h3>
-  <ul class="bullet-list">
-    <li>Capacity: Seats 4,500 devotees at a time.</li>
-    <li>Cost: Free meal passes are issued at the counter.</li>
-    <li>Menu: Typically includes rice, chapati, dal, vegetables, and a sweet.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">First Floor Halls:</h3>
-  <ul class="bullet-list">
-    <li>Capacity: Two halls with seating for 1,000 each.</li>
-    <li>Cost: INR 50 per person for a meal ticket.</li>
-    <li>Features: These halls are equipped with dining tables, and there is an elevator available for easy access.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Facilities</h5>
-  <ul class="bullet-list">
-    <li>VIP Meal Passes: Available for INR 50, offering faster service with a waiting time of less than 10 minutes.</li>
-    <li>Free Meal Section: There is a special hall where free meals are provided to those who cannot afford them, accommodating up to 150 people at a time.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking and Procedure</h5>
-  <ul class="bullet-list">
-    <li>Free Meals: Tickets for free meals can be obtained from the ticket counter at the Prasadalaya.</li>
-    <li>Paid Meals: Tickets for paid meals can be purchased at the ticket counter on the ground floor of the Prasadalaya.</li>
-    <li>Advance Booking: While there is no online booking for meals, devotees can get their meal passes from the counters on arrival.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Services</h5>
-  <ul class="bullet-list">
-    <li>The Prasadalaya uses solar energy for cooking, which helps in preparing meals for thousands of devotees every day in an eco-friendly manner.</li>
-    <li>The facility also includes modern kitchen equipment to maintain high standards of hygiene and efficiency.</li>
-  </ul>
-  <p>For more detailed information and to plan your visit, you can check the official website of Shri Sai Baba Sansthan Trust or the online services portal​ (Temple Info)​​ (Sai.org)​​ (visit shirdi)​​ (Sai.org)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <p>Shirdi Sai Baba Temple - Carry Home Prasad</p>
-  <h5 class="section__sub-b">Types of Carry Home Prasad</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Ladoos:</h3>
-  <ul class="bullet-list">
-    <li>Description: Specially prepared with bundi, pure ghee, dry fruits like cashews and almonds, khoya, and milk.</li>
-    <li>Availability: From 6:00 AM to 10:00 PM.</li>
-    <li>Cost: INR 30 per packet.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dry Fruits and Sweets:</h3>
-  <ul class="bullet-list">
-    <li>Description: Various traditional Indian sweets and dry fruits offered as prasad.</li>
-    <li>Availability: Available at prasad counters within the temple premises.</li>
-    <li>Cost: Prices vary depending on the type and quantity.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Prasad Tokens:</h3>
-  <ul class="bullet-list">
-    <li>Description: Tokens for prasad which can be collected from designated counters.</li>
-    <li>Availability: Can be obtained at the temple and used to collect prasad items.</li>
-    <li>Cost: Typically around INR 210 for a complete prasad package.</li>
-  </ul>
-  <h5 class="section__sub-b">Purchasing Procedure</h5>
-  <ul class="bullet-list">
-    <li>On-Site Purchase: Prasad can be purchased at designated prasad counters within the temple complex. These counters are typically located near the main temple and the Prasadalaya.</li>
-    <li>Online Booking: Some prasad items may be available for booking through the temple’s official online portal, especially for devotees who cannot visit in person.</li>
-  </ul>
-  <h5 class="section__sub-b">Key Points to Note</h5>
-  <ul class="bullet-list">
-    <li>Ensure to buy prasad only from authorized counters to guarantee authenticity and support the temple’s initiatives.</li>
-    <li>The prasad counters usually provide hygienically packed items to maintain quality and purity.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <h5 class="section__sub-b">Steps to Report Lost Items</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Immediate Reporting:</h3>
-  <ul class="bullet-list">
-    <li>If you realize that an item is lost while you are still within the temple premises, immediately report it to the nearest security personnel or temple staff. Quick action increases the likelihood of recovering the lost item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Lost and Found Office:</h3>
-  <ul class="bullet-list">
-    <li>Location: The Lost and Found office is usually located near the main entrance or close to the temple administration office.</li>
-    <li>Contact Point: Approach the office and inform them about the lost item. The staff will assist you in logging the report.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Provide Detailed Information:</h3>
-  <ul class="bullet-list">
-    <li>Description: Give a detailed description of the lost item, including any unique features, the approximate time and place it was lost, and your contact information.</li>
-    <li>Identification: If possible, provide a photograph or receipt of the item, which can help in identifying it more accurately.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Fill Out a Lost Item Report:</h3>
-  <ul class="bullet-list">
-    <li>Form Submission: You may need to fill out a form with details about the lost item. This form will typically ask for your name, contact information, description of the item, and the circumstances under which it was lost.</li>
-    <li>Documentation: Ensure that you receive a copy of the report or a reference number for follow-up.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Check Back Regularly:</h3>
-  <ul class="bullet-list">
-    <li>Follow-Up: If the item is not immediately found, leave your contact details with the Lost and Found office and check back periodically to see if the item has been recovered.</li>
-    <li>Contact Information: Keep the Lost and Found office&#x27;s contact information handy for follow-up inquiries.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Tips</h5>
-  <ul class="bullet-list">
-    <li>Secure Valuables: It is advisable to avoid carrying valuable items into the temple. If necessary, use the temple&#x27;s cloakroom or locker facilities to store them safely.</li>
-    <li>Be Mindful: Always be mindful of your belongings, especially in crowded areas.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>Shirdi Sai Baba Temple - Reporting Missing Group Members</p>
-  <h5 class="section__sub-b">Steps to Report a Missing Person</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Immediate Reporting:</h3>
-  <ul class="bullet-list">
-    <li>If a group member goes missing, immediately inform the nearest security personnel or temple staff. Quick reporting increases the chances of finding the missing person swiftly.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Temple Information Desk:</h3>
-  <ul class="bullet-list">
-    <li>Location: The information desk is typically located near the main entrance of the temple.</li>
-    <li>Procedure: Report the missing person to the staff at the information desk, providing detailed information about the missing person, including their name, age, physical appearance, clothing, and the last known location.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Provide Detailed Information:</h3>
-  <ul class="bullet-list">
-    <li>Description: Give a detailed description of the missing person, including any distinctive features or items they may have with them.</li>
-    <li>Contact Information: Provide your contact details so the temple staff can reach you if the missing person is found.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Public Address System:</h3>
-  <ul class="bullet-list">
-    <li>Announcement: The temple staff may use the public address system to announce details of the missing person, especially if it involves children or vulnerable adults.</li>
-  </ul>
-  <h5 class="section__sub-b">Designated Waiting Area</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Stay Put: After reporting, it is advisable to stay at the designated meeting point or near the information desk. Moving around may reduce the chances of the missing person finding you.</h3>
-  <h5 class="section__sub-b">Temple Security Assistance</h5>
-  <ul class="bullet-list">
-    <li>Guidance: Follow any guidance provided by the temple security personnel. They may conduct a search within the temple premises or take additional measures to locate the missing person.</li>
-    <li>Search Coordination: Temple security may coordinate with other staff members and volunteers to assist in locating the missing person.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact Information for Emergencies</h5>
-  <ul class="bullet-list">
-    <li>Helpline: Keep the temple’s emergency contact numbers handy. You can find these on the temple&#x27;s official website or by inquiring at the information desk.</li>
-  </ul>
-  <h5 class="section__sub-b">Precautions for Group Visits</h5>
-  <ul class="bullet-list">
-    <li>Buddy System: Use a buddy system where each group member is responsible for keeping an eye on another.</li>
-    <li>Communication Plan: Establish a communication plan, including shared contact numbers and instructions on what to do if someone gets lost.</li>
-  </ul>
-  <h5 class="section__sub-b">Temple Contact Information</h5>
-  <ul class="bullet-list">
-    <li>Official Website: For more detailed information and assistance, visit the official Shirdi Sai Baba Temple website.</li>
-  </ul>
-  <p>By following these steps, you can efficiently handle the situation if a group member goes missing, ensuring a quick and safe resolution.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
-  <p>Shirdi Sai Baba Temple - Registration and Administration</p>
-  <p>The Shirdi Sai Baba Temple is governed and managed by the Shri Saibaba Sansthan Trust, Shirdi. This trust is the authorized body responsible for overseeing all activities within the temple complex, including daily operations, maintenance, and various services provided to devotees. The trust also manages several charitable initiatives, including hospitals, educational institutions, and community services.</p>
-  <h5 class="section__sub-b">Key Information</h5>
-  <p>Name: Shri Saibaba Sansthan Trust, Shirdi</p>
-  <p>Full Address: Shri Saibaba Sansthan Trust, Shirdi, PO: Shirdi Tal. Rahata, Dist. Ahmednagar, Maharashtra, India, Pincode: 423109.</p>
-  <h5 class="section__sub-b">Contact Numbers</h5>
-  <ul class="bullet-list">
-    <li>PRO Office: (02423) 258500</li>
-    <li>Temple Office: (02423) 258777, 258870, 258770</li>
-  </ul>
-  <p>Email: saibaba@sai.org.in</p>
-  <p>Website: Shirdi Sai Baba Temple</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Condensed Information About the Temple:</h3>
-  <ul class="bullet-list">
-    <li>Main Deity: Sai Baba</li>
-    <li>Other Deities:</li>
-    <li>Khandoba</li>
-    <li>Gurusthan (a site under a neem tree where Sai Baba was first spotted meditating)</li>
-    <li>Dwarkamai (the mosque where Sai Baba spent a significant portion of his life)</li>
-    <li>Chavadi (a place where Sai Baba used to sleep every alternate night)</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Registration and Governance:</h3>
-  <p>The temple is officially registered and operates under the state government and district administration guidelines. The Shri Saibaba Sansthan Trust, established to manage the temple&#x27;s activities, is a government-recognized body that ensures the smooth operation of all temple-related services and charitable activities.</p>
-  <p>For more detailed information, visit the official website of the Shirdi Sai Baba Temple or contact their administration directly. This will provide you with the most accurate and comprehensive details regarding the temple&#x27;s governance and administrative structure.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
-  <p>Shirdi Sai Baba Temple - Making Donations</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>Website: Donations can be made online via the official Shri Saibaba Sansthan Trust website.</li>
-    <li>Link: Online Donation Portal</li>
-    <li>Procedure: Create an account or log in, select the type of donation, fill in the required details, and complete the payment using available online payment methods like credit/debit cards, net banking, or digital wallets.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bank Transfer:</h3>
-  <ul class="bullet-list">
-    <li>Bank Details: You can transfer donations directly to the temple’s bank account. The details for bank transfer are provided on the official website.</li>
-    <li>Account Name: Shri Saibaba Sansthan Trust, Shirdi</li>
-    <li>Bank Name: State Bank of India, Shirdi Branch</li>
-    <li>Account Number: Details can be obtained from the official website</li>
-    <li>IFSC Code: Details can be obtained from the official website</li>
-    <li>Purpose: While making a bank transfer, you can specify the purpose of the donation (e.g., Annadan, medical aid, education, general trust activities).</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cheque or Demand Draft:</h3>
-  <ul class="bullet-list">
-    <li>Payable To: Shri Saibaba Sansthan Trust, Shirdi</li>
-    <li>Submission: Cheques or demand drafts can be mailed to the temple’s address or deposited directly at the temple office.</li>
-    <li>Address: Shri Saibaba Sansthan Trust, Shirdi, PO: Shirdi Tal. Rahata, Dist. Ahmednagar, Maharashtra, India, Pincode: 423109.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Donation at Temple Offices:</h3>
-  <ul class="bullet-list">
-    <li>On-Site Donation: You can make donations directly at the temple&#x27;s donation counters during your visit. The counters accept cash, cheque, or card payments.</li>
-    <li>Receipts: Always ensure to get a receipt for your donation, which is necessary for record-keeping and tax purposes.</li>
-  </ul>
-  <h5 class="section__sub-b">Purposes for Donations</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">General Donations: To be used at the discretion of the temple trust for various activities and charitable projects.</h3>
-  <h5 class="section__sub-b">Tax Exemptions</h5>
-  <ul class="bullet-list">
-    <li>80G: Donations to the Shri Saibaba Sansthan Trust are eligible for tax deductions under Section 80G of the Income Tax Act.</li>
-    <li>Receipt and Documentation: Ensure you receive a donation receipt and necessary documentation to claim tax benefits.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <p>Privileges Associated with Donations at Shirdi Sai Baba Temple</p>
-  <h5 class="section__sub-b">Donation Privileges</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">General Privileges:</h3>
-  <ul class="bullet-list">
-    <li>Receipt and Prasad: All donors receive a donation receipt along with holy Udi Prasad. This applies to donations made through various methods including online, at donation counters, and via bank transfers.</li>
-    <li>Tax Benefits: Donations to the Shri Saibaba Sansthan Trust are eligible for tax deductions under Section 80G of the Income Tax Act. This applies to donations made to specific funds such as Annadan, Education, Medical, and Building Funds.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Annadan (Food Donation):</h3>
-  <ul class="bullet-list">
-    <li>Daily Annadanam: Donations towards daily Annadanam (free meal distribution) are highly encouraged. Specific donation amounts may provide special privileges such as recognition at the Prasadalaya or during special events.</li>
-    <li>Special Occasions: Donations made for Annadanam on special occasions like weddings, birthdays, or in memory of a loved one can be acknowledged with a mention during the meal service on the specified day.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Medical and Educational Donations:</h3>
-  <ul class="bullet-list">
-    <li>Medical Fund: Donations to the Medical Fund support the Shri Saibaba Sansthan Trust&#x27;s hospitals and medical services, providing updated medical facilities at affordable rates.</li>
-    <li>Educational Fund: Contributions to the Educational Fund help in running and maintaining educational institutions and supporting students from rural areas with advanced educational facilities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Building and Maintenance Fund:</h3>
-  <ul class="bullet-list">
-    <li>Construction Projects: Donations to the Building Fund are utilized for the construction and maintenance of temple facilities, including the darshan queue complexes, Prasadalaya, and accommodation buildings.</li>
-    <li>Recognition: Significant donors may receive acknowledgment through plaques or inscriptions in new construction projects or renovated areas.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Religious Program Fund:</h3>
-  <ul class="bullet-list">
-    <li>Abhishek Fund: Donations support daily Abhishek pooja of Shri Saibaba, with pooja materials supplied by the Sansthan Trust.</li>
-    <li>Festival Fund: Contributions help in organizing and conducting major festivals like Ram Navami, Guru Purnima, and Vijayadashami, ensuring grand celebrations and proper arrangements.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Donate</h5>
-  <ul class="bullet-list">
-    <li>Online Donations: Donations can be made through the official online portal.</li>
-    <li>Bank Transfers: Direct bank transfers can be made to the designated accounts. Details for both Indian and foreign currency donations are provided on the official website.</li>
-    <li>In-Person Donations: Donations can also be made at the various donation counters located within the temple premises and at the Sansthan’s information centers in major cities.</li>
-  </ul>
-  <p>For more information and to make a donation, you can visit the official website of Shri Saibaba Sansthan Trust​ (Sai.org)​​ (Sai.org)​​ (Sai Trust)​​ (Saibaba Trust)​​ (Saibaba Trust CrowdFund)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple?</h3>
-  <h5 class="section__sub-b">Historical Background</h5>
-  <ul class="bullet-list">
-    <li>Origins: The Shirdi Sai Baba Temple, also known as the Samadhi Mandir, was built over the samadhi (tomb) of Sai Baba. The construction began in 1915 by a wealthy devotee, Shreemant Gopalrao Buti, and was completed in 1918, the year Sai Baba attained Mahasamadhi.</li>
-    <li>Initial Purpose: Originally intended as a Wada (residential building) with a temple for Lord Krishna, it was converted into a Samadhi Mandir following Sai Baba&#x27;s wishes and subsequent passing.</li>
-  </ul>
-  <h5 class="section__sub-b">Architectural Details</h5>
-  <ul class="bullet-list">
-    <li>Materials Used: The Samadhi is constructed from white marble stones, and the temple features intricate ornamental decorations. The statue of Sai Baba, seated on a throne, is made from Italian marble and was sculpted by Balaji Vasant in 1954.</li>
-    <li>Design Elements: The temple includes a railing around the Samadhi, embellished with silver and other decorative elements. A silver umbrella is placed above Sai Baba’s statue, adding to its grandeur.</li>
-    <li>Assembly Hall: In front of the Samadhi, there is a large assembly hall that can accommodate around 600 devotees. This hall also showcases various belongings of Sai Baba and artifacts depicting his life.</li>
-  </ul>
-  <h5 class="section__sub-b">Modern Facilities and Scientific Aspects</h5>
-  <ul class="bullet-list">
-    <li>Eco-Friendly Initiatives: The temple complex includes a solar-powered kitchen, one of the largest in Asia, which significantly reduces the carbon footprint and provides meals to thousands of devotees daily.</li>
-    <li>Technological Integration: The temple employs advanced crowd management and security systems to ensure the safety and comfort of visitors. CCTV cameras and metal detectors are installed throughout the premises.</li>
-  </ul>
-  <h5 class="section__sub-b">Temple Expansion and Construction Policy</h5>
-  <ul class="bullet-list">
-    <li>New Projects: The Shri Saibaba Sansthan Trust is involved in constructing new Sai Baba temples across India to spread his teachings. These projects often include additional facilities like hospitals and dining halls to serve the local communities.</li>
-    <li>Community Services: The temple trust also undertakes various social initiatives, including education and medical services, funded by donations from devotees.</li>
-  </ul>
-  <h5 class="section__sub-b">Spiritual Significance</h5>
-  <ul class="bullet-list">
-    <li>Samadhi Mandir: The Samadhi Mandir is the focal point of the temple complex, symbolizing peace, faith, and spiritual fulfillment. Devotees from all over the world visit the temple to seek blessings and experience the serene atmosphere.</li>
-  </ul>
-  <p>For more detailed information about the construction and architectural details of the Shirdi Sai Baba Temple, you can visit the official website of the Shri Saibaba Sansthan Trust​ (Unacademy)​​ (Astha Tourism)​​ (Sai.org)​​ (Sai.org)​​ (Shirdi Tourism)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-  <p>Special Significance of Shirdi Sai Baba Temple</p>
-  <h5 class="section__sub-b">Spiritual and Cultural Significance</h5>
-  <ul class="bullet-list">
-    <li>Spiritual Hub: The Shirdi Sai Baba Temple is revered as a major spiritual center for followers of Sai Baba. Devotees believe in the miraculous powers and teachings of Sai Baba, who emphasized universal love, compassion, and charity.</li>
-    <li>Global Pilgrimage Site: The temple attracts millions of devotees from around the world, seeking blessings and spiritual solace. The faith and devotion associated with Sai Baba’s teachings continue to draw people from various cultures and backgrounds.</li>
-  </ul>
-  <h5 class="section__sub-b">Unique Aspects</h5>
-  <ul class="bullet-list">
-    <li>Miraculous Stories: Numerous devotees have reported experiencing miracles and blessings after visiting the temple and praying at the Samadhi Mandir. These stories contribute to the temple&#x27;s mystical and divine aura.</li>
-    <li>Cultural Events: The temple is the focal point for several major festivals, including Guru Purnima, Ram Navami, and Vijayadashami, which are celebrated with great fervor and attract large crowds.</li>
-  </ul>
-  <h5 class="section__sub-b">Comparative Significance</h5>
-  <ul class="bullet-list">
-    <li>Geographic and Energetic Similarities: Unlike the Kasar Devi Temple in Uttarakhand, which is noted for its geomagnetic field and cosmic energy, the Shirdi Sai Baba Temple’s significance is primarily rooted in the spiritual and emotional experiences of its devotees. There are no specific claims or studies regarding geomagnetic fields or paramagnetism around Shirdi similar to those at Kasar Devi.</li>
-    <li>Historical and Mystical Presence: While Kasar Devi is famous for its cosmic energy, Shirdi&#x27;s significance is deeply tied to the life and teachings of Sai Baba, whose presence is felt by devotees through the sacred atmosphere of the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Sai Baba’s Teachings</h5>
-  <ul class="bullet-list">
-    <li>Universal Appeal: Sai Baba’s teachings transcend religious boundaries, promoting values of love, forgiveness, helping others, charity, contentment, and inner peace. This universal message adds to the temple&#x27;s appeal to a broad audience.</li>
-  </ul>
-  <h5 class="section__sub-b">Scientific and Structural Aspects</h5>
-  <ul class="bullet-list">
-    <li>Modern Facilities: The temple complex includes advanced facilities like a solar-powered kitchen, efficient crowd management systems, and robust security measures, reflecting a blend of traditional reverence and modern science.</li>
-  </ul>
-  <h5 class="section__sub-b">Visitor Experiences</h5>
-  <ul class="bullet-list">
-    <li>Sense of Peace: Visitors often report a profound sense of peace and spiritual fulfillment upon entering the temple premises, attributing this to the divine presence of Sai Baba.</li>
-  </ul>
-  <p>For a comprehensive understanding of the Shirdi Sai Baba Temple’s significance, visiting the temple&#x27;s official website and exploring the extensive literature on Sai Baba’s life and teachings would be beneficial.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
-  <p>Shirdi Sai Baba Temple - Spiritual Information for Foreigners</p>
-  <p>Overview: The Shirdi Sai Baba Temple is a place of deep spiritual significance that transcends religious boundaries. Sai Baba&#x27;s teachings focus on universal values such as love, compassion, and selfless service, making the temple an attractive destination for those seeking spiritual growth rather than religious rituals.</p>
-  <h5 class="section__sub-b">Key Aspects for Foreigners</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Teachings of Sai Baba:</h3>
-  <ul class="bullet-list">
-    <li>Universal Values: Sai Baba emphasized the importance of love, forgiveness, helping others, charity, contentment, and devotion to God and Guru. These teachings resonate with universal spiritual principles that appeal to people of all backgrounds.</li>
-    <li>Quotes and Messages: Sai Baba’s messages, such as &quot;Shraddha&quot; (faith) and &quot;Saburi&quot; (patience), are central to his philosophy and offer profound spiritual guidance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Spiritual Practices:</h3>
-  <ul class="bullet-list">
-    <li>Meditation and Reflection: The temple provides a serene environment for meditation and reflection. Visitors are encouraged to sit in silence and connect with their inner selves, drawing inspiration from the peaceful surroundings.</li>
-    <li>Darshan: Viewing the Samadhi (tomb) of Sai Baba is considered a spiritually enriching experience. Devotees believe that simply being in the presence of Sai Baba’s Samadhi can bring inner peace and clarity.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural Experience:</h3>
-  <ul class="bullet-list">
-    <li>Rituals and Ceremonies: While the temple conducts various Hindu rituals, the focus is on the spiritual experience rather than the religious aspect. Observing these rituals can provide insights into Indian spiritual practices.</li>
-    <li>Festivals: Major festivals like Guru Purnima, Ram Navami, and Vijayadashami are celebrated with great devotion. These events are opportunities to experience the collective spiritual fervor of thousands of devotees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Community and Service:</h3>
-  <ul class="bullet-list">
-    <li>Annadan (Food Donation): The temple operates a large dining hall that provides free meals to thousands of devotees daily. Participating in or contributing to this service is a way to practice selfless service, a core principle of Sai Baba’s teachings.</li>
-    <li>Charitable Activities: The temple is involved in various charitable activities, including running hospitals and schools. Engaging with these initiatives offers a chance to contribute to the welfare of the community.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Spiritual Atmosphere:</h3>
-  <ul class="bullet-list">
-    <li>Peaceful Environment: The temple complex is designed to provide a tranquil and spiritually uplifting environment. The calm and serene atmosphere helps visitors feel a sense of spiritual rejuvenation.</li>
-    <li>Sacred Spaces: Key spots like Dwarkamai, where Sai Baba spent a significant portion of his life, and the Chavadi, where he used to sleep, are considered sacred and imbued with spiritual energy.</li>
-  </ul>
-  <h5 class="section__sub-b">Practical Information</h5>
-  <ul class="bullet-list">
-    <li>Accommodation: The temple trust offers various accommodation options for devotees, including foreigners, ensuring a comfortable stay.</li>
-    <li>Accessibility: Facilities like ramps, elevators, and wheelchairs are available to assist physically challenged and elderly visitors.</li>
-    <li>Guidelines: Respect the dress code and other temple guidelines to maintain the sanctity of the space.</li>
-  </ul>
-  <h5 class="section__sub-b">Further Exploration</h5>
-  <ul class="bullet-list">
-    <li>Books and Literature: Reading about Sai Baba’s life and teachings can enhance your understanding of his spiritual messages.</li>
-    <li>Official Website: For more detailed information, visit the Shirdi Sai Baba Temple official website.</li>
-  </ul>
-  <p>By focusing on the spiritual aspects and the universal values promoted by Sai Baba, foreigners can find a deeply meaningful and enriching experience at the Shirdi Sai Baba Temple.</p>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
-  <p>b.Donation ( link)</p>
-  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
-  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-  <p>Call to Action and Interaction Links for Shirdi Sai Baba Temple</p>
-  <p>Here are some tailored call-to-action (CTA) elements for various interactions related to the Shirdi Sai Baba Temple:</p>
-  <h5 class="section__sub-b">A. Puja Booking</h5>
-  <ul class="bullet-list">
-    <li>CTA Button: &quot;Book Your Puja Now&quot;</li>
-    <li>Description: Participate in the sacred rituals at the Shirdi Sai Baba Temple. Book your puja in advance to seek blessings and spiritual fulfillment.</li>
-    <li>Link: Puja Booking</li>
-  </ul>
-  <h5 class="section__sub-b">B. Donations</h5>
-  <ul class="bullet-list">
-    <li>CTA Button: &quot;Support Us with Your Generosity&quot;</li>
-    <li>Description: Help sustain and expand our spiritual and community services by making a donation. Your contributions make a real difference.</li>
-    <li>Link: Donate Now</li>
-  </ul>
-  <h5 class="section__sub-b">C. Accommodation</h5>
-  <ul class="bullet-list">
-    <li>CTA Button: &quot;Find Comfortable Accommodation&quot;</li>
-    <li>Description: Explore a range of accommodations near the Shirdi Sai Baba Temple. Whether you seek luxury or simplicity, find the perfect stay to enhance your spiritual journey.</li>
-    <li>Link: View Accommodations</li>
-  </ul>
-  <h5 class="section__sub-b">D. Tax Exemption Information</h5>
-  <ul class="bullet-list">
-    <li>CTA Button: &quot;Learn About Donation Benefits&quot;</li>
-    <li>Description: Discover the tax benefits of your generosity. Donations to specific services like Annadan are eligible for tax exemptions under the Income Tax Act.</li>
-    <li>Link: Tax Benefits</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Tips for Effective CTAs</h5>
-  <ul class="bullet-list">
-    <li>Visibility: Ensure that your CTAs are prominently placed across the website to catch user attention.</li>
-    <li>Urgency and Relevance: Use language that creates a sense of urgency or relevance, encouraging users to take immediate action.</li>
-    <li>Aesthetic Consistency: Design buttons and links that are visually appealing and consistent with the overall website design, ensuring they stand out yet remain integral to the page layout.</li>
-    <li>Mobile Optimization: Make sure that all CTAs are easily clickable and accessible on mobile devices, considering a significant amount of web traffic comes from mobile users.</li>
-  </ul>
-  <p>By structuring your CTAs to be clear, direct, and engaging, you enhance user interaction and conversion on your website, effectively driving more engagement with the Shirdi Sai Baba Temple&#x27;s spiritual and community services.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Events at Shirdi Sai Baba Temple</h3>
-  <p>The Shirdi Sai Baba Temple celebrates several important festivals each year with great enthusiasm and devotion. Here are the key annual events:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Ram Navami:</h3>
-  <ul class="bullet-list">
-    <li>Date: This festival usually falls in March or April, depending on the Hindu lunar calendar.</li>
-    <li>Significance: Ram Navami marks the birth of Lord Rama and is celebrated with special prayers, processions, and cultural programs.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Guru Purnima:</h3>
-  <ul class="bullet-list">
-    <li>Date: Celebrated in July.</li>
-    <li>2024 Dates: From July 20 to July 22.</li>
-    <li>Significance: This festival honors all spiritual teachers (gurus) and involves special aartis, bhajans, and the reading of sacred texts. The temple remains open throughout the night during this festival.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Vijayadashami (Dussehra):</h3>
-  <ul class="bullet-list">
-    <li>Date: Falls in September or October.</li>
-    <li>Significance: Commemorates Sai Baba&#x27;s Samadhi day. It is one of the most significant events, marked by special rituals, prayers, and a grand procession.</li>
-  </ul>
-  <p>These festivals feature a variety of spiritual activities including special aartis, bhajans, public readings of scriptures, and processions with palanquins and chariots. For detailed schedules and specific dates each year, you can visit the official website of the Shirdi Sai Baba Temple​ (Sai.org)​​ (Sai.org)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Satya Narayan Vrat:</h3>
-  <ul class="bullet-list">
-    <li>Day: Every Purnima (Full Moon Day)</li>
-    <li>Significance: This vrat (fast) is performed for the fulfillment of desires and for seeking blessings for prosperity and well-being.</li>
-    <li>Activities: Devotees perform special poojas and participate in the reading of the Satya Narayan Katha (story).</li>
-  </ul>
-  <p>For the most current and detailed information regarding monthly events, including specific dates and additional events, you can visit the official website of the Shirdi Sai Baba Temple or their online services portal​ (Sai.org)​​ (Sai Trust)​.</p>
-  <ul class="bullet-list">
-    <li>----------</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Condensed Information about the Temple:</h3>
+					  <h5 class="section__sub-b">A. Main Deity</h5>
+					  <ul class="bullet-list">
+					    <li>Sai Baba: Sai Baba of Shirdi, also known as Shirdi Sai Baba, is the primary deity worshipped at this temple. He is revered by people of all faiths and is known for his teachings of love, forgiveness, helping others, charity, contentment, inner peace, devotion to God and guru. His philosophy encapsulated the essence of both Hinduism and Islam.</li>
+					  </ul>
+					  <h5 class="section__sub-b">B. Other Deities (Sub deities)</h5>
+					  <ul class="bullet-list">
+					    <li>Khandoba: There is a shrine dedicated to Lord Khandoba, a regional deity, within the temple premises.</li>
+					    <li>Gurusthan: A site under a neem tree where Sai Baba was first spotted meditating. It&#x27;s considered a significant spot by devotees.</li>
+					    <li>Dwarkamai: The mosque where Sai Baba spent a significant portion of his life and is a place of worship within the temple complex.</li>
+					    <li>Chavadi: Another important spot where Sai Baba used to sleep every alternate night.</li>
+					    <li>Other shrines: Small shrines dedicated to Lord Ganesha, Lord Shiva, and Lord Shani are also present within the temple complex.</li>
+					  </ul>
+					  <p>The temple complex also includes various facilities for devotees including accommodation, dining, and medical aid. It actively engages in various charitable activities, supporting initiatives in education, healthcare, and social welfare.</p>
+					  <h5 class="section__sub-b">General Days</h5>
+					  <ul class="bullet-list">
+					    <li>Opening Time: The temple opens at 4:45 AM.</li>
+					    <li>Closing Time: The temple closes at 11:00 PM, following the Shej Aarti.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Daily Schedule</h5>
+					  <ul class="bullet-list">
+					    <li>The temple conducts four main Aartis during the day:</li>
+					    <li>Kakad Aarti at 5:15 AM</li>
+					    <li>Midday Aarti at 12:00 Noon</li>
+					    <li>Dhoop Aarti at Sunset (approximately 6:30 PM to 7:00 PM depending on the time of year)</li>
+					    <li>Shej Aarti at 10:30 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Days and Festivals</h5>
+					  <ul class="bullet-list">
+					    <li>On Thursdays and during major festivals like Ram Navami, Guru Purnima, and Vijaya Dashami, the temple follows a similar opening and closing schedule but may have additional rituals and processions. For example, every Thursday, Baba’s palkhi procession starts at 9:15 PM from the Samadhi Mandir.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <ul class="bullet-list">
+					    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
+					  </ul>
+					  <p>Shirdi Sai Baba Temple - Entry Fees and Privileges</p>
+					  <h5 class="section__sub-b">Entry Fees</h5>
+					  <ul class="bullet-list">
+					    <li>General Darshan: There is no entry fee for the general darshan at Shirdi Sai Baba Temple. Devotees can participate in the darshan without any charge.</li>
+					    <li>VIP Darshan: For a more expedited and comfortable experience, the temple offers VIP darshan tickets. These tickets can be purchased either online or at the temple&#x27;s ticket counters.</li>
+					  </ul>
+					  <h5 class="section__sub-b">VIP Darshan Fees</h5>
+					  <ul class="bullet-list">
+					    <li>Kakad Aarti (Morning): INR 600</li>
+					    <li>Madhyan Aarti (Midday): INR 400</li>
+					    <li>Dhoop Aarti (Evening): INR 400</li>
+					    <li>Shej Aarti (Night): INR 400</li>
+					  </ul>
+					  <h5 class="section__sub-b">Privileges of VIP Darshan</h5>
+					  <ul class="bullet-list">
+					    <li>Quick Darshan: VIP darshan tickets grant quicker access to the deity, allowing devotees to avoid long queues.</li>
+					    <li>Special Entry Gate: VIP ticket holders may have access to a special entry gate, providing a more streamlined and less crowded entry.</li>
+					    <li>Longer Viewing Time: VIP darshan might allow devotees to spend more time in front of the deity.</li>
+					    <li>Prasad: Some VIP tickets include special prasad distribution.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Entry Restrictions for Foreigners</h5>
+					  <ul class="bullet-list">
+					    <li>General Entry: There are no specific entry restrictions for foreigners. All devotees, regardless of nationality, are welcome to visit the temple.</li>
+					    <li>Special Fees: There are no additional fees specifically for foreigners. They can access the same services and facilities as Indian devotees.</li>
+					    <li>Declarations: Foreigners do not need to make any special declarations to enter the temple. However, they are expected to follow the temple&#x27;s dress code and conduct guidelines.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking and Advance Reservations</h5>
+					  <ul class="bullet-list">
+					    <li>Online Booking: VIP darshan tickets and accommodations can be booked online through the temple&#x27;s official website. This allows devotees to secure their darshan slots and stay arrangements in advance.</li>
+					    <li>On-Site Booking: Tickets can also be purchased at the temple’s ticket counters on arrival, though it is advisable to book in advance during peak times and festivals to ensure availability</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
+					  <p>Shirdi Sai Baba Temple - Location and How to Reach</p>
+					  <h5 class="section__sub-b">Location</h5>
+					  <ul class="bullet-list">
+					    <li>Address: Shri Saibaba Sansthan Trust, Shirdi, PO: Shirdi Tal. Rahata Dist. Ahmednagar, Maharashtra, India, Pincode: 423109.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Reach Shirdi</h5>
+					  <h5 class="section__sub-b">By Air</h5>
+					  <ul class="bullet-list">
+					    <li>Shirdi Airport (SAG): The nearest airport is Shirdi Airport, located about 14 km from the temple. It has regular flights from Mumbai, Hyderabad, Bengaluru, Chennai, and other major cities.</li>
+					    <li>Aurangabad Airport (IXU): Located about 125 km from Shirdi, it serves as an alternative with more flight options.</li>
+					    <li>Pune Airport (PNQ): Approximately 200 km away, offering more domestic and international connections.</li>
+					    <li>Chhatrapati Shivaji Maharaj International Airport (BOM), Mumbai: Located about 240 km from Shirdi, it is one of the major international airports in India.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Train</h5>
+					  <ul class="bullet-list">
+					    <li>Sainagar Shirdi Railway Station (SNSI): Located just 3 km from the temple, it is well-connected with major cities like Mumbai, Chennai, Hyderabad, and Bengaluru.</li>
+					    <li>Kopergaon Railway Station: About 16 km from Shirdi, it is another convenient option for train travelers.</li>
+					    <li>Manmad Junction: Approximately 58 km away, it serves as a major railway junction with connections to many parts of India.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Bus</h5>
+					  <ul class="bullet-list">
+					    <li>Maharashtra State Road Transport Corporation (MSRTC) Buses: Regular bus services operate from major cities like Mumbai, Pune, Nashik, and Aurangabad to Shirdi.</li>
+					    <li>Private Buses: Numerous private operators run daily services to Shirdi from various cities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Car/Taxi</h5>
+					  <ul class="bullet-list">
+					    <li>From Mumbai: Shirdi is about 240 km from Mumbai and can be reached by car in approximately 5 hours via the NH160 and the Mumbai-Agra Highway.</li>
+					    <li>From Pune: The distance is around 200 km, taking approximately 4.5 hours via NH60 and the Pune-Nashik Highway.</li>
+					    <li>From Nashik: Shirdi is about 90 km from Nashik, reachable in about 2 hours via the NH160.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Local Transportation</h5>
+					  <ul class="bullet-list">
+					    <li>Auto-rickshaws and Taxis: Available for local travel within Shirdi, including travel to and from the railway station and airport.</li>
+					    <li>Shuttle Services: Some hotels and guesthouses offer shuttle services to the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Ferry/Port</h5>
+					  <ul class="bullet-list">
+					    <li>There are no direct ferry or port services to Shirdi as it is an inland location.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">* .What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <p>Shirdi Sai Baba Temple - Special Poojas and Rituals</p>
+					  <h5 class="section__sub-b">Special Poojas/Rituals</h5>
+					  <h5 class="section__sub-b">1. Sai Satya Vrata Pooja</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: Four batches are conducted:</li>
+					    <li>First Batch: 7:00 AM - 8:00 AM</li>
+					    <li>Second Batch: 9:00 AM - 10:00 AM</li>
+					    <li>Third Batch: 11:00 AM - 12:00 PM</li>
+					    <li>Additional batches on the full moon day from 1:00 PM - 2:00 PM and 3:00 PM - 4:00 PM</li>
+					    <li>Cost: INR 100</li>
+					    <li>Booking: Can be done online through the official website or offline at the temple office one day in advance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Abhishek Pooja</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: Two batches:</li>
+					    <li>First Batch: 7:00 AM - 8:00 AM</li>
+					    <li>Second Batch: 9:00 AM - 10:00 AM</li>
+					    <li>Cost: INR 100</li>
+					    <li>Booking: Online booking is available on the official website or at the temple office one day in advance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Vehicle Pooja</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Outside Gate No. 4</li>
+					    <li>Booking: Performed on request; details can be obtained and booking can be done at the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Other Regular Poojas</h5>
+					  <ul class="bullet-list">
+					    <li>Kakad Aarti (Morning): 4:30 AM</li>
+					    <li>Midday Aarti: 12:00 PM</li>
+					    <li>Dhoop Aarti (Evening): At sunset</li>
+					    <li>Shej Aarti (Night): 10:30 PM</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Shirdi Sai Baba Temple - Online Services</p>
+					  <h5 class="section__sub-b">Online Services Available</h5>
+					  <h5 class="section__sub-b">1. Darshan Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Devotees can book slots for darshan to avoid long queues and ensure a smooth visit.</li>
+					    <li>Provider: Shri Saibaba Sansthan Trust</li>
+					    <li>Booking Link: Darshan Booking</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Pooja Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Online booking for various poojas and rituals such as Abhishek Pooja, Sai Satya Vrata Pooja, and vehicle poojas.</li>
+					    <li>Provider: Shri Saibaba Sansthan Trust</li>
+					    <li>Booking Link: Pooja Booking</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Accommodation Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Booking accommodations in temple-run facilities like Sai Ashram, Dwarawati, and New Bhakta Niwas.</li>
+					    <li>Provider: Shri Saibaba Sansthan Trust</li>
+					    <li>Booking Link: Accommodation Booking</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Donation</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Devotees can make donations online to support various temple activities and charitable initiatives.</li>
+					    <li>Provider: Shri Saibaba Sansthan Trust</li>
+					    <li>Donation Link: Donation</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Prasad Orders</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Devotees can order prasad online to be delivered to their homes.</li>
+					    <li>Provider: Shri Saibaba Sansthan Trust</li>
+					    <li>Prasad Link: Available on the temple&#x27;s official website.</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Live Streaming</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Live streaming of aartis and major events is available for devotees who cannot visit the temple in person.</li>
+					    <li>Provider: Shri Saibaba Sansthan Trust</li>
+					    <li>Streaming Link: Available on the temple&#x27;s official website and YouTube channel.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <h5 class="section__sub-b">General Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Modesty Required: Visitors are expected to dress modestly while visiting the Shirdi Sai Baba Temple. This means avoiding revealing or inappropriate attire.</li>
+					    <li>Traditional Attire Preferred: Traditional Indian clothing such as sarees, salwar kameez for women, and dhoti or kurta-pajama for men are preferred, especially during special poojas and festivals.</li>
+					    <li>Avoid Shorts: Shorts and other very casual or beachwear clothing are generally discouraged.</li>
+					  </ul>
+					  <h5 class="section__sub-b">For Special Poojas and Festival Days</h5>
+					  <ul class="bullet-list">
+					    <li>Festive Traditional Wear: During festivals and special poojas, visitors are encouraged to wear traditional and festive clothing. Women can wear sarees or salwar kameez, while men can wear dhoti-kurta or kurta-pajama.</li>
+					    <li>White or Light-Colored Clothes: Light or white-colored clothing is often preferred during certain rituals to symbolize purity and devotion.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Footwear</h5>
+					  <ul class="bullet-list">
+					    <li>No Footwear Inside: Footwear must be removed before entering the temple premises. There are designated areas to leave shoes outside the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Head Covering</h5>
+					  <ul class="bullet-list">
+					    <li>Optional: Covering the head is optional, but some devotees prefer to do so as a mark of respect.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Comfortable Clothing: Since the temple can be crowded, wearing comfortable clothing is advisable.</li>
+					    <li>Weather Appropriate: Consider the weather when choosing your attire. Shirdi can be hot, so breathable fabrics are recommended.</li>
+					  </ul>
+					  <p>For more specific details or updates on dress code guidelines, you can visit the official website or contact the temple administration directly. These guidelines help maintain the sanctity and decorum of the temple while ensuring that all devotees have a respectful and enriching spiritual experience​ (Myoksha Travels)​​ (Sai Baba US)​​ (Devotional Yatra)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <h5 class="section__sub-b">Electronic Gadgets Allowed</h5>
+					  <ul class="bullet-list">
+					    <li>Mobile Phones: Generally, mobile phones are allowed but must be switched to silent mode or turned off to maintain the sanctity and avoid disturbances during darshan and poojas.</li>
+					    <li>Cameras: Photography and videography inside the temple premises are generally not allowed to respect the sanctity and privacy of the worshippers and rituals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Restrictions</h5>
+					  <ul class="bullet-list">
+					    <li>Inside Sanctum Sanctorum: Electronic gadgets, including mobile phones and cameras, are typically not allowed inside the inner sanctum (Samadhi Mandir) and during special rituals to preserve the sanctity and avoid distractions.</li>
+					    <li>During Aartis and Special Poojas: Usage of gadgets is restricted to maintain a solemn atmosphere during worship.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Deposit Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Cloakrooms: The temple provides cloakrooms where devotees can safely deposit their electronic gadgets, including mobile phones, cameras, and other valuables. These facilities are usually located near the main entrance.</li>
+					    <li>Lockers: Lockers are available for devotees to store their belongings securely while they are inside the temple premises. This service is managed by the temple authorities to ensure the safety of deposited items.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure for Using Deposit Facilities</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Retrieve Items: After your visit, return to the cloakroom or locker area to retrieve your items using the provided token or receipt.</h3>
+					  <h5 class="section__sub-b">Additional Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Respect Signs and Announcements: Follow any posted signs and announcements regarding the use of electronic gadgets within the temple premises.</li>
+					    <li>Security Checks: Be prepared for security checks at the entrance where electronic gadgets may be screened, and instructions regarding their usage will be provided.</li>
+					  </ul>
+					  <p>For the most accurate and up-to-date information on the electronic gadgets policy and available facilities, it is recommended to visit the official website of the Shirdi Sai Baba Temple or contact the temple authorities directly​ (Sai Trust)​​ (Sai.org)​​ (Sai Baba US)​​ (Devotional Yatra)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <p>Shirdi Sai Baba Temple - Photography Policy</p>
+					  <h5 class="section__sub-b">Photography Allowed</h5>
+					  <ul class="bullet-list">
+					    <li>General Areas: Photography is generally allowed in the outer premises of the temple, such as the gardens, the pathways, and the general temple compound.</li>
+					    <li>Designated Areas: Specific areas may be designated where photography is permitted. These are usually outside the main prayer halls and sanctum sanctorum.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Restrictions</h5>
+					  <ul class="bullet-list">
+					    <li>Inside Sanctum Sanctorum: Photography and videography are strictly prohibited inside the sanctum sanctorum (Samadhi Mandir) and during rituals and aartis to maintain the sanctity of the temple and ensure a respectful atmosphere for worshippers.</li>
+					    <li>During Rituals: Taking photos during aartis, poojas, and other special ceremonies is not allowed to avoid disturbances and respect the spiritual environment.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Fees</h5>
+					  <ul class="bullet-list">
+					    <li>No Specific Fees: Generally, there are no specific fees for photography in the allowed areas. However, rules and regulations can change, so it is advisable to confirm with temple authorities upon arrival.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure and Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Follow Instructions: Adhere to any instructions or guidelines provided by the temple staff or posted on signs regarding photography.</li>
+					    <li>Respect Privacy: Be mindful of the privacy of other devotees and avoid taking intrusive or disrespectful photos.</li>
+					    <li>Security Checks: Be prepared for security checks that may include restrictions on carrying cameras or other electronic devices into certain parts of the temple.</li>
+					  </ul>
+					  <p>For the most accurate and updated information regarding the photography policy and any associated fees, it is best to visit the official website of the Shirdi Sai Baba Temple or contact the temple administration directly. This ensures that you have the latest guidelines and can plan your visit accordingly​ (Sai Trust)​​ (Sai.org)​​ (Sai Baba US)​​ (Devotional Yatra)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>Shirdi Sai Baba Temple - Accessibility Facilities</p>
+					  <h5 class="section__sub-b">Facilities for Physically Handicapped</h5>
+					  <h5 class="section__sub-b">1. Lifts/Elevators</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: The Shirdi Sai Baba Temple is equipped with lifts and elevators to ensure that physically handicapped devotees can access various parts of the temple complex comfortably.</li>
+					    <li>Locations: These facilities are typically available in the main temple complex and at accommodations managed by the temple trust.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Ramps</h5>
+					  <ul class="bullet-list">
+					    <li>Wheelchair Access: The temple premises have ramps installed at key locations to facilitate easy movement for devotees using wheelchairs.</li>
+					    <li>Access Points: Ramps are available at the entrance, exit, and key points within the temple to ensure smooth access to the main worship areas.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Wheelchairs</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: The temple provides wheelchairs for use by elderly and physically challenged devotees. These can be requested at the entrance or through the temple administration office.</li>
+					    <li>Advance Booking: It is advisable to contact the temple administration in advance to ensure the availability of a wheelchair.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Special Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Staff: Temple staff and volunteers are available to assist physically handicapped devotees in navigating the temple premises and ensuring a comfortable visit.</li>
+					    <li>Dedicated Lines: There are special lines and provisions for quick and easy darshan for physically handicapped devotees to avoid long queues.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Accessible Restrooms</h5>
+					  <ul class="bullet-list">
+					    <li>Facilities: Accessible restrooms are available within the temple complex, designed to accommodate visitors with disabilities.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>Shirdi Sai Baba Temple - Wheelchair Facility for Elderly and Physically Challenged</p>
+					  <h5 class="section__sub-b">Availability of Wheelchairs</h5>
+					  <ul class="bullet-list">
+					    <li>Wheelchair Provision: The Shirdi Sai Baba Temple provides wheelchairs for elderly and physically challenged devotees to ensure they can move around the temple complex comfortably.</li>
+					    <li>Access Points: Wheelchairs can be requested at the entrance gates and are available for use throughout the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Access the Wheelchair Facility</h5>
+					  <h5 class="section__sub-b">1. Advance Booking</h5>
+					  <ul class="bullet-list">
+					    <li>It is recommended to contact the temple administration in advance to ensure the availability of a wheelchair, especially during peak visiting times and festivals.</li>
+					    <li>Advance bookings can be made through the temple&#x27;s official website or by calling the temple administration office.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. On-Site Request</h5>
+					  <ul class="bullet-list">
+					    <li>Wheelchairs can also be requested on-site at the temple. Look for the information desks or help centers near the main entrance gates where temple staff can assist with providing a wheelchair.</li>
+					    <li>Contact Information: Temple staff at the entrance gates or information desks can help with the provision and guidance on using the wheelchair facilities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Staff and Volunteers: The temple has dedicated staff and volunteers to assist physically challenged and elderly devotees, helping them navigate the temple premises, including access to darshan and participation in rituals.</li>
+					    <li>Special Darshan Lines: There are often special lines and priority access points for physically challenged devotees to facilitate quicker and more comfortable darshan experiences.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <p>Shirdi Sai Baba Temple - Special Entry and Darshan Timings for Sick, Senior Citizens, and Physically Challenged Persons</p>
+					  <h5 class="section__sub-b">Special Entry Provisions</h5>
+					  <ul class="bullet-list">
+					    <li>Dedicated Entry Points: The Shirdi Sai Baba Temple provides dedicated entry points for sick individuals, senior citizens, and physically challenged persons to facilitate easier access and avoid long queues.</li>
+					    <li>Assistance: Temple staff and volunteers are available to assist these visitors, ensuring they can navigate the temple premises comfortably and safely.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Darshan Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Priority Darshan: Special darshan timings or priority access may be provided to sick individuals, senior citizens, and physically challenged persons, especially during peak hours or busy festival times. This helps them avoid long waiting times and ensures a more comfortable experience.</li>
+					    <li>Specific Timings: While the exact timings for special darshan can vary, it is generally aligned with the temple&#x27;s quieter periods. Early mornings and late evenings are often preferred times for providing special access to these groups.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure for Accessing Special Entry and Darshan</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Contact Temple Administration: For specific arrangements and to confirm the availability of special darshan timings, it is recommended to contact the temple administration directly.</h3>
+					  <h5 class="section__sub-b">Additional Services</h5>
+					  <ul class="bullet-list">
+					    <li>Seating Areas: The temple provides special seating or resting areas for elderly and physically challenged visitors to rest before or after darshan.</li>
+					    <li>Medical Assistance: Basic medical assistance and first aid are available on-site for those who may need it.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact Information for Special Arrangements</h5>
+					  <ul class="bullet-list">
+					    <li>Official Website: For the most accurate and up-to-date information, visit the Shirdi Sai Baba Temple official website.</li>
+					    <li>Temple Helpdesk: Contact the temple helpdesk or administration office directly to inquire about special entry, darshan timings, and any other assistance required.</li>
+					  </ul>
+					  <p>These provisions are part of the temple’s efforts to ensure that all devotees, regardless of their physical abilities or health conditions, can have a fulfilling and comfortable spiritual experience at Shirdi Sai Baba Temple​ (Sai.org)​​ (Myoksha Travels)​​ (Sai Baba US)​​ (Devotional Yatra)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>Shirdi Sai Baba Temple - Vehicle Pooja</p>
+					  <h5 class="section__sub-b">Vehicle Pooja Details</h5>
+					  <ul class="bullet-list">
+					    <li>Location: The vehicle pooja is performed outside Gate No. 4 of the Shirdi Sai Baba Temple premises.</li>
+					    <li>Timings: The pooja is conducted daily from 9:00 AM to 11:30 AM and from 1:00 PM to 5:00 PM. Poojas are not conducted during aarti times.</li>
+					    <li>Cost:</li>
+					    <li>Two-Wheeler: INR 51</li>
+					    <li>Four-Wheeler: INR 151</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Accommodation Provided by the Temple: The Shri Saibaba Sansthan Trust provides various types of accommodation facilities for pilgrims visiting Shirdi. These accommodations cater to different budget ranges and requirements, ensuring a comfortable stay for all devotees.</h3>
+					  <h5 class="section__sub-b">Types of Accommodation</h5>
+					  <h5 class="section__sub-b">1. Sai Ashram</h5>
+					  <ul class="bullet-list">
+					    <li>Type: Budget accommodation with basic amenities.</li>
+					    <li>Features: Clean rooms with attached bathrooms, 24-hour water supply, and basic furniture.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Dwarawati Bhaktiniwas</h5>
+					  <ul class="bullet-list">
+					    <li>Type: Mid-range accommodation.</li>
+					    <li>Features: Well-furnished rooms with attached bathrooms, 24-hour electricity, water supply, and a common dining area.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. New Bhakta Niwas</h5>
+					  <ul class="bullet-list">
+					    <li>Type: Modern accommodation facilities.</li>
+					    <li>Features: Spacious rooms with modern amenities, air conditioning, attached bathrooms, and common areas for dining and relaxation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Sai Niwas</h5>
+					  <ul class="bullet-list">
+					    <li>Type: Premium accommodation.</li>
+					    <li>Features: Luxury rooms with high-end amenities, air conditioning, attached bathrooms, and exclusive dining facilities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>Varies: The cost of accommodation varies depending on the type of room and the facilities provided. Prices are generally nominal to ensure affordability for all devotees.</li>
+					    <li>Sai Ashram: Approximately INR 100 to INR 500 per night.</li>
+					    <li>Dwarawati Bhaktiniwas: Approximately INR 200 to INR 800 per night.</li>
+					    <li>New Bhakta Niwas: Approximately INR 300 to INR 1,200 per night.</li>
+					    <li>Sai Niwas: Prices can be higher, around INR 1,000 to INR 2,500 per night, depending on the room type and facilities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Book in Advance</h5>
+					  <h5 class="section__sub-b">1. Online Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Website: Advance booking can be done through the temple’s official online booking portal.</li>
+					    <li>Link: Shirdi Sai Baba Temple Online Booking</li>
+					    <li>Steps: Create an account, log in, select the accommodation type, choose the dates, and complete the payment process.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Phone Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Contact Numbers: Pilgrims can also book accommodations by calling the temple’s accommodation booking office.</li>
+					    <li>Helpline Numbers: +91 7588375204 / 7588371245 / 7588373189 / 7588374469</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. On-Site Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: Rooms can be booked on arrival at the temple’s accommodation booking counters, subject to availability.</li>
+					    <li>Location: Booking offices are located within the temple premises and near the major accommodation complexes.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Information</h5>
+					  <ul class="bullet-list">
+					    <li>Check-In/Check-Out: Standard check-in and check-out times are usually 12:00 PM.</li>
+					    <li>Documents Required: Valid ID proof is required for booking and check-in.</li>
+					  </ul>
+					  <p>For more detailed information and to make advance arrangements, you can visit the official Shirdi Sai Baba Temple website​ (Sai.org)​​ (Myoksha Travels)​​ (Sai.org)​​ (Sai Trust)​​ (TempleDairy)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Parking Availability: The Shri Saibaba Sansthan Trust provides ample parking facilities to accommodate the large number of devotees who visit the temple. These facilities are organized to ensure convenience for all types of vehicles, including cars, mini buses, and two-wheelers.</h3>
+					  <h5 class="section__sub-b">Types of Parking</h5>
+					  <h5 class="section__sub-b">1. Car Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Dedicated parking areas for cars are available near the temple premises. The main car parking area is located near Gate No. 1 and Gate No. 2.</li>
+					    <li>Capacity: These parking lots are designed to accommodate a substantial number of cars, ensuring that visitors can park their vehicles safely.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Mini Bus Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Parking for larger vehicles like mini buses is available in designated sections within the main parking area, ensuring easy access and maneuverability for buses.</li>
+					    <li>Capacity: Special zones are marked for buses to park without causing congestion.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Two-Wheeler Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Separate zones for two-wheelers are available near the main temple entrance gates, ensuring that motorcycles and scooters have a secure place to park.</li>
+					    <li>Capacity: These zones are organized to maximize space and ensure the safety of two-wheelers.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Information</h5>
+					  <ul class="bullet-list">
+					    <li>Security: All parking areas are monitored by temple security to ensure the safety of vehicles. CCTV cameras and security personnel are present to prevent any mishaps or thefts.</li>
+					    <li>Fees: A nominal parking fee may be charged, which helps in the maintenance of the parking facilities. The exact fees can vary and should be checked upon arrival.</li>
+					    <li>Accessibility: The parking areas are located at a convenient distance from the temple, allowing easy access for devotees.</li>
+					  </ul>
+					  <p>For the most accurate and updated information regarding parking facilities, including exact locations and current fees, it is recommended to visit the official Shirdi Sai Baba Temple website or contact the temple administration directly. This ensures that you have the latest details for a smooth and hassle-free visit.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <p>Shirdi Sai Baba Temple - Prasad Services and Meals</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Prasadalaya (Dining Hall): The Shri Sai Baba Sansthan Trust operates the Shri Sai Prasadalaya, a large dining hall located behind the Shirdi Police Station. It is renowned for being Asia&#x27;s largest solar-powered kitchen, serving free and affordable meals to devotees.</h3>
+					  <h5 class="section__sub-b">Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Food Serving Timings: 10:00 AM to 10:00 PM daily.</li>
+					    <li>Ticket Counter Timings: 9:30 AM to 9:30 PM.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Dining Halls</h5>
+					  <h5 class="section__sub-b">1. Ground Floor Hall</h5>
+					  <ul class="bullet-list">
+					    <li>Capacity: Seats 4,500 devotees at a time.</li>
+					    <li>Cost: Free meal passes are issued at the counter.</li>
+					    <li>Menu: Typically includes rice, chapati, dal, vegetables, and a sweet.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. First Floor Halls</h5>
+					  <ul class="bullet-list">
+					    <li>Capacity: Two halls with seating for 1,000 each.</li>
+					    <li>Cost: INR 50 per person for a meal ticket.</li>
+					    <li>Features: These halls are equipped with dining tables, and there is an elevator available for easy access.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>VIP Meal Passes: Available for INR 50, offering faster service with a waiting time of less than 10 minutes.</li>
+					    <li>Free Meal Section: There is a special hall where free meals are provided to those who cannot afford them, accommodating up to 150 people at a time.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking and Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Free Meals: Tickets for free meals can be obtained from the ticket counter at the Prasadalaya.</li>
+					    <li>Paid Meals: Tickets for paid meals can be purchased at the ticket counter on the ground floor of the Prasadalaya.</li>
+					    <li>Advance Booking: While there is no online booking for meals, devotees can get their meal passes from the counters on arrival.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Services</h5>
+					  <ul class="bullet-list">
+					    <li>The Prasadalaya uses solar energy for cooking, which helps in preparing meals for thousands of devotees every day in an eco-friendly manner.</li>
+					    <li>The facility also includes modern kitchen equipment to maintain high standards of hygiene and efficiency.</li>
+					  </ul>
+					  <p>For more detailed information and to plan your visit, you can check the official website of Shri Sai Baba Sansthan Trust or the online services portal​ (Temple Info)​​ (Sai.org)​​ (visit shirdi)​​ (Sai.org)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>Shirdi Sai Baba Temple - Carry Home Prasad</p>
+					  <h5 class="section__sub-b">Types of Carry Home Prasad</h5>
+					  <h5 class="section__sub-b">1. Ladoos</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Specially prepared with bundi, pure ghee, dry fruits like cashews and almonds, khoya, and milk.</li>
+					    <li>Availability: From 6:00 AM to 10:00 PM.</li>
+					    <li>Cost: INR 30 per packet.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Dry Fruits and Sweets</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Various traditional Indian sweets and dry fruits offered as prasad.</li>
+					    <li>Availability: Available at prasad counters within the temple premises.</li>
+					    <li>Cost: Prices vary depending on the type and quantity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Prasad Tokens</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Tokens for prasad which can be collected from designated counters.</li>
+					    <li>Availability: Can be obtained at the temple and used to collect prasad items.</li>
+					    <li>Cost: Typically around INR 210 for a complete prasad package.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Purchasing Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>On-Site Purchase: Prasad can be purchased at designated prasad counters within the temple complex. These counters are typically located near the main temple and the Prasadalaya.</li>
+					    <li>Online Booking: Some prasad items may be available for booking through the temple’s official online portal, especially for devotees who cannot visit in person.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Key Points to Note</h5>
+					  <ul class="bullet-list">
+					    <li>Ensure to buy prasad only from authorized counters to guarantee authenticity and support the temple’s initiatives.</li>
+					    <li>The prasad counters usually provide hygienically packed items to maintain quality and purity.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <h5 class="section__sub-b">Steps to Report Lost Items</h5>
+					  <h5 class="section__sub-b">1. Immediate Reporting</h5>
+					  <ul class="bullet-list">
+					    <li>If you realize that an item is lost while you are still within the temple premises, immediately report it to the nearest security personnel or temple staff. Quick action increases the likelihood of recovering the lost item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Visit the Lost and Found Office</h5>
+					  <ul class="bullet-list">
+					    <li>Location: The Lost and Found office is usually located near the main entrance or close to the temple administration office.</li>
+					    <li>Contact Point: Approach the office and inform them about the lost item. The staff will assist you in logging the report.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Provide Detailed Information</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Give a detailed description of the lost item, including any unique features, the approximate time and place it was lost, and your contact information.</li>
+					    <li>Identification: If possible, provide a photograph or receipt of the item, which can help in identifying it more accurately.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Fill Out a Lost Item Report</h5>
+					  <ul class="bullet-list">
+					    <li>Form Submission: You may need to fill out a form with details about the lost item. This form will typically ask for your name, contact information, description of the item, and the circumstances under which it was lost.</li>
+					    <li>Documentation: Ensure that you receive a copy of the report or a reference number for follow-up.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Check Back Regularly</h5>
+					  <ul class="bullet-list">
+					    <li>Follow-Up: If the item is not immediately found, leave your contact details with the Lost and Found office and check back periodically to see if the item has been recovered.</li>
+					    <li>Contact Information: Keep the Lost and Found office&#x27;s contact information handy for follow-up inquiries.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Secure Valuables: It is advisable to avoid carrying valuable items into the temple. If necessary, use the temple&#x27;s cloakroom or locker facilities to store them safely.</li>
+					    <li>Be Mindful: Always be mindful of your belongings, especially in crowded areas.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>Shirdi Sai Baba Temple - Reporting Missing Group Members</p>
+					  <h5 class="section__sub-b">Steps to Report a Missing Person</h5>
+					  <h5 class="section__sub-b">1. Immediate Reporting</h5>
+					  <ul class="bullet-list">
+					    <li>If a group member goes missing, immediately inform the nearest security personnel or temple staff. Quick reporting increases the chances of finding the missing person swiftly.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Visit the Temple Information Desk</h5>
+					  <ul class="bullet-list">
+					    <li>Location: The information desk is typically located near the main entrance of the temple.</li>
+					    <li>Procedure: Report the missing person to the staff at the information desk, providing detailed information about the missing person, including their name, age, physical appearance, clothing, and the last known location.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Provide Detailed Information</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Give a detailed description of the missing person, including any distinctive features or items they may have with them.</li>
+					    <li>Contact Information: Provide your contact details so the temple staff can reach you if the missing person is found.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Public Address System</h5>
+					  <ul class="bullet-list">
+					    <li>Announcement: The temple staff may use the public address system to announce details of the missing person, especially if it involves children or vulnerable adults.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Designated Waiting Area</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Stay Put: After reporting, it is advisable to stay at the designated meeting point or near the information desk. Moving around may reduce the chances of the missing person finding you.</h3>
+					  <h5 class="section__sub-b">Temple Security Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Guidance: Follow any guidance provided by the temple security personnel. They may conduct a search within the temple premises or take additional measures to locate the missing person.</li>
+					    <li>Search Coordination: Temple security may coordinate with other staff members and volunteers to assist in locating the missing person.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact Information for Emergencies</h5>
+					  <ul class="bullet-list">
+					    <li>Helpline: Keep the temple’s emergency contact numbers handy. You can find these on the temple&#x27;s official website or by inquiring at the information desk.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Precautions for Group Visits</h5>
+					  <ul class="bullet-list">
+					    <li>Buddy System: Use a buddy system where each group member is responsible for keeping an eye on another.</li>
+					    <li>Communication Plan: Establish a communication plan, including shared contact numbers and instructions on what to do if someone gets lost.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Temple Contact Information</h5>
+					  <ul class="bullet-list">
+					    <li>Official Website: For more detailed information and assistance, visit the official Shirdi Sai Baba Temple website.</li>
+					  </ul>
+					  <p>By following these steps, you can efficiently handle the situation if a group member goes missing, ensuring a quick and safe resolution.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
+					  <p>Shirdi Sai Baba Temple - Registration and Administration</p>
+					  <p>The Shirdi Sai Baba Temple is governed and managed by the Shri Saibaba Sansthan Trust, Shirdi. This trust is the authorized body responsible for overseeing all activities within the temple complex, including daily operations, maintenance, and various services provided to devotees. The trust also manages several charitable initiatives, including hospitals, educational institutions, and community services.</p>
+					  <h5 class="section__sub-b">Key Information</h5>
+					  <p>Name: Shri Saibaba Sansthan Trust, Shirdi</p>
+					  <p>Full Address: Shri Saibaba Sansthan Trust, Shirdi, PO: Shirdi Tal. Rahata, Dist. Ahmednagar, Maharashtra, India, Pincode: 423109.</p>
+					  <h5 class="section__sub-b">Contact Numbers</h5>
+					  <ul class="bullet-list">
+					    <li>PRO Office: (02423) 258500</li>
+					    <li>Temple Office: (02423) 258777, 258870, 258770</li>
+					  </ul>
+					  <p>Email: saibaba@sai.org.in</p>
+					  <p>Website: Shirdi Sai Baba Temple</p>
+					  <h5 class="section__sub-b">Condensed Information About the Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Main Deity: Sai Baba</li>
+					    <li>Other Deities:</li>
+					    <li>Khandoba</li>
+					    <li>Gurusthan (a site under a neem tree where Sai Baba was first spotted meditating)</li>
+					    <li>Dwarkamai (the mosque where Sai Baba spent a significant portion of his life)</li>
+					    <li>Chavadi (a place where Sai Baba used to sleep every alternate night)</li>
+					  </ul>
+					  <h5 class="section__sub-b">Registration and Governance</h5>
+					  <p>The temple is officially registered and operates under the state government and district administration guidelines. The Shri Saibaba Sansthan Trust, established to manage the temple&#x27;s activities, is a government-recognized body that ensures the smooth operation of all temple-related services and charitable activities.</p>
+					  <p>For more detailed information, visit the official website of the Shirdi Sai Baba Temple or contact their administration directly. This will provide you with the most accurate and comprehensive details regarding the temple&#x27;s governance and administrative structure.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>Shirdi Sai Baba Temple - Making Donations</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Donations to the Shri Saibaba Sansthan Trust can be made through various channels apart from Hundi offerings at the temple. Here’s how you can contribute:</h3>
+					  <h5 class="section__sub-b">1. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Website: Donations can be made online via the official Shri Saibaba Sansthan Trust website.</li>
+					    <li>Link: Online Donation Portal</li>
+					    <li>Procedure: Create an account or log in, select the type of donation, fill in the required details, and complete the payment using available online payment methods like credit/debit cards, net banking, or digital wallets.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Bank Transfer</h5>
+					  <ul class="bullet-list">
+					    <li>Bank Details: You can transfer donations directly to the temple’s bank account. The details for bank transfer are provided on the official website.</li>
+					    <li>Account Name: Shri Saibaba Sansthan Trust, Shirdi</li>
+					    <li>Bank Name: State Bank of India, Shirdi Branch</li>
+					    <li>Account Number: Details can be obtained from the official website</li>
+					    <li>IFSC Code: Details can be obtained from the official website</li>
+					    <li>Purpose: While making a bank transfer, you can specify the purpose of the donation (e.g., Annadan, medical aid, education, general trust activities).</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cheque or Demand Draft</h5>
+					  <ul class="bullet-list">
+					    <li>Payable To: Shri Saibaba Sansthan Trust, Shirdi</li>
+					    <li>Submission: Cheques or demand drafts can be mailed to the temple’s address or deposited directly at the temple office.</li>
+					    <li>Address: Shri Saibaba Sansthan Trust, Shirdi, PO: Shirdi Tal. Rahata, Dist. Ahmednagar, Maharashtra, India, Pincode: 423109.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Donation at Temple Offices</h5>
+					  <ul class="bullet-list">
+					    <li>On-Site Donation: You can make donations directly at the temple&#x27;s donation counters during your visit. The counters accept cash, cheque, or card payments.</li>
+					    <li>Receipts: Always ensure to get a receipt for your donation, which is necessary for record-keeping and tax purposes.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Purposes for Donations</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">General Donations: To be used at the discretion of the temple trust for various activities and charitable projects.</h3>
+					  <h5 class="section__sub-b">Tax Exemptions</h5>
+					  <ul class="bullet-list">
+					    <li>80G: Donations to the Shri Saibaba Sansthan Trust are eligible for tax deductions under Section 80G of the Income Tax Act.</li>
+					    <li>Receipt and Documentation: Ensure you receive a donation receipt and necessary documentation to claim tax benefits.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>Privileges Associated with Donations at Shirdi Sai Baba Temple</p>
+					  <h5 class="section__sub-b">Donation Privileges</h5>
+					  <h5 class="section__sub-b">1. General Privileges</h5>
+					  <ul class="bullet-list">
+					    <li>Receipt and Prasad: All donors receive a donation receipt along with holy Udi Prasad. This applies to donations made through various methods including online, at donation counters, and via bank transfers.</li>
+					    <li>Tax Benefits: Donations to the Shri Saibaba Sansthan Trust are eligible for tax deductions under Section 80G of the Income Tax Act. This applies to donations made to specific funds such as Annadan, Education, Medical, and Building Funds.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Annadan (Food Donation)</h5>
+					  <ul class="bullet-list">
+					    <li>Daily Annadanam: Donations towards daily Annadanam (free meal distribution) are highly encouraged. Specific donation amounts may provide special privileges such as recognition at the Prasadalaya or during special events.</li>
+					    <li>Special Occasions: Donations made for Annadanam on special occasions like weddings, birthdays, or in memory of a loved one can be acknowledged with a mention during the meal service on the specified day.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Medical and Educational Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Medical Fund: Donations to the Medical Fund support the Shri Saibaba Sansthan Trust&#x27;s hospitals and medical services, providing updated medical facilities at affordable rates.</li>
+					    <li>Educational Fund: Contributions to the Educational Fund help in running and maintaining educational institutions and supporting students from rural areas with advanced educational facilities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Building and Maintenance Fund</h5>
+					  <ul class="bullet-list">
+					    <li>Construction Projects: Donations to the Building Fund are utilized for the construction and maintenance of temple facilities, including the darshan queue complexes, Prasadalaya, and accommodation buildings.</li>
+					    <li>Recognition: Significant donors may receive acknowledgment through plaques or inscriptions in new construction projects or renovated areas.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Religious Program Fund</h5>
+					  <ul class="bullet-list">
+					    <li>Abhishek Fund: Donations support daily Abhishek pooja of Shri Saibaba, with pooja materials supplied by the Sansthan Trust.</li>
+					    <li>Festival Fund: Contributions help in organizing and conducting major festivals like Ram Navami, Guru Purnima, and Vijayadashami, ensuring grand celebrations and proper arrangements.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Donate</h5>
+					  <ul class="bullet-list">
+					    <li>Online Donations: Donations can be made through the official online portal.</li>
+					    <li>Bank Transfers: Direct bank transfers can be made to the designated accounts. Details for both Indian and foreign currency donations are provided on the official website.</li>
+					    <li>In-Person Donations: Donations can also be made at the various donation counters located within the temple premises and at the Sansthan’s information centers in major cities.</li>
+					  </ul>
+					  <p>For more information and to make a donation, you can visit the official website of Shri Saibaba Sansthan Trust​ (Sai.org)​​ (Sai.org)​​ (Sai Trust)​​ (Saibaba Trust)​​ (Saibaba Trust CrowdFund)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple?</h3>
+					  <h5 class="section__sub-b">Historical Background</h5>
+					  <ul class="bullet-list">
+					    <li>Origins: The Shirdi Sai Baba Temple, also known as the Samadhi Mandir, was built over the samadhi (tomb) of Sai Baba. The construction began in 1915 by a wealthy devotee, Shreemant Gopalrao Buti, and was completed in 1918, the year Sai Baba attained Mahasamadhi.</li>
+					    <li>Initial Purpose: Originally intended as a Wada (residential building) with a temple for Lord Krishna, it was converted into a Samadhi Mandir following Sai Baba&#x27;s wishes and subsequent passing.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Architectural Details</h5>
+					  <ul class="bullet-list">
+					    <li>Materials Used: The Samadhi is constructed from white marble stones, and the temple features intricate ornamental decorations. The statue of Sai Baba, seated on a throne, is made from Italian marble and was sculpted by Balaji Vasant in 1954.</li>
+					    <li>Design Elements: The temple includes a railing around the Samadhi, embellished with silver and other decorative elements. A silver umbrella is placed above Sai Baba’s statue, adding to its grandeur.</li>
+					    <li>Assembly Hall: In front of the Samadhi, there is a large assembly hall that can accommodate around 600 devotees. This hall also showcases various belongings of Sai Baba and artifacts depicting his life.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Modern Facilities and Scientific Aspects</h5>
+					  <ul class="bullet-list">
+					    <li>Eco-Friendly Initiatives: The temple complex includes a solar-powered kitchen, one of the largest in Asia, which significantly reduces the carbon footprint and provides meals to thousands of devotees daily.</li>
+					    <li>Technological Integration: The temple employs advanced crowd management and security systems to ensure the safety and comfort of visitors. CCTV cameras and metal detectors are installed throughout the premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Temple Expansion and Construction Policy</h5>
+					  <ul class="bullet-list">
+					    <li>New Projects: The Shri Saibaba Sansthan Trust is involved in constructing new Sai Baba temples across India to spread his teachings. These projects often include additional facilities like hospitals and dining halls to serve the local communities.</li>
+					    <li>Community Services: The temple trust also undertakes various social initiatives, including education and medical services, funded by donations from devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Spiritual Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Samadhi Mandir: The Samadhi Mandir is the focal point of the temple complex, symbolizing peace, faith, and spiritual fulfillment. Devotees from all over the world visit the temple to seek blessings and experience the serene atmosphere.</li>
+					  </ul>
+					  <p>For more detailed information about the construction and architectural details of the Shirdi Sai Baba Temple, you can visit the official website of the Shri Saibaba Sansthan Trust​ (Unacademy)​​ (Astha Tourism)​​ (Sai.org)​​ (Sai.org)​​ (Shirdi Tourism)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>Special Significance of Shirdi Sai Baba Temple</p>
+					  <h5 class="section__sub-b">Spiritual and Cultural Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Spiritual Hub: The Shirdi Sai Baba Temple is revered as a major spiritual center for followers of Sai Baba. Devotees believe in the miraculous powers and teachings of Sai Baba, who emphasized universal love, compassion, and charity.</li>
+					    <li>Global Pilgrimage Site: The temple attracts millions of devotees from around the world, seeking blessings and spiritual solace. The faith and devotion associated with Sai Baba’s teachings continue to draw people from various cultures and backgrounds.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Unique Aspects</h5>
+					  <ul class="bullet-list">
+					    <li>Miraculous Stories: Numerous devotees have reported experiencing miracles and blessings after visiting the temple and praying at the Samadhi Mandir. These stories contribute to the temple&#x27;s mystical and divine aura.</li>
+					    <li>Cultural Events: The temple is the focal point for several major festivals, including Guru Purnima, Ram Navami, and Vijayadashami, which are celebrated with great fervor and attract large crowds.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Comparative Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Geographic and Energetic Similarities: Unlike the Kasar Devi Temple in Uttarakhand, which is noted for its geomagnetic field and cosmic energy, the Shirdi Sai Baba Temple’s significance is primarily rooted in the spiritual and emotional experiences of its devotees. There are no specific claims or studies regarding geomagnetic fields or paramagnetism around Shirdi similar to those at Kasar Devi.</li>
+					    <li>Historical and Mystical Presence: While Kasar Devi is famous for its cosmic energy, Shirdi&#x27;s significance is deeply tied to the life and teachings of Sai Baba, whose presence is felt by devotees through the sacred atmosphere of the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Sai Baba’s Teachings</h5>
+					  <ul class="bullet-list">
+					    <li>Universal Appeal: Sai Baba’s teachings transcend religious boundaries, promoting values of love, forgiveness, helping others, charity, contentment, and inner peace. This universal message adds to the temple&#x27;s appeal to a broad audience.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Scientific and Structural Aspects</h5>
+					  <ul class="bullet-list">
+					    <li>Modern Facilities: The temple complex includes advanced facilities like a solar-powered kitchen, efficient crowd management systems, and robust security measures, reflecting a blend of traditional reverence and modern science.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Visitor Experiences</h5>
+					  <ul class="bullet-list">
+					    <li>Sense of Peace: Visitors often report a profound sense of peace and spiritual fulfillment upon entering the temple premises, attributing this to the divine presence of Sai Baba.</li>
+					  </ul>
+					  <p>For a comprehensive understanding of the Shirdi Sai Baba Temple’s significance, visiting the temple&#x27;s official website and exploring the extensive literature on Sai Baba’s life and teachings would be beneficial.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <p>Shirdi Sai Baba Temple - Spiritual Information for Foreigners</p>
+					  <p>Overview: The Shirdi Sai Baba Temple is a place of deep spiritual significance that transcends religious boundaries. Sai Baba&#x27;s teachings focus on universal values such as love, compassion, and selfless service, making the temple an attractive destination for those seeking spiritual growth rather than religious rituals.</p>
+					  <h5 class="section__sub-b">Key Aspects for Foreigners</h5>
+					  <h5 class="section__sub-b">1. Teachings of Sai Baba</h5>
+					  <ul class="bullet-list">
+					    <li>Universal Values: Sai Baba emphasized the importance of love, forgiveness, helping others, charity, contentment, and devotion to God and Guru. These teachings resonate with universal spiritual principles that appeal to people of all backgrounds.</li>
+					    <li>Quotes and Messages: Sai Baba’s messages, such as &quot;Shraddha&quot; (faith) and &quot;Saburi&quot; (patience), are central to his philosophy and offer profound spiritual guidance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Spiritual Practices</h5>
+					  <ul class="bullet-list">
+					    <li>Meditation and Reflection: The temple provides a serene environment for meditation and reflection. Visitors are encouraged to sit in silence and connect with their inner selves, drawing inspiration from the peaceful surroundings.</li>
+					    <li>Darshan: Viewing the Samadhi (tomb) of Sai Baba is considered a spiritually enriching experience. Devotees believe that simply being in the presence of Sai Baba’s Samadhi can bring inner peace and clarity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cultural Experience</h5>
+					  <ul class="bullet-list">
+					    <li>Rituals and Ceremonies: While the temple conducts various Hindu rituals, the focus is on the spiritual experience rather than the religious aspect. Observing these rituals can provide insights into Indian spiritual practices.</li>
+					    <li>Festivals: Major festivals like Guru Purnima, Ram Navami, and Vijayadashami are celebrated with great devotion. These events are opportunities to experience the collective spiritual fervor of thousands of devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Community and Service</h5>
+					  <ul class="bullet-list">
+					    <li>Annadan (Food Donation): The temple operates a large dining hall that provides free meals to thousands of devotees daily. Participating in or contributing to this service is a way to practice selfless service, a core principle of Sai Baba’s teachings.</li>
+					    <li>Charitable Activities: The temple is involved in various charitable activities, including running hospitals and schools. Engaging with these initiatives offers a chance to contribute to the welfare of the community.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Spiritual Atmosphere</h5>
+					  <ul class="bullet-list">
+					    <li>Peaceful Environment: The temple complex is designed to provide a tranquil and spiritually uplifting environment. The calm and serene atmosphere helps visitors feel a sense of spiritual rejuvenation.</li>
+					    <li>Sacred Spaces: Key spots like Dwarkamai, where Sai Baba spent a significant portion of his life, and the Chavadi, where he used to sleep, are considered sacred and imbued with spiritual energy.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Practical Information</h5>
+					  <ul class="bullet-list">
+					    <li>Accommodation: The temple trust offers various accommodation options for devotees, including foreigners, ensuring a comfortable stay.</li>
+					    <li>Accessibility: Facilities like ramps, elevators, and wheelchairs are available to assist physically challenged and elderly visitors.</li>
+					    <li>Guidelines: Respect the dress code and other temple guidelines to maintain the sanctity of the space.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Further Exploration</h5>
+					  <ul class="bullet-list">
+					    <li>Books and Literature: Reading about Sai Baba’s life and teachings can enhance your understanding of his spiritual messages.</li>
+					    <li>Official Website: For more detailed information, visit the Shirdi Sai Baba Temple official website.</li>
+					  </ul>
+					  <p>By focusing on the spiritual aspects and the universal values promoted by Sai Baba, foreigners can find a deeply meaningful and enriching experience at the Shirdi Sai Baba Temple.</p>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Donation ( link)</p>
+					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>Call to Action and Interaction Links for Shirdi Sai Baba Temple</p>
+					  <p>Here are some tailored call-to-action (CTA) elements for various interactions related to the Shirdi Sai Baba Temple:</p>
+					  <h5 class="section__sub-b">A. Puja Booking</h5>
+					  <ul class="bullet-list">
+					    <li>CTA Button: &quot;Book Your Puja Now&quot;</li>
+					    <li>Description: Participate in the sacred rituals at the Shirdi Sai Baba Temple. Book your puja in advance to seek blessings and spiritual fulfillment.</li>
+					    <li>Link: Puja Booking</li>
+					  </ul>
+					  <h5 class="section__sub-b">B. Donations</h5>
+					  <ul class="bullet-list">
+					    <li>CTA Button: &quot;Support Us with Your Generosity&quot;</li>
+					    <li>Description: Help sustain and expand our spiritual and community services by making a donation. Your contributions make a real difference.</li>
+					    <li>Link: Donate Now</li>
+					  </ul>
+					  <h5 class="section__sub-b">C. Accommodation</h5>
+					  <ul class="bullet-list">
+					    <li>CTA Button: &quot;Find Comfortable Accommodation&quot;</li>
+					    <li>Description: Explore a range of accommodations near the Shirdi Sai Baba Temple. Whether you seek luxury or simplicity, find the perfect stay to enhance your spiritual journey.</li>
+					    <li>Link: View Accommodations</li>
+					  </ul>
+					  <h5 class="section__sub-b">D. Tax Exemption Information</h5>
+					  <ul class="bullet-list">
+					    <li>CTA Button: &quot;Learn About Donation Benefits&quot;</li>
+					    <li>Description: Discover the tax benefits of your generosity. Donations to specific services like Annadan are eligible for tax exemptions under the Income Tax Act.</li>
+					    <li>Link: Tax Benefits</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Tips for Effective CTAs</h5>
+					  <ul class="bullet-list">
+					    <li>Visibility: Ensure that your CTAs are prominently placed across the website to catch user attention.</li>
+					    <li>Urgency and Relevance: Use language that creates a sense of urgency or relevance, encouraging users to take immediate action.</li>
+					    <li>Aesthetic Consistency: Design buttons and links that are visually appealing and consistent with the overall website design, ensuring they stand out yet remain integral to the page layout.</li>
+					    <li>Mobile Optimization: Make sure that all CTAs are easily clickable and accessible on mobile devices, considering a significant amount of web traffic comes from mobile users.</li>
+					  </ul>
+					  <p>By structuring your CTAs to be clear, direct, and engaging, you enhance user interaction and conversion on your website, effectively driving more engagement with the Shirdi Sai Baba Temple&#x27;s spiritual and community services.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Events at Shirdi Sai Baba Temple</h3>
+					  <p>The Shirdi Sai Baba Temple celebrates several important festivals each year with great enthusiasm and devotion. Here are the key annual events:</p>
+					  <h5 class="section__sub-b">1. Ram Navami</h5>
+					  <ul class="bullet-list">
+					    <li>Date: This festival usually falls in March or April, depending on the Hindu lunar calendar.</li>
+					    <li>Significance: Ram Navami marks the birth of Lord Rama and is celebrated with special prayers, processions, and cultural programs.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Guru Purnima</h5>
+					  <ul class="bullet-list">
+					    <li>Date: Celebrated in July.</li>
+					    <li>2024 Dates: From July 20 to July 22.</li>
+					    <li>Significance: This festival honors all spiritual teachers (gurus) and involves special aartis, bhajans, and the reading of sacred texts. The temple remains open throughout the night during this festival.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Vijayadashami (Dussehra)</h5>
+					  <ul class="bullet-list">
+					    <li>Date: Falls in September or October.</li>
+					    <li>Significance: Commemorates Sai Baba&#x27;s Samadhi day. It is one of the most significant events, marked by special rituals, prayers, and a grand procession.</li>
+					  </ul>
+					  <p>These festivals feature a variety of spiritual activities including special aartis, bhajans, public readings of scriptures, and processions with palanquins and chariots. For detailed schedules and specific dates each year, you can visit the official website of the Shirdi Sai Baba Temple​ (Sai.org)​​ (Sai.org)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Events: The Shirdi Sai Baba Temple hosts several recurring monthly events to provide devotees with regular opportunities for spiritual engagement. One notable monthly event is the Satya Narayan Vrat, which is observed on the full moon day (Purnima) of each month.</h3>
+					  <h5 class="section__sub-b">1. Satya Narayan Vrat</h5>
+					  <ul class="bullet-list">
+					    <li>Day: Every Purnima (Full Moon Day)</li>
+					    <li>Significance: This vrat (fast) is performed for the fulfillment of desires and for seeking blessings for prosperity and well-being.</li>
+					    <li>Activities: Devotees perform special poojas and participate in the reading of the Satya Narayan Katha (story).</li>
+					  </ul>
+					  <p>For the most current and detailed information regarding monthly events, including specific dates and additional events, you can visit the official website of the Shirdi Sai Baba Temple or their online services portal​ (Sai.org)​​ (Sai Trust)​.</p>
+					  <ul class="bullet-list">
+					    <li>----------</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -1166,89 +984,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

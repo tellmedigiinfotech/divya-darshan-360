@@ -3,39 +3,39 @@ import { getAllTemples } from "@/lib/blog-server"
 import { siteUrl } from "@/lib/seo-config"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteUrl
-  const currentDate = new Date()
+	const baseUrl = siteUrl
+	const currentDate = new Date()
 
-  // Main pages with their SEO priorities
-  const routes: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-  ]
+	// Main pages with their SEO priorities
+	const routes: MetadataRoute.Sitemap = [
+		{
+			url: baseUrl,
+			lastModified: currentDate,
+			changeFrequency: "weekly",
+			priority: 1.0,
+		},
+		{
+			url: `${baseUrl}/privacy`,
+			lastModified: currentDate,
+			changeFrequency: "monthly",
+			priority: 0.5,
+		},
+		{
+			url: `${baseUrl}/blog`,
+			lastModified: currentDate,
+			changeFrequency: "weekly",
+			priority: 0.8,
+		},
+	]
 
-  // Add all blog posts
-  const temples = getAllTemples()
-  const blogRoutes: MetadataRoute.Sitemap = temples.map((temple) => ({
-    url: `${baseUrl}/blog/${temple.category}/${temple.slug}`,
-    lastModified: currentDate,
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }))
+	// Add all blog posts
+	const temples = getAllTemples()
+	const blogRoutes: MetadataRoute.Sitemap = temples.map((temple) => ({
+		url: `${baseUrl}/blog/temple/${temple.slug}/index.html`,
+		lastModified: currentDate,
+		changeFrequency: "monthly",
+		priority: 0.6,
+	}))
 
-  return [...routes, ...blogRoutes]
+	return [...routes, ...blogRoutes]
 }

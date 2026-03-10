@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -123,13 +70,6 @@
 							</div>
 						</div>
 						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
-							</div>
-						</div>
-						<div class="key-info__item">
 							<div class="key-info__icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
 							<div>
 								<div class="key-info__label">Contact</div>
@@ -147,890 +87,769 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Full Address: Kashi Vishwanath Temple, Kashi Vishwanath Gali, Varanasi, Uttar Pradesh, India - 221001</h3>
-  <h5 class="section__sub-b">Phone(s)/Contact number(s)</h5>
-  <ul class="bullet-list">
-    <li>Temple Office: +91-542-2392629</li>
-    <li>General Inquiries: +91-542-2392689</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Condensed Information about the Place:</h3>
-  <h5 class="section__sub-b">A. MAIN DEITY</h5>
-  <ul class="bullet-list">
-    <li>Lord Shiva (Vishwanath): The primary deity of the Kashi Vishwanath Temple is Lord Shiva, worshipped here as Vishwanath or Vishweshwara (Ruler of the Universe). This Jyotirlinga is one of the twelve holiest shrines of Lord Shiva.</li>
-  </ul>
-  <h5 class="section__sub-b">B. OTHER DEITIES (Sub Deities)</h5>
-  <ul class="bullet-list">
-    <li>Maa Annapurna: Goddess of nourishment, an incarnation of Parvati, the consort of Lord Shiva.</li>
-    <li>Kaal Bhairav: A fierce form of Lord Shiva, believed to be the guardian deity of Varanasi.</li>
-    <li>Dhandapani: Another form of Lord Shiva known for his protective and benevolent nature.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <ul class="bullet-list">
-    <li>(a) general</li>
-    <li>(b) on special days like festivals and utsavas</li>
-  </ul>
-  <h5 class="section__sub-b">General Timings</h5>
-  <ul class="bullet-list">
-    <li>Opening Time: 3:00 AM</li>
-    <li>Closing Time: 11:00 PM</li>
-  </ul>
-  <h5 class="section__sub-b">Daily Schedule</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Shayan Aarti: 10:30 PM - 11:00 PM (Darshan not allowed during this time)</h3>
-  <p>Special Days (Festivals and Utsavas): On special occasions, festivals, and utsavas, the temple timings may be extended, and additional rituals and ceremonies are performed. Some notable festivals and their special arrangements include:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Maha Shivaratri:</h3>
-  <ul class="bullet-list">
-    <li>Timings: The temple remains open throughout the night with special poojas and aartis performed.</li>
-    <li>Activities: Continuous chanting of mantras, special abhishekam (anointment) of the deity, and cultural performances.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Shravan Maas:</h3>
-  <ul class="bullet-list">
-    <li>Timings: The temple experiences extended hours during the entire month of Shravan (July-August) due to the high influx of devotees.</li>
-    <li>Activities: Daily special poojas and aartis, increased frequency of abhishekam, and other rituals.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Kartika Maas:</h3>
-  <ul class="bullet-list">
-    <li>Timings: Similar to Shravan Maas, the temple remains open for extended hours throughout Kartika Maas (October-November).</li>
-    <li>Activities: Special aartis and rituals, particularly on the auspicious days of Kartika Purnima and Diwali.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Pradosh Vrat:</h3>
-  <ul class="bullet-list">
-    <li>Timings: Extended hours on Pradosh Vrat days to accommodate additional rituals and increased devotee attendance.</li>
-    <li>Activities: Special poojas and aartis dedicated to Lord Shiva.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips for Devotees</h5>
-  <ul class="bullet-list">
-    <li>Plan Ahead: Given the popularity of the temple, especially during festivals, it is advisable to plan your visit in advance and check for any specific updates regarding timings.</li>
-    <li>Follow Guidelines: Adhere to the temple&#x27;s dress code and guidelines to ensure a smooth and respectful visit.</li>
-    <li>Stay Informed: Check the temple&#x27;s official website or contact the administration for the most current information on timings and special events.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <ul class="bullet-list">
-    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
-  </ul>
-  <h5 class="section__sub-b">General Entry</h5>
-  <ul class="bullet-list">
-    <li>Fee: Free</li>
-    <li>Privileges: General entry allows devotees to have darshan of the main deity, Lord Shiva (Vishwanath). There is no charge for the general darshan queue.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Entry (Sugam Darshan)</h5>
-  <ul class="bullet-list">
-    <li>Fee: ₹300 per person (as per the latest updates; it is advisable to check the official website for the most current fee structure)</li>
-    <li>Privileges:</li>
-    <li>Quick Darshan: Access to a shorter, faster queue for darshan.</li>
-    <li>Special Gate: Entry through a designated gate for quicker access to the sanctum.</li>
-    <li>Longer View: A more extended time to view the deity compared to the general queue.</li>
-    <li>Prasad: Special entry often includes a packet of prasad.</li>
-    <li>Puja: Option to book and participate in special pujas.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Pujas and Services</h5>
-  <ul class="bullet-list">
-    <li>Special Pujas: Devotees can book various special pujas like Rudrabhishek, Laghurudra, Maharudra, etc., through the temple&#x27;s official website or at the temple counters. These pujas typically come with a specific fee and may include special privileges such as priority darshan and prasad.</li>
-    <li>Online Booking: Many services and pujas can be booked online through the temple’s official website, providing convenience and ensuring participation.</li>
-  </ul>
-  <h5 class="section__sub-b">Entry Restrictions for Foreigners</h5>
-  <ul class="bullet-list">
-    <li>No Specific Restrictions: Foreigners are welcome to visit the Kashi Vishwanath Temple. However, they must adhere to the general rules and guidelines applicable to all devotees.</li>
-    <li>Dress Code: Modest attire is required. Men should wear traditional attire like dhotis or kurtas, and women should wear sarees or salwar kameez.</li>
-    <li>No Special Fees: There are no additional fees specifically for foreigners.</li>
-    <li>Declaration: Typically, no special declaration is required for foreigners, but it is advisable to carry identification and be prepared to follow any specific instructions provided by temple authorities.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Advance Booking: It is advisable to book special darshan and pujas in advance, especially during peak seasons and festivals, to avoid long waits and ensure a smooth experience.</li>
-    <li>Follow Guidelines: Adhere to the temple’s dress code and behavior guidelines to maintain the sanctity of the temple.</li>
-    <li>Stay Informed: For the latest updates on entry fees, booking procedures, and any specific guidelines for foreigners, visit the official Kashi Vishwanath Temple website.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
-  <p>The Kashi Vishwanath Temple is located in the holy city of Varanasi, one of the most visited pilgrimage destinations in India. Here are the various modes of transportation to reach the temple:</p>
-  <h5 class="section__sub-b">By Air</h5>
-  <h5 class="section__sub-b">Lal Bahadur Shastri International Airport (Varanasi Airport)</h5>
-  <ul class="bullet-list">
-    <li>Distance from Temple: Approximately 25 km</li>
-    <li>Connectivity: The airport is well-connected with major cities across India, including Delhi, Mumbai, Kolkata, Hyderabad, and Bangalore. There are also international flights from cities like Kathmandu, Colombo, Bangkok, and more.</li>
-    <li>Airport Transfers: Taxis, app-based cabs (like Uber and Ola), and prepaid taxi services are available at the airport to reach the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">By Train</h5>
-  <h5 class="section__sub-b">Varanasi Junction (BSB)</h5>
-  <ul class="bullet-list">
-    <li>Distance from Temple: Approximately 4 km</li>
-    <li>Connectivity: Varanasi Junction is a major railway hub, well-connected with most parts of India. Trains from cities like Delhi, Mumbai, Kolkata, Chennai, and Hyderabad frequently arrive at this station.</li>
-    <li>Transfers: Auto-rickshaws, cycle-rickshaws, taxis, and app-based cabs are available from the railway station to the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Manduadih Railway Station</h5>
-  <ul class="bullet-list">
-    <li>Distance from Temple: Approximately 6 km</li>
-    <li>Connectivity: Another important railway station in Varanasi with connectivity to various cities across India.</li>
-  </ul>
-  <h5 class="section__sub-b">By Bus</h5>
-  <h5 class="section__sub-b">Varanasi Bus Stand</h5>
-  <ul class="bullet-list">
-    <li>Distance from Temple: Approximately 4 km</li>
-    <li>Connectivity: Regular bus services are available from nearby cities and towns. The Uttar Pradesh State Road Transport Corporation (UPSRTC) operates buses to Varanasi from cities like Lucknow, Allahabad (Prayagraj), Gorakhpur, and others.</li>
-    <li>Transfers: Auto-rickshaws and cycle-rickshaws are readily available at the bus stand to reach the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">By Road</h5>
-  <h5 class="section__sub-b">Taxi and Private Cars</h5>
-  <ul class="bullet-list">
-    <li>Connectivity: Varanasi is well-connected by road to major cities in Uttar Pradesh and neighboring states. You can hire a taxi or drive in a private car.</li>
-    <li>Highways: National Highways NH2, NH56, and NH29 connect Varanasi with various parts of the country.</li>
-  </ul>
-  <h5 class="section__sub-b">Local Transportation</h5>
-  <h5 class="section__sub-b">Auto-Rickshaws and Cycle-Rickshaws</h5>
-  <ul class="bullet-list">
-    <li>Widely available and convenient for short distances within the city.</li>
-  </ul>
-  <h5 class="section__sub-b">App-Based Cabs</h5>
-  <ul class="bullet-list">
-    <li>Services like Uber and Ola operate in Varanasi, providing a convenient option for reaching the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">E-Rickshaws</h5>
-  <ul class="bullet-list">
-    <li>Environmentally friendly and commonly used for short commutes within the city.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Traffic: Varanasi can have heavy traffic, especially during festivals and peak tourist seasons. Plan your travel accordingly.</li>
-    <li>Navigation: The temple is located in a congested area with narrow lanes. It is often easier to reach a nearby drop-off point and walk to the temple.</li>
-    <li>Local Assistance: Local guides and maps are available for navigation, and it&#x27;s useful to ask locals for directions if needed.</li>
-  </ul>
-  <p>For more detailed information and travel planning, visit the official Kashi Vishwanath Temple website or contact the temple administration.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
-  <p>The Kashi Vishwanath Temple offers a range of special poojas and rituals for devotees. These poojas are performed daily, weekly, and on special occasions. Here are some key poojas, their timings, associated costs, and the procedure for advance booking:</p>
-  <h5 class="section__sub-b">Daily Poojas</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Mangala Aarti:</h3>
-  <ul class="bullet-list">
-    <li>Time: 3:00 AM - 4:00 AM</li>
-    <li>Cost: ₹350 per person</li>
-    <li>Description: Early morning aarti to wake up Lord Shiva. This is considered highly auspicious and beneficial for devotees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bhog Aarti:</h3>
-  <ul class="bullet-list">
-    <li>Time: 11:15 AM - 12:20 PM</li>
-    <li>Cost: ₹180 per person</li>
-    <li>Description: Aarti performed before offering food to the deity.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sapta Rishi Aarti:</h3>
-  <ul class="bullet-list">
-    <li>Time: 7:00 PM - 8:15 PM</li>
-    <li>Cost: ₹180 per person</li>
-    <li>Description: Evening aarti performed by seven priests simultaneously.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Shringar/Bhog Aarti:</h3>
-  <ul class="bullet-list">
-    <li>Time: 9:00 PM - 10:15 PM</li>
-    <li>Cost: ₹180 per person</li>
-    <li>Description: Aarti performed to adorn and offer food to the deity before the night’s rest.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Shayan Aarti:</h3>
-  <ul class="bullet-list">
-    <li>Time: 10:30 PM - 11:00 PM</li>
-    <li>Cost: ₹180 per person</li>
-    <li>Description: Aarti performed before the deity is put to rest for the night.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Rudrabhishek:</h3>
-  <ul class="bullet-list">
-    <li>Time: Performed multiple times throughout the day</li>
-    <li>Cost: ₹300 - ₹3,000 (depending on the type of Rudrabhishek)</li>
-    <li>Description: A special pooja involving the abhishekam (ritual bath) of Lord Shiva with holy substances like milk, honey, and ghee, accompanied by the chanting of Vedic mantras.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Laghurudra:</h3>
-  <ul class="bullet-list">
-    <li>Time: As per booking</li>
-    <li>Cost: ₹4,000</li>
-    <li>Description: A detailed version of Rudrabhishek with additional rituals and offerings.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Maharudra:</h3>
-  <ul class="bullet-list">
-    <li>Time: As per booking</li>
-    <li>Cost: ₹10,000</li>
-    <li>Description: A grand version of Rudrabhishek involving extensive rituals and elaborate offerings.</li>
-  </ul>
-  <h5 class="section__sub-b">Weekly Poojas</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Pradosh Vrat:</h3>
-  <ul class="bullet-list">
-    <li>Day: 13th day of each lunar fortnight</li>
-    <li>Description: Special poojas and aarti performed to seek blessings from Lord Shiva.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking Procedure</h5>
-  <h5 class="section__sub-b">Advance Booking</h5>
-  <ul class="bullet-list">
-    <li>Online: Devotees can book poojas and aartis in advance through the official Kashi Vishwanath Temple website.</li>
-    <li>On-Site: Bookings can also be made at the temple’s pooja booking counter.</li>
-  </ul>
-  <h5 class="section__sub-b">Steps for Online Booking</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>The Kashi Vishwanath Temple provides a range of online services to assist devotees in planning their visit and participating in various rituals and offerings. These services are offered through the temple&#x27;s official website, managed by the Shri Kashi Vishwanath Temple Trust.</p>
-  <h5 class="section__sub-b">Key Online Services</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Puja Booking:</h3>
-  <ul class="bullet-list">
-    <li>Service: Devotees can book various pujas and rituals online.</li>
-    <li>Website: Kashi Vishwanath Temple Puja Booking</li>
-    <li>Features: Allows booking of daily aartis, special poojas like Rudrabhishek, Laghurudra, Maharudra, and more.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>Service: Donations can be made online to support the temple’s activities and services.</li>
-    <li>Website: Kashi Vishwanath Temple Donations</li>
-    <li>Features: Secure online donation process with options to contribute to specific schemes and trusts.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Live Darshan:</h3>
-  <ul class="bullet-list">
-    <li>Service: Provides live streaming of temple activities and rituals for devotees who cannot visit in person.</li>
-    <li>Website: Kashi Vishwanath Live Darshan</li>
-    <li>Features: Offers real-time viewing of daily aartis and other significant events at the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Accommodation Booking:</h3>
-  <ul class="bullet-list">
-    <li>Service: Booking of various types of accommodations near the temple.</li>
-    <li>Website: Kashi Vishwanath Temple Accommodation</li>
-    <li>Features: Options for booking guest houses, dormitories, and other accommodations for pilgrims.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">E-Hundi (Online Hundi Offerings):</h3>
-  <ul class="bullet-list">
-    <li>Service: Devotees can make their offerings to the Hundi online.</li>
-    <li>Website: Kashi Vishwanath E-Hundi</li>
-    <li>Features: Convenient way to make traditional offerings without being physically present.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days</h3>
-  <h5 class="section__sub-b">General Dress Code for Men</h5>
-  <ul class="bullet-list">
-    <li>Traditional Attire: Dhoti or kurta-pyjama is recommended.</li>
-    <li>Allowed: Traditional Indian clothing such as dhotis, kurtas, and pyjamas.</li>
-    <li>Not Allowed: Shorts, lungis, bermudas, and other Western casual attire.</li>
-  </ul>
-  <h5 class="section__sub-b">General Dress Code for Women</h5>
-  <ul class="bullet-list">
-    <li>Traditional Attire: Sarees or salwar kameez with dupatta are recommended.</li>
-    <li>Allowed: Sarees, salwar kameez, and other traditional Indian clothing.</li>
-    <li>Not Allowed: Western outfits such as jeans, skirts, and T-shirts.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Poojas and Festival Days:</h3>
-  <ul class="bullet-list">
-    <li>On special poojas and festival days, it is encouraged to adhere strictly to traditional attire to honor the sanctity of the rituals and ceremonies.</li>
-    <li>Men: Wearing a silk dhoti and angavastram (upper cloth) is preferred for special poojas.</li>
-    <li>Women: Wearing a silk saree is recommended for special occasions and festivals.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Modesty: Ensure that the attire is modest and covers the shoulders and knees. Transparent and revealing clothes are not allowed.</li>
-    <li>Comfort: As the temple can be crowded and involve long queues, wearing comfortable clothing that adheres to the dress code is advisable.</li>
-    <li>Footwear: Footwear must be removed before entering the temple premises. There are designated areas to store shoes safely.</li>
-  </ul>
-  <h5 class="section__sub-b">Enforcement</h5>
-  <ul class="bullet-list">
-    <li>Checkpoints: The temple authorities have checkpoints at the entrance to ensure compliance with the dress code.</li>
-    <li>Rentals: For those who arrive without the appropriate attire, dhotis and sarees are often available for purchase or rent near the temple entrance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <p>The Kashi Vishwanath Temple has specific rules regarding the entry of electronic gadgets to maintain the sanctity and security of the temple premises. Here are the guidelines for electronic gadgets:</p>
-  <h5 class="section__sub-b">Allowed Electronic Gadgets</h5>
-  <ul class="bullet-list">
-    <li>None: Generally, electronic gadgets such as mobile phones, cameras, and other electronic devices are not allowed inside the temple premises.</li>
-  </ul>
-  <h5 class="section__sub-b">Not Allowed Electronic Gadgets</h5>
-  <ul class="bullet-list">
-    <li>Mobile Phones: Strictly prohibited inside the main temple premises.</li>
-    <li>Cameras: Not allowed inside the temple premises to prevent disturbance and maintain the sanctity of the rituals.</li>
-    <li>Laptops/Tablets: These and similar large electronic devices are not permitted inside the temple premises.</li>
-    <li>Smart Watches: Devices capable of recording audio or video are typically not allowed.</li>
-  </ul>
-  <h5 class="section__sub-b">Deposit Facilities for Electronic Gadgets</h5>
-  <ul class="bullet-list">
-    <li>Locker Facilities: The temple provides locker facilities where devotees can safely deposit their electronic gadgets before entering the temple premises.</li>
-    <li>Location: Lockers are usually available near the main entrance of the temple complex and other designated areas around the temple.</li>
-    <li>Procedure:</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Retrieve Gadget: Use the receipt or token to retrieve your gadgets after your visit.</h3>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Plan Ahead: Avoid carrying unnecessary electronic gadgets to minimize the hassle of depositing and retrieving them.</li>
-    <li>Follow Signages: Pay attention to signages indicating where to deposit electronic gadgets.</li>
-    <li>Security: The locker facilities are managed by the temple authorities, ensuring the safety and security of your belongings.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
-  <p>The Kashi Vishwanath Temple has specific guidelines regarding photography to maintain the sanctity and security of the temple premises.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography Inside the Temple Premises:</h3>
-  <ul class="bullet-list">
-    <li>Not Allowed: Photography and videography are strictly prohibited inside the main temple premises, including the sanctum sanctorum and surrounding areas. This rule is in place to preserve the spiritual atmosphere and ensure the privacy of worshippers.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography Outside the Temple Premises:</h3>
-  <ul class="bullet-list">
-    <li>Allowed: Photography is generally allowed in the areas outside the main temple complex, such as the ghats, the entry points, and the streets of Varanasi leading to the temple. These areas are often filled with vibrant cultural and spiritual activities.</li>
-  </ul>
-  <h5 class="section__sub-b">Fees for Photography</h5>
-  <ul class="bullet-list">
-    <li>No Prescribed Fees: There is no specific fee for photography in the allowed areas outside the main temple premises. However, if you are photographing certain events or using professional equipment, it&#x27;s advisable to check for any local guidelines or permissions that might be required.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Permissions</h5>
-  <ul class="bullet-list">
-    <li>Special Occasions: On certain special occasions and festivals, the temple authorities may grant permission to official photographers for documentation purposes. These permissions are typically limited to media personnel and require prior approval from the Shri Kashi Vishwanath Temple Trust.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Respect the Rules: Always follow the temple’s guidelines regarding photography to ensure a respectful and trouble-free visit.</li>
-    <li>Check Signages: Look for signs indicating areas where photography is prohibited to avoid any inadvertent violations.</li>
-    <li>Seek Information: For any specific queries or updates regarding the photography policy, it is advisable to check with the temple authorities or visit the official website.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other facility for physically handicapped?</h3>
-  <p>Accessibility Facilities at Kashi Vishwanath Temple</p>
-  <p>The Kashi Vishwanath Temple has made efforts to ensure accessibility for physically handicapped devotees. Here are the key facilities available:</p>
-  <h5 class="section__sub-b">Lifts/Elevators</h5>
-  <ul class="bullet-list">
-    <li>Availability: The temple complex includes elevator facilities to assist physically handicapped devotees and elderly visitors in accessing various parts of the temple.</li>
-    <li>Locations: Elevators are strategically placed to help visitors navigate through the temple, especially areas that might be challenging to reach due to steps or elevation changes.</li>
-  </ul>
-  <h5 class="section__sub-b">Ramps and Wheelchair Access</h5>
-  <ul class="bullet-list">
-    <li>Ramps: The temple has installed ramps at various entry points and within the temple complex to ensure easy movement for devotees using wheelchairs.</li>
-    <li>Wheelchair Availability: Wheelchairs are available for physically handicapped devotees. These can be requested at the temple’s main entrance or information desks.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Assistance</h5>
-  <ul class="bullet-list">
-    <li>Escort Services: The temple staff and volunteers are available to assist physically handicapped and elderly visitors. They help in navigating through the temple premises and ensuring a comfortable darshan experience.</li>
-    <li>Dedicated Entry Points: There are designated entry points for physically handicapped devotees to minimize wait times and provide easier access to the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact Information</h5>
-  <p>For specific queries or to arrange for assistance, physically handicapped devotees can contact the temple administration:</p>
-  <ul class="bullet-list">
-    <li>Phone: +91-542-2392629</li>
-    <li>Email: info@shrikashivishwanath.org</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Advance Notification: It’s advisable to inform the temple authorities in advance if you require special assistance or wheelchair services to ensure a smooth experience.</li>
-    <li>Respect and Patience: While the temple staff is dedicated to assisting all devotees, patience and cooperation from visitors help in managing the facilities effectively.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
-  <p>The Kashi Vishwanath Temple provides several facilities to ensure that elderly and physically challenged devotees can visit and worship comfortably. Here are the key details regarding wheelchair facilities:</p>
-  <h5 class="section__sub-b">Wheelchair Availability</h5>
-  <ul class="bullet-list">
-    <li>Free Wheelchairs: The temple provides wheelchairs free of charge for elderly and physically challenged devotees.</li>
-    <li>Availability: Wheelchairs are available at various locations within the temple premises, including the main entrance and information desks.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Access Wheelchair Services</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">On Arrival:</h3>
-  <ul class="bullet-list">
-    <li>Request a Wheelchair: Approach the help desk or information counter at the temple entrance to request a wheelchair.</li>
-    <li>Identification: Be prepared to provide identification and details of the need to ensure proper allocation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Pre-Booking:</h3>
-  <ul class="bullet-list">
-    <li>Advance Notification: It is advisable to inform the temple authorities in advance if wheelchair services are needed, especially during peak seasons and festivals. This can help ensure that the necessary arrangements are made.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Assistance</h5>
-  <ul class="bullet-list">
-    <li>Escort Services: Temple staff and volunteers are available to assist physically challenged and elderly devotees. They can help with navigating through the temple premises and ensuring a comfortable and seamless darshan experience.</li>
-    <li>Dedicated Entry Points: There are specific entry points and pathways designed for easy access to the temple for those with mobility issues.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Plan Ahead: Given the popularity of the temple, planning your visit in advance can help ensure that all necessary arrangements are made for a comfortable experience.</li>
-    <li>Local Assistance: If you need immediate help, temple staff and volunteers are readily available to provide support.</li>
-  </ul>
-  <p>By providing these facilities, the Kashi Vishwanath Temple ensures that all devotees, regardless of physical limitations, can participate in the spiritual and cultural activities of the temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically              Challenged persons?</h3>
-  <p>The Kashi Vishwanath Temple provides special arrangements to ensure that sick, senior citizens, and physically challenged persons can have a comfortable and smooth darshan experience. Here are the details:</p>
-  <h5 class="section__sub-b">Special Darshan for Senior Citizens and Physically Challenged Persons</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Eligibility:</h3>
-  <ul class="bullet-list">
-    <li>Senior Citizens: Individuals aged 60 and above.</li>
-    <li>Physically Challenged Persons: Devotees with physical disabilities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Timings:</h3>
-  <ul class="bullet-list">
-    <li>Morning: 9:00 AM - 11:00 AM</li>
-    <li>Afternoon: 2:00 PM - 4:00 PM</li>
-    <li>These timings are subject to change based on the temple’s schedule and crowd conditions. It is advisable to check the latest timings on the temple’s official website or by contacting the temple administration.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Points:</h3>
-  <ul class="bullet-list">
-    <li>Dedicated Entry: There are specific entry points designated for senior citizens and physically challenged persons to minimize wait times and ensure easy access.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Assistance:</h3>
-  <ul class="bullet-list">
-    <li>Escort Services: Temple staff and volunteers are available to assist with navigating through the temple premises.</li>
-    <li>Wheelchairs: Available on request at the temple entrance and information desks.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Procedure:</h3>
-  <ul class="bullet-list">
-    <li>Identification: Carry valid ID proof (such as Aadhaar card, passport) for verification of age or disability status.</li>
-    <li>Registration: Approach the help desk or designated counters to register for special darshan and receive assistance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <p>The Kashi Vishwanath Temple provides a Vehicle Pooja service where devotees can have their vehicles blessed. Here are the details regarding the Vehicle Pooja:</p>
-  <h5 class="section__sub-b">Timings</h5>
-  <ul class="bullet-list">
-    <li>Daily: The Vehicle Pooja is performed throughout the day.</li>
-    <li>Specific Hours: Typically available from 7:00 AM to 7:00 PM. It is advisable to check the exact timings with the temple authorities as they may vary.</li>
-  </ul>
-  <h5 class="section__sub-b">Location</h5>
-  <ul class="bullet-list">
-    <li>Designated Area: The Vehicle Pooja is conducted in a designated area within the temple complex or nearby parking lots. The exact location can be confirmed upon arrival or by contacting the temple administration.</li>
-  </ul>
-  <h5 class="section__sub-b">Cost</h5>
-  <ul class="bullet-list">
-    <li>Nominal Fee: The cost for performing the Vehicle Pooja generally ranges between ₹300 to ₹500, depending on the type of vehicle and specific requirements.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking Procedure</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">On-Spot Registration:</h3>
-  <ul class="bullet-list">
-    <li>Step 1: Approach the designated counter or help desk within the temple premises where Vehicle Pooja services are offered.</li>
-    <li>Step 2: Register for the Vehicle Pooja by providing the necessary details and paying the nominal fee.</li>
-    <li>Step 3: A priest will perform the pooja, which includes chanting of mantras, sprinkling of holy water, and applying tilak (sacred mark) on the vehicle.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Advance Booking:</h3>
-  <ul class="bullet-list">
-    <li>While on-spot registration is commonly used, you can also inquire about the possibility of advance booking by contacting the temple administration.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
-  <p>The Kashi Vishwanath Temple Trust provides various accommodation options for pilgrims visiting Varanasi. These facilities cater to different budgets and preferences, ensuring a comfortable stay for all devotees.</p>
-  <h5 class="section__sub-b">Types of Accommodation</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Dharmashalas (Guest Houses):</h3>
-  <ul class="bullet-list">
-    <li>Description: Basic accommodations providing essential facilities for pilgrims.</li>
-    <li>Examples:</li>
-    <li>Dharamshala Vishwanath Dham: Located near the temple, offering clean rooms with basic amenities.</li>
-    <li>Dharamshala Annapurna Bhavan: Another popular guest house providing basic accommodation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Budget Rooms:</h3>
-  <ul class="bullet-list">
-    <li>Description: Affordable rooms with necessary amenities like beds, fans, and attached bathrooms.</li>
-    <li>Cost: Typically ranges from ₹500 to ₹1,000 per day.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Standard Rooms:</h3>
-  <ul class="bullet-list">
-    <li>Description: Comfortable rooms with additional amenities like air conditioning, television, and attached bathrooms.</li>
-    <li>Cost: Generally ranges from ₹1,000 to ₹2,500 per day.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Deluxe Rooms:</h3>
-  <ul class="bullet-list">
-    <li>Description: Higher-end rooms offering more comfort and amenities such as air conditioning, TV, 24-hour hot water, and sometimes room service.</li>
-    <li>Cost: Typically ranges from ₹2,500 to ₹5,000 per day.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Suites:</h3>
-  <ul class="bullet-list">
-    <li>Description: Premium accommodation with multiple rooms, living area, and enhanced facilities.</li>
-    <li>Cost: Can range from ₹5,000 to ₹10,000 per day or more, depending on the amenities and location.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking Procedure</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Booking:</h3>
-  <ul class="bullet-list">
-    <li>Website: Devotees can book accommodations online through the official Kashi Vishwanath Temple website.</li>
-    <li>Procedure:</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">On-Site Booking:</h3>
-  <ul class="bullet-list">
-    <li>Booking Counters: Pilgrims can also book accommodations at the booking counters located near the temple and the railway station.</li>
-    <li>First-Come, First-Served: Some accommodations, especially dharmashalas, are available on a first-come, first-served basis.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
-  <p>The Kashi Vishwanath Temple in Varanasi provides designated parking facilities to accommodate the large number of visitors arriving by different modes of transport. Here are the key details regarding parking options for cars, mini-buses, and two-wheelers:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Ganga Dham Parking:</h3>
-  <ul class="bullet-list">
-    <li>Location: Near the Ganges, close to the temple.</li>
-    <li>Capacity: Adequate space for cars.</li>
-    <li>Facilities: Basic amenities such as restrooms and security.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Town Hall Parking:</h3>
-  <ul class="bullet-list">
-    <li>Location: Near the Town Hall area, which is a short walk to the temple.</li>
-    <li>Capacity: Ample parking space for cars.</li>
-    <li>Facilities: Secured parking with attendants.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Benia Bagh Parking:</h3>
-  <ul class="bullet-list">
-    <li>Location: Near Benia Bagh, providing access to the temple via a short rickshaw or walk.</li>
-    <li>Capacity: Good capacity for cars.</li>
-    <li>Facilities: Security and basic facilities available.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Varanasi Bus Stand:</h3>
-  <ul class="bullet-list">
-    <li>Location: Near the main bus stand.</li>
-    <li>Capacity: Designed to accommodate mini-buses and larger vehicles.</li>
-    <li>Facilities: Restrooms, security, and easy access to local transport for reaching the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Maidagin Parking:</h3>
-  <ul class="bullet-list">
-    <li>Location: Near Maidagin crossing.</li>
-    <li>Capacity: Adequate space for mini-buses.</li>
-    <li>Facilities: Secured area with attendants, restrooms available.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Godaulia Parking:</h3>
-  <ul class="bullet-list">
-    <li>Location: Close to the Godaulia crossing, within walking distance to the temple.</li>
-    <li>Capacity: Designated space for two-wheelers.</li>
-    <li>Facilities: Basic amenities and security.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Luxa Road Parking:</h3>
-  <ul class="bullet-list">
-    <li>Location: On Luxa Road, a short walk to the temple.</li>
-    <li>Capacity: Adequate space for two-wheelers.</li>
-    <li>Facilities: Security provided.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Plan Ahead: Given the crowded nature of Varanasi, especially during peak seasons and festivals, it is advisable to plan your parking ahead of time.</li>
-    <li>Use Public Transport: For convenience, consider using public transport or hiring a local rickshaw from your parking spot to the temple to avoid navigating through the narrow streets.</li>
-    <li>Arrive Early: Arriving early can help secure a parking spot and avoid the rush.</li>
-  </ul>
-  <p>For the latest updates and more detailed information on parking facilities, always refer to the official Kashi Vishwanath Temple website or contact the temple administration directly.</p>
-  <p>These parking facilities help ensure that visitors have a convenient and stress-free experience while visiting the Kashi Vishwanath Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings.</h3>
-  <p>The Kashi Vishwanath Temple provides prashad services, including free meals and special prashad for purchase. Here&#x27;s a detailed overview of the prashad services, procedures, and payment details:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Annapurna Prashad Seva (Free Meals):</h3>
-  <h5 class="section__sub-b">Description</h5>
-  <ul class="bullet-list">
-    <li>The temple offers free meals to all devotees as part of the Annapurna Prashad Seva. This service is provided to ensure that no devotee leaves the temple premises hungry.</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure</h5>
-  <ul class="bullet-list">
-    <li>Availability: Free meals are served daily.</li>
-    <li>Timings: Generally, meals are served twice a day.</li>
-    <li>Lunch: 12:00 PM - 2:00 PM</li>
-    <li>Dinner: 7:00 PM - 9:00 PM</li>
-    <li>Location: The meals are served in the designated dining halls within the temple complex.</li>
-    <li>Class/Lines: All devotees are served equally in the dining hall, and there are no separate classes or lines for different groups.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Prashad for Purchase:</h3>
-  <h5 class="section__sub-b">Description</h5>
-  <ul class="bullet-list">
-    <li>Devotees can purchase special prashad such as laddus, panchamrit, and other items prepared in the temple kitchen.</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure</h5>
-  <ul class="bullet-list">
-    <li>Purchase Points: Special prashad can be bought at designated counters within the temple premises.</li>
-    <li>Cost: Prices for different prashad items vary. For example, laddus might cost around ₹20-₹50 per piece, depending on the size and preparation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Booking and Tickets:</h3>
-  <h5 class="section__sub-b">Free Meals</h5>
-  <ul class="bullet-list">
-    <li>No Tickets Required: There is no need to buy tickets for the free meals provided as part of the Annapurna Prashad Seva.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Prashad</h5>
-  <ul class="bullet-list">
-    <li>On-Site Purchase: Special prashad can be purchased directly at the counters within the temple premises. No advance booking or tickets are required.</li>
-    <li>Payment: Payment can be made in cash, and some counters may accept digital payments depending on the facilities available.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Timing: Arrive early to ensure you get a seat in the dining hall during meal times.</li>
-    <li>Respect the Service: Follow the temple guidelines and respect the volunteers and staff serving the prashad.</li>
-    <li>Carry Change: If purchasing special prashad, it is helpful to carry small denominations for ease of payment.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">18 .Carry home prashad( types) if any.. Cost ?</h3>
-  <p>The Kashi Vishwanath Temple offers a variety of prashad items that devotees can take home. These prashads are considered sacred and are often shared with family and friends. Here are some of the key prashad items available, their types, and costs:</p>
-  <h5 class="section__sub-b">Types of Carry Home Prashad</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Laddus:</h3>
-  <ul class="bullet-list">
-    <li>Description: Sweet spherical confections made from flour, ghee, and sugar, often flavored with cardamom and garnished with nuts.</li>
-    <li>Cost: Approximately ₹20-₹50 per piece, depending on the size and preparation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Panchamrit:</h3>
-  <ul class="bullet-list">
-    <li>Description: A sacred mixture of five ingredients - milk, curd, honey, ghee, and sugar.</li>
-    <li>Cost: Usually priced around ₹30-₹50 per container.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dry Fruits Prashad:</h3>
-  <ul class="bullet-list">
-    <li>Description: A mix of various dry fruits that are blessed and offered as prashad.</li>
-    <li>Cost: Varies depending on the quantity and type of dry fruits, typically around ₹100-₹200 per packet.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Batashe:</h3>
-  <ul class="bullet-list">
-    <li>Description: Sugar candies that are often distributed as prashad.</li>
-    <li>Cost: Usually priced at ₹10-₹20 per packet.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ghee:</h3>
-  <ul class="bullet-list">
-    <li>Description: Clarified butter that is blessed and offered as prashad.</li>
-    <li>Cost: Typically around ₹100-₹150 per container.</li>
-  </ul>
-  <h5 class="section__sub-b">Purchase Procedure</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">On-Site Purchase:</h3>
-  <ul class="bullet-list">
-    <li>Prashad Counters: Carry home prashad items can be purchased from designated prashad counters within the temple premises.</li>
-    <li>Payment: Payments can be made in cash, and some counters may accept digital payments depending on the facilities available.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Purchase:</h3>
-  <ul class="bullet-list">
-    <li>Website: Some prashad items may be available for online purchase through the temple’s official website or affiliated e-commerce platforms. This ensures that devotees who cannot visit in person can still receive prashad.</li>
-    <li>Delivery: The prashad purchased online is usually shipped to the devotee&#x27;s address.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Check Availability: Some prashad items may have limited availability, especially during peak seasons and festivals.</li>
-    <li>Storage: Ensure proper storage to maintain the freshness and sanctity of the prashad when taking it home.</li>
-    <li>No Resale: Prashad is meant for personal consumption and sharing with loved ones, not for resale.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <p>If you lose an item while visiting the Kashi Vishwanath Temple, the temple authorities have a systematic procedure to help you report and recover your lost belongings. Here are the steps to follow:</p>
-  <h5 class="section__sub-b">Steps to Report a Lost Item</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Lost and Found Office:</h3>
-  <ul class="bullet-list">
-    <li>Location: The Lost and Found Office is typically located near the main temple complex or within the administrative buildings. Look for signs directing you to this office or ask temple staff for assistance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Provide Details:</h3>
-  <ul class="bullet-list">
-    <li>Description: Provide a detailed description of the lost item, including any unique identifiers, color, size, brand, and where and when you last had it.</li>
-    <li>Personal Information: You may need to provide your name, contact details, and identification for verification purposes.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Register the Complaint:</h3>
-  <ul class="bullet-list">
-    <li>Form: Fill out a Lost Item Report Form, which will be provided at the Lost and Found Office.</li>
-    <li>Receipt: You will receive a receipt or a reference number for your report. Keep this safe, as you will need it to check the status of your lost item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Follow Up:</h3>
-  <ul class="bullet-list">
-    <li>Check Back: Periodically check back with the Lost and Found Office, either in person or by calling the office, to see if your item has been found.</li>
-    <li>Updates: Provide the reference number from your receipt when inquiring about your lost item.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Act Quickly: Report lost items as soon as you realize they are missing to increase the chances of recovery.</li>
-    <li>Keep Receipts: If you have made any purchases or bookings, keep the receipts and any relevant documents that might help in identifying your lost item.</li>
-    <li>Stay Calm: Temple authorities are usually very helpful, and there is a good system in place to handle lost items.</li>
-  </ul>
-  <h5 class="section__sub-b">Common Locations for Lost and Found</h5>
-  <ul class="bullet-list">
-    <li>Queue Complexes: Lost items often turn up in the various queue complexes where devotees wait for darshan.</li>
-    <li>Accommodation Areas: Items left behind in guest rooms or common areas are usually handed over to the Lost and Found Office.</li>
-    <li>Dining Halls and Canteens: Check these areas if you lost items while having prashad or meals.</li>
-  </ul>
-  <p>By following these steps, you can efficiently report and increase the chances of recovering your lost items at the Kashi Vishwanath Temple. For more information, you can visit the official Kashi Vishwanath Temple website.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>If a group member goes missing at the Kashi Vishwanath Temple, it’s crucial to act quickly and follow the appropriate steps to locate them. Here is the procedure to report a missing person and the recommended actions to take:</p>
-  <h5 class="section__sub-b">Steps to Report a Missing Person</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact Temple Security:</h3>
-  <ul class="bullet-list">
-    <li>Security Booths: Approach the nearest security booth or security personnel within the temple premises. Security staff are usually stationed at various points throughout the temple complex.</li>
-    <li>Information to Provide: Give a detailed description of the missing person, including their name, age, physical appearance, clothing, and where and when they were last seen.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Temple Information Center:</h3>
-  <ul class="bullet-list">
-    <li>Location: The Temple Information Center is located near the main entrance or administrative buildings.</li>
-    <li>Reporting: Fill out a missing person report form with all necessary details. The staff will log the information and broadcast it to all security points within the temple complex.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Use Public Announcement Systems:</h3>
-  <ul class="bullet-list">
-    <li>Announcements: Request the temple authorities to make public announcements regarding the missing person. This can be done through the temple&#x27;s public announcement systems located at various points in the complex.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Inform the Local Police Station:</h3>
-  <ul class="bullet-list">
-    <li>Police Assistance: If the missing person is not found within a reasonable time, inform the local police station in Varanasi. They will assist in the search and coordinate with temple security.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Check Common Waiting Areas:</h3>
-  <ul class="bullet-list">
-    <li>Designated Waiting Spots: The temple has designated waiting areas for lost persons. These are typically located near major entry and exit points, the information center, and popular gathering spots.</li>
-    <li>Specific Areas: Common areas to check include the queue complexes, main temple entrance, dining halls, and accommodation centers.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact Information for Assistance</h5>
-  <h5 class="section__sub-b">Temple Security</h5>
-  <ul class="bullet-list">
-    <li>Phone: +91-542-2392629 (for general inquiries)</li>
-    <li>On-site: Approach any security personnel or booth within the temple premises.</li>
-  </ul>
-  <h5 class="section__sub-b">Local Police Station (Varanasi)</h5>
-  <ul class="bullet-list">
-    <li>Phone: Available through temple information desks or security booths for immediate assistance.</li>
-  </ul>
-  <h5 class="section__sub-b">Temple Information Center</h5>
-  <ul class="bullet-list">
-    <li>Location: Near the main temple entrance or administrative buildings.</li>
-    <li>Assistance: Staff can assist in logging missing person reports and coordinating the search.</li>
-  </ul>
-  <h5 class="section__sub-b">Where to Wait</h5>
-  <ul class="bullet-list">
-    <li>Designated Waiting Areas: The temple has specific areas for people to wait if they are separated from their group. These areas are usually marked and located near the main entrance, exit points, and information centers.</li>
-    <li>Common Gathering Spots: In addition to designated waiting areas, popular spots like the main entry and exit points, dining halls, and seating areas within the temple complex are also good places to wait.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Tips</h5>
-  <ul class="bullet-list">
-    <li>Stay Calm: Keep calm and composed. Temple authorities are experienced in handling such situations and will assist promptly.</li>
-    <li>Set a Meeting Point: Before entering the temple complex, agree on a meeting point with your group members in case anyone gets separated.</li>
-    <li>Carry Contact Information: Ensure that all group members carry a card or paper with the contact information of the group leader or a central point of contact.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
-  <p>Kashi Vishwanath Temple - Government Registration</p>
-  <p>The Kashi Vishwanath Temple, located in Varanasi, Uttar Pradesh, is managed by a trust established by the Government of Uttar Pradesh. The temple was officially taken over by the state government on January 28, 1983. Since then, its management has been entrusted to a trust headed by Dr. Vibhuti Narayan Singh, the former Kashi Naresh (King of Kashi), with an Executive Committee chaired by the Divisional Commissioner.</p>
-  <h5 class="section__sub-b">Key Information</h5>
-  <ul class="bullet-list">
-    <li>Official Takeover: January 28, 1983</li>
-    <li>Current Management: Shri Kashi Vishwanath Temple Trust</li>
-    <li>Trust President: Dr. Vibhuti Narayan Singh</li>
-    <li>Executive Committee Chairman: Divisional Commissioner</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Full Address: Kashi Vishwanath Temple, Kashi Vishwanath Gali, Varanasi, Uttar Pradesh, India - 221001</h3>
+					  <h5 class="section__sub-b">Phone(s)/Contact number(s)</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Office: +91-542-2392629</li>
+					    <li>General Inquiries: +91-542-2392689</li>
+					  </ul>
+					  <h5 class="section__sub-b">Condensed Information about the Place</h5>
+					  <h5 class="section__sub-b">A. MAIN DEITY</h5>
+					  <ul class="bullet-list">
+					    <li>Lord Shiva (Vishwanath): The primary deity of the Kashi Vishwanath Temple is Lord Shiva, worshipped here as Vishwanath or Vishweshwara (Ruler of the Universe). This Jyotirlinga is one of the twelve holiest shrines of Lord Shiva.</li>
+					  </ul>
+					  <h5 class="section__sub-b">B. OTHER DEITIES (Sub Deities)</h5>
+					  <ul class="bullet-list">
+					    <li>Maa Annapurna: Goddess of nourishment, an incarnation of Parvati, the consort of Lord Shiva.</li>
+					    <li>Kaal Bhairav: A fierce form of Lord Shiva, believed to be the guardian deity of Varanasi.</li>
+					    <li>Dhandapani: Another form of Lord Shiva known for his protective and benevolent nature.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <ul class="bullet-list">
+					    <li>(a) general</li>
+					    <li>(b) on special days like festivals and utsavas</li>
+					  </ul>
+					  <h5 class="section__sub-b">General Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Opening Time: 3:00 AM</li>
+					    <li>Closing Time: 11:00 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">Daily Schedule</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Shayan Aarti: 10:30 PM - 11:00 PM (Darshan not allowed during this time)</h3>
+					  <p>Special Days (Festivals and Utsavas): On special occasions, festivals, and utsavas, the temple timings may be extended, and additional rituals and ceremonies are performed. Some notable festivals and their special arrangements include:</p>
+					  <h5 class="section__sub-b">1. Maha Shivaratri</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: The temple remains open throughout the night with special poojas and aartis performed.</li>
+					    <li>Activities: Continuous chanting of mantras, special abhishekam (anointment) of the deity, and cultural performances.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Shravan Maas</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: The temple experiences extended hours during the entire month of Shravan (July-August) due to the high influx of devotees.</li>
+					    <li>Activities: Daily special poojas and aartis, increased frequency of abhishekam, and other rituals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Kartika Maas</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: Similar to Shravan Maas, the temple remains open for extended hours throughout Kartika Maas (October-November).</li>
+					    <li>Activities: Special aartis and rituals, particularly on the auspicious days of Kartika Purnima and Diwali.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Pradosh Vrat</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: Extended hours on Pradosh Vrat days to accommodate additional rituals and increased devotee attendance.</li>
+					    <li>Activities: Special poojas and aartis dedicated to Lord Shiva.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips for Devotees</h5>
+					  <ul class="bullet-list">
+					    <li>Plan Ahead: Given the popularity of the temple, especially during festivals, it is advisable to plan your visit in advance and check for any specific updates regarding timings.</li>
+					    <li>Follow Guidelines: Adhere to the temple&#x27;s dress code and guidelines to ensure a smooth and respectful visit.</li>
+					    <li>Stay Informed: Check the temple&#x27;s official website or contact the administration for the most current information on timings and special events.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <ul class="bullet-list">
+					    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
+					  </ul>
+					  <h5 class="section__sub-b">General Entry</h5>
+					  <ul class="bullet-list">
+					    <li>Fee: Free</li>
+					    <li>Privileges: General entry allows devotees to have darshan of the main deity, Lord Shiva (Vishwanath). There is no charge for the general darshan queue.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Entry (Sugam Darshan)</h5>
+					  <ul class="bullet-list">
+					    <li>Fee: ₹300 per person (as per the latest updates; it is advisable to check the official website for the most current fee structure)</li>
+					    <li>Privileges:</li>
+					    <li>Quick Darshan: Access to a shorter, faster queue for darshan.</li>
+					    <li>Special Gate: Entry through a designated gate for quicker access to the sanctum.</li>
+					    <li>Longer View: A more extended time to view the deity compared to the general queue.</li>
+					    <li>Prasad: Special entry often includes a packet of prasad.</li>
+					    <li>Puja: Option to book and participate in special pujas.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Pujas and Services</h5>
+					  <ul class="bullet-list">
+					    <li>Special Pujas: Devotees can book various special pujas like Rudrabhishek, Laghurudra, Maharudra, etc., through the temple&#x27;s official website or at the temple counters. These pujas typically come with a specific fee and may include special privileges such as priority darshan and prasad.</li>
+					    <li>Online Booking: Many services and pujas can be booked online through the temple’s official website, providing convenience and ensuring participation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Entry Restrictions for Foreigners</h5>
+					  <ul class="bullet-list">
+					    <li>No Specific Restrictions: Foreigners are welcome to visit the Kashi Vishwanath Temple. However, they must adhere to the general rules and guidelines applicable to all devotees.</li>
+					    <li>Dress Code: Modest attire is required. Men should wear traditional attire like dhotis or kurtas, and women should wear sarees or salwar kameez.</li>
+					    <li>No Special Fees: There are no additional fees specifically for foreigners.</li>
+					    <li>Declaration: Typically, no special declaration is required for foreigners, but it is advisable to carry identification and be prepared to follow any specific instructions provided by temple authorities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Advance Booking: It is advisable to book special darshan and pujas in advance, especially during peak seasons and festivals, to avoid long waits and ensure a smooth experience.</li>
+					    <li>Follow Guidelines: Adhere to the temple’s dress code and behavior guidelines to maintain the sanctity of the temple.</li>
+					    <li>Stay Informed: For the latest updates on entry fees, booking procedures, and any specific guidelines for foreigners, visit the official Kashi Vishwanath Temple website.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
+					  <p>The Kashi Vishwanath Temple is located in the holy city of Varanasi, one of the most visited pilgrimage destinations in India. Here are the various modes of transportation to reach the temple:</p>
+					  <h5 class="section__sub-b">By Air</h5>
+					  <h5 class="section__sub-b">Lal Bahadur Shastri International Airport (Varanasi Airport)</h5>
+					  <ul class="bullet-list">
+					    <li>Distance from Temple: Approximately 25 km</li>
+					    <li>Connectivity: The airport is well-connected with major cities across India, including Delhi, Mumbai, Kolkata, Hyderabad, and Bangalore. There are also international flights from cities like Kathmandu, Colombo, Bangkok, and more.</li>
+					    <li>Airport Transfers: Taxis, app-based cabs (like Uber and Ola), and prepaid taxi services are available at the airport to reach the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Train</h5>
+					  <h5 class="section__sub-b">Varanasi Junction (BSB)</h5>
+					  <ul class="bullet-list">
+					    <li>Distance from Temple: Approximately 4 km</li>
+					    <li>Connectivity: Varanasi Junction is a major railway hub, well-connected with most parts of India. Trains from cities like Delhi, Mumbai, Kolkata, Chennai, and Hyderabad frequently arrive at this station.</li>
+					    <li>Transfers: Auto-rickshaws, cycle-rickshaws, taxis, and app-based cabs are available from the railway station to the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Manduadih Railway Station</h5>
+					  <ul class="bullet-list">
+					    <li>Distance from Temple: Approximately 6 km</li>
+					    <li>Connectivity: Another important railway station in Varanasi with connectivity to various cities across India.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Bus</h5>
+					  <h5 class="section__sub-b">Varanasi Bus Stand</h5>
+					  <ul class="bullet-list">
+					    <li>Distance from Temple: Approximately 4 km</li>
+					    <li>Connectivity: Regular bus services are available from nearby cities and towns. The Uttar Pradesh State Road Transport Corporation (UPSRTC) operates buses to Varanasi from cities like Lucknow, Allahabad (Prayagraj), Gorakhpur, and others.</li>
+					    <li>Transfers: Auto-rickshaws and cycle-rickshaws are readily available at the bus stand to reach the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Road</h5>
+					  <h5 class="section__sub-b">Taxi and Private Cars</h5>
+					  <ul class="bullet-list">
+					    <li>Connectivity: Varanasi is well-connected by road to major cities in Uttar Pradesh and neighboring states. You can hire a taxi or drive in a private car.</li>
+					    <li>Highways: National Highways NH2, NH56, and NH29 connect Varanasi with various parts of the country.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Local Transportation</h5>
+					  <h5 class="section__sub-b">Auto-Rickshaws and Cycle-Rickshaws</h5>
+					  <ul class="bullet-list">
+					    <li>Widely available and convenient for short distances within the city.</li>
+					  </ul>
+					  <h5 class="section__sub-b">App-Based Cabs</h5>
+					  <ul class="bullet-list">
+					    <li>Services like Uber and Ola operate in Varanasi, providing a convenient option for reaching the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">E-Rickshaws</h5>
+					  <ul class="bullet-list">
+					    <li>Environmentally friendly and commonly used for short commutes within the city.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Traffic: Varanasi can have heavy traffic, especially during festivals and peak tourist seasons. Plan your travel accordingly.</li>
+					    <li>Navigation: The temple is located in a congested area with narrow lanes. It is often easier to reach a nearby drop-off point and walk to the temple.</li>
+					    <li>Local Assistance: Local guides and maps are available for navigation, and it&#x27;s useful to ask locals for directions if needed.</li>
+					  </ul>
+					  <p>For more detailed information and travel planning, visit the official Kashi Vishwanath Temple website or contact the temple administration.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <p>The Kashi Vishwanath Temple offers a range of special poojas and rituals for devotees. These poojas are performed daily, weekly, and on special occasions. Here are some key poojas, their timings, associated costs, and the procedure for advance booking:</p>
+					  <h5 class="section__sub-b">Daily Poojas</h5>
+					  <h5 class="section__sub-b">1. Mangala Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Time: 3:00 AM - 4:00 AM</li>
+					    <li>Cost: ₹350 per person</li>
+					    <li>Description: Early morning aarti to wake up Lord Shiva. This is considered highly auspicious and beneficial for devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Bhog Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Time: 11:15 AM - 12:20 PM</li>
+					    <li>Cost: ₹180 per person</li>
+					    <li>Description: Aarti performed before offering food to the deity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Sapta Rishi Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Time: 7:00 PM - 8:15 PM</li>
+					    <li>Cost: ₹180 per person</li>
+					    <li>Description: Evening aarti performed by seven priests simultaneously.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Shringar/Bhog Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Time: 9:00 PM - 10:15 PM</li>
+					    <li>Cost: ₹180 per person</li>
+					    <li>Description: Aarti performed to adorn and offer food to the deity before the night’s rest.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Shayan Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Time: 10:30 PM - 11:00 PM</li>
+					    <li>Cost: ₹180 per person</li>
+					    <li>Description: Aarti performed before the deity is put to rest for the night.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Poojas</h5>
+					  <h5 class="section__sub-b">1. Rudrabhishek</h5>
+					  <ul class="bullet-list">
+					    <li>Time: Performed multiple times throughout the day</li>
+					    <li>Cost: ₹300 - ₹3,000 (depending on the type of Rudrabhishek)</li>
+					    <li>Description: A special pooja involving the abhishekam (ritual bath) of Lord Shiva with holy substances like milk, honey, and ghee, accompanied by the chanting of Vedic mantras.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Laghurudra</h5>
+					  <ul class="bullet-list">
+					    <li>Time: As per booking</li>
+					    <li>Cost: ₹4,000</li>
+					    <li>Description: A detailed version of Rudrabhishek with additional rituals and offerings.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Maharudra</h5>
+					  <ul class="bullet-list">
+					    <li>Time: As per booking</li>
+					    <li>Cost: ₹10,000</li>
+					    <li>Description: A grand version of Rudrabhishek involving extensive rituals and elaborate offerings.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Weekly Poojas</h5>
+					  <h5 class="section__sub-b">1. Pradosh Vrat</h5>
+					  <ul class="bullet-list">
+					    <li>Day: 13th day of each lunar fortnight</li>
+					    <li>Description: Special poojas and aarti performed to seek blessings from Lord Shiva.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking Procedure</h5>
+					  <h5 class="section__sub-b">Advance Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Online: Devotees can book poojas and aartis in advance through the official Kashi Vishwanath Temple website.</li>
+					    <li>On-Site: Bookings can also be made at the temple’s pooja booking counter.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Steps for Online Booking</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>The Kashi Vishwanath Temple provides a range of online services to assist devotees in planning their visit and participating in various rituals and offerings. These services are offered through the temple&#x27;s official website, managed by the Shri Kashi Vishwanath Temple Trust.</p>
+					  <h5 class="section__sub-b">Key Online Services</h5>
+					  <h5 class="section__sub-b">1. Online Puja Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Devotees can book various pujas and rituals online.</li>
+					    <li>Website: Kashi Vishwanath Temple Puja Booking</li>
+					    <li>Features: Allows booking of daily aartis, special poojas like Rudrabhishek, Laghurudra, Maharudra, and more.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Donations can be made online to support the temple’s activities and services.</li>
+					    <li>Website: Kashi Vishwanath Temple Donations</li>
+					    <li>Features: Secure online donation process with options to contribute to specific schemes and trusts.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Live Darshan</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Provides live streaming of temple activities and rituals for devotees who cannot visit in person.</li>
+					    <li>Website: Kashi Vishwanath Live Darshan</li>
+					    <li>Features: Offers real-time viewing of daily aartis and other significant events at the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Online Accommodation Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Booking of various types of accommodations near the temple.</li>
+					    <li>Website: Kashi Vishwanath Temple Accommodation</li>
+					    <li>Features: Options for booking guest houses, dormitories, and other accommodations for pilgrims.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. E-Hundi (Online Hundi Offerings)</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Devotees can make their offerings to the Hundi online.</li>
+					    <li>Website: Kashi Vishwanath E-Hundi</li>
+					    <li>Features: Convenient way to make traditional offerings without being physically present.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days</h3>
+					  <h5 class="section__sub-b">General Dress Code for Men</h5>
+					  <ul class="bullet-list">
+					    <li>Traditional Attire: Dhoti or kurta-pyjama is recommended.</li>
+					    <li>Allowed: Traditional Indian clothing such as dhotis, kurtas, and pyjamas.</li>
+					    <li>Not Allowed: Shorts, lungis, bermudas, and other Western casual attire.</li>
+					  </ul>
+					  <h5 class="section__sub-b">General Dress Code for Women</h5>
+					  <ul class="bullet-list">
+					    <li>Traditional Attire: Sarees or salwar kameez with dupatta are recommended.</li>
+					    <li>Allowed: Sarees, salwar kameez, and other traditional Indian clothing.</li>
+					    <li>Not Allowed: Western outfits such as jeans, skirts, and T-shirts.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Poojas and Festival Days</h5>
+					  <ul class="bullet-list">
+					    <li>On special poojas and festival days, it is encouraged to adhere strictly to traditional attire to honor the sanctity of the rituals and ceremonies.</li>
+					    <li>Men: Wearing a silk dhoti and angavastram (upper cloth) is preferred for special poojas.</li>
+					    <li>Women: Wearing a silk saree is recommended for special occasions and festivals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Modesty: Ensure that the attire is modest and covers the shoulders and knees. Transparent and revealing clothes are not allowed.</li>
+					    <li>Comfort: As the temple can be crowded and involve long queues, wearing comfortable clothing that adheres to the dress code is advisable.</li>
+					    <li>Footwear: Footwear must be removed before entering the temple premises. There are designated areas to store shoes safely.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Enforcement</h5>
+					  <ul class="bullet-list">
+					    <li>Checkpoints: The temple authorities have checkpoints at the entrance to ensure compliance with the dress code.</li>
+					    <li>Rentals: For those who arrive without the appropriate attire, dhotis and sarees are often available for purchase or rent near the temple entrance.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>The Kashi Vishwanath Temple has specific rules regarding the entry of electronic gadgets to maintain the sanctity and security of the temple premises. Here are the guidelines for electronic gadgets:</p>
+					  <h5 class="section__sub-b">Allowed Electronic Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>None: Generally, electronic gadgets such as mobile phones, cameras, and other electronic devices are not allowed inside the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Not Allowed Electronic Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Mobile Phones: Strictly prohibited inside the main temple premises.</li>
+					    <li>Cameras: Not allowed inside the temple premises to prevent disturbance and maintain the sanctity of the rituals.</li>
+					    <li>Laptops/Tablets: These and similar large electronic devices are not permitted inside the temple premises.</li>
+					    <li>Smart Watches: Devices capable of recording audio or video are typically not allowed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Deposit Facilities for Electronic Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Locker Facilities: The temple provides locker facilities where devotees can safely deposit their electronic gadgets before entering the temple premises.</li>
+					    <li>Location: Lockers are usually available near the main entrance of the temple complex and other designated areas around the temple.</li>
+					    <li>Procedure:</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Retrieve Gadget: Use the receipt or token to retrieve your gadgets after your visit.</h3>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Plan Ahead: Avoid carrying unnecessary electronic gadgets to minimize the hassle of depositing and retrieving them.</li>
+					    <li>Follow Signages: Pay attention to signages indicating where to deposit electronic gadgets.</li>
+					    <li>Security: The locker facilities are managed by the temple authorities, ensuring the safety and security of your belongings.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <p>The Kashi Vishwanath Temple has specific guidelines regarding photography to maintain the sanctity and security of the temple premises.</p>
+					  <h5 class="section__sub-b">Photography Inside the Temple Premises</h5>
+					  <ul class="bullet-list">
+					    <li>Not Allowed: Photography and videography are strictly prohibited inside the main temple premises, including the sanctum sanctorum and surrounding areas. This rule is in place to preserve the spiritual atmosphere and ensure the privacy of worshippers.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Photography Outside the Temple Premises</h5>
+					  <ul class="bullet-list">
+					    <li>Allowed: Photography is generally allowed in the areas outside the main temple complex, such as the ghats, the entry points, and the streets of Varanasi leading to the temple. These areas are often filled with vibrant cultural and spiritual activities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Fees for Photography</h5>
+					  <ul class="bullet-list">
+					    <li>No Prescribed Fees: There is no specific fee for photography in the allowed areas outside the main temple premises. However, if you are photographing certain events or using professional equipment, it&#x27;s advisable to check for any local guidelines or permissions that might be required.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Permissions</h5>
+					  <ul class="bullet-list">
+					    <li>Special Occasions: On certain special occasions and festivals, the temple authorities may grant permission to official photographers for documentation purposes. These permissions are typically limited to media personnel and require prior approval from the Shri Kashi Vishwanath Temple Trust.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Respect the Rules: Always follow the temple’s guidelines regarding photography to ensure a respectful and trouble-free visit.</li>
+					    <li>Check Signages: Look for signs indicating areas where photography is prohibited to avoid any inadvertent violations.</li>
+					    <li>Seek Information: For any specific queries or updates regarding the photography policy, it is advisable to check with the temple authorities or visit the official website.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other facility for physically handicapped?</h3>
+					  <p>Accessibility Facilities at Kashi Vishwanath Temple</p>
+					  <p>The Kashi Vishwanath Temple has made efforts to ensure accessibility for physically handicapped devotees. Here are the key facilities available:</p>
+					  <h5 class="section__sub-b">Lifts/Elevators</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: The temple complex includes elevator facilities to assist physically handicapped devotees and elderly visitors in accessing various parts of the temple.</li>
+					    <li>Locations: Elevators are strategically placed to help visitors navigate through the temple, especially areas that might be challenging to reach due to steps or elevation changes.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Ramps and Wheelchair Access</h5>
+					  <ul class="bullet-list">
+					    <li>Ramps: The temple has installed ramps at various entry points and within the temple complex to ensure easy movement for devotees using wheelchairs.</li>
+					    <li>Wheelchair Availability: Wheelchairs are available for physically handicapped devotees. These can be requested at the temple’s main entrance or information desks.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Escort Services: The temple staff and volunteers are available to assist physically handicapped and elderly visitors. They help in navigating through the temple premises and ensuring a comfortable darshan experience.</li>
+					    <li>Dedicated Entry Points: There are designated entry points for physically handicapped devotees to minimize wait times and provide easier access to the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact Information</h5>
+					  <p>For specific queries or to arrange for assistance, physically handicapped devotees can contact the temple administration:</p>
+					  <ul class="bullet-list">
+					    <li>Phone: +91-542-2392629</li>
+					    <li>Email: info@shrikashivishwanath.org</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Advance Notification: It’s advisable to inform the temple authorities in advance if you require special assistance or wheelchair services to ensure a smooth experience.</li>
+					    <li>Respect and Patience: While the temple staff is dedicated to assisting all devotees, patience and cooperation from visitors help in managing the facilities effectively.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>The Kashi Vishwanath Temple provides several facilities to ensure that elderly and physically challenged devotees can visit and worship comfortably. Here are the key details regarding wheelchair facilities:</p>
+					  <h5 class="section__sub-b">Wheelchair Availability</h5>
+					  <ul class="bullet-list">
+					    <li>Free Wheelchairs: The temple provides wheelchairs free of charge for elderly and physically challenged devotees.</li>
+					    <li>Availability: Wheelchairs are available at various locations within the temple premises, including the main entrance and information desks.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Access Wheelchair Services</h5>
+					  <h5 class="section__sub-b">1. On Arrival</h5>
+					  <ul class="bullet-list">
+					    <li>Request a Wheelchair: Approach the help desk or information counter at the temple entrance to request a wheelchair.</li>
+					    <li>Identification: Be prepared to provide identification and details of the need to ensure proper allocation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Pre-Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Advance Notification: It is advisable to inform the temple authorities in advance if wheelchair services are needed, especially during peak seasons and festivals. This can help ensure that the necessary arrangements are made.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Escort Services: Temple staff and volunteers are available to assist physically challenged and elderly devotees. They can help with navigating through the temple premises and ensuring a comfortable and seamless darshan experience.</li>
+					    <li>Dedicated Entry Points: There are specific entry points and pathways designed for easy access to the temple for those with mobility issues.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Plan Ahead: Given the popularity of the temple, planning your visit in advance can help ensure that all necessary arrangements are made for a comfortable experience.</li>
+					    <li>Local Assistance: If you need immediate help, temple staff and volunteers are readily available to provide support.</li>
+					  </ul>
+					  <p>By providing these facilities, the Kashi Vishwanath Temple ensures that all devotees, regardless of physical limitations, can participate in the spiritual and cultural activities of the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically              Challenged persons?</h3>
+					  <p>The Kashi Vishwanath Temple provides special arrangements to ensure that sick, senior citizens, and physically challenged persons can have a comfortable and smooth darshan experience. Here are the details:</p>
+					  <h5 class="section__sub-b">Special Darshan for Senior Citizens and Physically Challenged Persons</h5>
+					  <h5 class="section__sub-b">1. Eligibility</h5>
+					  <ul class="bullet-list">
+					    <li>Senior Citizens: Individuals aged 60 and above.</li>
+					    <li>Physically Challenged Persons: Devotees with physical disabilities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Morning: 9:00 AM - 11:00 AM</li>
+					    <li>Afternoon: 2:00 PM - 4:00 PM</li>
+					    <li>These timings are subject to change based on the temple’s schedule and crowd conditions. It is advisable to check the latest timings on the temple’s official website or by contacting the temple administration.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Entry Points</h5>
+					  <ul class="bullet-list">
+					    <li>Dedicated Entry: There are specific entry points designated for senior citizens and physically challenged persons to minimize wait times and ensure easy access.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Special Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Escort Services: Temple staff and volunteers are available to assist with navigating through the temple premises.</li>
+					    <li>Wheelchairs: Available on request at the temple entrance and information desks.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Identification: Carry valid ID proof (such as Aadhaar card, passport) for verification of age or disability status.</li>
+					    <li>Registration: Approach the help desk or designated counters to register for special darshan and receive assistance.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>The Kashi Vishwanath Temple provides a Vehicle Pooja service where devotees can have their vehicles blessed. Here are the details regarding the Vehicle Pooja:</p>
+					  <h5 class="section__sub-b">Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Daily: The Vehicle Pooja is performed throughout the day.</li>
+					    <li>Specific Hours: Typically available from 7:00 AM to 7:00 PM. It is advisable to check the exact timings with the temple authorities as they may vary.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Location</h5>
+					  <ul class="bullet-list">
+					    <li>Designated Area: The Vehicle Pooja is conducted in a designated area within the temple complex or nearby parking lots. The exact location can be confirmed upon arrival or by contacting the temple administration.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>Nominal Fee: The cost for performing the Vehicle Pooja generally ranges between ₹300 to ₹500, depending on the type of vehicle and specific requirements.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking Procedure</h5>
+					  <h5 class="section__sub-b">1. On-Spot Registration</h5>
+					  <ul class="bullet-list">
+					    <li>Step 1: Approach the designated counter or help desk within the temple premises where Vehicle Pooja services are offered.</li>
+					    <li>Step 2: Register for the Vehicle Pooja by providing the necessary details and paying the nominal fee.</li>
+					    <li>Step 3: A priest will perform the pooja, which includes chanting of mantras, sprinkling of holy water, and applying tilak (sacred mark) on the vehicle.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Advance Booking</h5>
+					  <ul class="bullet-list">
+					    <li>While on-spot registration is commonly used, you can also inquire about the possibility of advance booking by contacting the temple administration.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>The Kashi Vishwanath Temple Trust provides various accommodation options for pilgrims visiting Varanasi. These facilities cater to different budgets and preferences, ensuring a comfortable stay for all devotees.</p>
+					  <h5 class="section__sub-b">Types of Accommodation</h5>
+					  <h5 class="section__sub-b">1. Dharmashalas (Guest Houses)</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Basic accommodations providing essential facilities for pilgrims.</li>
+					    <li>Examples:</li>
+					    <li>Dharamshala Vishwanath Dham: Located near the temple, offering clean rooms with basic amenities.</li>
+					    <li>Dharamshala Annapurna Bhavan: Another popular guest house providing basic accommodation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Budget Rooms</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Affordable rooms with necessary amenities like beds, fans, and attached bathrooms.</li>
+					    <li>Cost: Typically ranges from ₹500 to ₹1,000 per day.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Standard Rooms</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Comfortable rooms with additional amenities like air conditioning, television, and attached bathrooms.</li>
+					    <li>Cost: Generally ranges from ₹1,000 to ₹2,500 per day.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Deluxe Rooms</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Higher-end rooms offering more comfort and amenities such as air conditioning, TV, 24-hour hot water, and sometimes room service.</li>
+					    <li>Cost: Typically ranges from ₹2,500 to ₹5,000 per day.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Suites</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Premium accommodation with multiple rooms, living area, and enhanced facilities.</li>
+					    <li>Cost: Can range from ₹5,000 to ₹10,000 per day or more, depending on the amenities and location.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking Procedure</h5>
+					  <h5 class="section__sub-b">1. Online Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Website: Devotees can book accommodations online through the official Kashi Vishwanath Temple website.</li>
+					    <li>Procedure:</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Confirmation: Receive a confirmation receipt, which needs to be presented upon arrival.</h3>
+					  <h5 class="section__sub-b">2. On-Site Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Booking Counters: Pilgrims can also book accommodations at the booking counters located near the temple and the railway station.</li>
+					    <li>First-Come, First-Served: Some accommodations, especially dharmashalas, are available on a first-come, first-served basis.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>The Kashi Vishwanath Temple in Varanasi provides designated parking facilities to accommodate the large number of visitors arriving by different modes of transport. Here are the key details regarding parking options for cars, mini-buses, and two-wheelers:</p>
+					  <h5 class="section__sub-b">Parking for Cars</h5>
+					  <h5 class="section__sub-b">1. Ganga Dham Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Near the Ganges, close to the temple.</li>
+					    <li>Capacity: Adequate space for cars.</li>
+					    <li>Facilities: Basic amenities such as restrooms and security.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Town Hall Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Near the Town Hall area, which is a short walk to the temple.</li>
+					    <li>Capacity: Ample parking space for cars.</li>
+					    <li>Facilities: Secured parking with attendants.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Benia Bagh Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Near Benia Bagh, providing access to the temple via a short rickshaw or walk.</li>
+					    <li>Capacity: Good capacity for cars.</li>
+					    <li>Facilities: Security and basic facilities available.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Parking for Mini-Buses</h5>
+					  <h5 class="section__sub-b">1. Varanasi Bus Stand</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Near the main bus stand.</li>
+					    <li>Capacity: Designed to accommodate mini-buses and larger vehicles.</li>
+					    <li>Facilities: Restrooms, security, and easy access to local transport for reaching the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Maidagin Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Near Maidagin crossing.</li>
+					    <li>Capacity: Adequate space for mini-buses.</li>
+					    <li>Facilities: Secured area with attendants, restrooms available.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Parking for Two-Wheelers</h5>
+					  <h5 class="section__sub-b">1. Godaulia Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Close to the Godaulia crossing, within walking distance to the temple.</li>
+					    <li>Capacity: Designated space for two-wheelers.</li>
+					    <li>Facilities: Basic amenities and security.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Luxa Road Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Location: On Luxa Road, a short walk to the temple.</li>
+					    <li>Capacity: Adequate space for two-wheelers.</li>
+					    <li>Facilities: Security provided.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Plan Ahead: Given the crowded nature of Varanasi, especially during peak seasons and festivals, it is advisable to plan your parking ahead of time.</li>
+					    <li>Use Public Transport: For convenience, consider using public transport or hiring a local rickshaw from your parking spot to the temple to avoid navigating through the narrow streets.</li>
+					    <li>Arrive Early: Arriving early can help secure a parking spot and avoid the rush.</li>
+					  </ul>
+					  <p>For the latest updates and more detailed information on parking facilities, always refer to the official Kashi Vishwanath Temple website or contact the temple administration directly.</p>
+					  <p>These parking facilities help ensure that visitors have a convenient and stress-free experience while visiting the Kashi Vishwanath Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings.</h3>
+					  <p>The Kashi Vishwanath Temple provides prashad services, including free meals and special prashad for purchase. Here&#x27;s a detailed overview of the prashad services, procedures, and payment details:</p>
+					  <h5 class="section__sub-b">1. Annapurna Prashad Seva (Free Meals)</h5>
+					  <h5 class="section__sub-b">Description</h5>
+					  <ul class="bullet-list">
+					    <li>The temple offers free meals to all devotees as part of the Annapurna Prashad Seva. This service is provided to ensure that no devotee leaves the temple premises hungry.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: Free meals are served daily.</li>
+					    <li>Timings: Generally, meals are served twice a day.</li>
+					    <li>Lunch: 12:00 PM - 2:00 PM</li>
+					    <li>Dinner: 7:00 PM - 9:00 PM</li>
+					    <li>Location: The meals are served in the designated dining halls within the temple complex.</li>
+					    <li>Class/Lines: All devotees are served equally in the dining hall, and there are no separate classes or lines for different groups.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Special Prashad for Purchase</h5>
+					  <h5 class="section__sub-b">Description</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees can purchase special prashad such as laddus, panchamrit, and other items prepared in the temple kitchen.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Purchase Points: Special prashad can be bought at designated counters within the temple premises.</li>
+					    <li>Cost: Prices for different prashad items vary. For example, laddus might cost around ₹20-₹50 per piece, depending on the size and preparation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Booking and Tickets</h5>
+					  <h5 class="section__sub-b">Free Meals</h5>
+					  <ul class="bullet-list">
+					    <li>No Tickets Required: There is no need to buy tickets for the free meals provided as part of the Annapurna Prashad Seva.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>On-Site Purchase: Special prashad can be purchased directly at the counters within the temple premises. No advance booking or tickets are required.</li>
+					    <li>Payment: Payment can be made in cash, and some counters may accept digital payments depending on the facilities available.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Timing: Arrive early to ensure you get a seat in the dining hall during meal times.</li>
+					    <li>Respect the Service: Follow the temple guidelines and respect the volunteers and staff serving the prashad.</li>
+					    <li>Carry Change: If purchasing special prashad, it is helpful to carry small denominations for ease of payment.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">18 .Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>The Kashi Vishwanath Temple offers a variety of prashad items that devotees can take home. These prashads are considered sacred and are often shared with family and friends. Here are some of the key prashad items available, their types, and costs:</p>
+					  <h5 class="section__sub-b">Types of Carry Home Prashad</h5>
+					  <h5 class="section__sub-b">1. Laddus</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Sweet spherical confections made from flour, ghee, and sugar, often flavored with cardamom and garnished with nuts.</li>
+					    <li>Cost: Approximately ₹20-₹50 per piece, depending on the size and preparation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Panchamrit</h5>
+					  <ul class="bullet-list">
+					    <li>Description: A sacred mixture of five ingredients - milk, curd, honey, ghee, and sugar.</li>
+					    <li>Cost: Usually priced around ₹30-₹50 per container.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Dry Fruits Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>Description: A mix of various dry fruits that are blessed and offered as prashad.</li>
+					    <li>Cost: Varies depending on the quantity and type of dry fruits, typically around ₹100-₹200 per packet.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Batashe</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Sugar candies that are often distributed as prashad.</li>
+					    <li>Cost: Usually priced at ₹10-₹20 per packet.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Ghee</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Clarified butter that is blessed and offered as prashad.</li>
+					    <li>Cost: Typically around ₹100-₹150 per container.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Purchase Procedure</h5>
+					  <h5 class="section__sub-b">1. On-Site Purchase</h5>
+					  <ul class="bullet-list">
+					    <li>Prashad Counters: Carry home prashad items can be purchased from designated prashad counters within the temple premises.</li>
+					    <li>Payment: Payments can be made in cash, and some counters may accept digital payments depending on the facilities available.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Online Purchase</h5>
+					  <ul class="bullet-list">
+					    <li>Website: Some prashad items may be available for online purchase through the temple’s official website or affiliated e-commerce platforms. This ensures that devotees who cannot visit in person can still receive prashad.</li>
+					    <li>Delivery: The prashad purchased online is usually shipped to the devotee&#x27;s address.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Check Availability: Some prashad items may have limited availability, especially during peak seasons and festivals.</li>
+					    <li>Storage: Ensure proper storage to maintain the freshness and sanctity of the prashad when taking it home.</li>
+					    <li>No Resale: Prashad is meant for personal consumption and sharing with loved ones, not for resale.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>If you lose an item while visiting the Kashi Vishwanath Temple, the temple authorities have a systematic procedure to help you report and recover your lost belongings. Here are the steps to follow:</p>
+					  <h5 class="section__sub-b">Steps to Report a Lost Item</h5>
+					  <h5 class="section__sub-b">1. Visit the Lost and Found Office</h5>
+					  <ul class="bullet-list">
+					    <li>Location: The Lost and Found Office is typically located near the main temple complex or within the administrative buildings. Look for signs directing you to this office or ask temple staff for assistance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Provide Details</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Provide a detailed description of the lost item, including any unique identifiers, color, size, brand, and where and when you last had it.</li>
+					    <li>Personal Information: You may need to provide your name, contact details, and identification for verification purposes.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Register the Complaint</h5>
+					  <ul class="bullet-list">
+					    <li>Form: Fill out a Lost Item Report Form, which will be provided at the Lost and Found Office.</li>
+					    <li>Receipt: You will receive a receipt or a reference number for your report. Keep this safe, as you will need it to check the status of your lost item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Follow Up</h5>
+					  <ul class="bullet-list">
+					    <li>Check Back: Periodically check back with the Lost and Found Office, either in person or by calling the office, to see if your item has been found.</li>
+					    <li>Updates: Provide the reference number from your receipt when inquiring about your lost item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Act Quickly: Report lost items as soon as you realize they are missing to increase the chances of recovery.</li>
+					    <li>Keep Receipts: If you have made any purchases or bookings, keep the receipts and any relevant documents that might help in identifying your lost item.</li>
+					    <li>Stay Calm: Temple authorities are usually very helpful, and there is a good system in place to handle lost items.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Common Locations for Lost and Found</h5>
+					  <ul class="bullet-list">
+					    <li>Queue Complexes: Lost items often turn up in the various queue complexes where devotees wait for darshan.</li>
+					    <li>Accommodation Areas: Items left behind in guest rooms or common areas are usually handed over to the Lost and Found Office.</li>
+					    <li>Dining Halls and Canteens: Check these areas if you lost items while having prashad or meals.</li>
+					  </ul>
+					  <p>By following these steps, you can efficiently report and increase the chances of recovering your lost items at the Kashi Vishwanath Temple. For more information, you can visit the official Kashi Vishwanath Temple website.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a group member goes missing at the Kashi Vishwanath Temple, it’s crucial to act quickly and follow the appropriate steps to locate them. Here is the procedure to report a missing person and the recommended actions to take:</p>
+					  <h5 class="section__sub-b">Steps to Report a Missing Person</h5>
+					  <h5 class="section__sub-b">1. Contact Temple Security</h5>
+					  <ul class="bullet-list">
+					    <li>Security Booths: Approach the nearest security booth or security personnel within the temple premises. Security staff are usually stationed at various points throughout the temple complex.</li>
+					    <li>Information to Provide: Give a detailed description of the missing person, including their name, age, physical appearance, clothing, and where and when they were last seen.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Visit the Temple Information Center</h5>
+					  <ul class="bullet-list">
+					    <li>Location: The Temple Information Center is located near the main entrance or administrative buildings.</li>
+					    <li>Reporting: Fill out a missing person report form with all necessary details. The staff will log the information and broadcast it to all security points within the temple complex.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Use Public Announcement Systems</h5>
+					  <ul class="bullet-list">
+					    <li>Announcements: Request the temple authorities to make public announcements regarding the missing person. This can be done through the temple&#x27;s public announcement systems located at various points in the complex.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Inform the Local Police Station</h5>
+					  <ul class="bullet-list">
+					    <li>Police Assistance: If the missing person is not found within a reasonable time, inform the local police station in Varanasi. They will assist in the search and coordinate with temple security.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Check Common Waiting Areas</h5>
+					  <ul class="bullet-list">
+					    <li>Designated Waiting Spots: The temple has designated waiting areas for lost persons. These are typically located near major entry and exit points, the information center, and popular gathering spots.</li>
+					    <li>Specific Areas: Common areas to check include the queue complexes, main temple entrance, dining halls, and accommodation centers.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact Information for Assistance</h5>
+					  <h5 class="section__sub-b">Temple Security</h5>
+					  <ul class="bullet-list">
+					    <li>Phone: +91-542-2392629 (for general inquiries)</li>
+					    <li>On-site: Approach any security personnel or booth within the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Local Police Station (Varanasi)</h5>
+					  <ul class="bullet-list">
+					    <li>Phone: Available through temple information desks or security booths for immediate assistance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Temple Information Center</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Near the main temple entrance or administrative buildings.</li>
+					    <li>Assistance: Staff can assist in logging missing person reports and coordinating the search.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Where to Wait</h5>
+					  <ul class="bullet-list">
+					    <li>Designated Waiting Areas: The temple has specific areas for people to wait if they are separated from their group. These areas are usually marked and located near the main entrance, exit points, and information centers.</li>
+					    <li>Common Gathering Spots: In addition to designated waiting areas, popular spots like the main entry and exit points, dining halls, and seating areas within the temple complex are also good places to wait.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Stay Calm: Keep calm and composed. Temple authorities are experienced in handling such situations and will assist promptly.</li>
+					    <li>Set a Meeting Point: Before entering the temple complex, agree on a meeting point with your group members in case anyone gets separated.</li>
+					    <li>Carry Contact Information: Ensure that all group members carry a card or paper with the contact information of the group leader or a central point of contact.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
+					  <p>Kashi Vishwanath Temple - Government Registration</p>
+					  <p>The Kashi Vishwanath Temple, located in Varanasi, Uttar Pradesh, is managed by a trust established by the Government of Uttar Pradesh. The temple was officially taken over by the state government on January 28, 1983. Since then, its management has been entrusted to a trust headed by Dr. Vibhuti Narayan Singh, the former Kashi Naresh (King of Kashi), with an Executive Committee chaired by the Divisional Commissioner.</p>
+					  <h5 class="section__sub-b">Key Information</h5>
+					  <ul class="bullet-list">
+					    <li>Official Takeover: January 28, 1983</li>
+					    <li>Current Management: Shri Kashi Vishwanath Temple Trust</li>
+					    <li>Trust President: Dr. Vibhuti Narayan Singh</li>
+					    <li>Executive Committee Chairman: Divisional Commissioner</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -1044,89 +863,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

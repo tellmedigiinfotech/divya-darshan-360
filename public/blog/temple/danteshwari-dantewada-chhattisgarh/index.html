@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -95,7 +42,7 @@
 				<h1 class="hero-title">﻿Danteshwari (Dantewada) - Chhattisgarh</h1>
 
 							<div class="img-placeholder">
-					<div class="img-placeholder__icon">&#128341;</div>
+					<div class="img-placeholder__icon">🕉️</div>
 					<div class="img-placeholder__gradient"></div>
 					<div class="img-placeholder__text">Image of ﻿Danteshwari (Dantewada) - Chhattisgarh</div>
 				</div>
@@ -107,13 +54,6 @@
 							<div>
 								<div class="key-info__label">Main Deity</div>
 								<div class="key-info__value">Please visit temple website</div>
-							</div>
-						</div>
-						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
 							</div>
 						</div>
 						<div class="key-info__item">
@@ -134,647 +74,562 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Condensed Information About the Place:</h3>
-  <ul class="bullet-list">
-    <li>Main Deity (A): The temple is dedicated to Goddess Danteshwari, revered as a manifestation of Shakti. It is considered one of the 52 Shakti Peethas, where the &quot;tooth&quot; of Goddess Sati is believed to have fallen.</li>
-    <li>Other Deities (Sub Deities) (B): The temple complex may host other smaller shrines and deities typical in such historical and cultural settings, though specific sub-deities are not detailed in the sources.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <ul class="bullet-list">
-    <li>(a) general</li>
-    <li>(b) on special days like festivals and utsavas</li>
-  </ul>
-  <h5 class="section__sub-b">General Timings</h5>
-  <ul class="bullet-list">
-    <li>Morning Aarti: From 8:30 AM to 10:30 AM</li>
-    <li>Evening Aarti: From 6:00 PM to 7:30 PM</li>
-    <li>Prasad Distribution: From 11:00 AM to 5:00 PM</li>
-  </ul>
-  <h5 class="section__sub-b">Special Days Like Festivals and Utsavas</h5>
-  <p>During special occasions such as Navratri, the temple follows a detailed schedule that includes various rituals throughout the day. For instance, during the Vasanta Navaratri festival in April 2024, the temple will host events from early morning until evening, incorporating special poojas like Jyoti Kalash Sthapana and concluding with cultural programs and prasad distribution.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Fees:</h3>
-  <ul class="bullet-list">
-    <li>General Entry: There is no entry fee for the general darshan at Danteshwari Temple. Visitors can access the temple without any charge, which allows everyone to participate in the daily worship and view the deity.</li>
-  </ul>
-  <h5 class="section__sub-b">Privileges for Paid Services</h5>
-  <ul class="bullet-list">
-    <li>Some temples offer paid services that may include quicker access to the sanctum (quick darshan), special puja participation, or offerings. However, specific details about such services at Danteshwari Temple weren&#x27;t found in the available sources. It&#x27;s best to check directly with the temple&#x27;s administration for any special services they might offer.</li>
-  </ul>
-  <h5 class="section__sub-b">Entry Restrictions for Foreigners</h5>
-  <ul class="bullet-list">
-    <li>Restrictions: Typically, there are no specific entry restrictions for foreigners at Hindu temples in India, including Danteshwari Temple. Visitors of all nationalities are welcome to visit and partake in the temple&#x27;s spiritual offerings as long as they adhere to the temple&#x27;s code of conduct.</li>
-    <li>Special Fees or Declarations: There is no indication of special fees or required declarations specifically for foreign visitors. However, like all visitors, foreigners are expected to dress modestly and follow the temple’s guidelines.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Information</h5>
-  <p>For accurate and detailed information regarding entry fees, privileges granted by special tickets, and guidelines for foreign visitors, it&#x27;s advisable to contact the temple administration directly. This will ensure you have the most current and relevant information for your visit.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available</h3>
-  <p>How to Reach Danteshwari Temple, Dantewada</p>
-  <h5 class="section__sub-b">By Air</h5>
-  <ul class="bullet-list">
-    <li>Nearest Airport: The nearest airport is Swami Vivekananda Airport in Raipur, Chhattisgarh.</li>
-    <li>Distance: It is approximately 380 kilometers from Dantewada.</li>
-    <li>Connecting Transport: From the airport, visitors can hire a taxi or take a bus to Dantewada, which may take around 6-7 hours depending on the mode of transport.</li>
-  </ul>
-  <h5 class="section__sub-b">By Train</h5>
-  <ul class="bullet-list">
-    <li>Nearest Railway Station: The nearest major railway station is in Jagdalpur.</li>
-    <li>Distance to Dantewada: Jagdalpur is about 84 kilometers from Dantewada.</li>
-    <li>Connecting Transport: From Jagdalpur, visitors can take local buses or hire taxis to reach Dantewada.</li>
-  </ul>
-  <h5 class="section__sub-b">By Road</h5>
-  <ul class="bullet-list">
-    <li>Bus Services: There are regular bus services available from major cities like Raipur and Jagdalpur to Dantewada.</li>
-    <li>Driving: For those driving from Raipur or nearby cities, the journey can take around 6-7 hours via NH30.</li>
-  </ul>
-  <h5 class="section__sub-b">Local Transport</h5>
-  <ul class="bullet-list">
-    <li>Taxis and Auto-Rickshaws: These are available for local commuting within Dantewada, providing easy access to the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Travel Tips</h5>
-  <ul class="bullet-list">
-    <li>Check Local Conditions: It’s advisable to check current travel conditions and road safety, as Dantewada is in a region that may have specific travel advisories.</li>
-    <li>Plan Ahead: If traveling by public transport, it&#x27;s good to have your tickets booked in advance, especially during festival seasons when the temple sees a high influx of visitors.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Poojas and Rituals at Danteshwari Temple</h3>
-  <p>Danteshwari Temple offers a range of special poojas and rituals, which are conducted daily and are also specially arranged during important festivals like Navratri.</p>
-  <h5 class="section__sub-b">Daily Poojas</h5>
-  <ul class="bullet-list">
-    <li>Morning Aarti: From 8:30 AM to 10:30 AM</li>
-    <li>Evening Aarti: From 6:00 PM to 7:30 PM</li>
-    <li>Prasad Distribution: From 11:00 AM to 5:00 PM</li>
-  </ul>
-  <h5 class="section__sub-b">Special Rituals During Festivals</h5>
-  <ul class="bullet-list">
-    <li>Navratri Celebrations: Special rituals and events are conducted throughout the Navratri period. The temple hosts various cultural and religious activities, attracting numerous devotees.</li>
-  </ul>
-  <h5 class="section__sub-b">Rates and Booking Procedure</h5>
-  <p>The specific rates for each pooja and ritual are not mentioned online, and the temple encourages direct contact for detailed information and booking procedures.</p>
-  <h5 class="section__sub-b">Advance Booking</h5>
-  <ul class="bullet-list">
-    <li>For special poojas, particularly during festivals like Navratri, it is advisable to book in advance due to the high number of devotees attending. This can be done by contacting the temple administration directly.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact Information for Booking</h5>
-  <ul class="bullet-list">
-    <li>Phone: +91 8360601008</li>
-    <li>Email: info@maadanteshwari.in</li>
-  </ul>
-  <p>For more details on the specific poojas and how to participate or book them, you can visit the temple’s official website or directly reach out to them using the provided contact details.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>Yes, the Danteshwari Temple provides online services for devotees. Here’s a brief overview:</p>
-  <h5 class="section__sub-b">Online Services Provided by Danteshwari Temple</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Service Provider: These online services are managed directly by the temple’s administration, ensuring that the process is streamlined and secure.</h3>
-  <p>For more detailed information or to avail these services, you can visit the temple&#x27;s official website: Maa Danteshwari Temple. Here, you can find links to book poojas, make donations, and learn more about the temple&#x27;s events and activities.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
-  <h5 class="section__sub-b">General Dress Code</h5>
-  <ul class="bullet-list">
-    <li>Men and Women: Visitors are expected to dress modestly and respectfully when visiting the Danteshwari Temple. It is advisable for both men and women to wear clothes that cover the shoulders and knees. Traditional attire like sarees, salwar kameez for women, and kurta-pajamas for men are recommended.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Pujas and Festival Days</h5>
-  <ul class="bullet-list">
-    <li>During special events, such as Navratri or other major festivals, devotees often dress in completely traditional attire.</li>
-    <li>Men: Dhotis or long kurta-pajamas are preferred.</li>
-    <li>Women: Sarees or full-length salwar kameez are advised.</li>
-  </ul>
-  <p>This dress code helps maintain the decorum and sanctity of the temple and is in line with the traditional and cultural values associated with the worship practices at Danteshwari Temple.</p>
-  <p>Visitors, including foreigners, are encouraged to adhere to these guidelines to respect the religious and cultural sentiments of the temple and its devotees.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <p>At the Danteshwari Temple, there are certain regulations regarding electronic gadgets to maintain the sanctity and tranquility of the temple environment.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Electronic Gadgets Policy:</h3>
-  <ul class="bullet-list">
-    <li>Mobile Phones and Cameras: Generally, the use of mobile phones, cameras, and other electronic gadgets is restricted within the temple premises, especially inside the main sanctum (Garbhagriha) where the deity is housed. This is to ensure that the spiritual atmosphere is not disturbed by electronic noises and flashes.</li>
-    <li>Recording Devices: Audio or video recording devices are typically not allowed during temple rituals and ceremonies.</li>
-  </ul>
-  <h5 class="section__sub-b">Depositing Gadgets</h5>
-  <ul class="bullet-list">
-    <li>Facilities Available: If electronic gadgets are not allowed, the temple often provides facilities where these items can be safely deposited before entering the temple. This service helps visitors store their belongings securely while they participate in the temple activities.</li>
-    <li>Location: These facilities are usually located near the temple entrance or in a designated area easily accessible to visitors.</li>
-  </ul>
-  <p>For the latest and most specific guidelines regarding electronic gadgets at the Danteshwari Temple, including where to deposit them if they are not allowed during your visit, it is recommended to check the temple&#x27;s official website or directly contact the temple administration before your visit. This ensures that you are fully prepared and compliant with the temple’s policies.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <p>Facilities for Physically Handicapped at Danteshwari Temple</p>
-  <p>The Danteshwari Temple provides facilities to ensure accessibility for all devotees, including those who are physically handicapped. While there is no specific mention of a lift or elevator, the temple administration strives to accommodate the needs of elderly and physically challenged visitors.</p>
-  <h5 class="section__sub-b">Key Facilities</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of Wheelchair for elderly and physically challenged?</h3>
-  <h5 class="section__sub-b">Availability</h5>
-  <p>The Danteshwari Temple in Dantewada, Chhattisgarh, provides facilities to assist elderly and physically challenged visitors, including wheelchair accessibility.</p>
-  <h5 class="section__sub-b">Specific Facilities</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Wheelchair Accessibility:</h3>
-  <ul class="bullet-list">
-    <li>The temple premises are designed to be accessible for visitors using wheelchairs, ensuring that all devotees can comfortably navigate the area.</li>
-    <li>Ramps and other infrastructure adjustments are in place to facilitate easy movement for those with mobility challenges.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Assistance Services:</h3>
-  <ul class="bullet-list">
-    <li>Temple staff and volunteers are available to provide assistance to elderly and physically challenged visitors. They help ensure a smooth and respectful experience during their visit.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
-  <h5 class="section__sub-b">Special Entry</h5>
-  <ul class="bullet-list">
-    <li>Priority Access: The Danteshwari Temple provides special entry arrangements for sick, senior citizens, and physically challenged persons to ensure they can have a comfortable and hassle-free darshan.</li>
-    <li>Assistance: Temple staff and volunteers are available to assist these visitors, guiding them through dedicated lines and ensuring they can access the temple without undue strain.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Timing</h5>
-  <ul class="bullet-list">
-    <li>General Darshan Timings:</li>
-    <li>Morning Aarti: 8:30 AM - 10:30 AM</li>
-    <li>Evening Aarti: 6:00 PM - 7:30 PM</li>
-    <li>Prasad Distribution: 11:00 AM - 5:00 PM</li>
-    <li>Special Arrangements During Festivals: During major festivals like Navratri, additional arrangements and timings may be implemented to accommodate the increased number of visitors. It is advisable to contact the temple administration for precise timings during such events.</li>
-  </ul>
-  <h5 class="section__sub-b">Facilities for Physically Handicapped</h5>
-  <ul class="bullet-list">
-    <li>Wheelchair Accessibility: The temple is equipped with ramps and other facilities to ensure easy access for wheelchair users.</li>
-    <li>Assistance Services: Additional help is provided by temple staff for those who need it.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Vehicle Pooja:</h3>
-  <ul class="bullet-list">
-    <li>Availability: Vehicle pooja is performed at the temple.</li>
-    <li>Timings: Typically available during temple operating hours, from 8:30 AM to 10:30 AM and 6:00 PM to 7:30 PM.</li>
-    <li>Cost: Specific costs are not listed online; it’s advisable to contact the temple for detailed pricing and booking procedures.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">15 .Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities? What is the cost? How to book in advance?</h3>
-  <p>Yes, the Danteshwari Temple in Dantewada, Chhattisgarh, provides accommodation facilities for pilgrims. Here are the details:</p>
-  <p>Types of Accommodation Facilities</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Guesthouses:</h3>
-  <ul class="bullet-list">
-    <li>Rooms with basic amenities such as beds, attached bathrooms, and sometimes air conditioning.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dormitories:</h3>
-  <ul class="bullet-list">
-    <li>Shared spaces with multiple beds and common bathroom facilities, suitable for large groups or budget-conscious travelers.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cottages:</h3>
-  <ul class="bullet-list">
-    <li>Private units offering more space and amenities, such as separate living areas and sometimes small kitchens.</li>
-  </ul>
-  <p>Costs</p>
-  <ul class="bullet-list">
-    <li>Guesthouses: Prices typically range from ₹500 to ₹1500 per night, depending on the amenities and room size.</li>
-    <li>Dormitories: Generally cost between ₹100 to ₹300 per bed per night.</li>
-    <li>Cottages: Prices can range from ₹2000 to ₹5000 per night, based on the size and facilities provided.</li>
-  </ul>
-  <p>Booking in Advance</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Car Parking:</h3>
-  <ul class="bullet-list">
-    <li>There is a designated parking area for cars near the temple premises. It can accommodate multiple cars and is usually monitored for security.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Mini Bus Parking:</h3>
-  <ul class="bullet-list">
-    <li>There is a separate parking area for larger vehicles such as mini buses. This area is designed to handle the size and turning radius of mini buses, ensuring convenient access.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Two-Wheeler Parking:</h3>
-  <ul class="bullet-list">
-    <li>A specific section of the parking area is reserved for two-wheelers. This area is close to the temple entrance for easy access.</li>
-  </ul>
-  <p>Location and Access</p>
-  <ul class="bullet-list">
-    <li>The parking areas are located within a short walking distance from the temple entrance, ensuring convenience for all visitors.</li>
-    <li>Signage within the temple complex directs visitors to the appropriate parking zones for their vehicles.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Parking Charges</h3>
-  <ul class="bullet-list">
-    <li>Cars: Nominal fee (typically around ₹20-₹50 per vehicle)</li>
-    <li>Mini Buses: Slightly higher fee (typically around ₹50-₹100 per vehicle)</li>
-    <li>Two-Wheelers: Minimal fee (typically around ₹10-₹20 per vehicle)</li>
-  </ul>
-  <p>Security and Management</p>
-  <ul class="bullet-list">
-    <li>The parking areas are generally monitored by temple security personnel.</li>
-    <li>There are specific timings for parking access, usually aligned with temple opening hours.</li>
-  </ul>
-  <p>How to Use the Parking Facility</p>
-  <ul class="bullet-list">
-    <li>Visitors can drive directly to the designated parking areas and follow the instructions of the parking attendants.</li>
-    <li>It&#x27;s advisable to arrive early, especially during peak pilgrimage seasons and festivals, to secure a parking spot.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Types of Meals:</h3>
-  <ul class="bullet-list">
-    <li>Free Meals: Basic vegetarian meals are provided to all devotees as Prashad.</li>
-    <li>Special Meals: On special occasions and festivals, the temple may offer special Prashad meals.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Procedure:</h3>
-  <ul class="bullet-list">
-    <li>Devotees are typically served meals in a common dining hall.</li>
-    <li>Meals are served in a traditional manner, often on banana leaves or steel plates.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Payment:</h3>
-  <ul class="bullet-list">
-    <li>Free Meals: No payment is required for the basic Prashad meals.</li>
-    <li>Special Meals: There might be a nominal charge for special Prashad meals on certain occasions. This can vary depending on the event and the type of meal.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Different Classes/Lines:</h3>
-  <ul class="bullet-list">
-    <li>The temple generally serves Prashad on a first-come, first-served basis.</li>
-    <li>There might be separate lines for different types of meals, especially if special Prashad is being served.</li>
-  </ul>
-  <p>How to Buy the Ticket (if needed)</p>
-  <ul class="bullet-list">
-    <li>Free Meals: No ticket is required.</li>
-    <li>Special Meals: If there is a charge, tickets can be purchased at the temple premises from designated counters. The process usually involves:</li>
-    <li>Approaching the Prashad counter.</li>
-    <li>Paying the nominal fee (if any).</li>
-    <li>Receiving a meal token or ticket which can be exchanged for the special meal.</li>
-  </ul>
-  <p>Timings</p>
-  <ul class="bullet-list">
-    <li>Regular Prashad Meals: Typically served during lunch hours (around 12:00 PM to 2:00 PM) and dinner hours (around 7:00 PM to 9:00 PM).</li>
-    <li>Special Meals: Timings may vary depending on the festival or event. It is best to check with the temple authorities for specific timings on special occasions.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <p>The Danteshwari Temple in Dantewada, Chhattisgarh, offers carry-home Prashad options for devotees who wish to take the blessed offerings with them. Here are the details:</p>
-  <p>Types of Carry-Home Prashad</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Dry Prashad:</h3>
-  <ul class="bullet-list">
-    <li>Laddu: Sweet balls made from gram flour, ghee, and sugar.</li>
-    <li>Chana (Roasted Chickpeas): A popular offering that is dry and easy to carry.</li>
-    <li>Coconut Pieces: Small pieces of dried coconut.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Packaged Sweets:</h3>
-  <ul class="bullet-list">
-    <li>Besan Laddu: Gram flour sweet balls packaged for convenience.</li>
-    <li>Kaju Barfi: Cashew nut sweets in small boxes.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Other Items:</h3>
-  <ul class="bullet-list">
-    <li>Sundal: A savory offering made from chickpeas or other legumes.</li>
-    <li>Panchamrit: A mixture of milk, yogurt, honey, sugar, and ghee, usually packaged in small bottles.</li>
-  </ul>
-  <p>Costs</p>
-  <ul class="bullet-list">
-    <li>Laddu: Approximately ₹20 to ₹50 per piece, depending on size and ingredients.</li>
-    <li>Chana (Roasted Chickpeas): Around ₹10 to ₹30 per packet.</li>
-    <li>Coconut Pieces: Typically ₹10 to ₹20 per packet.</li>
-    <li>Packaged Sweets:</li>
-    <li>Besan Laddu: ₹100 to ₹200 per box.</li>
-    <li>Kaju Barfi: ₹200 to ₹500 per box.</li>
-    <li>Sundal: Around ₹20 to ₹50 per packet.</li>
-    <li>Panchamrit: Approximately ₹30 to ₹50 per bottle.</li>
-  </ul>
-  <p>How to Purchase</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Prashad Shops: There are often small shops near the temple that sell various types of Prashad.</h3>
-  <p>Timings for Purchase</p>
-  <ul class="bullet-list">
-    <li>The Prashad counters and shops are usually open during temple hours, which are typically from early morning (around 6:00 AM) until late evening (around 9:00 PM).</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <p>The procedure for reporting lost items in a temple generally involves contacting the temple administration or security office directly at the site. Most temples have a lost and found section where you can report and inquire about lost items. It&#x27;s advisable to provide detailed information about the lost property and any identifying features to help in its recovery. For specific procedures, you should check the temple&#x27;s official website or contact their office directly, as each temple might have different protocols.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>If a member of your group goes missing in a temple, you should immediately report it to the temple&#x27;s security office or the main administration office. Provide a detailed description of the missing person and any relevant information that could help identify them. It’s advisable to wait at a predetermined common meeting spot or a central location within the temple premises, such as the main entrance or near the administration office. This helps in coordinating the search and ensures you are easily reachable.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
-  <p>The Danteshwari Temple is recognized and supported by the local district administration. However, the specific details regarding its registration under the state government or district administration are not explicitly mentioned on the website. For the most accurate and detailed information, it&#x27;s best to contact the temple administration directly through their official website or visit in person.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
-  <p>To make donations to the Danteshwari Temple, apart from Hundi offerings, you can follow these steps based on the information provided on their official website:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>Visit the official website here.</li>
-    <li>Navigate to the &quot;Donations&quot; section.</li>
-    <li>Follow the instructions provided for online donations.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Direct Bank Transfers:</h3>
-  <ul class="bullet-list">
-    <li>Account Name: Maa Danteshwari Mandir Trust</li>
-    <li>Bank Name: State Bank of India (SBI)</li>
-    <li>Branch: Dantewada</li>
-    <li>Account Number: 30269466580</li>
-    <li>IFSC Code: SBIN0012337</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Purposes for Donations:</h3>
-  <ul class="bullet-list">
-    <li>Temple maintenance and development</li>
-    <li>Arrangements for festivals and religious events</li>
-    <li>Community services and welfare activities</li>
-    <li>Preservation of cultural heritage</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <p>The Danteshwari Temple in Dantewada, Chhattisgarh, does not explicitly mention any specific privileges associated with donations on their official website or other resources. Unlike some other temples such as Tirupati or Shirdi, where specific donor privileges are provided, the Danteshwari Temple primarily focuses on the spiritual and community aspects of donations.</p>
-  <p>For more detailed information, including potential privileges or specific donation uses, you should directly contact the temple administration. They can provide the most accurate and up-to-date information regarding donation procedures, associated benefits, and how the funds are utilized.</p>
-  <h5 class="section__sub-b">Here are some general points about donations</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Purpose of Donations:</h3>
-  <ul class="bullet-list">
-    <li>Temple maintenance and development</li>
-    <li>Arrangements for festivals and religious events</li>
-    <li>Community services and welfare activities</li>
-    <li>Preservation of cultural heritage</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">How to Donate:</h3>
-  <ul class="bullet-list">
-    <li>Online Donations: Visit the official website and navigate to the &quot;Donations&quot; section for instructions.</li>
-    <li>Direct Bank Transfers:</li>
-    <li>Account Name: Maa Danteshwari Mandir Trust</li>
-    <li>Bank Name: State Bank of India (SBI)</li>
-    <li>Branch: Dantewada</li>
-    <li>Account Number: 30269466580</li>
-    <li>IFSC Code: SBIN0012337</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple ?</h3>
-  <p>The Danteshwari Temple, located in Dantewada, Chhattisgarh, is an architectural marvel with significant historical and cultural importance. Built in the 14th century by the Chalukya kings, this temple showcases a blend of Nagara and Dravidian architectural styles, reflecting the cultural amalgamation prevalent in the region.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Structure:</h3>
-  <ul class="bullet-list">
-    <li>The temple is divided into four main parts: Garbh Griha (sanctum sanctorum), Maha Mandap (great hall), Mukhya Mandap (main hall), and Sabha Mandap (assembly hall).</li>
-    <li>The Garbh Griha and Maha Mandap are constructed with stone pieces, showcasing intricate carvings and sculptures.</li>
-    <li>The temple complex includes various shrines dedicated to other deities such as Lord Shiva, Vishnu, and Ganesha.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Architectural Style:</h3>
-  <ul class="bullet-list">
-    <li>The blend of Nagara and Dravidian architectural styles is evident in the temple&#x27;s design. The Nagara style is characterized by its beehive-shaped tower (shikhara) and intricate carvings, while the Dravidian style features pyramidal towers and elaborate gateways (gopurams).</li>
-    <li>The temple&#x27;s shikhara is adorned with sculptural finery, adding to its grandeur.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Material Used:</h3>
-  <ul class="bullet-list">
-    <li>The idol of Goddess Danteshwari is chiseled out of black stone, a significant feature of the temple. The use of stone for construction not only provided durability but also allowed for detailed carvings and sculptures.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Garuda Pillar:</h3>
-  <ul class="bullet-list">
-    <li>In front of the temple entrance stands a Garuda pillar, an important architectural feature. The Garuda pillar is a tall monolithic pillar with a statue of Garuda, the vehicle of Lord Vishnu, perched on top. This pillar is an example of the exquisite craftsmanship of the period.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Courtyard and Walls:</h3>
-  <ul class="bullet-list">
-    <li>The temple is surrounded by a spacious courtyard and massive walls, providing a fortified structure. This design not only adds to the temple&#x27;s aesthetic appeal but also served a protective function historically.</li>
-  </ul>
-  <p>Scientific Aspects</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Structural Engineering:</h3>
-  <ul class="bullet-list">
-    <li>The use of interlocking stones in construction provided stability and durability to the structure, ensuring it withstands natural calamities and the test of time.</li>
-    <li>The temple&#x27;s architecture is designed to withstand the region&#x27;s seismic activity, showcasing advanced understanding of structural engineering by ancient builders.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Acoustics:</h3>
-  <ul class="bullet-list">
-    <li>The design of the temple halls ensures optimal acoustics for chanting and musical performances, enhancing the spiritual experience for devotees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Orientation and Vastu:</h3>
-  <ul class="bullet-list">
-    <li>The temple is oriented according to Vastu Shastra, an ancient Indian science of architecture, ensuring the flow of positive energy within the premises.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-  <p>The Danteshwari Temple in Dantewada, Chhattisgarh, holds significant religious and cultural importance, primarily due to its status as one of the 52 Shakti Peethas. These are sacred shrines dedicated to the goddess Shakti, the divine feminine power, and are spread across the Indian subcontinent. According to Hindu mythology, the Shakti Peethas were formed at sites where parts of the body of the goddess Sati fell after her self-immolation and the subsequent Tandava by Lord Shiva.</p>
-  <p>Special Significance of the Danteshwari Temple</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Mythological Significance:</h3>
-  <ul class="bullet-list">
-    <li>The temple is believed to be the spot where the tooth (danta) of Goddess Sati fell, giving the temple its name &quot;Danteshwari&quot; (Goddess with the Tooth). This connection to the Shakti Peethas makes it a vital pilgrimage site for devotees seeking the blessings of the divine mother.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural Significance:</h3>
-  <ul class="bullet-list">
-    <li>The Danteshwari Temple is deeply embedded in the local traditions and culture. It is a central part of the Bastar Dussehra festival, which is a unique 75-day-long celebration distinct from the Dussehra festivals held in other parts of India. During this festival, the idol of the goddess is taken out in elaborate processions, attracting thousands of tribal people from the surrounding regions.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Historical Significance:</h3>
-  <ul class="bullet-list">
-    <li>Built in the 14th century by the Chalukya kings, the temple is a testament to the region&#x27;s historical and architectural heritage. Its construction and continued importance reflect the enduring legacy of the Chalukya dynasty and the cultural continuity in the Bastar region.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Spiritual Energy:</h3>
-  <ul class="bullet-list">
-    <li>While there is no specific mention of geomagnetic fields or cosmic energy similar to that of Kasar Devi Temple, the Danteshwari Temple is revered for its spiritual ambiance. The serene environment, combined with the rhythmic chanting of hymns and the presence of the divine idol, creates a profound spiritual experience for devotees.</li>
-  </ul>
-  <p>Comparison to Kasar Devi Temple</p>
-  <p>Unlike the Kasar Devi Temple in Uttarakhand, which is noted for its geomagnetic field due to gaps in the bands of radiation, the Danteshwari Temple’s significance is more rooted in its mythological, cultural, and historical context. There are no widely known claims or studies attributing specific geomagnetic properties to the Danteshwari Temple similar to those of Stonehenge or Machu Picchu.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
-  <p>Overview</p>
-  <p>The Danteshwari Temple, located in Dantewada, Chhattisgarh, is a spiritual haven, offering a profound experience rooted in ancient mythology and deep-seated cultural traditions. As one of the 52 Shakti Peethas, it holds significant spiritual importance. The temple is dedicated to Goddess Danteshwari, an incarnation of Shakti, and it attracts numerous devotees and tourists alike, especially during the vibrant festival seasons.</p>
-  <p>Spiritual Significance</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Mythological Roots:</h3>
-  <ul class="bullet-list">
-    <li>According to Hindu mythology, the Danteshwari Temple is the site where the tooth of Goddess Sati fell. This event is part of the larger story of the Shakti Peethas, which are sacred sites scattered across the Indian subcontinent, believed to be the locations where parts of Sati&#x27;s body fell as Lord Shiva carried her.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Connection with Nature:</h3>
-  <ul class="bullet-list">
-    <li>The temple is situated at the confluence of the holy rivers Shankini and Dhankini, which adds to its serene and spiritually uplifting atmosphere. The presence of these rivers is believed to enhance the spiritual vibrations of the place, making it a peaceful retreat for meditation and introspection.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Architectural Grandeur:</h3>
-  <ul class="bullet-list">
-    <li>The temple&#x27;s architecture, combining Nagara and Dravidian styles, reflects the cultural amalgamation of the region and provides a tranquil environment for spiritual reflection. The intricate carvings and sculptures within the temple complex are not only artistic marvels but also serve as visual aids for meditation and spiritual connection.</li>
-  </ul>
-  <p>Festivals and Rituals</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Bastar Dussehra:</h3>
-  <ul class="bullet-list">
-    <li>Unlike the typical Dussehra celebrations, Bastar Dussehra is a 75-day-long festival that is deeply intertwined with the local tribal traditions. It is a time when the spiritual energy of the temple is at its peak, and the rituals and ceremonies are a spectacle of devotion and cultural richness.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Navaratri:</h3>
-  <ul class="bullet-list">
-    <li>The temple is a focal point during Navaratri, a nine-night festival dedicated to the divine feminine. Devotees engage in fasting, prayers, and cultural performances, creating an environment filled with spiritual energy and communal harmony.</li>
-  </ul>
-  <p>Practical Information for Visitors</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Accessibility:</h3>
-  <ul class="bullet-list">
-    <li>The temple is accessible by road, approximately 80 km from Jagdalpur and 350 km from Raipur. Public transport and private taxis are available for convenience.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visiting Hours:</h3>
-  <ul class="bullet-list">
-    <li>The temple is open from 6:00 AM to 7:00 PM. It is recommended to visit early in the morning or late in the evening to experience the peaceful aarti (ritual worship).</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural Etiquette:</h3>
-  <ul class="bullet-list">
-    <li>Visitors are encouraged to dress modestly, respecting the local customs. Men can wear dhotis available at the temple entrance, and women are advised to wear suits or saris.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography:</h3>
-  <ul class="bullet-list">
-    <li>Photography is generally allowed outside the main sanctum, but it&#x27;s always best to seek permission from the temple authorities before taking any photos.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Meditation and Yoga:</h3>
-  <ul class="bullet-list">
-    <li>The tranquil environment of the temple, along with the spiritual vibrations, makes it an ideal place for meditation and yoga. Visitors can find quiet spots within the temple complex to practice these activities.</li>
-  </ul>
-  <p>Nearby Attractions</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Bailadila Mountains:</h3>
-  <ul class="bullet-list">
-    <li>Known for their scenic beauty and rich mineral reserves, these mountains offer a serene retreat into nature, perfect for spiritual contemplation and relaxation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dholkal Ganesha Temple:</h3>
-  <ul class="bullet-list">
-    <li>This ancient temple, located nearby, is another spiritual site that offers a peaceful environment and a unique historical perspective.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Local Culture:</h3>
-  <ul class="bullet-list">
-    <li>The region is rich in tribal culture, and visitors can witness traditional dances like Raut Nacha and Pandwani, which are often performed during temple festivals.</li>
-  </ul>
-  <h5 class="section__sub-b">27 Call to action  or interaction links- here in it could be for</h5>
-  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
-  <p>b.Donation ( link)</p>
-  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
-  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-  <p>Call to Action and Interaction Links for Danteshwari Temple</p>
-  <p>a. Puja Booking</p>
-  <p>To book a Puja at the Danteshwari Temple, you can use the temple&#x27;s official website&#x27;s puja booking facility. This service allows devotees to schedule and perform various rituals and ceremonies at the temple.</p>
-  <p>Link to Puja Facility: Book Puja at Danteshwari Temple</p>
-  <p>b. Donation</p>
-  <p>To make a donation to the Danteshwari Temple, you can directly use the online donation portal provided by the temple. Donations can be made for various purposes, such as temple maintenance, festivals, community services, and more.</p>
-  <p>Link to Donate: Donate to Danteshwari Temple</p>
-  <p>c. Accommodation</p>
-  <p>For accommodation options near the Danteshwari Temple, you can visit our dedicated accommodation listing page. We provide various types of lodging options, from budget stays to premium hotels, complete with an enquiry form to assist with your booking needs.</p>
-  <p>Link to Accommodation: Accommodation Near Danteshwari Temple</p>
-  <p>d. Tax Exemption Information</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event of the temple day and date?</h3>
-  <p>The Danteshwari Temple in Dantewada, Chhattisgarh, is renowned for its significant annual events, most notably the Bastar Dussehra festival and the Navaratri celebrations.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Bastar Dussehra:</h3>
-  <ul class="bullet-list">
-    <li>Duration: This is a unique festival that spans 75 days, making it one of the longest Dussehra celebrations in India. It typically begins in the month of September and continues into October.</li>
-    <li>Significance: The festival is deeply rooted in the local tribal traditions and harvest rituals, celebrating the divine feminine energy of Goddess Danteshwari. The festival includes a series of rituals, processions, and cultural performances, attracting devotees and tourists from all over.</li>
-    <li>Highlights: Key events include the ceremonial installation and worship of the deity, elaborate processions, traditional music and dance performances, and the lighting of the Jyoti Kalash.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Navaratri:</h3>
-  <ul class="bullet-list">
-    <li>Sharad Navaratri: Generally observed in September-October, with specific dates varying each year based on the lunar calendar. For 2024, it starts on October 3.</li>
-    <li>Chaitra Navaratri: Celebrated in March-April, again with specific dates determined by the lunar calendar.</li>
-    <li>Rituals: During Navaratri, the temple hosts special pujas, devotional singing, and the lighting of sacred lamps. Devotees fast, pray, and participate in cultural activities to honor the goddess.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Events</h3>
-  <p>The temple also holds regular monthly events, including special poojas and ceremonies. However, detailed information about specific monthly events such as exact dates and specific rituals is not explicitly provided on the temple’s official website. It is advisable to contact the temple administration directly or refer to their official channels for the most accurate and updated schedule of monthly events.</p>
-  <ul class="bullet-list">
-    <li>----------</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Condensed Information About the Place:</h3>
+					  <ul class="bullet-list">
+					    <li>Main Deity (A): The temple is dedicated to Goddess Danteshwari, revered as a manifestation of Shakti. It is considered one of the 52 Shakti Peethas, where the &quot;tooth&quot; of Goddess Sati is believed to have fallen.</li>
+					    <li>Other Deities (Sub Deities) (B): The temple complex may host other smaller shrines and deities typical in such historical and cultural settings, though specific sub-deities are not detailed in the sources.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <ul class="bullet-list">
+					    <li>(a) general</li>
+					    <li>(b) on special days like festivals and utsavas</li>
+					  </ul>
+					  <h5 class="section__sub-b">General Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Morning Aarti: From 8:30 AM to 10:30 AM</li>
+					    <li>Evening Aarti: From 6:00 PM to 7:30 PM</li>
+					    <li>Prasad Distribution: From 11:00 AM to 5:00 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Days Like Festivals and Utsavas</h5>
+					  <p>During special occasions such as Navratri, the temple follows a detailed schedule that includes various rituals throughout the day. For instance, during the Vasanta Navaratri festival in April 2024, the temple will host events from early morning until evening, incorporating special poojas like Jyoti Kalash Sthapana and concluding with cultural programs and prasad distribution.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
+					  <h5 class="section__sub-b">Entry Fees</h5>
+					  <ul class="bullet-list">
+					    <li>General Entry: There is no entry fee for the general darshan at Danteshwari Temple. Visitors can access the temple without any charge, which allows everyone to participate in the daily worship and view the deity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Privileges for Paid Services</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples offer paid services that may include quicker access to the sanctum (quick darshan), special puja participation, or offerings. However, specific details about such services at Danteshwari Temple weren&#x27;t found in the available sources. It&#x27;s best to check directly with the temple&#x27;s administration for any special services they might offer.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Entry Restrictions for Foreigners</h5>
+					  <ul class="bullet-list">
+					    <li>Restrictions: Typically, there are no specific entry restrictions for foreigners at Hindu temples in India, including Danteshwari Temple. Visitors of all nationalities are welcome to visit and partake in the temple&#x27;s spiritual offerings as long as they adhere to the temple&#x27;s code of conduct.</li>
+					    <li>Special Fees or Declarations: There is no indication of special fees or required declarations specifically for foreign visitors. However, like all visitors, foreigners are expected to dress modestly and follow the temple’s guidelines.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Information</h5>
+					  <p>For accurate and detailed information regarding entry fees, privileges granted by special tickets, and guidelines for foreign visitors, it&#x27;s advisable to contact the temple administration directly. This will ensure you have the most current and relevant information for your visit.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available</h3>
+					  <p>How to Reach Danteshwari Temple, Dantewada</p>
+					  <h5 class="section__sub-b">By Air</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Airport: The nearest airport is Swami Vivekananda Airport in Raipur, Chhattisgarh.</li>
+					    <li>Distance: It is approximately 380 kilometers from Dantewada.</li>
+					    <li>Connecting Transport: From the airport, visitors can hire a taxi or take a bus to Dantewada, which may take around 6-7 hours depending on the mode of transport.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Train</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Railway Station: The nearest major railway station is in Jagdalpur.</li>
+					    <li>Distance to Dantewada: Jagdalpur is about 84 kilometers from Dantewada.</li>
+					    <li>Connecting Transport: From Jagdalpur, visitors can take local buses or hire taxis to reach Dantewada.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Road</h5>
+					  <ul class="bullet-list">
+					    <li>Bus Services: There are regular bus services available from major cities like Raipur and Jagdalpur to Dantewada.</li>
+					    <li>Driving: For those driving from Raipur or nearby cities, the journey can take around 6-7 hours via NH30.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Local Transport</h5>
+					  <ul class="bullet-list">
+					    <li>Taxis and Auto-Rickshaws: These are available for local commuting within Dantewada, providing easy access to the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Travel Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Check Local Conditions: It’s advisable to check current travel conditions and road safety, as Dantewada is in a region that may have specific travel advisories.</li>
+					    <li>Plan Ahead: If traveling by public transport, it&#x27;s good to have your tickets booked in advance, especially during festival seasons when the temple sees a high influx of visitors.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special Poojas and Rituals at Danteshwari Temple</h3>
+					  <p>Danteshwari Temple offers a range of special poojas and rituals, which are conducted daily and are also specially arranged during important festivals like Navratri.</p>
+					  <h5 class="section__sub-b">Daily Poojas</h5>
+					  <ul class="bullet-list">
+					    <li>Morning Aarti: From 8:30 AM to 10:30 AM</li>
+					    <li>Evening Aarti: From 6:00 PM to 7:30 PM</li>
+					    <li>Prasad Distribution: From 11:00 AM to 5:00 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Rituals During Festivals</h5>
+					  <ul class="bullet-list">
+					    <li>Navratri Celebrations: Special rituals and events are conducted throughout the Navratri period. The temple hosts various cultural and religious activities, attracting numerous devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Rates and Booking Procedure</h5>
+					  <p>The specific rates for each pooja and ritual are not mentioned online, and the temple encourages direct contact for detailed information and booking procedures.</p>
+					  <h5 class="section__sub-b">Advance Booking</h5>
+					  <ul class="bullet-list">
+					    <li>For special poojas, particularly during festivals like Navratri, it is advisable to book in advance due to the high number of devotees attending. This can be done by contacting the temple administration directly.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact Information for Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Phone: +91 8360601008</li>
+					    <li>Email: info@maadanteshwari.in</li>
+					  </ul>
+					  <p>For more details on the specific poojas and how to participate or book them, you can visit the temple’s official website or directly reach out to them using the provided contact details.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Yes, the Danteshwari Temple provides online services for devotees. Here’s a brief overview:</p>
+					  <h5 class="section__sub-b">Online Services Provided by Danteshwari Temple</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Service Provider: These online services are managed directly by the temple’s administration, ensuring that the process is streamlined and secure.</h3>
+					  <p>For more detailed information or to avail these services, you can visit the temple&#x27;s official website: Maa Danteshwari Temple. Here, you can find links to book poojas, make donations, and learn more about the temple&#x27;s events and activities.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <h5 class="section__sub-b">General Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Men and Women: Visitors are expected to dress modestly and respectfully when visiting the Danteshwari Temple. It is advisable for both men and women to wear clothes that cover the shoulders and knees. Traditional attire like sarees, salwar kameez for women, and kurta-pajamas for men are recommended.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Pujas and Festival Days</h5>
+					  <ul class="bullet-list">
+					    <li>During special events, such as Navratri or other major festivals, devotees often dress in completely traditional attire.</li>
+					    <li>Men: Dhotis or long kurta-pajamas are preferred.</li>
+					    <li>Women: Sarees or full-length salwar kameez are advised.</li>
+					  </ul>
+					  <p>This dress code helps maintain the decorum and sanctity of the temple and is in line with the traditional and cultural values associated with the worship practices at Danteshwari Temple.</p>
+					  <p>Visitors, including foreigners, are encouraged to adhere to these guidelines to respect the religious and cultural sentiments of the temple and its devotees.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>At the Danteshwari Temple, there are certain regulations regarding electronic gadgets to maintain the sanctity and tranquility of the temple environment.</p>
+					  <h5 class="section__sub-b">Electronic Gadgets Policy</h5>
+					  <ul class="bullet-list">
+					    <li>Mobile Phones and Cameras: Generally, the use of mobile phones, cameras, and other electronic gadgets is restricted within the temple premises, especially inside the main sanctum (Garbhagriha) where the deity is housed. This is to ensure that the spiritual atmosphere is not disturbed by electronic noises and flashes.</li>
+					    <li>Recording Devices: Audio or video recording devices are typically not allowed during temple rituals and ceremonies.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Depositing Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Facilities Available: If electronic gadgets are not allowed, the temple often provides facilities where these items can be safely deposited before entering the temple. This service helps visitors store their belongings securely while they participate in the temple activities.</li>
+					    <li>Location: These facilities are usually located near the temple entrance or in a designated area easily accessible to visitors.</li>
+					  </ul>
+					  <p>For the latest and most specific guidelines regarding electronic gadgets at the Danteshwari Temple, including where to deposit them if they are not allowed during your visit, it is recommended to check the temple&#x27;s official website or directly contact the temple administration before your visit. This ensures that you are fully prepared and compliant with the temple’s policies.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>Facilities for Physically Handicapped at Danteshwari Temple</p>
+					  <p>The Danteshwari Temple provides facilities to ensure accessibility for all devotees, including those who are physically handicapped. While there is no specific mention of a lift or elevator, the temple administration strives to accommodate the needs of elderly and physically challenged visitors.</p>
+					  <h5 class="section__sub-b">Key Facilities</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of Wheelchair for elderly and physically challenged?</h3>
+					  <h5 class="section__sub-b">Availability</h5>
+					  <p>The Danteshwari Temple in Dantewada, Chhattisgarh, provides facilities to assist elderly and physically challenged visitors, including wheelchair accessibility.</p>
+					  <h5 class="section__sub-b">Specific Facilities</h5>
+					  <h5 class="section__sub-b">1. Wheelchair Accessibility</h5>
+					  <ul class="bullet-list">
+					    <li>The temple premises are designed to be accessible for visitors using wheelchairs, ensuring that all devotees can comfortably navigate the area.</li>
+					    <li>Ramps and other infrastructure adjustments are in place to facilitate easy movement for those with mobility challenges.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Assistance Services</h5>
+					  <ul class="bullet-list">
+					    <li>Temple staff and volunteers are available to provide assistance to elderly and physically challenged visitors. They help ensure a smooth and respectful experience during their visit.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <h5 class="section__sub-b">Special Entry</h5>
+					  <ul class="bullet-list">
+					    <li>Priority Access: The Danteshwari Temple provides special entry arrangements for sick, senior citizens, and physically challenged persons to ensure they can have a comfortable and hassle-free darshan.</li>
+					    <li>Assistance: Temple staff and volunteers are available to assist these visitors, guiding them through dedicated lines and ensuring they can access the temple without undue strain.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Timing</h5>
+					  <ul class="bullet-list">
+					    <li>General Darshan Timings:</li>
+					    <li>Morning Aarti: 8:30 AM - 10:30 AM</li>
+					    <li>Evening Aarti: 6:00 PM - 7:30 PM</li>
+					    <li>Prasad Distribution: 11:00 AM - 5:00 PM</li>
+					    <li>Special Arrangements During Festivals: During major festivals like Navratri, additional arrangements and timings may be implemented to accommodate the increased number of visitors. It is advisable to contact the temple administration for precise timings during such events.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Facilities for Physically Handicapped</h5>
+					  <ul class="bullet-list">
+					    <li>Wheelchair Accessibility: The temple is equipped with ramps and other facilities to ensure easy access for wheelchair users.</li>
+					    <li>Assistance Services: Additional help is provided by temple staff for those who need it.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <h5 class="section__sub-b">Vehicle Pooja</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: Vehicle pooja is performed at the temple.</li>
+					    <li>Timings: Typically available during temple operating hours, from 8:30 AM to 10:30 AM and 6:00 PM to 7:30 PM.</li>
+					    <li>Cost: Specific costs are not listed online; it’s advisable to contact the temple for detailed pricing and booking procedures.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">15 .Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities? What is the cost? How to book in advance?</h3>
+					  <p>Yes, the Danteshwari Temple in Dantewada, Chhattisgarh, provides accommodation facilities for pilgrims. Here are the details:</p>
+					  <p>Types of Accommodation Facilities</p>
+					  <h5 class="section__sub-b">1. Guesthouses</h5>
+					  <ul class="bullet-list">
+					    <li>Rooms with basic amenities such as beds, attached bathrooms, and sometimes air conditioning.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Dormitories</h5>
+					  <ul class="bullet-list">
+					    <li>Shared spaces with multiple beds and common bathroom facilities, suitable for large groups or budget-conscious travelers.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cottages</h5>
+					  <ul class="bullet-list">
+					    <li>Private units offering more space and amenities, such as separate living areas and sometimes small kitchens.</li>
+					  </ul>
+					  <p>Costs</p>
+					  <ul class="bullet-list">
+					    <li>Guesthouses: Prices typically range from ₹500 to ₹1500 per night, depending on the amenities and room size.</li>
+					    <li>Dormitories: Generally cost between ₹100 to ₹300 per bed per night.</li>
+					    <li>Cottages: Prices can range from ₹2000 to ₹5000 per night, based on the size and facilities provided.</li>
+					  </ul>
+					  <p>Booking in Advance</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Parking Facilities</h3>
+					  <h5 class="section__sub-b">1. Car Parking</h5>
+					  <ul class="bullet-list">
+					    <li>There is a designated parking area for cars near the temple premises. It can accommodate multiple cars and is usually monitored for security.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Mini Bus Parking</h5>
+					  <ul class="bullet-list">
+					    <li>There is a separate parking area for larger vehicles such as mini buses. This area is designed to handle the size and turning radius of mini buses, ensuring convenient access.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Two-Wheeler Parking</h5>
+					  <ul class="bullet-list">
+					    <li>A specific section of the parking area is reserved for two-wheelers. This area is close to the temple entrance for easy access.</li>
+					  </ul>
+					  <p>Location and Access</p>
+					  <ul class="bullet-list">
+					    <li>The parking areas are located within a short walking distance from the temple entrance, ensuring convenience for all visitors.</li>
+					    <li>Signage within the temple complex directs visitors to the appropriate parking zones for their vehicles.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Parking Charges</h3>
+					  <ul class="bullet-list">
+					    <li>Cars: Nominal fee (typically around ₹20-₹50 per vehicle)</li>
+					    <li>Mini Buses: Slightly higher fee (typically around ₹50-₹100 per vehicle)</li>
+					    <li>Two-Wheelers: Minimal fee (typically around ₹10-₹20 per vehicle)</li>
+					  </ul>
+					  <p>Security and Management</p>
+					  <ul class="bullet-list">
+					    <li>The parking areas are generally monitored by temple security personnel.</li>
+					    <li>There are specific timings for parking access, usually aligned with temple opening hours.</li>
+					  </ul>
+					  <p>How to Use the Parking Facility</p>
+					  <ul class="bullet-list">
+					    <li>Visitors can drive directly to the designated parking areas and follow the instructions of the parking attendants.</li>
+					    <li>It&#x27;s advisable to arrive early, especially during peak pilgrimage seasons and festivals, to secure a parking spot.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Prashad Services and Meals</h3>
+					  <h5 class="section__sub-b">1. Types of Meals</h5>
+					  <ul class="bullet-list">
+					    <li>Free Meals: Basic vegetarian meals are provided to all devotees as Prashad.</li>
+					    <li>Special Meals: On special occasions and festivals, the temple may offer special Prashad meals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees are typically served meals in a common dining hall.</li>
+					    <li>Meals are served in a traditional manner, often on banana leaves or steel plates.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Payment</h5>
+					  <ul class="bullet-list">
+					    <li>Free Meals: No payment is required for the basic Prashad meals.</li>
+					    <li>Special Meals: There might be a nominal charge for special Prashad meals on certain occasions. This can vary depending on the event and the type of meal.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Different Classes/Lines</h5>
+					  <ul class="bullet-list">
+					    <li>The temple generally serves Prashad on a first-come, first-served basis.</li>
+					    <li>There might be separate lines for different types of meals, especially if special Prashad is being served.</li>
+					  </ul>
+					  <p>How to Buy the Ticket (if needed)</p>
+					  <ul class="bullet-list">
+					    <li>Free Meals: No ticket is required.</li>
+					    <li>Special Meals: If there is a charge, tickets can be purchased at the temple premises from designated counters. The process usually involves:</li>
+					    <li>Approaching the Prashad counter.</li>
+					    <li>Paying the nominal fee (if any).</li>
+					    <li>Receiving a meal token or ticket which can be exchanged for the special meal.</li>
+					  </ul>
+					  <p>Timings</p>
+					  <ul class="bullet-list">
+					    <li>Regular Prashad Meals: Typically served during lunch hours (around 12:00 PM to 2:00 PM) and dinner hours (around 7:00 PM to 9:00 PM).</li>
+					    <li>Special Meals: Timings may vary depending on the festival or event. It is best to check with the temple authorities for specific timings on special occasions.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>The Danteshwari Temple in Dantewada, Chhattisgarh, offers carry-home Prashad options for devotees who wish to take the blessed offerings with them. Here are the details:</p>
+					  <p>Types of Carry-Home Prashad</p>
+					  <h5 class="section__sub-b">1. Dry Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>Laddu: Sweet balls made from gram flour, ghee, and sugar.</li>
+					    <li>Chana (Roasted Chickpeas): A popular offering that is dry and easy to carry.</li>
+					    <li>Coconut Pieces: Small pieces of dried coconut.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Packaged Sweets</h5>
+					  <ul class="bullet-list">
+					    <li>Besan Laddu: Gram flour sweet balls packaged for convenience.</li>
+					    <li>Kaju Barfi: Cashew nut sweets in small boxes.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Other Items</h5>
+					  <ul class="bullet-list">
+					    <li>Sundal: A savory offering made from chickpeas or other legumes.</li>
+					    <li>Panchamrit: A mixture of milk, yogurt, honey, sugar, and ghee, usually packaged in small bottles.</li>
+					  </ul>
+					  <p>Costs</p>
+					  <ul class="bullet-list">
+					    <li>Laddu: Approximately ₹20 to ₹50 per piece, depending on size and ingredients.</li>
+					    <li>Chana (Roasted Chickpeas): Around ₹10 to ₹30 per packet.</li>
+					    <li>Coconut Pieces: Typically ₹10 to ₹20 per packet.</li>
+					    <li>Packaged Sweets:</li>
+					    <li>Besan Laddu: ₹100 to ₹200 per box.</li>
+					    <li>Kaju Barfi: ₹200 to ₹500 per box.</li>
+					    <li>Sundal: Around ₹20 to ₹50 per packet.</li>
+					    <li>Panchamrit: Approximately ₹30 to ₹50 per bottle.</li>
+					  </ul>
+					  <p>How to Purchase</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Prashad Shops: There are often small shops near the temple that sell various types of Prashad.</h3>
+					  <p>Timings for Purchase</p>
+					  <ul class="bullet-list">
+					    <li>The Prashad counters and shops are usually open during temple hours, which are typically from early morning (around 6:00 AM) until late evening (around 9:00 PM).</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>The procedure for reporting lost items in a temple generally involves contacting the temple administration or security office directly at the site. Most temples have a lost and found section where you can report and inquire about lost items. It&#x27;s advisable to provide detailed information about the lost property and any identifying features to help in its recovery. For specific procedures, you should check the temple&#x27;s official website or contact their office directly, as each temple might have different protocols.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a member of your group goes missing in a temple, you should immediately report it to the temple&#x27;s security office or the main administration office. Provide a detailed description of the missing person and any relevant information that could help identify them. It’s advisable to wait at a predetermined common meeting spot or a central location within the temple premises, such as the main entrance or near the administration office. This helps in coordinating the search and ensures you are easily reachable.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
+					  <p>The Danteshwari Temple is recognized and supported by the local district administration. However, the specific details regarding its registration under the state government or district administration are not explicitly mentioned on the website. For the most accurate and detailed information, it&#x27;s best to contact the temple administration directly through their official website or visit in person.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>To make donations to the Danteshwari Temple, apart from Hundi offerings, you can follow these steps based on the information provided on their official website:</p>
+					  <h5 class="section__sub-b">1. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Visit the official website here.</li>
+					    <li>Navigate to the &quot;Donations&quot; section.</li>
+					    <li>Follow the instructions provided for online donations.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Direct Bank Transfers</h5>
+					  <ul class="bullet-list">
+					    <li>Account Name: Maa Danteshwari Mandir Trust</li>
+					    <li>Bank Name: State Bank of India (SBI)</li>
+					    <li>Branch: Dantewada</li>
+					    <li>Account Number: 30269466580</li>
+					    <li>IFSC Code: SBIN0012337</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Purposes for Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Temple maintenance and development</li>
+					    <li>Arrangements for festivals and religious events</li>
+					    <li>Community services and welfare activities</li>
+					    <li>Preservation of cultural heritage</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>The Danteshwari Temple in Dantewada, Chhattisgarh, does not explicitly mention any specific privileges associated with donations on their official website or other resources. Unlike some other temples such as Tirupati or Shirdi, where specific donor privileges are provided, the Danteshwari Temple primarily focuses on the spiritual and community aspects of donations.</p>
+					  <p>For more detailed information, including potential privileges or specific donation uses, you should directly contact the temple administration. They can provide the most accurate and up-to-date information regarding donation procedures, associated benefits, and how the funds are utilized.</p>
+					  <h5 class="section__sub-b">Here are some general points about donations</h5>
+					  <h5 class="section__sub-b">1. Purpose of Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Temple maintenance and development</li>
+					    <li>Arrangements for festivals and religious events</li>
+					    <li>Community services and welfare activities</li>
+					    <li>Preservation of cultural heritage</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. How to Donate</h5>
+					  <ul class="bullet-list">
+					    <li>Online Donations: Visit the official website and navigate to the &quot;Donations&quot; section for instructions.</li>
+					    <li>Direct Bank Transfers:</li>
+					    <li>Account Name: Maa Danteshwari Mandir Trust</li>
+					    <li>Bank Name: State Bank of India (SBI)</li>
+					    <li>Branch: Dantewada</li>
+					    <li>Account Number: 30269466580</li>
+					    <li>IFSC Code: SBIN0012337</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple ?</h3>
+					  <p>The Danteshwari Temple, located in Dantewada, Chhattisgarh, is an architectural marvel with significant historical and cultural importance. Built in the 14th century by the Chalukya kings, this temple showcases a blend of Nagara and Dravidian architectural styles, reflecting the cultural amalgamation prevalent in the region.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Construction and Architectural Features</h3>
+					  <h5 class="section__sub-b">1. Temple Structure</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is divided into four main parts: Garbh Griha (sanctum sanctorum), Maha Mandap (great hall), Mukhya Mandap (main hall), and Sabha Mandap (assembly hall).</li>
+					    <li>The Garbh Griha and Maha Mandap are constructed with stone pieces, showcasing intricate carvings and sculptures.</li>
+					    <li>The temple complex includes various shrines dedicated to other deities such as Lord Shiva, Vishnu, and Ganesha.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Architectural Style</h5>
+					  <ul class="bullet-list">
+					    <li>The blend of Nagara and Dravidian architectural styles is evident in the temple&#x27;s design. The Nagara style is characterized by its beehive-shaped tower (shikhara) and intricate carvings, while the Dravidian style features pyramidal towers and elaborate gateways (gopurams).</li>
+					    <li>The temple&#x27;s shikhara is adorned with sculptural finery, adding to its grandeur.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Material Used</h5>
+					  <ul class="bullet-list">
+					    <li>The idol of Goddess Danteshwari is chiseled out of black stone, a significant feature of the temple. The use of stone for construction not only provided durability but also allowed for detailed carvings and sculptures.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Garuda Pillar</h5>
+					  <ul class="bullet-list">
+					    <li>In front of the temple entrance stands a Garuda pillar, an important architectural feature. The Garuda pillar is a tall monolithic pillar with a statue of Garuda, the vehicle of Lord Vishnu, perched on top. This pillar is an example of the exquisite craftsmanship of the period.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Courtyard and Walls</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is surrounded by a spacious courtyard and massive walls, providing a fortified structure. This design not only adds to the temple&#x27;s aesthetic appeal but also served a protective function historically.</li>
+					  </ul>
+					  <p>Scientific Aspects</p>
+					  <h5 class="section__sub-b">1. Structural Engineering</h5>
+					  <ul class="bullet-list">
+					    <li>The use of interlocking stones in construction provided stability and durability to the structure, ensuring it withstands natural calamities and the test of time.</li>
+					    <li>The temple&#x27;s architecture is designed to withstand the region&#x27;s seismic activity, showcasing advanced understanding of structural engineering by ancient builders.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Acoustics</h5>
+					  <ul class="bullet-list">
+					    <li>The design of the temple halls ensures optimal acoustics for chanting and musical performances, enhancing the spiritual experience for devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Orientation and Vastu</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is oriented according to Vastu Shastra, an ancient Indian science of architecture, ensuring the flow of positive energy within the premises.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>The Danteshwari Temple in Dantewada, Chhattisgarh, holds significant religious and cultural importance, primarily due to its status as one of the 52 Shakti Peethas. These are sacred shrines dedicated to the goddess Shakti, the divine feminine power, and are spread across the Indian subcontinent. According to Hindu mythology, the Shakti Peethas were formed at sites where parts of the body of the goddess Sati fell after her self-immolation and the subsequent Tandava by Lord Shiva.</p>
+					  <p>Special Significance of the Danteshwari Temple</p>
+					  <h5 class="section__sub-b">1. Mythological Significance</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is believed to be the spot where the tooth (danta) of Goddess Sati fell, giving the temple its name &quot;Danteshwari&quot; (Goddess with the Tooth). This connection to the Shakti Peethas makes it a vital pilgrimage site for devotees seeking the blessings of the divine mother.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Cultural Significance</h5>
+					  <ul class="bullet-list">
+					    <li>The Danteshwari Temple is deeply embedded in the local traditions and culture. It is a central part of the Bastar Dussehra festival, which is a unique 75-day-long celebration distinct from the Dussehra festivals held in other parts of India. During this festival, the idol of the goddess is taken out in elaborate processions, attracting thousands of tribal people from the surrounding regions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Historical Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Built in the 14th century by the Chalukya kings, the temple is a testament to the region&#x27;s historical and architectural heritage. Its construction and continued importance reflect the enduring legacy of the Chalukya dynasty and the cultural continuity in the Bastar region.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Spiritual Energy</h5>
+					  <ul class="bullet-list">
+					    <li>While there is no specific mention of geomagnetic fields or cosmic energy similar to that of Kasar Devi Temple, the Danteshwari Temple is revered for its spiritual ambiance. The serene environment, combined with the rhythmic chanting of hymns and the presence of the divine idol, creates a profound spiritual experience for devotees.</li>
+					  </ul>
+					  <p>Comparison to Kasar Devi Temple</p>
+					  <p>Unlike the Kasar Devi Temple in Uttarakhand, which is noted for its geomagnetic field due to gaps in the bands of radiation, the Danteshwari Temple’s significance is more rooted in its mythological, cultural, and historical context. There are no widely known claims or studies attributing specific geomagnetic properties to the Danteshwari Temple similar to those of Stonehenge or Machu Picchu.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <p>Overview</p>
+					  <p>The Danteshwari Temple, located in Dantewada, Chhattisgarh, is a spiritual haven, offering a profound experience rooted in ancient mythology and deep-seated cultural traditions. As one of the 52 Shakti Peethas, it holds significant spiritual importance. The temple is dedicated to Goddess Danteshwari, an incarnation of Shakti, and it attracts numerous devotees and tourists alike, especially during the vibrant festival seasons.</p>
+					  <p>Spiritual Significance</p>
+					  <h5 class="section__sub-b">1. Mythological Roots</h5>
+					  <ul class="bullet-list">
+					    <li>According to Hindu mythology, the Danteshwari Temple is the site where the tooth of Goddess Sati fell. This event is part of the larger story of the Shakti Peethas, which are sacred sites scattered across the Indian subcontinent, believed to be the locations where parts of Sati&#x27;s body fell as Lord Shiva carried her.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Connection with Nature</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is situated at the confluence of the holy rivers Shankini and Dhankini, which adds to its serene and spiritually uplifting atmosphere. The presence of these rivers is believed to enhance the spiritual vibrations of the place, making it a peaceful retreat for meditation and introspection.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Architectural Grandeur</h5>
+					  <ul class="bullet-list">
+					    <li>The temple&#x27;s architecture, combining Nagara and Dravidian styles, reflects the cultural amalgamation of the region and provides a tranquil environment for spiritual reflection. The intricate carvings and sculptures within the temple complex are not only artistic marvels but also serve as visual aids for meditation and spiritual connection.</li>
+					  </ul>
+					  <p>Festivals and Rituals</p>
+					  <h5 class="section__sub-b">1. Bastar Dussehra</h5>
+					  <ul class="bullet-list">
+					    <li>Unlike the typical Dussehra celebrations, Bastar Dussehra is a 75-day-long festival that is deeply intertwined with the local tribal traditions. It is a time when the spiritual energy of the temple is at its peak, and the rituals and ceremonies are a spectacle of devotion and cultural richness.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Navaratri</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is a focal point during Navaratri, a nine-night festival dedicated to the divine feminine. Devotees engage in fasting, prayers, and cultural performances, creating an environment filled with spiritual energy and communal harmony.</li>
+					  </ul>
+					  <p>Practical Information for Visitors</p>
+					  <h5 class="section__sub-b">1. Accessibility</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is accessible by road, approximately 80 km from Jagdalpur and 350 km from Raipur. Public transport and private taxis are available for convenience.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Visiting Hours</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is open from 6:00 AM to 7:00 PM. It is recommended to visit early in the morning or late in the evening to experience the peaceful aarti (ritual worship).</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cultural Etiquette</h5>
+					  <ul class="bullet-list">
+					    <li>Visitors are encouraged to dress modestly, respecting the local customs. Men can wear dhotis available at the temple entrance, and women are advised to wear suits or saris.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Photography</h5>
+					  <ul class="bullet-list">
+					    <li>Photography is generally allowed outside the main sanctum, but it&#x27;s always best to seek permission from the temple authorities before taking any photos.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Meditation and Yoga</h5>
+					  <ul class="bullet-list">
+					    <li>The tranquil environment of the temple, along with the spiritual vibrations, makes it an ideal place for meditation and yoga. Visitors can find quiet spots within the temple complex to practice these activities.</li>
+					  </ul>
+					  <p>Nearby Attractions</p>
+					  <h5 class="section__sub-b">1. Bailadila Mountains</h5>
+					  <ul class="bullet-list">
+					    <li>Known for their scenic beauty and rich mineral reserves, these mountains offer a serene retreat into nature, perfect for spiritual contemplation and relaxation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Dholkal Ganesha Temple</h5>
+					  <ul class="bullet-list">
+					    <li>This ancient temple, located nearby, is another spiritual site that offers a peaceful environment and a unique historical perspective.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Local Culture</h5>
+					  <ul class="bullet-list">
+					    <li>The region is rich in tribal culture, and visitors can witness traditional dances like Raut Nacha and Pandwani, which are often performed during temple festivals.</li>
+					  </ul>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Donation ( link)</p>
+					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>Call to Action and Interaction Links for Danteshwari Temple</p>
+					  <p>a. Puja Booking</p>
+					  <p>To book a Puja at the Danteshwari Temple, you can use the temple&#x27;s official website&#x27;s puja booking facility. This service allows devotees to schedule and perform various rituals and ceremonies at the temple.</p>
+					  <p>Link to Puja Facility: Book Puja at Danteshwari Temple</p>
+					  <p>b. Donation</p>
+					  <p>To make a donation to the Danteshwari Temple, you can directly use the online donation portal provided by the temple. Donations can be made for various purposes, such as temple maintenance, festivals, community services, and more.</p>
+					  <p>Link to Donate: Donate to Danteshwari Temple</p>
+					  <p>c. Accommodation</p>
+					  <p>For accommodation options near the Danteshwari Temple, you can visit our dedicated accommodation listing page. We provide various types of lodging options, from budget stays to premium hotels, complete with an enquiry form to assist with your booking needs.</p>
+					  <p>Link to Accommodation: Accommodation Near Danteshwari Temple</p>
+					  <p>d. Tax Exemption Information</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event of the temple day and date?</h3>
+					  <p>The Danteshwari Temple in Dantewada, Chhattisgarh, is renowned for its significant annual events, most notably the Bastar Dussehra festival and the Navaratri celebrations.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Events</h3>
+					  <h5 class="section__sub-b">1. Bastar Dussehra</h5>
+					  <ul class="bullet-list">
+					    <li>Duration: This is a unique festival that spans 75 days, making it one of the longest Dussehra celebrations in India. It typically begins in the month of September and continues into October.</li>
+					    <li>Significance: The festival is deeply rooted in the local tribal traditions and harvest rituals, celebrating the divine feminine energy of Goddess Danteshwari. The festival includes a series of rituals, processions, and cultural performances, attracting devotees and tourists from all over.</li>
+					    <li>Highlights: Key events include the ceremonial installation and worship of the deity, elaborate processions, traditional music and dance performances, and the lighting of the Jyoti Kalash.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Navaratri</h5>
+					  <ul class="bullet-list">
+					    <li>Sharad Navaratri: Generally observed in September-October, with specific dates varying each year based on the lunar calendar. For 2024, it starts on October 3.</li>
+					    <li>Chaitra Navaratri: Celebrated in March-April, again with specific dates determined by the lunar calendar.</li>
+					    <li>Rituals: During Navaratri, the temple hosts special pujas, devotional singing, and the lighting of sacred lamps. Devotees fast, pray, and participate in cultural activities to honor the goddess.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Events</h3>
+					  <p>The temple also holds regular monthly events, including special poojas and ceremonies. However, detailed information about specific monthly events such as exact dates and specific rituals is not explicitly provided on the temple’s official website. It is advisable to contact the temple administration directly or refer to their official channels for the most accurate and updated schedule of monthly events.</p>
+					  <ul class="bullet-list">
+					    <li>----------</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -788,89 +643,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

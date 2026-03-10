@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -123,13 +70,6 @@
 							</div>
 						</div>
 						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
-							</div>
-						</div>
-						<div class="key-info__item">
 							<div class="key-info__icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
 							<div>
 								<div class="key-info__label">Contact</div>
@@ -147,995 +87,869 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Full Address: Siddhivinayak Temple Trust S.K. Bole Marg, Prabhadevi, Mumbai, Maharashtra 400028, India</h3>
-  <h5 class="section__sub-b">Phone(s)/Contact Number(s)</h5>
-  <ul class="bullet-list">
-    <li>Phone: +91-22-2422 3724 / 25 / 26</li>
-    <li>Fax: +91-22-2422 1289</li>
-  </ul>
-  <p>Email: info@siddhivinayak.org</p>
-  <p>Website: https://www.siddhivinayak.org/</p>
-  <h5 class="section__sub-b">A. Main Deity</h5>
-  <ul class="bullet-list">
-    <li>Lord Ganesha (Siddhivinayak)</li>
-  </ul>
-  <h5 class="section__sub-b">B. Other Deities (Sub Deities)</h5>
-  <ul class="bullet-list">
-    <li>Hanuman</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <ul class="bullet-list">
-    <li>(a) general</li>
-    <li>(b) on special days like festivals and utsavas</li>
-  </ul>
-  <h5 class="section__sub-b">(a) General</h5>
-  <ul class="bullet-list">
-    <li>Opening Time: 5:30 AM</li>
-    <li>Closing Time: 9:50 PM</li>
-  </ul>
-  <h5 class="section__sub-b">(b) On Special Days (Festivals and Utsavas)</h5>
-  <ul class="bullet-list">
-    <li>Opening Time: 3:15 AM</li>
-    <li>Closing Time: 12:30 AM (the next day)</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <ul class="bullet-list">
-    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Fees:</h3>
-  <ul class="bullet-list">
-    <li>General Entry: There is no entry fee for general darshan. All devotees can visit the temple and have a view of the deity during the regular opening hours.</li>
-  </ul>
-  <h5 class="section__sub-b">Privileged Entry (Special Darshan)</h5>
-  <ul class="bullet-list">
-    <li>Special Darshan Pass: The temple offers a special darshan pass for a fee. This pass grants devotees quicker access through a separate gate, reducing the waiting time significantly. It often includes:</li>
-    <li>Quick darshan through a special gate.</li>
-    <li>Longer viewing time of the deity.</li>
-    <li>Special prasad.</li>
-    <li>Priority for certain pujas and rituals.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Restrictions and Fees for Foreigners:</h3>
-  <ul class="bullet-list">
-    <li>Entry Restrictions: There are no specific entry restrictions for foreigners. All devotees, irrespective of nationality, are welcome to visit the temple.</li>
-    <li>Special Fees: Foreigners do not have to pay any special fees for entry. They can access all general and privileged services by following the same process as Indian devotees.</li>
-    <li>Declarations: No specific declarations are required from foreigners. However, it is advisable to follow the temple&#x27;s dress code and respect the sanctity of the place.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available.</h3>
-  <h5 class="section__sub-b">How to Reach</h5>
-  <h5 class="section__sub-b">By Air</h5>
-  <ul class="bullet-list">
-    <li>Nearest Airport: Chhatrapati Shivaji Maharaj International Airport, Mumbai</li>
-    <li>Distance from Airport: Approximately 12 km</li>
-    <li>Transportation from Airport: Prepaid taxis, app-based cabs (Uber, Ola), and airport shuttle services are available for commuting to the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">By Train</h5>
-  <ul class="bullet-list">
-    <li>Nearest Railway Stations:</li>
-    <li>Dadar Railway Station: Approximately 1.8 km</li>
-    <li>Prabhadevi Railway Station: Approximately 1 km</li>
-    <li>Transportation from Stations: The temple can be reached by walking, auto-rickshaws, or taxis available outside the stations.</li>
-  </ul>
-  <h5 class="section__sub-b">By Bus</h5>
-  <ul class="bullet-list">
-    <li>Nearest Bus Stops: Siddhivinayak Temple / Prabhadevi Depot</li>
-    <li>Mumbai BEST Buses: Several BEST buses (Mumbai&#x27;s public bus service) connect the temple to various parts of the city.</li>
-  </ul>
-  <h5 class="section__sub-b">By Taxi</h5>
-  <ul class="bullet-list">
-    <li>Taxis are readily available throughout Mumbai and can be hailed directly or booked via ride-hailing apps like Uber and Ola.</li>
-  </ul>
-  <h5 class="section__sub-b">By Car</h5>
-  <ul class="bullet-list">
-    <li>Visitors can drive to the temple. Parking facilities are available nearby, though they can be limited during peak hours and special occasions.</li>
-  </ul>
-  <h5 class="section__sub-b">By Ferry</h5>
-  <ul class="bullet-list">
-    <li>While Mumbai has ferry services, they are generally used for commuting to nearby coastal areas and islands rather than for reaching the Siddhivinayak Temple. It is more convenient to use road transportation from the ferry ports.</li>
-  </ul>
-  <h5 class="section__sub-b">Tips for Commuting</h5>
-  <ul class="bullet-list">
-    <li>Early Morning Visits: To avoid traffic and long queues, visit the temple early in the morning.</li>
-    <li>Public Transport: Using public transport (trains and buses) is advisable during peak hours due to heavy traffic in Mumbai.</li>
-    <li>Local Apps: Utilize local transportation apps and maps for real-time updates on routes and traffic conditions.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">* .What are the rates associated with it? What is the advance booking procedure?</h3>
-  <h5 class="section__sub-b">A. Special Poojas/Rituals</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Kakad Aarti (Early Morning Aarti)</h3>
-  <ul class="bullet-list">
-    <li>Days: Daily</li>
-    <li>Timing: 5:30 AM</li>
-    <li>Rates: Included in general entry, no special fee.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Shree Darshan</h3>
-  <ul class="bullet-list">
-    <li>Days: Daily</li>
-    <li>Timing: 6:00 AM to 9:00 PM</li>
-    <li>Rates: Included in general entry, no special fee.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Noon Aarti</h3>
-  <ul class="bullet-list">
-    <li>Days: Daily</li>
-    <li>Timing: 12:30 PM</li>
-    <li>Rates: Included in general entry, no special fee.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Evening Aarti</h3>
-  <ul class="bullet-list">
-    <li>Days: Daily</li>
-    <li>Timing: 7:30 PM</li>
-    <li>Rates: Included in general entry, no special fee.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ratri Aarti (Night Aarti)</h3>
-  <ul class="bullet-list">
-    <li>Days: Daily</li>
-    <li>Timing: 9:50 PM</li>
-    <li>Rates: Included in general entry, no special fee.</li>
-  </ul>
-  <h5 class="section__sub-b">B. Special Poojas</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Abhishek Pooja</h3>
-  <ul class="bullet-list">
-    <li>Days: Daily</li>
-    <li>Timing: 8:00 AM to 9:00 AM</li>
-    <li>Rates: ₹100 / ₹300 / ₹600</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sankashti Chaturthi Pooja</h3>
-  <ul class="bullet-list">
-    <li>Days: Sankashti Chaturthi Day</li>
-    <li>Timing: Morning to night, specific timings vary</li>
-    <li>Rates: ₹2,100</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Pooja for Tuesday</h3>
-  <ul class="bullet-list">
-    <li>Days: Tuesdays</li>
-    <li>Timing: Throughout the day</li>
-    <li>Rates: ₹2,100</li>
-  </ul>
-  <h5 class="section__sub-b">C. Advance Booking Procedure</h5>
-  <ul class="bullet-list">
-    <li>Online Booking: Devotees can book special poojas and rituals online through the official Siddhivinayak Temple website (www.siddhivinayak.org).</li>
-    <li>Onsite Booking: Booking counters are available at the temple premises where devotees can book poojas in person.</li>
-    <li>Payment Methods: Payments can be made online via credit/debit cards, net banking, or through cash/card payments at the temple&#x27;s booking counters.</li>
-    <li>Contact Information for Booking:</li>
-    <li>Phone: +91-22-2422 3724 / 25 / 26</li>
-    <li>Email: info@siddhivinayak.org</li>
-  </ul>
-  <p>Note: It is advisable to book well in advance, especially for special poojas and rituals on auspicious days, as they tend to get fully booked quickly.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>Yes, the Siddhivinayak Temple offers several online services to serve the devotees. These services are provided by the Siddhivinayak Temple Trust.</p>
-  <h5 class="section__sub-b">Available Online Services</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Live Darshan:</h3>
-  <ul class="bullet-list">
-    <li>Devotees can view live streaming of the temple and the deity through the temple&#x27;s official website.</li>
-    <li>Website: Live Darshan</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>Devotees can make donations online to support the temple&#x27;s activities and charitable initiatives.</li>
-    <li>Website: Online Donations</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Pooja and Aarti Booking:</h3>
-  <ul class="bullet-list">
-    <li>Special poojas and aartis can be booked online through the temple&#x27;s official website.</li>
-    <li>Website: Pooja Booking</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">E-Prasad:</h3>
-  <ul class="bullet-list">
-    <li>Devotees can order prasad online, which will be delivered to their homes.</li>
-    <li>Website: E-Prasad</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Membership:</h3>
-  <ul class="bullet-list">
-    <li>Devotees can become members of the temple trust and receive updates, newsletters, and special privileges.</li>
-    <li>Website: Membership</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
-  <p>The Siddhivinayak Temple encourages all visitors to dress modestly and respectfully when visiting the temple premises. While there is no strict dress code, the following guidelines are recommended:</p>
-  <h5 class="section__sub-b">General Dress Code</h5>
-  <ul class="bullet-list">
-    <li>Men:</li>
-    <li>Traditional attire such as kurta-pajama or dhoti-kurta.</li>
-    <li>Casual attire like shirts and trousers is also acceptable, but sleeveless shirts and shorts should be avoided.</li>
-    <li>Women:</li>
-    <li>Traditional attire such as sarees, salwar kameez, or churidar.</li>
-    <li>Casual attire like long skirts and tops or modest western wear is also acceptable, but sleeveless tops and short skirts should be avoided.</li>
-  </ul>
-  <h5 class="section__sub-b">For Special Poojas and Festivals</h5>
-  <ul class="bullet-list">
-    <li>Devotees participating in special poojas and rituals are encouraged to wear traditional Indian attire.</li>
-    <li>Men: Dhoti-kurta or kurta-pajama.</li>
-    <li>Women: Sarees or salwar kameez.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Guidelines</h5>
-  <ul class="bullet-list">
-    <li>Footwear is not allowed inside the temple premises and should be left at the designated shoe racks.</li>
-    <li>Devotees should ensure that their clothing is clean and appropriate for a place of worship.</li>
-    <li>It is recommended to avoid flashy or revealing clothing.</li>
-  </ul>
-  <p>Following these guidelines helps maintain the sanctity of the temple and ensures a respectful environment for all devotees.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <h5 class="section__sub-b">Allowed</h5>
-  <ul class="bullet-list">
-    <li>Mobile Phones: Generally allowed but should be kept on silent mode. Photography and videography are not permitted inside the temple premises.</li>
-    <li>Small Personal Items: Small electronic devices such as wristwatches or fitness bands are usually allowed.</li>
-  </ul>
-  <h5 class="section__sub-b">Not Allowed</h5>
-  <ul class="bullet-list">
-    <li>Cameras and Video Recorders: Photography and videography are strictly prohibited within the temple premises.</li>
-    <li>Laptops, Tablets, and Large Electronic Devices: These are not permitted inside the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Deposit Facilities</h5>
-  <ul class="bullet-list">
-    <li>Mobile Phones and Other Gadgets: If required, mobile phones and other electronic gadgets can be deposited at designated lockers or cloakrooms near the temple entrance. The temple provides secure facilities for storing these items.</li>
-  </ul>
-  <h5 class="section__sub-b">Location of Deposit Facilities</h5>
-  <ul class="bullet-list">
-    <li>The deposit counters are located near the main entrance of the temple. Temple staff and security personnel can guide devotees to these facilities.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Recommendations</h5>
-  <ul class="bullet-list">
-    <li>Devotees are advised to carry only essential items when visiting the temple to minimize the need for depositing belongings.</li>
-    <li>It is advisable to avoid carrying large bags or prohibited items to ensure a smooth and hassle-free visit.</li>
-  </ul>
-  <p>For more details or specific inquiries about the deposit facilities, visitors can contact the temple administration directly or refer to the information available at the temple premises.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography:</h3>
-  <ul class="bullet-list">
-    <li>Inside the Temple Premises: Photography and videography are strictly prohibited inside the temple premises. This includes the sanctum sanctorum, prayer halls, and areas where rituals are performed.</li>
-  </ul>
-  <h5 class="section__sub-b">Outside the Temple Premises</h5>
-  <ul class="bullet-list">
-    <li>Allowed: Photography is generally allowed outside the main temple premises, including the temple exterior and surrounding areas. Devotees can take photographs in these areas without any restrictions.</li>
-    <li>No Fee: There is no prescribed fee for photography outside the temple premises.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Permissions</h5>
-  <ul class="bullet-list">
-    <li>For special events or occasions, media personnel may seek prior permission from the temple authorities for photography or videography. This usually requires a formal request and approval from the temple management.</li>
-  </ul>
-  <p>Visitors are advised to respect the temple&#x27;s policies and the sanctity of the place by refraining from taking photographs inside the temple premises.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <h5 class="section__sub-b">Lift/Elevator</h5>
-  <ul class="bullet-list">
-    <li>Yes, the Siddhivinayak Temple has lift/elevator facilities to assist physically handicapped devotees and elderly visitors. These elevators provide easy access to different levels of the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Other Facilities</h5>
-  <ul class="bullet-list">
-    <li>Wheelchairs: The temple provides wheelchairs for physically handicapped devotees. These can be availed at the entrance upon request.</li>
-    <li>Ramps: The temple is equipped with ramps to facilitate the movement of wheelchairs and make it easier for those with mobility issues to navigate the premises.</li>
-    <li>Priority Darshan: There is a provision for priority darshan for physically handicapped and elderly devotees, ensuring they can have a comfortable and hassle-free visit without long waiting times.</li>
-  </ul>
-  <h5 class="section__sub-b">Assistance</h5>
-  <ul class="bullet-list">
-    <li>Temple staff and volunteers are available to assist physically handicapped devotees as needed. They can provide guidance and support throughout the visit.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact Information for Special Assistance</h5>
-  <ul class="bullet-list">
-    <li>Phone: +91-22-2422 3724 / 25 / 26</li>
-    <li>Email: info@siddhivinayak.org</li>
-  </ul>
-  <p>These facilities are designed to ensure that all devotees, regardless of their physical condition, can have a pleasant and accessible experience at the Siddhivinayak Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged.</h3>
-  <h5 class="section__sub-b">Availability of Wheelchairs</h5>
-  <ul class="bullet-list">
-    <li>The Siddhivinayak Temple provides wheelchairs for elderly and physically challenged devotees to ensure they can navigate the temple premises comfortably.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Avail</h5>
-  <ul class="bullet-list">
-    <li>At the Entrance: Wheelchairs are available at the main entrance of the temple. Devotees can request a wheelchair from the temple staff or security personnel upon arrival.</li>
-    <li>Pre-Booking: For convenience, devotees can contact the temple administration in advance to ensure the availability of a wheelchair during their visit.</li>
-  </ul>
-  <h5 class="section__sub-b">Assistance</h5>
-  <ul class="bullet-list">
-    <li>Temple staff and volunteers are available to assist elderly and physically challenged devotees with using the wheelchairs and navigating the temple premises.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons.</h3>
-  <p>Special Entry/Special Timing of Darshan for Sick, Senior Citizens, and Physically Challenged Persons:</p>
-  <h5 class="section__sub-b">Special Entry</h5>
-  <ul class="bullet-list">
-    <li>The Siddhivinayak Temple provides a special entry for sick, senior citizens, and physically challenged persons to facilitate a comfortable and hassle-free darshan experience. This special entry allows these devotees to avoid the long queues and have a quicker access to the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Timing</h5>
-  <ul class="bullet-list">
-    <li>While there are no separate timings specifically designated for these groups, the special entry provision ensures that they can visit the temple at their convenience within the general darshan hours.</li>
-    <li>It is advisable to visit during non-peak hours (early mornings or late evenings) to avoid the crowds and have a more peaceful darshan experience.</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure for Special Entry</h5>
-  <ul class="bullet-list">
-    <li>At the Entrance: Devotees can approach the temple staff or security personnel at the main entrance to avail the special entry. They may be directed to a separate queue or entry point designated for senior citizens, physically challenged persons, and those with health issues.</li>
-    <li>Identification: It is recommended to carry a valid identification proof to confirm eligibility for special entry, if requested by the temple authorities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Vehicle Pooja:</h3>
-  <p>Yes, Vehicle Pooja is performed at Siddhivinayak Temple.</p>
-  <h5 class="section__sub-b">Timing</h5>
-  <ul class="bullet-list">
-    <li>Daily: Vehicle Pooja can be performed throughout the day during the temple&#x27;s regular operating hours.</li>
-    <li>Specific Time Slots: It is recommended to contact the temple administration for specific time slots available for the Vehicle Pooja.</li>
-  </ul>
-  <h5 class="section__sub-b">Cost</h5>
-  <ul class="bullet-list">
-    <li>The cost for the Vehicle Pooja varies depending on the type of pooja and the offerings included. Generally, the cost ranges from ₹200 to ₹500.</li>
-    <li>For exact rates and details, it is advisable to contact the temple directly.</li>
-  </ul>
-  <h5 class="section__sub-b">Advance Booking Procedure</h5>
-  <ul class="bullet-list">
-    <li>Onsite Booking: Devotees can book the Vehicle Pooja at the temple premises through the booking counters available.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation Facility:</h3>
-  <ul class="bullet-list">
-    <li>The Siddhivinayak Temple itself does not provide direct accommodation facilities. However, there are several options for accommodation in close proximity to the temple, catering to various budgets and preferences.</li>
-  </ul>
-  <h5 class="section__sub-b">Nearby Accommodation Options</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Hotels:</h3>
-  <ul class="bullet-list">
-    <li>Numerous hotels ranging from budget to luxury are available near the temple area. Popular options include mid-range hotels and well-known chains that offer comfortable stays.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Guesthouses and Lodges:</h3>
-  <ul class="bullet-list">
-    <li>There are guesthouses and lodges offering affordable accommodation for pilgrims and visitors.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dharamshalas:</h3>
-  <ul class="bullet-list">
-    <li>Several dharamshalas (charitable lodges) are available for pilgrims looking for economical stays. These are typically managed by various religious and charitable trusts.</li>
-  </ul>
-  <h5 class="section__sub-b">Cost</h5>
-  <ul class="bullet-list">
-    <li>Hotels: Prices range from ₹1,000 to ₹10,000 per night, depending on the hotel’s category and amenities.</li>
-    <li>Guesthouses and Lodges: Prices range from ₹500 to ₹3,000 per night.</li>
-    <li>Dharamshalas: Prices are usually minimal, ranging from ₹200 to ₹1,000 per night, depending on the facilities provided.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking in Advance</h5>
-  <ul class="bullet-list">
-    <li>Online Booking: Most hotels and guesthouses can be booked online through popular travel websites like Booking.com, MakeMyTrip, Agoda, and others.</li>
-    <li>Direct Contact: Pilgrims can contact the hotels or guesthouses directly to make reservations.</li>
-    <li>Dharamshalas: Booking dharamshalas typically requires contacting the managing trust or organization. Some may accept walk-in bookings based on availability.</li>
-  </ul>
-  <h5 class="section__sub-b">Nearby Recommendations</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Hotel Kohinoor Park:</h3>
-  <ul class="bullet-list">
-    <li>Located near Siddhivinayak Temple, offering comfortable accommodation with modern amenities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ramee Guestline Hotel:</h3>
-  <ul class="bullet-list">
-    <li>Another nearby option providing quality service and comfortable stays.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Shri Siddhivinayak Dharamshala:</h3>
-  <ul class="bullet-list">
-    <li>Located within a reasonable distance from the temple, offering basic accommodation for pilgrims.</li>
-  </ul>
-  <p>For specific recommendations, costs, and booking procedures, it is advisable to check travel websites or contact the accommodation providers directly.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Cars and Mini Buses:</h3>
-  <ul class="bullet-list">
-    <li>Temple Parking Area: The Siddhivinayak Temple has a designated parking area for cars and mini buses. However, due to the temple’s popularity, this parking area can get crowded, especially during peak hours and festivals.</li>
-    <li>Nearby Public Parking: Additional public parking lots are available near the temple. These are paid parking facilities managed by the municipal corporation or private operators.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Two-Wheelers:</h3>
-  <ul class="bullet-list">
-    <li>Temple Parking Area: There is a designated space for two-wheeler parking within the temple parking area.</li>
-    <li>Street Parking: Two-wheelers can also be parked in designated street parking spots around the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Tips for Parking</h5>
-  <ul class="bullet-list">
-    <li>Early Arrival: Arriving early can help secure a parking spot, especially on busy days.</li>
-    <li>Alternative Transportation: Due to limited parking availability and traffic congestion, using public transportation or app-based ride services (like Uber or Ola) is advisable.</li>
-    <li>Parking Attendants: Follow the instructions of parking attendants and security personnel for guidance on available parking spots.</li>
-  </ul>
-  <h5 class="section__sub-b">Nearby Parking Facilities</h5>
-  <ul class="bullet-list">
-    <li>Public Parking Lot at Dadar TT Circle: A larger parking facility that can accommodate cars and mini buses. It is located a short distance from the temple, and devotees can walk or take a short auto-rickshaw ride to the temple.</li>
-    <li>Shree Siddhivinayak Ganapati Mandir Trust Multi-level Parking Lot: Located near the temple and managed by the temple trust, providing parking for cars and two-wheelers.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
-  <h5 class="section__sub-b">Temple Prasad Services and Meals</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Ladoo Prasad:</h3>
-  <ul class="bullet-list">
-    <li>Availability: Ladoo Prasad is available for devotees. It can be obtained from the designated counters within the temple premises.</li>
-    <li>Cost: Nominal charge for the prasad. Prices may vary, and it is advisable to check at the temple prasad counter.</li>
-    <li>Procedure: Devotees can purchase tokens for prasad from the prasad counter and collect the prasad accordingly.</li>
-  </ul>
-  <h5 class="section__sub-b">Meals</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Annadan (Free Meal Service):</h3>
-  <ul class="bullet-list">
-    <li>Timings: Annadan is usually conducted during specific hours, typically around lunch time. Exact timings may vary, and it is best to check with the temple administration.</li>
-    <li>Cost: Free of charge. This service is provided as a part of the temple’s charitable activities.</li>
-    <li>Procedure: Devotees can partake in the free meal service by joining the queue at the designated area. There is no need for advance booking or tickets for the free meal service.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Prasad and Meals</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Prasad (Paid):</h3>
-  <ul class="bullet-list">
-    <li>Availability: Special prasad can be purchased from the temple’s prasad counters.</li>
-    <li>Cost: Varies depending on the type and quantity of prasad.</li>
-    <li>Procedure: Devotees can buy tickets for special prasad at the prasad counter and collect the prasad as per the ticket instructions.</li>
-  </ul>
-  <h5 class="section__sub-b">Ticket Purchase for Prasad</h5>
-  <ul class="bullet-list">
-    <li>Onsite Purchase: Tickets for prasad can be purchased directly at the prasad counters located within the temple premises.</li>
-    <li>Timings: The prasad counters typically operate during the temple’s opening hours, from early morning to late evening.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <h5 class="section__sub-b">Carry Home Prasad</h5>
-  <h5 class="section__sub-b">Types of Carry Home Prasad</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Ladoo Prasad:</h3>
-  <ul class="bullet-list">
-    <li>Description: Sweet ladoos made from gram flour, sugar, and ghee, offered to Lord Ganesha and distributed to devotees.</li>
-    <li>Cost: Approximately ₹50 to ₹100 per packet (prices may vary).</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Modak Prasad:</h3>
-  <ul class="bullet-list">
-    <li>Description: Sweet dumplings made from rice flour and filled with jaggery and coconut, considered a favorite of Lord Ganesha.</li>
-    <li>Cost: Approximately ₹50 to ₹150 per packet (prices may vary).</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sukhkarta and Dukhharta Prasad (Special Assorted Pack):</h3>
-  <ul class="bullet-list">
-    <li>Description: An assorted pack of various sweets and dry fruits offered to Lord Ganesha.</li>
-    <li>Cost: Approximately ₹100 to ₹300 per pack (prices may vary).</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure to Purchase Carry Home Prasad</h5>
-  <ul class="bullet-list">
-    <li>Onsite Purchase: Devotees can purchase carry home prasad from the designated prasad counters within the temple premises.</li>
-    <li>Timings: The prasad counters are typically open during the temple’s operational hours, from early morning to late evening.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <h5 class="section__sub-b">Procedure for Reporting Lost Items</h5>
-  <p>If you have lost an item within the Siddhivinayak Temple premises, follow these steps to report and possibly recover your lost belongings:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Lost and Found Office:</h3>
-  <ul class="bullet-list">
-    <li>Location: The Lost and Found office is usually located near the main entrance of the temple or at a designated area within the temple complex. Look for signs or ask temple staff for directions.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Report the Lost Item:</h3>
-  <ul class="bullet-list">
-    <li>Provide Details: Give a detailed description of the lost item, including when and where you last saw it, any distinctive features, and your contact information.</li>
-    <li>Fill Out a Form: You may be required to fill out a lost item report form, providing your name, contact details, and a description of the item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Check for Updates:</h3>
-  <ul class="bullet-list">
-    <li>Frequent Checks: Visit or contact the Lost and Found office periodically to check if your item has been found.</li>
-    <li>Contact Information: Note down the contact details of the Lost and Found office for follow-up inquiries.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Identification and Claim:</h3>
-  <ul class="bullet-list">
-    <li>Proof of Ownership: Be prepared to provide proof of ownership or a detailed description of the item when claiming it. This may include identification documents, receipts, or any other relevant information.</li>
-    <li>Collecting the Item: Once your item is found and ownership is verified, you can collect it from the Lost and Found office.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact Information for Lost and Found:</h3>
-  <ul class="bullet-list">
-    <li>Phone: +91-22-2422 3724 / 25 / 26</li>
-    <li>Email: info@siddhivinayak.org</li>
-    <li>Website: Siddhivinayak Temple</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Tips</h5>
-  <ul class="bullet-list">
-    <li>Report Immediately: Report the lost item as soon as you realize it is missing to increase the chances of recovery.</li>
-    <li>Stay Calm: Remain calm and cooperate with the temple staff, providing all necessary information to assist in locating your lost item.</li>
-  </ul>
-  <p>By following these steps, you can efficiently report and track lost items within the Siddhivinayak Temple premises.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <h5 class="section__sub-b">Reporting a Missing Person</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact Temple Security:</h3>
-  <ul class="bullet-list">
-    <li>Immediately inform temple security personnel or any nearby temple staff about the missing person. Provide them with a detailed description, including their name, age, appearance, clothing, and last known location.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Information Desk:</h3>
-  <ul class="bullet-list">
-    <li>Location: The information desk is usually located near the main entrance of the temple or at a central point within the temple complex. Look for signs or ask temple staff for directions.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Provide Details:</h3>
-  <ul class="bullet-list">
-    <li>Give a Detailed Description: Provide as much information as possible about the missing person, including a recent photo if available.</li>
-    <li>Contact Information: Provide your contact information to the temple authorities so they can reach you once the person is found.</li>
-  </ul>
-  <h5 class="section__sub-b">Designated Waiting Area</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Wait at the Designated Area:</h3>
-  <ul class="bullet-list">
-    <li>Location: The temple typically has a designated waiting area for lost and found persons. This area is usually located near the main entrance or a central, easily accessible point within the temple premises.</li>
-    <li>Ask for Assistance: Temple staff or security personnel can guide you to the designated waiting area.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Stay in Contact:</h3>
-  <ul class="bullet-list">
-    <li>Regular Updates: Keep checking with the information desk and security personnel for updates on the missing person.</li>
-    <li>Mobile Phone: Ensure your mobile phone is on and reachable for any communication from the temple authorities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Registration:</h3>
-  <ul class="bullet-list">
-    <li>Governing Body: The Shree Siddhivinayak Ganapati Temple Trust is registered under the Maharashtra Public Trusts Act, 1950. This registration ensures that the temple operates under the guidelines and regulations set forth by the state government.</li>
-  </ul>
-  <h5 class="section__sub-b">State Government/District Administration Involvement</h5>
-  <ul class="bullet-list">
-    <li>The temple trust functions under the oversight of the Charity Commissioner of Maharashtra, which is part of the state government&#x27;s regulatory framework for public trusts and religious institutions.</li>
-  </ul>
-  <h5 class="section__sub-b">Information on the Temple&#x27;s Official Website</h5>
-  <ul class="bullet-list">
-    <li>The official website of the Siddhivinayak Temple provides details about its governance and registration. It mentions the regulatory compliance and the role of the Shree Siddhivinayak Ganapati Temple Trust in managing the temple&#x27;s affairs.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>Website: Donations can be made through the official Siddhivinayak Temple website.</li>
-    <li>Steps:</li>
-    <li>Visit the Online Donation page.</li>
-    <li>Fill in the required details such as name, address, and amount.</li>
-    <li>Select the purpose of the donation (e.g., temple maintenance, annadan (free meals), medical aid).</li>
-    <li>Make the payment using credit/debit cards, net banking, or UPI.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bank Transfer/Direct Deposit:</h3>
-  <ul class="bullet-list">
-    <li>Bank Details:</li>
-    <li>Account Name: Shree Siddhivinayak Ganapati Temple Trust</li>
-    <li>Bank: State Bank of India</li>
-    <li>Branch: Prabhadevi, Mumbai</li>
-    <li>Account Number: 400110100010106</li>
-    <li>IFSC Code: SBIN0001234</li>
-    <li>Purpose of Donation:</li>
-    <li>Specify the purpose of the donation in the remarks section (e.g., temple renovation, educational programs, medical aid).</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cheque/DD Donations:</h3>
-  <ul class="bullet-list">
-    <li>Procedure:</li>
-    <li>Write a cheque or demand draft in favor of &quot;Shree Siddhivinayak Ganapati Temple Trust.&quot;</li>
-    <li>Send it to the temple&#x27;s address along with a covering letter mentioning your name, address, contact details, and the purpose of the donation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">In-Person Donations:</h3>
-  <ul class="bullet-list">
-    <li>Donations can also be made in person at the temple&#x27;s donation counters.</li>
-    <li>Temple staff can assist with filling out the donation forms and providing receipts.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <h5 class="section__sub-b">Privileges Associated with Donations</h5>
-  <p>The Siddhivinayak Temple Trust offers several privileges to donors, depending on the amount and purpose of the donation. While the temple primarily focuses on ensuring that the funds are used effectively for maintenance, charitable activities, and community services, donors may receive certain benefits and acknowledgments.</p>
-  <h5 class="section__sub-b">Privileges and Benefits</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Acknowledgment and Blessings:</h3>
-  <ul class="bullet-list">
-    <li>Donation Receipt: Donors receive a receipt acknowledging their contribution.</li>
-    <li>Blessings Letter: A special letter of blessings from the temple may be sent to the donor as a token of gratitude.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Poojas and Prasads:</h3>
-  <ul class="bullet-list">
-    <li>Pooja Services: Donors may be entitled to special pooja services conducted on their behalf. This can include Abhishek, Archana, and other rituals.</li>
-    <li>Special Prasad: Higher donations often include special prasad packages, which may be mailed to the donor’s address.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Priority Darshan:</h3>
-  <ul class="bullet-list">
-    <li>Special Entry Passes: Donors making significant contributions may receive special entry passes for quicker and more convenient darshan of Lord Ganesha. This helps avoid long queues and provides a more comfortable experience.</li>
-    <li>Priority Access: During peak times and festivals, donors with priority passes can have preferential access to the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Invitations to Special Events:</h3>
-  <ul class="bullet-list">
-    <li>Temple Events: Donors may be invited to participate in special events and ceremonies organized by the temple, such as annual celebrations, festivals, and significant poojas.</li>
-    <li>Cultural Programs: Invitations to cultural programs and events hosted by the temple trust.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Donor Wall or Plaque:</h3>
-  <ul class="bullet-list">
-    <li>Recognition: For substantial donations, the temple may acknowledge the donor’s contribution by listing their name on a donor wall or plaque within the temple premises.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Avail Privileges</h5>
-  <ul class="bullet-list">
-    <li>Contact Temple Administration: Donors interested in specific privileges or benefits should contact the temple administration to inquire about the available options and associated donation amounts.</li>
-    <li>Provide Details: Ensure to provide accurate contact information and specify the desired benefits when making the donation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Construction and Scientific Information about the Temple:</h3>
-  <h5 class="section__sub-b">Architectural Features</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Foundation and Structure:</h3>
-  <ul class="bullet-list">
-    <li>Foundation: The Siddhivinayak Temple was originally built in 1801 by Laxman Vithu and Deubai Patil. The temple has undergone several renovations and expansions over the years.</li>
-    <li>Structure: The temple&#x27;s structure is a blend of traditional Hindu temple architecture with modern amenities to accommodate the large number of devotees. The main sanctum sanctorum is constructed from black stone.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sanctum Sanctorum:</h3>
-  <ul class="bullet-list">
-    <li>Design: The inner sanctum houses the idol of Lord Siddhivinayak, which is carved out of a single black stone. The sanctum&#x27;s roof is plated with gold, adding to its grandeur.</li>
-    <li>Doors: The wooden doors to the sanctum are intricately carved with images of the Ashtavinayak (the eight manifestations of Ganesha in Maharashtra).</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Complex:</h3>
-  <ul class="bullet-list">
-    <li>Dimensions: The temple complex includes the main shrine, a Hanuman temple, and various administrative buildings.</li>
-    <li>Materials: The construction materials used include black stone, marble, and gold plating, which are both aesthetically pleasing and durable.</li>
-    <li>Dome: The main dome of the temple is gold-plated and can be seen from a distance, signifying the temple&#x27;s spiritual significance.</li>
-  </ul>
-  <h5 class="section__sub-b">Scientific and Environmental Aspects</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Environmental Considerations:</h3>
-  <ul class="bullet-list">
-    <li>Green Initiatives: The temple trust has implemented several green initiatives, including waste management and water conservation measures. The use of eco-friendly materials and practices in recent renovations highlights the temple’s commitment to sustainability.</li>
-    <li>Solar Power: There are ongoing efforts to incorporate solar power within the temple complex to reduce dependency on conventional energy sources.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Crowd Management:</h3>
-  <ul class="bullet-list">
-    <li>Design for Flow: The architectural design of the temple ensures efficient crowd management. The pathways are designed to handle the flow of thousands of devotees, especially during peak times and festivals.</li>
-    <li>Security Systems: Modern security systems, including CCTV cameras and metal detectors, are installed to ensure the safety and security of visitors.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Accessibility:</h3>
-  <ul class="bullet-list">
-    <li>Ramps and Elevators: The temple is equipped with ramps and elevators to facilitate access for elderly and physically challenged devotees.</li>
-    <li>Wheelchair Accessibility: Special provisions are made for wheelchair accessibility, ensuring that all devotees can comfortably navigate the temple premises.</li>
-  </ul>
-  <h5 class="section__sub-b">Historical and Cultural Significance</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Historical Background:</h3>
-  <ul class="bullet-list">
-    <li>Founding Purpose: The temple was built by Deubai Patil, a rich childless woman, with the hope that Lord Ganesha would grant children to barren women.</li>
-    <li>Renovations: Significant renovations were undertaken in the 1950s and 1990s to expand the temple and accommodate the growing number of devotees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural Impact:</h3>
-  <ul class="bullet-list">
-    <li>Celebrity Visits: The temple is frequently visited by celebrities and politicians, adding to its cultural prominence.</li>
-    <li>Festivals: Major festivals like Ganesh Chaturthi are celebrated with great fervor, attracting thousands of devotees from across the country.</li>
-  </ul>
-  <p>The Siddhivinayak Temple stands as a testament to traditional Indian architecture blended with modern conveniences, making it a significant religious and cultural landmark in Mumbai.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-  <p>The Siddhivinayak Temple holds a special place in the hearts of devotees due to its religious, historical, and cultural significance. While there are no documented claims of geomagnetic fields or cosmic energy similar to those at Kasar Devi, Stonehenge, or Machu Picchu, the Siddhivinayak Temple is imbued with profound spiritual and cultural importance.</p>
-  <h5 class="section__sub-b">Religious Significance</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Lord Ganesha&#x27;s Blessings:</h3>
-  <ul class="bullet-list">
-    <li>Siddhivinayak: The deity, Lord Ganesha, is worshipped as Siddhivinayak, the one who grants wishes and bestows siddhi (success) and vinayak (remover of obstacles). Devotees believe that praying at this temple brings good fortune, prosperity, and the fulfillment of desires.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Unique Idol:</h3>
-  <ul class="bullet-list">
-    <li>Right-Trunk Ganesha: The idol of Lord Ganesha in the temple is unique because it has its trunk turned to the right. This form is considered particularly powerful and auspicious, known as the &quot;Siddhivinayak&quot; form of Ganesha.</li>
-  </ul>
-  <h5 class="section__sub-b">Cultural and Historical Significance</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Historical Background:</h3>
-  <ul class="bullet-list">
-    <li>Founding Purpose: The temple was built by Deubai Patil, a childless woman, with the hope that Lord Ganesha would bless other barren women with children. This founding story adds a layer of emotional and cultural depth to the temple&#x27;s significance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Celebrity Patronage:</h3>
-  <ul class="bullet-list">
-    <li>The temple is frequently visited by celebrities, politicians, and other prominent figures, which adds to its cultural prestige. Bollywood actors, cricketers, and business tycoons often visit the temple before embarking on new ventures or during significant personal milestones.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Major Festivals:</h3>
-  <ul class="bullet-list">
-    <li>Ganesh Chaturthi: One of the major festivals celebrated at the temple, attracting thousands of devotees. The celebrations are marked by elaborate rituals, decorations, and aarti ceremonies, creating a vibrant and spiritually charged atmosphere.</li>
-  </ul>
-  <h5 class="section__sub-b">Community and Social Impact</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Charitable Activities:</h3>
-  <ul class="bullet-list">
-    <li>The Siddhivinayak Temple Trust is involved in various charitable activities, including education, healthcare, and providing free meals (annadan). These initiatives enhance the temple’s role in community welfare and social service.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural Programs:</h3>
-  <ul class="bullet-list">
-    <li>The temple regularly hosts cultural and religious programs, fostering a sense of community and preserving traditional arts and practices.</li>
-  </ul>
-  <h5 class="section__sub-b">Spiritual Beliefs</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Miracles and Testimonials:</h3>
-  <ul class="bullet-list">
-    <li>Many devotees share personal testimonials and stories of miracles attributed to Lord Siddhivinayak’s blessings, reinforcing the temple’s reputation as a powerful spiritual center.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Symbol of Faith:</h3>
-  <ul class="bullet-list">
-    <li>The temple is seen as a symbol of unwavering faith and devotion for millions of people, making it a crucial spiritual destination in Mumbai.</li>
-  </ul>
-  <p>While the Siddhivinayak Temple may not have documented scientific phenomena like geomagnetic fields, its significance is deeply rooted in spiritual beliefs, cultural traditions, and the profound experiences of countless devotees. This combination of religious devotion, historical roots, and cultural importance makes the Siddhivinayak Temple a revered and significant spiritual landmark in India.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion.</h3>
-  <p>Information for Foreign Visitors: Focusing on Spirituality</p>
-  <h5 class="section__sub-b">Spiritual Atmosphere</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Serenity and Peace:</h3>
-  <ul class="bullet-list">
-    <li>The Siddhivinayak Temple provides a serene and peaceful environment, ideal for meditation and introspection. Despite being in the bustling city of Mumbai, the temple offers a tranquil escape where visitors can find inner peace and spiritual solace.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Architectural Beauty:</h3>
-  <ul class="bullet-list">
-    <li>The temple&#x27;s architecture combines traditional Indian design with modern elements, creating a visually captivating and spiritually uplifting space. The gold-plated sanctum and intricately carved doors add to the temple&#x27;s spiritual ambiance.</li>
-  </ul>
-  <h5 class="section__sub-b">Spiritual Practices</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Darshan:</h3>
-  <ul class="bullet-list">
-    <li>Meaning: Darshan means to behold the deity and absorb the positive vibrations of the divine presence. This practice is believed to bring mental peace and spiritual upliftment.</li>
-    <li>Experience: Foreign visitors can experience the power of darshan by observing the idol of Lord Ganesha, taking in the sacred atmosphere, and connecting with their inner self.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Aarti:</h3>
-  <ul class="bullet-list">
-    <li>Significance: Aarti is a ritual of worship involving the offering of light from wicks soaked in ghee (clarified butter) to the deity. It symbolizes the dispelling of darkness and ignorance.</li>
-    <li>Participation: Visitors can participate in or simply observe the aarti ceremonies, which are held several times a day. The rhythmic chanting and the lighting of the lamps create a spiritually charged environment.</li>
-  </ul>
-  <h5 class="section__sub-b">Cultural Integration</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Community Harmony:</h3>
-  <ul class="bullet-list">
-    <li>The temple is a place where people from all walks of life come together in a shared spirit of devotion and reverence. It exemplifies the harmonious coexistence of diverse cultural and spiritual beliefs.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Festivals and Celebrations:</h3>
-  <ul class="bullet-list">
-    <li>Ganesh Chaturthi: This major festival celebrated at the temple offers a vibrant cultural and spiritual experience. Foreign visitors can witness the elaborate rituals, traditional music, and dance, and the community&#x27;s collective devotion.</li>
-  </ul>
-  <h5 class="section__sub-b">Meditation and Reflection</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Quiet Corners:</h3>
-  <ul class="bullet-list">
-    <li>The temple has several quiet corners where visitors can sit and meditate. These areas provide a conducive environment for personal reflection and spiritual contemplation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Positive Energy:</h3>
-  <ul class="bullet-list">
-    <li>The positive energy and spiritual vibrations of the temple are palpable. Visitors often report feeling rejuvenated and spiritually enriched after spending time at the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Cultural Significance</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Historical Background:</h3>
-  <ul class="bullet-list">
-    <li>Learning about the temple&#x27;s history, including its founding by Deubai Patil and its role in the community, adds a layer of depth to the spiritual experience. The temple&#x27;s story reflects themes of faith, hope, and community service.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Art and Symbolism:</h3>
-  <ul class="bullet-list">
-    <li>The temple&#x27;s artistic elements, such as the carvings of the Ashtavinayak and the gold-plated sanctum, are rich in symbolism and cultural significance. Understanding these symbols can enhance the spiritual experience for foreign visitors.</li>
-  </ul>
-  <h5 class="section__sub-b">Practical Information</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Visiting Hours:</h3>
-  <ul class="bullet-list">
-    <li>The temple is open from early morning until late evening, allowing visitors to choose a time that suits their schedule for a peaceful visit.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dress Code:</h3>
-  <ul class="bullet-list">
-    <li>Modest clothing is recommended to respect the sanctity of the temple. Visitors are encouraged to wear traditional or conservative attire.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Facilities:</h3>
-  <ul class="bullet-list">
-    <li>The temple provides facilities such as wheelchairs for elderly and physically challenged visitors, ensuring accessibility for all.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">No Photography Inside:</h3>
-  <ul class="bullet-list">
-    <li>To maintain the sanctity and peaceful atmosphere, photography is not allowed inside the temple premises.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Guided Tours:</h3>
-  <ul class="bullet-list">
-    <li>While the temple does not officially offer guided tours, knowledgeable locals or private tour guides can provide insightful information about the temple&#x27;s spiritual and cultural significance.</li>
-  </ul>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
-  <p>b.Donation ( link)</p>
-  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
-  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-  <p>ccommodation: Find and book accommodations of all types near the Siddhivinayak Temple through our curated listings. Submit an enquiry form for personalized assistance.</p>
-  <ul class="bullet-list">
-    <li>Accommodation Enquiry (Link to be updated with your accommodation site)</li>
-  </ul>
-  <p>d. Income Tax Exemption Information: Donations made to the Siddhivinayak Temple Trust are eligible for exemptions under the Income Tax Act, 1961 (Section 80G). This includes donations for specific purposes such as Annadan (free meals), educational programs, and medical aid.</p>
-  <ul class="bullet-list">
-    <li>Donation Exemption Details (Specific details on exemptions to be verified with the temple trust)</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event:</h3>
-  <h5 class="section__sub-b">Ganesh Chaturthi</h5>
-  <ul class="bullet-list">
-    <li>Significance: Ganesh Chaturthi is the most significant annual festival celebrated at the Siddhivinayak Temple. It marks the birth of Lord Ganesha and is observed with great devotion and enthusiasm.</li>
-    <li>Date: The festival usually falls in the Hindu month of Bhadrapada, which corresponds to August or September in the Gregorian calendar. The exact date varies each year based on the lunar calendar.</li>
-    <li>Duration: The festival is celebrated for 10 days, starting with Ganesh Chaturthi and culminating on Anant Chaturdashi with the immersion (Visarjan) of the Ganesha idols.</li>
-  </ul>
-  <h5 class="section__sub-b">Key Highlights of the Event</h5>
-  <ul class="bullet-list">
-    <li>Special Poojas and Aartis: Throughout the 10 days, special poojas and aartis are performed. Devotees participate in large numbers, seeking the blessings of Lord Ganesha.</li>
-    <li>Decorations: The temple is beautifully decorated with flowers, lights, and intricate rangoli designs. The festive atmosphere is vibrant and spiritually uplifting.</li>
-    <li>Cultural Programs: Various cultural programs and events are organized, including devotional music, dance performances, and community gatherings.</li>
-    <li>Prasad Distribution: Special prasad is prepared and distributed to devotees. Ladoo and modak, considered favorite sweets of Lord Ganesha, are commonly offered.</li>
-    <li>Immersion Procession: The final day, Anant Chaturdashi, features a grand procession where the Ganesha idols are carried to nearby water bodies for immersion, accompanied by chanting and devotional songs.</li>
-  </ul>
-  <h5 class="section__sub-b">Upcoming Ganesh Chaturthi Dates</h5>
-  <ul class="bullet-list">
-    <li>2024: September 7</li>
-    <li>2025: August 27</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Event of the temple - day and date.</h3>
-  <ul class="bullet-list">
-    <li>Monthly Event:</li>
-  </ul>
-  <h5 class="section__sub-b">Sankashti Chaturthi</h5>
-  <ul class="bullet-list">
-    <li>Significance: Sankashti Chaturthi is an important monthly event dedicated to Lord Ganesha. It is observed on the fourth day after the full moon (Krishna Paksha) each month. This day is considered highly auspicious for worshipping Lord Ganesha, as it is believed to remove obstacles and bring prosperity and peace.</li>
-    <li>Date: The date of Sankashti Chaturthi varies each month based on the lunar calendar. It generally falls on a different date each month.</li>
-  </ul>
-  <h5 class="section__sub-b">Key Highlights of the Event</h5>
-  <ul class="bullet-list">
-    <li>Special Poojas and Aartis: On Sankashti Chaturthi, special poojas and aartis are performed throughout the day. Devotees participate in large numbers to seek blessings.</li>
-    <li>Fasting: Many devotees observe a fast from sunrise to moonrise on this day. The fast is broken after sighting the moon and performing Ganesh puja.</li>
-    <li>Ganesh Temple Visits: Devotees visit the temple to offer prayers, flowers, and modak (sweet dumplings) to Lord Ganesha.</li>
-    <li>Evening Pooja: The main pooja usually takes place in the evening, after moonrise, and includes elaborate rituals and chanting of the Ganesha Ashtottara (108 names of Lord Ganesha).</li>
-  </ul>
-  <h5 class="section__sub-b">Upcoming Sankashti Chaturthi Dates in 2024</h5>
-  <ul class="bullet-list">
-    <li>June 22</li>
-    <li>July 21</li>
-    <li>August 20</li>
-    <li>September 19</li>
-    <li>October 19</li>
-    <li>November 17</li>
-    <li>December 16</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Full Address: Siddhivinayak Temple Trust S.K. Bole Marg, Prabhadevi, Mumbai, Maharashtra 400028, India</h3>
+					  <h5 class="section__sub-b">Phone(s)/Contact Number(s)</h5>
+					  <ul class="bullet-list">
+					    <li>Phone: +91-22-2422 3724 / 25 / 26</li>
+					    <li>Fax: +91-22-2422 1289</li>
+					  </ul>
+					  <p>Email: info@siddhivinayak.org</p>
+					  <p>Website: https://www.siddhivinayak.org/</p>
+					  <h5 class="section__sub-b">A. Main Deity</h5>
+					  <ul class="bullet-list">
+					    <li>Lord Ganesha (Siddhivinayak)</li>
+					  </ul>
+					  <h5 class="section__sub-b">B. Other Deities (Sub Deities)</h5>
+					  <ul class="bullet-list">
+					    <li>Hanuman</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <ul class="bullet-list">
+					    <li>(a) general</li>
+					    <li>(b) on special days like festivals and utsavas</li>
+					  </ul>
+					  <h5 class="section__sub-b">(a) General</h5>
+					  <ul class="bullet-list">
+					    <li>Opening Time: 5:30 AM</li>
+					    <li>Closing Time: 9:50 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">(b) On Special Days (Festivals and Utsavas)</h5>
+					  <ul class="bullet-list">
+					    <li>Opening Time: 3:15 AM</li>
+					    <li>Closing Time: 12:30 AM (the next day)</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <ul class="bullet-list">
+					    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Entry Fees</h5>
+					  <ul class="bullet-list">
+					    <li>General Entry: There is no entry fee for general darshan. All devotees can visit the temple and have a view of the deity during the regular opening hours.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Privileged Entry (Special Darshan)</h5>
+					  <ul class="bullet-list">
+					    <li>Special Darshan Pass: The temple offers a special darshan pass for a fee. This pass grants devotees quicker access through a separate gate, reducing the waiting time significantly. It often includes:</li>
+					    <li>Quick darshan through a special gate.</li>
+					    <li>Longer viewing time of the deity.</li>
+					    <li>Special prasad.</li>
+					    <li>Priority for certain pujas and rituals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Restrictions and Fees for Foreigners</h5>
+					  <ul class="bullet-list">
+					    <li>Entry Restrictions: There are no specific entry restrictions for foreigners. All devotees, irrespective of nationality, are welcome to visit the temple.</li>
+					    <li>Special Fees: Foreigners do not have to pay any special fees for entry. They can access all general and privileged services by following the same process as Indian devotees.</li>
+					    <li>Declarations: No specific declarations are required from foreigners. However, it is advisable to follow the temple&#x27;s dress code and respect the sanctity of the place.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available.</h3>
+					  <h5 class="section__sub-b">How to Reach</h5>
+					  <h5 class="section__sub-b">By Air</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Airport: Chhatrapati Shivaji Maharaj International Airport, Mumbai</li>
+					    <li>Distance from Airport: Approximately 12 km</li>
+					    <li>Transportation from Airport: Prepaid taxis, app-based cabs (Uber, Ola), and airport shuttle services are available for commuting to the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Train</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Railway Stations:</li>
+					    <li>Dadar Railway Station: Approximately 1.8 km</li>
+					    <li>Prabhadevi Railway Station: Approximately 1 km</li>
+					    <li>Transportation from Stations: The temple can be reached by walking, auto-rickshaws, or taxis available outside the stations.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Bus</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Bus Stops: Siddhivinayak Temple / Prabhadevi Depot</li>
+					    <li>Mumbai BEST Buses: Several BEST buses (Mumbai&#x27;s public bus service) connect the temple to various parts of the city.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Taxi</h5>
+					  <ul class="bullet-list">
+					    <li>Taxis are readily available throughout Mumbai and can be hailed directly or booked via ride-hailing apps like Uber and Ola.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Car</h5>
+					  <ul class="bullet-list">
+					    <li>Visitors can drive to the temple. Parking facilities are available nearby, though they can be limited during peak hours and special occasions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Ferry</h5>
+					  <ul class="bullet-list">
+					    <li>While Mumbai has ferry services, they are generally used for commuting to nearby coastal areas and islands rather than for reaching the Siddhivinayak Temple. It is more convenient to use road transportation from the ferry ports.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Commuting</h5>
+					  <ul class="bullet-list">
+					    <li>Early Morning Visits: To avoid traffic and long queues, visit the temple early in the morning.</li>
+					    <li>Public Transport: Using public transport (trains and buses) is advisable during peak hours due to heavy traffic in Mumbai.</li>
+					    <li>Local Apps: Utilize local transportation apps and maps for real-time updates on routes and traffic conditions.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">* .What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <h5 class="section__sub-b">A. Special Poojas/Rituals</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Kakad Aarti (Early Morning Aarti)</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timing: 5:30 AM</li>
+					    <li>Rates: Included in general entry, no special fee.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Shree Darshan</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timing: 6:00 AM to 9:00 PM</li>
+					    <li>Rates: Included in general entry, no special fee.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Noon Aarti</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timing: 12:30 PM</li>
+					    <li>Rates: Included in general entry, no special fee.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Evening Aarti</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timing: 7:30 PM</li>
+					    <li>Rates: Included in general entry, no special fee.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Ratri Aarti (Night Aarti)</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timing: 9:50 PM</li>
+					    <li>Rates: Included in general entry, no special fee.</li>
+					  </ul>
+					  <h5 class="section__sub-b">B. Special Poojas</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Abhishek Pooja</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timing: 8:00 AM to 9:00 AM</li>
+					    <li>Rates: ₹100 / ₹300 / ₹600</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Sankashti Chaturthi Pooja</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Sankashti Chaturthi Day</li>
+					    <li>Timing: Morning to night, specific timings vary</li>
+					    <li>Rates: ₹2,100</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Pooja for Tuesday</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Tuesdays</li>
+					    <li>Timing: Throughout the day</li>
+					    <li>Rates: ₹2,100</li>
+					  </ul>
+					  <h5 class="section__sub-b">C. Advance Booking Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Online Booking: Devotees can book special poojas and rituals online through the official Siddhivinayak Temple website (www.siddhivinayak.org).</li>
+					    <li>Onsite Booking: Booking counters are available at the temple premises where devotees can book poojas in person.</li>
+					    <li>Payment Methods: Payments can be made online via credit/debit cards, net banking, or through cash/card payments at the temple&#x27;s booking counters.</li>
+					    <li>Contact Information for Booking:</li>
+					    <li>Phone: +91-22-2422 3724 / 25 / 26</li>
+					    <li>Email: info@siddhivinayak.org</li>
+					  </ul>
+					  <p>Note: It is advisable to book well in advance, especially for special poojas and rituals on auspicious days, as they tend to get fully booked quickly.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Yes, the Siddhivinayak Temple offers several online services to serve the devotees. These services are provided by the Siddhivinayak Temple Trust.</p>
+					  <h5 class="section__sub-b">Available Online Services</h5>
+					  <h5 class="section__sub-b">1. Live Darshan</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees can view live streaming of the temple and the deity through the temple&#x27;s official website.</li>
+					    <li>Website: Live Darshan</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees can make donations online to support the temple&#x27;s activities and charitable initiatives.</li>
+					    <li>Website: Online Donations</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Pooja and Aarti Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Special poojas and aartis can be booked online through the temple&#x27;s official website.</li>
+					    <li>Website: Pooja Booking</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. E-Prasad</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees can order prasad online, which will be delivered to their homes.</li>
+					    <li>Website: E-Prasad</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Membership</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees can become members of the temple trust and receive updates, newsletters, and special privileges.</li>
+					    <li>Website: Membership</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <p>The Siddhivinayak Temple encourages all visitors to dress modestly and respectfully when visiting the temple premises. While there is no strict dress code, the following guidelines are recommended:</p>
+					  <h5 class="section__sub-b">General Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Men:</li>
+					    <li>Traditional attire such as kurta-pajama or dhoti-kurta.</li>
+					    <li>Casual attire like shirts and trousers is also acceptable, but sleeveless shirts and shorts should be avoided.</li>
+					    <li>Women:</li>
+					    <li>Traditional attire such as sarees, salwar kameez, or churidar.</li>
+					    <li>Casual attire like long skirts and tops or modest western wear is also acceptable, but sleeveless tops and short skirts should be avoided.</li>
+					  </ul>
+					  <h5 class="section__sub-b">For Special Poojas and Festivals</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees participating in special poojas and rituals are encouraged to wear traditional Indian attire.</li>
+					    <li>Men: Dhoti-kurta or kurta-pajama.</li>
+					    <li>Women: Sarees or salwar kameez.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Footwear is not allowed inside the temple premises and should be left at the designated shoe racks.</li>
+					    <li>Devotees should ensure that their clothing is clean and appropriate for a place of worship.</li>
+					    <li>It is recommended to avoid flashy or revealing clothing.</li>
+					  </ul>
+					  <p>Following these guidelines helps maintain the sanctity of the temple and ensures a respectful environment for all devotees.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <h5 class="section__sub-b">Allowed</h5>
+					  <ul class="bullet-list">
+					    <li>Mobile Phones: Generally allowed but should be kept on silent mode. Photography and videography are not permitted inside the temple premises.</li>
+					    <li>Small Personal Items: Small electronic devices such as wristwatches or fitness bands are usually allowed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Not Allowed</h5>
+					  <ul class="bullet-list">
+					    <li>Cameras and Video Recorders: Photography and videography are strictly prohibited within the temple premises.</li>
+					    <li>Laptops, Tablets, and Large Electronic Devices: These are not permitted inside the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Deposit Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Mobile Phones and Other Gadgets: If required, mobile phones and other electronic gadgets can be deposited at designated lockers or cloakrooms near the temple entrance. The temple provides secure facilities for storing these items.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Location of Deposit Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>The deposit counters are located near the main entrance of the temple. Temple staff and security personnel can guide devotees to these facilities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Recommendations</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees are advised to carry only essential items when visiting the temple to minimize the need for depositing belongings.</li>
+					    <li>It is advisable to avoid carrying large bags or prohibited items to ensure a smooth and hassle-free visit.</li>
+					  </ul>
+					  <p>For more details or specific inquiries about the deposit facilities, visitors can contact the temple administration directly or refer to the information available at the temple premises.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <h5 class="section__sub-b">Photography</h5>
+					  <ul class="bullet-list">
+					    <li>Inside the Temple Premises: Photography and videography are strictly prohibited inside the temple premises. This includes the sanctum sanctorum, prayer halls, and areas where rituals are performed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Outside the Temple Premises</h5>
+					  <ul class="bullet-list">
+					    <li>Allowed: Photography is generally allowed outside the main temple premises, including the temple exterior and surrounding areas. Devotees can take photographs in these areas without any restrictions.</li>
+					    <li>No Fee: There is no prescribed fee for photography outside the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Permissions</h5>
+					  <ul class="bullet-list">
+					    <li>For special events or occasions, media personnel may seek prior permission from the temple authorities for photography or videography. This usually requires a formal request and approval from the temple management.</li>
+					  </ul>
+					  <p>Visitors are advised to respect the temple&#x27;s policies and the sanctity of the place by refraining from taking photographs inside the temple premises.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <h5 class="section__sub-b">Lift/Elevator</h5>
+					  <ul class="bullet-list">
+					    <li>Yes, the Siddhivinayak Temple has lift/elevator facilities to assist physically handicapped devotees and elderly visitors. These elevators provide easy access to different levels of the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Other Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Wheelchairs: The temple provides wheelchairs for physically handicapped devotees. These can be availed at the entrance upon request.</li>
+					    <li>Ramps: The temple is equipped with ramps to facilitate the movement of wheelchairs and make it easier for those with mobility issues to navigate the premises.</li>
+					    <li>Priority Darshan: There is a provision for priority darshan for physically handicapped and elderly devotees, ensuring they can have a comfortable and hassle-free visit without long waiting times.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Temple staff and volunteers are available to assist physically handicapped devotees as needed. They can provide guidance and support throughout the visit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact Information for Special Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Phone: +91-22-2422 3724 / 25 / 26</li>
+					    <li>Email: info@siddhivinayak.org</li>
+					  </ul>
+					  <p>These facilities are designed to ensure that all devotees, regardless of their physical condition, can have a pleasant and accessible experience at the Siddhivinayak Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged.</h3>
+					  <h5 class="section__sub-b">Availability of Wheelchairs</h5>
+					  <ul class="bullet-list">
+					    <li>The Siddhivinayak Temple provides wheelchairs for elderly and physically challenged devotees to ensure they can navigate the temple premises comfortably.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Avail</h5>
+					  <ul class="bullet-list">
+					    <li>At the Entrance: Wheelchairs are available at the main entrance of the temple. Devotees can request a wheelchair from the temple staff or security personnel upon arrival.</li>
+					    <li>Pre-Booking: For convenience, devotees can contact the temple administration in advance to ensure the availability of a wheelchair during their visit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Temple staff and volunteers are available to assist elderly and physically challenged devotees with using the wheelchairs and navigating the temple premises.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons.</h3>
+					  <p>Special Entry/Special Timing of Darshan for Sick, Senior Citizens, and Physically Challenged Persons:</p>
+					  <h5 class="section__sub-b">Special Entry</h5>
+					  <ul class="bullet-list">
+					    <li>The Siddhivinayak Temple provides a special entry for sick, senior citizens, and physically challenged persons to facilitate a comfortable and hassle-free darshan experience. This special entry allows these devotees to avoid the long queues and have a quicker access to the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Timing</h5>
+					  <ul class="bullet-list">
+					    <li>While there are no separate timings specifically designated for these groups, the special entry provision ensures that they can visit the temple at their convenience within the general darshan hours.</li>
+					    <li>It is advisable to visit during non-peak hours (early mornings or late evenings) to avoid the crowds and have a more peaceful darshan experience.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure for Special Entry</h5>
+					  <ul class="bullet-list">
+					    <li>At the Entrance: Devotees can approach the temple staff or security personnel at the main entrance to avail the special entry. They may be directed to a separate queue or entry point designated for senior citizens, physically challenged persons, and those with health issues.</li>
+					    <li>Identification: It is recommended to carry a valid identification proof to confirm eligibility for special entry, if requested by the temple authorities.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <h5 class="section__sub-b">Vehicle Pooja</h5>
+					  <p>Yes, Vehicle Pooja is performed at Siddhivinayak Temple.</p>
+					  <h5 class="section__sub-b">Timing</h5>
+					  <ul class="bullet-list">
+					    <li>Daily: Vehicle Pooja can be performed throughout the day during the temple&#x27;s regular operating hours.</li>
+					    <li>Specific Time Slots: It is recommended to contact the temple administration for specific time slots available for the Vehicle Pooja.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>The cost for the Vehicle Pooja varies depending on the type of pooja and the offerings included. Generally, the cost ranges from ₹200 to ₹500.</li>
+					    <li>For exact rates and details, it is advisable to contact the temple directly.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Advance Booking Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Onsite Booking: Devotees can book the Vehicle Pooja at the temple premises through the booking counters available.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <h5 class="section__sub-b">Accommodation Facility</h5>
+					  <ul class="bullet-list">
+					    <li>The Siddhivinayak Temple itself does not provide direct accommodation facilities. However, there are several options for accommodation in close proximity to the temple, catering to various budgets and preferences.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Nearby Accommodation Options</h5>
+					  <h5 class="section__sub-b">1. Hotels</h5>
+					  <ul class="bullet-list">
+					    <li>Numerous hotels ranging from budget to luxury are available near the temple area. Popular options include mid-range hotels and well-known chains that offer comfortable stays.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Guesthouses and Lodges</h5>
+					  <ul class="bullet-list">
+					    <li>There are guesthouses and lodges offering affordable accommodation for pilgrims and visitors.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Dharamshalas</h5>
+					  <ul class="bullet-list">
+					    <li>Several dharamshalas (charitable lodges) are available for pilgrims looking for economical stays. These are typically managed by various religious and charitable trusts.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>Hotels: Prices range from ₹1,000 to ₹10,000 per night, depending on the hotel’s category and amenities.</li>
+					    <li>Guesthouses and Lodges: Prices range from ₹500 to ₹3,000 per night.</li>
+					    <li>Dharamshalas: Prices are usually minimal, ranging from ₹200 to ₹1,000 per night, depending on the facilities provided.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking in Advance</h5>
+					  <ul class="bullet-list">
+					    <li>Online Booking: Most hotels and guesthouses can be booked online through popular travel websites like Booking.com, MakeMyTrip, Agoda, and others.</li>
+					    <li>Direct Contact: Pilgrims can contact the hotels or guesthouses directly to make reservations.</li>
+					    <li>Dharamshalas: Booking dharamshalas typically requires contacting the managing trust or organization. Some may accept walk-in bookings based on availability.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Nearby Recommendations</h5>
+					  <h5 class="section__sub-b">1. Hotel Kohinoor Park</h5>
+					  <ul class="bullet-list">
+					    <li>Located near Siddhivinayak Temple, offering comfortable accommodation with modern amenities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Ramee Guestline Hotel</h5>
+					  <ul class="bullet-list">
+					    <li>Another nearby option providing quality service and comfortable stays.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Shri Siddhivinayak Dharamshala</h5>
+					  <ul class="bullet-list">
+					    <li>Located within a reasonable distance from the temple, offering basic accommodation for pilgrims.</li>
+					  </ul>
+					  <p>For specific recommendations, costs, and booking procedures, it is advisable to check travel websites or contact the accommodation providers directly.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <h5 class="section__sub-b">Parking Options</h5>
+					  <h5 class="section__sub-b">1. Cars and Mini Buses</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Parking Area: The Siddhivinayak Temple has a designated parking area for cars and mini buses. However, due to the temple’s popularity, this parking area can get crowded, especially during peak hours and festivals.</li>
+					    <li>Nearby Public Parking: Additional public parking lots are available near the temple. These are paid parking facilities managed by the municipal corporation or private operators.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Two-Wheelers</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Parking Area: There is a designated space for two-wheeler parking within the temple parking area.</li>
+					    <li>Street Parking: Two-wheelers can also be parked in designated street parking spots around the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Early Arrival: Arriving early can help secure a parking spot, especially on busy days.</li>
+					    <li>Alternative Transportation: Due to limited parking availability and traffic congestion, using public transportation or app-based ride services (like Uber or Ola) is advisable.</li>
+					    <li>Parking Attendants: Follow the instructions of parking attendants and security personnel for guidance on available parking spots.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Nearby Parking Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Public Parking Lot at Dadar TT Circle: A larger parking facility that can accommodate cars and mini buses. It is located a short distance from the temple, and devotees can walk or take a short auto-rickshaw ride to the temple.</li>
+					    <li>Shree Siddhivinayak Ganapati Mandir Trust Multi-level Parking Lot: Located near the temple and managed by the temple trust, providing parking for cars and two-wheelers.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <h5 class="section__sub-b">Temple Prasad Services and Meals</h5>
+					  <h5 class="section__sub-b">Prasad Services</h5>
+					  <h5 class="section__sub-b">1. Ladoo Prasad</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: Ladoo Prasad is available for devotees. It can be obtained from the designated counters within the temple premises.</li>
+					    <li>Cost: Nominal charge for the prasad. Prices may vary, and it is advisable to check at the temple prasad counter.</li>
+					    <li>Procedure: Devotees can purchase tokens for prasad from the prasad counter and collect the prasad accordingly.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Meals</h5>
+					  <h5 class="section__sub-b">1. Annadan (Free Meal Service)</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: Annadan is usually conducted during specific hours, typically around lunch time. Exact timings may vary, and it is best to check with the temple administration.</li>
+					    <li>Cost: Free of charge. This service is provided as a part of the temple’s charitable activities.</li>
+					    <li>Procedure: Devotees can partake in the free meal service by joining the queue at the designated area. There is no need for advance booking or tickets for the free meal service.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Prasad and Meals</h5>
+					  <h5 class="section__sub-b">1. Special Prasad (Paid)</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: Special prasad can be purchased from the temple’s prasad counters.</li>
+					    <li>Cost: Varies depending on the type and quantity of prasad.</li>
+					    <li>Procedure: Devotees can buy tickets for special prasad at the prasad counter and collect the prasad as per the ticket instructions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Ticket Purchase for Prasad</h5>
+					  <ul class="bullet-list">
+					    <li>Onsite Purchase: Tickets for prasad can be purchased directly at the prasad counters located within the temple premises.</li>
+					    <li>Timings: The prasad counters typically operate during the temple’s opening hours, from early morning to late evening.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <h5 class="section__sub-b">Carry Home Prasad</h5>
+					  <h5 class="section__sub-b">Types of Carry Home Prasad</h5>
+					  <h5 class="section__sub-b">1. Ladoo Prasad</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Sweet ladoos made from gram flour, sugar, and ghee, offered to Lord Ganesha and distributed to devotees.</li>
+					    <li>Cost: Approximately ₹50 to ₹100 per packet (prices may vary).</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Modak Prasad</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Sweet dumplings made from rice flour and filled with jaggery and coconut, considered a favorite of Lord Ganesha.</li>
+					    <li>Cost: Approximately ₹50 to ₹150 per packet (prices may vary).</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Sukhkarta and Dukhharta Prasad (Special Assorted Pack):</h3>
+					  <ul class="bullet-list">
+					    <li>Description: An assorted pack of various sweets and dry fruits offered to Lord Ganesha.</li>
+					    <li>Cost: Approximately ₹100 to ₹300 per pack (prices may vary).</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure to Purchase Carry Home Prasad</h5>
+					  <ul class="bullet-list">
+					    <li>Onsite Purchase: Devotees can purchase carry home prasad from the designated prasad counters within the temple premises.</li>
+					    <li>Timings: The prasad counters are typically open during the temple’s operational hours, from early morning to late evening.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <h5 class="section__sub-b">Procedure for Reporting Lost Items</h5>
+					  <p>If you have lost an item within the Siddhivinayak Temple premises, follow these steps to report and possibly recover your lost belongings:</p>
+					  <h5 class="section__sub-b">1. Visit the Lost and Found Office</h5>
+					  <ul class="bullet-list">
+					    <li>Location: The Lost and Found office is usually located near the main entrance of the temple or at a designated area within the temple complex. Look for signs or ask temple staff for directions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Report the Lost Item</h5>
+					  <ul class="bullet-list">
+					    <li>Provide Details: Give a detailed description of the lost item, including when and where you last saw it, any distinctive features, and your contact information.</li>
+					    <li>Fill Out a Form: You may be required to fill out a lost item report form, providing your name, contact details, and a description of the item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Check for Updates</h5>
+					  <ul class="bullet-list">
+					    <li>Frequent Checks: Visit or contact the Lost and Found office periodically to check if your item has been found.</li>
+					    <li>Contact Information: Note down the contact details of the Lost and Found office for follow-up inquiries.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Identification and Claim</h5>
+					  <ul class="bullet-list">
+					    <li>Proof of Ownership: Be prepared to provide proof of ownership or a detailed description of the item when claiming it. This may include identification documents, receipts, or any other relevant information.</li>
+					    <li>Collecting the Item: Once your item is found and ownership is verified, you can collect it from the Lost and Found office.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Contact Information for Lost and Found:</h3>
+					  <ul class="bullet-list">
+					    <li>Phone: +91-22-2422 3724 / 25 / 26</li>
+					    <li>Email: info@siddhivinayak.org</li>
+					    <li>Website: Siddhivinayak Temple</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Report Immediately: Report the lost item as soon as you realize it is missing to increase the chances of recovery.</li>
+					    <li>Stay Calm: Remain calm and cooperate with the temple staff, providing all necessary information to assist in locating your lost item.</li>
+					  </ul>
+					  <p>By following these steps, you can efficiently report and track lost items within the Siddhivinayak Temple premises.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <h5 class="section__sub-b">Reporting a Missing Person</h5>
+					  <h5 class="section__sub-b">1. Contact Temple Security</h5>
+					  <ul class="bullet-list">
+					    <li>Immediately inform temple security personnel or any nearby temple staff about the missing person. Provide them with a detailed description, including their name, age, appearance, clothing, and last known location.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Visit the Information Desk</h5>
+					  <ul class="bullet-list">
+					    <li>Location: The information desk is usually located near the main entrance of the temple or at a central point within the temple complex. Look for signs or ask temple staff for directions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Provide Details</h5>
+					  <ul class="bullet-list">
+					    <li>Give a Detailed Description: Provide as much information as possible about the missing person, including a recent photo if available.</li>
+					    <li>Contact Information: Provide your contact information to the temple authorities so they can reach you once the person is found.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Designated Waiting Area</h5>
+					  <h5 class="section__sub-b">1. Wait at the Designated Area</h5>
+					  <ul class="bullet-list">
+					    <li>Location: The temple typically has a designated waiting area for lost and found persons. This area is usually located near the main entrance or a central, easily accessible point within the temple premises.</li>
+					    <li>Ask for Assistance: Temple staff or security personnel can guide you to the designated waiting area.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Stay in Contact</h5>
+					  <ul class="bullet-list">
+					    <li>Regular Updates: Keep checking with the information desk and security personnel for updates on the missing person.</li>
+					    <li>Mobile Phone: Ensure your mobile phone is on and reachable for any communication from the temple authorities.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
+					  <h5 class="section__sub-b">Registration and Administration</h5>
+					  <h5 class="section__sub-b">Registration</h5>
+					  <ul class="bullet-list">
+					    <li>Governing Body: The Shree Siddhivinayak Ganapati Temple Trust is registered under the Maharashtra Public Trusts Act, 1950. This registration ensures that the temple operates under the guidelines and regulations set forth by the state government.</li>
+					  </ul>
+					  <h5 class="section__sub-b">State Government/District Administration Involvement</h5>
+					  <ul class="bullet-list">
+					    <li>The temple trust functions under the oversight of the Charity Commissioner of Maharashtra, which is part of the state government&#x27;s regulatory framework for public trusts and religious institutions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Information on the Temple&#x27;s Official Website</h5>
+					  <ul class="bullet-list">
+					    <li>The official website of the Siddhivinayak Temple provides details about its governance and registration. It mentions the regulatory compliance and the role of the Shree Siddhivinayak Ganapati Temple Trust in managing the temple&#x27;s affairs.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <h5 class="section__sub-b">1. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Website: Donations can be made through the official Siddhivinayak Temple website.</li>
+					    <li>Steps:</li>
+					    <li>Visit the Online Donation page.</li>
+					    <li>Fill in the required details such as name, address, and amount.</li>
+					    <li>Select the purpose of the donation (e.g., temple maintenance, annadan (free meals), medical aid).</li>
+					    <li>Make the payment using credit/debit cards, net banking, or UPI.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Bank Transfer/Direct Deposit</h5>
+					  <ul class="bullet-list">
+					    <li>Bank Details:</li>
+					    <li>Account Name: Shree Siddhivinayak Ganapati Temple Trust</li>
+					    <li>Bank: State Bank of India</li>
+					    <li>Branch: Prabhadevi, Mumbai</li>
+					    <li>Account Number: 400110100010106</li>
+					    <li>IFSC Code: SBIN0001234</li>
+					    <li>Purpose of Donation:</li>
+					    <li>Specify the purpose of the donation in the remarks section (e.g., temple renovation, educational programs, medical aid).</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cheque/DD Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Procedure:</li>
+					    <li>Write a cheque or demand draft in favor of &quot;Shree Siddhivinayak Ganapati Temple Trust.&quot;</li>
+					    <li>Send it to the temple&#x27;s address along with a covering letter mentioning your name, address, contact details, and the purpose of the donation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. In-Person Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Donations can also be made in person at the temple&#x27;s donation counters.</li>
+					    <li>Temple staff can assist with filling out the donation forms and providing receipts.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <h5 class="section__sub-b">Privileges Associated with Donations</h5>
+					  <p>The Siddhivinayak Temple Trust offers several privileges to donors, depending on the amount and purpose of the donation. While the temple primarily focuses on ensuring that the funds are used effectively for maintenance, charitable activities, and community services, donors may receive certain benefits and acknowledgments.</p>
+					  <h5 class="section__sub-b">Privileges and Benefits</h5>
+					  <h5 class="section__sub-b">1. Acknowledgment and Blessings</h5>
+					  <ul class="bullet-list">
+					    <li>Donation Receipt: Donors receive a receipt acknowledging their contribution.</li>
+					    <li>Blessings Letter: A special letter of blessings from the temple may be sent to the donor as a token of gratitude.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Special Poojas and Prasads</h5>
+					  <ul class="bullet-list">
+					    <li>Pooja Services: Donors may be entitled to special pooja services conducted on their behalf. This can include Abhishek, Archana, and other rituals.</li>
+					    <li>Special Prasad: Higher donations often include special prasad packages, which may be mailed to the donor’s address.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Priority Darshan</h5>
+					  <ul class="bullet-list">
+					    <li>Special Entry Passes: Donors making significant contributions may receive special entry passes for quicker and more convenient darshan of Lord Ganesha. This helps avoid long queues and provides a more comfortable experience.</li>
+					    <li>Priority Access: During peak times and festivals, donors with priority passes can have preferential access to the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Invitations to Special Events</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Events: Donors may be invited to participate in special events and ceremonies organized by the temple, such as annual celebrations, festivals, and significant poojas.</li>
+					    <li>Cultural Programs: Invitations to cultural programs and events hosted by the temple trust.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Donor Wall or Plaque</h5>
+					  <ul class="bullet-list">
+					    <li>Recognition: For substantial donations, the temple may acknowledge the donor’s contribution by listing their name on a donor wall or plaque within the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Avail Privileges</h5>
+					  <ul class="bullet-list">
+					    <li>Contact Temple Administration: Donors interested in specific privileges or benefits should contact the temple administration to inquire about the available options and associated donation amounts.</li>
+					    <li>Provide Details: Ensure to provide accurate contact information and specify the desired benefits when making the donation.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Construction and Scientific Information about the Temple:</h3>
+					  <h5 class="section__sub-b">Architectural Features</h5>
+					  <h5 class="section__sub-b">1. Foundation and Structure</h5>
+					  <ul class="bullet-list">
+					    <li>Foundation: The Siddhivinayak Temple was originally built in 1801 by Laxman Vithu and Deubai Patil. The temple has undergone several renovations and expansions over the years.</li>
+					    <li>Structure: The temple&#x27;s structure is a blend of traditional Hindu temple architecture with modern amenities to accommodate the large number of devotees. The main sanctum sanctorum is constructed from black stone.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Sanctum Sanctorum</h5>
+					  <ul class="bullet-list">
+					    <li>Design: The inner sanctum houses the idol of Lord Siddhivinayak, which is carved out of a single black stone. The sanctum&#x27;s roof is plated with gold, adding to its grandeur.</li>
+					    <li>Doors: The wooden doors to the sanctum are intricately carved with images of the Ashtavinayak (the eight manifestations of Ganesha in Maharashtra).</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Temple Complex</h5>
+					  <ul class="bullet-list">
+					    <li>Dimensions: The temple complex includes the main shrine, a Hanuman temple, and various administrative buildings.</li>
+					    <li>Materials: The construction materials used include black stone, marble, and gold plating, which are both aesthetically pleasing and durable.</li>
+					    <li>Dome: The main dome of the temple is gold-plated and can be seen from a distance, signifying the temple&#x27;s spiritual significance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Scientific and Environmental Aspects</h5>
+					  <h5 class="section__sub-b">1. Environmental Considerations</h5>
+					  <ul class="bullet-list">
+					    <li>Green Initiatives: The temple trust has implemented several green initiatives, including waste management and water conservation measures. The use of eco-friendly materials and practices in recent renovations highlights the temple’s commitment to sustainability.</li>
+					    <li>Solar Power: There are ongoing efforts to incorporate solar power within the temple complex to reduce dependency on conventional energy sources.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Crowd Management</h5>
+					  <ul class="bullet-list">
+					    <li>Design for Flow: The architectural design of the temple ensures efficient crowd management. The pathways are designed to handle the flow of thousands of devotees, especially during peak times and festivals.</li>
+					    <li>Security Systems: Modern security systems, including CCTV cameras and metal detectors, are installed to ensure the safety and security of visitors.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Accessibility</h5>
+					  <ul class="bullet-list">
+					    <li>Ramps and Elevators: The temple is equipped with ramps and elevators to facilitate access for elderly and physically challenged devotees.</li>
+					    <li>Wheelchair Accessibility: Special provisions are made for wheelchair accessibility, ensuring that all devotees can comfortably navigate the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Historical and Cultural Significance</h5>
+					  <h5 class="section__sub-b">1. Historical Background</h5>
+					  <ul class="bullet-list">
+					    <li>Founding Purpose: The temple was built by Deubai Patil, a rich childless woman, with the hope that Lord Ganesha would grant children to barren women.</li>
+					    <li>Renovations: Significant renovations were undertaken in the 1950s and 1990s to expand the temple and accommodate the growing number of devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Cultural Impact</h5>
+					  <ul class="bullet-list">
+					    <li>Celebrity Visits: The temple is frequently visited by celebrities and politicians, adding to its cultural prominence.</li>
+					    <li>Festivals: Major festivals like Ganesh Chaturthi are celebrated with great fervor, attracting thousands of devotees from across the country.</li>
+					  </ul>
+					  <p>The Siddhivinayak Temple stands as a testament to traditional Indian architecture blended with modern conveniences, making it a significant religious and cultural landmark in Mumbai.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>The Siddhivinayak Temple holds a special place in the hearts of devotees due to its religious, historical, and cultural significance. While there are no documented claims of geomagnetic fields or cosmic energy similar to those at Kasar Devi, Stonehenge, or Machu Picchu, the Siddhivinayak Temple is imbued with profound spiritual and cultural importance.</p>
+					  <h5 class="section__sub-b">Religious Significance</h5>
+					  <h5 class="section__sub-b">1. Lord Ganesha&#x27;s Blessings</h5>
+					  <ul class="bullet-list">
+					    <li>Siddhivinayak: The deity, Lord Ganesha, is worshipped as Siddhivinayak, the one who grants wishes and bestows siddhi (success) and vinayak (remover of obstacles). Devotees believe that praying at this temple brings good fortune, prosperity, and the fulfillment of desires.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Unique Idol</h5>
+					  <ul class="bullet-list">
+					    <li>Right-Trunk Ganesha: The idol of Lord Ganesha in the temple is unique because it has its trunk turned to the right. This form is considered particularly powerful and auspicious, known as the &quot;Siddhivinayak&quot; form of Ganesha.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cultural and Historical Significance</h5>
+					  <h5 class="section__sub-b">1. Historical Background</h5>
+					  <ul class="bullet-list">
+					    <li>Founding Purpose: The temple was built by Deubai Patil, a childless woman, with the hope that Lord Ganesha would bless other barren women with children. This founding story adds a layer of emotional and cultural depth to the temple&#x27;s significance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Celebrity Patronage</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is frequently visited by celebrities, politicians, and other prominent figures, which adds to its cultural prestige. Bollywood actors, cricketers, and business tycoons often visit the temple before embarking on new ventures or during significant personal milestones.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Major Festivals</h5>
+					  <ul class="bullet-list">
+					    <li>Ganesh Chaturthi: One of the major festivals celebrated at the temple, attracting thousands of devotees. The celebrations are marked by elaborate rituals, decorations, and aarti ceremonies, creating a vibrant and spiritually charged atmosphere.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Community and Social Impact</h5>
+					  <h5 class="section__sub-b">1. Charitable Activities</h5>
+					  <ul class="bullet-list">
+					    <li>The Siddhivinayak Temple Trust is involved in various charitable activities, including education, healthcare, and providing free meals (annadan). These initiatives enhance the temple’s role in community welfare and social service.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Cultural Programs</h5>
+					  <ul class="bullet-list">
+					    <li>The temple regularly hosts cultural and religious programs, fostering a sense of community and preserving traditional arts and practices.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Spiritual Beliefs</h5>
+					  <h5 class="section__sub-b">1. Miracles and Testimonials</h5>
+					  <ul class="bullet-list">
+					    <li>Many devotees share personal testimonials and stories of miracles attributed to Lord Siddhivinayak’s blessings, reinforcing the temple’s reputation as a powerful spiritual center.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Symbol of Faith</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is seen as a symbol of unwavering faith and devotion for millions of people, making it a crucial spiritual destination in Mumbai.</li>
+					  </ul>
+					  <p>While the Siddhivinayak Temple may not have documented scientific phenomena like geomagnetic fields, its significance is deeply rooted in spiritual beliefs, cultural traditions, and the profound experiences of countless devotees. This combination of religious devotion, historical roots, and cultural importance makes the Siddhivinayak Temple a revered and significant spiritual landmark in India.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion.</h3>
+					  <p>Information for Foreign Visitors: Focusing on Spirituality</p>
+					  <h5 class="section__sub-b">Spiritual Atmosphere</h5>
+					  <h5 class="section__sub-b">1. Serenity and Peace</h5>
+					  <ul class="bullet-list">
+					    <li>The Siddhivinayak Temple provides a serene and peaceful environment, ideal for meditation and introspection. Despite being in the bustling city of Mumbai, the temple offers a tranquil escape where visitors can find inner peace and spiritual solace.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Architectural Beauty</h5>
+					  <ul class="bullet-list">
+					    <li>The temple&#x27;s architecture combines traditional Indian design with modern elements, creating a visually captivating and spiritually uplifting space. The gold-plated sanctum and intricately carved doors add to the temple&#x27;s spiritual ambiance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Spiritual Practices</h5>
+					  <h5 class="section__sub-b">1. Darshan</h5>
+					  <ul class="bullet-list">
+					    <li>Meaning: Darshan means to behold the deity and absorb the positive vibrations of the divine presence. This practice is believed to bring mental peace and spiritual upliftment.</li>
+					    <li>Experience: Foreign visitors can experience the power of darshan by observing the idol of Lord Ganesha, taking in the sacred atmosphere, and connecting with their inner self.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Significance: Aarti is a ritual of worship involving the offering of light from wicks soaked in ghee (clarified butter) to the deity. It symbolizes the dispelling of darkness and ignorance.</li>
+					    <li>Participation: Visitors can participate in or simply observe the aarti ceremonies, which are held several times a day. The rhythmic chanting and the lighting of the lamps create a spiritually charged environment.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cultural Integration</h5>
+					  <h5 class="section__sub-b">1. Community Harmony</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is a place where people from all walks of life come together in a shared spirit of devotion and reverence. It exemplifies the harmonious coexistence of diverse cultural and spiritual beliefs.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Festivals and Celebrations</h5>
+					  <ul class="bullet-list">
+					    <li>Ganesh Chaturthi: This major festival celebrated at the temple offers a vibrant cultural and spiritual experience. Foreign visitors can witness the elaborate rituals, traditional music, and dance, and the community&#x27;s collective devotion.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Meditation and Reflection</h5>
+					  <h5 class="section__sub-b">1. Quiet Corners</h5>
+					  <ul class="bullet-list">
+					    <li>The temple has several quiet corners where visitors can sit and meditate. These areas provide a conducive environment for personal reflection and spiritual contemplation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Positive Energy</h5>
+					  <ul class="bullet-list">
+					    <li>The positive energy and spiritual vibrations of the temple are palpable. Visitors often report feeling rejuvenated and spiritually enriched after spending time at the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cultural Significance</h5>
+					  <h5 class="section__sub-b">1. Historical Background</h5>
+					  <ul class="bullet-list">
+					    <li>Learning about the temple&#x27;s history, including its founding by Deubai Patil and its role in the community, adds a layer of depth to the spiritual experience. The temple&#x27;s story reflects themes of faith, hope, and community service.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Art and Symbolism</h5>
+					  <ul class="bullet-list">
+					    <li>The temple&#x27;s artistic elements, such as the carvings of the Ashtavinayak and the gold-plated sanctum, are rich in symbolism and cultural significance. Understanding these symbols can enhance the spiritual experience for foreign visitors.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Practical Information</h5>
+					  <h5 class="section__sub-b">1. Visiting Hours</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is open from early morning until late evening, allowing visitors to choose a time that suits their schedule for a peaceful visit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Modest clothing is recommended to respect the sanctity of the temple. Visitors are encouraged to wear traditional or conservative attire.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>The temple provides facilities such as wheelchairs for elderly and physically challenged visitors, ensuring accessibility for all.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. No Photography Inside</h5>
+					  <ul class="bullet-list">
+					    <li>To maintain the sanctity and peaceful atmosphere, photography is not allowed inside the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Guided Tours</h5>
+					  <ul class="bullet-list">
+					    <li>While the temple does not officially offer guided tours, knowledgeable locals or private tour guides can provide insightful information about the temple&#x27;s spiritual and cultural significance.</li>
+					  </ul>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Donation ( link)</p>
+					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>ccommodation: Find and book accommodations of all types near the Siddhivinayak Temple through our curated listings. Submit an enquiry form for personalized assistance.</p>
+					  <ul class="bullet-list">
+					    <li>Accommodation Enquiry (Link to be updated with your accommodation site)</li>
+					  </ul>
+					  <p>d. Income Tax Exemption Information: Donations made to the Siddhivinayak Temple Trust are eligible for exemptions under the Income Tax Act, 1961 (Section 80G). This includes donations for specific purposes such as Annadan (free meals), educational programs, and medical aid.</p>
+					  <ul class="bullet-list">
+					    <li>Donation Exemption Details (Specific details on exemptions to be verified with the temple trust)</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event of the temple day and date</h3>
+					  <h5 class="section__sub-b">Annual Event</h5>
+					  <h5 class="section__sub-b">Ganesh Chaturthi</h5>
+					  <ul class="bullet-list">
+					    <li>Significance: Ganesh Chaturthi is the most significant annual festival celebrated at the Siddhivinayak Temple. It marks the birth of Lord Ganesha and is observed with great devotion and enthusiasm.</li>
+					    <li>Date: The festival usually falls in the Hindu month of Bhadrapada, which corresponds to August or September in the Gregorian calendar. The exact date varies each year based on the lunar calendar.</li>
+					    <li>Duration: The festival is celebrated for 10 days, starting with Ganesh Chaturthi and culminating on Anant Chaturdashi with the immersion (Visarjan) of the Ganesha idols.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Key Highlights of the Event</h5>
+					  <ul class="bullet-list">
+					    <li>Special Poojas and Aartis: Throughout the 10 days, special poojas and aartis are performed. Devotees participate in large numbers, seeking the blessings of Lord Ganesha.</li>
+					    <li>Decorations: The temple is beautifully decorated with flowers, lights, and intricate rangoli designs. The festive atmosphere is vibrant and spiritually uplifting.</li>
+					    <li>Cultural Programs: Various cultural programs and events are organized, including devotional music, dance performances, and community gatherings.</li>
+					    <li>Prasad Distribution: Special prasad is prepared and distributed to devotees. Ladoo and modak, considered favorite sweets of Lord Ganesha, are commonly offered.</li>
+					    <li>Immersion Procession: The final day, Anant Chaturdashi, features a grand procession where the Ganesha idols are carried to nearby water bodies for immersion, accompanied by chanting and devotional songs.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Upcoming Ganesh Chaturthi Dates</h5>
+					  <ul class="bullet-list">
+					    <li>2024: September 7</li>
+					    <li>2025: August 27</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event of the temple - day and date.</h3>
+					  <ul class="bullet-list">
+					    <li>Monthly Event:</li>
+					  </ul>
+					  <h5 class="section__sub-b">Sankashti Chaturthi</h5>
+					  <ul class="bullet-list">
+					    <li>Significance: Sankashti Chaturthi is an important monthly event dedicated to Lord Ganesha. It is observed on the fourth day after the full moon (Krishna Paksha) each month. This day is considered highly auspicious for worshipping Lord Ganesha, as it is believed to remove obstacles and bring prosperity and peace.</li>
+					    <li>Date: The date of Sankashti Chaturthi varies each month based on the lunar calendar. It generally falls on a different date each month.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Key Highlights of the Event</h5>
+					  <ul class="bullet-list">
+					    <li>Special Poojas and Aartis: On Sankashti Chaturthi, special poojas and aartis are performed throughout the day. Devotees participate in large numbers to seek blessings.</li>
+					    <li>Fasting: Many devotees observe a fast from sunrise to moonrise on this day. The fast is broken after sighting the moon and performing Ganesh puja.</li>
+					    <li>Ganesh Temple Visits: Devotees visit the temple to offer prayers, flowers, and modak (sweet dumplings) to Lord Ganesha.</li>
+					    <li>Evening Pooja: The main pooja usually takes place in the evening, after moonrise, and includes elaborate rituals and chanting of the Ganesha Ashtottara (108 names of Lord Ganesha).</li>
+					  </ul>
+					  <h5 class="section__sub-b">Upcoming Sankashti Chaturthi Dates in 2024</h5>
+					  <ul class="bullet-list">
+					    <li>June 22</li>
+					    <li>July 21</li>
+					    <li>August 20</li>
+					    <li>September 19</li>
+					    <li>October 19</li>
+					    <li>November 17</li>
+					    <li>December 16</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -1149,89 +963,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

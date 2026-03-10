@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -95,7 +42,7 @@
 				<h1 class="hero-title">﻿Sri Raghavendra Swamy Matha - Mantralayam, Andhra Pradesh</h1>
 
 							<div class="img-placeholder">
-					<div class="img-placeholder__icon">&#128341;</div>
+					<div class="img-placeholder__icon">🕉️</div>
 					<div class="img-placeholder__gradient"></div>
 					<div class="img-placeholder__text">Image of ﻿Sri Raghavendra Swamy Matha - Mantralayam, Andhra Pradesh</div>
 				</div>
@@ -107,13 +54,6 @@
 							<div>
 								<div class="key-info__label">Main Deity</div>
 								<div class="key-info__value">* Sri Raghavendra Swamy: The main deity of the Matha, revered as a great saint and scholar in the Madhwa tradition.</div>
-							</div>
-						</div>
-						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
 							</div>
 						</div>
 						<div class="key-info__item">
@@ -134,492 +74,443 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Full Address:SRS Matha, Mantralayam, Adoni(Dt), Kurnool District, Andhra Pradesh, INDIA</h3>
-  <h5 class="section__sub-b">Phone(s)/Contact Number(s)</h5>
-  <ul class="bullet-list">
-    <li>Phone: +91-08512-279459, +91-08512-279428</li>
-    <li>Email: info@srsmutt.org</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Condensed Information About the Place:</h3>
-  <h5 class="section__sub-b">A. Main Deity</h5>
-  <ul class="bullet-list">
-    <li>Sri Raghavendra Swamy: The main deity of the Matha, revered as a great saint and scholar in the Madhwa tradition.</li>
-  </ul>
-  <h5 class="section__sub-b">B. Other Deities (Sub Deities)</h5>
-  <ul class="bullet-list">
-    <li>Sri JayaRama, Sri Moola Rama, and Sri Digvijaya Rama: Important deities worshipped in the Matha.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <ul class="bullet-list">
-    <li>(a) general</li>
-    <li>(b) on special days like festivals and utsavas</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timings of Sri Raghavendra Swamy Matha</h3>
-  <h5 class="section__sub-b">(a) General Timings</h5>
-  <ul class="bullet-list">
-    <li>Opening Time: 6:00 AM</li>
-    <li>Closing Time: 9:00 PM</li>
-  </ul>
-  <h5 class="section__sub-b">(b) Special Days (Festivals and Utsavas)</h5>
-  <ul class="bullet-list">
-    <li>Extended Hours: During special festivals and utsavas, the temple timings may extend beyond regular hours to accommodate special rituals and an increased number of devotees.</li>
-    <li>Specific Timings: Detailed schedules for special days are usually provided closer to the event dates.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <ul class="bullet-list">
-    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Fees:</h3>
-  <ul class="bullet-list">
-    <li>General Entry: There is no entry fee for visiting the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Privileges</h5>
-  <ul class="bullet-list">
-    <li>Special Darshan: Not explicitly mentioned; typically, there are no special gates or longer viewing times for specific fees.</li>
-    <li>Prasad and Pooja: Prasad is generally available to all devotees. Special poojas can be booked online.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Restrictions:</h3>
-  <ul class="bullet-list">
-    <li>Foreigners: No specific entry restrictions or special fees for foreign visitors.</li>
-    <li>Declarations: No special declarations are required for entry.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- whatever is available?</h3>
-  <p>How to Reach Sri Raghavendra Swamy Matha, Mantralayam</p>
-  <h5 class="section__sub-b">By Air</h5>
-  <ul class="bullet-list">
-    <li>Nearest Airport: Rajiv Gandhi International Airport, Hyderabad (approximately 240 km away).</li>
-    <li>Alternative: Hubli Airport (around 200 km away).</li>
-  </ul>
-  <h5 class="section__sub-b">By Train</h5>
-  <ul class="bullet-list">
-    <li>Nearest Railway Station: Mantralayam Road (15 km from the Matha).</li>
-    <li>Connections: Well-connected with major cities like Hyderabad, Bangalore, and Chennai.</li>
-  </ul>
-  <h5 class="section__sub-b">By Bus</h5>
-  <ul class="bullet-list">
-    <li>State Transport Buses: Available from major cities in Andhra Pradesh and Karnataka.</li>
-    <li>Private Buses: Regular services to Mantralayam.</li>
-  </ul>
-  <h5 class="section__sub-b">By Taxi</h5>
-  <ul class="bullet-list">
-    <li>Availability: Taxis and auto-rickshaws are available from nearby towns and railway stations.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Poojas and Rituals at Sri Raghavendra Swamy Matha</h3>
-  <h5 class="section__sub-b">Daily Poojas</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Suprabhata Seva:</h3>
-  <ul class="bullet-list">
-    <li>Time: 6:00 AM</li>
-    <li>Cost: Rs. 100</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Panchamrita Abhisheka:</h3>
-  <ul class="bullet-list">
-    <li>Time: 7:30 AM</li>
-    <li>Cost: Rs. 300</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Maha Mangala Aarti:</h3>
-  <ul class="bullet-list">
-    <li>Time: 12:30 PM</li>
-    <li>Cost: Rs. 200</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sahasranama Archana:</h3>
-  <ul class="bullet-list">
-    <li>Time: 8:00 AM (Every Thursday)</li>
-    <li>Cost: Rs. 500</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Rathotsava:</h3>
-  <ul class="bullet-list">
-    <li>Time: 6:00 PM (Festival Days)</li>
-    <li>Cost: Rs. 1000</li>
-  </ul>
-  <h5 class="section__sub-b">Booking Procedure</h5>
-  <ul class="bullet-list">
-    <li>Online Booking: Available through the official website.</li>
-    <li>On-Site Booking: At the temple office.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <h5 class="section__sub-b">Sri Raghavendra Swamy Matha offers several online services for devotees</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
-  <h5 class="section__sub-b">General Dress Code</h5>
-  <ul class="bullet-list">
-    <li>Men:</li>
-    <li>Traditional attire such as dhoti or veshti is preferred.</li>
-    <li>Shirts are allowed but should be modest; avoid sleeveless tops and shorts.</li>
-    <li>Women:</li>
-    <li>Traditional attire like sarees, salwar kameez, or long skirts.</li>
-    <li>Avoid sleeveless tops, short skirts, and revealing clothing.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Pooja and Festival Days</h5>
-  <ul class="bullet-list">
-    <li>Men and Women:</li>
-    <li>It is recommended to wear more traditional and modest clothing during special poojas and festivals.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <h5 class="section__sub-b">Allowed Gadgets</h5>
-  <ul class="bullet-list">
-    <li>Mobile Phones: Generally allowed, but should be kept on silent mode. Usage inside the temple premises, especially in the sanctum, should be minimal and respectful.</li>
-    <li>Cameras and Other Recording Devices: Typically restricted to maintain the sanctity of the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Deposit Facilities</h5>
-  <ul class="bullet-list">
-    <li>Cloak Room: Facilities are available near the temple entrance for depositing electronic gadgets, footwear, and other personal belongings.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography:</h3>
-  <ul class="bullet-list">
-    <li>General Areas: Photography is generally allowed in the outer premises and non-restricted areas of the temple.</li>
-    <li>Sanctum Sanctorum: Photography inside the sanctum and during specific rituals is usually prohibited to maintain the sanctity.</li>
-  </ul>
-  <h5 class="section__sub-b">Fees</h5>
-  <ul class="bullet-list">
-    <li>General Photography: No specific fee mentioned for general photography.</li>
-    <li>Professional Photography: Special permissions may be required, and fees might be applicable.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <p>Facilities for Physically Handicapped at Sri Raghavendra Swamy Matha</p>
-  <h5 class="section__sub-b">Accessibility</h5>
-  <ul class="bullet-list">
-    <li>Lift/Elevator: The temple premises are equipped with ramps and pathways to assist physically handicapped visitors, but specific information about elevators or lifts is not mentioned.</li>
-    <li>Wheelchair Accessibility: The temple provides wheelchair accessibility to ensure that physically challenged devotees can navigate the premises comfortably.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
-  <p>The Sri Raghavendra Swamy Matha provides wheelchair facilities for the elderly and physically challenged visitors to ensure accessibility and convenience. This service supports those who may need assistance navigating the premises.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons.</h3>
-  <p>Special Entry and Darshan Timings at Sri Raghavendra Swamy Matha</p>
-  <h5 class="section__sub-b">Provisions for Sick, Senior Citizens, and Physically Challenged Persons</h5>
-  <ul class="bullet-list">
-    <li>Special Entry: The temple provides special entry arrangements for senior citizens, physically challenged persons, and those who are ill. These arrangements help ensure a comfortable and less strenuous experience.</li>
-    <li>Timings: While there are no fixed special timings for these groups, they are usually given priority access during regular darshan hours to avoid long waits and large crowds.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <h5 class="section__sub-b">Availability</h5>
-  <p>Yes, vehicle poojas are performed at Sri Raghavendra Swamy Matha.</p>
-  <h5 class="section__sub-b">Timings</h5>
-  <ul class="bullet-list">
-    <li>General Timings: Typically performed during the temple&#x27;s regular hours, from 6:00 AM to 9:00 PM. Specific timings may vary, so it’s best to confirm with the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Cost</h5>
-  <ul class="bullet-list">
-    <li>Cost: The cost for vehicle poojas can vary. It’s advisable to contact the temple administration for the exact fees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
-  <h5 class="section__sub-b">Types of Accommodation</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Guest Houses:</h3>
-  <ul class="bullet-list">
-    <li>Basic rooms with essential amenities.</li>
-    <li>Suitable for short stays.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dormitories:</h3>
-  <ul class="bullet-list">
-    <li>Shared accommodations for groups and budget travelers.</li>
-    <li>Basic facilities and bedding provided.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cottages:</h3>
-  <ul class="bullet-list">
-    <li>More comfortable with better amenities.</li>
-    <li>Suitable for families and longer stays.</li>
-  </ul>
-  <h5 class="section__sub-b">Costs</h5>
-  <ul class="bullet-list">
-    <li>The cost varies depending on the type of accommodation and the facilities provided. It is advisable to check the latest rates on the official website or by contacting the temple administration.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking Procedure</h5>
-  <ul class="bullet-list">
-    <li>Online Booking: Available through the official website.</li>
-    <li>On-Site Booking: Can be done at the temple office upon arrival, subject to availability.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Four-Wheelers:</h3>
-  <ul class="bullet-list">
-    <li>Dedicated parking areas available near the temple premises for cars.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Mini Buses:</h3>
-  <ul class="bullet-list">
-    <li>Separate parking space designated for larger vehicles like mini buses.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Two-Wheelers:</h3>
-  <ul class="bullet-list">
-    <li>Specific areas allotted for two-wheelers to ensure organized parking.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Prashad Services:</h3>
-  <ul class="bullet-list">
-    <li>Types: Includes sweets and other traditional offerings.</li>
-    <li>Procedure: Obtain prashad from designated counters within the temple premises.</li>
-    <li>Payments: Typically free, but donations are welcome.</li>
-  </ul>
-  <h5 class="section__sub-b">Meals (Annadanam)</h5>
-  <ul class="bullet-list">
-    <li>Free Meals: Served to all devotees, typically during lunch and dinner hours.</li>
-    <li>Procedure: Meals are served in the dining hall, no ticket required for free meals.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Meal Services</h5>
-  <ul class="bullet-list">
-    <li>Special Pooja Prashad: Available for sponsors of special poojas.</li>
-    <li>Booking: Can be arranged online or at the temple office.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <h5 class="section__sub-b">Types of Carry Home Prashad</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Laddu:</h3>
-  <ul class="bullet-list">
-    <li>Description: Traditional sweet made of flour, ghee, and sugar.</li>
-    <li>Cost: Typically around Rs. 30-50 per piece.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Puliyodarai (Tamarind Rice):</h3>
-  <ul class="bullet-list">
-    <li>Description: Spicy tamarind-flavored rice.</li>
-    <li>Cost: Usually around Rs. 50-100 per packet.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sweet Pongal:</h3>
-  <ul class="bullet-list">
-    <li>Description: A sweet rice dish made with jaggery and ghee.</li>
-    <li>Cost: Generally around Rs. 50-100 per packet.</li>
-  </ul>
-  <h5 class="section__sub-b">Purchase Procedure</h5>
-  <ul class="bullet-list">
-    <li>Where to Buy: Available at designated counters within the temple premises.</li>
-    <li>Payment: Can be made directly at the counter.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <p>Procedure for Reporting Lost Items at Sri Raghavendra Swamy Matha</p>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>Procedure for Reporting a Missing Person at Sri Raghavendra Swamy Matha</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Report to Temple Office/Help Desk:</h3>
-  <ul class="bullet-list">
-    <li>Visit the administrative office or help desk located within the temple premises.</li>
-    <li>Provide a detailed description of the missing person, including their name, age, appearance, clothing, and the time/place they were last seen.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Announcements:</h3>
-  <ul class="bullet-list">
-    <li>Request the temple authorities to make an announcement over the public address system.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Designate a Meeting Point:</h3>
-  <ul class="bullet-list">
-    <li>Designate a common waiting area for your group, such as near the main entrance or a prominent landmark within the temple complex.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact Security:</h3>
-  <ul class="bullet-list">
-    <li>Inform the temple security personnel to assist in the search.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
-  <p>The Sri Raghavendra Swamy Matha in Mantralayam is registered and administered under the jurisdiction of the Hindu Religious and Charitable Endowments (HR&amp;CE) Department of Andhra Pradesh. This ensures proper management and maintenance of the temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
-  <p>How to Make Donations to Sri Raghavendra Swamy Matha</p>
-  <p>Apart from Hundi offerings, devotees can make donations to Sri Raghavendra Swamy Matha for various purposes, including Annadanam (free meals), temple maintenance, and charitable activities.</p>
-  <h5 class="section__sub-b">Methods of Donation</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>Donations can be made through the temple’s official website: Sri Raghavendra Swamy Matha Donations.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bank Transfer:</h3>
-  <ul class="bullet-list">
-    <li>Specific bank account details for direct transfers can be obtained by contacting the temple administration.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <p>Privileges Associated with Donations to Sri Raghavendra Swamy Matha</p>
-  <p>While specific privileges associated with donations may vary, generally, larger donations can result in certain benefits such as:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Construction and Scientific Information about Sri Raghavendra Swamy Matha</h3>
-  <h5 class="section__sub-b">Architectural Features</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Design:</h3>
-  <ul class="bullet-list">
-    <li>The temple exhibits traditional South Indian architecture with intricate carvings, pillars, and sculptures.</li>
-    <li>The main shrine houses the Brindavana of Sri Raghavendra Swamy, which is a beautifully carved structure made of stone.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Materials:</h3>
-  <ul class="bullet-list">
-    <li>The primary construction materials include granite and marble, ensuring durability and aesthetic appeal.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Layout:</h3>
-  <ul class="bullet-list">
-    <li>The temple complex includes multiple mandapas (halls) for various rituals and ceremonies, spacious courtyards, and accommodation facilities for devotees.</li>
-  </ul>
-  <h5 class="section__sub-b">Scientific Aspects</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Ventilation and Natural Lighting:</h3>
-  <ul class="bullet-list">
-    <li>The temple is designed to allow ample natural light and ventilation, creating a serene and comfortable environment for visitors.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Structural Integrity:</h3>
-  <ul class="bullet-list">
-    <li>The use of granite and other sturdy materials ensures the structural integrity of the temple, allowing it to withstand natural elements over centuries.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-  <p>Special Significance of Sri Raghavendra Swamy Matha</p>
-  <h5 class="section__sub-b">Spiritual and Cultural Significance</h5>
-  <ul class="bullet-list">
-    <li>Miracles and Blessings: The temple is renowned for the miracles and blessings attributed to Sri Raghavendra Swamy. Devotees believe that worshipping here brings peace, prosperity, and fulfillment of wishes.</li>
-    <li>Pilgrimage Site: It is one of the most important pilgrimage sites for followers of the Madhwa tradition and attracts thousands of devotees annually.</li>
-  </ul>
-  <h5 class="section__sub-b">Unique Aspects</h5>
-  <ul class="bullet-list">
-    <li>Historical Importance: Sri Raghavendra Swamy is revered as a great saint and philosopher in the Madhwa tradition. His Brindavana (sacred tomb) is considered a powerful spiritual center.</li>
-    <li>Architectural Grandeur: The temple&#x27;s architecture and serene environment enhance its spiritual ambiance, making it a place of deep contemplation and devotion.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
-  <p>Information for Foreigners Focused on Spirituality at Sri Raghavendra Swamy Matha.</p>
-  <h5 class="section__sub-b">Spiritual Significance</h5>
-  <ul class="bullet-list">
-    <li>Peaceful Atmosphere: The Matha offers a serene and tranquil environment, ideal for meditation and spiritual reflection.</li>
-    <li>Teachings of Sri Raghavendra Swamy: Known for his teachings on dharma, compassion, and devotion, his life and works inspire many.</li>
-  </ul>
-  <h5 class="section__sub-b">Cultural Insights</h5>
-  <ul class="bullet-list">
-    <li>Daily Rituals: Experience the rich cultural heritage through various daily rituals and special poojas.</li>
-    <li>Community Service: The Matha&#x27;s commitment to Annadanam (free meals) and other charitable activities reflects the spirit of service and compassion.</li>
-  </ul>
-  <h5 class="section__sub-b">Practical Information</h5>
-  <ul class="bullet-list">
-    <li>Dress Code: Modest traditional attire is recommended.</li>
-    <li>Facilities: Accommodation and prashad services are available.</li>
-  </ul>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <ul class="bullet-list">
-    <li>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</li>
-    <li>b.Donation ( link)</li>
-    <li>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</li>
-    <li>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</li>
-  </ul>
-  <p>Call to Action and Interaction Links for Sri Raghavendra Swamy Matha</p>
-  <p>a. Puja Booking</p>
-  <p>Book Pujas: Experience spiritual rituals by booking online.</p>
-  <ul class="bullet-list">
-    <li>Link: Book Pujas</li>
-  </ul>
-  <p>b. Donation</p>
-  <p>Make a Donation: Contribute to various temple activities and charitable works.</p>
-  <ul class="bullet-list">
-    <li>Link: Make a Donation</li>
-  </ul>
-  <p>c. Accommodation</p>
-  <p>Book Accommodation: Explore various accommodation options and book in advance.</p>
-  <ul class="bullet-list">
-    <li>Link: Accommodation Options</li>
-  </ul>
-  <p>d. Tax Exemption</p>
-  <p>Tax Exemption Details: Donations are eligible for tax exemptions under Section 80G of the Income Tax Act.</p>
-  <ul class="bullet-list">
-    <li>Link: Tax Exemption Information</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event at Sri Raghavendra Swamy Matha</h3>
-  <h5 class="section__sub-b">Aradhana Mahotsavam</h5>
-  <ul class="bullet-list">
-    <li>Event: Annual celebration commemorating the life and teachings of Sri Raghavendra Swamy.</li>
-    <li>Date: The exact date varies each year based on the Hindu lunar calendar, typically falling in the month of Shravana (July-August).</li>
-    <li>Activities: Special poojas, abhishekams, spiritual discourses, and cultural programs.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Event at Sri Raghavendra Swamy Matha</h3>
-  <h5 class="section__sub-b">Punya Thithi</h5>
-  <ul class="bullet-list">
-    <li>Event: Commemoration of Sri Raghavendra Swamy&#x27;s monthly Punya Thithi (sacred remembrance day).</li>
-    <li>Date: Observed on the day of the star Arudra (Thiruvathira) every month as per the Hindu lunar calendar.</li>
-    <li>Activities: Special poojas, abhishekams, and devotional singing.</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Full Address:SRS Matha, Mantralayam, Adoni(Dt), Kurnool District, Andhra Pradesh, INDIA</h3>
+					  <h5 class="section__sub-b">Phone(s)/Contact Number(s)</h5>
+					  <ul class="bullet-list">
+					    <li>Phone: +91-08512-279459, +91-08512-279428</li>
+					    <li>Email: info@srsmutt.org</li>
+					  </ul>
+					  <h5 class="section__sub-b">Condensed Information About the Place</h5>
+					  <h5 class="section__sub-b">A. Main Deity</h5>
+					  <ul class="bullet-list">
+					    <li>Sri Raghavendra Swamy: The main deity of the Matha, revered as a great saint and scholar in the Madhwa tradition.</li>
+					  </ul>
+					  <h5 class="section__sub-b">B. Other Deities (Sub Deities)</h5>
+					  <ul class="bullet-list">
+					    <li>Sri JayaRama, Sri Moola Rama, and Sri Digvijaya Rama: Important deities worshipped in the Matha.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <ul class="bullet-list">
+					    <li>(a) general</li>
+					    <li>(b) on special days like festivals and utsavas</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timings of Sri Raghavendra Swamy Matha</h3>
+					  <h5 class="section__sub-b">(a) General Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Opening Time: 6:00 AM</li>
+					    <li>Closing Time: 9:00 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">(b) Special Days (Festivals and Utsavas)</h5>
+					  <ul class="bullet-list">
+					    <li>Extended Hours: During special festivals and utsavas, the temple timings may extend beyond regular hours to accommodate special rituals and an increased number of devotees.</li>
+					    <li>Specific Timings: Detailed schedules for special days are usually provided closer to the event dates.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <ul class="bullet-list">
+					    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Entry Fees</h5>
+					  <ul class="bullet-list">
+					    <li>General Entry: There is no entry fee for visiting the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Privileges</h5>
+					  <ul class="bullet-list">
+					    <li>Special Darshan: Not explicitly mentioned; typically, there are no special gates or longer viewing times for specific fees.</li>
+					    <li>Prasad and Pooja: Prasad is generally available to all devotees. Special poojas can be booked online.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Restrictions</h5>
+					  <ul class="bullet-list">
+					    <li>Foreigners: No specific entry restrictions or special fees for foreign visitors.</li>
+					    <li>Declarations: No special declarations are required for entry.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- whatever is available?</h3>
+					  <p>How to Reach Sri Raghavendra Swamy Matha, Mantralayam</p>
+					  <h5 class="section__sub-b">By Air</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Airport: Rajiv Gandhi International Airport, Hyderabad (approximately 240 km away).</li>
+					    <li>Alternative: Hubli Airport (around 200 km away).</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Train</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Railway Station: Mantralayam Road (15 km from the Matha).</li>
+					    <li>Connections: Well-connected with major cities like Hyderabad, Bangalore, and Chennai.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Bus</h5>
+					  <ul class="bullet-list">
+					    <li>State Transport Buses: Available from major cities in Andhra Pradesh and Karnataka.</li>
+					    <li>Private Buses: Regular services to Mantralayam.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Taxi</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: Taxis and auto-rickshaws are available from nearby towns and railway stations.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special Poojas and Rituals at Sri Raghavendra Swamy Matha</h3>
+					  <h5 class="section__sub-b">Daily Poojas</h5>
+					  <h5 class="section__sub-b">1. Suprabhata Seva</h5>
+					  <ul class="bullet-list">
+					    <li>Time: 6:00 AM</li>
+					    <li>Cost: Rs. 100</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Panchamrita Abhisheka</h5>
+					  <ul class="bullet-list">
+					    <li>Time: 7:30 AM</li>
+					    <li>Cost: Rs. 300</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Maha Mangala Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Time: 12:30 PM</li>
+					    <li>Cost: Rs. 200</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Poojas</h5>
+					  <h5 class="section__sub-b">1. Sahasranama Archana</h5>
+					  <ul class="bullet-list">
+					    <li>Time: 8:00 AM (Every Thursday)</li>
+					    <li>Cost: Rs. 500</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Rathotsava</h5>
+					  <ul class="bullet-list">
+					    <li>Time: 6:00 PM (Festival Days)</li>
+					    <li>Cost: Rs. 1000</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Online Booking: Available through the official website.</li>
+					    <li>On-Site Booking: At the temple office.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <h5 class="section__sub-b">Sri Raghavendra Swamy Matha offers several online services for devotees</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <h5 class="section__sub-b">General Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Men:</li>
+					    <li>Traditional attire such as dhoti or veshti is preferred.</li>
+					    <li>Shirts are allowed but should be modest; avoid sleeveless tops and shorts.</li>
+					    <li>Women:</li>
+					    <li>Traditional attire like sarees, salwar kameez, or long skirts.</li>
+					    <li>Avoid sleeveless tops, short skirts, and revealing clothing.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Pooja and Festival Days</h5>
+					  <ul class="bullet-list">
+					    <li>Men and Women:</li>
+					    <li>It is recommended to wear more traditional and modest clothing during special poojas and festivals.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <h5 class="section__sub-b">Allowed Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Mobile Phones: Generally allowed, but should be kept on silent mode. Usage inside the temple premises, especially in the sanctum, should be minimal and respectful.</li>
+					    <li>Cameras and Other Recording Devices: Typically restricted to maintain the sanctity of the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Deposit Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Cloak Room: Facilities are available near the temple entrance for depositing electronic gadgets, footwear, and other personal belongings.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <h5 class="section__sub-b">Photography</h5>
+					  <ul class="bullet-list">
+					    <li>General Areas: Photography is generally allowed in the outer premises and non-restricted areas of the temple.</li>
+					    <li>Sanctum Sanctorum: Photography inside the sanctum and during specific rituals is usually prohibited to maintain the sanctity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Fees</h5>
+					  <ul class="bullet-list">
+					    <li>General Photography: No specific fee mentioned for general photography.</li>
+					    <li>Professional Photography: Special permissions may be required, and fees might be applicable.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>Facilities for Physically Handicapped at Sri Raghavendra Swamy Matha</p>
+					  <h5 class="section__sub-b">Accessibility</h5>
+					  <ul class="bullet-list">
+					    <li>Lift/Elevator: The temple premises are equipped with ramps and pathways to assist physically handicapped visitors, but specific information about elevators or lifts is not mentioned.</li>
+					    <li>Wheelchair Accessibility: The temple provides wheelchair accessibility to ensure that physically challenged devotees can navigate the premises comfortably.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>The Sri Raghavendra Swamy Matha provides wheelchair facilities for the elderly and physically challenged visitors to ensure accessibility and convenience. This service supports those who may need assistance navigating the premises.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons.</h3>
+					  <p>Special Entry and Darshan Timings at Sri Raghavendra Swamy Matha</p>
+					  <h5 class="section__sub-b">Provisions for Sick, Senior Citizens, and Physically Challenged Persons</h5>
+					  <ul class="bullet-list">
+					    <li>Special Entry: The temple provides special entry arrangements for senior citizens, physically challenged persons, and those who are ill. These arrangements help ensure a comfortable and less strenuous experience.</li>
+					    <li>Timings: While there are no fixed special timings for these groups, they are usually given priority access during regular darshan hours to avoid long waits and large crowds.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <h5 class="section__sub-b">Availability</h5>
+					  <p>Yes, vehicle poojas are performed at Sri Raghavendra Swamy Matha.</p>
+					  <h5 class="section__sub-b">Timings</h5>
+					  <ul class="bullet-list">
+					    <li>General Timings: Typically performed during the temple&#x27;s regular hours, from 6:00 AM to 9:00 PM. Specific timings may vary, so it’s best to confirm with the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>Cost: The cost for vehicle poojas can vary. It’s advisable to contact the temple administration for the exact fees.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <h5 class="section__sub-b">Types of Accommodation</h5>
+					  <h5 class="section__sub-b">1. Guest Houses</h5>
+					  <ul class="bullet-list">
+					    <li>Basic rooms with essential amenities.</li>
+					    <li>Suitable for short stays.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Dormitories</h5>
+					  <ul class="bullet-list">
+					    <li>Shared accommodations for groups and budget travelers.</li>
+					    <li>Basic facilities and bedding provided.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cottages</h5>
+					  <ul class="bullet-list">
+					    <li>More comfortable with better amenities.</li>
+					    <li>Suitable for families and longer stays.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Costs</h5>
+					  <ul class="bullet-list">
+					    <li>The cost varies depending on the type of accommodation and the facilities provided. It is advisable to check the latest rates on the official website or by contacting the temple administration.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Online Booking: Available through the official website.</li>
+					    <li>On-Site Booking: Can be done at the temple office upon arrival, subject to availability.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <h5 class="section__sub-b">Parking Options</h5>
+					  <h5 class="section__sub-b">1. Four-Wheelers</h5>
+					  <ul class="bullet-list">
+					    <li>Dedicated parking areas available near the temple premises for cars.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Mini Buses</h5>
+					  <ul class="bullet-list">
+					    <li>Separate parking space designated for larger vehicles like mini buses.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Two-Wheelers</h5>
+					  <ul class="bullet-list">
+					    <li>Specific areas allotted for two-wheelers to ensure organized parking.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <h5 class="section__sub-b">Prashad Services</h5>
+					  <ul class="bullet-list">
+					    <li>Types: Includes sweets and other traditional offerings.</li>
+					    <li>Procedure: Obtain prashad from designated counters within the temple premises.</li>
+					    <li>Payments: Typically free, but donations are welcome.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Meals (Annadanam)</h5>
+					  <ul class="bullet-list">
+					    <li>Free Meals: Served to all devotees, typically during lunch and dinner hours.</li>
+					    <li>Procedure: Meals are served in the dining hall, no ticket required for free meals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Meal Services</h5>
+					  <ul class="bullet-list">
+					    <li>Special Pooja Prashad: Available for sponsors of special poojas.</li>
+					    <li>Booking: Can be arranged online or at the temple office.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <h5 class="section__sub-b">Types of Carry Home Prashad</h5>
+					  <h5 class="section__sub-b">1. Laddu</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Traditional sweet made of flour, ghee, and sugar.</li>
+					    <li>Cost: Typically around Rs. 30-50 per piece.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Puliyodarai (Tamarind Rice)</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Spicy tamarind-flavored rice.</li>
+					    <li>Cost: Usually around Rs. 50-100 per packet.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Sweet Pongal</h5>
+					  <ul class="bullet-list">
+					    <li>Description: A sweet rice dish made with jaggery and ghee.</li>
+					    <li>Cost: Generally around Rs. 50-100 per packet.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Purchase Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Where to Buy: Available at designated counters within the temple premises.</li>
+					    <li>Payment: Can be made directly at the counter.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>Procedure for Reporting Lost Items at Sri Raghavendra Swamy Matha</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>Procedure for Reporting a Missing Person at Sri Raghavendra Swamy Matha</p>
+					  <h5 class="section__sub-b">1. Report to Temple Office/Help Desk</h5>
+					  <ul class="bullet-list">
+					    <li>Visit the administrative office or help desk located within the temple premises.</li>
+					    <li>Provide a detailed description of the missing person, including their name, age, appearance, clothing, and the time/place they were last seen.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Announcements</h5>
+					  <ul class="bullet-list">
+					    <li>Request the temple authorities to make an announcement over the public address system.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Designate a Meeting Point</h5>
+					  <ul class="bullet-list">
+					    <li>Designate a common waiting area for your group, such as near the main entrance or a prominent landmark within the temple complex.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Contact Security</h5>
+					  <ul class="bullet-list">
+					    <li>Inform the temple security personnel to assist in the search.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
+					  <p>The Sri Raghavendra Swamy Matha in Mantralayam is registered and administered under the jurisdiction of the Hindu Religious and Charitable Endowments (HR&amp;CE) Department of Andhra Pradesh. This ensures proper management and maintenance of the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>How to Make Donations to Sri Raghavendra Swamy Matha</p>
+					  <p>Apart from Hundi offerings, devotees can make donations to Sri Raghavendra Swamy Matha for various purposes, including Annadanam (free meals), temple maintenance, and charitable activities.</p>
+					  <h5 class="section__sub-b">Methods of Donation</h5>
+					  <h5 class="section__sub-b">1. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Donations can be made through the temple’s official website: Sri Raghavendra Swamy Matha Donations.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Bank Transfer</h5>
+					  <ul class="bullet-list">
+					    <li>Specific bank account details for direct transfers can be obtained by contacting the temple administration.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>Privileges Associated with Donations to Sri Raghavendra Swamy Matha</p>
+					  <p>While specific privileges associated with donations may vary, generally, larger donations can result in certain benefits such as:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Construction and Scientific Information about Sri Raghavendra Swamy Matha</h3>
+					  <h5 class="section__sub-b">Architectural Features</h5>
+					  <h5 class="section__sub-b">1. Design</h5>
+					  <ul class="bullet-list">
+					    <li>The temple exhibits traditional South Indian architecture with intricate carvings, pillars, and sculptures.</li>
+					    <li>The main shrine houses the Brindavana of Sri Raghavendra Swamy, which is a beautifully carved structure made of stone.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Materials</h5>
+					  <ul class="bullet-list">
+					    <li>The primary construction materials include granite and marble, ensuring durability and aesthetic appeal.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Layout</h5>
+					  <ul class="bullet-list">
+					    <li>The temple complex includes multiple mandapas (halls) for various rituals and ceremonies, spacious courtyards, and accommodation facilities for devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Scientific Aspects</h5>
+					  <h5 class="section__sub-b">1. Ventilation and Natural Lighting</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is designed to allow ample natural light and ventilation, creating a serene and comfortable environment for visitors.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Structural Integrity</h5>
+					  <ul class="bullet-list">
+					    <li>The use of granite and other sturdy materials ensures the structural integrity of the temple, allowing it to withstand natural elements over centuries.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>Special Significance of Sri Raghavendra Swamy Matha</p>
+					  <h5 class="section__sub-b">Spiritual and Cultural Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Miracles and Blessings: The temple is renowned for the miracles and blessings attributed to Sri Raghavendra Swamy. Devotees believe that worshipping here brings peace, prosperity, and fulfillment of wishes.</li>
+					    <li>Pilgrimage Site: It is one of the most important pilgrimage sites for followers of the Madhwa tradition and attracts thousands of devotees annually.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Unique Aspects</h5>
+					  <ul class="bullet-list">
+					    <li>Historical Importance: Sri Raghavendra Swamy is revered as a great saint and philosopher in the Madhwa tradition. His Brindavana (sacred tomb) is considered a powerful spiritual center.</li>
+					    <li>Architectural Grandeur: The temple&#x27;s architecture and serene environment enhance its spiritual ambiance, making it a place of deep contemplation and devotion.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <p>Information for Foreigners Focused on Spirituality at Sri Raghavendra Swamy Matha.</p>
+					  <h5 class="section__sub-b">Spiritual Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Peaceful Atmosphere: The Matha offers a serene and tranquil environment, ideal for meditation and spiritual reflection.</li>
+					    <li>Teachings of Sri Raghavendra Swamy: Known for his teachings on dharma, compassion, and devotion, his life and works inspire many.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cultural Insights</h5>
+					  <ul class="bullet-list">
+					    <li>Daily Rituals: Experience the rich cultural heritage through various daily rituals and special poojas.</li>
+					    <li>Community Service: The Matha&#x27;s commitment to Annadanam (free meals) and other charitable activities reflects the spirit of service and compassion.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Practical Information</h5>
+					  <ul class="bullet-list">
+					    <li>Dress Code: Modest traditional attire is recommended.</li>
+					    <li>Facilities: Accommodation and prashad services are available.</li>
+					  </ul>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <ul class="bullet-list">
+					    <li>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</li>
+					    <li>b.Donation ( link)</li>
+					    <li>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</li>
+					    <li>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</li>
+					  </ul>
+					  <p>Call to Action and Interaction Links for Sri Raghavendra Swamy Matha</p>
+					  <p>a. Puja Booking</p>
+					  <p>Book Pujas: Experience spiritual rituals by booking online.</p>
+					  <ul class="bullet-list">
+					    <li>Link: Book Pujas</li>
+					  </ul>
+					  <p>b. Donation</p>
+					  <p>Make a Donation: Contribute to various temple activities and charitable works.</p>
+					  <ul class="bullet-list">
+					    <li>Link: Make a Donation</li>
+					  </ul>
+					  <p>c. Accommodation</p>
+					  <p>Book Accommodation: Explore various accommodation options and book in advance.</p>
+					  <ul class="bullet-list">
+					    <li>Link: Accommodation Options</li>
+					  </ul>
+					  <p>d. Tax Exemption</p>
+					  <p>Tax Exemption Details: Donations are eligible for tax exemptions under Section 80G of the Income Tax Act.</p>
+					  <ul class="bullet-list">
+					    <li>Link: Tax Exemption Information</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event at Sri Raghavendra Swamy Matha</h3>
+					  <h5 class="section__sub-b">Aradhana Mahotsavam</h5>
+					  <ul class="bullet-list">
+					    <li>Event: Annual celebration commemorating the life and teachings of Sri Raghavendra Swamy.</li>
+					    <li>Date: The exact date varies each year based on the Hindu lunar calendar, typically falling in the month of Shravana (July-August).</li>
+					    <li>Activities: Special poojas, abhishekams, spiritual discourses, and cultural programs.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event at Sri Raghavendra Swamy Matha</h3>
+					  <h5 class="section__sub-b">Punya Thithi</h5>
+					  <ul class="bullet-list">
+					    <li>Event: Commemoration of Sri Raghavendra Swamy&#x27;s monthly Punya Thithi (sacred remembrance day).</li>
+					    <li>Date: Observed on the day of the star Arudra (Thiruvathira) every month as per the Hindu lunar calendar.</li>
+					    <li>Activities: Special poojas, abhishekams, and devotional singing.</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -633,89 +524,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

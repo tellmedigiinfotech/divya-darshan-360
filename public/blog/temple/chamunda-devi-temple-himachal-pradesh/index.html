@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -95,7 +42,7 @@
 				<h1 class="hero-title">﻿Chamunda Devi Temple - Himachal Pradesh</h1>
 
 							<div class="img-placeholder">
-					<div class="img-placeholder__icon">&#128341;</div>
+					<div class="img-placeholder__icon">🕉️</div>
 					<div class="img-placeholder__gradient"></div>
 					<div class="img-placeholder__text">Image of ﻿Chamunda Devi Temple - Himachal Pradesh</div>
 				</div>
@@ -107,13 +54,6 @@
 							<div>
 								<div class="key-info__label">Main Deity</div>
 								<div class="key-info__value">* Goddess Chamunda (Chamundeshwari):</div>
-							</div>
-						</div>
-						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
 							</div>
 						</div>
 						<div class="key-info__item">
@@ -134,618 +74,531 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Condensed Information about the Place:</h3>
-  <h5 class="section__sub-b">A. Main Deity</h5>
-  <ul class="bullet-list">
-    <li>Goddess Chamunda (Chamundeshwari):</li>
-    <li>Goddess Chamunda is a form of Durga, worshipped as a fierce aspect of the divine feminine. She is considered the goddess of war and is often depicted slaying demons.</li>
-  </ul>
-  <h5 class="section__sub-b">B. Other Deities (Sub-deities)</h5>
-  <ul class="bullet-list">
-    <li>Lord Shiva (Nandikeshwar):</li>
-    <li>In the temple complex, Lord Shiva is worshipped alongside Goddess Chamunda. The temple is also known as Chamunda Nandikeshwar Dham, indicating the presence of Nandikeshwar (another name for Lord Shiva).</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <ul class="bullet-list">
-    <li>(a) general</li>
-    <li>(b) on special days like festivals and utsavas</li>
-  </ul>
-  <p>Chamunda Devi Temple - Opening &amp; Closing Timings</p>
-  <h5 class="section__sub-b">(a) General Timings</h5>
-  <ul class="bullet-list">
-    <li>Morning:</li>
-    <li>Opening Time: 5:00 AM</li>
-    <li>Evening:</li>
-    <li>Closing Time: 10:00 PM</li>
-  </ul>
-  <p>These timings ensure that devotees have ample opportunity to offer prayers and participate in daily rituals throughout the day.</p>
-  <h5 class="section__sub-b">(b) Special Days (Festivals and Utsavas)</h5>
-  <ul class="bullet-list">
-    <li>Extended Hours:</li>
-    <li>During major festivals like Navaratri and other significant utsavas, the temple remains open for longer hours to accommodate the large influx of devotees and to perform special rituals and ceremonies.</li>
-    <li>Typical Extended Hours: The temple may open as early as 4:00 AM and close as late as 12:00 AM (midnight) during these special occasions.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Notes</h5>
-  <ul class="bullet-list">
-    <li>Rituals and Aarti Timings: Specific timings for rituals and aartis (ceremonial prayers) are conducted at designated times throughout the day. It is advisable to check the temple’s schedule upon arrival or inquire at the help desk for precise timings.</li>
-    <li>Seasonal Variations: There may be slight variations in timings based on seasonal changes and local customs. Always check with the temple administration for the most accurate and up-to-date information.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <ul class="bullet-list">
-    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Fees:</h3>
-  <ul class="bullet-list">
-    <li>General Entry:</li>
-    <li>There is no entry fee for general darshan at Chamunda Devi Temple. All devotees are welcome to visit and offer their prayers without any charge.</li>
-  </ul>
-  <h5 class="section__sub-b">Privileges and Special Services</h5>
-  <ul class="bullet-list">
-    <li>Special Darshan Passes:</li>
-    <li>Quick Darshan: During peak times and major festivals, the temple may offer special darshan passes for a fee. These passes allow devotees to bypass the regular queue for a quicker and more comfortable darshan experience.</li>
-    <li>Special Gate Access: Holders of special darshan passes might have access to a separate gate, ensuring faster entry and exit.</li>
-    <li>Cost: The cost for special darshan passes can vary. It is advisable to check with the temple administration for the current rates.</li>
-    <li>Special Poojas and Rituals:</li>
-    <li>Devotees can book special poojas and rituals for specific purposes, such as health, prosperity, or spiritual well-being.</li>
-    <li>Cost: Fees for special poojas and rituals depend on the type and duration of the ceremony. Information on specific costs can be obtained from the temple’s booking office.</li>
-  </ul>
-  <h5 class="section__sub-b">Entry Restrictions and Guidelines for Foreigners</h5>
-  <ul class="bullet-list">
-    <li>General Guidelines:</li>
-    <li>Foreign visitors are generally welcome at the temple. There are no specific entry restrictions for foreigners.</li>
-    <li>Respectful Conduct: All visitors, including foreigners, are expected to dress modestly and behave respectfully within the temple premises.</li>
-    <li>Special Fees:</li>
-    <li>There are no special fees for foreigners. They are subject to the same guidelines and charges as Indian devotees.</li>
-    <li>Declaration Requirements:</li>
-    <li>No specific declarations are required for foreign visitors. However, it is always a good practice to carry identification and be aware of local customs and practices.</li>
-  </ul>
-  <h5 class="section__sub-b">Tips for Visitors</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Plan Ahead:</h3>
-  <ul class="bullet-list">
-    <li>During peak seasons and festivals, the temple can become very crowded. Planning your visit during off-peak hours can enhance your experience.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dress Code:</h3>
-  <ul class="bullet-list">
-    <li>Dress modestly. Women are advised to wear sarees or salwar kameez, while men should wear traditional attire or at least cover their shoulders and knees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Follow Temple Protocols:</h3>
-  <ul class="bullet-list">
-    <li>Adhere to all temple rules and guidelines, including photography restrictions and designated areas for specific activities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- whatever is available?</h3>
-  <h5 class="section__sub-b">How to Reach</h5>
-  <h5 class="section__sub-b">By Air</h5>
-  <ul class="bullet-list">
-    <li>Nearest Airport:</li>
-    <li>Gaggal Airport (Dharamshala Airport): The nearest airport to Chamunda Devi Temple is Gaggal Airport, which is approximately 20 km away from the temple.</li>
-    <li>Connectivity: Gaggal Airport has regular flights from major cities like Delhi and Chandigarh.</li>
-    <li>Transport from Airport: From the airport, you can hire a taxi or take a bus to reach the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">By Train</h5>
-  <ul class="bullet-list">
-    <li>Nearest Railway Station:</li>
-    <li>Pathankot Railway Station: The nearest major railway station is Pathankot, which is about 100 km away from the temple.</li>
-    <li>Kangra Mandir Railway Station: For those preferring a closer option, Kangra Mandir Railway Station is about 30 km from the temple, but it is less connected than Pathankot.</li>
-    <li>Transport from Railway Station: From Pathankot or Kangra Mandir, you can take a taxi or a bus to reach the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">By Bus</h5>
-  <ul class="bullet-list">
-    <li>State Transport Buses:</li>
-    <li>Himachal Pradesh Road Transport Corporation (HRTC) runs regular bus services from major cities like Dharamshala, Palampur, and Kangra to Chamunda Devi Temple.</li>
-    <li>Private Buses:</li>
-    <li>Several private operators also provide bus services to Chamunda Devi Temple from various parts of Himachal Pradesh and neighboring states.</li>
-  </ul>
-  <h5 class="section__sub-b">By Taxi/Car</h5>
-  <ul class="bullet-list">
-    <li>From Dharamshala:</li>
-    <li>The temple is about 24 km from Dharamshala. You can hire a taxi or drive yourself. The journey takes approximately 45 minutes.</li>
-    <li>From Palampur:</li>
-    <li>Chamunda Devi Temple is around 20 km from Palampur, and it takes about 40 minutes by taxi or car.</li>
-  </ul>
-  <h5 class="section__sub-b">By Local Transport</h5>
-  <ul class="bullet-list">
-    <li>Auto-Rickshaws and Shared Taxis:</li>
-    <li>In nearby towns like Dharamshala and Kangra, you can find auto-rickshaws and shared taxis that can take you to the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Directions and Tips</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
-  <p>Chamunda Devi Temple - Special Poojas and Rituals</p>
-  <p>Chamunda Devi Temple offers various special poojas and rituals that devotees can participate in. Here are the details regarding the days, timings, rates, and booking procedures for these poojas:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Daily Poojas:</h3>
-  <ul class="bullet-list">
-    <li>Aarti:</li>
-    <li>Morning Aarti: 5:00 AM</li>
-    <li>Evening Aarti: 7:00 PM</li>
-    <li>Abhishekam: A ritual bathing of the deity with sacred substances like milk, honey, and water, performed daily.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Poojas:</h3>
-  <ul class="bullet-list">
-    <li>Chandi Path:</li>
-    <li>Description: A special recitation of the Durga Saptashati, invoking the blessings of Goddess Chamunda for health, prosperity, and protection.</li>
-    <li>Days: Usually performed on Tuesdays and Fridays, considered auspicious for Devi worship.</li>
-    <li>Timings: Typically in the morning around 9:00 AM.</li>
-    <li>Rates: Approximately ₹1500 - ₹3000, depending on the number of recitations and the scale of the ritual.</li>
-    <li>Navratri Poojas:</li>
-    <li>Description: Special poojas conducted during the Navratri festival, including elaborate rituals, havans (fire sacrifices), and continuous recitation of scriptures.</li>
-    <li>Days: During the nine days of Navratri (dates vary each year based on the lunar calendar).</li>
-    <li>Timings: Throughout the day, with main rituals in the morning and evening.</li>
-    <li>Rates: Special packages available, ranging from ₹5000 to ₹15000, depending on the specific rituals included.</li>
-    <li>Havan (Fire Sacrifice):</li>
-    <li>Description: A sacred fire ritual performed to invoke the blessings of the gods and purify the surroundings.</li>
-    <li>Days: Can be booked on request, commonly performed on special occasions and festivals.</li>
-    <li>Timings: Usually performed in the morning.</li>
-    <li>Rates: Approximately ₹2500 - ₹5000, depending on the scale of the havan.</li>
-    <li>Kumari Pooja:</li>
-    <li>Description: A ritual where young girls (representing the goddess) are worshipped and offered gifts. This pooja is believed to bring blessings and good fortune.</li>
-    <li>Days: Commonly performed during Navratri and other special occasions.</li>
-    <li>Timings: Morning or early evening.</li>
-    <li>Rates: ₹1000 - ₹2000.</li>
-  </ul>
-  <h5 class="section__sub-b">Advance Booking Procedure</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Booking:</h3>
-  <ul class="bullet-list">
-    <li>Temple Website: Some poojas can be booked in advance through the temple’s official website. Navigate to the booking section, select the desired pooja, choose the date, and complete the payment process.</li>
-    <li>Website Link: Chamunda Devi Temple Official Website</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">On-Site Booking:</h3>
-  <ul class="bullet-list">
-    <li>Temple Office: Visit the temple office or the designated counter within the temple premises to book poojas in person. It is advisable to book at least a day in advance, especially for special poojas.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>Chamunda Devi Temple - Online Services</p>
-  <p>Chamunda Devi Temple offers various online services to cater to the needs of devotees, making it easier for them to participate in rituals, make donations, and stay informed about temple activities.</p>
-  <h5 class="section__sub-b">Online Services Available</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Pooja Booking:</h3>
-  <ul class="bullet-list">
-    <li>Description: Devotees can book special poojas and rituals online through the temple&#x27;s official website.</li>
-    <li>Service Provider: Chamunda Devi Temple’s official website.</li>
-    <li>Link: Chamunda Devi Temple Pooja Booking</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>Description: Devotees can make donations online to support the temple’s various activities, maintenance, and charitable programs.</li>
-    <li>Service Provider: Chamunda Devi Temple’s official website.</li>
-    <li>Link: Chamunda Devi Temple Donations</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Live Streaming of Aartis and Events:</h3>
-  <ul class="bullet-list">
-    <li>Description: The temple offers live streaming of major aartis and special events, allowing devotees from all over the world to participate virtually.</li>
-    <li>Service Provider: Chamunda Devi Temple’s official website.</li>
-    <li>Link: Chamunda Devi Temple Live Streaming</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Information and Updates:</h3>
-  <ul class="bullet-list">
-    <li>Description: The website provides detailed information about the temple’s history, timings, upcoming events, and other relevant updates.</li>
-    <li>Service Provider: Chamunda Devi Temple’s official website.</li>
-    <li>Link: Chamunda Devi Temple Information</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact and Inquiry:</h3>
-  <ul class="bullet-list">
-    <li>Description: Devotees can contact the temple administration for inquiries, feedback, or assistance through the website.</li>
-    <li>Service Provider: Chamunda Devi Temple’s official website.</li>
-    <li>Link: Chamunda Devi Temple Contact</li>
-  </ul>
-  <h5 class="section__sub-b">How to Access These Services</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Official Website:</h3>
-  <ul class="bullet-list">
-    <li>Go to the Chamunda Devi Temple Official Website.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Navigate to the Desired Section:</h3>
-  <ul class="bullet-list">
-    <li>Use the website’s navigation menu to find the section for pooja bookings, donations, live streaming, or contact information.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Follow the Instructions:</h3>
-  <ul class="bullet-list">
-    <li>For booking poojas or making donations, follow the on-screen instructions to complete the process. Ensure you provide accurate details and complete any required payments online.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
-  <p>Chamunda Devi Temple - Dress Code Guidelines</p>
-  <p>To maintain the sanctity and decorum of the temple, Chamunda Devi Temple prescribes a specific dress code for visitors. Here are the guidelines for the dress code:</p>
-  <h5 class="section__sub-b">General Dress Code</h5>
-  <h5 class="section__sub-b">For Men</h5>
-  <ul class="bullet-list">
-    <li>Traditional Attire: Dhoti-Kurta or Kurta-Pajama is preferred.</li>
-    <li>Western Attire: If wearing western clothes, ensure they are modest. Full-length trousers and shirts with sleeves are acceptable.</li>
-    <li>Prohibited Attire: Shorts, sleeveless shirts, and other revealing clothing are not allowed.</li>
-  </ul>
-  <h5 class="section__sub-b">For Women</h5>
-  <ul class="bullet-list">
-    <li>Traditional Attire: Sarees, Salwar Kameez, or long skirts with tops are preferred.</li>
-    <li>Western Attire: If wearing western clothes, ensure they cover the shoulders and knees. Long dresses or skirts with sleeves are acceptable.</li>
-    <li>Prohibited Attire: Short skirts, sleeveless tops, and other revealing clothing are not allowed.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dress Code for Special Poojas and Festival Days:</h3>
-  <h5 class="section__sub-b">For Men</h5>
-  <ul class="bullet-list">
-    <li>Traditional Attire Required: Dhoti and Kurta or traditional Indian attire are required for participation in special poojas and during festival days.</li>
-    <li>Head Covering: Some rituals may require men to cover their heads with a cloth or turban.</li>
-  </ul>
-  <h5 class="section__sub-b">For Women</h5>
-  <ul class="bullet-list">
-    <li>Traditional Attire Required: Sarees or Salwar Kameez with dupatta are required for participation in special poojas and during festival days.</li>
-    <li>Head Covering: Women may be required to cover their heads with a dupatta or shawl during certain rituals.</li>
-  </ul>
-  <h5 class="section__sub-b">General Guidelines</h5>
-  <ul class="bullet-list">
-    <li>Footwear: All visitors must remove their footwear before entering the temple premises. Shoe racks or storage areas are usually available near the entrance.</li>
-    <li>Respectful Attire: The dress code is designed to ensure that all visitors dress respectfully, maintaining the spiritual ambiance of the temple.</li>
-    <li>Cleanliness: Ensure that your attire is clean and tidy. This is considered respectful when entering a sacred space.</li>
-  </ul>
-  <h5 class="section__sub-b">Tips for Visitors</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Prepare in Advance:</h3>
-  <ul class="bullet-list">
-    <li>If you plan to participate in special poojas or visit during festival days, make sure to wear the prescribed traditional attire.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry a Shawl or Dupatta:</h3>
-  <ul class="bullet-list">
-    <li>Women should carry a shawl or dupatta to cover their heads during specific rituals if required.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Adhere to Guidelines:</h3>
-  <ul class="bullet-list">
-    <li>Follow the dress code guidelines strictly to avoid any inconvenience or denial of entry.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <p>Chamunda Devi Temple - Policy on Electronic Gadgets</p>
-  <h5 class="section__sub-b">General Policy</h5>
-  <ul class="bullet-list">
-    <li>Mobile Phones: Mobile phones are generally allowed within the temple premises but must be kept on silent mode to maintain the sanctity and peaceful environment of the temple.</li>
-    <li>Cameras: Photography and videography may be restricted in certain areas, especially inside the sanctum sanctorum. Always check for signs or ask temple authorities for specific guidelines.</li>
-    <li>Other Electronic Gadgets: Devices such as tablets, laptops, and other electronic gadgets are generally discouraged inside the temple premises to ensure a distraction-free environment for devotees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Restrictions:</h3>
-  <ul class="bullet-list">
-    <li>Sanctum Sanctorum: Mobile phones, cameras, and other electronic devices are typically not allowed inside the inner sanctum or during specific rituals to preserve the sanctity and avoid disturbances.</li>
-    <li>During Rituals: Using electronic gadgets during poojas, aartis, and other rituals is generally prohibited.</li>
-  </ul>
-  <h5 class="section__sub-b">Deposit and Storage Facilities</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Locker Facilities:</h3>
-  <ul class="bullet-list">
-    <li>Availability: The temple provides locker facilities for visitors to safely deposit their electronic gadgets and other valuables.</li>
-    <li>Location: Lockers are usually located near the main entrance or designated areas within the temple premises.</li>
-    <li>Cost: There may be a nominal fee for using the locker facilities. It’s advisable to carry some change for this purpose.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Guidelines for Depositing Gadgets:</h3>
-  <ul class="bullet-list">
-    <li>Step 1: Locate the locker facility near the temple entrance.</li>
-    <li>Step 2: Request a locker from the attendant and pay any applicable fee.</li>
-    <li>Step 3: Securely deposit your electronic gadgets and other valuables in the locker.</li>
-    <li>Step 4: Keep the locker key safe with you until you return to collect your items.</li>
-  </ul>
-  <h5 class="section__sub-b">Tips for Visitors</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Prepare in Advance:</h3>
-  <ul class="bullet-list">
-    <li>Before entering the temple, decide whether you need to bring your electronic gadgets with you. If possible, leave non-essential items at your hotel or place of stay.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Follow Instructions:</h3>
-  <ul class="bullet-list">
-    <li>Adhere to any specific instructions provided by temple staff regarding the use of electronic gadgets.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Respect the Environment:</h3>
-  <ul class="bullet-list">
-    <li>Maintaining the sanctity and peaceful atmosphere of the temple is important. Avoid using mobile phones or other gadgets in a way that disrupts other devotees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
-  <p>Chamunda Devi Temple - Photography Policy</p>
-  <h5 class="section__sub-b">General Policy on Photography</h5>
-  <ul class="bullet-list">
-    <li>Outer Areas:</li>
-    <li>Photography is generally allowed in the outer areas of the Chamunda Devi Temple premises. Visitors can take pictures of the temple&#x27;s exterior, gardens, and other non-restricted areas.</li>
-    <li>Inner Sanctum:</li>
-    <li>Photography and videography are strictly prohibited inside the sanctum sanctorum and during rituals. This policy helps maintain the sanctity of the worship space and prevents disruptions during ceremonies.</li>
-  </ul>
-  <h5 class="section__sub-b">Fees for Photography</h5>
-  <ul class="bullet-list">
-    <li>No Fee for General Photography:</li>
-    <li>There is usually no fee for taking photographs in the permissible areas of the temple premises. Visitors can freely capture the beauty and serenity of the temple surroundings.</li>
-    <li>Special Photography Requests:</li>
-    <li>For professional photography or special occasions such as weddings, a special permission might be required, and a fee may be applicable. It is advisable to contact the temple administration in advance for such requests.</li>
-  </ul>
-  <h5 class="section__sub-b">Tips for Visitors</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Check for Signage:</h3>
-  <ul class="bullet-list">
-    <li>Look for signs within the temple premises indicating areas where photography is allowed or prohibited.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Respect Guidelines:</h3>
-  <ul class="bullet-list">
-    <li>Always follow the guidelines provided by temple staff regarding photography to ensure a respectful and smooth experience for all devotees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Avoid Disruption:</h3>
-  <ul class="bullet-list">
-    <li>Ensure that your photography does not disrupt other visitors or ongoing rituals. Maintain a respectful distance and avoid using flash or intrusive equipment.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <p>Chamunda Devi Temple - Accessibility Facilities</p>
-  <h5 class="section__sub-b">Facilities for Physically Handicapped Visitors</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Lifts/Elevators:</h3>
-  <ul class="bullet-list">
-    <li>Availability: Chamunda Devi Temple may not have a lift or elevator, as it is a traditional temple structure built on a hill. Accessibility can vary, and it&#x27;s best to check with the temple administration for the most current information.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ramps:</h3>
-  <ul class="bullet-list">
-    <li>Ramp Access: The temple premises are equipped with ramps to facilitate the movement of physically handicapped visitors. These ramps are designed to provide easier access to the main areas of the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Wheelchair Availability:</h3>
-  <ul class="bullet-list">
-    <li>Provision of Wheelchairs: Wheelchairs are available for elderly and physically challenged visitors. These can typically be requested at the temple entrance or help desk.</li>
-    <li>Booking: It may be possible to book a wheelchair in advance by contacting the temple administration.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Assistance by Temple Staff:</h3>
-  <ul class="bullet-list">
-    <li>Guidance and Support: Temple staff and volunteers are available to assist physically handicapped and elderly visitors, helping them move around the temple and participate in rituals and darshan.</li>
-    <li>Escorting Services: Some temples offer escorting services where volunteers or staff members assist in guiding and supporting visitors throughout their visit.</li>
-  </ul>
-  <h5 class="section__sub-b">Tips for Physically Handicapped and Elderly Visitors</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Advance Inquiry:</h3>
-  <ul class="bullet-list">
-    <li>Before visiting, it is advisable to contact the temple administration to inquire about specific accessibility facilities and any assistance that may be available.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Plan Your Visit:</h3>
-  <ul class="bullet-list">
-    <li>Try to visit during less crowded times to ensure easier access to facilities and assistance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Companion:</h3>
-  <ul class="bullet-list">
-    <li>If possible, bring a companion to assist with any mobility or accessibility needs during the</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
-  <p>Chamunda Devi Temple - Wheelchair Facilities</p>
-  <h5 class="section__sub-b">Wheelchair Accessibility for Elderly and Physically Challenged Visitors</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Availability of Wheelchairs:</h3>
-  <ul class="bullet-list">
-    <li>Chamunda Devi Temple provides wheelchair facilities to assist elderly and physically challenged visitors during their visit.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Location and Booking:</h3>
-  <ul class="bullet-list">
-    <li>Location: Wheelchairs are typically available at the temple entrance or near the main reception area.</li>
-    <li>Booking: While advance booking procedures may vary, visitors can usually request a wheelchair on-site from temple staff or volunteers.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Assistance by Temple Staff:</h3>
-  <ul class="bullet-list">
-    <li>Guidance: Temple staff and volunteers are available to assist visitors in using wheelchairs and navigating the temple premises.</li>
-    <li>Support: They ensure that wheelchair users have access to all accessible areas of the temple, including darshan paths and ritual spaces.</li>
-  </ul>
-  <h5 class="section__sub-b">Tips for Visitors Using Wheelchairs</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Arrival Preparation:</h3>
-  <ul class="bullet-list">
-    <li>Upon arrival, inquire about wheelchair availability and any specific guidelines or assistance needed.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Accompaniment:</h3>
-  <ul class="bullet-list">
-    <li>If possible, accompany elderly or physically challenged visitors to provide additional support and ensure a smooth temple visit.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Plan Ahead:</h3>
-  <ul class="bullet-list">
-    <li>Plan your visit during less crowded times to facilitate easier movement with the wheelchair.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
-  <p>The Chamunda Devi Temple in Himachal Pradesh offers special entry and darshan timings for sick, senior citizens, and physically challenged individuals to ensure their convenience and comfort during the visit. These provisions are designed to facilitate easier access and a more comfortable experience for these visitors.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <p>Chamunda Devi Temple - Vehicle Pooja Information</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Vehicle Pooja: Yes, the Chamunda Devi Temple performs Vehicle Pooja.</h3>
-  <p>Timing: The Vehicle Pooja can be performed during temple opening hours.</p>
-  <p>Cost: The cost of the Vehicle Pooja may vary, and it is best to inquire directly with the temple administration for the current rates.</p>
-  <p>Booking: For detailed information about the pooja timings, costs, and booking, please contact the temple administration at +91-1894-238141 or visit the official website.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation at Chamunda Devi Temple</h3>
-  <p>The Chamunda Devi Temple provides accommodation facilities for pilgrims. Various types of accommodations are available, including rooms and dormitories. The cost of these facilities varies depending on the type and amenities provided.</p>
-  <p>Booking in Advance: To book accommodation in advance, pilgrims can contact the temple administration at +91-1894-238141 or visit the official website for more details and booking options.</p>
-  <p>For detailed information, visitors are encouraged to reach out directly to the temple&#x27;s administration office.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
-  <p>Chamunda Devi Temple - Parking Information</p>
-  <p>The Chamunda Devi Temple offers parking facilities for visitors arriving by different modes of transport:</p>
-  <ul class="bullet-list">
-    <li>Cars: There is designated parking space available near the temple premises for those arriving by car.</li>
-    <li>Mini Bus: Parking space is also available for mini buses, ensuring larger groups can visit conveniently.</li>
-    <li>Two-Wheelers: There is ample parking space for two-wheelers as well.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
-  <p>Chamunda Devi Temple - Prasad and Meal Services</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Prasad Services: The temple offers prasad services to devotees.</h3>
-  <p>Meals: Free meals (langar) are provided to devotees at specific times during the day.</p>
-  <p>Procedure: Devotees can partake in the meals by joining the queue in the designated area.</p>
-  <p>Payments: The meals are generally free, but donations are welcome.</p>
-  <p>Tickets: No tickets are required for the meals.</p>
-  <p>Timings: The timings for the meals can be obtained from the temple administration.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <p>Chamunda Devi Temple - Carry Home Prasad</p>
-  <p>Types of Prasad: The temple offers various types of prasad that devotees can take home. This includes sweets and other edible items commonly distributed as blessings.</p>
-  <p>Cost: The cost of carry-home prasad varies depending on the type and quantity. It is best to inquire directly at the temple or through their official contact channels.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Reporting Lost Items at Chamunda Devi Temple</h3>
-  <h5 class="section__sub-b">Procedure</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>Reporting a Missing Group Member at Chamunda Devi Temple</p>
-  <h5 class="section__sub-b">Procedure</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
-  <p>The Chamunda Devi Temple is under the management of the state government or district administration. Specific details regarding its registration can be obtained by contacting the temple administration directly.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Donations to Chamunda Devi Temple</h3>
-  <p>Methods of Donation: Apart from offering in the temple&#x27;s hundi, devotees can make donations through the following means:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Bank Transfer:</h3>
-  <ul class="bullet-list">
-    <li>Specific bank account details can be obtained from the temple administration.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Purpose of Donations:</h3>
-  <ul class="bullet-list">
-    <li>Donations can be made for various purposes such as temple maintenance, charitable activities, and community services.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <p>Privileges Associated with Donations to Chamunda Devi Temple</p>
-  <p>Currently, specific privileges associated with donations to the Chamunda Devi Temple are not publicly detailed like those of the Tirupati or Shirdi temples. For information on any special benefits or preferential treatments for donors, it is recommended to contact the temple administration directly.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple?</h3>
-  <p>Chamunda Devi Temple - Construction and Scientific Information</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Construction: The Chamunda Devi Temple features traditional North Indian temple architecture. It is constructed with stone and adorned with intricate carvings and sculptures. The temple is built on a raised platform and is surrounded by scenic natural beauty, including the Dhauladhar mountain range.</h3>
-  <p>Scientific Information: The temple&#x27;s location is known for its serene and spiritually uplifting environment. The surrounding area includes a cave with a Shiva Lingam and natural water sources, contributing to its spiritual significance.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-  <p>Special Significance of Chamunda Devi Temple</p>
-  <p>Significance: The Chamunda Devi Temple holds great spiritual and cultural importance. It is believed to be a powerful Shakti Peetha where the goddess Chamunda, an incarnation of Durga, is worshipped. Devotees believe that praying here can remove obstacles and grant protection.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
-  <p>Information for Foreigners</p>
-  <p>Spirituality Focus: Chamunda Devi Temple offers a serene and meditative environment ideal for spiritual seekers. The temple&#x27;s location amidst the tranquil natural beauty of Himachal Pradesh provides a perfect setting for meditation and introspection. The rituals and serene atmosphere emphasize inner peace and spiritual growth over religious practices. Visitors can experience traditional Hindu worship, understand the cultural significance, and participate in community meals (langar), fostering a sense of unity and compassion.</p>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
-  <p>b.Donation ( link)</p>
-  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
-  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-  <p>Chamunda Devi Temple - Call to Action and Interaction Links</p>
-  <p>a. Puja Services: To book a puja, you can visit the temple&#x27;s official website for more information and booking options.</p>
-  <p>b. Donations: Make donations to support the temple and its activities through the official donation page.</p>
-  <p>c. Accommodation: For accommodation options, including various types and an enquiry form, visit our site.</p>
-  <p>d. Tax Exemptions: Donations made to the temple may be eligible for exemptions under the Income Tax Act (e.g., 80G). Please check with the temple administration for specific details and eligibility.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event of the temple day and date?</h3>
-  <p>Chamunda Devi Temple - Annual Event</p>
-  <p>The Chamunda Devi Temple celebrates several annual events, with the most significant being during the Navratri festival. The exact dates of the celebrations vary each year based on the lunar calendar.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Event of the temple - day and date?</h3>
-  <p>The Chamunda Devi Temple hosts a special monthly event on the day of the full moon (Purnima) each month. Devotees gather to participate in special rituals and prayers dedicated to Goddess Chamunda Devi. This event includes various religious activities that are significant to the local community and pilgrims.</p>
-  <ul class="bullet-list">
-    <li>--------</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Condensed Information about the Place:</h3>
+					  <h5 class="section__sub-b">A. Main Deity</h5>
+					  <ul class="bullet-list">
+					    <li>Goddess Chamunda (Chamundeshwari):</li>
+					    <li>Goddess Chamunda is a form of Durga, worshipped as a fierce aspect of the divine feminine. She is considered the goddess of war and is often depicted slaying demons.</li>
+					  </ul>
+					  <h5 class="section__sub-b">B. Other Deities (Sub-deities)</h5>
+					  <ul class="bullet-list">
+					    <li>Lord Shiva (Nandikeshwar):</li>
+					    <li>In the temple complex, Lord Shiva is worshipped alongside Goddess Chamunda. The temple is also known as Chamunda Nandikeshwar Dham, indicating the presence of Nandikeshwar (another name for Lord Shiva).</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <ul class="bullet-list">
+					    <li>(a) general</li>
+					    <li>(b) on special days like festivals and utsavas</li>
+					  </ul>
+					  <p>Chamunda Devi Temple - Opening &amp; Closing Timings</p>
+					  <h5 class="section__sub-b">(a) General Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Morning:</li>
+					    <li>Opening Time: 5:00 AM</li>
+					    <li>Evening:</li>
+					    <li>Closing Time: 10:00 PM</li>
+					  </ul>
+					  <p>These timings ensure that devotees have ample opportunity to offer prayers and participate in daily rituals throughout the day.</p>
+					  <h5 class="section__sub-b">(b) Special Days (Festivals and Utsavas)</h5>
+					  <ul class="bullet-list">
+					    <li>Extended Hours:</li>
+					    <li>During major festivals like Navaratri and other significant utsavas, the temple remains open for longer hours to accommodate the large influx of devotees and to perform special rituals and ceremonies.</li>
+					    <li>Typical Extended Hours: The temple may open as early as 4:00 AM and close as late as 12:00 AM (midnight) during these special occasions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Notes</h5>
+					  <ul class="bullet-list">
+					    <li>Rituals and Aarti Timings: Specific timings for rituals and aartis (ceremonial prayers) are conducted at designated times throughout the day. It is advisable to check the temple’s schedule upon arrival or inquire at the help desk for precise timings.</li>
+					    <li>Seasonal Variations: There may be slight variations in timings based on seasonal changes and local customs. Always check with the temple administration for the most accurate and up-to-date information.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <ul class="bullet-list">
+					    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Entry Fees</h5>
+					  <ul class="bullet-list">
+					    <li>General Entry:</li>
+					    <li>There is no entry fee for general darshan at Chamunda Devi Temple. All devotees are welcome to visit and offer their prayers without any charge.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Privileges and Special Services</h5>
+					  <ul class="bullet-list">
+					    <li>Special Darshan Passes:</li>
+					    <li>Quick Darshan: During peak times and major festivals, the temple may offer special darshan passes for a fee. These passes allow devotees to bypass the regular queue for a quicker and more comfortable darshan experience.</li>
+					    <li>Special Gate Access: Holders of special darshan passes might have access to a separate gate, ensuring faster entry and exit.</li>
+					    <li>Cost: The cost for special darshan passes can vary. It is advisable to check with the temple administration for the current rates.</li>
+					    <li>Special Poojas and Rituals:</li>
+					    <li>Devotees can book special poojas and rituals for specific purposes, such as health, prosperity, or spiritual well-being.</li>
+					    <li>Cost: Fees for special poojas and rituals depend on the type and duration of the ceremony. Information on specific costs can be obtained from the temple’s booking office.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Entry Restrictions and Guidelines for Foreigners</h5>
+					  <ul class="bullet-list">
+					    <li>General Guidelines:</li>
+					    <li>Foreign visitors are generally welcome at the temple. There are no specific entry restrictions for foreigners.</li>
+					    <li>Respectful Conduct: All visitors, including foreigners, are expected to dress modestly and behave respectfully within the temple premises.</li>
+					    <li>Special Fees:</li>
+					    <li>There are no special fees for foreigners. They are subject to the same guidelines and charges as Indian devotees.</li>
+					    <li>Declaration Requirements:</li>
+					    <li>No specific declarations are required for foreign visitors. However, it is always a good practice to carry identification and be aware of local customs and practices.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Visitors</h5>
+					  <h5 class="section__sub-b">1. Plan Ahead</h5>
+					  <ul class="bullet-list">
+					    <li>During peak seasons and festivals, the temple can become very crowded. Planning your visit during off-peak hours can enhance your experience.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Dress modestly. Women are advised to wear sarees or salwar kameez, while men should wear traditional attire or at least cover their shoulders and knees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Follow Temple Protocols</h5>
+					  <ul class="bullet-list">
+					    <li>Adhere to all temple rules and guidelines, including photography restrictions and designated areas for specific activities.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- whatever is available?</h3>
+					  <h5 class="section__sub-b">How to Reach</h5>
+					  <h5 class="section__sub-b">By Air</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Airport:</li>
+					    <li>Gaggal Airport (Dharamshala Airport): The nearest airport to Chamunda Devi Temple is Gaggal Airport, which is approximately 20 km away from the temple.</li>
+					    <li>Connectivity: Gaggal Airport has regular flights from major cities like Delhi and Chandigarh.</li>
+					    <li>Transport from Airport: From the airport, you can hire a taxi or take a bus to reach the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Train</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Railway Station:</li>
+					    <li>Pathankot Railway Station: The nearest major railway station is Pathankot, which is about 100 km away from the temple.</li>
+					    <li>Kangra Mandir Railway Station: For those preferring a closer option, Kangra Mandir Railway Station is about 30 km from the temple, but it is less connected than Pathankot.</li>
+					    <li>Transport from Railway Station: From Pathankot or Kangra Mandir, you can take a taxi or a bus to reach the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Bus</h5>
+					  <ul class="bullet-list">
+					    <li>State Transport Buses:</li>
+					    <li>Himachal Pradesh Road Transport Corporation (HRTC) runs regular bus services from major cities like Dharamshala, Palampur, and Kangra to Chamunda Devi Temple.</li>
+					    <li>Private Buses:</li>
+					    <li>Several private operators also provide bus services to Chamunda Devi Temple from various parts of Himachal Pradesh and neighboring states.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Taxi/Car</h5>
+					  <ul class="bullet-list">
+					    <li>From Dharamshala:</li>
+					    <li>The temple is about 24 km from Dharamshala. You can hire a taxi or drive yourself. The journey takes approximately 45 minutes.</li>
+					    <li>From Palampur:</li>
+					    <li>Chamunda Devi Temple is around 20 km from Palampur, and it takes about 40 minutes by taxi or car.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Local Transport</h5>
+					  <ul class="bullet-list">
+					    <li>Auto-Rickshaws and Shared Taxis:</li>
+					    <li>In nearby towns like Dharamshala and Kangra, you can find auto-rickshaws and shared taxis that can take you to the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Directions and Tips</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <p>Chamunda Devi Temple - Special Poojas and Rituals</p>
+					  <p>Chamunda Devi Temple offers various special poojas and rituals that devotees can participate in. Here are the details regarding the days, timings, rates, and booking procedures for these poojas:</p>
+					  <h5 class="section__sub-b">Special Poojas and Rituals</h5>
+					  <h5 class="section__sub-b">1. Daily Poojas</h5>
+					  <ul class="bullet-list">
+					    <li>Aarti:</li>
+					    <li>Morning Aarti: 5:00 AM</li>
+					    <li>Evening Aarti: 7:00 PM</li>
+					    <li>Abhishekam: A ritual bathing of the deity with sacred substances like milk, honey, and water, performed daily.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Special Poojas</h5>
+					  <ul class="bullet-list">
+					    <li>Chandi Path:</li>
+					    <li>Description: A special recitation of the Durga Saptashati, invoking the blessings of Goddess Chamunda for health, prosperity, and protection.</li>
+					    <li>Days: Usually performed on Tuesdays and Fridays, considered auspicious for Devi worship.</li>
+					    <li>Timings: Typically in the morning around 9:00 AM.</li>
+					    <li>Rates: Approximately ₹1500 - ₹3000, depending on the number of recitations and the scale of the ritual.</li>
+					    <li>Navratri Poojas:</li>
+					    <li>Description: Special poojas conducted during the Navratri festival, including elaborate rituals, havans (fire sacrifices), and continuous recitation of scriptures.</li>
+					    <li>Days: During the nine days of Navratri (dates vary each year based on the lunar calendar).</li>
+					    <li>Timings: Throughout the day, with main rituals in the morning and evening.</li>
+					    <li>Rates: Special packages available, ranging from ₹5000 to ₹15000, depending on the specific rituals included.</li>
+					    <li>Havan (Fire Sacrifice):</li>
+					    <li>Description: A sacred fire ritual performed to invoke the blessings of the gods and purify the surroundings.</li>
+					    <li>Days: Can be booked on request, commonly performed on special occasions and festivals.</li>
+					    <li>Timings: Usually performed in the morning.</li>
+					    <li>Rates: Approximately ₹2500 - ₹5000, depending on the scale of the havan.</li>
+					    <li>Kumari Pooja:</li>
+					    <li>Description: A ritual where young girls (representing the goddess) are worshipped and offered gifts. This pooja is believed to bring blessings and good fortune.</li>
+					    <li>Days: Commonly performed during Navratri and other special occasions.</li>
+					    <li>Timings: Morning or early evening.</li>
+					    <li>Rates: ₹1000 - ₹2000.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Advance Booking Procedure</h5>
+					  <h5 class="section__sub-b">1. Online Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Website: Some poojas can be booked in advance through the temple’s official website. Navigate to the booking section, select the desired pooja, choose the date, and complete the payment process.</li>
+					    <li>Website Link: Chamunda Devi Temple Official Website</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. On-Site Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Office: Visit the temple office or the designated counter within the temple premises to book poojas in person. It is advisable to book at least a day in advance, especially for special poojas.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Chamunda Devi Temple - Online Services</p>
+					  <p>Chamunda Devi Temple offers various online services to cater to the needs of devotees, making it easier for them to participate in rituals, make donations, and stay informed about temple activities.</p>
+					  <h5 class="section__sub-b">Online Services Available</h5>
+					  <h5 class="section__sub-b">1. Online Pooja Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Devotees can book special poojas and rituals online through the temple&#x27;s official website.</li>
+					    <li>Service Provider: Chamunda Devi Temple’s official website.</li>
+					    <li>Link: Chamunda Devi Temple Pooja Booking</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Devotees can make donations online to support the temple’s various activities, maintenance, and charitable programs.</li>
+					    <li>Service Provider: Chamunda Devi Temple’s official website.</li>
+					    <li>Link: Chamunda Devi Temple Donations</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Live Streaming of Aartis and Events</h5>
+					  <ul class="bullet-list">
+					    <li>Description: The temple offers live streaming of major aartis and special events, allowing devotees from all over the world to participate virtually.</li>
+					    <li>Service Provider: Chamunda Devi Temple’s official website.</li>
+					    <li>Link: Chamunda Devi Temple Live Streaming</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Information and Updates</h5>
+					  <ul class="bullet-list">
+					    <li>Description: The website provides detailed information about the temple’s history, timings, upcoming events, and other relevant updates.</li>
+					    <li>Service Provider: Chamunda Devi Temple’s official website.</li>
+					    <li>Link: Chamunda Devi Temple Information</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Contact and Inquiry</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Devotees can contact the temple administration for inquiries, feedback, or assistance through the website.</li>
+					    <li>Service Provider: Chamunda Devi Temple’s official website.</li>
+					    <li>Link: Chamunda Devi Temple Contact</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Access These Services</h5>
+					  <h5 class="section__sub-b">1. Visit the Official Website</h5>
+					  <ul class="bullet-list">
+					    <li>Go to the Chamunda Devi Temple Official Website.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Navigate to the Desired Section</h5>
+					  <ul class="bullet-list">
+					    <li>Use the website’s navigation menu to find the section for pooja bookings, donations, live streaming, or contact information.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Follow the Instructions</h5>
+					  <ul class="bullet-list">
+					    <li>For booking poojas or making donations, follow the on-screen instructions to complete the process. Ensure you provide accurate details and complete any required payments online.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <p>Chamunda Devi Temple - Dress Code Guidelines</p>
+					  <p>To maintain the sanctity and decorum of the temple, Chamunda Devi Temple prescribes a specific dress code for visitors. Here are the guidelines for the dress code:</p>
+					  <h5 class="section__sub-b">General Dress Code</h5>
+					  <h5 class="section__sub-b">For Men</h5>
+					  <ul class="bullet-list">
+					    <li>Traditional Attire: Dhoti-Kurta or Kurta-Pajama is preferred.</li>
+					    <li>Western Attire: If wearing western clothes, ensure they are modest. Full-length trousers and shirts with sleeves are acceptable.</li>
+					    <li>Prohibited Attire: Shorts, sleeveless shirts, and other revealing clothing are not allowed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">For Women</h5>
+					  <ul class="bullet-list">
+					    <li>Traditional Attire: Sarees, Salwar Kameez, or long skirts with tops are preferred.</li>
+					    <li>Western Attire: If wearing western clothes, ensure they cover the shoulders and knees. Long dresses or skirts with sleeves are acceptable.</li>
+					    <li>Prohibited Attire: Short skirts, sleeveless tops, and other revealing clothing are not allowed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Dress Code for Special Poojas and Festival Days</h5>
+					  <h5 class="section__sub-b">For Men</h5>
+					  <ul class="bullet-list">
+					    <li>Traditional Attire Required: Dhoti and Kurta or traditional Indian attire are required for participation in special poojas and during festival days.</li>
+					    <li>Head Covering: Some rituals may require men to cover their heads with a cloth or turban.</li>
+					  </ul>
+					  <h5 class="section__sub-b">For Women</h5>
+					  <ul class="bullet-list">
+					    <li>Traditional Attire Required: Sarees or Salwar Kameez with dupatta are required for participation in special poojas and during festival days.</li>
+					    <li>Head Covering: Women may be required to cover their heads with a dupatta or shawl during certain rituals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">General Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Footwear: All visitors must remove their footwear before entering the temple premises. Shoe racks or storage areas are usually available near the entrance.</li>
+					    <li>Respectful Attire: The dress code is designed to ensure that all visitors dress respectfully, maintaining the spiritual ambiance of the temple.</li>
+					    <li>Cleanliness: Ensure that your attire is clean and tidy. This is considered respectful when entering a sacred space.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Visitors</h5>
+					  <h5 class="section__sub-b">1. Prepare in Advance</h5>
+					  <ul class="bullet-list">
+					    <li>If you plan to participate in special poojas or visit during festival days, make sure to wear the prescribed traditional attire.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Carry a Shawl or Dupatta</h5>
+					  <ul class="bullet-list">
+					    <li>Women should carry a shawl or dupatta to cover their heads during specific rituals if required.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Adhere to Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Follow the dress code guidelines strictly to avoid any inconvenience or denial of entry.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>Chamunda Devi Temple - Policy on Electronic Gadgets</p>
+					  <h5 class="section__sub-b">General Policy</h5>
+					  <ul class="bullet-list">
+					    <li>Mobile Phones: Mobile phones are generally allowed within the temple premises but must be kept on silent mode to maintain the sanctity and peaceful environment of the temple.</li>
+					    <li>Cameras: Photography and videography may be restricted in certain areas, especially inside the sanctum sanctorum. Always check for signs or ask temple authorities for specific guidelines.</li>
+					    <li>Other Electronic Gadgets: Devices such as tablets, laptops, and other electronic gadgets are generally discouraged inside the temple premises to ensure a distraction-free environment for devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Restrictions</h5>
+					  <ul class="bullet-list">
+					    <li>Sanctum Sanctorum: Mobile phones, cameras, and other electronic devices are typically not allowed inside the inner sanctum or during specific rituals to preserve the sanctity and avoid disturbances.</li>
+					    <li>During Rituals: Using electronic gadgets during poojas, aartis, and other rituals is generally prohibited.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Deposit and Storage Facilities</h5>
+					  <h5 class="section__sub-b">1. Locker Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: The temple provides locker facilities for visitors to safely deposit their electronic gadgets and other valuables.</li>
+					    <li>Location: Lockers are usually located near the main entrance or designated areas within the temple premises.</li>
+					    <li>Cost: There may be a nominal fee for using the locker facilities. It’s advisable to carry some change for this purpose.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Guidelines for Depositing Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Step 1: Locate the locker facility near the temple entrance.</li>
+					    <li>Step 2: Request a locker from the attendant and pay any applicable fee.</li>
+					    <li>Step 3: Securely deposit your electronic gadgets and other valuables in the locker.</li>
+					    <li>Step 4: Keep the locker key safe with you until you return to collect your items.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Visitors</h5>
+					  <h5 class="section__sub-b">1. Prepare in Advance</h5>
+					  <ul class="bullet-list">
+					    <li>Before entering the temple, decide whether you need to bring your electronic gadgets with you. If possible, leave non-essential items at your hotel or place of stay.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Follow Instructions</h5>
+					  <ul class="bullet-list">
+					    <li>Adhere to any specific instructions provided by temple staff regarding the use of electronic gadgets.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Respect the Environment</h5>
+					  <ul class="bullet-list">
+					    <li>Maintaining the sanctity and peaceful atmosphere of the temple is important. Avoid using mobile phones or other gadgets in a way that disrupts other devotees.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <p>Chamunda Devi Temple - Photography Policy</p>
+					  <h5 class="section__sub-b">General Policy on Photography</h5>
+					  <ul class="bullet-list">
+					    <li>Outer Areas:</li>
+					    <li>Photography is generally allowed in the outer areas of the Chamunda Devi Temple premises. Visitors can take pictures of the temple&#x27;s exterior, gardens, and other non-restricted areas.</li>
+					    <li>Inner Sanctum:</li>
+					    <li>Photography and videography are strictly prohibited inside the sanctum sanctorum and during rituals. This policy helps maintain the sanctity of the worship space and prevents disruptions during ceremonies.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Fees for Photography</h5>
+					  <ul class="bullet-list">
+					    <li>No Fee for General Photography:</li>
+					    <li>There is usually no fee for taking photographs in the permissible areas of the temple premises. Visitors can freely capture the beauty and serenity of the temple surroundings.</li>
+					    <li>Special Photography Requests:</li>
+					    <li>For professional photography or special occasions such as weddings, a special permission might be required, and a fee may be applicable. It is advisable to contact the temple administration in advance for such requests.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Visitors</h5>
+					  <h5 class="section__sub-b">1. Check for Signage</h5>
+					  <ul class="bullet-list">
+					    <li>Look for signs within the temple premises indicating areas where photography is allowed or prohibited.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Respect Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Always follow the guidelines provided by temple staff regarding photography to ensure a respectful and smooth experience for all devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Avoid Disruption</h5>
+					  <ul class="bullet-list">
+					    <li>Ensure that your photography does not disrupt other visitors or ongoing rituals. Maintain a respectful distance and avoid using flash or intrusive equipment.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>Chamunda Devi Temple - Accessibility Facilities</p>
+					  <h5 class="section__sub-b">Facilities for Physically Handicapped Visitors</h5>
+					  <h5 class="section__sub-b">1. Lifts/Elevators</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: Chamunda Devi Temple may not have a lift or elevator, as it is a traditional temple structure built on a hill. Accessibility can vary, and it&#x27;s best to check with the temple administration for the most current information.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Ramps</h5>
+					  <ul class="bullet-list">
+					    <li>Ramp Access: The temple premises are equipped with ramps to facilitate the movement of physically handicapped visitors. These ramps are designed to provide easier access to the main areas of the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Wheelchair Availability</h5>
+					  <ul class="bullet-list">
+					    <li>Provision of Wheelchairs: Wheelchairs are available for elderly and physically challenged visitors. These can typically be requested at the temple entrance or help desk.</li>
+					    <li>Booking: It may be possible to book a wheelchair in advance by contacting the temple administration.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Assistance by Temple Staff</h5>
+					  <ul class="bullet-list">
+					    <li>Guidance and Support: Temple staff and volunteers are available to assist physically handicapped and elderly visitors, helping them move around the temple and participate in rituals and darshan.</li>
+					    <li>Escorting Services: Some temples offer escorting services where volunteers or staff members assist in guiding and supporting visitors throughout their visit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Physically Handicapped and Elderly Visitors</h5>
+					  <h5 class="section__sub-b">1. Advance Inquiry</h5>
+					  <ul class="bullet-list">
+					    <li>Before visiting, it is advisable to contact the temple administration to inquire about specific accessibility facilities and any assistance that may be available.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Plan Your Visit</h5>
+					  <ul class="bullet-list">
+					    <li>Try to visit during less crowded times to ensure easier access to facilities and assistance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Companion</h5>
+					  <ul class="bullet-list">
+					    <li>If possible, bring a companion to assist with any mobility or accessibility needs during the</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>Chamunda Devi Temple - Wheelchair Facilities</p>
+					  <h5 class="section__sub-b">Wheelchair Accessibility for Elderly and Physically Challenged Visitors</h5>
+					  <h5 class="section__sub-b">1. Availability of Wheelchairs</h5>
+					  <ul class="bullet-list">
+					    <li>Chamunda Devi Temple provides wheelchair facilities to assist elderly and physically challenged visitors during their visit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Location and Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Wheelchairs are typically available at the temple entrance or near the main reception area.</li>
+					    <li>Booking: While advance booking procedures may vary, visitors can usually request a wheelchair on-site from temple staff or volunteers.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Assistance by Temple Staff</h5>
+					  <ul class="bullet-list">
+					    <li>Guidance: Temple staff and volunteers are available to assist visitors in using wheelchairs and navigating the temple premises.</li>
+					    <li>Support: They ensure that wheelchair users have access to all accessible areas of the temple, including darshan paths and ritual spaces.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Visitors Using Wheelchairs</h5>
+					  <h5 class="section__sub-b">1. Arrival Preparation</h5>
+					  <ul class="bullet-list">
+					    <li>Upon arrival, inquire about wheelchair availability and any specific guidelines or assistance needed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Accompaniment</h5>
+					  <ul class="bullet-list">
+					    <li>If possible, accompany elderly or physically challenged visitors to provide additional support and ensure a smooth temple visit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Plan Ahead</h5>
+					  <ul class="bullet-list">
+					    <li>Plan your visit during less crowded times to facilitate easier movement with the wheelchair.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <p>The Chamunda Devi Temple in Himachal Pradesh offers special entry and darshan timings for sick, senior citizens, and physically challenged individuals to ensure their convenience and comfort during the visit. These provisions are designed to facilitate easier access and a more comfortable experience for these visitors.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>Chamunda Devi Temple - Vehicle Pooja Information</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Vehicle Pooja: Yes, the Chamunda Devi Temple performs Vehicle Pooja.</h3>
+					  <p>Timing: The Vehicle Pooja can be performed during temple opening hours.</p>
+					  <p>Cost: The cost of the Vehicle Pooja may vary, and it is best to inquire directly with the temple administration for the current rates.</p>
+					  <p>Booking: For detailed information about the pooja timings, costs, and booking, please contact the temple administration at +91-1894-238141 or visit the official website.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Accommodation at Chamunda Devi Temple</h3>
+					  <p>The Chamunda Devi Temple provides accommodation facilities for pilgrims. Various types of accommodations are available, including rooms and dormitories. The cost of these facilities varies depending on the type and amenities provided.</p>
+					  <p>Booking in Advance: To book accommodation in advance, pilgrims can contact the temple administration at +91-1894-238141 or visit the official website for more details and booking options.</p>
+					  <p>For detailed information, visitors are encouraged to reach out directly to the temple&#x27;s administration office.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>Chamunda Devi Temple - Parking Information</p>
+					  <p>The Chamunda Devi Temple offers parking facilities for visitors arriving by different modes of transport:</p>
+					  <ul class="bullet-list">
+					    <li>Cars: There is designated parking space available near the temple premises for those arriving by car.</li>
+					    <li>Mini Bus: Parking space is also available for mini buses, ensuring larger groups can visit conveniently.</li>
+					    <li>Two-Wheelers: There is ample parking space for two-wheelers as well.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <p>Chamunda Devi Temple - Prasad and Meal Services</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Prasad Services: The temple offers prasad services to devotees.</h3>
+					  <p>Meals: Free meals (langar) are provided to devotees at specific times during the day.</p>
+					  <p>Procedure: Devotees can partake in the meals by joining the queue in the designated area.</p>
+					  <p>Payments: The meals are generally free, but donations are welcome.</p>
+					  <p>Tickets: No tickets are required for the meals.</p>
+					  <p>Timings: The timings for the meals can be obtained from the temple administration.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>Chamunda Devi Temple - Carry Home Prasad</p>
+					  <p>Types of Prasad: The temple offers various types of prasad that devotees can take home. This includes sweets and other edible items commonly distributed as blessings.</p>
+					  <p>Cost: The cost of carry-home prasad varies depending on the type and quantity. It is best to inquire directly at the temple or through their official contact channels.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Reporting Lost Items at Chamunda Devi Temple</h3>
+					  <h5 class="section__sub-b">Procedure</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>Reporting a Missing Group Member at Chamunda Devi Temple</p>
+					  <h5 class="section__sub-b">Procedure</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
+					  <p>The Chamunda Devi Temple is under the management of the state government or district administration. Specific details regarding its registration can be obtained by contacting the temple administration directly.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Donations to Chamunda Devi Temple</h3>
+					  <p>Methods of Donation: Apart from offering in the temple&#x27;s hundi, devotees can make donations through the following means:</p>
+					  <h5 class="section__sub-b">1. Bank Transfer</h5>
+					  <ul class="bullet-list">
+					    <li>Specific bank account details can be obtained from the temple administration.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Purpose of Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Donations can be made for various purposes such as temple maintenance, charitable activities, and community services.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>Privileges Associated with Donations to Chamunda Devi Temple</p>
+					  <p>Currently, specific privileges associated with donations to the Chamunda Devi Temple are not publicly detailed like those of the Tirupati or Shirdi temples. For information on any special benefits or preferential treatments for donors, it is recommended to contact the temple administration directly.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple?</h3>
+					  <p>Chamunda Devi Temple - Construction and Scientific Information</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Construction: The Chamunda Devi Temple features traditional North Indian temple architecture. It is constructed with stone and adorned with intricate carvings and sculptures. The temple is built on a raised platform and is surrounded by scenic natural beauty, including the Dhauladhar mountain range.</h3>
+					  <p>Scientific Information: The temple&#x27;s location is known for its serene and spiritually uplifting environment. The surrounding area includes a cave with a Shiva Lingam and natural water sources, contributing to its spiritual significance.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>Special Significance of Chamunda Devi Temple</p>
+					  <p>Significance: The Chamunda Devi Temple holds great spiritual and cultural importance. It is believed to be a powerful Shakti Peetha where the goddess Chamunda, an incarnation of Durga, is worshipped. Devotees believe that praying here can remove obstacles and grant protection.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <p>Information for Foreigners</p>
+					  <p>Spirituality Focus: Chamunda Devi Temple offers a serene and meditative environment ideal for spiritual seekers. The temple&#x27;s location amidst the tranquil natural beauty of Himachal Pradesh provides a perfect setting for meditation and introspection. The rituals and serene atmosphere emphasize inner peace and spiritual growth over religious practices. Visitors can experience traditional Hindu worship, understand the cultural significance, and participate in community meals (langar), fostering a sense of unity and compassion.</p>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Donation ( link)</p>
+					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>Chamunda Devi Temple - Call to Action and Interaction Links</p>
+					  <p>a. Puja Services: To book a puja, you can visit the temple&#x27;s official website for more information and booking options.</p>
+					  <p>b. Donations: Make donations to support the temple and its activities through the official donation page.</p>
+					  <p>c. Accommodation: For accommodation options, including various types and an enquiry form, visit our site.</p>
+					  <p>d. Tax Exemptions: Donations made to the temple may be eligible for exemptions under the Income Tax Act (e.g., 80G). Please check with the temple administration for specific details and eligibility.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event of the temple day and date?</h3>
+					  <p>Chamunda Devi Temple - Annual Event</p>
+					  <p>The Chamunda Devi Temple celebrates several annual events, with the most significant being during the Navratri festival. The exact dates of the celebrations vary each year based on the lunar calendar.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event of the temple - day and date?</h3>
+					  <p>The Chamunda Devi Temple hosts a special monthly event on the day of the full moon (Purnima) each month. Devotees gather to participate in special rituals and prayers dedicated to Goddess Chamunda Devi. This event includes various religious activities that are significant to the local community and pilgrims.</p>
+					  <ul class="bullet-list">
+					    <li>--------</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -759,89 +612,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

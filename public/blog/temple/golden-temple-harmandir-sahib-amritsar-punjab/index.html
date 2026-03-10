@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -95,7 +42,7 @@
 				<h1 class="hero-title">﻿Golden Temple (Harmandir Sahib) - Amritsar, Punjab</h1>
 
 							<div class="img-placeholder">
-					<div class="img-placeholder__icon">&#128341;</div>
+					<div class="img-placeholder__icon">🕉️</div>
 					<div class="img-placeholder__gradient"></div>
 					<div class="img-placeholder__text">Image of ﻿Golden Temple (Harmandir Sahib) - Amritsar, Punjab</div>
 				</div>
@@ -107,13 +54,6 @@
 							<div>
 								<div class="key-info__label">Main Deity</div>
 								<div class="key-info__value">The Guru Granth Sahib (holy scripture of Sikhism).</div>
-							</div>
-						</div>
-						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
 							</div>
 						</div>
 						<div class="key-info__item">
@@ -134,275 +74,272 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Full Address: Harmandir Sahib, Golden Temple Road, Amritsar, Punjab 143006, India</h3>
-  <p>Contact Numbers: +91 183 255 3957</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Condensed Information:</h3>
-  <ul class="bullet-list">
-    <li>Main Deity: The Guru Granth Sahib (holy scripture of Sikhism).</li>
-    <li>Significance: The holiest Gurdwara and the primary pilgrimage site of Sikhism</li>
-    <li>3.       Opening &amp; Closing Timing of the Temple.</li>
-  </ul>
-  <p>(a) general</p>
-  <p>(b) on special days like festivals and utsavas</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of Harmandir Sahib (Golden Temple):</h3>
-  <ul class="bullet-list">
-    <li>General Timings:</li>
-    <li>The temple is open 24 hours a day.</li>
-    <li>The main shrine&#x27;s doors open at 3:00 AM and close at 10:00 PM.</li>
-    <li>Special Days (Festivals and Utsavas):</li>
-    <li>During major festivals like Vaisakhi and Diwali, the temple remains open, and special prayers and programs are held, often with extended hours and larger crowds.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc. Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Fees and Privileges at Harmandir Sahib (Golden Temple):</h3>
-  <ul class="bullet-list">
-    <li>Entry Fees: There is no entry fee for visiting the Golden Temple.</li>
-    <li>Privileges: There are no special entry privileges for quick darshan or special gates.</li>
-    <li>Foreigners: There are no specific restrictions or additional fees for foreigners, but all visitors must follow the temple&#x27;s dress code and rules, including covering their heads and removing shoes.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- whatever is available.</h3>
-  <h5 class="section__sub-b">Location and How to Reach Harmandir Sahib (Golden Temple), Amritsar</h5>
-  <ul class="bullet-list">
-    <li>By Air: Sri Guru Ram Dass Jee International Airport (about 13 km from the temple).</li>
-    <li>By Train: Amritsar Junction Railway Station (around 2 km from the temple).</li>
-    <li>By Bus: Amritsar is well-connected by road; buses are available from major cities.</li>
-    <li>By Taxi/Auto-Rickshaw: Readily available within the city.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">* .What are the rates associated with it? What is the advance booking procedure?</h3>
-  <h5 class="section__sub-b">Special Rituals at Harmandir Sahib (Golden Temple)</h5>
-  <ul class="bullet-list">
-    <li>Daily Rituals:</li>
-    <li>Kirtan: Devotional singing occurs throughout the day.</li>
-    <li>Langar: Free community kitchen operates 24/7.</li>
-    <li>Palki Sahib: Ceremony of carrying the Guru Granth Sahib to and from the main shrine (4:00 AM and 10:00 PM).</li>
-    <li>Special Events: Various festivals like Vaisakhi and Gurpurabs are celebrated with special programs and extended hours.</li>
-  </ul>
-  <h5 class="section__sub-b">Rates and Booking</h5>
-  <ul class="bullet-list">
-    <li>There are no charges for participating in rituals or langar.</li>
-    <li>Advance booking is not required.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <h5 class="section__sub-b">Online Services at Harmandir Sahib (Golden Temple)</h5>
-  <p>The Golden Temple offers online services through its official website. Visitors can:</p>
-  <ul class="bullet-list">
-    <li>Donate online</li>
-    <li>Watch live Kirtan</li>
-    <li>Learn about temple activities and events</li>
-  </ul>
-  <p>These services are managed by the Shiromani Gurdwara Parbandhak Committee (SGPC).</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Dress Code at Harmandir Sahib (Golden Temple):</h3>
-  <ul class="bullet-list">
-    <li>General Dress Code:</li>
-    <li>Men and Women: Must cover their heads (scarves or handkerchiefs available at the temple).</li>
-    <li>Remove shoes before entering.</li>
-    <li>Wear modest attire covering shoulders and legs.</li>
-    <li>Special Poojas/Festivals:</li>
-    <li>The same dress code applies, emphasizing modesty and respect.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Electronic Gadgets at Harmandir Sahib (Golden Temple):</h3>
-  <ul class="bullet-list">
-    <li>Allowed: Basic mobile phones without cameras.</li>
-    <li>Not Allowed: Cameras, smartphones with cameras, and other electronic gadgets.</li>
-    <li>Deposit Facilities: Visitors can deposit prohibited items at designated counters near the temple entrance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography at Harmandir Sahib (Golden Temple):</h3>
-  <ul class="bullet-list">
-    <li>Inside the Temple: Photography is not allowed inside the main sanctum.</li>
-    <li>Outside Areas: Photography is allowed in the outer areas of the temple complex.</li>
-    <li>Fee: No specific fee is required for photography in the permitted areas.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other facility for physically handicapped?</h3>
-  <h5 class="section__sub-b">Facilities for Physically Handicapped at Harmandir Sahib (Golden Temple)</h5>
-  <p>Yes, the Golden Temple provides facilities for physically handicapped visitors, including ramps and wheelchair accessibility to ensure ease of movement within the temple premises. However, there are no elevators or lifts within the temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
-  <h5 class="section__sub-b">Wheelchair Facilities at Harmandir Sahib (Golden Temple)</h5>
-  <p>The Golden Temple provides wheelchairs for elderly and physically challenged visitors to ensure accessibility and ease of movement within the temple premises.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
-  <h5 class="section__sub-b">Special Entry/Timings for Darshan at Harmandir Sahib (Golden Temple)</h5>
-  <p>There are no specific separate timings or entry points for sick, senior citizens, or physically challenged persons. However, the temple provides general accessibility features such as ramps and wheelchairs to facilitate ease of movement within the premises.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <p>The Golden Temple does not traditionally perform vehicle poojas. The focus at this sacred site is primarily on spiritual practices and rituals associated with Sikh worship.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation Facilities at Harmandir Sahib (Golden Temple):</h3>
-  <h5 class="section__sub-b">Yes, the Golden Temple provides accommodation for pilgrims. Options include</h5>
-  <ul class="bullet-list">
-    <li>Guru Ram Das Sarai: Free and paid rooms available.</li>
-    <li>Guru Arjan Dev Niwas: Moderately priced rooms.</li>
-    <li>Akal Rest House: For NRIs and foreigners.</li>
-  </ul>
-  <p>Booking: Advance booking can be made in person at the respective accommodation offices within the temple complex. For more detailed information, please contact the temple administration directly or visit the official website.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Parking Facilities at Harmandir Sahib (Golden Temple):</h3>
-  <ul class="bullet-list">
-    <li>Cars and Mini Buses: Designated parking areas are available near the temple complex.</li>
-    <li>Two-Wheelers: Separate parking spaces for two-wheelers are also provided.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Prashad and Meal Services at Harmandir Sahib (Golden Temple):</h3>
-  <ul class="bullet-list">
-    <li>Langar (Community Kitchen): Free meals are served to all visitors without any distinction of class or status.</li>
-    <li>Procedure: Visitors queue in lines to receive meals.</li>
-    <li>Timings: Langar operates 24/7.</li>
-    <li>Payments: No payment required, as it is a free service offered to everyone.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <h5 class="section__sub-b">Carry Home Prasadam at Harmandir Sahib (Golden Temple)</h5>
-  <ul class="bullet-list">
-    <li>Types of Prasadam:</li>
-    <li>Karah Prasad (Sweet Wheat Halwa)</li>
-    <li>Cost:</li>
-    <li>The prasad is typically available for a nominal donation. Prices can vary.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <h5 class="section__sub-b">Procedure for Reporting Lost Items at Harmandir Sahib (Golden Temple)</h5>
-  <h5 class="section__sub-b">Purchase Procedure</h5>
-  <ul class="bullet-list">
-    <li>Prasad can be obtained from designated counters within the temple complex.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <h5 class="section__sub-b">Procedure for Reporting a Missing Person at Harmandir Sahib (Golden Temple)</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
-  <p>Yes, the Golden Temple (Harmandir Sahib) is managed by the Shiromani Gurdwara Parbandhak Committee (SGPC), which is an organization registered under the state government. The SGPC is responsible for the management and administration of various Gurdwaras, including the Golden Temple, and handles the religious and charitable activities associated with them.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Donations can be made to support various services and charitable activities such as the Langar (community kitchen), maintenance of the temple, and other religious services.</h3>
-  <h5 class="section__sub-b">Methods of Donation</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <h5 class="section__sub-b">Privileges Associated with Donations at Harmandir Sahib (Golden Temple)</h5>
-  <p>The Golden Temple does not advertise specific privileges or preferential treatments for donors similar to those offered by Tirupati or Shirdi temples. Donations are primarily used for the maintenance of the temple, the Langar (community kitchen), and other charitable activities.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Construction and Scientific Information about Harmandir Sahib (Golden Temple):</h3>
-  <ul class="bullet-list">
-    <li>Architecture: The Golden Temple, constructed in the 16th century, features a blend of Hindu and Islamic architectural styles. The main structure is built on a 67 ft square platform and surrounded by a holy pool (Amrit Sarovar).</li>
-    <li>Materials: The temple is adorned with gold-plated copper covering the sanctum and white marble on the lower sections.</li>
-    <li>Scientific Aspects: The temple complex includes advanced water management systems in the sarovar and earthquake-resistant construction techniques.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Construction and Scientific Information about Harmandir Sahib (Golden Temple):</h3>
-  <ul class="bullet-list">
-    <li>Architecture: The Golden Temple, constructed in the 16th century, features a blend of Hindu and Islamic architectural styles. The main structure is built on a 67 ft square platform and surrounded by a holy pool (Amrit Sarovar).</li>
-    <li>Materials: The temple is adorned with gold-plated copper covering the sanctum and white marble on the lower sections.</li>
-    <li>Scientific Aspects: The temple complex includes advanced water management systems in the sarovar and earthquake-resistant construction techniques.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <ul class="bullet-list">
-    <li>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</li>
-  </ul>
-  <p>Yes, the Golden Temple holds deep spiritual and historical significance for Sikhs and others who visit. Here are some notable aspects:</p>
-  <h5 class="section__sub-b">Spiritual and Historical Significance of the Golden Temple</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Peace and Meditation: The serene environment of the Golden Temple provides a perfect setting for meditation and inner peace. The continuous recitation of Gurbani (holy hymns) creates a spiritually uplifting atmosphere.</h3>
-  <h5 class="section__sub-b">Unique Energies and Comparisons</h5>
-  <p>While the Golden Temple itself may not be described in terms of geomagnetic fields like the Kasar Devi Temple, its spiritual energy and the sense of peace and devotion it inspires are profound. Visitors often describe a feeling of tranquility and divine presence within its premises.</p>
-  <p>Just as Kasar Devi Temple is known for its cosmic energy, the Golden Temple is revered for its sacredness and the deep spiritual experiences it offers to pilgrims and visitors from around the world.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion.</h3>
-  <p>Spiritual Significance of the Golden Temple (Harmandir Sahib) for International Visitors</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural Exchange and Learning: Interacting with the local Sikh community and participating in temple activities can offer valuable insights into Sikh customs, traditions, and spiritual practices. These experiences can enrich one&#x27;s understanding of different cultural and spiritual perspectives.</h3>
-  <h5 class="section__sub-b">Practical Information</h5>
-  <ul class="bullet-list">
-    <li>Dress Code: Visitors are required to cover their heads and remove their shoes before entering the temple premises. Scarves and head coverings are usually available at the entrance.</li>
-    <li>Photography: Photography is allowed in certain areas but is restricted within the inner sanctum.</li>
-    <li>Accommodation: The Golden Temple offers free lodging to pilgrims and visitors, known as &#x27;sarai,&#x27; within the temple complex.</li>
-  </ul>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <ul class="bullet-list">
-    <li>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</li>
-    <li>b.Donation ( link)</li>
-    <li>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</li>
-    <li>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</li>
-  </ul>
-  <p>Experience the Spiritual Bliss of the Golden Temple (Harmandir Sahib)</p>
-  <p>Immerse yourself in the profound spirituality and serene ambiance of the Golden Temple. Whether you&#x27;re seeking peace, participating in selfless service, or exploring the rich heritage of Sikhism, the Golden Temple offers a transformative experience for all.</p>
-  <p>Puja Services: Engage in the spiritual practices and rituals at the Golden Temple. You can book special puja services to deepen your spiritual journey. Learn more and book a puja.</p>
-  <p>Make a Donation: Your contributions help sustain the temple&#x27;s various services and community initiatives, including the free community kitchen (Langar) that serves thousands daily. Donations are eligible for tax exemptions under Section 80G of the Income Tax Act. Donate now and support the Golden Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation: Plan your stay in Amritsar with ease. We offer a comprehensive list of accommodations, ranging from budget options to luxury stays, all designed to make your visit comfortable and memorable. Explore accommodation options and send an enquiry.</h3>
-  <p>Tax Exemption Information: Donations made to the Golden Temple are eligible for tax exemptions under Section 80G of the Income Tax Act. Supporting the temple not only contributes to its noble causes but also offers financial benefits. For example, donations to the Anna Dana at Shirdi are eligible for 100%/50% exemption. Find out more about tax exemptions.</p>
-  <p>Visit the official Golden Temple website for more information and to make your spiritual journey a reality.</p>
-  <p>I included links to the Golden Temple website for puja services, donations, and tax exemption information, while the accommodation link directs to your site with an enquiry form. Let me know if you need any adjustments or additional information.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Events at the Golden Temple (Harmandir Sahib)</h3>
-  <p>The Golden Temple hosts several significant annual events and festivals that attract pilgrims and visitors from around the world. Here are some of the key events:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Gurpurab Celebrations: The birthdays of Sikh Gurus, known as Gurpurabs, are celebrated with immense devotion. The most notable Gurpurabs are:</h3>
-  <ul class="bullet-list">
-    <li>Guru Nanak Dev Ji&#x27;s Birthday (November): The founder of Sikhism, Guru Nanak Dev Ji&#x27;s birth anniversary, usually falls in November. The temple is beautifully illuminated, and the celebrations include continuous recitation of the Guru Granth Sahib, kirtan (devotional singing), and langar (community meals).</li>
-    <li>Guru Gobind Singh Ji&#x27;s Birthday (January): The tenth Sikh Guru, Guru Gobind Singh Ji&#x27;s birthday, is celebrated in January with similar devotion and grandeur.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Martyrdom Days:</h3>
-  <ul class="bullet-list">
-    <li>Martyrdom of Guru Arjan Dev Ji (June): The martyrdom of Guru Arjan Dev Ji, the fifth Sikh Guru, is observed in June. Devotees engage in special prayers and kirtans to honor his sacrifice.</li>
-    <li>Martyrdom of Guru Tegh Bahadur Ji (November-December): The martyrdom of the ninth Sikh Guru, Guru Tegh Bahadur Ji, is observed in November or December with prayers and remembrance ceremonies.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Events at the Golden Temple (Harmandir Sahib)</h3>
-  <p>While the Golden Temple primarily hosts several grand annual events, there are also regular monthly events and practices that offer visitors a chance to engage in the temple&#x27;s spiritual activities. Here are some of the key monthly events:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Langar Services: In addition to daily Langar, the Golden Temple organizes special Langar services on significant monthly occasions such as Sangrand and Puranmashi. These services emphasize the Sikh principles of selfless service (Seva) and community support.</h3>
-  <p>For specific dates of these monthly events, you can refer to the Golden Temple events calendar or check with the temple&#x27;s official announcements.</p>
-  <ul class="bullet-list">
-    <li>----------------</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Full Address: Harmandir Sahib, Golden Temple Road, Amritsar, Punjab 143006, India</h3>
+					  <p>Contact Numbers: +91 183 255 3957</p>
+					  <h5 class="section__sub-b">Condensed Information</h5>
+					  <ul class="bullet-list">
+					    <li>Main Deity: The Guru Granth Sahib (holy scripture of Sikhism).</li>
+					    <li>Significance: The holiest Gurdwara and the primary pilgrimage site of Sikhism</li>
+					    <li>3.       Opening &amp; Closing Timing of the Temple.</li>
+					  </ul>
+					  <p>(a) general</p>
+					  <p>(b) on special days like festivals and utsavas</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of Harmandir Sahib (Golden Temple):</h3>
+					  <ul class="bullet-list">
+					    <li>General Timings:</li>
+					    <li>The temple is open 24 hours a day.</li>
+					    <li>The main shrine&#x27;s doors open at 3:00 AM and close at 10:00 PM.</li>
+					    <li>Special Days (Festivals and Utsavas):</li>
+					    <li>During major festivals like Vaisakhi and Diwali, the temple remains open, and special prayers and programs are held, often with extended hours and larger crowds.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc. Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Entry Fees and Privileges at Harmandir Sahib (Golden Temple):</h3>
+					  <ul class="bullet-list">
+					    <li>Entry Fees: There is no entry fee for visiting the Golden Temple.</li>
+					    <li>Privileges: There are no special entry privileges for quick darshan or special gates.</li>
+					    <li>Foreigners: There are no specific restrictions or additional fees for foreigners, but all visitors must follow the temple&#x27;s dress code and rules, including covering their heads and removing shoes.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- whatever is available.</h3>
+					  <h5 class="section__sub-b">Location and How to Reach Harmandir Sahib (Golden Temple), Amritsar</h5>
+					  <ul class="bullet-list">
+					    <li>By Air: Sri Guru Ram Dass Jee International Airport (about 13 km from the temple).</li>
+					    <li>By Train: Amritsar Junction Railway Station (around 2 km from the temple).</li>
+					    <li>By Bus: Amritsar is well-connected by road; buses are available from major cities.</li>
+					    <li>By Taxi/Auto-Rickshaw: Readily available within the city.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">* .What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <h5 class="section__sub-b">Special Rituals at Harmandir Sahib (Golden Temple)</h5>
+					  <ul class="bullet-list">
+					    <li>Daily Rituals:</li>
+					    <li>Kirtan: Devotional singing occurs throughout the day.</li>
+					    <li>Langar: Free community kitchen operates 24/7.</li>
+					    <li>Palki Sahib: Ceremony of carrying the Guru Granth Sahib to and from the main shrine (4:00 AM and 10:00 PM).</li>
+					    <li>Special Events: Various festivals like Vaisakhi and Gurpurabs are celebrated with special programs and extended hours.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Rates and Booking</h5>
+					  <ul class="bullet-list">
+					    <li>There are no charges for participating in rituals or langar.</li>
+					    <li>Advance booking is not required.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <h5 class="section__sub-b">Online Services at Harmandir Sahib (Golden Temple)</h5>
+					  <p>The Golden Temple offers online services through its official website. Visitors can:</p>
+					  <ul class="bullet-list">
+					    <li>Donate online</li>
+					    <li>Watch live Kirtan</li>
+					    <li>Learn about temple activities and events</li>
+					  </ul>
+					  <p>These services are managed by the Shiromani Gurdwara Parbandhak Committee (SGPC).</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <h5 class="section__sub-b">Dress Code at Harmandir Sahib (Golden Temple)</h5>
+					  <ul class="bullet-list">
+					    <li>General Dress Code:</li>
+					    <li>Men and Women: Must cover their heads (scarves or handkerchiefs available at the temple).</li>
+					    <li>Remove shoes before entering.</li>
+					    <li>Wear modest attire covering shoulders and legs.</li>
+					    <li>Special Poojas/Festivals:</li>
+					    <li>The same dress code applies, emphasizing modesty and respect.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Electronic Gadgets at Harmandir Sahib (Golden Temple):</h3>
+					  <ul class="bullet-list">
+					    <li>Allowed: Basic mobile phones without cameras.</li>
+					    <li>Not Allowed: Cameras, smartphones with cameras, and other electronic gadgets.</li>
+					    <li>Deposit Facilities: Visitors can deposit prohibited items at designated counters near the temple entrance.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Photography at Harmandir Sahib (Golden Temple):</h3>
+					  <ul class="bullet-list">
+					    <li>Inside the Temple: Photography is not allowed inside the main sanctum.</li>
+					    <li>Outside Areas: Photography is allowed in the outer areas of the temple complex.</li>
+					    <li>Fee: No specific fee is required for photography in the permitted areas.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other facility for physically handicapped?</h3>
+					  <h5 class="section__sub-b">Facilities for Physically Handicapped at Harmandir Sahib (Golden Temple)</h5>
+					  <p>Yes, the Golden Temple provides facilities for physically handicapped visitors, including ramps and wheelchair accessibility to ensure ease of movement within the temple premises. However, there are no elevators or lifts within the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <h5 class="section__sub-b">Wheelchair Facilities at Harmandir Sahib (Golden Temple)</h5>
+					  <p>The Golden Temple provides wheelchairs for elderly and physically challenged visitors to ensure accessibility and ease of movement within the temple premises.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <h5 class="section__sub-b">Special Entry/Timings for Darshan at Harmandir Sahib (Golden Temple)</h5>
+					  <p>There are no specific separate timings or entry points for sick, senior citizens, or physically challenged persons. However, the temple provides general accessibility features such as ramps and wheelchairs to facilitate ease of movement within the premises.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>The Golden Temple does not traditionally perform vehicle poojas. The focus at this sacred site is primarily on spiritual practices and rituals associated with Sikh worship.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Accommodation Facilities at Harmandir Sahib (Golden Temple):</h3>
+					  <h5 class="section__sub-b">Yes, the Golden Temple provides accommodation for pilgrims. Options include</h5>
+					  <ul class="bullet-list">
+					    <li>Guru Ram Das Sarai: Free and paid rooms available.</li>
+					    <li>Guru Arjan Dev Niwas: Moderately priced rooms.</li>
+					    <li>Akal Rest House: For NRIs and foreigners.</li>
+					  </ul>
+					  <p>Booking: Advance booking can be made in person at the respective accommodation offices within the temple complex. For more detailed information, please contact the temple administration directly or visit the official website.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Parking Facilities at Harmandir Sahib (Golden Temple):</h3>
+					  <ul class="bullet-list">
+					    <li>Cars and Mini Buses: Designated parking areas are available near the temple complex.</li>
+					    <li>Two-Wheelers: Separate parking spaces for two-wheelers are also provided.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Prashad and Meal Services at Harmandir Sahib (Golden Temple):</h3>
+					  <ul class="bullet-list">
+					    <li>Langar (Community Kitchen): Free meals are served to all visitors without any distinction of class or status.</li>
+					    <li>Procedure: Visitors queue in lines to receive meals.</li>
+					    <li>Timings: Langar operates 24/7.</li>
+					    <li>Payments: No payment required, as it is a free service offered to everyone.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <h5 class="section__sub-b">Carry Home Prasadam at Harmandir Sahib (Golden Temple)</h5>
+					  <ul class="bullet-list">
+					    <li>Types of Prasadam:</li>
+					    <li>Karah Prasad (Sweet Wheat Halwa)</li>
+					    <li>Cost:</li>
+					    <li>The prasad is typically available for a nominal donation. Prices can vary.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <h5 class="section__sub-b">Procedure for Reporting Lost Items at Harmandir Sahib (Golden Temple)</h5>
+					  <h5 class="section__sub-b">Purchase Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Prasad can be obtained from designated counters within the temple complex.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <h5 class="section__sub-b">Procedure for Reporting a Missing Person at Harmandir Sahib (Golden Temple)</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
+					  <p>Yes, the Golden Temple (Harmandir Sahib) is managed by the Shiromani Gurdwara Parbandhak Committee (SGPC), which is an organization registered under the state government. The SGPC is responsible for the management and administration of various Gurdwaras, including the Golden Temple, and handles the religious and charitable activities associated with them.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Donations can be made to support various services and charitable activities such as the Langar (community kitchen), maintenance of the temple, and other religious services.</h3>
+					  <h5 class="section__sub-b">Methods of Donation</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <h5 class="section__sub-b">Privileges Associated with Donations at Harmandir Sahib (Golden Temple)</h5>
+					  <p>The Golden Temple does not advertise specific privileges or preferential treatments for donors similar to those offered by Tirupati or Shirdi temples. Donations are primarily used for the maintenance of the temple, the Langar (community kitchen), and other charitable activities.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Construction and Scientific Information about Harmandir Sahib (Golden Temple):</h3>
+					  <ul class="bullet-list">
+					    <li>Architecture: The Golden Temple, constructed in the 16th century, features a blend of Hindu and Islamic architectural styles. The main structure is built on a 67 ft square platform and surrounded by a holy pool (Amrit Sarovar).</li>
+					    <li>Materials: The temple is adorned with gold-plated copper covering the sanctum and white marble on the lower sections.</li>
+					    <li>Scientific Aspects: The temple complex includes advanced water management systems in the sarovar and earthquake-resistant construction techniques.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Construction and Scientific Information about Harmandir Sahib (Golden Temple):</h3>
+					  <ul class="bullet-list">
+					    <li>Architecture: The Golden Temple, constructed in the 16th century, features a blend of Hindu and Islamic architectural styles. The main structure is built on a 67 ft square platform and surrounded by a holy pool (Amrit Sarovar).</li>
+					    <li>Materials: The temple is adorned with gold-plated copper covering the sanctum and white marble on the lower sections.</li>
+					    <li>Scientific Aspects: The temple complex includes advanced water management systems in the sarovar and earthquake-resistant construction techniques.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <ul class="bullet-list">
+					    <li>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</li>
+					  </ul>
+					  <p>Yes, the Golden Temple holds deep spiritual and historical significance for Sikhs and others who visit. Here are some notable aspects:</p>
+					  <h5 class="section__sub-b">Spiritual and Historical Significance of the Golden Temple</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Peace and Meditation: The serene environment of the Golden Temple provides a perfect setting for meditation and inner peace. The continuous recitation of Gurbani (holy hymns) creates a spiritually uplifting atmosphere.</h3>
+					  <h5 class="section__sub-b">Unique Energies and Comparisons</h5>
+					  <p>While the Golden Temple itself may not be described in terms of geomagnetic fields like the Kasar Devi Temple, its spiritual energy and the sense of peace and devotion it inspires are profound. Visitors often describe a feeling of tranquility and divine presence within its premises.</p>
+					  <p>Just as Kasar Devi Temple is known for its cosmic energy, the Golden Temple is revered for its sacredness and the deep spiritual experiences it offers to pilgrims and visitors from around the world.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion.</h3>
+					  <p>Spiritual Significance of the Golden Temple (Harmandir Sahib) for International Visitors</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Cultural Exchange and Learning: Interacting with the local Sikh community and participating in temple activities can offer valuable insights into Sikh customs, traditions, and spiritual practices. These experiences can enrich one&#x27;s understanding of different cultural and spiritual perspectives.</h3>
+					  <h5 class="section__sub-b">Practical Information</h5>
+					  <ul class="bullet-list">
+					    <li>Dress Code: Visitors are required to cover their heads and remove their shoes before entering the temple premises. Scarves and head coverings are usually available at the entrance.</li>
+					    <li>Photography: Photography is allowed in certain areas but is restricted within the inner sanctum.</li>
+					    <li>Accommodation: The Golden Temple offers free lodging to pilgrims and visitors, known as &#x27;sarai,&#x27; within the temple complex.</li>
+					  </ul>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <ul class="bullet-list">
+					    <li>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</li>
+					    <li>b.Donation ( link)</li>
+					    <li>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</li>
+					    <li>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</li>
+					  </ul>
+					  <p>Experience the Spiritual Bliss of the Golden Temple (Harmandir Sahib)</p>
+					  <p>Immerse yourself in the profound spirituality and serene ambiance of the Golden Temple. Whether you&#x27;re seeking peace, participating in selfless service, or exploring the rich heritage of Sikhism, the Golden Temple offers a transformative experience for all.</p>
+					  <p>Puja Services: Engage in the spiritual practices and rituals at the Golden Temple. You can book special puja services to deepen your spiritual journey. Learn more and book a puja.</p>
+					  <p>Make a Donation: Your contributions help sustain the temple&#x27;s various services and community initiatives, including the free community kitchen (Langar) that serves thousands daily. Donations are eligible for tax exemptions under Section 80G of the Income Tax Act. Donate now and support the Golden Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Accommodation: Plan your stay in Amritsar with ease. We offer a comprehensive list of accommodations, ranging from budget options to luxury stays, all designed to make your visit comfortable and memorable. Explore accommodation options and send an enquiry.</h3>
+					  <p>Tax Exemption Information: Donations made to the Golden Temple are eligible for tax exemptions under Section 80G of the Income Tax Act. Supporting the temple not only contributes to its noble causes but also offers financial benefits. For example, donations to the Anna Dana at Shirdi are eligible for 100%/50% exemption. Find out more about tax exemptions.</p>
+					  <p>Visit the official Golden Temple website for more information and to make your spiritual journey a reality.</p>
+					  <p>I included links to the Golden Temple website for puja services, donations, and tax exemption information, while the accommodation link directs to your site with an enquiry form. Let me know if you need any adjustments or additional information.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Events at the Golden Temple (Harmandir Sahib)</h3>
+					  <p>The Golden Temple hosts several significant annual events and festivals that attract pilgrims and visitors from around the world. Here are some of the key events:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Gurpurab Celebrations: The birthdays of Sikh Gurus, known as Gurpurabs, are celebrated with immense devotion. The most notable Gurpurabs are:</h3>
+					  <ul class="bullet-list">
+					    <li>Guru Nanak Dev Ji&#x27;s Birthday (November): The founder of Sikhism, Guru Nanak Dev Ji&#x27;s birth anniversary, usually falls in November. The temple is beautifully illuminated, and the celebrations include continuous recitation of the Guru Granth Sahib, kirtan (devotional singing), and langar (community meals).</li>
+					    <li>Guru Gobind Singh Ji&#x27;s Birthday (January): The tenth Sikh Guru, Guru Gobind Singh Ji&#x27;s birthday, is celebrated in January with similar devotion and grandeur.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Martyrdom Days</h5>
+					  <ul class="bullet-list">
+					    <li>Martyrdom of Guru Arjan Dev Ji (June): The martyrdom of Guru Arjan Dev Ji, the fifth Sikh Guru, is observed in June. Devotees engage in special prayers and kirtans to honor his sacrifice.</li>
+					    <li>Martyrdom of Guru Tegh Bahadur Ji (November-December): The martyrdom of the ninth Sikh Guru, Guru Tegh Bahadur Ji, is observed in November or December with prayers and remembrance ceremonies.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Events at the Golden Temple (Harmandir Sahib)</h3>
+					  <p>While the Golden Temple primarily hosts several grand annual events, there are also regular monthly events and practices that offer visitors a chance to engage in the temple&#x27;s spiritual activities. Here are some of the key monthly events:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special Langar Services: In addition to daily Langar, the Golden Temple organizes special Langar services on significant monthly occasions such as Sangrand and Puranmashi. These services emphasize the Sikh principles of selfless service (Seva) and community support.</h3>
+					  <p>For specific dates of these monthly events, you can refer to the Golden Temple events calendar or check with the temple&#x27;s official announcements.</p>
+					  <ul class="bullet-list">
+					    <li>----------------</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -416,89 +353,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -95,7 +42,7 @@
 				<h1 class="hero-title">﻿Karni Mata Temple - Rajasthan</h1>
 
 							<div class="img-placeholder">
-					<div class="img-placeholder__icon">&#128341;</div>
+					<div class="img-placeholder__icon">🕉️</div>
 					<div class="img-placeholder__gradient"></div>
 					<div class="img-placeholder__text">Image of ﻿Karni Mata Temple - Rajasthan</div>
 				</div>
@@ -107,13 +54,6 @@
 							<div>
 								<div class="key-info__label">Main Deity</div>
 								<div class="key-info__value">Karni Mata, worshipped as an incarnation of the warrior goddess Durga.</div>
-							</div>
-						</div>
-						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
 							</div>
 						</div>
 						<div class="key-info__item">
@@ -134,174 +74,174 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Full Address: Karni Mata Niji Pranyas, Deshnok, Bikaner, Rajasthan, India, 334801</h3>
-  <p>  Contact Number: Not publicly listed on the official website.</p>
-  <p>  Main Deity: Karni Mata, worshipped as an incarnation of the warrior goddess Durga.</p>
-  <p>  Other Deities (Sub Deities): The temple is unique for its lack of traditional sub-deities typically found in Hindu temples. Instead, it is renowned for the thousands of sacred rats, called &quot;Kabbas,&quot; which are revered and protected as they are believed to be the reincarnated descendants of Karni Mata’s male children and storytellers.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <p>(a) general</p>
-  <p>(b) on special days like festivals and utsavas</p>
-  <p>The Karni Mata Temple in Deshnok, Rajasthan, generally opens daily from 4:00 AM to 10:00 PM. On special days, such as festivals and during Navaratri celebrations, the timings may vary to accommodate special rituals and increased visitor numbers. Specifically, the temple hosts large fairs twice a year during the Navaratri periods in March/April and September/October, which may affect the usual daily schedule​ (Veena World)​. It&#x27;s a good idea to check for any timing updates close to your visit, especially during these special occasions​ (Tour My India)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
-  <p>The Karni Mata Temple does not charge any entry fee for visitors. Access to the temple and participation in the daily rituals, including offerings to the sacred rats, is available to all without any special charges or privileges that expedite or enhance the darshan (viewing of the deity)​ (Tour My India)​.</p>
-  <p>Regarding entry restrictions for foreigners, there are no specific restrictions or additional fees mentioned for international visitors. Everyone, regardless of nationality, can enter and participate in the temple&#x27;s activities under the same conditions. However, it&#x27;s always wise for foreign tourists to carry identification and be respectful of local customs and temple etiquette.</p>
-  <p>No special declarations are required to be made by visitors, including foreigners, for entering the temple. The temple is open and welcoming to all who wish to experience its unique atmosphere and participate in its offerings.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available.</h3>
-  <p>The Karni Mata Temple is located in Deshnok, a small town about 30 kilometers south of Bikaner, Rajasthan. Here’s how you can reach the temple:</p>
-  <ul class="bullet-list">
-    <li>By Air: The nearest airport to Deshnok is the Jodhpur Airport, which is approximately 220 kilometers away. From there, you can hire a taxi or take a bus to reach the temple.</li>
-    <li>By Train: Bikaner Junction is the closest major railway station, well-connected with major cities in India. From Bikaner, Deshnok can be reached by local trains, buses, or taxis.</li>
-    <li>By Bus: Regular bus services connect Bikaner with other major cities in Rajasthan and nearby states. From Bikaner, local buses or taxis are available to Deshnok.</li>
-    <li>By Taxi: Taxis can be easily hired from Bikaner or directly from Jodhpur airport to reach the temple.</li>
-  </ul>
-  <p>There’s no ferry or port service given the temple’s inland location. The most straightforward route for most visitors is to travel to Bikaner by train or bus and then proceed to Deshnok by local transport​ (TravelSetu)​​ (Tour My India)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
-  <p>The Karni Mata Temple is renowned for its daily rituals and special poojas, especially during the Navaratri festivals. Here&#x27;s an overview of the rituals and their timings:</p>
-  <ul class="bullet-list">
-    <li>Daily Rituals:</li>
-    <li>Mangla Aarti: The day at Karni Mata Temple begins early with the Mangla Aarti at 4:00 AM. This is followed by the offering of &#x27;bhog&#x27; (special food offered to the deity).</li>
-    <li>Dwar Bhent and Kalash Bhent: Offerings made for the priests and temple maintenance throughout the day.</li>
-    <li>Special Poojas during Navaratri:</li>
-    <li>Navaratri Fairs: The temple organizes large fairs and special poojas twice a year during the Navaratri periods in March/April and September/October. These fairs last from the first to the tenth day of the Hindu lunar calendar months of Chaitra and Ashwin.</li>
-  </ul>
-  <p>As for the rates associated with special poojas, the temple generally does not charge for entry or basic rituals as it is open to all without any fees. For specific rituals that might require offerings or special arrangements, it&#x27;s best to inquire directly at the temple since detailed information on rates is not readily available online.</p>
-  <p>Regarding advance booking procedures, there is no formal system mentioned for booking rituals in advance at Karni Mata Temple. Visitors typically participate in rituals on a first-come, first-served basis. For special arrangements or group visits, contacting local guides or religious coordinators in Bikaner or Deshnok might be helpful.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>The Karni Mata Temple does not appear to offer extensive online services directly through an official platform for rituals or poojas. While the temple&#x27;s official website provides general information and a contact form for inquiries, it does not feature online booking for poojas or live darshan services.</p>
-  <p>However, visitors interested in information about the temple, travel details, or special events might find useful details through various tourism websites and local travel guides online. These platforms often offer information on travel arrangements, nearby accommodations, and sometimes contacts for local guides who can assist in planning a visit, including any special poojas or participation in temple festivals.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
-  <p>The Karni Mata Temple, like many religious sites in India, recommends that visitors dress modestly. While there isn&#x27;t a strictly enforced dress code, it is advisable for both men and women to wear clothes that cover their shoulders and knees as a sign of respect. This is particularly important during special pujas and festival days, such as Navaratri, when the temple sees a significant increase in devotees.</p>
-  <p>It&#x27;s also worth noting that visitors are required to remove their footwear before entering the temple premises, so wearing easily removable shoes can be practical. There are no specific instructions for different attire on regular days versus festival days, but dressing conservatively is generally expected at all times.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <p>At the Karni Mata Temple, photography is allowed, which suggests that mobile phones and other small electronic gadgets are generally permitted on the premises. However, as with many religious sites, it&#x27;s recommended to use these devices respectfully and avoid disturbing other visitors or the sanctity of the temple rituals.</p>
-  <p>There is no specific mention of facilities to deposit electronic gadgets if they are not allowed for some special occasions or in specific areas of the temple. If you plan to visit during a major festival or event and are concerned about restrictions, it might be best to check directly with temple authorities or consult the temple&#x27;s official website for the most current guidelines.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography is allowed at the Karni Mata Temple, and there is no specific fee mentioned for taking photographs. This makes it accessible for visitors to capture their experiences without additional costs. However, it&#x27;s important to use cameras and other devices respectfully, especially during rituals or when large crowds are present. Always ensure that your photography does not disrupt the sanctity of the temple or the privacy of other visitors.</h3>
-  <p>For any updates or specific guidelines that might apply during special events or in certain areas of the temple, you might want to check the temple&#x27;s official website or contact temple authorities directly upon arrival.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <p>There is no specific mention of lift or elevator facilities at the Karni Mata Temple to assist physically handicapped visitors. Given the traditional structure and historical nature of the temple, it might not have modern accessibility features like elevators. Visitors with mobility issues might find access challenging due to the temple&#x27;s layout and the requirement to remove footwear before entering the temple premises.</p>
-  <p>If accessibility is a concern, it would be best to contact the temple directly or inquire through their official website for any accommodations or assistance that might be available for physically handicapped visitors. This will ensure that you have the latest information and can plan your visit accordingly.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
-  <p>The Karni Mata Temple does not specifically mention the availability of wheelchairs for elderly or physically challenged visitors on their official website or in commonly available resources. This lack of mention might suggest that there is limited infrastructure in place to support mobility-impaired visitors.</p>
-  <p>For those requiring wheelchair assistance, it would be advisable to bring their own or arrange for one through a local service in Bikaner before visiting the temple. If mobility is a significant concern, contacting the temple directly or through their official website for the latest information on any available facilities would be beneficial. This will ensure that all visitors can plan their trip to the temple with the appropriate expectations and support.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons.</h3>
-  <p>The Karni Mata Temple does not specifically mention having special entry privileges or separate darshan timings for sick, senior citizens, or physically challenged persons in the resources commonly available online. The temple generally allows visitors to participate in rituals and view the deity during the same hours for all.</p>
-  <p>Given the potential need for such facilities, it would be advisable for those requiring special assistance to contact the temple directly before visiting. This would help ensure that any available accommodations are arranged and that the visit is as comfortable as possible.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <p>The Karni Mata Temple does not specifically mention the conduct of vehicle poojas (blessings for vehicles) on their official website or in the available online resources. Vehicle poojas are common at many temples in India, where devotees bring their new or existing vehicles to be blessed for safe travel and good fortune, but it appears that this specific ritual might not be a highlighted service at Karni Mata Temple.</p>
-  <p>For those interested in having a vehicle pooja performed at or near Deshnok, it might be a good idea to inquire with local temples in Bikaner or check with local religious service providers who may offer such rituals. Additionally, contacting the temple directly via their official website or telephone might provide specific details if such a service is available on a less publicized basis.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
-  <p>The Karni Mata Temple itself does not appear to provide accommodation facilities for pilgrims. Typically, visitors looking for places to stay near the temple opt for accommodations in Bikaner, which is about 30 kilometers from Deshnok, where the temple is located.</p>
-  <p>Bikaner offers a range of lodging options from budget hotels to more luxurious stays. Visitors can choose based on their preferences and budget. It is advisable to book accommodations through popular travel and hotel booking websites such as Booking.com, TripAdvisor, or directly through hotel websites for the best rates and availability.</p>
-  <p>For those specifically seeking to stay as close as possible to the temple, checking local guest houses or small hotels in Deshnok might be an option, although these facilities may not be listed online. Local inquiries upon arrival or contacting travel agents in Bikaner could also provide more personalized accommodation solutions.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
-  <p>The Karni Mata Temple offers parking facilities for visitors who come by various means of transport, including cars, mini-buses, and two-wheelers. The temple premises are equipped to accommodate a significant number of vehicles due to the high volume of visitors, especially during festival times and weekends.</p>
-  <p>While specific details on the capacity and any associated parking fees are not commonly detailed online, it&#x27;s generally expected that the temple provides adequate space given its popularity and the number of pilgrims it attracts.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
-  <h5 class="section__sub-b">  Temple Prasad Services</h5>
-  <ul class="bullet-list">
-    <li>Meals: Prasad is usually distributed after rituals. Specific meal services and procedures may vary.</li>
-    <li>Payment: Generally no fee for basic prasad, but special offerings might have nominal costs.</li>
-    <li>Procedure: Obtain prasad at designated counters inside the temple.</li>
-    <li>Timings: Typically coincide with major aarti times.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <p>The Karni Mata Temple offers prasad to devotees, which typically includes sweets and other food items considered holy. The cost of carry-home prasad can vary, especially if special offerings are made or if larger quantities are desired. Often, temples have counters where prasad can be purchased for a nominal fee.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <p>If you lose an item at the Karni Mata Temple, you should report it to the temple administration or security office. Most temples have a lost and found section where lost items are kept. It&#x27;s advisable to provide a detailed description of the lost item and any identifying features to help locate it more easily. Additionally, check if the temple has a contact number or specific procedure for lost items on their official website or at the temple premises. For more detailed procedures, you might need to inquire directly at the temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>If a member of your group goes missing at the Karni Mata Temple, you should immediately report it to the temple security or management office. Provide a detailed description of the missing person, including their clothing and last known location. Temples often have specific protocols for handling such situations. It&#x27;s advisable to designate a common meeting point for your group beforehand in case anyone gets separated. Additionally, check if there are announcements or help desks specifically for this purpose. For more detailed procedures, it&#x27;s best to inquire directly at the temple upon arrival.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
-  <p>The Karni Mata Temple&#x27;s official website does not explicitly state whether it is registered under the state government or district administration. Temples in India can be managed by private trusts, local communities, or state government bodies. For definitive information regarding the registration and administrative oversight of Karni Mata Temple,</p>
-</div>
-<div class="section">
-  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
-  <p>To make donations to the Karni Mata Temple, apart from Hundi offerings, you can typically donate via bank transfer or cheque. Specific bank account details and the purposes for which donations can be made (e.g., temple maintenance, rituals, charity) are generally provided by the temple administration. For detailed information on how to donate, including the bank account details, you should visit the official temple website or contact the temple administration directly through their provided contact information.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <p>The Karni Mata Temple does not explicitly mention any specific privileges associated with donations on their official website or available public resources. In temples like Tirupati or Shirdi, donations might offer certain privileges such as special entry tickets or priority in accommodation, but such policies vary widely between different temples. To find out if the Karni Mata Temple offers any similar privileges for donations, it would be best to contact the temple directly or inquire via their official communication channels. This ensures you receive the most accurate and up-to-date information regarding donation benefits.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple?</h3>
-  <p>The Karni Mata Temple, often known as the &quot;Temple of Rats,&quot; is renowned for its intricate architectural style that reflects Rajputana designs. Constructed mainly from marble, the temple showcases beautiful marble carvings with silver doors, adding to its aesthetic and spiritual appeal. These materials and design choices are significant, as they represent the traditional craftsmanship and religious artistry prevalent in Rajasthan. The temple structure is designed to accommodate and honor the thousands of sacred rats that reside within, reflecting a unique blend of cultural and spiritual beliefs. For a detailed exploration of the temple&#x27;s architecture and construction, visiting the temple or consulting specific architectural studies on Rajasthani temple designs would be beneficial.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-  <p>The Karni Mata Temple holds special significance primarily due to its unique association with rats, which are considered sacred and worshipped as incarnations of Karni Mata and her sons. This belief adds a mystical dimension to the temple, akin to other spiritually significant sites worldwide that are known for unique natural or cultural phenomena. The reverence for rats is a distinct aspect of the temple&#x27;s spiritual significance, making it a unique pilgrimage site in India where devotees come to seek blessings and witness the holy rats, believed to bring good luck and prosperity.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
-  <p>For foreigners interested in the spiritual rather than religious aspects of the Karni Mata Temple, the focus would likely be on the temple&#x27;s unique belief system and cultural significance. The temple is renowned for its devotion to Karni Mata, considered an incarnation of Goddess Durga, and the sacred rats, believed to be reincarnated family members and storytellers. This unique blend of animal worship and the story of resurrection provides a deep insight into the symbiosis between culture, nature, and spirituality in Indian traditions. The temple offers a profound experience of seeing faith and reverence extended beyond human forms to animals, highlighting themes of reincarnation, karma, and divine protection.</p>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
-  <p>b.Donation ( link)</p>
-  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
-  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-  <p>For a comprehensive online experience related to Karni Mata Temple, consider incorporating the following call to action or interaction links:</p>
-  <p>a. Puja Services: Offer a link to a dedicated page for booking puja services directly through the temple&#x27;s website, ensuring a seamless integration once available.</p>
-  <p>b. Donation: Provide a direct link for donations, facilitating easy access for devotees to contribute online, supporting temple activities or specific projects.</p>
-  <p>c. Accommodation: Link to a specialized section on your site where visitors can explore various accommodation options near the temple, complete with an inquiry form for bookings.</p>
-  <p>d. Tax Exemption Information: Include information about any tax exemptions under acts like the Income Tax Act, Section 80G, similar to exemptions granted for donations like Annadana at Shirdi, specifying the benefits like 100%/50% tax exemptions.</p>
-  <p>Each section should be clearly marked and accessible, enhancing user interaction and providing essential information conveniently.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event of the temple day and date?</h3>
-  <p>The Karni Mata Temple in Deshnok, Rajasthan, hosts the Karni Mata Fair twice a year. These events are significant annual occurrences, drawing large numbers of devotees. The first fair takes place during the Navratras in March-April, and the second occurs during the Navratras in September-October. The fairs celebrate and honor Karni Mata, a revered figure in the region believed to possess supernatural powers and who dedicated her life to the service of the poor.</p>
-  <p>The temple itself, a stunning structure of stone and marble, becomes the focal point of these fairs. Pilgrims and tourists visit to participate in rituals, offer prayers and prasad, and seek the blessings of Karni Mata. The presence of sacred rats, believed to bring luck, adds a unique element to the temple atmosphere during these fairs.</p>
-  <p>For more specific dates and details about the events or to plan a visit during these fairs, you may want to check closer to the event months or consult local resources.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Event of the temple - day and date?</h3>
-  <p>The Karni Mata Temple in Deshnok, Rajasthan, hosts two significant annual fairs which are the most prominent events at the temple. These fairs occur twice a year, aligning with the Navratri festivals:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">The second fair takes place during the Ashvin Navratri, from Ashvin Shukla Ekam to Ashvin Shukla Dashmi, typically occurring in September-October.</h3>
-  <p>These fairs draw thousands of devotees who participate in various rituals, offer prayers and seek blessings from Karni Mata, viewed as a form of Goddess Durga. The temple&#x27;s unique aspect, besides the religious significance, is the presence of sacred rats, considered to be the sons of Karni Mata, adding a unique element to the spiritual experience.</p>
-  <ul class="bullet-list">
-    <li>-----------</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Full Address: Karni Mata Niji Pranyas, Deshnok, Bikaner, Rajasthan, India, 334801</h3>
+					  <p>  Contact Number: Not publicly listed on the official website.</p>
+					  <p>  Main Deity: Karni Mata, worshipped as an incarnation of the warrior goddess Durga.</p>
+					  <p>  Other Deities (Sub Deities): The temple is unique for its lack of traditional sub-deities typically found in Hindu temples. Instead, it is renowned for the thousands of sacred rats, called &quot;Kabbas,&quot; which are revered and protected as they are believed to be the reincarnated descendants of Karni Mata’s male children and storytellers.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <p>(a) general</p>
+					  <p>(b) on special days like festivals and utsavas</p>
+					  <p>The Karni Mata Temple in Deshnok, Rajasthan, generally opens daily from 4:00 AM to 10:00 PM. On special days, such as festivals and during Navaratri celebrations, the timings may vary to accommodate special rituals and increased visitor numbers. Specifically, the temple hosts large fairs twice a year during the Navaratri periods in March/April and September/October, which may affect the usual daily schedule​ (Veena World)​. It&#x27;s a good idea to check for any timing updates close to your visit, especially during these special occasions​ (Tour My India)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
+					  <p>The Karni Mata Temple does not charge any entry fee for visitors. Access to the temple and participation in the daily rituals, including offerings to the sacred rats, is available to all without any special charges or privileges that expedite or enhance the darshan (viewing of the deity)​ (Tour My India)​.</p>
+					  <p>Regarding entry restrictions for foreigners, there are no specific restrictions or additional fees mentioned for international visitors. Everyone, regardless of nationality, can enter and participate in the temple&#x27;s activities under the same conditions. However, it&#x27;s always wise for foreign tourists to carry identification and be respectful of local customs and temple etiquette.</p>
+					  <p>No special declarations are required to be made by visitors, including foreigners, for entering the temple. The temple is open and welcoming to all who wish to experience its unique atmosphere and participate in its offerings.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available.</h3>
+					  <p>The Karni Mata Temple is located in Deshnok, a small town about 30 kilometers south of Bikaner, Rajasthan. Here’s how you can reach the temple:</p>
+					  <ul class="bullet-list">
+					    <li>By Air: The nearest airport to Deshnok is the Jodhpur Airport, which is approximately 220 kilometers away. From there, you can hire a taxi or take a bus to reach the temple.</li>
+					    <li>By Train: Bikaner Junction is the closest major railway station, well-connected with major cities in India. From Bikaner, Deshnok can be reached by local trains, buses, or taxis.</li>
+					    <li>By Bus: Regular bus services connect Bikaner with other major cities in Rajasthan and nearby states. From Bikaner, local buses or taxis are available to Deshnok.</li>
+					    <li>By Taxi: Taxis can be easily hired from Bikaner or directly from Jodhpur airport to reach the temple.</li>
+					  </ul>
+					  <p>There’s no ferry or port service given the temple’s inland location. The most straightforward route for most visitors is to travel to Bikaner by train or bus and then proceed to Deshnok by local transport​ (TravelSetu)​​ (Tour My India)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <p>The Karni Mata Temple is renowned for its daily rituals and special poojas, especially during the Navaratri festivals. Here&#x27;s an overview of the rituals and their timings:</p>
+					  <ul class="bullet-list">
+					    <li>Daily Rituals:</li>
+					    <li>Mangla Aarti: The day at Karni Mata Temple begins early with the Mangla Aarti at 4:00 AM. This is followed by the offering of &#x27;bhog&#x27; (special food offered to the deity).</li>
+					    <li>Dwar Bhent and Kalash Bhent: Offerings made for the priests and temple maintenance throughout the day.</li>
+					    <li>Special Poojas during Navaratri:</li>
+					    <li>Navaratri Fairs: The temple organizes large fairs and special poojas twice a year during the Navaratri periods in March/April and September/October. These fairs last from the first to the tenth day of the Hindu lunar calendar months of Chaitra and Ashwin.</li>
+					  </ul>
+					  <p>As for the rates associated with special poojas, the temple generally does not charge for entry or basic rituals as it is open to all without any fees. For specific rituals that might require offerings or special arrangements, it&#x27;s best to inquire directly at the temple since detailed information on rates is not readily available online.</p>
+					  <p>Regarding advance booking procedures, there is no formal system mentioned for booking rituals in advance at Karni Mata Temple. Visitors typically participate in rituals on a first-come, first-served basis. For special arrangements or group visits, contacting local guides or religious coordinators in Bikaner or Deshnok might be helpful.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>The Karni Mata Temple does not appear to offer extensive online services directly through an official platform for rituals or poojas. While the temple&#x27;s official website provides general information and a contact form for inquiries, it does not feature online booking for poojas or live darshan services.</p>
+					  <p>However, visitors interested in information about the temple, travel details, or special events might find useful details through various tourism websites and local travel guides online. These platforms often offer information on travel arrangements, nearby accommodations, and sometimes contacts for local guides who can assist in planning a visit, including any special poojas or participation in temple festivals.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <p>The Karni Mata Temple, like many religious sites in India, recommends that visitors dress modestly. While there isn&#x27;t a strictly enforced dress code, it is advisable for both men and women to wear clothes that cover their shoulders and knees as a sign of respect. This is particularly important during special pujas and festival days, such as Navaratri, when the temple sees a significant increase in devotees.</p>
+					  <p>It&#x27;s also worth noting that visitors are required to remove their footwear before entering the temple premises, so wearing easily removable shoes can be practical. There are no specific instructions for different attire on regular days versus festival days, but dressing conservatively is generally expected at all times.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>At the Karni Mata Temple, photography is allowed, which suggests that mobile phones and other small electronic gadgets are generally permitted on the premises. However, as with many religious sites, it&#x27;s recommended to use these devices respectfully and avoid disturbing other visitors or the sanctity of the temple rituals.</p>
+					  <p>There is no specific mention of facilities to deposit electronic gadgets if they are not allowed for some special occasions or in specific areas of the temple. If you plan to visit during a major festival or event and are concerned about restrictions, it might be best to check directly with temple authorities or consult the temple&#x27;s official website for the most current guidelines.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Photography is allowed at the Karni Mata Temple, and there is no specific fee mentioned for taking photographs. This makes it accessible for visitors to capture their experiences without additional costs. However, it&#x27;s important to use cameras and other devices respectfully, especially during rituals or when large crowds are present. Always ensure that your photography does not disrupt the sanctity of the temple or the privacy of other visitors.</h3>
+					  <p>For any updates or specific guidelines that might apply during special events or in certain areas of the temple, you might want to check the temple&#x27;s official website or contact temple authorities directly upon arrival.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>There is no specific mention of lift or elevator facilities at the Karni Mata Temple to assist physically handicapped visitors. Given the traditional structure and historical nature of the temple, it might not have modern accessibility features like elevators. Visitors with mobility issues might find access challenging due to the temple&#x27;s layout and the requirement to remove footwear before entering the temple premises.</p>
+					  <p>If accessibility is a concern, it would be best to contact the temple directly or inquire through their official website for any accommodations or assistance that might be available for physically handicapped visitors. This will ensure that you have the latest information and can plan your visit accordingly.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>The Karni Mata Temple does not specifically mention the availability of wheelchairs for elderly or physically challenged visitors on their official website or in commonly available resources. This lack of mention might suggest that there is limited infrastructure in place to support mobility-impaired visitors.</p>
+					  <p>For those requiring wheelchair assistance, it would be advisable to bring their own or arrange for one through a local service in Bikaner before visiting the temple. If mobility is a significant concern, contacting the temple directly or through their official website for the latest information on any available facilities would be beneficial. This will ensure that all visitors can plan their trip to the temple with the appropriate expectations and support.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons.</h3>
+					  <p>The Karni Mata Temple does not specifically mention having special entry privileges or separate darshan timings for sick, senior citizens, or physically challenged persons in the resources commonly available online. The temple generally allows visitors to participate in rituals and view the deity during the same hours for all.</p>
+					  <p>Given the potential need for such facilities, it would be advisable for those requiring special assistance to contact the temple directly before visiting. This would help ensure that any available accommodations are arranged and that the visit is as comfortable as possible.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>The Karni Mata Temple does not specifically mention the conduct of vehicle poojas (blessings for vehicles) on their official website or in the available online resources. Vehicle poojas are common at many temples in India, where devotees bring their new or existing vehicles to be blessed for safe travel and good fortune, but it appears that this specific ritual might not be a highlighted service at Karni Mata Temple.</p>
+					  <p>For those interested in having a vehicle pooja performed at or near Deshnok, it might be a good idea to inquire with local temples in Bikaner or check with local religious service providers who may offer such rituals. Additionally, contacting the temple directly via their official website or telephone might provide specific details if such a service is available on a less publicized basis.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>The Karni Mata Temple itself does not appear to provide accommodation facilities for pilgrims. Typically, visitors looking for places to stay near the temple opt for accommodations in Bikaner, which is about 30 kilometers from Deshnok, where the temple is located.</p>
+					  <p>Bikaner offers a range of lodging options from budget hotels to more luxurious stays. Visitors can choose based on their preferences and budget. It is advisable to book accommodations through popular travel and hotel booking websites such as Booking.com, TripAdvisor, or directly through hotel websites for the best rates and availability.</p>
+					  <p>For those specifically seeking to stay as close as possible to the temple, checking local guest houses or small hotels in Deshnok might be an option, although these facilities may not be listed online. Local inquiries upon arrival or contacting travel agents in Bikaner could also provide more personalized accommodation solutions.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>The Karni Mata Temple offers parking facilities for visitors who come by various means of transport, including cars, mini-buses, and two-wheelers. The temple premises are equipped to accommodate a significant number of vehicles due to the high volume of visitors, especially during festival times and weekends.</p>
+					  <p>While specific details on the capacity and any associated parking fees are not commonly detailed online, it&#x27;s generally expected that the temple provides adequate space given its popularity and the number of pilgrims it attracts.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <h5 class="section__sub-b">  Temple Prasad Services</h5>
+					  <ul class="bullet-list">
+					    <li>Meals: Prasad is usually distributed after rituals. Specific meal services and procedures may vary.</li>
+					    <li>Payment: Generally no fee for basic prasad, but special offerings might have nominal costs.</li>
+					    <li>Procedure: Obtain prasad at designated counters inside the temple.</li>
+					    <li>Timings: Typically coincide with major aarti times.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>The Karni Mata Temple offers prasad to devotees, which typically includes sweets and other food items considered holy. The cost of carry-home prasad can vary, especially if special offerings are made or if larger quantities are desired. Often, temples have counters where prasad can be purchased for a nominal fee.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>If you lose an item at the Karni Mata Temple, you should report it to the temple administration or security office. Most temples have a lost and found section where lost items are kept. It&#x27;s advisable to provide a detailed description of the lost item and any identifying features to help locate it more easily. Additionally, check if the temple has a contact number or specific procedure for lost items on their official website or at the temple premises. For more detailed procedures, you might need to inquire directly at the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a member of your group goes missing at the Karni Mata Temple, you should immediately report it to the temple security or management office. Provide a detailed description of the missing person, including their clothing and last known location. Temples often have specific protocols for handling such situations. It&#x27;s advisable to designate a common meeting point for your group beforehand in case anyone gets separated. Additionally, check if there are announcements or help desks specifically for this purpose. For more detailed procedures, it&#x27;s best to inquire directly at the temple upon arrival.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
+					  <p>The Karni Mata Temple&#x27;s official website does not explicitly state whether it is registered under the state government or district administration. Temples in India can be managed by private trusts, local communities, or state government bodies. For definitive information regarding the registration and administrative oversight of Karni Mata Temple,</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>To make donations to the Karni Mata Temple, apart from Hundi offerings, you can typically donate via bank transfer or cheque. Specific bank account details and the purposes for which donations can be made (e.g., temple maintenance, rituals, charity) are generally provided by the temple administration. For detailed information on how to donate, including the bank account details, you should visit the official temple website or contact the temple administration directly through their provided contact information.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>The Karni Mata Temple does not explicitly mention any specific privileges associated with donations on their official website or available public resources. In temples like Tirupati or Shirdi, donations might offer certain privileges such as special entry tickets or priority in accommodation, but such policies vary widely between different temples. To find out if the Karni Mata Temple offers any similar privileges for donations, it would be best to contact the temple directly or inquire via their official communication channels. This ensures you receive the most accurate and up-to-date information regarding donation benefits.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple?</h3>
+					  <p>The Karni Mata Temple, often known as the &quot;Temple of Rats,&quot; is renowned for its intricate architectural style that reflects Rajputana designs. Constructed mainly from marble, the temple showcases beautiful marble carvings with silver doors, adding to its aesthetic and spiritual appeal. These materials and design choices are significant, as they represent the traditional craftsmanship and religious artistry prevalent in Rajasthan. The temple structure is designed to accommodate and honor the thousands of sacred rats that reside within, reflecting a unique blend of cultural and spiritual beliefs. For a detailed exploration of the temple&#x27;s architecture and construction, visiting the temple or consulting specific architectural studies on Rajasthani temple designs would be beneficial.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>The Karni Mata Temple holds special significance primarily due to its unique association with rats, which are considered sacred and worshipped as incarnations of Karni Mata and her sons. This belief adds a mystical dimension to the temple, akin to other spiritually significant sites worldwide that are known for unique natural or cultural phenomena. The reverence for rats is a distinct aspect of the temple&#x27;s spiritual significance, making it a unique pilgrimage site in India where devotees come to seek blessings and witness the holy rats, believed to bring good luck and prosperity.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <p>For foreigners interested in the spiritual rather than religious aspects of the Karni Mata Temple, the focus would likely be on the temple&#x27;s unique belief system and cultural significance. The temple is renowned for its devotion to Karni Mata, considered an incarnation of Goddess Durga, and the sacred rats, believed to be reincarnated family members and storytellers. This unique blend of animal worship and the story of resurrection provides a deep insight into the symbiosis between culture, nature, and spirituality in Indian traditions. The temple offers a profound experience of seeing faith and reverence extended beyond human forms to animals, highlighting themes of reincarnation, karma, and divine protection.</p>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Donation ( link)</p>
+					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>For a comprehensive online experience related to Karni Mata Temple, consider incorporating the following call to action or interaction links:</p>
+					  <p>a. Puja Services: Offer a link to a dedicated page for booking puja services directly through the temple&#x27;s website, ensuring a seamless integration once available.</p>
+					  <p>b. Donation: Provide a direct link for donations, facilitating easy access for devotees to contribute online, supporting temple activities or specific projects.</p>
+					  <p>c. Accommodation: Link to a specialized section on your site where visitors can explore various accommodation options near the temple, complete with an inquiry form for bookings.</p>
+					  <p>d. Tax Exemption Information: Include information about any tax exemptions under acts like the Income Tax Act, Section 80G, similar to exemptions granted for donations like Annadana at Shirdi, specifying the benefits like 100%/50% tax exemptions.</p>
+					  <p>Each section should be clearly marked and accessible, enhancing user interaction and providing essential information conveniently.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event of the temple day and date?</h3>
+					  <p>The Karni Mata Temple in Deshnok, Rajasthan, hosts the Karni Mata Fair twice a year. These events are significant annual occurrences, drawing large numbers of devotees. The first fair takes place during the Navratras in March-April, and the second occurs during the Navratras in September-October. The fairs celebrate and honor Karni Mata, a revered figure in the region believed to possess supernatural powers and who dedicated her life to the service of the poor.</p>
+					  <p>The temple itself, a stunning structure of stone and marble, becomes the focal point of these fairs. Pilgrims and tourists visit to participate in rituals, offer prayers and prasad, and seek the blessings of Karni Mata. The presence of sacred rats, believed to bring luck, adds a unique element to the temple atmosphere during these fairs.</p>
+					  <p>For more specific dates and details about the events or to plan a visit during these fairs, you may want to check closer to the event months or consult local resources.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event of the temple - day and date?</h3>
+					  <p>The Karni Mata Temple in Deshnok, Rajasthan, hosts two significant annual fairs which are the most prominent events at the temple. These fairs occur twice a year, aligning with the Navratri festivals:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">The second fair takes place during the Ashvin Navratri, from Ashvin Shukla Ekam to Ashvin Shukla Dashmi, typically occurring in September-October.</h3>
+					  <p>These fairs draw thousands of devotees who participate in various rituals, offer prayers and seek blessings from Karni Mata, viewed as a form of Goddess Durga. The temple&#x27;s unique aspect, besides the religious significance, is the presence of sacred rats, considered to be the sons of Karni Mata, adding a unique element to the spiritual experience.</p>
+					  <ul class="bullet-list">
+					    <li>-----------</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -315,89 +255,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

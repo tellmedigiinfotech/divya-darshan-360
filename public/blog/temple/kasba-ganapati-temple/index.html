@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -95,7 +42,7 @@
 				<h1 class="hero-title">﻿Kasba Ganapati Temple</h1>
 
 							<div class="img-placeholder">
-					<div class="img-placeholder__icon">&#128341;</div>
+					<div class="img-placeholder__icon">🕉️</div>
 					<div class="img-placeholder__gradient"></div>
 					<div class="img-placeholder__text">Image of ﻿Kasba Ganapati Temple</div>
 				</div>
@@ -107,13 +54,6 @@
 							<div>
 								<div class="key-info__label">Main Deity</div>
 								<div class="key-info__value">* Ganapati (Lord Ganesha): The principal deity of the temple is Lord Ganesha, known as Ganapati. He is revered as the remover of obstacles and the god of beginnings and wisdom.</div>
-							</div>
-						</div>
-						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
 							</div>
 						</div>
 						<div class="key-info__item">
@@ -134,817 +74,807 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <p>(a) general</p>
-  <p>(b) on special days like festivals and utsavas</p>
-  <p>The opening and closing timings for the Kasba Ganapati Temple vary depending on regular days and special festival days. Here&#x27;s a general guideline:</p>
-  <p>Regular Days (General Timings)</p>
-  <ul class="bullet-list">
-    <li>Opening Time: The temple typically opens early in the morning around 5:00 AM or 6:00 AM.</li>
-    <li>Closing Time: The temple usually closes around 10:00 PM or 11:00 PM.</li>
-  </ul>
-  <p>Special Days (Festivals and Utsavas)</p>
-  <ul class="bullet-list">
-    <li>Extended Hours: On special days like Ganesh Chaturthi and other major festivals, the temple often extends its hours to accommodate the increased number of devotees and the special rituals that take place throughout the day and night. The temple may open earlier than usual and close well past midnight.</li>
-  </ul>
-  <h5 class="section__sub-b">Note</h5>
-  <p>These timings are indicative and can vary. For precise information, especially if planning a visit during a special festival, it&#x27;s advisable to check the temple&#x27;s official website or contact them directly closer to the event date. This ensures that you have the most current and accurate information regarding opening and closing timings on both regular and special days.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
-  <p>The Kasba Ganapati Temple, like many temples in India, generally does not charge an entry fee for visitors who wish to offer prayers and participate in the regular darshan (viewing of the deity). Here are the details regarding entry and any special privileges:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Fees and Privileges</h3>
-  <ul class="bullet-list">
-    <li>General Entry: No entry fee is required for general access to the temple. Visitors can participate in the regular darshan and observe the daily rituals.</li>
-    <li>Special Privileges: For special services like quick darshan, participation in specific pujas, or receiving special prasad, there might be fees associated. These services often allow for a more personal and less crowded experience, including closer access to the deity and participation in specific rituals.</li>
-    <li>VIP or Direct Access: Some temples offer a paid service for a quicker or more direct access to the deity, especially during busy festival times. This might include a separate queue or gate for quicker entry.</li>
-  </ul>
-  <p>Entry Restrictions for Foreigners</p>
-  <ul class="bullet-list">
-    <li>Restrictions: Generally, there are no specific entry restrictions for foreigners at the Kasba Ganapati Temple. Visitors from all backgrounds are welcomed to experience the spiritual and cultural aspects of the temple.</li>
-    <li>Special Fees: There are typically no additional fees for foreign visitors. Any fees that apply for special services are usually the same for both locals and foreigners.</li>
-    <li>Declarations: While not common, it’s advisable for foreign visitors to carry identification and be prepared if any security or administrative staff request verification. This is standard practice at many places of importance to ensure the safety and security of all visitors.</li>
-  </ul>
-  <p>Recommendations</p>
-  <ul class="bullet-list">
-    <li>Check Official Communications: If planning a visit, especially during a special event or festival, checking the temple&#x27;s official website or contacting them directly can provide the most accurate and up-to-date information regarding any potential fees or special access privileges.</li>
-    <li>Respect Local Customs: Visitors should dress modestly and follow any guidelines provided by the temple, such as removing shoes before entering the temple premises or not taking photographs in restricted areas.</li>
-  </ul>
-  <p>By following these guidelines, visitors can ensure a respectful and enriching experience at the Kasba Ganapati Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
-  <p>The Kasba Ganapati Temple is situated in Kasba Peth, Pune, Maharashtra, India. Pune is well-connected by various modes of transportation, making it relatively easy for visitors to reach the temple. Here’s a detailed guide on how to get there:</p>
-  <p>By Air</p>
-  <ul class="bullet-list">
-    <li>Nearest Airport: Pune International Airport</li>
-    <li>Distance to Temple: Approximately 12 kilometers</li>
-    <li>Travel Options from Airport: Visitors can take a taxi or book a ride via ride-sharing apps like Uber or Ola. The journey from the airport to the temple typically takes about 30 to 40 minutes, depending on traffic.</li>
-  </ul>
-  <p>By Train</p>
-  <ul class="bullet-list">
-    <li>Nearest Railway Station: Pune Railway Station</li>
-    <li>Distance to Temple: About 4 kilometers</li>
-    <li>Travel Options from Railway Station: Local taxis, auto-rickshaws, and buses are available from the railway station to the temple. The drive takes around 15-20 minutes.</li>
-  </ul>
-  <p>By Bus</p>
-  <ul class="bullet-list">
-    <li>Major Bus Depot: Pune Bus Depot (Shivajinagar)</li>
-    <li>Distance to Temple: Roughly 3 kilometers</li>
-    <li>Travel Options from Bus Depot: Auto-rickshaws and local city buses are readily available. It’s a short drive or even a walkable distance for those who prefer a bit of exploration on foot.</li>
-  </ul>
-  <p>Local Commuting</p>
-  <ul class="bullet-list">
-    <li>City Buses: Pune has a network of city buses that connect various parts of the city to Kasba Peth, where the temple is located.</li>
-    <li>Auto-Rickshaws: Easily available and can be a convenient option for short distances.</li>
-    <li>Taxis and Ride-Sharing Apps: Taxis are widely available, and ride-sharing apps offer another convenient way to travel around the city.</li>
-  </ul>
-  <p>Other Tips</p>
-  <ul class="bullet-list">
-    <li>Traffic Considerations: Pune can experience heavy traffic during peak hours, so it’s advisable to plan your trip keeping in mind potential delays.</li>
-    <li>Parking: If you are driving, check for available parking near the temple as the area can be crowded, especially during festival times and weekends.</li>
-  </ul>
-  <p>By planning ahead and considering these travel options, visitors can have a smooth and enjoyable trip to the Kasba Ganapati Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
-  <p>For detailed and specific information about the special poojas or rituals performed at the Kasba Ganapati Temple, including days, timings, rates, and booking procedures, it&#x27;s best to refer directly to the temple&#x27;s official communication channels. However, I can provide a general overview based on common practices observed in similar temples:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Poojas and Rituals at Kasba Ganapati Temple</h3>
-  <p>Types of Poojas</p>
-  <ul class="bullet-list">
-    <li>Daily Poojas: Regular daily worship sessions typically occur at fixed times in the morning and evening.</li>
-    <li>Weekly Special Poojas: These might include special rituals on Tuesdays or Fridays, which are often considered auspicious for worshiping Lord Ganesha.</li>
-    <li>Monthly Poojas: Such as Sankashti Chaturthi, which occurs every month on the fourth day after the full moon, dedicated specifically to Lord Ganesha.</li>
-  </ul>
-  <p>Special Occasions</p>
-  <ul class="bullet-list">
-    <li>Ganesh Chaturthi: This major festival involves several special rituals and extends over several days. Special poojas during this period are elaborate and attract a large number of devotees.</li>
-    <li>Other Festivals: Depending on the Hindu calendar, other significant days might include Gudi Padwa, Diwali (particularly the Lakshmi Pooja), and Makar Sankranti, each having its own set of special rituals and poojas.</li>
-  </ul>
-  <p>Timing of Poojas</p>
-  <ul class="bullet-list">
-    <li>Morning Poojas: Typically start early, around 5:00 AM to 7:00 AM.</li>
-    <li>Evening Poojas: Usually occur between 6:00 PM and 8:00 PM.</li>
-  </ul>
-  <p>Rates for Special Poojas</p>
-  <ul class="bullet-list">
-    <li>The rates for participating in or sponsoring special poojas can vary widely based on the type of pooja and the materials involved. These could range from a few hundred to several thousand Indian Rupees.</li>
-  </ul>
-  <p>Advance Booking Procedure</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>The Kasba Ganapati Temple, like many prominent temples, may offer online services to cater to devotees and visitors who cannot physically visit the temple. These services typically enhance accessibility and convenience for followers and might include online darshan, pooja bookings, and donations. Here&#x27;s an overview of what these services generally involve and how they might be managed:</p>
-  <p>Potential Online Services at Kasba Ganapati Temple</p>
-  <p>Online Darshan</p>
-  <ul class="bullet-list">
-    <li>Description: This service allows devotees to view live or recorded ceremonies and rituals through the temple’s website or a dedicated app, helping them participate in temple activities from anywhere in the world.</li>
-    <li>Provider: This service is usually managed by the temple&#x27;s own IT team or through a collaboration with technology service providers specializing in streaming religious events.</li>
-  </ul>
-  <p>Online Pooja Booking</p>
-  <ul class="bullet-list">
-    <li>Description: Devotees can book poojas to be performed on their behalf at the temple. This service typically includes selecting the type of pooja, specifying the date, and providing details for whom the pooja is to be conducted.</li>
-    <li>Provider: Online booking platforms are often developed and managed by the temple&#x27;s administration or through third-party platforms that specialize in religious offerings and e-commerce.</li>
-  </ul>
-  <p>Online Donation</p>
-  <ul class="bullet-list">
-    <li>Description: Temples often provide facilities for online donations, enabling devotees to contribute financially towards temple maintenance, rituals, and charitable activities.</li>
-    <li>Provider: Online donation systems are generally integrated into the temple’s official website, handled either by the temple’s administrative staff or through secure third-party payment gateways.</li>
-  </ul>
-  <p>Online Prasad Delivery</p>
-  <ul class="bullet-list">
-    <li>Description: Some temples offer a service where prasad (sacred offerings like sweets that have been blessed) can be booked online and delivered to the devotee’s home.</li>
-    <li>Provider: This service can be managed directly by the temple or through partnerships with e-commerce platforms that specialize in handling and delivering religious items.</li>
-  </ul>
-  <p>How to Access These Services</p>
-  <ul class="bullet-list">
-    <li>Temple’s Official Website: The primary and most reliable source for any online services offered by the Kasba Ganapati Temple would be their official website Kasba Ganapati&#x27;s official website.</li>
-    <li>Dedicated Apps: If the temple has a dedicated app, it can usually be downloaded from app stores and might offer a more user-friendly interface for managing bookings and viewing services.</li>
-    <li>Customer Support: For any queries or assistance, the temple likely provides customer support through contact forms, email, or phone numbers listed on their website.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
-  <p>The Kasba Ganapati Temple, like many traditional temples in India, generally recommends adhering to a modest dress code to maintain the decorum and sanctity of the religious space. Here are the typical guidelines for dressing when visiting the temple:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Dress Code at Kasba Ganapati Temple</h3>
-  <p>For General Visits</p>
-  <ul class="bullet-list">
-    <li>Men: It is advisable for men to wear long trousers and shirts that cover the shoulders. Shorts, sleeveless shirts, and other casual wear like beachwear are usually not appropriate.</li>
-    <li>Women: Women are recommended to wear modest attire such as long skirts, sarees, or salwar kameez that cover the shoulders and knees. Short skirts, sleeveless tops, or revealing clothes are generally discouraged.</li>
-  </ul>
-  <p>For Special Pujas and Festival Days</p>
-  <ul class="bullet-list">
-    <li>During special pujas and on festival days, the dress code might be stricter or more traditional.</li>
-    <li>Men: Men may be expected to wear traditional Indian attire such as a kurta and pajama, especially if participating directly in the rituals.</li>
-    <li>Women: Women might choose to wear traditional dresses like sarees or full-length salwar kameez. On particularly auspicious days, many women opt for sarees as a sign of respect and participation in the festive spirit.</li>
-  </ul>
-  <p>Additional Tips</p>
-  <ul class="bullet-list">
-    <li>Footwear: Footwear is typically removed before entering the temple premises, so wearing shoes that are easy to remove is practical.</li>
-    <li>Head Coverings: In some temples, covering the head might be required or recommended as a sign of respect. This practice varies widely between different temples.</li>
-    <li>Children: There are usually no strict dress codes for children, but dressing them in comfortable, modest clothing is advisable.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Why Follow the Dress Code?</h3>
-  <p>Adhering to the dress code is a sign of respect towards the cultural and spiritual practices of the place. It helps maintain the solemnity of the temple environment and is also a mark of respect towards other devotees.</p>
-  <p>For the most accurate and specific details regarding the dress code, especially if you are planning to visit during a major festival or participate in a special puja, it is a good idea to check the temple’s official website or contact the temple administration directly. This can help ensure that you are fully prepared and can participate in the temple activities without any issues.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <p>The rules regarding electronic gadgets at the Kasba Ganapati Temple, like at many other temples, may vary depending on the specific areas of the temple and the type of events or ceremonies taking place. Here’s a general guideline based on common practices observed in similar temples:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Electronic Gadgets Policy at Kasba Ganapati Temple</h3>
-  <p>General Policy</p>
-  <ul class="bullet-list">
-    <li>Mobile Phones: Mobile phones are generally allowed within the temple premises, but visitors are often asked to keep them switched off or in silent mode to maintain the sanctity and quiet of the temple environment.</li>
-    <li>Cameras: Cameras may be allowed in some areas for personal use, but professional photography or videography often requires prior permission from temple authorities. In sacred areas or during special rituals, camera use may be restricted.</li>
-    <li>Other Gadgets: Tablets, laptops, and other electronic devices are typically discouraged inside the temple, especially if their use could disrupt the serenity of the environment.</li>
-  </ul>
-  <p>Special Considerations</p>
-  <ul class="bullet-list">
-    <li>During Special Events or Pujas: On days of special significance or during specific rituals, the restrictions on electronic gadgets might be more stringent to ensure that the solemnity of the ceremonies is not disturbed.</li>
-  </ul>
-  <p>Storage Facilities</p>
-  <ul class="bullet-list">
-    <li>Lockers or Storage Facilities: Some temples provide lockers or a secure place to store electronic devices and other personal belongings before entering the temple. This facility can sometimes require a small fee or be available as a complimentary service for devotees.</li>
-    <li>Nearby Shops or Stalls: In cases where the temple itself does not offer storage facilities, local shops or stalls near the temple sometimes offer this service for a nominal charge.</li>
-  </ul>
-  <p>Recommendations</p>
-  <ul class="bullet-list">
-    <li>Check Official Guidelines: Before visiting, it’s advisable to check the Kasba Ganapati Temple’s official website or contact their administration directly to understand their specific policies regarding electronic gadgets.</li>
-    <li>Be Prepared: If you are unsure about the availability of storage facilities, consider limiting the number of gadgets you carry to the temple or ensure that your vehicle has secure storage options if you are driving.</li>
-    <li>Respect the Environment: Always use electronic devices in a way that respects the devotional and peaceful environment of the temple, avoiding loud noises or disturbances.</li>
-  </ul>
-  <p>These guidelines can help ensure a smooth and respectful visit to the Kasba Ganapati Temple, allowing you and other visitors to focus on the spiritual and cultural experience.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography Policy at Kasba Ganapati Temple</h3>
-  <p>General Photography</p>
-  <ul class="bullet-list">
-    <li>Allowed Areas: Photography might be permitted in common areas such as the temple courtyard or outside the main worship area where it does not disturb the worshippers or the sanctity of rituals.</li>
-    <li>Restricted Areas: Photography is often restricted or not allowed in the inner sanctum or during active worship sessions to maintain the privacy and sanctity of the rituals.</li>
-  </ul>
-  <p>Fees for Photography</p>
-  <ul class="bullet-list">
-    <li>General Visitors: If photography is allowed, there may be no fee for casual photography intended for personal use. However, this can vary, and it&#x27;s best to check beforehand.</li>
-    <li>Professional Photography: There might be a fee or a requirement for prior permission if you intend to engage in professional photography or videography. This is typically to manage the impact on the temple operations and the privacy of other devotees.</li>
-  </ul>
-  <p>Special Events</p>
-  <ul class="bullet-list">
-    <li>During festivals or special events, the rules around photography can be stricter. The temple may completely prohibit photography or might allow it under stricter guidelines to ensure that the ceremonies are conducted without any disruptions.</li>
-  </ul>
-  <p>How to Navigate Photography Regulations</p>
-  <ul class="bullet-list">
-    <li>Check Official Sources: Before your visit, consult the temple&#x27;s official website or contact the temple administration directly for the most accurate and up-to-date information regarding photography.</li>
-    <li>Follow Signage and Instructions: Pay attention to any signs posted about photography within the temple premises or follow any verbal instructions provided by temple staff.</li>
-    <li>Respect Privacy: Always be mindful of the privacy and experience of other devotees. Avoid taking photos of individuals without their permission.</li>
-  </ul>
-  <p>By adhering to these guidelines, you can ensure that your photography does not interfere with the spiritual ambiance of the Kasba Ganapati Temple and respects the experiences of all visitors and worshippers.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <p>Information about accessibility features such as lifts or elevators for physically handicapped visitors at the Kasba Ganapati Temple is not widely advertised, which is common for many older temples in India. Here&#x27;s a general approach to handling such inquiries:</p>
-  <p>Accessibility at Kasba Ganapati Temple</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Elevators and Lifts</h3>
-  <ul class="bullet-list">
-    <li>Older Temples: Many historical temples, especially those in older parts of cities or those built many centuries ago, may not have lifts or elevators due to the architectural challenges of integrating modern facilities into ancient structures.</li>
-    <li>Accessibility Ramps: Some temples have begun to include ramps or other modifications to improve accessibility for physically handicapped visitors. Whether such facilities are available at Kasba Ganapati Temple would need to be confirmed directly with the temple management.</li>
-  </ul>
-  <p>Alternative Facilities</p>
-  <ul class="bullet-list">
-    <li>Assistance from Temple Staff: In many temples, staff are available to help physically handicapped visitors navigate the premises, although this service may need to be arranged in advance.</li>
-    <li>Seating Arrangements: Some temples provide special seating areas during rituals or darshan for those who cannot stand for long periods.</li>
-  </ul>
-  <p>Recommendations for Visiting</p>
-  <ul class="bullet-list">
-    <li>Contact the Temple: The best course of action is to contact the Kasba Ganapati Temple directly before your visit to inquire about their facilities for physically handicapped visitors. They can provide the most current and specific information.</li>
-    <li>Plan Your Visit: If the temple confirms the availability of certain facilities, you may also want to inquire about the best times to visit when it is less crowded, making navigation easier.</li>
-    <li>Bring a Companion: If the temple lacks specific facilities, it might be helpful to bring a companion who can assist during the visit.</li>
-  </ul>
-  <p>This proactive approach ensures that all visitors, regardless of physical ability, can have a meaningful and comfortable experience at the temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
-  <p>The availability of wheelchairs for elderly and physically challenged visitors at Kasba Ganapati Temple isn&#x27;t commonly specified in general information sources. Here’s a recommended approach to address this concern:</p>
-  <p>Wheelchair Accessibility at Kasba Ganapati Temple</p>
-  <p>Wheelchair Availability</p>
-  <ul class="bullet-list">
-    <li>Provision of Wheelchairs: Some temples provide wheelchairs for use by elderly or physically challenged visitors. It’s essential to check whether Kasba Ganapati Temple offers this service.</li>
-    <li>Bringing Your Own Wheelchair: If the temple does not provide wheelchairs, visitors are typically allowed to bring their own. This ensures that they can navigate the temple grounds with their mobility aids.</li>
-  </ul>
-  <p>Navigating the Temple</p>
-  <ul class="bullet-list">
-    <li>Terrain and Access: The temple’s architecture and the surrounding area may present challenges such as narrow passages, uneven surfaces, or steps. Knowing about these conditions in advance can help in planning the visit.</li>
-    <li>Assistance by Temple Staff: Often, temple staff are available to assist visitors who require help. It’s advisable to inquire about this when contacting the temple.</li>
-  </ul>
-  <p>Steps to Ensure a Smooth Visit</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Plan for Transportation: If you’re traveling to the temple by car, check if there are designated parking spots close to the entrance for those with disabilities.</h3>
-  <p>By addressing these aspects, you can help ensure that elderly and physically challenged visitors have a positive and respectful experience at Kasba Ganapati Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
-  <p>At many temples, including potentially the Kasba Ganapati Temple, provisions are often made to accommodate visitors who require special assistance, such as the sick, senior citizens, and physically challenged individuals. Here’s how these accommodations might typically be structured:</p>
-  <p>Special Entry and Timing for Darshan at Kasba Ganapati Temple</p>
-  <p>Special Entry Access</p>
-  <ul class="bullet-list">
-    <li>Dedicated Entry: To facilitate easier access, the temple may provide a separate entry gate or a priority line for senior citizens, physically challenged persons, and those who are sick. This helps in avoiding long queues and ensures a more comfortable visit.</li>
-    <li>Ground Level Access: For temples with multiple entry points, there is often one that is more accessible, typically at ground level, which is better suited for wheelchairs or those unable to navigate stairs.</li>
-  </ul>
-  <p>Special Darshan Timings</p>
-  <ul class="bullet-list">
-    <li>Allocated Times: The temple may allocate specific times during the day, particularly during non-peak hours, for vulnerable groups to have darshan. This ensures a calm and unhurried experience, allowing individuals to engage in rituals or offerings comfortably.</li>
-    <li>Duration and Assistance: During these special timings, additional assistance or more time may be provided to help these individuals fully participate in the temple activities.</li>
-  </ul>
-  <p>How to Utilize These Facilities</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Inquire in Advance:</h3>
-  <ul class="bullet-list">
-    <li>Contact the temple&#x27;s administration directly to inquire about the availability of special entry or darshan timings for sick, senior citizens, and physically challenged visitors. This can typically be done via the temple’s official website, telephone, or email.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Clarify Needs:</h3>
-  <ul class="bullet-list">
-    <li>When making inquiries, clearly state any specific requirements, such as wheelchair access or the need for assistance during the visit. This will help temple staff prepare and provide appropriate support.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit Planning:</h3>
-  <ul class="bullet-list">
-    <li>Off-Peak Visits: Consider visiting during weekdays or non-festival days when the temple is less crowded, making navigation easier.</li>
-    <li>Arrival Time: Arriving a bit earlier than the designated time can also be beneficial, as it provides a buffer to settle in and prepare for the darshan without rush.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Documentation:</h3>
-  <ul class="bullet-list">
-    <li>If the temple requests it, be prepared to provide relevant documentation for accessing special services. This might include a doctor’s note or a disability ID, depending on the temple’s policy.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <p>Vehicle poojas, rituals performed to bless new vehicles for safety and good fortune, are commonly conducted at many temples in India. However, whether the Kasba Ganapati Temple specifically offers vehicle poojas can vary, and it&#x27;s important to confirm such details directly from temple authorities. Here&#x27;s how you might approach finding out about vehicle pooja at this temple:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Vehicle Pooja at Kasba Ganapati Temple</h3>
-  <p>Checking Availability</p>
-  <ul class="bullet-list">
-    <li>Direct Inquiry: The best and most reliable way to confirm if Kasba Ganapati Temple performs vehicle poojas is by contacting the temple directly through their official communication channels like phone, email, or their website.</li>
-  </ul>
-  <p>Typical Details (If Available)</p>
-  <ul class="bullet-list">
-    <li>Timing: Vehicle poojas are usually performed during the morning hours, often right after the temple opens. Common timings could be from 6:00 AM to 12:00 PM, depending on the temple’s daily schedule.</li>
-    <li>Cost: The cost for vehicle poojas can vary. It might range from a nominal fee to more elaborate offerings depending on the type of pooja and the temple’s practices. Typically, fees could be in the range of a few hundred rupees.</li>
-  </ul>
-  <p>How to Arrange for a Vehicle Pooja</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Booking the Pooja:</h3>
-  <ul class="bullet-list">
-    <li>Some temples require or recommend booking the pooja in advance, especially on auspicious days when the demand is high. This can usually be done over the phone or through the temple’s website if they have an online booking system.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What to Bring:</h3>
-  <ul class="bullet-list">
-    <li>You might need to bring your vehicle directly to the temple’s designated area for poojas. Additionally, specific offerings such as flowers, coconuts, and sweets may be required, which can often be purchased at the temple or nearby shops.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">On the Day:</h3>
-  <ul class="bullet-list">
-    <li>Arrive early to avoid delays and follow the temple staff&#x27;s instructions for where to park your vehicle and how the ritual will be conducted.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
-  <p>The provision of accommodation facilities by temples varies significantly, depending on the temple&#x27;s size, location, and the services they offer. For the Kasba Ganapati Temple in Pune, which is located in a bustling city area, it&#x27;s less common for the temple itself to offer accommodation facilities directly. However, here’s how you can approach finding out about accommodations related to the temple visit:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation Related to Kasba Ganapati Temple</h3>
-  <p>Temple-Sponsored Accommodation</p>
-  <ul class="bullet-list">
-    <li>Direct Inquiry: Contact the temple’s administration directly via their official website, phone, or email to inquire if they provide any lodging facilities for pilgrims. Some temples manage guest houses or dormitory-style accommodations for devotees.</li>
-  </ul>
-  <p>Nearby Accommodations</p>
-  <ul class="bullet-list">
-    <li>Hotels and Guesthouses: Being in Pune, a major city, there are numerous hotels, guesthouses, and lodging options available at varying costs near the temple. These range from budget to luxury accommodations.</li>
-    <li>Booking Platforms: You can use popular online booking platforms like Booking.com, Airbnb, and Agoda to find and book accommodation. These platforms allow you to compare prices, read reviews, and book rooms in advance.</li>
-  </ul>
-  <p>Types of Facilities</p>
-  <ul class="bullet-list">
-    <li>Dormitories: If provided by the temple, these are usually the most budget-friendly option, offering basic facilities.</li>
-    <li>Guest Houses: Some temples run guest houses that provide private rooms with more amenities than dormitories.</li>
-    <li>Hotels: In the vicinity of the temple, you can find a range of hotels offering different levels of comfort and amenities.</li>
-  </ul>
-  <p>Cost</p>
-  <ul class="bullet-list">
-    <li>Varies Widely: The cost for accommodations will vary based on the type of facility, location, and time of year. For budget accommodations like dormitories or temple-run guest houses, the cost might be minimal, whereas hotels could range from moderate to expensive.</li>
-  </ul>
-  <p>How to Book</p>
-  <ul class="bullet-list">
-    <li>Temple Facilities: If the temple offers accommodations, they might have a booking system in place which could be accessible via their website or through direct contact.</li>
-    <li>Online Booking: For hotels and other commercial accommodations, it’s advisable to book through reliable travel booking websites where you can secure your reservation with immediate confirmation.</li>
-  </ul>
-  <p>Recommendations</p>
-  <ul class="bullet-list">
-    <li>Plan Ahead: Especially during festival seasons or special events, accommodations near popular temples can fill up quickly. Booking in advance is highly recommended.</li>
-    <li>Consider Accessibility: Choose accommodations based on your accessibility needs, proximity to the temple, and the convenience of transport links in the area.</li>
-    <li>Local Advice: Utilize reviews and recommendations from previous visitors to select the best accommodation that fits your needs and budget.</li>
-  </ul>
-  <p>By taking these steps, you can ensure a comfortable stay during your visit to Kasba Ganapati Temple, whether the accommodation is provided by the temple itself or you choose to stay in nearby commercial lodging.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
-  <p>For visitors arriving at the Kasba Ganapati Temple in Pune by personal or rented vehicles, including cars, minibuses, and two-wheelers, understanding the parking arrangements is crucial. Here’s how you can find out about parking facilities and what to expect:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Parking at Kasba Ganapati Temple</h3>
-  <p>Availability of Parking Spaces</p>
-  <ul class="bullet-list">
-    <li>Dedicated Parking: Check if the temple has its own dedicated parking lot. Many temples provide parking spaces, but their size and the fees associated may vary.</li>
-    <li>Nearby Public Parking: In urban settings like Pune, if the temple does not have its own parking facility, typically there are public parking areas nearby. These might be managed by the municipal corporation or private entities.</li>
-  </ul>
-  <p>Types of Parking Facilities</p>
-  <ul class="bullet-list">
-    <li>Parking Lots: These are commonly found near temples, especially in busy city areas. They might be free or charge a fee depending on the management (temple-run or city-run).</li>
-    <li>Street Parking: In some cases, street parking might be available around the temple area. However, this can be limited and might not be the safest option for larger vehicles like minibuses.</li>
-    <li>Special Arrangements: For special events or large gatherings, the temple or local authorities might arrange additional temporary parking facilities to accommodate the increased flow of visitors.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Parking for Different Vehicles</h3>
-  <ul class="bullet-list">
-    <li>Cars and Two-Wheelers: Regular parking lots usually have spaces designated for both cars and two-wheelers.</li>
-    <li>Mini Buses: Parking for minibuses might require special consideration due to their size. It’s advisable to check in advance if the temple parking lot can accommodate minibuses or if there are specific nearby areas designated for larger vehicles.</li>
-  </ul>
-  <p>How to Ensure a Smooth Parking Experience</p>
-  <ul class="bullet-list">
-    <li>Contact the Temple: Before your visit, contact the temple administration for detailed information about parking facilities. This can be particularly important if you are driving a minibus or require disabled access.</li>
-    <li>Arrive Early: Especially on busy days or during major festivals, arriving early can help you secure a parking spot as these areas tend to fill up quickly.</li>
-    <li>Follow Local Guidance: Pay attention to any signs or local guidance regarding parking rules, especially in urban areas where regulations can be strict.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
-  <p>Temple prasad services, especially in significant cultural sites like the Kasba Ganapati Temple, are an integral part of the visitor experience, often involving the distribution of sanctified food. This could range from simple offerings like sweets or fruits to full meals served to devotees. Here&#x27;s how you might approach learning about and participating in the prasad services at this temple:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Prasad Services at Kasba Ganapati Temple</h3>
-  <p>Types of Prasad Offerings</p>
-  <ul class="bullet-list">
-    <li>Simple Prasad: This often includes items like sweets (laddu, modak), fruits, or sanctified nuts, which are distributed after the worship services.</li>
-    <li>Meals: Many temples provide meal services, especially during festivals or on specific days. These meals are usually vegetarian and are considered sacred since they are offered to the deity before distribution.</li>
-  </ul>
-  <p>Procedures and Payments</p>
-  <ul class="bullet-list">
-    <li>Procedure for Receiving Prasad or Meals: Typically, prasad is distributed freely among all present devotees after specific pooja sessions. For meals, there might be a designated dining area where devotees line up to receive the food.</li>
-    <li>Payments: While simple prasad might be offered free of cost, there could be a nominal charge for full meals, especially if the temple runs a dining hall (Annadanam). The cost, if any, usually helps cover the expenses of preparing and serving the meals.</li>
-    <li>Different Classes/Lines: In larger temples, there might be different lines for VIPs or donors who have contributed specifically towards the prasad or annadanam services. Regular visitors generally queue in the standard lines.</li>
-  </ul>
-  <p>Tickets and Timings</p>
-  <ul class="bullet-list">
-    <li>Tickets for Meals: If the temple provides a more structured meal service requiring tickets, these might be available for purchase at the temple office or at specific counters set up for this purpose.</li>
-    <li>Timings: Prasad is typically distributed after the main worship times, while meals might be served during specified hours, particularly around lunchtime, which can range from 11 AM to 3 PM, depending on the temple’s schedule.</li>
-  </ul>
-  <p>How to Ensure a Smooth Experience</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Check for Special Requirements: If you have specific dietary restrictions or allergies, it’s wise to inquire beforehand if the temple can accommodate these needs, though the options may be limited.</h3>
-  <p>By following these guidelines, you can participate in the Kasba Ganapati Temple’s prasad services respectfully and enjoyably, embracing an important aspect of the cultural and religious practices there.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <p>At many temples, including potentially the Kasba Ganapati Temple, carry-home prasad is a common offering that allows devotees to take a part of their spiritual experience back home with them. Here&#x27;s how you might approach learning about and obtaining carry-home prasad at this temple:</p>
-  <p>Carry-Home Prasad at Kasba Ganapati Temple</p>
-  <p>Types of Carry-Home Prasad</p>
-  <ul class="bullet-list">
-    <li>Sweets: Commonly offered sweets include laddus, modaks, or pedas, which are popular prasad items in temples dedicated to Lord Ganesh.</li>
-    <li>Dried Fruits and Nuts: Some temples offer packets of dried fruits, nuts, or a mix of both, which are considered auspicious and easy to carry.</li>
-    <li>Sanctified Items: Apart from edible items, some temples offer small sanctified objects like small idols, beads, or books as a form of prasad.</li>
-  </ul>
-  <p>Cost</p>
-  <ul class="bullet-list">
-    <li>Varies by Type: The cost for carry-home prasad can vary depending on the type and quantity. Sweets and edible items are generally priced affordably, ranging from a few rupees to several hundred rupees for larger quantities or specially packaged items.</li>
-    <li>Special Packages: During festivals or special events, temples might offer elaborate prasad packages that can be pre-ordered and might cost more.</li>
-  </ul>
-  <p>Purchasing Procedure</p>
-  <ul class="bullet-list">
-    <li>Temple Counters: Most temples have designated counters where prasad can be purchased. These are usually located near the main temple entrance or exit.</li>
-    <li>Advance Orders: For special occasions or large quantities, some temples accept advance orders either in person, by phone, or occasionally, through their website.</li>
-  </ul>
-  <p>Tips for Purchasing and Handling Carry-Home Prasad</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Plan for Gifts: Carry-home prasad can be a thoughtful gift for family and friends who were unable to visit the temple. Purchasing additional quantities might be a considerate gesture.</h3>
-  <p>By understanding these aspects of obtaining carry-home prasad from the Kasba Ganapati Temple, you can ensure that this spiritual keepsake complements your visit and can be shared respectfully with others.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <p>Losing personal items in a temple, especially in crowded and busy places like the Kasba Ganapati Temple, can be a stressful experience. Temples typically have a system in place to help visitors recover lost items. Here&#x27;s a general procedure you might follow if you lose something during your visit:</p>
-  <p>Procedure for Reporting Lost Items in a Temple</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Immediate Action</h3>
-  <ul class="bullet-list">
-    <li>Check the Area: If you realize that you&#x27;ve lost something, first retrace your steps to check if the item can be found where you might have left it.</li>
-    <li>Inform Temple Security: Quickly inform the temple security personnel or any nearby temple authority. Immediate reporting increases the chances of recovering the lost item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Lost and Found</h3>
-  <ul class="bullet-list">
-    <li>Locate the Lost and Found Office: Most temples have a lost and found office or a designated area where found items are kept. Ask temple staff for directions to this location.</li>
-    <li>Register Your Loss: Provide a detailed description of the lost item, including any distinctive features. You may need to fill out a form detailing the item, your contact information, and where you think you might have lost it.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Provide Contact Information</h3>
-  <ul class="bullet-list">
-    <li>Leave Your Details: Ensure that the temple authorities have your correct contact details. This includes your phone number, address, and any other relevant contact information so they can reach you if your item is found.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Follow-Up</h3>
-  <ul class="bullet-list">
-    <li>Regular Check-Ins: If your item isn’t found immediately, maintain communication with the temple’s lost and found department. Periodic follow-ups can help keep your case active.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Preventive Measures for Future Visits</h3>
-  <ul class="bullet-list">
-    <li>Minimal Valuables: To avoid future losses, carry only essential items when visiting crowded places like temples.</li>
-    <li>Use Secure Bags: Utilize bags with secure closures and keep them in front of you at all times, especially in crowded areas.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>If a member of your group goes missing during a visit to a temple like Kasba Ganapati Temple, it can be a concerning situation. Temples often have protocols to handle such incidents to ensure the safety and quick reunification of visitors. Here&#x27;s a systematic approach to handle this situation:</p>
-  <p>Steps to Take If a Group Member Goes Missing in a Temple</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Stay Calm and Organize</h3>
-  <ul class="bullet-list">
-    <li>Gather the Group: Bring the rest of your group together and check if anyone has seen the missing person recently or knows their last location.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Immediate Search</h3>
-  <ul class="bullet-list">
-    <li>Check Common Areas: Quickly check common areas like restrooms, entrance, food courts, or any specific areas your group visited.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Report to Temple Authorities</h3>
-  <ul class="bullet-list">
-    <li>Inform Security: Notify temple security or staff immediately. Provide them with a detailed description of the missing person, including their name, age, what they were wearing, and where they were last seen.</li>
-    <li>Use Public Announcement Systems: Ask if the temple can make an announcement over their public address system, if available, to help locate the missing person.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Designated Meeting Spot</h3>
-  <ul class="bullet-list">
-    <li>Establish a Meeting Point: Prior to starting your temple visit, it’s a good idea to designate a meeting point where everyone can regroup if someone gets lost or in case of any emergency. If someone is missing, wait there or inform the person to meet the group there if they are found.</li>
-    <li>Stay Put: Once you’ve informed the authorities, it&#x27;s crucial that someone stays at the designated meeting spot while others may continue searching nearby areas. This ensures the missing person can find you if they return to the spot.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Provide Contact Information</h3>
-  <ul class="bullet-list">
-    <li>Leave Details with Security: Give your contact information to the temple security so they can reach you immediately if they find the missing person or have any updates.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Keep Your Phone Accessible</h3>
-  <ul class="bullet-list">
-    <li>Stay Available: Make sure your phone is on and set to a loud ringtone. If the missing person or someone else tries to contact you, you need to be reachable.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Follow-Up</h3>
-  <ul class="bullet-list">
-    <li>Regular Check-Ins: Keep in touch with the temple authorities to receive updates or to inform them if the missing person rejoins the group.</li>
-  </ul>
-  <p>Additional Precautions</p>
-  <ul class="bullet-list">
-    <li>Prepare Identification: Especially for larger groups or when traveling with children, having some form of identification with contact details on each person can be incredibly helpful.</li>
-    <li>Pre-Visit Briefing: Before the visit, brief everyone, especially children, on what to do if they get separated from the group. This includes knowing the group leader’s name, having the leader’s contact information, and understanding how to identify and approach temple staff for help.</li>
-  </ul>
-  <p>Taking these steps can help manage a stressful situation more effectively and increase the chances of quickly locating a missing group member in a temple environment.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
-  <p>For temples like the Kasba Ganapati Temple, the registration and governance typically involve local religious boards, state government bodies, or specific temple trusts that manage the operations and maintenance of the temple. The registration can provide a layer of accountability and ensure that the temple&#x27;s activities are conducted under recognized legal frameworks.</p>
-  <p>Understanding Temple Registration</p>
-  <p>Types of Governing Bodies</p>
-  <ul class="bullet-list">
-    <li>Temple Trusts: Many prominent temples are managed by trusts that are registered either with the state government or under central government laws pertaining to religious and charitable trusts.</li>
-    <li>State Government: In some cases, temples might be under the direct management of the State Department of Religious Affairs or similar governmental agencies, ensuring adherence to specific regulations concerning heritage, finance, and public safety.</li>
-  </ul>
-  <p>How to Check Registration Status</p>
-  <ul class="bullet-list">
-    <li>Temple Website: The temple’s official website may have information about its governance structure, including details of registration under state government or district administration. This information is typically found in the &#x27;About Us&#x27; section or in official documents and disclosures accessible through the site.</li>
-    <li>On-Site Information: When visiting the temple, information regarding its registration and management may be displayed on notice boards or available upon request at the temple office.</li>
-  </ul>
-  <p>Benefits of Registration</p>
-  <ul class="bullet-list">
-    <li>Transparency and Accountability: Registration helps ensure that the temple operations are transparent, particularly in financial dealings and the management of donations.</li>
-    <li>Regulatory Compliance: It ensures that the temple adheres to safety, heritage conservation, and public service regulations set by governmental bodies.</li>
-  </ul>
-  <p>What to Do If Information Is Not Visible</p>
-  <ul class="bullet-list">
-    <li>Direct Inquiry: If the registration information isn’t visible on the website or on-site, you may contact the temple’s administrative office directly to inquire about their registration status and the governing body under which they operate.</li>
-    <li>Local Government Websites: Information about the registration of religious entities can sometimes be found on local or state government websites, particularly on those pertaining to religious affairs or tourism.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
-  <p>Donating to temples like the Kasba Ganapati Temple can be done in various ways beyond the traditional hundi (donation box) offerings. Temples often facilitate donations for specific projects, rituals, or charitable activities, and they typically provide multiple methods to make this process easy and transparent for devotees. Here’s how you can go about making donations:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Making Donations to Kasba Ganapati Temple</h3>
-  <p>Methods of Donation</p>
-  <ul class="bullet-list">
-    <li>Online Donations: Many temples have set up online donation facilities through their official website. This may include options to donate via net banking, credit/debit cards, or through payment services like PayPal.</li>
-    <li>Direct Bank Transfers: Temples usually provide their bank account details for direct transfers. This information can be found on their official website or obtained by contacting the temple’s administrative office.</li>
-    <li>Cheques and Demand Drafts: Donations via cheques or demand drafts can be mailed to the temple’s official address. Ensure the cheques are payable to the official temple trust or organization as specified on their website.</li>
-  </ul>
-  <p>Specific Projects or Purposes</p>
-  <ul class="bullet-list">
-    <li>Temple Maintenance and Renovation: Contributions to help maintain and restore temple premises.</li>
-    <li>Rituals and Poojas: Funding specific rituals or sponsoring pujas on auspicious days.</li>
-    <li>Charitable Activities: Many temples run charitable programs such as feeding the poor (Annadanam), educational scholarships, and healthcare services.</li>
-    <li>Festivals and Events: Supporting the organization of festivals and cultural events at the temple.</li>
-  </ul>
-  <p>Obtaining Bank Account Information</p>
-  <ul class="bullet-list">
-    <li>Official Website: Check the temple’s official website for a donations page, which typically lists bank account details and the name of the account holder (usually the temple trust or committee).</li>
-    <li>Contact the Temple: You can also contact the temple directly via phone or email to ask for bank account details and instructions on how to donate.</li>
-  </ul>
-  <p>Receipts and Tax Exemption</p>
-  <ul class="bullet-list">
-    <li>Tax Receipts: Most temples provide receipts for donations, which can be used for tax exemption purposes under sections like 80G of the Income Tax Act in India.</li>
-    <li>Ask for Receipts: Ensure you receive a receipt for your donation, especially when contributing via direct bank transfer or cheque.</li>
-  </ul>
-  <p>Tips for Secure Donations</p>
-  <ul class="bullet-list">
-    <li>Verify Official Information: Always use contact and bank account information from the temple’s official website or directly from the temple administration to avoid scams.</li>
-    <li>Specific Intentions: If donating for a specific purpose, clearly mention this in your donation form or communication so the funds are allocated accordingly.</li>
-    <li>Record Keeping: Keep a record of all transactions and correspondence regarding donations, especially for larger amounts.</li>
-  </ul>
-  <p>By following these guidelines, your contributions can be made smoothly and will directly support the temple and its associated charitable activities.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Donations to temples often come with associated privileges, especially when significant amounts are involved. These privileges can range from faster access to darshan (viewing of the deity), participation in special rituals, to preferential treatment regarding accommodation and other temple facilities. For the Kasba Ganapati Temple, specific privileges related to donations might be structured similarly to those at temples like Tirupati or Shirdi, but this can vary based on the temple’s policies and the programs they have in place.</h3>
-  <p>Potential Privileges Associated with Donations at Kasba Ganapati Temple</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Entry or Darshan</h3>
-  <ul class="bullet-list">
-    <li>Priority Access: Donors might be given priority access to the temple, bypassing regular queues, which provides a more convenient and quick darshan experience.</li>
-    <li>Special Puja Participation: High-level donors might have the opportunity to participate in special pujas or rituals that are not open to the general public.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation Benefits</h3>
-  <ul class="bullet-list">
-    <li>Quality Accommodation: Similar to the system in Tirupati, donors might be given priority in booking quality accommodation facilities maintained by the temple, ensuring a comfortable stay during festival times or busy seasons.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Tax Benefits</h3>
-  <ul class="bullet-list">
-    <li>Tax Deductions: Donations to recognized temple trusts often qualify for tax deductions under sections like 80G of the Income Tax Act in India, providing financial benefits to the donors.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Recognition</h3>
-  <ul class="bullet-list">
-    <li>Naming Rights: For very large donations, some temples offer naming rights for certain facilities or parts of the temple complex, such as halls or rooms.</li>
-    <li>Public Acknowledgment: Donors might also be acknowledged in temple publications or on donor boards displayed within the temple premises.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Specific Program Contributions</h3>
-  <ul class="bullet-list">
-    <li>Educational and Charitable Programs: Contributions might go towards funding temple-run educational scholarships or health care services, with donors receiving updates and reports on how their contributions are being used.</li>
-    <li>Annadana (Free Meals): Like in Shirdi, donations towards free meal programs may allow donors to sponsor meals for a day or more, with special recognition or participation in the meal service.</li>
-  </ul>
-  <p>How to Obtain Information about Donation Privileges</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Temple Office: If possible, visiting the temple’s administrative office can allow for in-depth discussions about how donations can be structured and what benefits are included.</h3>
-  <p>By donating, patrons not only contribute to the upkeep and activities of the temple but also engage in a deeper spiritual and community-oriented experience. If considering a significant donation, it’s wise to clearly understand the benefits and privileges associated with it, ensuring that the contribution meets both the donor&#x27;s expectations and the temple’s needs.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple</h3>
-  <p>The Kasba Ganapati Temple, located in Pune, Maharashtra, is not only a significant religious site but also a place of architectural and historical interest. While specific scientific details related to its construction might not be widely documented as with ancient monumental temples, its architectural features and construction techniques are indicative of regional styles and cultural influences.</p>
-  <p>Architectural Overview of Kasba Ganapati Temple</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Construction and Style</h3>
-  <ul class="bullet-list">
-    <li>Traditional Marathi Influence: The temple showcases the architectural style typical of the Maharashtra region. It features a modest yet elegant structure, which is common in many community-centric temples in this area.</li>
-    <li>Materials Used: The construction primarily uses locally sourced materials, which might include stone, wood, and traditional lime plasters, which are known for their durability and natural cooling properties.</li>
-    <li>Layout: The temple typically has a main sanctum (Garbhagriha) where the deity resides, surrounded by a circumambulatory path (Pradakshina path), and a hall (Mandapa) for devotees to gather and participate in rituals.</li>
-  </ul>
-  <p>Historical Significance</p>
-  <ul class="bullet-list">
-    <li>Foundation and Renovations: The exact dates of the original construction might not be clear without specific historical records, but such temples often undergo several renovations and expansions over the years to accommodate the growing number of devotees and enhance the temple facilities.</li>
-    <li>Cultural Relevance: Temples like Kasba Ganapati serve not just as places of worship but also as cultural hubs, hosting various religious festivals, cultural performances, and community events that reflect the traditions of the region.</li>
-  </ul>
-  <p>Engineering and Construction Techniques</p>
-  <ul class="bullet-list">
-    <li>Seismic Considerations: In regions prone to seismic activity, traditional construction techniques often include features that allow some flexibility in the structure to withstand earthquakes. Whether Kasba Ganapati employs such techniques can be confirmed by a detailed architectural study.</li>
-    <li>Environmental Adaptations: The temple’s design likely incorporates elements that are adapted to the local climate, such as large overhanging roofs, thick walls, and strategically placed openings for ventilation and natural light.</li>
-  </ul>
-  <p>Modern Adaptations</p>
-  <ul class="bullet-list">
-    <li>Restoration Works: Any restoration or recent construction work would incorporate modern materials and techniques while trying to stay true to the original architectural style.</li>
-    <li>Sustainability Practices: Contemporary renovations often include sustainable practices, such as the use of eco-friendly materials and the integration of energy-efficient lighting and water management systems.</li>
-  </ul>
-  <p>Further Research and Visits</p>
-  <ul class="bullet-list">
-    <li>Architectural Studies: For those interested in the detailed architectural and scientific aspects of the temple, academic studies or publications on regional temple architecture might provide deeper insights.</li>
-    <li>Guided Tours: Visiting the temple and possibly participating in guided tours (if available) can offer valuable information about the temple’s construction, history, and ongoing preservation efforts.</li>
-  </ul>
-  <p>The Kasba Ganapati Temple, with its rich cultural and architectural significance, offers a blend of spiritual reverence and regional heritage, making it a noteworthy site for both devotees and enthusiasts of architectural history.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-  <p>The Kasba Ganapati Temple, while primarily revered for its religious significance as a major center for the worship of Lord Ganesha, does not have widely documented claims of unique geomagnetic fields or cosmic energies similar to those associated with places like Kasar Devi, Stonehenge, or Machu Picchu. However, its importance stems from various cultural, historical, and spiritual aspects that are integral to the local community and the broader Hindu tradition.</p>
-  <p>Special Significance of Kasba Ganapati Temple</p>
-  <p>Cultural and Spiritual Center</p>
-  <ul class="bullet-list">
-    <li>Principal Deity: The temple houses an idol of Lord Ganesha, known as Kasba Ganapati, which is considered the presiding deity (Gramadevata) of Pune. This idol holds a place of honor in public festivities and processions, particularly during the Ganesh Chaturthi festival.</li>
-    <li>Historical Role: According to local traditions, the temple&#x27;s idol was found during the construction of Lal Mahal by Jijabai, mother of Shivaji Maharaj, the founder of the Maratha Empire. The historical connections of the temple with the Maratha Empire confer a significant historical and cultural stature.</li>
-  </ul>
-  <p>Architectural Significance</p>
-  <ul class="bullet-list">
-    <li>Marathi Architectural Style: The temple showcases the architectural style characteristic of the region, which reflects the aesthetics and functional design tailored to the local climate and cultural practices.</li>
-  </ul>
-  <p>Community Importance</p>
-  <ul class="bullet-list">
-    <li>Festivals and Gatherings: Kasba Ganapati Temple serves as a focal point for major festivals, especially Ganesh Chaturthi, drawing thousands of devotees each year. The temple organizes various cultural and religious events, reinforcing its role as a community hub.</li>
-  </ul>
-  <p>Broader Spiritual Context</p>
-  <p>While not associated with unique physical phenomena like geomagnetic fields, the temple&#x27;s location and the deity it houses are believed by devotees to have spiritual energies that contribute to its sanctity. In Hinduism, places of worship are often considered to be charged with divine energy, or &quot;Shakti,&quot; which can aid in meditation, prayer, and spiritual growth.</p>
-  <p>Exploring the Temple’s Influence</p>
-  <ul class="bullet-list">
-    <li>Personal Experiences: Many devotees report feelings of peace and spiritual upliftment when visiting the temple, which they attribute to the sacred environment and the blessings of the deity.</li>
-    <li>Cultural Narratives: The stories and legends associated with the temple enrich the visitor&#x27;s experience, connecting them to the spiritual and historical dimensions of the site.</li>
-  </ul>
-  <p>While Kasba Ganapati may not share the specific mystical attributes of places like Kasar Devi, its importance in the local religious landscape and its historical and cultural connections make it a significant site for both spiritual seekers and those interested in the rich heritage of Pune.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
-  <p>When visiting the Kasba Ganapati Temple, a foreigner interested primarily in the spiritual aspects rather than the specific religious doctrines can look forward to a deeply enriching experience that emphasizes inner peace, community connection, and cultural immersion. Here’s how you can approach your visit with a focus on spirituality:</p>
-  <p>Spiritual Insights at Kasba Ganapati Temple</p>
-  <p>Meditation and Contemplation</p>
-  <ul class="bullet-list">
-    <li>Temple Atmosphere: The temple offers a peaceful atmosphere ideal for meditation and contemplation. The sounds of chants and bells create a meditative backdrop that can facilitate a connection to one’s inner self.</li>
-    <li>Quiet Corners: Look for quiet corners within the temple complex where you can sit undisturbed and soak in the atmosphere, allowing for personal reflection.</li>
-  </ul>
-  <p>Cultural Immersion</p>
-  <ul class="bullet-list">
-    <li>Observe Rituals: Witnessing the rituals and understanding their symbolic meanings can provide insights into how spirituality is woven into daily life. Engage with the local devotees and priests to learn about the practices and stories associated with Lord Ganesha.</li>
-    <li>Participate in Offerings: Engaging in simple offerings or rituals, even without fully understanding all the religious nuances, can be a profound way to connect spiritually with the place and the practices.</li>
-  </ul>
-  <p>Community Interaction</p>
-  <ul class="bullet-list">
-    <li>Festival Participation: If your visit coincides with Ganesh Chaturthi or other festivals, participate in the community celebrations. These are vibrant, filled with music, dance, and social gatherings, which can be a profound way to experience and understand the communal aspect of spirituality.</li>
-    <li>Volunteer Opportunities: Inquire if there are opportunities to engage in community service projects organized by the temple. This can be a meaningful way to connect with the local culture and contribute positively.</li>
-  </ul>
-  <p>Learning and Reflection</p>
-  <ul class="bullet-list">
-    <li>Guided Tours: Some temples offer guided tours that explain the historical and spiritual significance of the site. A guided tour at Kasba Ganapati might help you appreciate its cultural context and the role it plays in the community.</li>
-    <li>Educational Materials: Look for books, pamphlets, or other materials that provide information about the temple’s history and the symbolism of Lord Ganesha. These can offer deeper understanding and appreciation.</li>
-  </ul>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <ul class="bullet-list">
-    <li>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</li>
-    <li>b.Donation ( link)</li>
-    <li>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</li>
-    <li>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</li>
-  </ul>
-  <p>For creating an effective call-to-action (CTA) or interaction links related to services offered by the Kasba Ganapati Temple, it&#x27;s important to clearly communicate how users can engage with these services. Here’s how you might structure these CTAs:</p>
-  <p>Call-to-Action Links for Kasba Ganapati Temple Services</p>
-  <p>a. Puja Services</p>
-  <p>Book Your Puja Now: Experience the divine by booking a puja at Kasba Ganapati Temple. Whether seeking blessings for a new beginning or peace and prosperity, our puja services cater to all your spiritual needs. Book your puja here when we establish a tie-up, or use this link to the temple’s puja services for direct booking.</p>
-  <p>b. Donation</p>
-  <p>Support with Generosity: Your contributions help us maintain the sacred traditions and support our community welfare programs. Donations are eligible for tax exemptions under Section 80G of the Income Tax Act, allowing you to claim deductions. Please consult your tax advisor for more details. Make a donation today and be a part of our journey towards spiritual and community enrichment.</p>
-  <p>c. Accommodation</p>
-  <p>Stay Near the Divine: Discover and book accommodation near Kasba Ganapati Temple through our curated list of options ranging from luxurious hotels to comfortable guesthouses. Whether you&#x27;re visiting for a day or planning a longer spiritual retreat, find your perfect stay right here and complete your pilgrimage with ease and comfort.</p>
-  <p>d. Tax Exemption Information</p>
-  <p>Tax Benefits for Your Generosity: Understand the benefits of your donation to Kasba Ganapati Temple. Contributions towards specific services like &#x27;Anna Dana&#x27; are eligible for 100% or 50% tax exemption under the Income Tax Act. For detailed information on how you can benefit, click here.</p>
-  <p>Implementing the CTAs</p>
-  <ul class="bullet-list">
-    <li>Visibility: Place these CTAs prominently across relevant pages on your site. Ensure they are easily accessible within the content discussing the temple or related spiritual services.</li>
-    <li>Design: Use buttons or links that stand out through color and design. This visual distinction helps them catch the user’s eye, increasing the likelihood of interaction.</li>
-    <li>Contextual Placement: Embed these CTAs in relevant sections. For instance, include the puja CTA in sections discussing rituals, and the donation CTA in parts talking about temple services or charitable activities.</li>
-    <li>Follow-Up: Consider setting up a follow-up mechanism through email or SMS, thanking users for their interactions and offering additional information or engagement opportunities.</li>
-  </ul>
-  <p>With these CTAs, you can enhance user engagement on your site, providing clear paths for visitors to book services, contribute to the temple, and plan their visits effectively, all while ensuring they are informed about potential benefits like tax exemptions.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event of the temple day and date?</h3>
-  <p>The Kasba Ganapati Temple, like many temples dedicated to Lord Ganesha, celebrates Ganesh Chaturthi as its principal annual event. This festival is a major cultural and spiritual highlight, attracting devotees from all over to participate in the vibrant festivities.</p>
-  <p>Ganesh Chaturthi at Kasba Ganapati Temple</p>
-  <p>Event: Ganesh Chaturthi Celebration</p>
-  <p>Typical Dates: The festival occurs in the Hindu lunar month of Bhadrapada, typically falling between late August and early September. The exact date varies each year according to the lunar calendar.</p>
-  <h5 class="section__sub-b">Highlights of the Celebration</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Visarjan Procession: The festival culminates with the Visarjan (immersion) procession, where the idol of Lord Ganesh is paraded through the streets with great fanfare before being immersed in water, symbolizing a ritual see-off of the Lord in his journey towards his abode, taking away the misfortunes of his devotees.</h3>
-  <h5 class="section__sub-b">Planning Your Visit</h5>
-  <ul class="bullet-list">
-    <li>Advance Planning: Given the popularity of the festival, it&#x27;s advisable to plan your visit well in advance. Accommodations near the temple can get booked quickly, and the area will be crowded.</li>
-    <li>Participation Tips: Participating in the morning and evening aartis during Ganesh Chaturthi offers a profound spiritual experience. Wearing traditional attire is recommended and brings you closer to the cultural aspects of the festival.</li>
-  </ul>
-  <p>Visiting Kasba Ganapati Temple during Ganesh Chaturthi provides a unique opportunity to experience the spiritual and communal harmony that embodies the true essence of this significant Hindu festival.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Event of the temple - day and date?</h3>
-  <p>The monthly event at Kasba Ganapati Temple that draws regular attention and participation is the celebration of Sankashti Chaturthi. This observance is dedicated to Lord Ganesha and occurs once every lunar month.</p>
-  <p>Sankashti Chaturthi at Kasba Ganapati Temple</p>
-  <p>Event: Sankashti Chaturthi</p>
-  <p>Frequency: Monthly</p>
-  <p>Date: Occurs every lunar month on the fourth day after the full moon (Krishna Paksha Chaturthi).</p>
-  <h5 class="section__sub-b">Significance of Sankashti Chaturthi</h5>
-  <p>Sankashti Chaturthi is a significant day in the Hindu calendar dedicated to Lord Ganesha. It is believed that observing this day can bring about the removal of obstacles and bestow blessings for a prosperous and trouble-free life. The word &#x27;Sankashti&#x27; derives from &#x27;Sankat&#x27; (problems) and &#x27;Chaturthi&#x27; means the fourth day.</p>
-  <h5 class="section__sub-b">Rituals and Celebrations</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Prasad Distribution: Following the conclusion of the rituals, special prasad (sacred food) is distributed among the devotees. This often includes sweets such as modak, which is believed to be a favorite of Lord Ganesha.</h3>
-  <h5 class="section__sub-b">Planning Your Visit</h5>
-  <ul class="bullet-list">
-    <li>Check the Temple Calendar: The exact date of Sankashti Chaturthi varies each month, depending on the lunar calendar. It’s advisable to check a Hindu calendar or the temple&#x27;s official announcements for specific dates.</li>
-    <li>Arrival Time: Since the key rituals are aligned with the moonrise, arriving at the temple by late afternoon or early evening is recommended.</li>
-    <li>Fasting Practices: Many devotees choose to fast on Sankashti Chaturthi until the moonrise. Participating in this fast can deepen the spiritual experience but is not mandatory for attending the puja.</li>
-  </ul>
-  <p>Visiting Kasba Ganapati Temple on Sankashti Chaturthi provides an intimate and spiritually uplifting experience, offering insights into monthly devotional practices dedicated to Lord Ganesha.</p>
-  <ul class="bullet-list">
-    <li>------------</li>
-  </ul>
-  <p>Top of Form</p>
-  <p>Bottom of Form</p>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <p>(a) general</p>
+					  <p>(b) on special days like festivals and utsavas</p>
+					  <p>The opening and closing timings for the Kasba Ganapati Temple vary depending on regular days and special festival days. Here&#x27;s a general guideline:</p>
+					  <p>Regular Days (General Timings)</p>
+					  <ul class="bullet-list">
+					    <li>Opening Time: The temple typically opens early in the morning around 5:00 AM or 6:00 AM.</li>
+					    <li>Closing Time: The temple usually closes around 10:00 PM or 11:00 PM.</li>
+					  </ul>
+					  <p>Special Days (Festivals and Utsavas)</p>
+					  <ul class="bullet-list">
+					    <li>Extended Hours: On special days like Ganesh Chaturthi and other major festivals, the temple often extends its hours to accommodate the increased number of devotees and the special rituals that take place throughout the day and night. The temple may open earlier than usual and close well past midnight.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Note</h5>
+					  <p>These timings are indicative and can vary. For precise information, especially if planning a visit during a special festival, it&#x27;s advisable to check the temple&#x27;s official website or contact them directly closer to the event date. This ensures that you have the most current and accurate information regarding opening and closing timings on both regular and special days.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
+					  <p>The Kasba Ganapati Temple, like many temples in India, generally does not charge an entry fee for visitors who wish to offer prayers and participate in the regular darshan (viewing of the deity). Here are the details regarding entry and any special privileges:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Entry Fees and Privileges</h3>
+					  <ul class="bullet-list">
+					    <li>General Entry: No entry fee is required for general access to the temple. Visitors can participate in the regular darshan and observe the daily rituals.</li>
+					    <li>Special Privileges: For special services like quick darshan, participation in specific pujas, or receiving special prasad, there might be fees associated. These services often allow for a more personal and less crowded experience, including closer access to the deity and participation in specific rituals.</li>
+					    <li>VIP or Direct Access: Some temples offer a paid service for a quicker or more direct access to the deity, especially during busy festival times. This might include a separate queue or gate for quicker entry.</li>
+					  </ul>
+					  <p>Entry Restrictions for Foreigners</p>
+					  <ul class="bullet-list">
+					    <li>Restrictions: Generally, there are no specific entry restrictions for foreigners at the Kasba Ganapati Temple. Visitors from all backgrounds are welcomed to experience the spiritual and cultural aspects of the temple.</li>
+					    <li>Special Fees: There are typically no additional fees for foreign visitors. Any fees that apply for special services are usually the same for both locals and foreigners.</li>
+					    <li>Declarations: While not common, it’s advisable for foreign visitors to carry identification and be prepared if any security or administrative staff request verification. This is standard practice at many places of importance to ensure the safety and security of all visitors.</li>
+					  </ul>
+					  <p>Recommendations</p>
+					  <ul class="bullet-list">
+					    <li>Check Official Communications: If planning a visit, especially during a special event or festival, checking the temple&#x27;s official website or contacting them directly can provide the most accurate and up-to-date information regarding any potential fees or special access privileges.</li>
+					    <li>Respect Local Customs: Visitors should dress modestly and follow any guidelines provided by the temple, such as removing shoes before entering the temple premises or not taking photographs in restricted areas.</li>
+					  </ul>
+					  <p>By following these guidelines, visitors can ensure a respectful and enriching experience at the Kasba Ganapati Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
+					  <p>The Kasba Ganapati Temple is situated in Kasba Peth, Pune, Maharashtra, India. Pune is well-connected by various modes of transportation, making it relatively easy for visitors to reach the temple. Here’s a detailed guide on how to get there:</p>
+					  <p>By Air</p>
+					  <ul class="bullet-list">
+					    <li>Nearest Airport: Pune International Airport</li>
+					    <li>Distance to Temple: Approximately 12 kilometers</li>
+					    <li>Travel Options from Airport: Visitors can take a taxi or book a ride via ride-sharing apps like Uber or Ola. The journey from the airport to the temple typically takes about 30 to 40 minutes, depending on traffic.</li>
+					  </ul>
+					  <p>By Train</p>
+					  <ul class="bullet-list">
+					    <li>Nearest Railway Station: Pune Railway Station</li>
+					    <li>Distance to Temple: About 4 kilometers</li>
+					    <li>Travel Options from Railway Station: Local taxis, auto-rickshaws, and buses are available from the railway station to the temple. The drive takes around 15-20 minutes.</li>
+					  </ul>
+					  <p>By Bus</p>
+					  <ul class="bullet-list">
+					    <li>Major Bus Depot: Pune Bus Depot (Shivajinagar)</li>
+					    <li>Distance to Temple: Roughly 3 kilometers</li>
+					    <li>Travel Options from Bus Depot: Auto-rickshaws and local city buses are readily available. It’s a short drive or even a walkable distance for those who prefer a bit of exploration on foot.</li>
+					  </ul>
+					  <p>Local Commuting</p>
+					  <ul class="bullet-list">
+					    <li>City Buses: Pune has a network of city buses that connect various parts of the city to Kasba Peth, where the temple is located.</li>
+					    <li>Auto-Rickshaws: Easily available and can be a convenient option for short distances.</li>
+					    <li>Taxis and Ride-Sharing Apps: Taxis are widely available, and ride-sharing apps offer another convenient way to travel around the city.</li>
+					  </ul>
+					  <p>Other Tips</p>
+					  <ul class="bullet-list">
+					    <li>Traffic Considerations: Pune can experience heavy traffic during peak hours, so it’s advisable to plan your trip keeping in mind potential delays.</li>
+					    <li>Parking: If you are driving, check for available parking near the temple as the area can be crowded, especially during festival times and weekends.</li>
+					  </ul>
+					  <p>By planning ahead and considering these travel options, visitors can have a smooth and enjoyable trip to the Kasba Ganapati Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <p>For detailed and specific information about the special poojas or rituals performed at the Kasba Ganapati Temple, including days, timings, rates, and booking procedures, it&#x27;s best to refer directly to the temple&#x27;s official communication channels. However, I can provide a general overview based on common practices observed in similar temples:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special Poojas and Rituals at Kasba Ganapati Temple</h3>
+					  <p>Types of Poojas</p>
+					  <ul class="bullet-list">
+					    <li>Daily Poojas: Regular daily worship sessions typically occur at fixed times in the morning and evening.</li>
+					    <li>Weekly Special Poojas: These might include special rituals on Tuesdays or Fridays, which are often considered auspicious for worshiping Lord Ganesha.</li>
+					    <li>Monthly Poojas: Such as Sankashti Chaturthi, which occurs every month on the fourth day after the full moon, dedicated specifically to Lord Ganesha.</li>
+					  </ul>
+					  <p>Special Occasions</p>
+					  <ul class="bullet-list">
+					    <li>Ganesh Chaturthi: This major festival involves several special rituals and extends over several days. Special poojas during this period are elaborate and attract a large number of devotees.</li>
+					    <li>Other Festivals: Depending on the Hindu calendar, other significant days might include Gudi Padwa, Diwali (particularly the Lakshmi Pooja), and Makar Sankranti, each having its own set of special rituals and poojas.</li>
+					  </ul>
+					  <p>Timing of Poojas</p>
+					  <ul class="bullet-list">
+					    <li>Morning Poojas: Typically start early, around 5:00 AM to 7:00 AM.</li>
+					    <li>Evening Poojas: Usually occur between 6:00 PM and 8:00 PM.</li>
+					  </ul>
+					  <p>Rates for Special Poojas</p>
+					  <ul class="bullet-list">
+					    <li>The rates for participating in or sponsoring special poojas can vary widely based on the type of pooja and the materials involved. These could range from a few hundred to several thousand Indian Rupees.</li>
+					  </ul>
+					  <p>Advance Booking Procedure</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>The Kasba Ganapati Temple, like many prominent temples, may offer online services to cater to devotees and visitors who cannot physically visit the temple. These services typically enhance accessibility and convenience for followers and might include online darshan, pooja bookings, and donations. Here&#x27;s an overview of what these services generally involve and how they might be managed:</p>
+					  <p>Potential Online Services at Kasba Ganapati Temple</p>
+					  <p>Online Darshan</p>
+					  <ul class="bullet-list">
+					    <li>Description: This service allows devotees to view live or recorded ceremonies and rituals through the temple’s website or a dedicated app, helping them participate in temple activities from anywhere in the world.</li>
+					    <li>Provider: This service is usually managed by the temple&#x27;s own IT team or through a collaboration with technology service providers specializing in streaming religious events.</li>
+					  </ul>
+					  <p>Online Pooja Booking</p>
+					  <ul class="bullet-list">
+					    <li>Description: Devotees can book poojas to be performed on their behalf at the temple. This service typically includes selecting the type of pooja, specifying the date, and providing details for whom the pooja is to be conducted.</li>
+					    <li>Provider: Online booking platforms are often developed and managed by the temple&#x27;s administration or through third-party platforms that specialize in religious offerings and e-commerce.</li>
+					  </ul>
+					  <p>Online Donation</p>
+					  <ul class="bullet-list">
+					    <li>Description: Temples often provide facilities for online donations, enabling devotees to contribute financially towards temple maintenance, rituals, and charitable activities.</li>
+					    <li>Provider: Online donation systems are generally integrated into the temple’s official website, handled either by the temple’s administrative staff or through secure third-party payment gateways.</li>
+					  </ul>
+					  <p>Online Prasad Delivery</p>
+					  <ul class="bullet-list">
+					    <li>Description: Some temples offer a service where prasad (sacred offerings like sweets that have been blessed) can be booked online and delivered to the devotee’s home.</li>
+					    <li>Provider: This service can be managed directly by the temple or through partnerships with e-commerce platforms that specialize in handling and delivering religious items.</li>
+					  </ul>
+					  <p>How to Access These Services</p>
+					  <ul class="bullet-list">
+					    <li>Temple’s Official Website: The primary and most reliable source for any online services offered by the Kasba Ganapati Temple would be their official website Kasba Ganapati&#x27;s official website.</li>
+					    <li>Dedicated Apps: If the temple has a dedicated app, it can usually be downloaded from app stores and might offer a more user-friendly interface for managing bookings and viewing services.</li>
+					    <li>Customer Support: For any queries or assistance, the temple likely provides customer support through contact forms, email, or phone numbers listed on their website.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <p>The Kasba Ganapati Temple, like many traditional temples in India, generally recommends adhering to a modest dress code to maintain the decorum and sanctity of the religious space. Here are the typical guidelines for dressing when visiting the temple:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Dress Code at Kasba Ganapati Temple</h3>
+					  <p>For General Visits</p>
+					  <ul class="bullet-list">
+					    <li>Men: It is advisable for men to wear long trousers and shirts that cover the shoulders. Shorts, sleeveless shirts, and other casual wear like beachwear are usually not appropriate.</li>
+					    <li>Women: Women are recommended to wear modest attire such as long skirts, sarees, or salwar kameez that cover the shoulders and knees. Short skirts, sleeveless tops, or revealing clothes are generally discouraged.</li>
+					  </ul>
+					  <p>For Special Pujas and Festival Days</p>
+					  <ul class="bullet-list">
+					    <li>During special pujas and on festival days, the dress code might be stricter or more traditional.</li>
+					    <li>Men: Men may be expected to wear traditional Indian attire such as a kurta and pajama, especially if participating directly in the rituals.</li>
+					    <li>Women: Women might choose to wear traditional dresses like sarees or full-length salwar kameez. On particularly auspicious days, many women opt for sarees as a sign of respect and participation in the festive spirit.</li>
+					  </ul>
+					  <p>Additional Tips</p>
+					  <ul class="bullet-list">
+					    <li>Footwear: Footwear is typically removed before entering the temple premises, so wearing shoes that are easy to remove is practical.</li>
+					    <li>Head Coverings: In some temples, covering the head might be required or recommended as a sign of respect. This practice varies widely between different temples.</li>
+					    <li>Children: There are usually no strict dress codes for children, but dressing them in comfortable, modest clothing is advisable.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Why Follow the Dress Code?</h3>
+					  <p>Adhering to the dress code is a sign of respect towards the cultural and spiritual practices of the place. It helps maintain the solemnity of the temple environment and is also a mark of respect towards other devotees.</p>
+					  <p>For the most accurate and specific details regarding the dress code, especially if you are planning to visit during a major festival or participate in a special puja, it is a good idea to check the temple’s official website or contact the temple administration directly. This can help ensure that you are fully prepared and can participate in the temple activities without any issues.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>The rules regarding electronic gadgets at the Kasba Ganapati Temple, like at many other temples, may vary depending on the specific areas of the temple and the type of events or ceremonies taking place. Here’s a general guideline based on common practices observed in similar temples:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Electronic Gadgets Policy at Kasba Ganapati Temple</h3>
+					  <p>General Policy</p>
+					  <ul class="bullet-list">
+					    <li>Mobile Phones: Mobile phones are generally allowed within the temple premises, but visitors are often asked to keep them switched off or in silent mode to maintain the sanctity and quiet of the temple environment.</li>
+					    <li>Cameras: Cameras may be allowed in some areas for personal use, but professional photography or videography often requires prior permission from temple authorities. In sacred areas or during special rituals, camera use may be restricted.</li>
+					    <li>Other Gadgets: Tablets, laptops, and other electronic devices are typically discouraged inside the temple, especially if their use could disrupt the serenity of the environment.</li>
+					  </ul>
+					  <p>Special Considerations</p>
+					  <ul class="bullet-list">
+					    <li>During Special Events or Pujas: On days of special significance or during specific rituals, the restrictions on electronic gadgets might be more stringent to ensure that the solemnity of the ceremonies is not disturbed.</li>
+					  </ul>
+					  <p>Storage Facilities</p>
+					  <ul class="bullet-list">
+					    <li>Lockers or Storage Facilities: Some temples provide lockers or a secure place to store electronic devices and other personal belongings before entering the temple. This facility can sometimes require a small fee or be available as a complimentary service for devotees.</li>
+					    <li>Nearby Shops or Stalls: In cases where the temple itself does not offer storage facilities, local shops or stalls near the temple sometimes offer this service for a nominal charge.</li>
+					  </ul>
+					  <p>Recommendations</p>
+					  <ul class="bullet-list">
+					    <li>Check Official Guidelines: Before visiting, it’s advisable to check the Kasba Ganapati Temple’s official website or contact their administration directly to understand their specific policies regarding electronic gadgets.</li>
+					    <li>Be Prepared: If you are unsure about the availability of storage facilities, consider limiting the number of gadgets you carry to the temple or ensure that your vehicle has secure storage options if you are driving.</li>
+					    <li>Respect the Environment: Always use electronic devices in a way that respects the devotional and peaceful environment of the temple, avoiding loud noises or disturbances.</li>
+					  </ul>
+					  <p>These guidelines can help ensure a smooth and respectful visit to the Kasba Ganapati Temple, allowing you and other visitors to focus on the spiritual and cultural experience.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Photography Policy at Kasba Ganapati Temple</h3>
+					  <p>General Photography</p>
+					  <ul class="bullet-list">
+					    <li>Allowed Areas: Photography might be permitted in common areas such as the temple courtyard or outside the main worship area where it does not disturb the worshippers or the sanctity of rituals.</li>
+					    <li>Restricted Areas: Photography is often restricted or not allowed in the inner sanctum or during active worship sessions to maintain the privacy and sanctity of the rituals.</li>
+					  </ul>
+					  <p>Fees for Photography</p>
+					  <ul class="bullet-list">
+					    <li>General Visitors: If photography is allowed, there may be no fee for casual photography intended for personal use. However, this can vary, and it&#x27;s best to check beforehand.</li>
+					    <li>Professional Photography: There might be a fee or a requirement for prior permission if you intend to engage in professional photography or videography. This is typically to manage the impact on the temple operations and the privacy of other devotees.</li>
+					  </ul>
+					  <p>Special Events</p>
+					  <ul class="bullet-list">
+					    <li>During festivals or special events, the rules around photography can be stricter. The temple may completely prohibit photography or might allow it under stricter guidelines to ensure that the ceremonies are conducted without any disruptions.</li>
+					  </ul>
+					  <p>How to Navigate Photography Regulations</p>
+					  <ul class="bullet-list">
+					    <li>Check Official Sources: Before your visit, consult the temple&#x27;s official website or contact the temple administration directly for the most accurate and up-to-date information regarding photography.</li>
+					    <li>Follow Signage and Instructions: Pay attention to any signs posted about photography within the temple premises or follow any verbal instructions provided by temple staff.</li>
+					    <li>Respect Privacy: Always be mindful of the privacy and experience of other devotees. Avoid taking photos of individuals without their permission.</li>
+					  </ul>
+					  <p>By adhering to these guidelines, you can ensure that your photography does not interfere with the spiritual ambiance of the Kasba Ganapati Temple and respects the experiences of all visitors and worshippers.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>Information about accessibility features such as lifts or elevators for physically handicapped visitors at the Kasba Ganapati Temple is not widely advertised, which is common for many older temples in India. Here&#x27;s a general approach to handling such inquiries:</p>
+					  <p>Accessibility at Kasba Ganapati Temple</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Elevators and Lifts</h3>
+					  <ul class="bullet-list">
+					    <li>Older Temples: Many historical temples, especially those in older parts of cities or those built many centuries ago, may not have lifts or elevators due to the architectural challenges of integrating modern facilities into ancient structures.</li>
+					    <li>Accessibility Ramps: Some temples have begun to include ramps or other modifications to improve accessibility for physically handicapped visitors. Whether such facilities are available at Kasba Ganapati Temple would need to be confirmed directly with the temple management.</li>
+					  </ul>
+					  <p>Alternative Facilities</p>
+					  <ul class="bullet-list">
+					    <li>Assistance from Temple Staff: In many temples, staff are available to help physically handicapped visitors navigate the premises, although this service may need to be arranged in advance.</li>
+					    <li>Seating Arrangements: Some temples provide special seating areas during rituals or darshan for those who cannot stand for long periods.</li>
+					  </ul>
+					  <p>Recommendations for Visiting</p>
+					  <ul class="bullet-list">
+					    <li>Contact the Temple: The best course of action is to contact the Kasba Ganapati Temple directly before your visit to inquire about their facilities for physically handicapped visitors. They can provide the most current and specific information.</li>
+					    <li>Plan Your Visit: If the temple confirms the availability of certain facilities, you may also want to inquire about the best times to visit when it is less crowded, making navigation easier.</li>
+					    <li>Bring a Companion: If the temple lacks specific facilities, it might be helpful to bring a companion who can assist during the visit.</li>
+					  </ul>
+					  <p>This proactive approach ensures that all visitors, regardless of physical ability, can have a meaningful and comfortable experience at the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>The availability of wheelchairs for elderly and physically challenged visitors at Kasba Ganapati Temple isn&#x27;t commonly specified in general information sources. Here’s a recommended approach to address this concern:</p>
+					  <p>Wheelchair Accessibility at Kasba Ganapati Temple</p>
+					  <p>Wheelchair Availability</p>
+					  <ul class="bullet-list">
+					    <li>Provision of Wheelchairs: Some temples provide wheelchairs for use by elderly or physically challenged visitors. It’s essential to check whether Kasba Ganapati Temple offers this service.</li>
+					    <li>Bringing Your Own Wheelchair: If the temple does not provide wheelchairs, visitors are typically allowed to bring their own. This ensures that they can navigate the temple grounds with their mobility aids.</li>
+					  </ul>
+					  <p>Navigating the Temple</p>
+					  <ul class="bullet-list">
+					    <li>Terrain and Access: The temple’s architecture and the surrounding area may present challenges such as narrow passages, uneven surfaces, or steps. Knowing about these conditions in advance can help in planning the visit.</li>
+					    <li>Assistance by Temple Staff: Often, temple staff are available to assist visitors who require help. It’s advisable to inquire about this when contacting the temple.</li>
+					  </ul>
+					  <p>Steps to Ensure a Smooth Visit</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Contact the Temple Directly: Before planning a visit, reach out to the temple’s administration via phone or email to inquire about wheelchair availability and the general accessibility of the temple premises.</h3>
+					  <h5 class="section__sub-b">2. Ask Specific Questions</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Plan for Transportation: If you’re traveling to the temple by car, check if there are designated parking spots close to the entrance for those with disabilities.</h3>
+					  <p>By addressing these aspects, you can help ensure that elderly and physically challenged visitors have a positive and respectful experience at Kasba Ganapati Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <p>At many temples, including potentially the Kasba Ganapati Temple, provisions are often made to accommodate visitors who require special assistance, such as the sick, senior citizens, and physically challenged individuals. Here’s how these accommodations might typically be structured:</p>
+					  <p>Special Entry and Timing for Darshan at Kasba Ganapati Temple</p>
+					  <p>Special Entry Access</p>
+					  <ul class="bullet-list">
+					    <li>Dedicated Entry: To facilitate easier access, the temple may provide a separate entry gate or a priority line for senior citizens, physically challenged persons, and those who are sick. This helps in avoiding long queues and ensures a more comfortable visit.</li>
+					    <li>Ground Level Access: For temples with multiple entry points, there is often one that is more accessible, typically at ground level, which is better suited for wheelchairs or those unable to navigate stairs.</li>
+					  </ul>
+					  <p>Special Darshan Timings</p>
+					  <ul class="bullet-list">
+					    <li>Allocated Times: The temple may allocate specific times during the day, particularly during non-peak hours, for vulnerable groups to have darshan. This ensures a calm and unhurried experience, allowing individuals to engage in rituals or offerings comfortably.</li>
+					    <li>Duration and Assistance: During these special timings, additional assistance or more time may be provided to help these individuals fully participate in the temple activities.</li>
+					  </ul>
+					  <p>How to Utilize These Facilities</p>
+					  <h5 class="section__sub-b">1. Inquire in Advance</h5>
+					  <ul class="bullet-list">
+					    <li>Contact the temple&#x27;s administration directly to inquire about the availability of special entry or darshan timings for sick, senior citizens, and physically challenged visitors. This can typically be done via the temple’s official website, telephone, or email.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Clarify Needs</h5>
+					  <ul class="bullet-list">
+					    <li>When making inquiries, clearly state any specific requirements, such as wheelchair access or the need for assistance during the visit. This will help temple staff prepare and provide appropriate support.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Visit Planning</h5>
+					  <ul class="bullet-list">
+					    <li>Off-Peak Visits: Consider visiting during weekdays or non-festival days when the temple is less crowded, making navigation easier.</li>
+					    <li>Arrival Time: Arriving a bit earlier than the designated time can also be beneficial, as it provides a buffer to settle in and prepare for the darshan without rush.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Documentation</h5>
+					  <ul class="bullet-list">
+					    <li>If the temple requests it, be prepared to provide relevant documentation for accessing special services. This might include a doctor’s note or a disability ID, depending on the temple’s policy.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>Vehicle poojas, rituals performed to bless new vehicles for safety and good fortune, are commonly conducted at many temples in India. However, whether the Kasba Ganapati Temple specifically offers vehicle poojas can vary, and it&#x27;s important to confirm such details directly from temple authorities. Here&#x27;s how you might approach finding out about vehicle pooja at this temple:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Vehicle Pooja at Kasba Ganapati Temple</h3>
+					  <p>Checking Availability</p>
+					  <ul class="bullet-list">
+					    <li>Direct Inquiry: The best and most reliable way to confirm if Kasba Ganapati Temple performs vehicle poojas is by contacting the temple directly through their official communication channels like phone, email, or their website.</li>
+					  </ul>
+					  <p>Typical Details (If Available)</p>
+					  <ul class="bullet-list">
+					    <li>Timing: Vehicle poojas are usually performed during the morning hours, often right after the temple opens. Common timings could be from 6:00 AM to 12:00 PM, depending on the temple’s daily schedule.</li>
+					    <li>Cost: The cost for vehicle poojas can vary. It might range from a nominal fee to more elaborate offerings depending on the type of pooja and the temple’s practices. Typically, fees could be in the range of a few hundred rupees.</li>
+					  </ul>
+					  <p>How to Arrange for a Vehicle Pooja</p>
+					  <h5 class="section__sub-b">1. Booking the Pooja</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples require or recommend booking the pooja in advance, especially on auspicious days when the demand is high. This can usually be done over the phone or through the temple’s website if they have an online booking system.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. What to Bring</h5>
+					  <ul class="bullet-list">
+					    <li>You might need to bring your vehicle directly to the temple’s designated area for poojas. Additionally, specific offerings such as flowers, coconuts, and sweets may be required, which can often be purchased at the temple or nearby shops.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. On the Day</h5>
+					  <ul class="bullet-list">
+					    <li>Arrive early to avoid delays and follow the temple staff&#x27;s instructions for where to park your vehicle and how the ritual will be conducted.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>The provision of accommodation facilities by temples varies significantly, depending on the temple&#x27;s size, location, and the services they offer. For the Kasba Ganapati Temple in Pune, which is located in a bustling city area, it&#x27;s less common for the temple itself to offer accommodation facilities directly. However, here’s how you can approach finding out about accommodations related to the temple visit:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Accommodation Related to Kasba Ganapati Temple</h3>
+					  <p>Temple-Sponsored Accommodation</p>
+					  <ul class="bullet-list">
+					    <li>Direct Inquiry: Contact the temple’s administration directly via their official website, phone, or email to inquire if they provide any lodging facilities for pilgrims. Some temples manage guest houses or dormitory-style accommodations for devotees.</li>
+					  </ul>
+					  <p>Nearby Accommodations</p>
+					  <ul class="bullet-list">
+					    <li>Hotels and Guesthouses: Being in Pune, a major city, there are numerous hotels, guesthouses, and lodging options available at varying costs near the temple. These range from budget to luxury accommodations.</li>
+					    <li>Booking Platforms: You can use popular online booking platforms like Booking.com, Airbnb, and Agoda to find and book accommodation. These platforms allow you to compare prices, read reviews, and book rooms in advance.</li>
+					  </ul>
+					  <p>Types of Facilities</p>
+					  <ul class="bullet-list">
+					    <li>Dormitories: If provided by the temple, these are usually the most budget-friendly option, offering basic facilities.</li>
+					    <li>Guest Houses: Some temples run guest houses that provide private rooms with more amenities than dormitories.</li>
+					    <li>Hotels: In the vicinity of the temple, you can find a range of hotels offering different levels of comfort and amenities.</li>
+					  </ul>
+					  <p>Cost</p>
+					  <ul class="bullet-list">
+					    <li>Varies Widely: The cost for accommodations will vary based on the type of facility, location, and time of year. For budget accommodations like dormitories or temple-run guest houses, the cost might be minimal, whereas hotels could range from moderate to expensive.</li>
+					  </ul>
+					  <p>How to Book</p>
+					  <ul class="bullet-list">
+					    <li>Temple Facilities: If the temple offers accommodations, they might have a booking system in place which could be accessible via their website or through direct contact.</li>
+					    <li>Online Booking: For hotels and other commercial accommodations, it’s advisable to book through reliable travel booking websites where you can secure your reservation with immediate confirmation.</li>
+					  </ul>
+					  <p>Recommendations</p>
+					  <ul class="bullet-list">
+					    <li>Plan Ahead: Especially during festival seasons or special events, accommodations near popular temples can fill up quickly. Booking in advance is highly recommended.</li>
+					    <li>Consider Accessibility: Choose accommodations based on your accessibility needs, proximity to the temple, and the convenience of transport links in the area.</li>
+					    <li>Local Advice: Utilize reviews and recommendations from previous visitors to select the best accommodation that fits your needs and budget.</li>
+					  </ul>
+					  <p>By taking these steps, you can ensure a comfortable stay during your visit to Kasba Ganapati Temple, whether the accommodation is provided by the temple itself or you choose to stay in nearby commercial lodging.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>For visitors arriving at the Kasba Ganapati Temple in Pune by personal or rented vehicles, including cars, minibuses, and two-wheelers, understanding the parking arrangements is crucial. Here’s how you can find out about parking facilities and what to expect:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Parking at Kasba Ganapati Temple</h3>
+					  <p>Availability of Parking Spaces</p>
+					  <ul class="bullet-list">
+					    <li>Dedicated Parking: Check if the temple has its own dedicated parking lot. Many temples provide parking spaces, but their size and the fees associated may vary.</li>
+					    <li>Nearby Public Parking: In urban settings like Pune, if the temple does not have its own parking facility, typically there are public parking areas nearby. These might be managed by the municipal corporation or private entities.</li>
+					  </ul>
+					  <p>Types of Parking Facilities</p>
+					  <ul class="bullet-list">
+					    <li>Parking Lots: These are commonly found near temples, especially in busy city areas. They might be free or charge a fee depending on the management (temple-run or city-run).</li>
+					    <li>Street Parking: In some cases, street parking might be available around the temple area. However, this can be limited and might not be the safest option for larger vehicles like minibuses.</li>
+					    <li>Special Arrangements: For special events or large gatherings, the temple or local authorities might arrange additional temporary parking facilities to accommodate the increased flow of visitors.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Parking for Different Vehicles</h3>
+					  <ul class="bullet-list">
+					    <li>Cars and Two-Wheelers: Regular parking lots usually have spaces designated for both cars and two-wheelers.</li>
+					    <li>Mini Buses: Parking for minibuses might require special consideration due to their size. It’s advisable to check in advance if the temple parking lot can accommodate minibuses or if there are specific nearby areas designated for larger vehicles.</li>
+					  </ul>
+					  <p>How to Ensure a Smooth Parking Experience</p>
+					  <ul class="bullet-list">
+					    <li>Contact the Temple: Before your visit, contact the temple administration for detailed information about parking facilities. This can be particularly important if you are driving a minibus or require disabled access.</li>
+					    <li>Arrive Early: Especially on busy days or during major festivals, arriving early can help you secure a parking spot as these areas tend to fill up quickly.</li>
+					    <li>Follow Local Guidance: Pay attention to any signs or local guidance regarding parking rules, especially in urban areas where regulations can be strict.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <p>Temple prasad services, especially in significant cultural sites like the Kasba Ganapati Temple, are an integral part of the visitor experience, often involving the distribution of sanctified food. This could range from simple offerings like sweets or fruits to full meals served to devotees. Here&#x27;s how you might approach learning about and participating in the prasad services at this temple:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Prasad Services at Kasba Ganapati Temple</h3>
+					  <p>Types of Prasad Offerings</p>
+					  <ul class="bullet-list">
+					    <li>Simple Prasad: This often includes items like sweets (laddu, modak), fruits, or sanctified nuts, which are distributed after the worship services.</li>
+					    <li>Meals: Many temples provide meal services, especially during festivals or on specific days. These meals are usually vegetarian and are considered sacred since they are offered to the deity before distribution.</li>
+					  </ul>
+					  <p>Procedures and Payments</p>
+					  <ul class="bullet-list">
+					    <li>Procedure for Receiving Prasad or Meals: Typically, prasad is distributed freely among all present devotees after specific pooja sessions. For meals, there might be a designated dining area where devotees line up to receive the food.</li>
+					    <li>Payments: While simple prasad might be offered free of cost, there could be a nominal charge for full meals, especially if the temple runs a dining hall (Annadanam). The cost, if any, usually helps cover the expenses of preparing and serving the meals.</li>
+					    <li>Different Classes/Lines: In larger temples, there might be different lines for VIPs or donors who have contributed specifically towards the prasad or annadanam services. Regular visitors generally queue in the standard lines.</li>
+					  </ul>
+					  <p>Tickets and Timings</p>
+					  <ul class="bullet-list">
+					    <li>Tickets for Meals: If the temple provides a more structured meal service requiring tickets, these might be available for purchase at the temple office or at specific counters set up for this purpose.</li>
+					    <li>Timings: Prasad is typically distributed after the main worship times, while meals might be served during specified hours, particularly around lunchtime, which can range from 11 AM to 3 PM, depending on the temple’s schedule.</li>
+					  </ul>
+					  <p>How to Ensure a Smooth Experience</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Check for Special Requirements: If you have specific dietary restrictions or allergies, it’s wise to inquire beforehand if the temple can accommodate these needs, though the options may be limited.</h3>
+					  <p>By following these guidelines, you can participate in the Kasba Ganapati Temple’s prasad services respectfully and enjoyably, embracing an important aspect of the cultural and religious practices there.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>At many temples, including potentially the Kasba Ganapati Temple, carry-home prasad is a common offering that allows devotees to take a part of their spiritual experience back home with them. Here&#x27;s how you might approach learning about and obtaining carry-home prasad at this temple:</p>
+					  <p>Carry-Home Prasad at Kasba Ganapati Temple</p>
+					  <p>Types of Carry-Home Prasad</p>
+					  <ul class="bullet-list">
+					    <li>Sweets: Commonly offered sweets include laddus, modaks, or pedas, which are popular prasad items in temples dedicated to Lord Ganesh.</li>
+					    <li>Dried Fruits and Nuts: Some temples offer packets of dried fruits, nuts, or a mix of both, which are considered auspicious and easy to carry.</li>
+					    <li>Sanctified Items: Apart from edible items, some temples offer small sanctified objects like small idols, beads, or books as a form of prasad.</li>
+					  </ul>
+					  <p>Cost</p>
+					  <ul class="bullet-list">
+					    <li>Varies by Type: The cost for carry-home prasad can vary depending on the type and quantity. Sweets and edible items are generally priced affordably, ranging from a few rupees to several hundred rupees for larger quantities or specially packaged items.</li>
+					    <li>Special Packages: During festivals or special events, temples might offer elaborate prasad packages that can be pre-ordered and might cost more.</li>
+					  </ul>
+					  <p>Purchasing Procedure</p>
+					  <ul class="bullet-list">
+					    <li>Temple Counters: Most temples have designated counters where prasad can be purchased. These are usually located near the main temple entrance or exit.</li>
+					    <li>Advance Orders: For special occasions or large quantities, some temples accept advance orders either in person, by phone, or occasionally, through their website.</li>
+					  </ul>
+					  <p>Tips for Purchasing and Handling Carry-Home Prasad</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Plan for Gifts: Carry-home prasad can be a thoughtful gift for family and friends who were unable to visit the temple. Purchasing additional quantities might be a considerate gesture.</h3>
+					  <p>By understanding these aspects of obtaining carry-home prasad from the Kasba Ganapati Temple, you can ensure that this spiritual keepsake complements your visit and can be shared respectfully with others.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>Losing personal items in a temple, especially in crowded and busy places like the Kasba Ganapati Temple, can be a stressful experience. Temples typically have a system in place to help visitors recover lost items. Here&#x27;s a general procedure you might follow if you lose something during your visit:</p>
+					  <p>Procedure for Reporting Lost Items in a Temple</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Immediate Action</h3>
+					  <ul class="bullet-list">
+					    <li>Check the Area: If you realize that you&#x27;ve lost something, first retrace your steps to check if the item can be found where you might have left it.</li>
+					    <li>Inform Temple Security: Quickly inform the temple security personnel or any nearby temple authority. Immediate reporting increases the chances of recovering the lost item.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Visit the Lost and Found</h3>
+					  <ul class="bullet-list">
+					    <li>Locate the Lost and Found Office: Most temples have a lost and found office or a designated area where found items are kept. Ask temple staff for directions to this location.</li>
+					    <li>Register Your Loss: Provide a detailed description of the lost item, including any distinctive features. You may need to fill out a form detailing the item, your contact information, and where you think you might have lost it.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Provide Contact Information</h3>
+					  <ul class="bullet-list">
+					    <li>Leave Your Details: Ensure that the temple authorities have your correct contact details. This includes your phone number, address, and any other relevant contact information so they can reach you if your item is found.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Follow-Up</h3>
+					  <ul class="bullet-list">
+					    <li>Regular Check-Ins: If your item isn’t found immediately, maintain communication with the temple’s lost and found department. Periodic follow-ups can help keep your case active.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Preventive Measures for Future Visits</h3>
+					  <ul class="bullet-list">
+					    <li>Minimal Valuables: To avoid future losses, carry only essential items when visiting crowded places like temples.</li>
+					    <li>Use Secure Bags: Utilize bags with secure closures and keep them in front of you at all times, especially in crowded areas.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a member of your group goes missing during a visit to a temple like Kasba Ganapati Temple, it can be a concerning situation. Temples often have protocols to handle such incidents to ensure the safety and quick reunification of visitors. Here&#x27;s a systematic approach to handle this situation:</p>
+					  <p>Steps to Take If a Group Member Goes Missing in a Temple</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Stay Calm and Organize</h3>
+					  <ul class="bullet-list">
+					    <li>Gather the Group: Bring the rest of your group together and check if anyone has seen the missing person recently or knows their last location.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Immediate Search</h3>
+					  <ul class="bullet-list">
+					    <li>Check Common Areas: Quickly check common areas like restrooms, entrance, food courts, or any specific areas your group visited.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Report to Temple Authorities</h3>
+					  <ul class="bullet-list">
+					    <li>Inform Security: Notify temple security or staff immediately. Provide them with a detailed description of the missing person, including their name, age, what they were wearing, and where they were last seen.</li>
+					    <li>Use Public Announcement Systems: Ask if the temple can make an announcement over their public address system, if available, to help locate the missing person.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Designated Meeting Spot</h3>
+					  <ul class="bullet-list">
+					    <li>Establish a Meeting Point: Prior to starting your temple visit, it’s a good idea to designate a meeting point where everyone can regroup if someone gets lost or in case of any emergency. If someone is missing, wait there or inform the person to meet the group there if they are found.</li>
+					    <li>Stay Put: Once you’ve informed the authorities, it&#x27;s crucial that someone stays at the designated meeting spot while others may continue searching nearby areas. This ensures the missing person can find you if they return to the spot.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Provide Contact Information</h3>
+					  <ul class="bullet-list">
+					    <li>Leave Details with Security: Give your contact information to the temple security so they can reach you immediately if they find the missing person or have any updates.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Keep Your Phone Accessible</h3>
+					  <ul class="bullet-list">
+					    <li>Stay Available: Make sure your phone is on and set to a loud ringtone. If the missing person or someone else tries to contact you, you need to be reachable.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Follow-Up</h3>
+					  <ul class="bullet-list">
+					    <li>Regular Check-Ins: Keep in touch with the temple authorities to receive updates or to inform them if the missing person rejoins the group.</li>
+					  </ul>
+					  <p>Additional Precautions</p>
+					  <ul class="bullet-list">
+					    <li>Prepare Identification: Especially for larger groups or when traveling with children, having some form of identification with contact details on each person can be incredibly helpful.</li>
+					    <li>Pre-Visit Briefing: Before the visit, brief everyone, especially children, on what to do if they get separated from the group. This includes knowing the group leader’s name, having the leader’s contact information, and understanding how to identify and approach temple staff for help.</li>
+					  </ul>
+					  <p>Taking these steps can help manage a stressful situation more effectively and increase the chances of quickly locating a missing group member in a temple environment.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
+					  <p>For temples like the Kasba Ganapati Temple, the registration and governance typically involve local religious boards, state government bodies, or specific temple trusts that manage the operations and maintenance of the temple. The registration can provide a layer of accountability and ensure that the temple&#x27;s activities are conducted under recognized legal frameworks.</p>
+					  <p>Understanding Temple Registration</p>
+					  <p>Types of Governing Bodies</p>
+					  <ul class="bullet-list">
+					    <li>Temple Trusts: Many prominent temples are managed by trusts that are registered either with the state government or under central government laws pertaining to religious and charitable trusts.</li>
+					    <li>State Government: In some cases, temples might be under the direct management of the State Department of Religious Affairs or similar governmental agencies, ensuring adherence to specific regulations concerning heritage, finance, and public safety.</li>
+					  </ul>
+					  <p>How to Check Registration Status</p>
+					  <ul class="bullet-list">
+					    <li>Temple Website: The temple’s official website may have information about its governance structure, including details of registration under state government or district administration. This information is typically found in the &#x27;About Us&#x27; section or in official documents and disclosures accessible through the site.</li>
+					    <li>On-Site Information: When visiting the temple, information regarding its registration and management may be displayed on notice boards or available upon request at the temple office.</li>
+					  </ul>
+					  <p>Benefits of Registration</p>
+					  <ul class="bullet-list">
+					    <li>Transparency and Accountability: Registration helps ensure that the temple operations are transparent, particularly in financial dealings and the management of donations.</li>
+					    <li>Regulatory Compliance: It ensures that the temple adheres to safety, heritage conservation, and public service regulations set by governmental bodies.</li>
+					  </ul>
+					  <p>What to Do If Information Is Not Visible</p>
+					  <ul class="bullet-list">
+					    <li>Direct Inquiry: If the registration information isn’t visible on the website or on-site, you may contact the temple’s administrative office directly to inquire about their registration status and the governing body under which they operate.</li>
+					    <li>Local Government Websites: Information about the registration of religious entities can sometimes be found on local or state government websites, particularly on those pertaining to religious affairs or tourism.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>Donating to temples like the Kasba Ganapati Temple can be done in various ways beyond the traditional hundi (donation box) offerings. Temples often facilitate donations for specific projects, rituals, or charitable activities, and they typically provide multiple methods to make this process easy and transparent for devotees. Here’s how you can go about making donations:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Making Donations to Kasba Ganapati Temple</h3>
+					  <p>Methods of Donation</p>
+					  <ul class="bullet-list">
+					    <li>Online Donations: Many temples have set up online donation facilities through their official website. This may include options to donate via net banking, credit/debit cards, or through payment services like PayPal.</li>
+					    <li>Direct Bank Transfers: Temples usually provide their bank account details for direct transfers. This information can be found on their official website or obtained by contacting the temple’s administrative office.</li>
+					    <li>Cheques and Demand Drafts: Donations via cheques or demand drafts can be mailed to the temple’s official address. Ensure the cheques are payable to the official temple trust or organization as specified on their website.</li>
+					  </ul>
+					  <p>Specific Projects or Purposes</p>
+					  <ul class="bullet-list">
+					    <li>Temple Maintenance and Renovation: Contributions to help maintain and restore temple premises.</li>
+					    <li>Rituals and Poojas: Funding specific rituals or sponsoring pujas on auspicious days.</li>
+					    <li>Charitable Activities: Many temples run charitable programs such as feeding the poor (Annadanam), educational scholarships, and healthcare services.</li>
+					    <li>Festivals and Events: Supporting the organization of festivals and cultural events at the temple.</li>
+					  </ul>
+					  <p>Obtaining Bank Account Information</p>
+					  <ul class="bullet-list">
+					    <li>Official Website: Check the temple’s official website for a donations page, which typically lists bank account details and the name of the account holder (usually the temple trust or committee).</li>
+					    <li>Contact the Temple: You can also contact the temple directly via phone or email to ask for bank account details and instructions on how to donate.</li>
+					  </ul>
+					  <p>Receipts and Tax Exemption</p>
+					  <ul class="bullet-list">
+					    <li>Tax Receipts: Most temples provide receipts for donations, which can be used for tax exemption purposes under sections like 80G of the Income Tax Act in India.</li>
+					    <li>Ask for Receipts: Ensure you receive a receipt for your donation, especially when contributing via direct bank transfer or cheque.</li>
+					  </ul>
+					  <p>Tips for Secure Donations</p>
+					  <ul class="bullet-list">
+					    <li>Verify Official Information: Always use contact and bank account information from the temple’s official website or directly from the temple administration to avoid scams.</li>
+					    <li>Specific Intentions: If donating for a specific purpose, clearly mention this in your donation form or communication so the funds are allocated accordingly.</li>
+					    <li>Record Keeping: Keep a record of all transactions and correspondence regarding donations, especially for larger amounts.</li>
+					  </ul>
+					  <p>By following these guidelines, your contributions can be made smoothly and will directly support the temple and its associated charitable activities.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Donations to temples often come with associated privileges, especially when significant amounts are involved. These privileges can range from faster access to darshan (viewing of the deity), participation in special rituals, to preferential treatment regarding accommodation and other temple facilities. For the Kasba Ganapati Temple, specific privileges related to donations might be structured similarly to those at temples like Tirupati or Shirdi, but this can vary based on the temple’s policies and the programs they have in place.</h3>
+					  <p>Potential Privileges Associated with Donations at Kasba Ganapati Temple</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special Entry or Darshan</h3>
+					  <ul class="bullet-list">
+					    <li>Priority Access: Donors might be given priority access to the temple, bypassing regular queues, which provides a more convenient and quick darshan experience.</li>
+					    <li>Special Puja Participation: High-level donors might have the opportunity to participate in special pujas or rituals that are not open to the general public.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Accommodation Benefits</h3>
+					  <ul class="bullet-list">
+					    <li>Quality Accommodation: Similar to the system in Tirupati, donors might be given priority in booking quality accommodation facilities maintained by the temple, ensuring a comfortable stay during festival times or busy seasons.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Tax Benefits</h3>
+					  <ul class="bullet-list">
+					    <li>Tax Deductions: Donations to recognized temple trusts often qualify for tax deductions under sections like 80G of the Income Tax Act in India, providing financial benefits to the donors.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Recognition</h3>
+					  <ul class="bullet-list">
+					    <li>Naming Rights: For very large donations, some temples offer naming rights for certain facilities or parts of the temple complex, such as halls or rooms.</li>
+					    <li>Public Acknowledgment: Donors might also be acknowledged in temple publications or on donor boards displayed within the temple premises.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Specific Program Contributions</h3>
+					  <ul class="bullet-list">
+					    <li>Educational and Charitable Programs: Contributions might go towards funding temple-run educational scholarships or health care services, with donors receiving updates and reports on how their contributions are being used.</li>
+					    <li>Annadana (Free Meals): Like in Shirdi, donations towards free meal programs may allow donors to sponsor meals for a day or more, with special recognition or participation in the meal service.</li>
+					  </ul>
+					  <p>How to Obtain Information about Donation Privileges</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Visit the Temple Office: If possible, visiting the temple’s administrative office can allow for in-depth discussions about how donations can be structured and what benefits are included.</h3>
+					  <p>By donating, patrons not only contribute to the upkeep and activities of the temple but also engage in a deeper spiritual and community-oriented experience. If considering a significant donation, it’s wise to clearly understand the benefits and privileges associated with it, ensuring that the contribution meets both the donor&#x27;s expectations and the temple’s needs.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple</h3>
+					  <p>The Kasba Ganapati Temple, located in Pune, Maharashtra, is not only a significant religious site but also a place of architectural and historical interest. While specific scientific details related to its construction might not be widely documented as with ancient monumental temples, its architectural features and construction techniques are indicative of regional styles and cultural influences.</p>
+					  <p>Architectural Overview of Kasba Ganapati Temple</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Construction and Style</h3>
+					  <ul class="bullet-list">
+					    <li>Traditional Marathi Influence: The temple showcases the architectural style typical of the Maharashtra region. It features a modest yet elegant structure, which is common in many community-centric temples in this area.</li>
+					    <li>Materials Used: The construction primarily uses locally sourced materials, which might include stone, wood, and traditional lime plasters, which are known for their durability and natural cooling properties.</li>
+					    <li>Layout: The temple typically has a main sanctum (Garbhagriha) where the deity resides, surrounded by a circumambulatory path (Pradakshina path), and a hall (Mandapa) for devotees to gather and participate in rituals.</li>
+					  </ul>
+					  <p>Historical Significance</p>
+					  <ul class="bullet-list">
+					    <li>Foundation and Renovations: The exact dates of the original construction might not be clear without specific historical records, but such temples often undergo several renovations and expansions over the years to accommodate the growing number of devotees and enhance the temple facilities.</li>
+					    <li>Cultural Relevance: Temples like Kasba Ganapati serve not just as places of worship but also as cultural hubs, hosting various religious festivals, cultural performances, and community events that reflect the traditions of the region.</li>
+					  </ul>
+					  <p>Engineering and Construction Techniques</p>
+					  <ul class="bullet-list">
+					    <li>Seismic Considerations: In regions prone to seismic activity, traditional construction techniques often include features that allow some flexibility in the structure to withstand earthquakes. Whether Kasba Ganapati employs such techniques can be confirmed by a detailed architectural study.</li>
+					    <li>Environmental Adaptations: The temple’s design likely incorporates elements that are adapted to the local climate, such as large overhanging roofs, thick walls, and strategically placed openings for ventilation and natural light.</li>
+					  </ul>
+					  <p>Modern Adaptations</p>
+					  <ul class="bullet-list">
+					    <li>Restoration Works: Any restoration or recent construction work would incorporate modern materials and techniques while trying to stay true to the original architectural style.</li>
+					    <li>Sustainability Practices: Contemporary renovations often include sustainable practices, such as the use of eco-friendly materials and the integration of energy-efficient lighting and water management systems.</li>
+					  </ul>
+					  <p>Further Research and Visits</p>
+					  <ul class="bullet-list">
+					    <li>Architectural Studies: For those interested in the detailed architectural and scientific aspects of the temple, academic studies or publications on regional temple architecture might provide deeper insights.</li>
+					    <li>Guided Tours: Visiting the temple and possibly participating in guided tours (if available) can offer valuable information about the temple’s construction, history, and ongoing preservation efforts.</li>
+					  </ul>
+					  <p>The Kasba Ganapati Temple, with its rich cultural and architectural significance, offers a blend of spiritual reverence and regional heritage, making it a noteworthy site for both devotees and enthusiasts of architectural history.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>The Kasba Ganapati Temple, while primarily revered for its religious significance as a major center for the worship of Lord Ganesha, does not have widely documented claims of unique geomagnetic fields or cosmic energies similar to those associated with places like Kasar Devi, Stonehenge, or Machu Picchu. However, its importance stems from various cultural, historical, and spiritual aspects that are integral to the local community and the broader Hindu tradition.</p>
+					  <p>Special Significance of Kasba Ganapati Temple</p>
+					  <p>Cultural and Spiritual Center</p>
+					  <ul class="bullet-list">
+					    <li>Principal Deity: The temple houses an idol of Lord Ganesha, known as Kasba Ganapati, which is considered the presiding deity (Gramadevata) of Pune. This idol holds a place of honor in public festivities and processions, particularly during the Ganesh Chaturthi festival.</li>
+					    <li>Historical Role: According to local traditions, the temple&#x27;s idol was found during the construction of Lal Mahal by Jijabai, mother of Shivaji Maharaj, the founder of the Maratha Empire. The historical connections of the temple with the Maratha Empire confer a significant historical and cultural stature.</li>
+					  </ul>
+					  <p>Architectural Significance</p>
+					  <ul class="bullet-list">
+					    <li>Marathi Architectural Style: The temple showcases the architectural style characteristic of the region, which reflects the aesthetics and functional design tailored to the local climate and cultural practices.</li>
+					  </ul>
+					  <p>Community Importance</p>
+					  <ul class="bullet-list">
+					    <li>Festivals and Gatherings: Kasba Ganapati Temple serves as a focal point for major festivals, especially Ganesh Chaturthi, drawing thousands of devotees each year. The temple organizes various cultural and religious events, reinforcing its role as a community hub.</li>
+					  </ul>
+					  <p>Broader Spiritual Context</p>
+					  <p>While not associated with unique physical phenomena like geomagnetic fields, the temple&#x27;s location and the deity it houses are believed by devotees to have spiritual energies that contribute to its sanctity. In Hinduism, places of worship are often considered to be charged with divine energy, or &quot;Shakti,&quot; which can aid in meditation, prayer, and spiritual growth.</p>
+					  <p>Exploring the Temple’s Influence</p>
+					  <ul class="bullet-list">
+					    <li>Personal Experiences: Many devotees report feelings of peace and spiritual upliftment when visiting the temple, which they attribute to the sacred environment and the blessings of the deity.</li>
+					    <li>Cultural Narratives: The stories and legends associated with the temple enrich the visitor&#x27;s experience, connecting them to the spiritual and historical dimensions of the site.</li>
+					  </ul>
+					  <p>While Kasba Ganapati may not share the specific mystical attributes of places like Kasar Devi, its importance in the local religious landscape and its historical and cultural connections make it a significant site for both spiritual seekers and those interested in the rich heritage of Pune.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <p>When visiting the Kasba Ganapati Temple, a foreigner interested primarily in the spiritual aspects rather than the specific religious doctrines can look forward to a deeply enriching experience that emphasizes inner peace, community connection, and cultural immersion. Here’s how you can approach your visit with a focus on spirituality:</p>
+					  <p>Spiritual Insights at Kasba Ganapati Temple</p>
+					  <p>Meditation and Contemplation</p>
+					  <ul class="bullet-list">
+					    <li>Temple Atmosphere: The temple offers a peaceful atmosphere ideal for meditation and contemplation. The sounds of chants and bells create a meditative backdrop that can facilitate a connection to one’s inner self.</li>
+					    <li>Quiet Corners: Look for quiet corners within the temple complex where you can sit undisturbed and soak in the atmosphere, allowing for personal reflection.</li>
+					  </ul>
+					  <p>Cultural Immersion</p>
+					  <ul class="bullet-list">
+					    <li>Observe Rituals: Witnessing the rituals and understanding their symbolic meanings can provide insights into how spirituality is woven into daily life. Engage with the local devotees and priests to learn about the practices and stories associated with Lord Ganesha.</li>
+					    <li>Participate in Offerings: Engaging in simple offerings or rituals, even without fully understanding all the religious nuances, can be a profound way to connect spiritually with the place and the practices.</li>
+					  </ul>
+					  <p>Community Interaction</p>
+					  <ul class="bullet-list">
+					    <li>Festival Participation: If your visit coincides with Ganesh Chaturthi or other festivals, participate in the community celebrations. These are vibrant, filled with music, dance, and social gatherings, which can be a profound way to experience and understand the communal aspect of spirituality.</li>
+					    <li>Volunteer Opportunities: Inquire if there are opportunities to engage in community service projects organized by the temple. This can be a meaningful way to connect with the local culture and contribute positively.</li>
+					  </ul>
+					  <p>Learning and Reflection</p>
+					  <ul class="bullet-list">
+					    <li>Guided Tours: Some temples offer guided tours that explain the historical and spiritual significance of the site. A guided tour at Kasba Ganapati might help you appreciate its cultural context and the role it plays in the community.</li>
+					    <li>Educational Materials: Look for books, pamphlets, or other materials that provide information about the temple’s history and the symbolism of Lord Ganesha. These can offer deeper understanding and appreciation.</li>
+					  </ul>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <ul class="bullet-list">
+					    <li>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</li>
+					    <li>b.Donation ( link)</li>
+					    <li>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</li>
+					    <li>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</li>
+					  </ul>
+					  <p>For creating an effective call-to-action (CTA) or interaction links related to services offered by the Kasba Ganapati Temple, it&#x27;s important to clearly communicate how users can engage with these services. Here’s how you might structure these CTAs:</p>
+					  <p>Call-to-Action Links for Kasba Ganapati Temple Services</p>
+					  <p>a. Puja Services</p>
+					  <p>Book Your Puja Now: Experience the divine by booking a puja at Kasba Ganapati Temple. Whether seeking blessings for a new beginning or peace and prosperity, our puja services cater to all your spiritual needs. Book your puja here when we establish a tie-up, or use this link to the temple’s puja services for direct booking.</p>
+					  <p>b. Donation</p>
+					  <p>Support with Generosity: Your contributions help us maintain the sacred traditions and support our community welfare programs. Donations are eligible for tax exemptions under Section 80G of the Income Tax Act, allowing you to claim deductions. Please consult your tax advisor for more details. Make a donation today and be a part of our journey towards spiritual and community enrichment.</p>
+					  <p>c. Accommodation</p>
+					  <p>Stay Near the Divine: Discover and book accommodation near Kasba Ganapati Temple through our curated list of options ranging from luxurious hotels to comfortable guesthouses. Whether you&#x27;re visiting for a day or planning a longer spiritual retreat, find your perfect stay right here and complete your pilgrimage with ease and comfort.</p>
+					  <p>d. Tax Exemption Information</p>
+					  <p>Tax Benefits for Your Generosity: Understand the benefits of your donation to Kasba Ganapati Temple. Contributions towards specific services like &#x27;Anna Dana&#x27; are eligible for 100% or 50% tax exemption under the Income Tax Act. For detailed information on how you can benefit, click here.</p>
+					  <p>Implementing the CTAs</p>
+					  <ul class="bullet-list">
+					    <li>Visibility: Place these CTAs prominently across relevant pages on your site. Ensure they are easily accessible within the content discussing the temple or related spiritual services.</li>
+					    <li>Design: Use buttons or links that stand out through color and design. This visual distinction helps them catch the user’s eye, increasing the likelihood of interaction.</li>
+					    <li>Contextual Placement: Embed these CTAs in relevant sections. For instance, include the puja CTA in sections discussing rituals, and the donation CTA in parts talking about temple services or charitable activities.</li>
+					    <li>Follow-Up: Consider setting up a follow-up mechanism through email or SMS, thanking users for their interactions and offering additional information or engagement opportunities.</li>
+					  </ul>
+					  <p>With these CTAs, you can enhance user engagement on your site, providing clear paths for visitors to book services, contribute to the temple, and plan their visits effectively, all while ensuring they are informed about potential benefits like tax exemptions.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event of the temple day and date?</h3>
+					  <p>The Kasba Ganapati Temple, like many temples dedicated to Lord Ganesha, celebrates Ganesh Chaturthi as its principal annual event. This festival is a major cultural and spiritual highlight, attracting devotees from all over to participate in the vibrant festivities.</p>
+					  <p>Ganesh Chaturthi at Kasba Ganapati Temple</p>
+					  <p>Event: Ganesh Chaturthi Celebration</p>
+					  <p>Typical Dates: The festival occurs in the Hindu lunar month of Bhadrapada, typically falling between late August and early September. The exact date varies each year according to the lunar calendar.</p>
+					  <h5 class="section__sub-b">Highlights of the Celebration</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Visarjan Procession: The festival culminates with the Visarjan (immersion) procession, where the idol of Lord Ganesh is paraded through the streets with great fanfare before being immersed in water, symbolizing a ritual see-off of the Lord in his journey towards his abode, taking away the misfortunes of his devotees.</h3>
+					  <h5 class="section__sub-b">Planning Your Visit</h5>
+					  <ul class="bullet-list">
+					    <li>Advance Planning: Given the popularity of the festival, it&#x27;s advisable to plan your visit well in advance. Accommodations near the temple can get booked quickly, and the area will be crowded.</li>
+					    <li>Participation Tips: Participating in the morning and evening aartis during Ganesh Chaturthi offers a profound spiritual experience. Wearing traditional attire is recommended and brings you closer to the cultural aspects of the festival.</li>
+					  </ul>
+					  <p>Visiting Kasba Ganapati Temple during Ganesh Chaturthi provides a unique opportunity to experience the spiritual and communal harmony that embodies the true essence of this significant Hindu festival.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event of the temple - day and date?</h3>
+					  <p>The monthly event at Kasba Ganapati Temple that draws regular attention and participation is the celebration of Sankashti Chaturthi. This observance is dedicated to Lord Ganesha and occurs once every lunar month.</p>
+					  <p>Sankashti Chaturthi at Kasba Ganapati Temple</p>
+					  <p>Event: Sankashti Chaturthi</p>
+					  <p>Frequency: Monthly</p>
+					  <p>Date: Occurs every lunar month on the fourth day after the full moon (Krishna Paksha Chaturthi).</p>
+					  <h5 class="section__sub-b">Significance of Sankashti Chaturthi</h5>
+					  <p>Sankashti Chaturthi is a significant day in the Hindu calendar dedicated to Lord Ganesha. It is believed that observing this day can bring about the removal of obstacles and bestow blessings for a prosperous and trouble-free life. The word &#x27;Sankashti&#x27; derives from &#x27;Sankat&#x27; (problems) and &#x27;Chaturthi&#x27; means the fourth day.</p>
+					  <h5 class="section__sub-b">Rituals and Celebrations</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Prasad Distribution: Following the conclusion of the rituals, special prasad (sacred food) is distributed among the devotees. This often includes sweets such as modak, which is believed to be a favorite of Lord Ganesha.</h3>
+					  <h5 class="section__sub-b">Planning Your Visit</h5>
+					  <ul class="bullet-list">
+					    <li>Check the Temple Calendar: The exact date of Sankashti Chaturthi varies each month, depending on the lunar calendar. It’s advisable to check a Hindu calendar or the temple&#x27;s official announcements for specific dates.</li>
+					    <li>Arrival Time: Since the key rituals are aligned with the moonrise, arriving at the temple by late afternoon or early evening is recommended.</li>
+					    <li>Fasting Practices: Many devotees choose to fast on Sankashti Chaturthi until the moonrise. Participating in this fast can deepen the spiritual experience but is not mandatory for attending the puja.</li>
+					  </ul>
+					  <p>Visiting Kasba Ganapati Temple on Sankashti Chaturthi provides an intimate and spiritually uplifting experience, offering insights into monthly devotional practices dedicated to Lord Ganesha.</p>
+					  <ul class="bullet-list">
+					    <li>------------</li>
+					  </ul>
+					  <p>Top of Form</p>
+					  <p>Bottom of Form</p>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -958,89 +888,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -95,7 +42,7 @@
 				<h1 class="hero-title">﻿Mehandipur Balaji Temple - Rajasthan</h1>
 
 							<div class="img-placeholder">
-					<div class="img-placeholder__icon">&#128341;</div>
+					<div class="img-placeholder__icon">🕉️</div>
 					<div class="img-placeholder__gradient"></div>
 					<div class="img-placeholder__text">Image of ﻿Mehandipur Balaji Temple - Rajasthan</div>
 				</div>
@@ -107,13 +54,6 @@
 							<div>
 								<div class="key-info__label">Main Deity</div>
 								<div class="key-info__value">* The temple is devoted to Lord Hanuman, who is worshipped here in his childhood form, commonly known as Balaji.</div>
-							</div>
-						</div>
-						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
 							</div>
 						</div>
 						<div class="key-info__item">
@@ -134,560 +74,500 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Condensed Information about the Temple:</h3>
-  <h5 class="section__sub-b">A. Main Deity</h5>
-  <ul class="bullet-list">
-    <li>The temple is devoted to Lord Hanuman, who is worshipped here in his childhood form, commonly known as Balaji.</li>
-  </ul>
-  <h5 class="section__sub-b">B. Other Deities (Sub-deities)</h5>
-  <ul class="bullet-list">
-    <li>Alongside Lord Hanuman, the temple also venerates Shri Pret Raj Sarkar and Shri Bhairav. Shri Pret Raj is considered the king of spirits (Pret Raj), and Bhairav, a fierce form of Lord Shiva, is believed to guard the temple.</li>
-  </ul>
-  <p>This temple is renowned for its unique spiritual practices related to exorcism and healing from evil spirits or black magic afflictions. It is a significant center of faith and attracts devotees from across India seeking relief from various troubles, emphasizing the spiritual intervention of Lord Balaji.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <p>(a) general</p>
-  <p>(b) on special days like festivals and utsavas</p>
-  <p>The official website for Mehandipur Balaji Temple does not specify the exact opening and closing times of the temple. Generally, Hindu temples like Mehandipur Balaji operate from early morning to late evening, often starting around 5:00 AM for morning rituals and closing around 9:00 PM after the evening Aarti. However, these timings can vary, especially during special events or festivals.</p>
-  <p>For the most accurate and current information regarding the temple&#x27;s opening and closing hours, it&#x27;s advisable to contact the temple directly through their official website or inquire locally upon arrival.</p>
-  <p>On special days like festivals and utsavas, the opening and closing times of Mehandipur Balaji Temple may be extended to accommodate the larger number of devotees and the special rituals conducted. During these times, the temple often opens earlier and closes later than usual to ensure that all rituals and prayers can be performed properly, and all devotees have a chance to participate.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
-  <p>The Mehandipur Balaji Temple does not charge any entry fee for general darshan, which allows access to the main temple area where devotees can view and pray to the deity. However, there is no specific information available on the website about privileges such as quick darshan, special gate access, or longer viewing times for the deity through paid services. Similarly, the site does not mention any special fees or entry restrictions specifically for foreigners, nor any declarations that need to be made by them.</p>
-  <p>In some temples, additional services like special pujas or quick darshan passes may be offered for a fee, but this is not explicitly mentioned for Mehandipur Balaji Temple. If such services are available, they are typically managed on-site, and details would need to be obtained directly from the temple&#x27;s administration.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- whatever is available?</h3>
-  <p>Mehandipur Balaji Temple is located in the Dausa district of Rajasthan, India. Here’s how you can reach the temple:</p>
-  <p>By Air: The nearest airport is Jaipur International Airport, which is about 113 kilometers away from the temple. From the airport, you can hire a taxi or take a bus to reach Mehandipur Balaji.</p>
-  <p>By Train: The nearest railway stations are Bandikui Junction, which is about 40 kilometers away, and Dausa station, around 60 kilometers from the temple. These stations are well-connected to major cities in India. From the station, taxis and local buses are available to reach Mehandipur Balaji.</p>
-  <p>By Bus: Regular bus services connect Mehandipur Balaji to nearby cities like Jaipur, Alwar, and Bharatpur as well as to other major cities in and around Rajasthan. The temple can be reached by state-run buses or private tour operators.</p>
-  <p>By Taxi: Taxis can be hired from any major city in Rajasthan to Mehandipur Balaji. This is a convenient option if you are traveling in a group or prefer a more comfortable journey.</p>
-  <p>There are no ferries or ports as the temple is inland and not near any significant water bodies.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
-  <p>The Mehandipur Balaji Temple is renowned for its special poojas and rituals that are primarily aimed at healing and exorcism. Specific details about the types and timings of these poojas, as well as their rates and booking procedures, are not directly available on the official website.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Mangal Bhat Pooja - Conducted for removing obstacles and ensuring success in various endeavors.</h3>
-  <h5 class="section__sub-b">Days and Timing</h5>
-  <ul class="bullet-list">
-    <li>These poojas are typically conducted daily, starting from early morning and can continue throughout the day depending on the temple schedule and the number of devotees.</li>
-  </ul>
-  <h5 class="section__sub-b">Rates and Booking</h5>
-  <ul class="bullet-list">
-    <li>The rates for these poojas can vary, and often donations are accepted as per the devotee&#x27;s capacity and willingness.</li>
-    <li>Advanced booking for these poojas might be available during peak pilgrimage seasons or can be arranged upon arrival. However, for the most accurate and detailed information, it&#x27;s recommended to contact the temple administration directly or inquire locally when you visit.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>The Mehandipur Balaji Temple offers several online services to accommodate devotees and visitors. These services include:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Donation Services: The temple website provides options for online donations, allowing devotees to contribute towards temple maintenance, pooja services, and charitable activities.</h3>
-  <p>These services are typically managed by the temple&#x27;s own administration or through their official website. It&#x27;s recommended to use official platforms for any service related to the temple to ensure the security and proper use of your contributions or bookings.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not specify any strict dress code for entry into the temple for regular darshan or even for special pujas and festivals. However, like many places of worship in India, it is generally expected that visitors dress modestly. This typically includes:</p>
-  <ul class="bullet-list">
-    <li>For Men: Avoid wearing shorts or sleeveless tops. It is more appropriate to wear full-length trousers or traditional Indian attire like a kurta.</li>
-    <li>For Women: It is advisable to wear clothes that cover the shoulders and knees, such as long skirts, sarees, or salwar kameez.</li>
-  </ul>
-  <p>On special puja days and during festivals, devotees may choose to wear traditional Indian dresses to align with the sanctity of the ceremonies.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not provide specific guidelines regarding the use of electronic gadgets within the temple premises. Typically, temples in India have varying rules about mobile phones and other electronic devices, ranging from restrictions in certain areas to complete bans to preserve the sanctity and atmosphere of the place.</p>
-  <h5 class="section__sub-b">General Guidelines</h5>
-  <ul class="bullet-list">
-    <li>In many temples, mobile phones may be allowed but must be kept on silent or airplane mode to avoid disturbances during rituals and prayers.</li>
-    <li>Cameras and other recording devices are often not permitted in the inner sanctum or main prayer areas.</li>
-  </ul>
-  <h5 class="section__sub-b">Storage Facilities</h5>
-  <ul class="bullet-list">
-    <li>If gadgets are not allowed, temples usually provide facilities where these items can be safely deposited before entering. These facilities are often near the temple entrance.</li>
-  </ul>
-  <p>To ensure a smooth visit, it&#x27;s advisable for visitors to check directly with the temple’s official contact or administration regarding their policies on electronic gadgets before visiting. This can help in planning what to carry and understanding where items can be deposited if needed.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not specify the rules regarding photography within the temple premises. However, based on common practices in many temples in India:</p>
-  <ul class="bullet-list">
-    <li>Photography may be restricted in the inner sanctum or main prayer areas to maintain the sanctity and privacy of worship.</li>
-    <li>Outside and around the temple premises, photography is often allowed, but it’s best to verify locally upon arrival.</li>
-  </ul>
-  <p>If photography is allowed, there may or may not be a fee associated with it, depending on the specific areas where photos can be taken and the temple’s policy on such activities.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not provide specific information regarding the availability of lifts or elevators for physically handicapped visitors. However, it is common for many significant temples to have facilities or arrangements to assist physically challenged devotees, such as ramps, wheelchairs, and designated pathways.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not provide specific details about the availability of wheelchairs for elderly and physically challenged visitors. However, many significant temples in India offer such facilities to ensure that all devotees can access the temple comfortably.</p>
-  <p>To confirm the availability of wheelchairs and other facilities for physically challenged visitors at Mehandipur Balaji Temple,</p>
-  <p>For further inquiries and detailed arrangements, you might also consider reaching out to local travel agencies or guides who specialize in pilgrimage tours to Mehandipur Balaji. They often have up-to-date information on the facilities and services available to accommodate elderly and physically challenged devotees.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not specify details about special entry or timings for sick, senior citizens, or physically challenged persons. However, many temples in India do offer special arrangements for these groups to facilitate their visit, such as priority darshan, dedicated queues, or specific timings.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not provide specific information about the performance of vehicle pooja (blessing). However, many temples in India do offer vehicle pooja services, where devotees can have their vehicles blessed for safety and prosperity.</p>
-  <h5 class="section__sub-b">General Steps for Vehicle Pooja</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Procedure: Devotees usually drive their vehicle to a designated area in the temple where a priest performs the pooja. This often includes chanting of mantras, applying vermillion (kumkum) and turmeric (haldi), and offering flowers and prasad.</h3>
-  <h5 class="section__sub-b">Specific Information for Mehandipur Balaji Temple</h5>
-  <p>To get precise information about vehicle pooja at Mehandipur Balaji Temple, including the timing, cost, and booking procedure, it is best to contact the temple administration directly. This can be done through the contact details provided on their official website.</p>
-  <h5 class="section__sub-b">Additional Sources</h5>
-  <ul class="bullet-list">
-    <li>Local devotees and travel guides who frequent the temple can also provide insights and help with arranging the pooja.</li>
-    <li>Visiting the temple in person or contacting local vendors around the temple area might provide practical and immediate assistance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation Facilities at Mehandipur Balaji Temple</h3>
-  <p>The Mehandipur Balaji Temple does provide accommodation facilities for pilgrims. These facilities are designed to cater to different needs and budgets, ensuring a comfortable stay for devotees.</p>
-  <h5 class="section__sub-b">Types of Accommodation</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Private Hotels and Lodges: Various private hotels and lodges are available in the vicinity, offering a range of facilities from budget to mid-range to slightly more luxurious options.</h3>
-  <h5 class="section__sub-b">Cost</h5>
-  <ul class="bullet-list">
-    <li>Temple Guest Houses and Dharamshalas: Generally very affordable, with rates starting from INR 100-500 per night depending on the type of room and amenities.</li>
-    <li>Private Hotels and Lodges: Costs can vary widely based on the level of comfort and services provided. Budget hotels may start from INR 500-1000 per night, while more comfortable lodges can range from INR 1000-3000 per night.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking in Advance</h5>
-  <ul class="bullet-list">
-    <li>Temple Accommodation: Booking can often be done on arrival, but it is advisable to contact the temple administration in advance, especially during peak pilgrimage seasons.</li>
-    <li>Private Hotels and Lodges: These can usually be booked online through travel websites or by contacting the hotel directly. Booking in advance is recommended to ensure availability.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact and Booking Information</h5>
-  <ul class="bullet-list">
-    <li>Temple Administration: For specific details and booking of temple-provided accommodations, contacting the temple administration directly via the contact information provided on their official website is advisable.</li>
-    <li>Online Travel Platforms: Websites like Booking.com, MakeMyTrip, and others offer booking options for private hotels and lodges in the Mehandipur area.</li>
-  </ul>
-  <p>For accurate and updated information, it&#x27;s best to reach out to the temple administration or use reliable online booking platforms to secure your stay.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not provide detailed information about specific parking facilities. However, based on common practices at major pilgrimage sites, there are typically designated parking areas for different types of vehicles.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Mini Buses: For larger vehicles such as mini buses, there are often separate parking areas to accommodate the larger size and ensure smooth traffic flow around the temple.</h3>
-  <h5 class="section__sub-b">General Guidelines</h5>
-  <ul class="bullet-list">
-    <li>Parking Fees: There may be a nominal parking fee, which varies depending on the type of vehicle and duration of stay.</li>
-    <li>Security: Parking areas are generally monitored for security, but it is always advisable to not leave valuable items in the vehicle.</li>
-  </ul>
-  <p>For the most accurate and up-to-date information regarding parking facilities for different types of vehicles at Mehandipur Balaji Temple,</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Types of Prashad:</h3>
-  <ul class="bullet-list">
-    <li>Sweets and other offerings: Devotees can offer sweets and other items to the deity, which are then distributed as prashad.</li>
-    <li>Annadanam (free meal distribution): The temple often provides free meals to devotees as part of the annadanam service, a common practice in many Hindu temples.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Procedure:</h3>
-  <ul class="bullet-list">
-    <li>Offering Prashad: Devotees typically purchase prashad items from stalls around the temple or bring them from home to offer to the deity.</li>
-    <li>Receiving Prashad: After the offering, devotees receive a portion of the blessed food as prashad. This can be collected at designated counters within the temple premises.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Payments:</h3>
-  <ul class="bullet-list">
-    <li>There is generally no fee for receiving prashad as it is considered a part of the temple&#x27;s service to devotees. However, there might be a nominal charge for purchasing the items to be offered.</li>
-  </ul>
-  <h5 class="section__sub-b">Meals</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Procedure:</h3>
-  <ul class="bullet-list">
-    <li>The temple often serves free meals (langar) to all devotees, especially during special events, festivals, or on designated days.</li>
-    <li>Meals are usually served in a community dining hall where devotees can sit and eat together.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Payments:</h3>
-  <ul class="bullet-list">
-    <li>The meals are typically free of charge, funded by donations from devotees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Different Classes/Lines:</h3>
-  <ul class="bullet-list">
-    <li>There may be separate lines or designated areas for different groups, such as families, senior citizens, and physically challenged individuals, to ensure a smooth and orderly distribution of prashad and meals.</li>
-  </ul>
-  <h5 class="section__sub-b">Timing</h5>
-  <ul class="bullet-list">
-    <li>Prashad Distribution: Generally available throughout the day during temple hours, but it is best to check with the temple staff for specific timings.</li>
-    <li>Meals: Typically served during standard meal times, such as lunch and dinner. The exact timing can vary based on the temple&#x27;s schedule and the volume of visitors.</li>
-  </ul>
-  <h5 class="section__sub-b">Tickets</h5>
-  <ul class="bullet-list">
-    <li>For special poojas or larger offerings, there might be a requirement to buy tickets. These can usually be purchased from the temple office or designated counters within the temple premises.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not provide specific details about carry-home prashad, including the types available and their costs. However, based on common practices at similar temples, here is some general information:</p>
-  <h5 class="section__sub-b">Carry-Home Prashad</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Types of Prashad:</h3>
-  <ul class="bullet-list">
-    <li>Laddus: Often a popular choice, made from flour, sugar, and ghee.</li>
-    <li>Dry Fruits: Sometimes offered as a healthier option.</li>
-    <li>Other Sweets: Various traditional sweets may be available.</li>
-    <li>Blessed Items: Items like kumkum (vermilion), vibhuti (holy ash), or holy threads may also be available.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cost:</h3>
-  <ul class="bullet-list">
-    <li>The cost of carry-home prashad can vary depending on the type and quantity. Typically, laddus and other sweets might cost anywhere from INR 50 to INR 200 per pack, but prices can vary.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Purchase</h5>
-  <ul class="bullet-list">
-    <li>On-Site Purchase: Prashad can usually be purchased directly from counters or stalls within or around the temple premises.</li>
-    <li>Temple Shops: Dedicated shops managed by the temple often sell these items.</li>
-    <li>Online Purchase: Some temples offer the option to purchase prashad online and have it delivered. Check if this service is available on the temple’s official website or through authorized sellers.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <p>Procedure for Reporting Lost Items at Mehandipur Balaji Temple</p>
-  <p>The specific procedure for reporting lost items at Mehandipur Balaji Temple is not detailed on their official website. However, based on general practices at many temples, you can follow these steps:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Temple Office:</h3>
-  <ul class="bullet-list">
-    <li>Locate the temple office or the lost and found counter. These are typically near the main entrance or within the temple premises.</li>
-    <li>Report the lost item to the temple staff or security personnel. Provide a detailed description of the item, including when and where you last saw it.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Fill Out a Lost Item Report:</h3>
-  <ul class="bullet-list">
-    <li>You may be required to fill out a form with details about the lost item, your contact information, and any other relevant information that might help in locating the item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact Information:</h3>
-  <ul class="bullet-list">
-    <li>Leave your contact information with the temple authorities so they can reach you if the item is found.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Follow-Up:</h3>
-  <ul class="bullet-list">
-    <li>Check back with the temple office periodically to see if your item has been found.</li>
-    <li>Sometimes, temples announce found items over the public address system.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Reporting:</h3>
-  <ul class="bullet-list">
-    <li>If the temple offers online services, check their official website to see if there is an option to report lost items online.</li>
-  </ul>
-  <p>For more accurate and specific information, it’s best to contact the temple administration directly through their official website or by phone.</p>
-  <h5 class="section__sub-b">Additional Tips</h5>
-  <ul class="bullet-list">
-    <li>Be Prompt: Report the lost item as soon as possible to increase the chances of recovery.</li>
-    <li>Identification: Carry identification that can help verify your claim when you retrieve your lost item.</li>
-    <li>Local Help: Ask for assistance from local vendors or guides, as they might have information or could direct you to the appropriate authorities quickly.</li>
-  </ul>
-  <p>By following these general guidelines, you can improve your chances of recovering lost items at Mehandipur Balaji Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>Procedure for Reporting a Missing Group Member at Mehandipur Balaji Temple</p>
-  <p>If a member of your group goes missing at Mehandipur Balaji Temple, follow these steps to report and manage the situation:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Temple Office or Security Desk:</h3>
-  <ul class="bullet-list">
-    <li>Immediately go to the temple office or the nearest security desk. These are usually located near the main entrance or at central points within the temple premises.</li>
-    <li>Inform the temple staff or security personnel about the missing person. Provide a detailed description including their name, age, physical appearance, clothing, and any other identifying features.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Filling Out a Missing Person Report:</h3>
-  <ul class="bullet-list">
-    <li>You might be required to fill out a form with all the necessary details about the missing person.</li>
-    <li>Provide your contact information so the authorities can reach you if they find the person.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Announcements:</h3>
-  <ul class="bullet-list">
-    <li>The temple may use public address systems to make announcements about the missing person. Stay close to the announcement area to hear any updates.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Designated Waiting Area:</h3>
-  <ul class="bullet-list">
-    <li>There may be a designated waiting area for those who are searching for missing group members. This area is usually near the main entrance or a prominent spot within the temple.</li>
-    <li>It is advisable for group members to decide on a common meeting point in case someone gets lost. This can be a well-known spot like the main gate or a specific landmark within the temple complex.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Local Help:</h3>
-  <ul class="bullet-list">
-    <li>Seek assistance from local vendors, guides, or volunteers who are familiar with the temple&#x27;s layout and can help in locating the missing person.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact Details:</h3>
-  <ul class="bullet-list">
-    <li>If you have mobile phones, keep them charged and handy. Ensure that all group members have each other&#x27;s contact numbers.</li>
-  </ul>
-  <h5 class="section__sub-b">Tips for Preventing Such Incidents</h5>
-  <ul class="bullet-list">
-    <li>Pre-Designated Meeting Point: Before entering the temple, decide on a meeting point where everyone should gather if they get separated.</li>
-    <li>Wear Identification: Especially for children and elderly members, consider wearing identification tags with contact details.</li>
-    <li>Stay Connected: Ensure that all group members have mobile phones with them if allowed inside the temple premises.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not explicitly mention whether the temple is registered under the state government or district administration. Such details are often not prominently displayed on temple websites but can usually be confirmed by contacting the temple administration directly.</p>
-  <p>For more accurate and official information regarding the registration and administrative status of Mehandipur Balaji Temple, you can:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
-  <p>The official website for Mehandipur Balaji Temple provides information on how to make donations apart from the traditional Hundi offerings at the temple premises. Here are the details:</p>
-  <h5 class="section__sub-b">Donation Methods</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>The temple has provisions for online donations, which can be made through their official website. This allows devotees to contribute from anywhere in the world.</li>
-    <li>To make an online donation, visit the official website and navigate to the donation section.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bank Transfer:</h3>
-  <ul class="bullet-list">
-    <li>Donations can be made directly to the temple’s bank account. However, the specific bank account details are not listed on the website. It’s best to contact the temple administration for accurate and secure bank details.</li>
-    <li>You can reach out to the temple through the contact information provided on their website for further instructions on making a bank transfer.</li>
-  </ul>
-  <h5 class="section__sub-b">Purposes for Donations</h5>
-  <ul class="bullet-list">
-    <li>Temple Maintenance: Donations help in the upkeep and maintenance of the temple premises.</li>
-    <li>Pooja Services: Contributions support various pooja and ritual services conducted at the temple.</li>
-    <li>Community Services: Donations may also be used for charitable activities organized by the temple, such as annadanam (free meal distribution) and other welfare programs.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact for Donations</h5>
-  <ul class="bullet-list">
-    <li>Temple Office: For any inquiries regarding donations, it is advisable to contact the temple administration directly through the contact numbers or email provided on their website.</li>
-  </ul>
-  <p>For the most accurate and detailed information on making donations to Mehandipur Balaji Temple, including the bank account details and specific purposes, please visit the official website or contact the temple administration directly. This ensures that your donations are made securely and used appropriately for the intended purposes.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <p>The official website for Mehandipur Balaji Temple does not specify any particular privileges associated with donations similar to those provided by other prominent temples like Tirupati or Shirdi. Typically, many temples offer certain privileges or benefits to donors, such as special entry tickets, accommodation, or involvement in specific rituals, but these details are often not explicitly mentioned without direct inquiry.</p>
-  <h5 class="section__sub-b">Potential Privileges</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Recognition: Some temples acknowledge significant donors through plaques or public recognition.</h3>
-  <h5 class="section__sub-b">Inquiry and Confirmation</h5>
-  <p>To get specific information about any potential privileges associated with donations at Mehandipur Balaji Temple, it is advisable to contact the temple administration directly. They can provide accurate details on any existing donation programs and associated benefits.</p>
-  <h5 class="section__sub-b">How to Contact</h5>
-  <ul class="bullet-list">
-    <li>Visit the Official Website: Mehandipur Balaji Temple Official Site</li>
-    <li>Contact the Temple Administration: Use the contact information provided on the website for direct inquiries about donation-related privileges.</li>
-  </ul>
-  <p>For the most reliable and detailed information, reaching out to the temple administration ensures you receive accurate guidance on how donations are utilized and any benefits that may come with them.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Construction and Scientific Information about Mehandipur Balaji Temple</h3>
-  <h5 class="section__sub-b">Architectural Overview</h5>
-  <p>Mehandipur Balaji Temple is a significant religious site dedicated to Lord Hanuman in his childhood form, known as Balaji. Located in the Dausa district of Rajasthan, the temple&#x27;s construction reflects traditional Hindu architectural styles, designed to accommodate large numbers of devotees who visit for spiritual and healing purposes.</p>
-  <h5 class="section__sub-b">Key Architectural Features</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Structure:</h3>
-  <ul class="bullet-list">
-    <li>The temple has a robust structure with a spacious main hall where the deity is housed.</li>
-    <li>The sanctum sanctorum (Garbhagriha) where the idol of Balaji is installed is the focal point of the temple.</li>
-    <li>The temple also includes areas dedicated to other deities such as Shri Pret Raj Sarkar and Shri Bhairav.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Materials Used:</h3>
-  <ul class="bullet-list">
-    <li>Traditional construction materials like stone and marble are primarily used, reflecting the architectural practices of the region.</li>
-    <li>The temple&#x27;s construction is designed to endure the large influx of pilgrims and withstand the local climatic conditions.</li>
-  </ul>
-  <h5 class="section__sub-b">Scientific and Cultural Aspects</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Spiritual and Healing Practices:</h3>
-  <ul class="bullet-list">
-    <li>Mehandipur Balaji Temple is renowned for its unique rituals aimed at exorcism and healing from evil spirits. This aspect attracts a significant number of devotees seeking relief from various afflictions.</li>
-    <li>The rituals involve chanting of mantras, performing specific poojas, and other traditional practices believed to ward off negative energies.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Environmental Adaptation:</h3>
-  <ul class="bullet-list">
-    <li>The temple&#x27;s design ensures proper ventilation and natural lighting, providing a comfortable environment for devotees even during peak times.</li>
-    <li>The use of local materials not only aligns with traditional practices but also enhances the durability of the structure in the local environment.</li>
-  </ul>
-  <h5 class="section__sub-b">Cultural Significance</h5>
-  <ul class="bullet-list">
-    <li>The temple holds immense cultural and religious significance, drawing visitors from all over India. It is a symbol of faith and tradition, deeply embedded in the local community and the broader Hindu religious practices.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <ul class="bullet-list">
-    <li>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</li>
-  </ul>
-  <h5 class="section__sub-b">Spiritual and Cultural Significance</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Exorcism and Healing Rituals:</h3>
-  <ul class="bullet-list">
-    <li>Mehandipur Balaji Temple is particularly famous for its exorcism and healing rituals, attracting devotees who believe they are afflicted by evil spirits or suffer from various ailments. The temple’s rituals are believed to cleanse individuals of negative energies and provide spiritual healing.</li>
-    <li>The main deities, Lord Hanuman (Balaji), Shri Pret Raj Sarkar, and Shri Bhairav, are worshipped for their powers to ward off evil spirits and grant relief from physical and mental distress.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Historical and Religious Importance:</h3>
-  <ul class="bullet-list">
-    <li>According to local legends, the temple&#x27;s location and its deity, Lord Balaji, have divine origins and have been a site of worship for centuries. The temple is deeply embedded in the local culture and religious practices.</li>
-    <li>The temple is also known for fulfilling the wishes of devotees who come with pure devotion and faith, adding to its reputation as a powerful spiritual center.</li>
-  </ul>
-  <h5 class="section__sub-b">Unique Practices</h5>
-  <ul class="bullet-list">
-    <li>Unlike many other temples, Mehandipur Balaji Temple has specific rituals aimed at exorcism and dealing with negative influences, which sets it apart from typical worship practices in other Hindu temples. These rituals include the chanting of specific mantras, offerings, and other traditional practices performed by temple priests.</li>
-  </ul>
-  <h5 class="section__sub-b">Scientific and Paranormal Claims</h5>
-  <ul class="bullet-list">
-    <li>While the temple is renowned for its spiritual significance, there are no widely recognized scientific studies or claims about geomagnetic fields or paramagnetic phenomena similar to those associated with places like Kasar Devi in Uttarakhand or Stonehenge in the UK. The belief in the temple&#x27;s power is primarily rooted in spiritual and cultural traditions rather than scientific explanations.</li>
-  </ul>
-  <h5 class="section__sub-b">Sources for Further Information</h5>
-  <ul class="bullet-list">
-    <li>For more details on the significance and practices at Mehandipur Balaji Temple, you can visit the official temple website and other related resources:</li>
-    <li>Mehandipur Balaji Temple Information</li>
-    <li>Cultural and Historical Context</li>
-  </ul>
-  <p>By exploring these sources, you can gain a deeper understanding of the unique spiritual and cultural importance of Mehandipur Balaji Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
-  <h5 class="section__sub-b">Spiritual Experience</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Spiritual Healing and Peace:</h3>
-  <ul class="bullet-list">
-    <li>Mehandipur Balaji Temple is renowned for its spiritual healing practices. Many visitors come seeking relief from personal distress and mental burdens, believing in the temple&#x27;s power to cleanse and rejuvenate the soul. The experience of participating in or observing the exorcism rituals can be profoundly impactful, providing a unique insight into traditional Indian spiritual practices.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Community and Selfless Service:</h3>
-  <ul class="bullet-list">
-    <li>The temple environment fosters a sense of community and selfless service (seva). Participating in community meals (langar) and helping in the temple’s activities can be a deeply fulfilling experience, promoting values of humility and equality.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Connection with Nature:</h3>
-  <ul class="bullet-list">
-    <li>Located in the scenic region of Rajasthan, the temple offers a serene environment, conducive to meditation and introspection. The peaceful surroundings and the traditional architecture enhance the spiritual ambiance, allowing visitors to connect with their inner selves away from the hustle and bustle of daily life.</li>
-  </ul>
-  <h5 class="section__sub-b">Cultural Insight</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Unique Rituals:</h3>
-  <ul class="bullet-list">
-    <li>The temple is famous for its unique rituals aimed at exorcism and healing. Witnessing or participating in these rituals provides a glimpse into the deep-rooted spiritual beliefs and practices of Indian culture, distinct from typical religious ceremonies.</li>
-  </ul>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
-  <p>b.Donation ( link)</p>
-  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
-  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-  <p>Call to Action or Interaction Links for Mehandipur Balaji Temple</p>
-  <h5 class="section__sub-b">a. Puja Services</h5>
-  <ul class="bullet-list">
-    <li>To inquire about or book puja services at Mehandipur Balaji Temple, you can visit their official Puja Booking Page once such services are tied up. This will allow devotees to participate in special rituals and offerings.</li>
-  </ul>
-  <h5 class="section__sub-b">b. Donations</h5>
-  <ul class="bullet-list">
-    <li>To make a donation to Mehandipur Balaji Temple, please visit the Donation Page. Contributions support various temple activities, maintenance, and charitable services.</li>
-  </ul>
-  <h5 class="section__sub-b">c. Accommodation</h5>
-  <ul class="bullet-list">
-    <li>For information and booking accommodations, you can refer to our detailed Accommodation Page which lists various types of lodging options with an enquiry form for easy booking.</li>
-  </ul>
-  <h5 class="section__sub-b">d. Income Tax Exemption</h5>
-  <ul class="bullet-list">
-    <li>Donations to Mehandipur Balaji Temple may be eligible for tax exemptions under section 80G of the Income Tax Act. For more information, visit the Tax Exemption Information Page where you can find details about eligibility and the benefits associated with your donations.</li>
-  </ul>
-  <p>By following these links, visitors and devotees can easily access the services and information they need, ensuring a smooth and fulfilling experience at Mehandipur Balaji Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event of the temple day and date?</h3>
-  <p>The official website for Mehandipur Balaji Temple does not specify a single annual event with a fixed day and date. However, like many Hindu temples, Mehandipur Balaji Temple likely celebrates various significant Hindu festivals and events throughout the year. Some of these events may include:</p>
-  <h5 class="section__sub-b">Major Festivals and Events</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Rama Navami: Celebrates the birth of Lord Rama, usually observed in March or April.</h3>
-  <h5 class="section__sub-b">Special Events</h5>
-  <ul class="bullet-list">
-    <li>Exorcism and Healing Rituals: Regularly conducted, with certain periods potentially seeing higher activity due to auspicious times as per the Hindu calendar.</li>
-  </ul>
-  <p>For specific dates and details on annual events and special celebrations at Mehandipur Balaji Temple, it is recommended to contact the temple administration directly or check their official website. Visiting during major Hindu festivals will provide a vibrant and spiritually enriching experience.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Event of the temple - day and date</h3>
-  <p>The official website of Mehandipur Balaji Temple does not provide specific details about monthly events with fixed days and dates. However, like many temples, there are likely regular rituals and observances that take place on a monthly basis according to the Hindu lunar calendar. Common monthly events in Hindu temples include:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Amavasya (New Moon) and Purnima (Full Moon):</h3>
-  <ul class="bullet-list">
-    <li>Amavasya: Special rituals and prayers are often conducted on the new moon day.</li>
-    <li>Purnima: The full moon day is also significant for various poojas and ceremonies.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ekadashi:</h3>
-  <ul class="bullet-list">
-    <li>Occurs twice a month, on the 11th day of each lunar fortnight. Devotees often observe fasting and special prayers on these days.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sankashti Chaturthi:</h3>
-  <ul class="bullet-list">
-    <li>A day dedicated to Lord Ganesha, observed on the fourth day after the full moon.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Pradosh Vrat:</h3>
-  <ul class="bullet-list">
-    <li>Observed on the 13th day of each lunar fortnight, dedicated to Lord Shiva.</li>
-  </ul>
-  <h5 class="section__sub-b">Regular Activities</h5>
-  <ul class="bullet-list">
-    <li>Daily Aarti and Poojas: Regular daily worship activities include morning and evening aartis, special poojas, and offerings to the deities.</li>
-    <li>Special Healing Rituals: The temple is known for its unique exorcism and healing rituals, which may be performed daily or on specific auspicious days.</li>
-    <li>-----------</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Condensed Information about the Temple:</h3>
+					  <h5 class="section__sub-b">A. Main Deity</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is devoted to Lord Hanuman, who is worshipped here in his childhood form, commonly known as Balaji.</li>
+					  </ul>
+					  <h5 class="section__sub-b">B. Other Deities (Sub-deities)</h5>
+					  <ul class="bullet-list">
+					    <li>Alongside Lord Hanuman, the temple also venerates Shri Pret Raj Sarkar and Shri Bhairav. Shri Pret Raj is considered the king of spirits (Pret Raj), and Bhairav, a fierce form of Lord Shiva, is believed to guard the temple.</li>
+					  </ul>
+					  <p>This temple is renowned for its unique spiritual practices related to exorcism and healing from evil spirits or black magic afflictions. It is a significant center of faith and attracts devotees from across India seeking relief from various troubles, emphasizing the spiritual intervention of Lord Balaji.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <p>(a) general</p>
+					  <p>(b) on special days like festivals and utsavas</p>
+					  <p>The official website for Mehandipur Balaji Temple does not specify the exact opening and closing times of the temple. Generally, Hindu temples like Mehandipur Balaji operate from early morning to late evening, often starting around 5:00 AM for morning rituals and closing around 9:00 PM after the evening Aarti. However, these timings can vary, especially during special events or festivals.</p>
+					  <p>For the most accurate and current information regarding the temple&#x27;s opening and closing hours, it&#x27;s advisable to contact the temple directly through their official website or inquire locally upon arrival.</p>
+					  <p>On special days like festivals and utsavas, the opening and closing times of Mehandipur Balaji Temple may be extended to accommodate the larger number of devotees and the special rituals conducted. During these times, the temple often opens earlier and closes later than usual to ensure that all rituals and prayers can be performed properly, and all devotees have a chance to participate.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
+					  <p>The Mehandipur Balaji Temple does not charge any entry fee for general darshan, which allows access to the main temple area where devotees can view and pray to the deity. However, there is no specific information available on the website about privileges such as quick darshan, special gate access, or longer viewing times for the deity through paid services. Similarly, the site does not mention any special fees or entry restrictions specifically for foreigners, nor any declarations that need to be made by them.</p>
+					  <p>In some temples, additional services like special pujas or quick darshan passes may be offered for a fee, but this is not explicitly mentioned for Mehandipur Balaji Temple. If such services are available, they are typically managed on-site, and details would need to be obtained directly from the temple&#x27;s administration.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- whatever is available?</h3>
+					  <p>Mehandipur Balaji Temple is located in the Dausa district of Rajasthan, India. Here’s how you can reach the temple:</p>
+					  <p>By Air: The nearest airport is Jaipur International Airport, which is about 113 kilometers away from the temple. From the airport, you can hire a taxi or take a bus to reach Mehandipur Balaji.</p>
+					  <p>By Train: The nearest railway stations are Bandikui Junction, which is about 40 kilometers away, and Dausa station, around 60 kilometers from the temple. These stations are well-connected to major cities in India. From the station, taxis and local buses are available to reach Mehandipur Balaji.</p>
+					  <p>By Bus: Regular bus services connect Mehandipur Balaji to nearby cities like Jaipur, Alwar, and Bharatpur as well as to other major cities in and around Rajasthan. The temple can be reached by state-run buses or private tour operators.</p>
+					  <p>By Taxi: Taxis can be hired from any major city in Rajasthan to Mehandipur Balaji. This is a convenient option if you are traveling in a group or prefer a more comfortable journey.</p>
+					  <p>There are no ferries or ports as the temple is inland and not near any significant water bodies.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <p>The Mehandipur Balaji Temple is renowned for its special poojas and rituals that are primarily aimed at healing and exorcism. Specific details about the types and timings of these poojas, as well as their rates and booking procedures, are not directly available on the official website.</p>
+					  <h5 class="section__sub-b">Special Poojas/Rituals</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Mangal Bhat Pooja - Conducted for removing obstacles and ensuring success in various endeavors.</h3>
+					  <h5 class="section__sub-b">Days and Timing</h5>
+					  <ul class="bullet-list">
+					    <li>These poojas are typically conducted daily, starting from early morning and can continue throughout the day depending on the temple schedule and the number of devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Rates and Booking</h5>
+					  <ul class="bullet-list">
+					    <li>The rates for these poojas can vary, and often donations are accepted as per the devotee&#x27;s capacity and willingness.</li>
+					    <li>Advanced booking for these poojas might be available during peak pilgrimage seasons or can be arranged upon arrival. However, for the most accurate and detailed information, it&#x27;s recommended to contact the temple administration directly or inquire locally when you visit.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>The Mehandipur Balaji Temple offers several online services to accommodate devotees and visitors. These services include:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Donation Services: The temple website provides options for online donations, allowing devotees to contribute towards temple maintenance, pooja services, and charitable activities.</h3>
+					  <p>These services are typically managed by the temple&#x27;s own administration or through their official website. It&#x27;s recommended to use official platforms for any service related to the temple to ensure the security and proper use of your contributions or bookings.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not specify any strict dress code for entry into the temple for regular darshan or even for special pujas and festivals. However, like many places of worship in India, it is generally expected that visitors dress modestly. This typically includes:</p>
+					  <ul class="bullet-list">
+					    <li>For Men: Avoid wearing shorts or sleeveless tops. It is more appropriate to wear full-length trousers or traditional Indian attire like a kurta.</li>
+					    <li>For Women: It is advisable to wear clothes that cover the shoulders and knees, such as long skirts, sarees, or salwar kameez.</li>
+					  </ul>
+					  <p>On special puja days and during festivals, devotees may choose to wear traditional Indian dresses to align with the sanctity of the ceremonies.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not provide specific guidelines regarding the use of electronic gadgets within the temple premises. Typically, temples in India have varying rules about mobile phones and other electronic devices, ranging from restrictions in certain areas to complete bans to preserve the sanctity and atmosphere of the place.</p>
+					  <h5 class="section__sub-b">General Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>In many temples, mobile phones may be allowed but must be kept on silent or airplane mode to avoid disturbances during rituals and prayers.</li>
+					    <li>Cameras and other recording devices are often not permitted in the inner sanctum or main prayer areas.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Storage Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>If gadgets are not allowed, temples usually provide facilities where these items can be safely deposited before entering. These facilities are often near the temple entrance.</li>
+					  </ul>
+					  <p>To ensure a smooth visit, it&#x27;s advisable for visitors to check directly with the temple’s official contact or administration regarding their policies on electronic gadgets before visiting. This can help in planning what to carry and understanding where items can be deposited if needed.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not specify the rules regarding photography within the temple premises. However, based on common practices in many temples in India:</p>
+					  <ul class="bullet-list">
+					    <li>Photography may be restricted in the inner sanctum or main prayer areas to maintain the sanctity and privacy of worship.</li>
+					    <li>Outside and around the temple premises, photography is often allowed, but it’s best to verify locally upon arrival.</li>
+					  </ul>
+					  <p>If photography is allowed, there may or may not be a fee associated with it, depending on the specific areas where photos can be taken and the temple’s policy on such activities.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not provide specific information regarding the availability of lifts or elevators for physically handicapped visitors. However, it is common for many significant temples to have facilities or arrangements to assist physically challenged devotees, such as ramps, wheelchairs, and designated pathways.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not provide specific details about the availability of wheelchairs for elderly and physically challenged visitors. However, many significant temples in India offer such facilities to ensure that all devotees can access the temple comfortably.</p>
+					  <p>To confirm the availability of wheelchairs and other facilities for physically challenged visitors at Mehandipur Balaji Temple,</p>
+					  <p>For further inquiries and detailed arrangements, you might also consider reaching out to local travel agencies or guides who specialize in pilgrimage tours to Mehandipur Balaji. They often have up-to-date information on the facilities and services available to accommodate elderly and physically challenged devotees.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not specify details about special entry or timings for sick, senior citizens, or physically challenged persons. However, many temples in India do offer special arrangements for these groups to facilitate their visit, such as priority darshan, dedicated queues, or specific timings.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not provide specific information about the performance of vehicle pooja (blessing). However, many temples in India do offer vehicle pooja services, where devotees can have their vehicles blessed for safety and prosperity.</p>
+					  <h5 class="section__sub-b">General Steps for Vehicle Pooja</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Procedure: Devotees usually drive their vehicle to a designated area in the temple where a priest performs the pooja. This often includes chanting of mantras, applying vermillion (kumkum) and turmeric (haldi), and offering flowers and prasad.</h3>
+					  <h5 class="section__sub-b">Specific Information for Mehandipur Balaji Temple</h5>
+					  <p>To get precise information about vehicle pooja at Mehandipur Balaji Temple, including the timing, cost, and booking procedure, it is best to contact the temple administration directly. This can be done through the contact details provided on their official website.</p>
+					  <h5 class="section__sub-b">Additional Sources</h5>
+					  <ul class="bullet-list">
+					    <li>Local devotees and travel guides who frequent the temple can also provide insights and help with arranging the pooja.</li>
+					    <li>Visiting the temple in person or contacting local vendors around the temple area might provide practical and immediate assistance.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Accommodation Facilities at Mehandipur Balaji Temple</h3>
+					  <p>The Mehandipur Balaji Temple does provide accommodation facilities for pilgrims. These facilities are designed to cater to different needs and budgets, ensuring a comfortable stay for devotees.</p>
+					  <h5 class="section__sub-b">Types of Accommodation</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Private Hotels and Lodges: Various private hotels and lodges are available in the vicinity, offering a range of facilities from budget to mid-range to slightly more luxurious options.</h3>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Guest Houses and Dharamshalas: Generally very affordable, with rates starting from INR 100-500 per night depending on the type of room and amenities.</li>
+					    <li>Private Hotels and Lodges: Costs can vary widely based on the level of comfort and services provided. Budget hotels may start from INR 500-1000 per night, while more comfortable lodges can range from INR 1000-3000 per night.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking in Advance</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Accommodation: Booking can often be done on arrival, but it is advisable to contact the temple administration in advance, especially during peak pilgrimage seasons.</li>
+					    <li>Private Hotels and Lodges: These can usually be booked online through travel websites or by contacting the hotel directly. Booking in advance is recommended to ensure availability.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact and Booking Information</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Administration: For specific details and booking of temple-provided accommodations, contacting the temple administration directly via the contact information provided on their official website is advisable.</li>
+					    <li>Online Travel Platforms: Websites like Booking.com, MakeMyTrip, and others offer booking options for private hotels and lodges in the Mehandipur area.</li>
+					  </ul>
+					  <p>For accurate and updated information, it&#x27;s best to reach out to the temple administration or use reliable online booking platforms to secure your stay.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not provide detailed information about specific parking facilities. However, based on common practices at major pilgrimage sites, there are typically designated parking areas for different types of vehicles.</p>
+					  <h5 class="section__sub-b">Parking Facilities</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Mini Buses: For larger vehicles such as mini buses, there are often separate parking areas to accommodate the larger size and ensure smooth traffic flow around the temple.</h3>
+					  <h5 class="section__sub-b">General Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Parking Fees: There may be a nominal parking fee, which varies depending on the type of vehicle and duration of stay.</li>
+					    <li>Security: Parking areas are generally monitored for security, but it is always advisable to not leave valuable items in the vehicle.</li>
+					  </ul>
+					  <p>For the most accurate and up-to-date information regarding parking facilities for different types of vehicles at Mehandipur Balaji Temple,</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad Services and Meals at Mehandipur Balaji Temple</h3>
+					  <h5 class="section__sub-b">Prashad Services</h5>
+					  <h5 class="section__sub-b">1. Types of Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>Sweets and other offerings: Devotees can offer sweets and other items to the deity, which are then distributed as prashad.</li>
+					    <li>Annadanam (free meal distribution): The temple often provides free meals to devotees as part of the annadanam service, a common practice in many Hindu temples.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Offering Prashad: Devotees typically purchase prashad items from stalls around the temple or bring them from home to offer to the deity.</li>
+					    <li>Receiving Prashad: After the offering, devotees receive a portion of the blessed food as prashad. This can be collected at designated counters within the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Payments</h5>
+					  <ul class="bullet-list">
+					    <li>There is generally no fee for receiving prashad as it is considered a part of the temple&#x27;s service to devotees. However, there might be a nominal charge for purchasing the items to be offered.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Meals</h5>
+					  <h5 class="section__sub-b">1. Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>The temple often serves free meals (langar) to all devotees, especially during special events, festivals, or on designated days.</li>
+					    <li>Meals are usually served in a community dining hall where devotees can sit and eat together.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Payments</h5>
+					  <ul class="bullet-list">
+					    <li>The meals are typically free of charge, funded by donations from devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Different Classes/Lines</h5>
+					  <ul class="bullet-list">
+					    <li>There may be separate lines or designated areas for different groups, such as families, senior citizens, and physically challenged individuals, to ensure a smooth and orderly distribution of prashad and meals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Timing</h5>
+					  <ul class="bullet-list">
+					    <li>Prashad Distribution: Generally available throughout the day during temple hours, but it is best to check with the temple staff for specific timings.</li>
+					    <li>Meals: Typically served during standard meal times, such as lunch and dinner. The exact timing can vary based on the temple&#x27;s schedule and the volume of visitors.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tickets</h5>
+					  <ul class="bullet-list">
+					    <li>For special poojas or larger offerings, there might be a requirement to buy tickets. These can usually be purchased from the temple office or designated counters within the temple premises.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not provide specific details about carry-home prashad, including the types available and their costs. However, based on common practices at similar temples, here is some general information:</p>
+					  <h5 class="section__sub-b">Carry-Home Prashad</h5>
+					  <h5 class="section__sub-b">1. Types of Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>Laddus: Often a popular choice, made from flour, sugar, and ghee.</li>
+					    <li>Dry Fruits: Sometimes offered as a healthier option.</li>
+					    <li>Other Sweets: Various traditional sweets may be available.</li>
+					    <li>Blessed Items: Items like kumkum (vermilion), vibhuti (holy ash), or holy threads may also be available.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Cost</h5>
+					  <ul class="bullet-list">
+					    <li>The cost of carry-home prashad can vary depending on the type and quantity. Typically, laddus and other sweets might cost anywhere from INR 50 to INR 200 per pack, but prices can vary.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Purchase</h5>
+					  <ul class="bullet-list">
+					    <li>On-Site Purchase: Prashad can usually be purchased directly from counters or stalls within or around the temple premises.</li>
+					    <li>Temple Shops: Dedicated shops managed by the temple often sell these items.</li>
+					    <li>Online Purchase: Some temples offer the option to purchase prashad online and have it delivered. Check if this service is available on the temple’s official website or through authorized sellers.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>Procedure for Reporting Lost Items at Mehandipur Balaji Temple</p>
+					  <p>The specific procedure for reporting lost items at Mehandipur Balaji Temple is not detailed on their official website. However, based on general practices at many temples, you can follow these steps:</p>
+					  <h5 class="section__sub-b">1. Visit the Temple Office</h5>
+					  <ul class="bullet-list">
+					    <li>Locate the temple office or the lost and found counter. These are typically near the main entrance or within the temple premises.</li>
+					    <li>Report the lost item to the temple staff or security personnel. Provide a detailed description of the item, including when and where you last saw it.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Fill Out a Lost Item Report</h5>
+					  <ul class="bullet-list">
+					    <li>You may be required to fill out a form with details about the lost item, your contact information, and any other relevant information that might help in locating the item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Contact Information</h5>
+					  <ul class="bullet-list">
+					    <li>Leave your contact information with the temple authorities so they can reach you if the item is found.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Follow-Up</h5>
+					  <ul class="bullet-list">
+					    <li>Check back with the temple office periodically to see if your item has been found.</li>
+					    <li>Sometimes, temples announce found items over the public address system.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Online Reporting</h5>
+					  <ul class="bullet-list">
+					    <li>If the temple offers online services, check their official website to see if there is an option to report lost items online.</li>
+					  </ul>
+					  <p>For more accurate and specific information, it’s best to contact the temple administration directly through their official website or by phone.</p>
+					  <h5 class="section__sub-b">Additional Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Be Prompt: Report the lost item as soon as possible to increase the chances of recovery.</li>
+					    <li>Identification: Carry identification that can help verify your claim when you retrieve your lost item.</li>
+					    <li>Local Help: Ask for assistance from local vendors or guides, as they might have information or could direct you to the appropriate authorities quickly.</li>
+					  </ul>
+					  <p>By following these general guidelines, you can improve your chances of recovering lost items at Mehandipur Balaji Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>Procedure for Reporting a Missing Group Member at Mehandipur Balaji Temple</p>
+					  <p>If a member of your group goes missing at Mehandipur Balaji Temple, follow these steps to report and manage the situation:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Visit the Temple Office or Security Desk:</h3>
+					  <ul class="bullet-list">
+					    <li>Immediately go to the temple office or the nearest security desk. These are usually located near the main entrance or at central points within the temple premises.</li>
+					    <li>Inform the temple staff or security personnel about the missing person. Provide a detailed description including their name, age, physical appearance, clothing, and any other identifying features.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Filling Out a Missing Person Report</h5>
+					  <ul class="bullet-list">
+					    <li>You might be required to fill out a form with all the necessary details about the missing person.</li>
+					    <li>Provide your contact information so the authorities can reach you if they find the person.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Announcements</h5>
+					  <ul class="bullet-list">
+					    <li>The temple may use public address systems to make announcements about the missing person. Stay close to the announcement area to hear any updates.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Designated Waiting Area</h5>
+					  <ul class="bullet-list">
+					    <li>There may be a designated waiting area for those who are searching for missing group members. This area is usually near the main entrance or a prominent spot within the temple.</li>
+					    <li>It is advisable for group members to decide on a common meeting point in case someone gets lost. This can be a well-known spot like the main gate or a specific landmark within the temple complex.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Local Help</h5>
+					  <ul class="bullet-list">
+					    <li>Seek assistance from local vendors, guides, or volunteers who are familiar with the temple&#x27;s layout and can help in locating the missing person.</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Contact Details</h5>
+					  <ul class="bullet-list">
+					    <li>If you have mobile phones, keep them charged and handy. Ensure that all group members have each other&#x27;s contact numbers.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Preventing Such Incidents</h5>
+					  <ul class="bullet-list">
+					    <li>Pre-Designated Meeting Point: Before entering the temple, decide on a meeting point where everyone should gather if they get separated.</li>
+					    <li>Wear Identification: Especially for children and elderly members, consider wearing identification tags with contact details.</li>
+					    <li>Stay Connected: Ensure that all group members have mobile phones with them if allowed inside the temple premises.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not explicitly mention whether the temple is registered under the state government or district administration. Such details are often not prominently displayed on temple websites but can usually be confirmed by contacting the temple administration directly.</p>
+					  <p>For more accurate and official information regarding the registration and administrative status of Mehandipur Balaji Temple, you can:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>The official website for Mehandipur Balaji Temple provides information on how to make donations apart from the traditional Hundi offerings at the temple premises. Here are the details:</p>
+					  <h5 class="section__sub-b">Donation Methods</h5>
+					  <h5 class="section__sub-b">1. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>The temple has provisions for online donations, which can be made through their official website. This allows devotees to contribute from anywhere in the world.</li>
+					    <li>To make an online donation, visit the official website and navigate to the donation section.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Bank Transfer</h5>
+					  <ul class="bullet-list">
+					    <li>Donations can be made directly to the temple’s bank account. However, the specific bank account details are not listed on the website. It’s best to contact the temple administration for accurate and secure bank details.</li>
+					    <li>You can reach out to the temple through the contact information provided on their website for further instructions on making a bank transfer.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Purposes for Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Maintenance: Donations help in the upkeep and maintenance of the temple premises.</li>
+					    <li>Pooja Services: Contributions support various pooja and ritual services conducted at the temple.</li>
+					    <li>Community Services: Donations may also be used for charitable activities organized by the temple, such as annadanam (free meal distribution) and other welfare programs.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact for Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Office: For any inquiries regarding donations, it is advisable to contact the temple administration directly through the contact numbers or email provided on their website.</li>
+					  </ul>
+					  <p>For the most accurate and detailed information on making donations to Mehandipur Balaji Temple, including the bank account details and specific purposes, please visit the official website or contact the temple administration directly. This ensures that your donations are made securely and used appropriately for the intended purposes.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not specify any particular privileges associated with donations similar to those provided by other prominent temples like Tirupati or Shirdi. Typically, many temples offer certain privileges or benefits to donors, such as special entry tickets, accommodation, or involvement in specific rituals, but these details are often not explicitly mentioned without direct inquiry.</p>
+					  <h5 class="section__sub-b">Potential Privileges</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Recognition: Some temples acknowledge significant donors through plaques or public recognition.</h3>
+					  <h5 class="section__sub-b">Inquiry and Confirmation</h5>
+					  <p>To get specific information about any potential privileges associated with donations at Mehandipur Balaji Temple, it is advisable to contact the temple administration directly. They can provide accurate details on any existing donation programs and associated benefits.</p>
+					  <h5 class="section__sub-b">How to Contact</h5>
+					  <ul class="bullet-list">
+					    <li>Visit the Official Website: Mehandipur Balaji Temple Official Site</li>
+					    <li>Contact the Temple Administration: Use the contact information provided on the website for direct inquiries about donation-related privileges.</li>
+					  </ul>
+					  <p>For the most reliable and detailed information, reaching out to the temple administration ensures you receive accurate guidance on how donations are utilized and any benefits that may come with them.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Construction and Scientific Information about Mehandipur Balaji Temple</h3>
+					  <h5 class="section__sub-b">Architectural Overview</h5>
+					  <p>Mehandipur Balaji Temple is a significant religious site dedicated to Lord Hanuman in his childhood form, known as Balaji. Located in the Dausa district of Rajasthan, the temple&#x27;s construction reflects traditional Hindu architectural styles, designed to accommodate large numbers of devotees who visit for spiritual and healing purposes.</p>
+					  <h5 class="section__sub-b">Key Architectural Features</h5>
+					  <h5 class="section__sub-b">1. Temple Structure</h5>
+					  <ul class="bullet-list">
+					    <li>The temple has a robust structure with a spacious main hall where the deity is housed.</li>
+					    <li>The sanctum sanctorum (Garbhagriha) where the idol of Balaji is installed is the focal point of the temple.</li>
+					    <li>The temple also includes areas dedicated to other deities such as Shri Pret Raj Sarkar and Shri Bhairav.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Materials Used</h5>
+					  <ul class="bullet-list">
+					    <li>Traditional construction materials like stone and marble are primarily used, reflecting the architectural practices of the region.</li>
+					    <li>The temple&#x27;s construction is designed to endure the large influx of pilgrims and withstand the local climatic conditions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Scientific and Cultural Aspects</h5>
+					  <h5 class="section__sub-b">1. Spiritual and Healing Practices</h5>
+					  <ul class="bullet-list">
+					    <li>Mehandipur Balaji Temple is renowned for its unique rituals aimed at exorcism and healing from evil spirits. This aspect attracts a significant number of devotees seeking relief from various afflictions.</li>
+					    <li>The rituals involve chanting of mantras, performing specific poojas, and other traditional practices believed to ward off negative energies.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Environmental Adaptation</h5>
+					  <ul class="bullet-list">
+					    <li>The temple&#x27;s design ensures proper ventilation and natural lighting, providing a comfortable environment for devotees even during peak times.</li>
+					    <li>The use of local materials not only aligns with traditional practices but also enhances the durability of the structure in the local environment.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cultural Significance</h5>
+					  <ul class="bullet-list">
+					    <li>The temple holds immense cultural and religious significance, drawing visitors from all over India. It is a symbol of faith and tradition, deeply embedded in the local community and the broader Hindu religious practices.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <ul class="bullet-list">
+					    <li>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</li>
+					  </ul>
+					  <h5 class="section__sub-b">Spiritual and Cultural Significance</h5>
+					  <h5 class="section__sub-b">1. Exorcism and Healing Rituals</h5>
+					  <ul class="bullet-list">
+					    <li>Mehandipur Balaji Temple is particularly famous for its exorcism and healing rituals, attracting devotees who believe they are afflicted by evil spirits or suffer from various ailments. The temple’s rituals are believed to cleanse individuals of negative energies and provide spiritual healing.</li>
+					    <li>The main deities, Lord Hanuman (Balaji), Shri Pret Raj Sarkar, and Shri Bhairav, are worshipped for their powers to ward off evil spirits and grant relief from physical and mental distress.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Historical and Religious Importance</h5>
+					  <ul class="bullet-list">
+					    <li>According to local legends, the temple&#x27;s location and its deity, Lord Balaji, have divine origins and have been a site of worship for centuries. The temple is deeply embedded in the local culture and religious practices.</li>
+					    <li>The temple is also known for fulfilling the wishes of devotees who come with pure devotion and faith, adding to its reputation as a powerful spiritual center.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Unique Practices</h5>
+					  <ul class="bullet-list">
+					    <li>Unlike many other temples, Mehandipur Balaji Temple has specific rituals aimed at exorcism and dealing with negative influences, which sets it apart from typical worship practices in other Hindu temples. These rituals include the chanting of specific mantras, offerings, and other traditional practices performed by temple priests.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Scientific and Paranormal Claims</h5>
+					  <ul class="bullet-list">
+					    <li>While the temple is renowned for its spiritual significance, there are no widely recognized scientific studies or claims about geomagnetic fields or paramagnetic phenomena similar to those associated with places like Kasar Devi in Uttarakhand or Stonehenge in the UK. The belief in the temple&#x27;s power is primarily rooted in spiritual and cultural traditions rather than scientific explanations.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Sources for Further Information</h5>
+					  <ul class="bullet-list">
+					    <li>For more details on the significance and practices at Mehandipur Balaji Temple, you can visit the official temple website and other related resources:</li>
+					    <li>Mehandipur Balaji Temple Information</li>
+					    <li>Cultural and Historical Context</li>
+					  </ul>
+					  <p>By exploring these sources, you can gain a deeper understanding of the unique spiritual and cultural importance of Mehandipur Balaji Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <h5 class="section__sub-b">Spiritual Experience</h5>
+					  <h5 class="section__sub-b">1. Spiritual Healing and Peace</h5>
+					  <ul class="bullet-list">
+					    <li>Mehandipur Balaji Temple is renowned for its spiritual healing practices. Many visitors come seeking relief from personal distress and mental burdens, believing in the temple&#x27;s power to cleanse and rejuvenate the soul. The experience of participating in or observing the exorcism rituals can be profoundly impactful, providing a unique insight into traditional Indian spiritual practices.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Community and Selfless Service</h5>
+					  <ul class="bullet-list">
+					    <li>The temple environment fosters a sense of community and selfless service (seva). Participating in community meals (langar) and helping in the temple’s activities can be a deeply fulfilling experience, promoting values of humility and equality.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Connection with Nature</h5>
+					  <ul class="bullet-list">
+					    <li>Located in the scenic region of Rajasthan, the temple offers a serene environment, conducive to meditation and introspection. The peaceful surroundings and the traditional architecture enhance the spiritual ambiance, allowing visitors to connect with their inner selves away from the hustle and bustle of daily life.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cultural Insight</h5>
+					  <h5 class="section__sub-b">1. Unique Rituals</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is famous for its unique rituals aimed at exorcism and healing. Witnessing or participating in these rituals provides a glimpse into the deep-rooted spiritual beliefs and practices of Indian culture, distinct from typical religious ceremonies.</li>
+					  </ul>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Donation ( link)</p>
+					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>Call to Action or Interaction Links for Mehandipur Balaji Temple</p>
+					  <h5 class="section__sub-b">a. Puja Services</h5>
+					  <ul class="bullet-list">
+					    <li>To inquire about or book puja services at Mehandipur Balaji Temple, you can visit their official Puja Booking Page once such services are tied up. This will allow devotees to participate in special rituals and offerings.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Donations</h5>
+					  <ul class="bullet-list">
+					    <li>To make a donation to Mehandipur Balaji Temple, please visit the Donation Page. Contributions support various temple activities, maintenance, and charitable services.</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. Accommodation</h5>
+					  <ul class="bullet-list">
+					    <li>For information and booking accommodations, you can refer to our detailed Accommodation Page which lists various types of lodging options with an enquiry form for easy booking.</li>
+					  </ul>
+					  <h5 class="section__sub-b">d. Income Tax Exemption</h5>
+					  <ul class="bullet-list">
+					    <li>Donations to Mehandipur Balaji Temple may be eligible for tax exemptions under section 80G of the Income Tax Act. For more information, visit the Tax Exemption Information Page where you can find details about eligibility and the benefits associated with your donations.</li>
+					  </ul>
+					  <p>By following these links, visitors and devotees can easily access the services and information they need, ensuring a smooth and fulfilling experience at Mehandipur Balaji Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event of the temple day and date?</h3>
+					  <p>The official website for Mehandipur Balaji Temple does not specify a single annual event with a fixed day and date. However, like many Hindu temples, Mehandipur Balaji Temple likely celebrates various significant Hindu festivals and events throughout the year. Some of these events may include:</p>
+					  <h5 class="section__sub-b">Major Festivals and Events</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Rama Navami: Celebrates the birth of Lord Rama, usually observed in March or April.</h3>
+					  <h5 class="section__sub-b">Special Events</h5>
+					  <ul class="bullet-list">
+					    <li>Exorcism and Healing Rituals: Regularly conducted, with certain periods potentially seeing higher activity due to auspicious times as per the Hindu calendar.</li>
+					  </ul>
+					  <p>For specific dates and details on annual events and special celebrations at Mehandipur Balaji Temple, it is recommended to contact the temple administration directly or check their official website. Visiting during major Hindu festivals will provide a vibrant and spiritually enriching experience.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event of the temple - day and date</h3>
+					  <p>The official website of Mehandipur Balaji Temple does not provide specific details about monthly events with fixed days and dates. However, like many temples, there are likely regular rituals and observances that take place on a monthly basis according to the Hindu lunar calendar. Common monthly events in Hindu temples include:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Amavasya (New Moon) and Purnima (Full Moon):</h3>
+					  <ul class="bullet-list">
+					    <li>Amavasya: Special rituals and prayers are often conducted on the new moon day.</li>
+					    <li>Purnima: The full moon day is also significant for various poojas and ceremonies.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Ekadashi</h5>
+					  <ul class="bullet-list">
+					    <li>Occurs twice a month, on the 11th day of each lunar fortnight. Devotees often observe fasting and special prayers on these days.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Sankashti Chaturthi</h5>
+					  <ul class="bullet-list">
+					    <li>A day dedicated to Lord Ganesha, observed on the fourth day after the full moon.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Pradosh Vrat</h5>
+					  <ul class="bullet-list">
+					    <li>Observed on the 13th day of each lunar fortnight, dedicated to Lord Shiva.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Regular Activities</h5>
+					  <ul class="bullet-list">
+					    <li>Daily Aarti and Poojas: Regular daily worship activities include morning and evening aartis, special poojas, and offerings to the deities.</li>
+					    <li>Special Healing Rituals: The temple is known for its unique exorcism and healing rituals, which may be performed daily or on specific auspicious days.</li>
+					    <li>-----------</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -701,89 +581,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

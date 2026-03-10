@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -95,7 +42,7 @@
 				<h1 class="hero-title">﻿Vaishno Devi Temple - Jammu and Kashmir</h1>
 
 							<div class="img-placeholder">
-					<div class="img-placeholder__icon">&#128341;</div>
+					<div class="img-placeholder__icon">🕉️</div>
 					<div class="img-placeholder__gradient"></div>
 					<div class="img-placeholder__text">Image of ﻿Vaishno Devi Temple - Jammu and Kashmir</div>
 				</div>
@@ -107,13 +54,6 @@
 							<div>
 								<div class="key-info__label">Main Deity</div>
 								<div class="key-info__value">* Goddess Vaishno Devi (Mata Rani)</div>
-							</div>
-						</div>
-						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
 							</div>
 						</div>
 						<div class="key-info__item">
@@ -134,1202 +74,1021 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Full Address: Shri Mata Vaishno Devi Shrine Board, Central Office, Katra, Jammu and Kashmir, Pin Code: 182301, India</h3>
-  <h5 class="section__sub-b">Phone/Contact Numbers</h5>
-  <ul class="bullet-list">
-    <li>Telephone: +91-1991-232092</li>
-    <li>Helpline: 1800-180-7123 (Toll-Free)</li>
-    <li>Fax: +91-1991-232505</li>
-  </ul>
-  <p>Email: ceo@maavaishnodevi.net</p>
-  <h5 class="section__sub-b">A. Main Deity</h5>
-  <ul class="bullet-list">
-    <li>Goddess Vaishno Devi (Mata Rani)</li>
-    <li>The main deity of the temple is Goddess Vaishno Devi, also known as Mata Rani or Trikuta. She is a manifestation of the Hindu Mother Goddess Mahalakshmi. Pilgrims believe that Mata Vaishno Devi fulfills the wishes of her devotees.</li>
-  </ul>
-  <h5 class="section__sub-b">B. Other Deities (Sub Deities)</h5>
-  <ul class="bullet-list">
-    <li>Bhavanis (Darshan of the Pindies):</li>
-    <li>The cave shrine houses three naturally formed rock formations called Pindies, representing the three forms of the Goddess:</li>
-    <li>Maha Kali: Symbolizes strength.</li>
-    <li>Maha Lakshmi: Represents wealth and prosperity.</li>
-    <li>Maha Saraswati: Denotes wisdom and knowledge.</li>
-  </ul>
-  <p>These Pindies are collectively worshipped as Mata Vaishno Devi and are unique as they embody the Goddess in her trinity form within a single shrine.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <p>(a) general</p>
-  <p>(b) on special days like festivals and utsavas</p>
-  <p>(a) General Timings</p>
-  <ul class="bullet-list">
-    <li>Opening Time: 5:00 AM</li>
-    <li>Closing Time: 12:00 PM (Noon)</li>
-    <li>Reopening Time: 4:00 PM</li>
-    <li>Final Closing Time: 9:00 PM</li>
-  </ul>
-  <p>These timings allow for daily rituals, aarti, and maintenance of the sanctum.</p>
-  <p>(b) Special Days (Festivals and Utsavas)</p>
-  <ul class="bullet-list">
-    <li>Navratri Timings:</li>
-    <li>During Navratri, which is one of the most significant festivals at Vaishno Devi, the temple remains open almost 24 hours a day to accommodate the influx of pilgrims. Special pujas and aartis are conducted, and the timings may be extended accordingly.</li>
-    <li>Diwali, Holi, and Other Major Festivals:</li>
-    <li>On other major Hindu festivals, the temple extends its timings to facilitate devotees. The temple may open earlier and close later than usual, often remaining open throughout the night for darshan and special rituals.</li>
-  </ul>
-  <p>For exact timings on special days, it is recommended to check the official website or contact the temple authorities directly.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Fees</h3>
-  <ul class="bullet-list">
-    <li>General Entry: There is no entry fee for visiting Vaishno Devi Temple. Entry to the temple is free for all pilgrims.</li>
-  </ul>
-  <p>Privileges for Paid Services</p>
-  <p>Although general entry is free, there are several paid services and facilities that offer added conveniences and privileges:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Yatra Parchi (Travel Slip):</h3>
-  <ul class="bullet-list">
-    <li>Pilgrims must obtain a Yatra Parchi, which is a free registration slip. This is mandatory for entering the trekking path to the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">VIP Darshan:</h3>
-  <ul class="bullet-list">
-    <li>Donation-Based VIP Pass: Pilgrims can make a donation to the Shri Mata Vaishno Devi Shrine Board (SMVDSB) to obtain a VIP pass. This pass provides quicker access to the shrine through a special gate, reducing waiting time significantly.</li>
-    <li>Privileges: VIP passes often include a quicker darshan, special entry gate, and a longer viewing time of the deity.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Helicopter Services:</h3>
-  <ul class="bullet-list">
-    <li>Booking: Helicopter services are available from Katra to Sanjichhat. Tickets can be booked online or at designated counters.</li>
-    <li>Privileges: This service significantly reduces the travel time and physical effort required to reach the temple. Helicopter passengers usually receive a priority darshan slip as part of their package.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Aarti Booking:</h3>
-  <ul class="bullet-list">
-    <li>Mata Ki Aarti: Pilgrims can book tickets for the morning or evening Aarti. This provides a special and intimate experience of the temple rituals.</li>
-    <li>Privileges: Participation in the Aarti includes access to the sanctum during the ritual, prasad (blessed food), and a special viewing of the deity.</li>
-  </ul>
-  <p>Entry Restrictions for Foreigners</p>
-  <ul class="bullet-list">
-    <li>General Entry: Foreigners are allowed entry into the temple without any special restrictions. However, they are required to follow the same procedures as Indian pilgrims.</li>
-    <li>Declaration: No specific declarations or special fees are required for foreigners beyond the usual Yatra Parchi registration.</li>
-    <li>Restrictions: Standard temple rules apply to all visitors, including dress code and behavior guidelines.</li>
-  </ul>
-  <p>Important Notes</p>
-  <ul class="bullet-list">
-    <li>Dress Code: Modest clothing is recommended. Pilgrims are advised to dress in a manner befitting the sanctity of the temple.</li>
-    <li>Electronic Devices: Cameras, mobile phones, and other electronic devices are not allowed inside the temple premises.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
-  <h5 class="section__sub-b">Location</h5>
-  <p>Vaishno Devi Temple is located in the Trikuta Mountains near the town of Katra, in the Reasi district of Jammu and Kashmir, India.</p>
-  <p>How to Reach Vaishno Devi</p>
-</div>
-<div class="section">
-  <h3 class="section__title">By Air:</h3>
-  <ul class="bullet-list">
-    <li>Nearest Airport: Jammu Airport (Satwari Airport) is the closest airport to Katra.</li>
-    <li>Distance: Approximately 50 kilometers from Katra.</li>
-    <li>Connectivity: Regular flights are available from major cities like Delhi, Mumbai, and Bangalore.</li>
-    <li>Travel to Katra: Taxis and buses are available from the airport to Katra.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">By Train:</h3>
-  <ul class="bullet-list">
-    <li>Nearest Railway Station: Shri Mata Vaishno Devi Katra Railway Station.</li>
-    <li>Connectivity: Direct trains are available from major cities including Delhi, Mumbai, Chennai, and Bangalore. Notable trains include Vande Bharat Express, Jammu Mail, and Shri Shakti Express.</li>
-    <li>Distance to Base Camp: The railway station is about 2 kilometers from the base camp in Katra.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">By Road:</h3>
-  <ul class="bullet-list">
-    <li>Bus Services:</li>
-    <li>From Jammu: Regular state and private buses run from Jammu to Katra.</li>
-    <li>From Other Cities: Direct bus services are available from major cities in North India, including Delhi, Chandigarh, and Amritsar.</li>
-    <li>Taxis:</li>
-    <li>Taxis can be hired from Jammu, Srinagar, and other nearby cities to Katra.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Trekking Route from Katra to Bhawan:</h3>
-  <ul class="bullet-list">
-    <li>Distance: Approximately 13 kilometers.</li>
-    <li>Route: Pilgrims typically start their journey from the Banganga check post.</li>
-    <li>Facilities: Ponies, palanquins, and battery-operated vehicles are available for those who need assistance.</li>
-    <li>Helicopter Services: Available from Katra to Sanjichhat, reducing the trekking distance to about 2.5 kilometers from Bhawan.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">By Helicopter:</h3>
-  <ul class="bullet-list">
-    <li>Service: Helicopter services operate between Katra and Sanjichhat.</li>
-    <li>Booking: Tickets can be booked online or at the designated counters in Katra.</li>
-    <li>Duration: The flight duration is approximately 8 minutes.</li>
-    <li>Distance from Sanjichhat to Bhawan: 2.5 kilometers trek, which can be completed on foot or using ponies.</li>
-  </ul>
-  <p>Important Contact Information</p>
-  <ul class="bullet-list">
-    <li>Shri Mata Vaishno Devi Shrine Board:</li>
-    <li>Address: Central Office, Katra, Jammu and Kashmir, Pin Code: 182301, India</li>
-    <li>Phone: +91-1991-232092</li>
-    <li>Helpline: 1800-180-7123 (Toll-Free)</li>
-    <li>Email: ceo@maavaishnodevi.net</li>
-    <li>Official Website: Maa Vaishno Devi</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Morning and Evening Aarti</h3>
-  <ul class="bullet-list">
-    <li>Days: Daily</li>
-    <li>Timings:</li>
-    <li>Morning Aarti: Approximately 6:20 AM to 8:00 AM</li>
-    <li>Evening Aarti: Approximately 6:20 PM to 8:00 PM</li>
-    <li>Details: This is the primary ritual where devotees can participate in the chanting of hymns and prayers. The aarti is performed in the sanctum sanctorum in front of the deity.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bhawan Aarti</h3>
-  <ul class="bullet-list">
-    <li>Days: Daily</li>
-    <li>Timings: Early morning before the temple opens to the general public and late evening after the temple closes.</li>
-    <li>Rates: Around INR 1000 per person (subject to change).</li>
-    <li>Booking: Advance booking is required. You can book through the official website or directly at the shrine board offices.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Poojas and Havan</h3>
-  <ul class="bullet-list">
-    <li>Days: Special occasions and festivals like Navratri.</li>
-    <li>Timings: Specific timings are announced based on the festival schedule.</li>
-    <li>Details: These include elaborate rituals, offerings, and chanting of mantras.</li>
-    <li>Rates: Varies depending on the specific ritual. Detailed information can be obtained from the shrine board.</li>
-    <li>Booking: Advance booking required.</li>
-  </ul>
-  <p>Advance Booking Procedure</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Booking:</h3>
-  <ul class="bullet-list">
-    <li>Visit the official Maa Vaishno Devi website.</li>
-    <li>Navigate to the &quot;Pooja Booking&quot; section.</li>
-    <li>Select the desired pooja and date.</li>
-    <li>Complete the payment process.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">On-Site Booking:</h3>
-  <ul class="bullet-list">
-    <li>Visit the Shri Mata Vaishno Devi Shrine Board office in Katra.</li>
-    <li>Fill out the booking form and pay the required fees.</li>
-  </ul>
-  <p>Rates for Special Poojas</p>
-  <ul class="bullet-list">
-    <li>Aarti (Morning/Evening): Approximately INR 1000 per person.</li>
-    <li>Special Poojas (Havan, etc.): Rates vary based on the type of pooja and specific requirements. It is best to check directly with the shrine board for the most accurate and updated information.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>Shri Mata Vaishno Devi Shrine Board (SMVDSB) offers various online services to cater to the needs of the pilgrims. These services include:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Yatra Registration:</h3>
-  <ul class="bullet-list">
-    <li>Service: Pilgrims can register for the Yatra online, obtaining the mandatory Yatra Parchi (travel slip) which allows entry to the trekking route.</li>
-    <li>Website: Yatra Registration</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Pooja and Darshan Booking:</h3>
-  <ul class="bullet-list">
-    <li>Service: Advance booking for special poojas and aartis can be done online. This includes booking for the morning and evening aarti at the Bhawan.</li>
-    <li>Website: Pooja Booking</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Helicopter Services:</h3>
-  <ul class="bullet-list">
-    <li>Service: Online booking of helicopter services from Katra to Sanjichhat and back.</li>
-    <li>Website: Helicopter Booking</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation Booking:</h3>
-  <ul class="bullet-list">
-    <li>Service: Pilgrims can book accommodations in advance at various facilities managed by the shrine board, including guest houses and dharamshalas in Katra, Adhkuwari, Sanjichhat, and Bhawan.</li>
-    <li>Website: Accommodation Booking</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Donations:</h3>
-  <ul class="bullet-list">
-    <li>Service: Devotees can make donations to the shrine board online, contributing to various services and facilities provided by the temple.</li>
-    <li>Website: Donate Online</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Live Darshan:</h3>
-  <ul class="bullet-list">
-    <li>Service: The shrine board offers live streaming of the temple for devotees who cannot visit in person.</li>
-    <li>Website: Live Darshan</li>
-  </ul>
-  <h5 class="section__sub-b">Managed By</h5>
-  <ul class="bullet-list">
-    <li>All these online services are managed by the Shri Mata Vaishno Devi Shrine Board (SMVDSB), which is responsible for the management and administration of the Vaishno Devi Shrine and its associated facilities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days.</h3>
-  <h5 class="section__sub-b">General Dress Code</h5>
-  <ul class="bullet-list">
-    <li>Men and Women:</li>
-    <li>Visitors are expected to wear modest and respectful clothing while visiting the temple premises.</li>
-    <li>It is advisable to wear comfortable attire suitable for trekking, such as traditional Indian clothes or casual wear that covers the shoulders and knees.</li>
-  </ul>
-  <h5 class="section__sub-b">Specific Dress Code for Special Pooja and Festival Days</h5>
-  <ul class="bullet-list">
-    <li>Special Poojas:</li>
-    <li>For participating in special poojas and rituals, traditional Indian attire is recommended.</li>
-    <li>Men are advised to wear dhoti-kurta or pyjama-kurta.</li>
-    <li>Women are encouraged to wear sarees, salwar kameez, or other traditional outfits.</li>
-    <li>Festival Days:</li>
-    <li>During festivals like Navratri, pilgrims often dress in traditional festive attire.</li>
-    <li>Bright and colorful clothing is common, reflecting the celebratory nature of the festivals.</li>
-  </ul>
-  <h5 class="section__sub-b">General Recommendations</h5>
-  <ul class="bullet-list">
-    <li>Footwear:</li>
-    <li>Comfortable walking shoes are recommended for the trek from Katra to the Bhawan.</li>
-    <li>Footwear must be removed before entering the sanctum sanctorum and other sacred areas.</li>
-    <li>Weather Considerations:</li>
-    <li>During winter, it is advisable to wear warm clothing as the temperatures can drop significantly.</li>
-    <li>In summer, light cotton clothes are recommended to stay cool during the trek.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Restrictions:</h3>
-  <ul class="bullet-list">
-    <li>Avoid Revealing Clothes:</li>
-    <li>Avoid wearing shorts, skirts, or sleeveless tops.</li>
-    <li>Tight or revealing clothing is not appropriate within the temple premises.</li>
-  </ul>
-  <p>For more specific details and any updates on the dress code, you can refer to the official Maa Vaishno Devi website or contact the Shri Mata Vaishno Devi Shrine Board directly.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <h5 class="section__sub-b">General Dress Code</h5>
-  <ul class="bullet-list">
-    <li>Men and Women:</li>
-    <li>Visitors are expected to wear modest and respectful clothing while visiting the temple premises.</li>
-    <li>It is advisable to wear comfortable attire suitable for trekking, such as traditional Indian clothes or casual wear that covers the shoulders and knees.</li>
-  </ul>
-  <h5 class="section__sub-b">Specific Dress Code for Special Pooja and Festival Days</h5>
-  <ul class="bullet-list">
-    <li>Special Poojas:</li>
-    <li>For participating in special poojas and rituals, traditional Indian attire is recommended.</li>
-    <li>Men are advised to wear dhoti-kurta or pyjama-kurta.</li>
-    <li>Women are encouraged to wear sarees, salwar kameez, or other traditional outfits.</li>
-    <li>Festival Days:</li>
-    <li>During festivals like Navratri, pilgrims often dress in traditional festive attire.</li>
-    <li>Bright and colorful clothing is common, reflecting the celebratory nature of the festivals.</li>
-  </ul>
-  <h5 class="section__sub-b">General Recommendations</h5>
-  <ul class="bullet-list">
-    <li>Footwear:</li>
-    <li>Comfortable walking shoes are recommended for the trek from Katra to the Bhawan.</li>
-    <li>Footwear must be removed before entering the sanctum sanctorum and other sacred areas.</li>
-    <li>Weather Considerations:</li>
-    <li>During winter, it is advisable to wear warm clothing as the temperatures can drop significantly.</li>
-    <li>In summer, light cotton clothes are recommended to stay cool during the trek.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Restrictions:</h3>
-  <ul class="bullet-list">
-    <li>Avoid Revealing Clothes:</li>
-    <li>Avoid wearing shorts, skirts, or sleeveless tops.</li>
-    <li>Tight or revealing clothing is not appropriate within the temple premises.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <ul class="bullet-list">
-    <li>No, Electronic Gadgets are Not Allowed: Mobile phones, cameras, and other electronic gadgets are not permitted within the temple premises. This rule is strictly enforced to maintain the sanctity and security of the shrine.</li>
-  </ul>
-  <h5 class="section__sub-b">Items Allowed</h5>
-  <ul class="bullet-list">
-    <li>Only essential items like wallets, small purses, and basic personal items are allowed inside the temple complex.</li>
-  </ul>
-  <h5 class="section__sub-b">Depositing Electronic Gadgets</h5>
-  <ul class="bullet-list">
-    <li>Cloak Room Facilities:</li>
-    <li>There are designated cloakrooms and lockers available near the entrance of the temple complex where pilgrims can safely deposit their electronic gadgets and other restricted items.</li>
-    <li>These facilities are managed by the Shri Mata Vaishno Devi Shrine Board (SMVDSB) and are secure and reliable.</li>
-    <li>Location of Cloak Rooms:</li>
-    <li>Cloakrooms are available at the following locations:</li>
-    <li>Katra (Base Camp)</li>
-    <li>Banganga (Starting Point of the Trek)</li>
-    <li>Adhkuwari</li>
-    <li>Sanjichhat</li>
-    <li>Bhawan (near the temple complex)</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure for Depositing Items</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Reach the Cloak Room:</h3>
-  <ul class="bullet-list">
-    <li>Upon arrival at any of the designated locations, locate the cloakroom facility.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Deposit Items:</h3>
-  <ul class="bullet-list">
-    <li>Submit your electronic gadgets and other restricted items at the cloakroom. Ensure to collect the receipt or token provided by the facility staff.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Collection:</h3>
-  <ul class="bullet-list">
-    <li>After completing your visit, return to the same cloakroom to collect your deposited items by presenting the receipt or token.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Information</h5>
-  <ul class="bullet-list">
-    <li>Safety and Security:</li>
-    <li>The cloakrooms are monitored and secured to ensure the safety of the pilgrims’ belongings.</li>
-    <li>It is advisable not to leave any valuables or cash in the deposited items.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
-  <ul class="bullet-list">
-    <li>No, Photography is Not Allowed: Photography, videography, and the use of any recording devices are strictly prohibited within the temple premises. This policy is enforced to maintain the sanctity and decorum of the shrine.</li>
-  </ul>
-  <h5 class="section__sub-b">Areas Where Photography is Prohibited</h5>
-  <ul class="bullet-list">
-    <li>Inside the temple complex, including the main Bhawan (sanctum sanctorum).</li>
-    <li>Near the sacred cave and all areas designated as restricted.</li>
-  </ul>
-  <h5 class="section__sub-b">Permissible Areas</h5>
-  <ul class="bullet-list">
-    <li>Photography is generally allowed in public areas outside the main temple complex, such as along the trekking route from Katra to Bhawan.</li>
-    <li>Pilgrims can take photographs at scenic points along the route, which offer beautiful views of the surrounding mountains.</li>
-  </ul>
-  <h5 class="section__sub-b">No Photography Fee</h5>
-  <ul class="bullet-list">
-    <li>Since photography is prohibited within the main temple complex, there is no fee associated with it. However, for areas where photography is allowed, no specific fee is prescribed.</li>
-  </ul>
-  <h5 class="section__sub-b">Handling Electronic Devices</h5>
-  <ul class="bullet-list">
-    <li>As mentioned earlier, electronic devices, including cameras, must be deposited at the cloakroom facilities before entering the temple complex. These facilities are available at various points, including Katra, Banganga, Adhkuwari, Sanjichhat, and Bhawan.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <h5 class="section__sub-b">Lifts/Elevators</h5>
-  <ul class="bullet-list">
-    <li>Availability: As of now, there are no lifts or elevators available directly within the temple complex itself due to the geographical and structural constraints of the mountainous terrain where the temple is situated.</li>
-  </ul>
-  <h5 class="section__sub-b">Alternative Facilities</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Battery-Operated Vehicles:</h3>
-  <ul class="bullet-list">
-    <li>Service: Battery-operated vehicles are available from Adhkuwari to Bhawan for physically challenged pilgrims.</li>
-    <li>Booking: These can be booked at Adhkuwari or online through the official website.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Palkis (Palanquins):</h3>
-  <ul class="bullet-list">
-    <li>Service: Palkis are available for those who cannot walk the trek. These are carried by four bearers and are especially useful for the elderly and physically challenged.</li>
-    <li>Booking: Palkis can be booked at the base camp (Katra) and along the trekking route.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ponies and Ponny Men:</h3>
-  <ul class="bullet-list">
-    <li>Service: Ponies are another option for physically handicapped individuals who may find it difficult to trek the entire distance.</li>
-    <li>Booking: Available for hire at Katra, Banganga, and other key points along the trek.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Helicopter Services:</h3>
-  <ul class="bullet-list">
-    <li>Service: Helicopter services from Katra to Sanjichhat significantly reduce the physical effort required to reach the temple.</li>
-    <li>Distance from Sanjichhat to Bhawan: The remaining distance (about 2.5 kilometers) from Sanjichhat to Bhawan can be covered on foot, using ponies, or in palanquins.</li>
-    <li>Booking: Available online and at designated counters in Katra.</li>
-  </ul>
-  <h5 class="section__sub-b">Wheelchairs</h5>
-  <ul class="bullet-list">
-    <li>Availability: Wheelchairs are available for use by physically handicapped pilgrims at various points including Katra, Banganga, and Bhawan.</li>
-    <li>Booking: Available at the cloakroom or medical aid centers.</li>
-  </ul>
-  <h5 class="section__sub-b">Medical Aid Centers</h5>
-  <ul class="bullet-list">
-    <li>Locations: Medical aid centers are available along the trekking route and at Bhawan to provide necessary medical assistance and support to pilgrims, especially those with physical challenges.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
-  <h5 class="section__sub-b">Availability of Wheelchairs</h5>
-  <ul class="bullet-list">
-    <li>Wheelchairs are available at various points along the route to Vaishno Devi Temple, including Katra, Banganga, and Bhawan. These facilities are provided to assist elderly and physically challenged pilgrims in making the pilgrimage more comfortable.</li>
-  </ul>
-  <h5 class="section__sub-b">Locations of Wheelchair Facilities</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Katra (Base Camp):</h3>
-  <ul class="bullet-list">
-    <li>Wheelchairs can be obtained at the starting point of the pilgrimage in Katra.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Banganga:</h3>
-  <ul class="bullet-list">
-    <li>Wheelchairs are available at Banganga, which is the first major checkpoint on the trekking route from Katra.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Adhkuwari:</h3>
-  <ul class="bullet-list">
-    <li>Pilgrims can also find wheelchair services at Adhkuwari, which is approximately halfway along the trekking route.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sanjichhat:</h3>
-  <ul class="bullet-list">
-    <li>Sanjichhat, where the helicopter service lands, also provides wheelchair facilities for pilgrims.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bhawan (Temple Complex):</h3>
-  <ul class="bullet-list">
-    <li>Wheelchairs are available at Bhawan, near the temple complex, to help with the final stretch to the sanctum.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Obtain a Wheelchair</h5>
-  <ul class="bullet-list">
-    <li>On-Site Request:</li>
-    <li>Wheelchairs can be requested at the designated cloakroom facilities and medical aid centers along the pilgrimage route.</li>
-    <li>Pre-Booking and Inquiry:</li>
-    <li>For more information or to ensure availability, pilgrims can contact the Shri Mata Vaishno Devi Shrine Board in advance.</li>
-  </ul>
-  <h5 class="section__sub-b">Additional Facilities for Physically Challenged Pilgrims</h5>
-  <ul class="bullet-list">
-    <li>Battery-Operated Vehicles:</li>
-    <li>Available from Adhkuwari to Bhawan to assist those who may find the trek challenging.</li>
-    <li>Palkis and Ponies:</li>
-    <li>Can be hired to carry pilgrims who have difficulty walking.</li>
-    <li>Helicopter Services:</li>
-    <li>Reduces the trekking distance significantly and provides a more comfortable way to reach near the Bhawan.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
-  <h5 class="section__sub-b">Special Entry Facilities</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Priority Darshan Pass:</h3>
-  <ul class="bullet-list">
-    <li>The Shri Mata Vaishno Devi Shrine Board (SMVDSB) provides priority darshan passes for senior citizens, physically challenged individuals, and those with severe medical conditions.</li>
-    <li>Procedure: To avail of this facility, pilgrims need to present valid identification and medical certificates (if applicable) at the Yatra Registration Counter in Katra.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dedicated Access Points:</h3>
-  <ul class="bullet-list">
-    <li>Special access points and dedicated queues are available at various checkpoints along the pilgrimage route to facilitate easy movement and reduced waiting times for eligible pilgrims.</li>
-  </ul>
-  <h5 class="section__sub-b">Special Timing and Arrangements</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Morning and Evening Aarti:</h3>
-  <ul class="bullet-list">
-    <li>Special arrangements can be made for senior citizens and physically challenged individuals to participate in the morning and evening aarti, which are conducted daily.</li>
-    <li>Morning Aarti: Approximately 6:20 AM to 8:00 AM</li>
-    <li>Evening Aarti: Approximately 6:20 PM to 8:00 PM</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Helicopter Services:</h3>
-  <ul class="bullet-list">
-    <li>Senior citizens and physically challenged pilgrims can avail themselves of helicopter services from Katra to Sanjichhat. This service significantly reduces the physical strain of the pilgrimage.</li>
-    <li>Booking: Helicopter services can be booked online or at designated counters in Katra.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Battery-Operated Vehicles:</h3>
-  <ul class="bullet-list">
-    <li>Available from Adhkuwari to Bhawan to assist those who have difficulty walking.</li>
-    <li>Booking: These vehicles can be arranged at Adhkuwari or through advance booking online.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <p>Yes, vehicle pooja is performed at the Vaishno Devi Temple. Pilgrims can have their vehicles blessed as part of the ritual services offered by the temple authorities.</p>
-  <h5 class="section__sub-b">Timings and Cost</h5>
-  <ul class="bullet-list">
-    <li>Timings: The vehicle pooja is generally conducted during temple hours, which are from early morning until evening. Specific timings can be confirmed by contacting the temple authorities or checking at the pooja booking counters in Katra.</li>
-    <li>Cost: The cost for vehicle pooja can vary. It is advisable to check with the Shri Mata Vaishno Devi Shrine Board for the current rates.</li>
-  </ul>
-  <h5 class="section__sub-b">Advance Booking Procedure</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">On-Site Booking:</h3>
-  <ul class="bullet-list">
-    <li>Pilgrims can book the vehicle pooja directly at the designated counters near the temple or at the Shrine Board offices in Katra.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
-  <p>Yes, the Vaishno Devi Temple provides various accommodation facilities for pilgrims. These accommodations are managed by the Shri Mata Vaishno Devi Shrine Board (SMVDSB).</p>
-  <p>Types of Accommodation Facilities</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Niharika Complex:</h3>
-  <ul class="bullet-list">
-    <li>Location: Katra</li>
-    <li>Facilities: Rooms with attached bathrooms, canteen, and other amenities.</li>
-    <li>Cost: Approximately INR 500 - 1500 per night (subject to change based on room type and season).</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Shakti Bhawan:</h3>
-  <ul class="bullet-list">
-    <li>Location: Katra</li>
-    <li>Facilities: Dormitory-style accommodation with shared facilities.</li>
-    <li>Cost: Approximately INR 100 - 200 per bed per night.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ashirwad Bhawan:</h3>
-  <ul class="bullet-list">
-    <li>Location: Katra</li>
-    <li>Facilities: Budget rooms and dormitories.</li>
-    <li>Cost: Approximately INR 200 - 500 per night.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Gauri Bhawan:</h3>
-  <ul class="bullet-list">
-    <li>Location: Near Bhawan</li>
-    <li>Facilities: Basic accommodation facilities for pilgrims close to the temple.</li>
-    <li>Cost: Approximately INR 500 - 1000 per night.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Saraswati Bhawan:</h3>
-  <ul class="bullet-list">
-    <li>Location: Near Bhawan</li>
-    <li>Facilities: Budget accommodation with essential amenities.</li>
-    <li>Cost: Approximately INR 200 - 500 per night.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Vaishnavi Dham and Kalika Dham:</h3>
-  <ul class="bullet-list">
-    <li>Location: Jammu</li>
-    <li>Facilities: Convenient for pilgrims arriving at or departing from Jammu.</li>
-    <li>Cost: Approximately INR 500 - 1000 per night.</li>
-  </ul>
-  <p>How to Book in Advance</p>
-  <h5 class="section__sub-b">Online Booking</h5>
-  <ul class="bullet-list">
-    <li>Website: Pilgrims can book accommodations in advance through the official Shri Mata Vaishno Devi Shrine Board website.</li>
-    <li>Accommodation Booking</li>
-  </ul>
-  <h5 class="section__sub-b">On-Site Booking</h5>
-  <ul class="bullet-list">
-    <li>Booking Counters: Pilgrims can also book accommodations at the Shrine Board’s booking counters in Katra, Jammu, and other locations.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Parking for Cars and Two-Wheelers:</h3>
-  <ul class="bullet-list">
-    <li>Location: Designated parking areas are available in Katra, near the Yatra Registration Office and the base camp.</li>
-    <li>Capacity: There are ample parking spaces to accommodate a large number of cars and two-wheelers.</li>
-    <li>Security: The parking lots are secured and monitored to ensure the safety of the vehicles.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Parking for Mini Buses:</h3>
-  <ul class="bullet-list">
-    <li>Location: Special parking areas are designated for larger vehicles like mini buses. These are typically located slightly away from the main entrance to manage space and traffic flow efficiently.</li>
-    <li>Facilities: These parking areas are also secured and monitored, ensuring the safety of larger vehicles.</li>
-  </ul>
-  <h5 class="section__sub-b">Specific Parking Locations</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Yatra Registration Office Parking:</h3>
-  <ul class="bullet-list">
-    <li>Convenient for pilgrims starting their trek from Katra.</li>
-    <li>Located near the base camp and the main entry point for the trek.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Multi-Level Parking Complex:</h3>
-  <ul class="bullet-list">
-    <li>A multi-level parking facility is available in Katra, providing additional space for vehicles.</li>
-    <li>Suitable for both cars and two-wheelers.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Designated Bus Parking:</h3>
-  <ul class="bullet-list">
-    <li>Larger vehicles, such as mini buses, have designated parking areas to ensure smooth flow and accommodation.</li>
-  </ul>
-  <h5 class="section__sub-b">Important Points</h5>
-  <ul class="bullet-list">
-    <li>Charges: Parking charges may apply. It is advisable to check the latest rates at the parking facility.</li>
-    <li>Accessibility: The parking areas are easily accessible from the main routes leading to Katra and are well connected to the starting points of the pilgrimage.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking and Information</h5>
-  <p>For the latest information on parking availability and to ensure a smooth pilgrimage experience, you can contact the Shri Mata Vaishno Devi Shrine Board.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Prashad Services</h3>
-  <h5 class="section__sub-b">Types of Prashad</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Panchmeva Prashad:</h3>
-  <ul class="bullet-list">
-    <li>A mix of five dry fruits, considered sacred and blessed.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Box Prashad:</h3>
-  <ul class="bullet-list">
-    <li>Packaged prashad which includes items like sweets and dry fruits, often sent as a gift.</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure to Obtain Prashad</h5>
-  <ul class="bullet-list">
-    <li>On-Site Purchase:</li>
-    <li>Prashad can be bought at designated counters near the temple complex and at various points in Katra.</li>
-    <li>Online Booking:</li>
-    <li>Pilgrims can book prashad online through the official Shri Mata Vaishno Devi Shrine Board website.</li>
-    <li>Book Prashad Online</li>
-  </ul>
-  <h5 class="section__sub-b">Payments</h5>
-  <ul class="bullet-list">
-    <li>Prashad items are usually purchased, and the cost varies depending on the type and quantity.</li>
-    <li>Payments can be made in cash or through digital modes at the purchase counters or online.</li>
-  </ul>
-  <p>Meals Services</p>
-  <h5 class="section__sub-b">Langar Services (Free Meals)</h5>
-  <ul class="bullet-list">
-    <li>Locations:</li>
-    <li>Free langar (community kitchen) services are provided at several points:</li>
-    <li>Tarakote Marg</li>
-    <li>Sanjichhat</li>
-    <li>Bhairon ji</li>
-    <li>Timings:</li>
-    <li>Langar services operate round the clock to ensure that all pilgrims have access to free meals during their pilgrimage.</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure</h5>
-  <ul class="bullet-list">
-    <li>No tickets or prior booking is required for the langar services.</li>
-    <li>Pilgrims can simply visit the langar halls and partake in the meals served.</li>
-  </ul>
-  <h5 class="section__sub-b">Paid Bhojanalayas (Restaurants)</h5>
-  <ul class="bullet-list">
-    <li>Locations:</li>
-    <li>Various bhojanalayas are available along the route from Katra to Bhawan.</li>
-    <li>Key locations include Adhkuwari, Sanjichhat, and Bhawan.</li>
-    <li>Types of Meals:</li>
-    <li>These eateries provide vegetarian meals, snacks, and beverages.</li>
-    <li>Procedure and Payments:</li>
-    <li>Meals at these bhojanalayas are paid services. Pilgrims can order and pay directly at these facilities.</li>
-    <li>Prices vary depending on the menu items chosen.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <h5 class="section__sub-b">Types of Carry Home Prashad</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Panchmeva Prashad:</h3>
-  <ul class="bullet-list">
-    <li>A mix of five dry fruits, which is considered sacred and blessed by the deity.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Box Prashad:</h3>
-  <ul class="bullet-list">
-    <li>Includes a combination of sweets, dry fruits, and other sacred offerings, packaged for easy transport and gifting.</li>
-  </ul>
-  <h5 class="section__sub-b">Cost of Carry Home Prashad</h5>
-  <ul class="bullet-list">
-    <li>The cost of carry home prashad varies depending on the type and quantity. Here are approximate prices:</li>
-    <li>Panchmeva Prashad: Typically ranges from INR 50 to INR 200 per packet, depending on the quantity.</li>
-    <li>Box Prashad: The prices can range from INR 100 to INR 500, depending on the size and contents of the box.</li>
-  </ul>
-  <h5 class="section__sub-b">Where to Purchase</h5>
-  <ul class="bullet-list">
-    <li>On-Site Purchase:</li>
-    <li>Prashad can be bought at designated counters near the temple complex and at various points in Katra.</li>
-    <li>Online Booking:</li>
-    <li>Pilgrims can also book prashad online through the official Shri Mata Vaishno Devi Shrine Board website.</li>
-    <li>Book Prashad Online</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure and Payment</h5>
-  <ul class="bullet-list">
-    <li>On-Site:</li>
-    <li>Payments can be made in cash or through digital modes at the purchase counters.</li>
-    <li>Online:</li>
-    <li>Payments can be made through various online payment methods available on the official website.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Retrace Your Steps:</h3>
-  <ul class="bullet-list">
-    <li>First, try to retrace your steps within the temple premises to check if you can locate the lost item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Inform Temple Staff:</h3>
-  <ul class="bullet-list">
-    <li>Inform any nearby temple staff, security personnel, or volunteers about the lost item. Provide them with a detailed description of the item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Lost and Found Office:</h3>
-  <ul class="bullet-list">
-    <li>The Shri Mata Vaishno Devi Shrine Board (SMVDSB) has a designated Lost and Found office.</li>
-    <li>Location: The Lost and Found office is located near the Bhawan and at the main entry points in Katra and other key locations.</li>
-    <li>Procedure:</li>
-    <li>Report the lost item at the Lost and Found office.</li>
-    <li>Provide a detailed description, including the type, color, size, and any unique identifiers of the lost item.</li>
-    <li>Fill out a Lost Item Report form if required.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact the Shrine Board:</h3>
-  <ul class="bullet-list">
-    <li>If you are unable to visit the Lost and Found office in person, you can contact the Shrine Board through the following means:</li>
-    <li>Phone: +91-1991-232092</li>
-    <li>Helpline: 1800-180-7123 (Toll-Free)</li>
-    <li>Email: ceo@maavaishnodevi.net</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Follow Up:</h3>
-  <ul class="bullet-list">
-    <li>Regularly follow up with the Lost and Found office to check if your item has been recovered.</li>
-    <li>Leave your contact details with the office so they can reach you if the item is found.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Inquiry:</h3>
-  <ul class="bullet-list">
-    <li>For more convenience, you can also inquire online through the official website of the Shri Mata Vaishno Devi Shrine Board.</li>
-    <li>Website: Maa Vaishno Devi</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Retrace Your Steps:</h3>
-  <ul class="bullet-list">
-    <li>First, try to retrace your steps within the temple premises to check if you can locate the lost item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Inform Temple Staff:</h3>
-  <ul class="bullet-list">
-    <li>Inform any nearby temple staff, security personnel, or volunteers about the lost item. Provide them with a detailed description of the item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Lost and Found Office:</h3>
-  <ul class="bullet-list">
-    <li>The Shri Mata Vaishno Devi Shrine Board (SMVDSB) has a designated Lost and Found office.</li>
-    <li>Location: The Lost and Found office is located near the Bhawan and at the main entry points in Katra and other key locations.</li>
-    <li>Procedure:</li>
-    <li>Report the lost item at the Lost and Found office.</li>
-    <li>Provide a detailed description, including the type, color, size, and any unique identifiers of the lost item.</li>
-    <li>Fill out a Lost Item Report form if required.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact the Shrine Board:</h3>
-  <ul class="bullet-list">
-    <li>If you are unable to visit the Lost and Found office in person, you can contact the Shrine Board through the following means:</li>
-    <li>Phone: +91-1991-232092</li>
-    <li>Helpline: 1800-180-7123 (Toll-Free)</li>
-    <li>Email: ceo@maavaishnodevi.net</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Follow Up:</h3>
-  <ul class="bullet-list">
-    <li>Regularly follow up with the Lost and Found office to check if your item has been recovered.</li>
-    <li>Leave your contact details with the office so they can reach you if the item is found.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Inquiry:</h3>
-  <ul class="bullet-list">
-    <li>For more convenience, you can also inquire online through the official website of the Shri Mata Vaishno Devi Shrine Board.</li>
-    <li>Website: Maa Vaishno Devi</li>
-  </ul>
-  <h5 class="section__sub-b">References</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">YatraDham - Vaishno Devi</h3>
-  <p>These resources provide detailed information and can be contacted for specific queries related to lost items at Vaishno Devi Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <h5 class="section__sub-b">Steps to Report a Missing Person</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Stay Calm and Gather Information:</h3>
-  <ul class="bullet-list">
-    <li>Gather important details about the missing person, such as their name, age, physical description, what they were wearing, and any distinctive features.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Inform Temple Staff or Security Personnel:</h3>
-  <ul class="bullet-list">
-    <li>Immediately inform the nearest temple staff, security personnel, or volunteers about the missing person. Provide them with all the gathered details.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Police Assistance Booth:</h3>
-  <ul class="bullet-list">
-    <li>There are police assistance booths and help desks located at key points like Katra, Banganga, Adhkuwari, Sanjichhat, and Bhawan.</li>
-    <li>Report the missing person at these booths. The police will assist in searching for the missing individual and making announcements if necessary.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Make an Announcement:</h3>
-  <ul class="bullet-list">
-    <li>Request the authorities to make an announcement over the public address system. Provide them with a detailed description of the missing person to facilitate the announcement.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Designate a Meeting Point:</h3>
-  <ul class="bullet-list">
-    <li>Choose a central and easily recognizable location within the temple premises or Katra as a meeting point. Inform all group members about this location in case they get separated.</li>
-    <li>Common waiting areas include the Yatra Registration Office in Katra or the main entry gate at Bhawan.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Stay at the Designated Meeting Point:</h3>
-  <ul class="bullet-list">
-    <li>It is advisable for at least one member of the group to stay at the designated meeting point while others search for the missing person or coordinate with the authorities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
-  <p>The Vaishno Devi Temple is registered and managed under a specific statutory framework established by the state government. Here are the key details:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Shri Mata Vaishno Devi Shrine Board (SMVDSB):</h3>
-  <ul class="bullet-list">
-    <li>The temple is administered by the Shri Mata Vaishno Devi Shrine Board (SMVDSB), which was established in August 1986.</li>
-    <li>The SMVDSB operates under the provisions of the Jammu and Kashmir Shri Mata Vaishno Devi Shrine Act, 1988.</li>
-    <li>The Shrine Board is the statutory and legal authority responsible for the management and governance of the Holy Shrine.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Oversight and Administration:</h3>
-  <ul class="bullet-list">
-    <li>The Board is headed by the Hon’ble Lt. Governor of Jammu and Kashmir, who serves as the Chairman of the Shrine Board.</li>
-    <li>The Shrine Board ensures the administration, management, and development of the temple and its associated facilities, including the lands and buildings.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
-  <p>Apart from traditional Hundi offerings at the temple, donations can be made to the Shri Mata Vaishno Devi Shrine Board through various means. Here are the details:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>Official Website: Donations can be made online through the official Shri Mata Vaishno Devi Shrine Board website.</li>
-    <li>Link: Donate Online</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bank Transfers:</h3>
-  <ul class="bullet-list">
-    <li>Bank Account Details for Donations:</li>
-    <li>Account Name: Shri Mata Vaishno Devi Shrine Board</li>
-    <li>Account Number: 50100592301571</li>
-    <li>Bank: HDFC Bank Ltd.</li>
-    <li>Branch: Katra</li>
-    <li>IFSC Code: HDFC002344</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Donation Purposes:</h3>
-  <ul class="bullet-list">
-    <li>General Donations: Contribute to the overall development and maintenance of the temple and its facilities.</li>
-    <li>Specific Causes:</li>
-    <li>Langar Seva: Supports the free meals (langar) provided to pilgrims.</li>
-    <li>Medical Facilities: Funds the healthcare services offered to pilgrims.</li>
-    <li>Educational Initiatives: Supports the Shri Mata Vaishno Devi University and other educational projects.</li>
-    <li>Environmental Conservation: Aids in various environmental and sustainability projects.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Donations in Kind:</h3>
-  <ul class="bullet-list">
-    <li>Items: Pilgrims can also donate items such as food, clothing, and other essentials.</li>
-    <li>Procedure: Donations in kind can be made by contacting the Shrine Board directly to ensure proper processing and utilization.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <p>While the Shri Mata Vaishno Devi Shrine Board (SMVDSB) does accept donations for various causes, specific privileges or benefits associated with these donations are not explicitly detailed on the official website as they are for some other temples like Tirupati or Shirdi. However, here is what is known about donation practices and potential benefits:</p>
-  <ul class="bullet-list">
-    <li>*1. General Donations and Privileges:</li>
-    <li>Usage of Donations: Donations to SMVDSB support a wide range of activities including the maintenance of the shrine, langar seva (free meals), medical facilities, educational initiatives, and environmental conservation projects.</li>
-    <li>Recognition: High-value donors may receive acknowledgment or certificates from the Shrine Board, though this is not specifically mentioned as a standard practice.</li>
-    <li>*2. Specific Donation Schemes:</li>
-    <li>Langar Seva: Donations towards the langar (community kitchen) help in providing free meals to thousands of pilgrims daily.</li>
-    <li>Medical and Educational Support: Contributions can also support the Shri Mata Vaishno Devi Narayana Superspeciality Hospital and the Shri Mata Vaishno Devi University.</li>
-    <li>*3. Corporate Social Responsibility (CSR) Contributions:</li>
-    <li>Shri Mata Vaishno Devi Charitable Society: Registered for receiving CSR funds, supporting various social, educational, and healthcare initiatives.</li>
-    <li>Privileges for Corporate Donors: Large corporate donors contributing through CSR may receive special acknowledgments or plaques, though specific benefits are not listed.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Location:</h3>
-  <ul class="bullet-list">
-    <li>The Vaishno Devi Temple is located in the Trikuta Mountains, near the town of Katra in the Reasi district of Jammu and Kashmir, India.</li>
-    <li>Elevation: The temple is situated at an altitude of approximately 5,200 feet (1,585 meters) above sea level.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Structure:</h3>
-  <ul class="bullet-list">
-    <li>Main Shrine: The primary shrine consists of a natural cave where the three rock formations (Pindies) representing the three forms of Goddess Vaishno Devi (Maha Kali, Maha Lakshmi, and Maha Saraswati) are housed.</li>
-    <li>Access Route: Pilgrims undertake a 13.5-kilometer trek from Katra to reach the temple. The route is well-paved and includes shelters, refreshment stalls, and medical facilities.</li>
-    <li>Alternative Transport: Facilities such as ponies, palkis (palanquins), and battery-operated vehicles are available for those unable to walk the entire distance. Helicopter services are also provided from Katra to Sanjichhat, reducing the trek distance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Modern Enhancements:</h3>
-  <ul class="bullet-list">
-    <li>Infrastructure: Continuous improvements have been made to the infrastructure, including widening of pathways, installation of railings, and construction of rest houses and viewpoints along the trek.</li>
-    <li>Safety Measures: The temple complex and the trekking route are equipped with CCTV cameras, and security personnel are deployed to ensure the safety of pilgrims.</li>
-    <li>Environmental Initiatives: Efforts are made to maintain cleanliness and manage waste effectively, including the installation of bio-toilets and proper waste disposal systems.</li>
-  </ul>
-  <h5 class="section__sub-b">Scientific Aspects</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Seismic Safety:</h3>
-  <ul class="bullet-list">
-    <li>The region is prone to seismic activity. The temple and its associated infrastructure are designed to withstand potential earthquakes. The construction uses modern engineering techniques to ensure the stability and safety of the structures.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Water Management:</h3>
-  <ul class="bullet-list">
-    <li>Sources: Water for the temple and pilgrims is sourced from natural springs and supplemented by rainwater harvesting systems.</li>
-    <li>Distribution: An efficient distribution network ensures that water is available at various points along the pilgrimage route and within the temple complex.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Environmental Sustainability:</h3>
-  <ul class="bullet-list">
-    <li>The Shrine Board has implemented several green initiatives to minimize environmental impact. This includes afforestation projects, maintaining green cover, and using eco-friendly materials in construction and maintenance activities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Technological Integration:</h3>
-  <ul class="bullet-list">
-    <li>RFID System: Pilgrims are issued RFID cards for tracking and managing the flow of visitors, enhancing security and providing real-time data on the number of pilgrims at different points.</li>
-    <li>Online Services: The Shrine Board offers online services for yatra registration, donation, booking of accommodations, and helicopter services, leveraging technology to provide convenience and improve management efficiency.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-  <p>The Vaishno Devi Temple holds immense spiritual and cultural significance for millions of devotees, but it does not have any known geomagnetic or paramagnetic properties like the Kasar Devi Temple in Uttarakhand. Instead, its significance is rooted in its deep spiritual and mythological history.</p>
-  <h5 class="section__sub-b">Spiritual and Mythological Significance</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Holy Cave and Pindies:</h3>
-  <ul class="bullet-list">
-    <li>The temple is dedicated to Goddess Vaishno Devi, who is considered a manifestation of the Hindu Mother Goddess Durga. Inside the temple, there are three naturally formed rock formations known as Pindies, which represent the three forms of the Goddess: Maha Kali, Maha Lakshmi, and Maha Saraswati.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Legends:</h3>
-  <ul class="bullet-list">
-    <li>According to Hindu mythology, Goddess Vaishno Devi was born to rid the world of evil and protect righteousness. The legends narrate her journey and penance in the Trikuta Mountains, culminating in her merging with the astral form of her creators, the three Supreme Energies.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Pilgrimage Importance:</h3>
-  <ul class="bullet-list">
-    <li>The pilgrimage to Vaishno Devi is considered one of the holiest journeys in Hinduism. Pilgrims believe that undertaking this yatra (journey) and seeking the blessings of the Goddess fulfills their wishes and grants them spiritual liberation.</li>
-  </ul>
-  <h5 class="section__sub-b">Cultural and Religious Events</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Navratri Festival:</h3>
-  <ul class="bullet-list">
-    <li>Navratri is a major festival celebrated with great fervor at Vaishno Devi. During this time, special prayers, rituals, and events are organized, attracting a large number of devotees.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Aarti and Poojas:</h3>
-  <ul class="bullet-list">
-    <li>Daily aarti (prayer rituals) and special poojas (worship ceremonies) are conducted, creating an atmosphere of devotion and spiritual energy.</li>
-  </ul>
-  <h5 class="section__sub-b">Environmental and Natural Significance</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Scenic Location:</h3>
-  <ul class="bullet-list">
-    <li>The temple is situated in the picturesque Trikuta Mountains, surrounded by natural beauty and tranquility. The trek to the temple offers stunning views and a serene environment, adding to the spiritual experience.</li>
-  </ul>
-  <h5 class="section__sub-b">Comparison to Kasar Devi</h5>
-  <ul class="bullet-list">
-    <li>Unlike Kasar Devi Temple, which is known for its geomagnetic and cosmic energy, the special significance of Vaishno Devi Temple lies more in its spiritual, mythological, and cultural aspects rather than any scientific or cosmic properties.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
-  <p>Overview: Vaishno Devi Temple, nestled in the Trikuta Mountains near Katra, Jammu and Kashmir, is one of India&#x27;s most revered pilgrimage sites. It attracts millions of devotees and tourists annually, seeking spiritual solace and divine blessings.</p>
-  <h5 class="section__sub-b">Spiritual Experience</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Journey and Pilgrimage:</h3>
-  <ul class="bullet-list">
-    <li>The trek to the Vaishno Devi Temple is more than just a physical journey; it is a spiritual path that symbolizes faith, devotion, and perseverance. The 13.5-kilometer trek from Katra to the Holy Cave offers pilgrims a chance to reflect, meditate, and connect with the divine amidst the serene natural surroundings.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Natural Beauty and Serenity:</h3>
-  <ul class="bullet-list">
-    <li>The temple is set against the backdrop of the Trikuta Mountains, providing breathtaking views and a tranquil environment. The natural beauty of the region enhances the spiritual ambiance, making it an ideal place for meditation and introspection.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sacred Cave:</h3>
-  <ul class="bullet-list">
-    <li>The Holy Cave houses three naturally formed rock formations, known as Pindies, representing the three forms of the Goddess Vaishno Devi: Maha Kali, Maha Lakshmi, and Maha Saraswati. This unique formation is central to the spiritual significance of the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Daily Rituals and Aarti:</h3>
-  <ul class="bullet-list">
-    <li>The daily aarti (prayer ritual) is a spiritually uplifting experience. It involves the chanting of hymns and prayers, creating a divine atmosphere that envelops the devotees in a sense of peace and sanctity.</li>
-  </ul>
-  <h5 class="section__sub-b">Cultural Insights</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Symbolism and Mythology:</h3>
-  <ul class="bullet-list">
-    <li>The temple is steeped in Hindu mythology and legend. Understanding the stories and symbols associated with Vaishno Devi can enrich the spiritual experience. According to legend, the Goddess Vaishno Devi embodies the combined energies of Maha Kali, Maha Lakshmi, and Maha Saraswati, symbolizing strength, wealth, and knowledge.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Festivals and Celebrations:</h3>
-  <ul class="bullet-list">
-    <li>Festivals like Navratri bring the temple to life with vibrant celebrations, special poojas, and cultural performances. These events offer a glimpse into the rich cultural heritage and spiritual fervor of the region.</li>
-  </ul>
-  <h5 class="section__sub-b">Practical Information</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Accessibility:</h3>
-  <ul class="bullet-list">
-    <li>The pilgrimage is accessible to people of all ages and physical abilities. For those unable to undertake the trek, options like ponies, palanquins, and battery-operated vehicles are available. Helicopter services from Katra to Sanjichhat significantly reduce the physical effort required to reach the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Facilities:</h3>
-  <ul class="bullet-list">
-    <li>The Shri Mata Vaishno Devi Shrine Board provides various facilities to ensure a comfortable pilgrimage experience. These include rest houses, medical facilities, free meals (langar), and cloakroom services.</li>
-  </ul>
-  <h5 class="section__sub-b">Connection with Nature</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Eco-Friendly Initiatives:</h3>
-  <ul class="bullet-list">
-    <li>The temple administration emphasizes environmental conservation. Initiatives like afforestation projects, waste management, and the use of eco-friendly materials ensure that the natural beauty of the region is preserved.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Meditative Environment:</h3>
-  <ul class="bullet-list">
-    <li>The serene surroundings and the peaceful trek provide an ideal environment for meditation and spiritual practices. Pilgrims often use the journey to engage in deep contemplation and personal reflection.</li>
-  </ul>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
-  <p>b.Donation ( link)</p>
-  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
-  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-  <p>Call to Action and Interaction Links for Vaishno Devi Temple</p>
-  <p>a. Puja Services</p>
-  <p>For booking pujas at Vaishno Devi Temple, you can tie up with the temple&#x27;s official website. Here&#x27;s a link for puja booking:</p>
-  <ul class="bullet-list">
-    <li>Puja Booking: Book Puja at Vaishno Devi</li>
-  </ul>
-  <p>b. Donation</p>
-  <p>Support the temple and its associated services through donations. Contributions can be made easily online.</p>
-  <ul class="bullet-list">
-    <li>Donation Link: Donate to Vaishno Devi</li>
-    <li>Tax Exemption: Donations are eligible for tax exemptions under Section 80G of the Income Tax Act.</li>
-  </ul>
-  <p>c. Accommodation</p>
-  <p>Explore various accommodation options suitable for all types of travelers. For more details and to make an inquiry, visit the link below:</p>
-  <ul class="bullet-list">
-    <li>Accommodation Enquiry: Accommodation Options (Replace with the actual link to your site)</li>
-  </ul>
-  <p>d. Tax Exemption Information</p>
-  <p>Learn about the tax benefits available for donations under the Income Tax Act. Contributions to Vaishno Devi Shrine Board are eligible for exemptions under Section 80G.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event of Vaishno Devi Temple</h3>
-  <p>The most significant annual event at Vaishno Devi Temple is the Navratri Festival. This festival, dedicated to the worship of the Goddess Vaishno Devi, is celebrated twice a year during the periods of Chaitra Navratri (March-April) and Sharad Navratri (September-October).</p>
-  <h5 class="section__sub-b">Navratri Festival</h5>
-  <ul class="bullet-list">
-    <li>Duration: Nine days</li>
-    <li>Significance: The festival is marked by special prayers, rituals, and festivities. The first three days are dedicated to Goddess Kali, the next three to Goddess Lakshmi, and the final three to Goddess Saraswati.</li>
-    <li>Activities: The temple is beautifully decorated, and a large number of devotees participate in the special aartis and poojas conducted during these days. Cultural programs and events are also organized by the Jammu &amp; Kashmir State Tourism Department during Navratri to enhance the spiritual and cultural experience of the pilgrims​ (Wikipedia)​​ (AstroVed)​​ (Veena World)​.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Event of the temple - day and date?</h3>
-  <p>Vaishno Devi Temple does not have a specific monthly event that is celebrated on a fixed day each month. However, several significant rituals and practices take place regularly that may interest devotees visiting the temple.</p>
-  <h5 class="section__sub-b">Full Moon Day (Purnima)</h5>
-  <ul class="bullet-list">
-    <li>Significance: Purnima is considered highly auspicious in Hinduism. On this day, special prayers and rituals are conducted at the temple.</li>
-    <li>Activities: Devotees often visit the temple to seek blessings on Purnima. The temple sees an increase in pilgrims who come to participate in the special aarti and poojas.</li>
-  </ul>
-  <h5 class="section__sub-b">Amavasya (New Moon Day)</h5>
-  <ul class="bullet-list">
-    <li>Significance: Amavasya is another significant day in the Hindu lunar calendar, often associated with specific rituals and offerings to deities.</li>
-    <li>Activities: Similar to Purnima, special prayers and rituals are conducted. Devotees visit the temple to perform poojas and seek blessings.</li>
-  </ul>
-  <p>Special Monthly Poojas</p>
-  <h5 class="section__sub-b">Monthly Aarti and Poojas</h5>
-  <ul class="bullet-list">
-    <li>Timings: Daily aarti is performed twice a day—once in the morning and once in the evening. These aartis are significant spiritual events for devotees.</li>
-    <li>Morning Aarti: Around 6:20 AM to 8:00 AM</li>
-    <li>Evening Aarti: Around 6:20 PM to 8:00 PM</li>
-  </ul>
-  <h5 class="section__sub-b">Booking and Participation</h5>
-  <ul class="bullet-list">
-    <li>Booking: Pilgrims can book aarti and pooja slots online through the official website of the Shri Mata Vaishno Devi Shrine Board.</li>
-    <li>Link: Book Pooja at Vaishno Devi</li>
-    <li>-------------</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Full Address: Shri Mata Vaishno Devi Shrine Board, Central Office, Katra, Jammu and Kashmir, Pin Code: 182301, India</h3>
+					  <h5 class="section__sub-b">Phone/Contact Numbers</h5>
+					  <ul class="bullet-list">
+					    <li>Telephone: +91-1991-232092</li>
+					    <li>Helpline: 1800-180-7123 (Toll-Free)</li>
+					    <li>Fax: +91-1991-232505</li>
+					  </ul>
+					  <p>Email: ceo@maavaishnodevi.net</p>
+					  <h5 class="section__sub-b">A. Main Deity</h5>
+					  <ul class="bullet-list">
+					    <li>Goddess Vaishno Devi (Mata Rani)</li>
+					    <li>The main deity of the temple is Goddess Vaishno Devi, also known as Mata Rani or Trikuta. She is a manifestation of the Hindu Mother Goddess Mahalakshmi. Pilgrims believe that Mata Vaishno Devi fulfills the wishes of her devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">B. Other Deities (Sub Deities)</h5>
+					  <ul class="bullet-list">
+					    <li>Bhavanis (Darshan of the Pindies):</li>
+					    <li>The cave shrine houses three naturally formed rock formations called Pindies, representing the three forms of the Goddess:</li>
+					    <li>Maha Kali: Symbolizes strength.</li>
+					    <li>Maha Lakshmi: Represents wealth and prosperity.</li>
+					    <li>Maha Saraswati: Denotes wisdom and knowledge.</li>
+					  </ul>
+					  <p>These Pindies are collectively worshipped as Mata Vaishno Devi and are unique as they embody the Goddess in her trinity form within a single shrine.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <p>(a) general</p>
+					  <p>(b) on special days like festivals and utsavas</p>
+					  <p>(a) General Timings</p>
+					  <ul class="bullet-list">
+					    <li>Opening Time: 5:00 AM</li>
+					    <li>Closing Time: 12:00 PM (Noon)</li>
+					    <li>Reopening Time: 4:00 PM</li>
+					    <li>Final Closing Time: 9:00 PM</li>
+					  </ul>
+					  <p>These timings allow for daily rituals, aarti, and maintenance of the sanctum.</p>
+					  <p>(b) Special Days (Festivals and Utsavas)</p>
+					  <ul class="bullet-list">
+					    <li>Navratri Timings:</li>
+					    <li>During Navratri, which is one of the most significant festivals at Vaishno Devi, the temple remains open almost 24 hours a day to accommodate the influx of pilgrims. Special pujas and aartis are conducted, and the timings may be extended accordingly.</li>
+					    <li>Diwali, Holi, and Other Major Festivals:</li>
+					    <li>On other major Hindu festivals, the temple extends its timings to facilitate devotees. The temple may open earlier and close later than usual, often remaining open throughout the night for darshan and special rituals.</li>
+					  </ul>
+					  <p>For exact timings on special days, it is recommended to check the official website or contact the temple authorities directly.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Entry Fees</h3>
+					  <ul class="bullet-list">
+					    <li>General Entry: There is no entry fee for visiting Vaishno Devi Temple. Entry to the temple is free for all pilgrims.</li>
+					  </ul>
+					  <p>Privileges for Paid Services</p>
+					  <p>Although general entry is free, there are several paid services and facilities that offer added conveniences and privileges:</p>
+					  <h5 class="section__sub-b">1. Yatra Parchi (Travel Slip)</h5>
+					  <ul class="bullet-list">
+					    <li>Pilgrims must obtain a Yatra Parchi, which is a free registration slip. This is mandatory for entering the trekking path to the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. VIP Darshan</h5>
+					  <ul class="bullet-list">
+					    <li>Donation-Based VIP Pass: Pilgrims can make a donation to the Shri Mata Vaishno Devi Shrine Board (SMVDSB) to obtain a VIP pass. This pass provides quicker access to the shrine through a special gate, reducing waiting time significantly.</li>
+					    <li>Privileges: VIP passes often include a quicker darshan, special entry gate, and a longer viewing time of the deity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Helicopter Services</h5>
+					  <ul class="bullet-list">
+					    <li>Booking: Helicopter services are available from Katra to Sanjichhat. Tickets can be booked online or at designated counters.</li>
+					    <li>Privileges: This service significantly reduces the travel time and physical effort required to reach the temple. Helicopter passengers usually receive a priority darshan slip as part of their package.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Aarti Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Mata Ki Aarti: Pilgrims can book tickets for the morning or evening Aarti. This provides a special and intimate experience of the temple rituals.</li>
+					    <li>Privileges: Participation in the Aarti includes access to the sanctum during the ritual, prasad (blessed food), and a special viewing of the deity.</li>
+					  </ul>
+					  <p>Entry Restrictions for Foreigners</p>
+					  <ul class="bullet-list">
+					    <li>General Entry: Foreigners are allowed entry into the temple without any special restrictions. However, they are required to follow the same procedures as Indian pilgrims.</li>
+					    <li>Declaration: No specific declarations or special fees are required for foreigners beyond the usual Yatra Parchi registration.</li>
+					    <li>Restrictions: Standard temple rules apply to all visitors, including dress code and behavior guidelines.</li>
+					  </ul>
+					  <p>Important Notes</p>
+					  <ul class="bullet-list">
+					    <li>Dress Code: Modest clothing is recommended. Pilgrims are advised to dress in a manner befitting the sanctity of the temple.</li>
+					    <li>Electronic Devices: Cameras, mobile phones, and other electronic devices are not allowed inside the temple premises.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
+					  <h5 class="section__sub-b">Location</h5>
+					  <p>Vaishno Devi Temple is located in the Trikuta Mountains near the town of Katra, in the Reasi district of Jammu and Kashmir, India.</p>
+					  <p>How to Reach Vaishno Devi</p>
+					  <h5 class="section__sub-b">1. By Air</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Airport: Jammu Airport (Satwari Airport) is the closest airport to Katra.</li>
+					    <li>Distance: Approximately 50 kilometers from Katra.</li>
+					    <li>Connectivity: Regular flights are available from major cities like Delhi, Mumbai, and Bangalore.</li>
+					    <li>Travel to Katra: Taxis and buses are available from the airport to Katra.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. By Train</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Railway Station: Shri Mata Vaishno Devi Katra Railway Station.</li>
+					    <li>Connectivity: Direct trains are available from major cities including Delhi, Mumbai, Chennai, and Bangalore. Notable trains include Vande Bharat Express, Jammu Mail, and Shri Shakti Express.</li>
+					    <li>Distance to Base Camp: The railway station is about 2 kilometers from the base camp in Katra.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. By Road</h5>
+					  <ul class="bullet-list">
+					    <li>Bus Services:</li>
+					    <li>From Jammu: Regular state and private buses run from Jammu to Katra.</li>
+					    <li>From Other Cities: Direct bus services are available from major cities in North India, including Delhi, Chandigarh, and Amritsar.</li>
+					    <li>Taxis:</li>
+					    <li>Taxis can be hired from Jammu, Srinagar, and other nearby cities to Katra.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Trekking Route from Katra to Bhawan</h5>
+					  <ul class="bullet-list">
+					    <li>Distance: Approximately 13 kilometers.</li>
+					    <li>Route: Pilgrims typically start their journey from the Banganga check post.</li>
+					    <li>Facilities: Ponies, palanquins, and battery-operated vehicles are available for those who need assistance.</li>
+					    <li>Helicopter Services: Available from Katra to Sanjichhat, reducing the trekking distance to about 2.5 kilometers from Bhawan.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. By Helicopter</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Helicopter services operate between Katra and Sanjichhat.</li>
+					    <li>Booking: Tickets can be booked online or at the designated counters in Katra.</li>
+					    <li>Duration: The flight duration is approximately 8 minutes.</li>
+					    <li>Distance from Sanjichhat to Bhawan: 2.5 kilometers trek, which can be completed on foot or using ponies.</li>
+					  </ul>
+					  <p>Important Contact Information</p>
+					  <ul class="bullet-list">
+					    <li>Shri Mata Vaishno Devi Shrine Board:</li>
+					    <li>Address: Central Office, Katra, Jammu and Kashmir, Pin Code: 182301, India</li>
+					    <li>Phone: +91-1991-232092</li>
+					    <li>Helpline: 1800-180-7123 (Toll-Free)</li>
+					    <li>Email: ceo@maavaishnodevi.net</li>
+					    <li>Official Website: Maa Vaishno Devi</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Morning and Evening Aarti</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timings:</li>
+					    <li>Morning Aarti: Approximately 6:20 AM to 8:00 AM</li>
+					    <li>Evening Aarti: Approximately 6:20 PM to 8:00 PM</li>
+					    <li>Details: This is the primary ritual where devotees can participate in the chanting of hymns and prayers. The aarti is performed in the sanctum sanctorum in front of the deity.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Bhawan Aarti</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timings: Early morning before the temple opens to the general public and late evening after the temple closes.</li>
+					    <li>Rates: Around INR 1000 per person (subject to change).</li>
+					    <li>Booking: Advance booking is required. You can book through the official website or directly at the shrine board offices.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special Poojas and Havan</h3>
+					  <ul class="bullet-list">
+					    <li>Days: Special occasions and festivals like Navratri.</li>
+					    <li>Timings: Specific timings are announced based on the festival schedule.</li>
+					    <li>Details: These include elaborate rituals, offerings, and chanting of mantras.</li>
+					    <li>Rates: Varies depending on the specific ritual. Detailed information can be obtained from the shrine board.</li>
+					    <li>Booking: Advance booking required.</li>
+					  </ul>
+					  <p>Advance Booking Procedure</p>
+					  <h5 class="section__sub-b">1. Online Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Visit the official Maa Vaishno Devi website.</li>
+					    <li>Navigate to the &quot;Pooja Booking&quot; section.</li>
+					    <li>Select the desired pooja and date.</li>
+					    <li>Complete the payment process.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. On-Site Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Visit the Shri Mata Vaishno Devi Shrine Board office in Katra.</li>
+					    <li>Fill out the booking form and pay the required fees.</li>
+					  </ul>
+					  <p>Rates for Special Poojas</p>
+					  <ul class="bullet-list">
+					    <li>Aarti (Morning/Evening): Approximately INR 1000 per person.</li>
+					    <li>Special Poojas (Havan, etc.): Rates vary based on the type of pooja and specific requirements. It is best to check directly with the shrine board for the most accurate and updated information.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Shri Mata Vaishno Devi Shrine Board (SMVDSB) offers various online services to cater to the needs of the pilgrims. These services include:</p>
+					  <h5 class="section__sub-b">1. Yatra Registration</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Pilgrims can register for the Yatra online, obtaining the mandatory Yatra Parchi (travel slip) which allows entry to the trekking route.</li>
+					    <li>Website: Yatra Registration</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Pooja and Darshan Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Advance booking for special poojas and aartis can be done online. This includes booking for the morning and evening aarti at the Bhawan.</li>
+					    <li>Website: Pooja Booking</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Helicopter Services</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Online booking of helicopter services from Katra to Sanjichhat and back.</li>
+					    <li>Website: Helicopter Booking</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Accommodation Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Pilgrims can book accommodations in advance at various facilities managed by the shrine board, including guest houses and dharamshalas in Katra, Adhkuwari, Sanjichhat, and Bhawan.</li>
+					    <li>Website: Accommodation Booking</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Devotees can make donations to the shrine board online, contributing to various services and facilities provided by the temple.</li>
+					    <li>Website: Donate Online</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Live Darshan</h5>
+					  <ul class="bullet-list">
+					    <li>Service: The shrine board offers live streaming of the temple for devotees who cannot visit in person.</li>
+					    <li>Website: Live Darshan</li>
+					  </ul>
+					  <h5 class="section__sub-b">Managed By</h5>
+					  <ul class="bullet-list">
+					    <li>All these online services are managed by the Shri Mata Vaishno Devi Shrine Board (SMVDSB), which is responsible for the management and administration of the Vaishno Devi Shrine and its associated facilities.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days.</h3>
+					  <h5 class="section__sub-b">General Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Men and Women:</li>
+					    <li>Visitors are expected to wear modest and respectful clothing while visiting the temple premises.</li>
+					    <li>It is advisable to wear comfortable attire suitable for trekking, such as traditional Indian clothes or casual wear that covers the shoulders and knees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Specific Dress Code for Special Pooja and Festival Days</h5>
+					  <ul class="bullet-list">
+					    <li>Special Poojas:</li>
+					    <li>For participating in special poojas and rituals, traditional Indian attire is recommended.</li>
+					    <li>Men are advised to wear dhoti-kurta or pyjama-kurta.</li>
+					    <li>Women are encouraged to wear sarees, salwar kameez, or other traditional outfits.</li>
+					    <li>Festival Days:</li>
+					    <li>During festivals like Navratri, pilgrims often dress in traditional festive attire.</li>
+					    <li>Bright and colorful clothing is common, reflecting the celebratory nature of the festivals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">General Recommendations</h5>
+					  <ul class="bullet-list">
+					    <li>Footwear:</li>
+					    <li>Comfortable walking shoes are recommended for the trek from Katra to the Bhawan.</li>
+					    <li>Footwear must be removed before entering the sanctum sanctorum and other sacred areas.</li>
+					    <li>Weather Considerations:</li>
+					    <li>During winter, it is advisable to wear warm clothing as the temperatures can drop significantly.</li>
+					    <li>In summer, light cotton clothes are recommended to stay cool during the trek.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Restrictions</h5>
+					  <ul class="bullet-list">
+					    <li>Avoid Revealing Clothes:</li>
+					    <li>Avoid wearing shorts, skirts, or sleeveless tops.</li>
+					    <li>Tight or revealing clothing is not appropriate within the temple premises.</li>
+					  </ul>
+					  <p>For more specific details and any updates on the dress code, you can refer to the official Maa Vaishno Devi website or contact the Shri Mata Vaishno Devi Shrine Board directly.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <h5 class="section__sub-b">General Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Men and Women:</li>
+					    <li>Visitors are expected to wear modest and respectful clothing while visiting the temple premises.</li>
+					    <li>It is advisable to wear comfortable attire suitable for trekking, such as traditional Indian clothes or casual wear that covers the shoulders and knees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Specific Dress Code for Special Pooja and Festival Days</h5>
+					  <ul class="bullet-list">
+					    <li>Special Poojas:</li>
+					    <li>For participating in special poojas and rituals, traditional Indian attire is recommended.</li>
+					    <li>Men are advised to wear dhoti-kurta or pyjama-kurta.</li>
+					    <li>Women are encouraged to wear sarees, salwar kameez, or other traditional outfits.</li>
+					    <li>Festival Days:</li>
+					    <li>During festivals like Navratri, pilgrims often dress in traditional festive attire.</li>
+					    <li>Bright and colorful clothing is common, reflecting the celebratory nature of the festivals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">General Recommendations</h5>
+					  <ul class="bullet-list">
+					    <li>Footwear:</li>
+					    <li>Comfortable walking shoes are recommended for the trek from Katra to the Bhawan.</li>
+					    <li>Footwear must be removed before entering the sanctum sanctorum and other sacred areas.</li>
+					    <li>Weather Considerations:</li>
+					    <li>During winter, it is advisable to wear warm clothing as the temperatures can drop significantly.</li>
+					    <li>In summer, light cotton clothes are recommended to stay cool during the trek.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Restrictions</h5>
+					  <ul class="bullet-list">
+					    <li>Avoid Revealing Clothes:</li>
+					    <li>Avoid wearing shorts, skirts, or sleeveless tops.</li>
+					    <li>Tight or revealing clothing is not appropriate within the temple premises.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <ul class="bullet-list">
+					    <li>No, Electronic Gadgets are Not Allowed: Mobile phones, cameras, and other electronic gadgets are not permitted within the temple premises. This rule is strictly enforced to maintain the sanctity and security of the shrine.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Items Allowed</h5>
+					  <ul class="bullet-list">
+					    <li>Only essential items like wallets, small purses, and basic personal items are allowed inside the temple complex.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Depositing Electronic Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Cloak Room Facilities:</li>
+					    <li>There are designated cloakrooms and lockers available near the entrance of the temple complex where pilgrims can safely deposit their electronic gadgets and other restricted items.</li>
+					    <li>These facilities are managed by the Shri Mata Vaishno Devi Shrine Board (SMVDSB) and are secure and reliable.</li>
+					    <li>Location of Cloak Rooms:</li>
+					    <li>Cloakrooms are available at the following locations:</li>
+					    <li>Katra (Base Camp)</li>
+					    <li>Banganga (Starting Point of the Trek)</li>
+					    <li>Adhkuwari</li>
+					    <li>Sanjichhat</li>
+					    <li>Bhawan (near the temple complex)</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure for Depositing Items</h5>
+					  <h5 class="section__sub-b">1. Reach the Cloak Room</h5>
+					  <ul class="bullet-list">
+					    <li>Upon arrival at any of the designated locations, locate the cloakroom facility.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Deposit Items</h5>
+					  <ul class="bullet-list">
+					    <li>Submit your electronic gadgets and other restricted items at the cloakroom. Ensure to collect the receipt or token provided by the facility staff.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Collection</h5>
+					  <ul class="bullet-list">
+					    <li>After completing your visit, return to the same cloakroom to collect your deposited items by presenting the receipt or token.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Information</h5>
+					  <ul class="bullet-list">
+					    <li>Safety and Security:</li>
+					    <li>The cloakrooms are monitored and secured to ensure the safety of the pilgrims’ belongings.</li>
+					    <li>It is advisable not to leave any valuables or cash in the deposited items.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <ul class="bullet-list">
+					    <li>No, Photography is Not Allowed: Photography, videography, and the use of any recording devices are strictly prohibited within the temple premises. This policy is enforced to maintain the sanctity and decorum of the shrine.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Areas Where Photography is Prohibited</h5>
+					  <ul class="bullet-list">
+					    <li>Inside the temple complex, including the main Bhawan (sanctum sanctorum).</li>
+					    <li>Near the sacred cave and all areas designated as restricted.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Permissible Areas</h5>
+					  <ul class="bullet-list">
+					    <li>Photography is generally allowed in public areas outside the main temple complex, such as along the trekking route from Katra to Bhawan.</li>
+					    <li>Pilgrims can take photographs at scenic points along the route, which offer beautiful views of the surrounding mountains.</li>
+					  </ul>
+					  <h5 class="section__sub-b">No Photography Fee</h5>
+					  <ul class="bullet-list">
+					    <li>Since photography is prohibited within the main temple complex, there is no fee associated with it. However, for areas where photography is allowed, no specific fee is prescribed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Handling Electronic Devices</h5>
+					  <ul class="bullet-list">
+					    <li>As mentioned earlier, electronic devices, including cameras, must be deposited at the cloakroom facilities before entering the temple complex. These facilities are available at various points, including Katra, Banganga, Adhkuwari, Sanjichhat, and Bhawan.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <h5 class="section__sub-b">Lifts/Elevators</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: As of now, there are no lifts or elevators available directly within the temple complex itself due to the geographical and structural constraints of the mountainous terrain where the temple is situated.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Alternative Facilities</h5>
+					  <h5 class="section__sub-b">1. Battery-Operated Vehicles</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Battery-operated vehicles are available from Adhkuwari to Bhawan for physically challenged pilgrims.</li>
+					    <li>Booking: These can be booked at Adhkuwari or online through the official website.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Palkis (Palanquins)</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Palkis are available for those who cannot walk the trek. These are carried by four bearers and are especially useful for the elderly and physically challenged.</li>
+					    <li>Booking: Palkis can be booked at the base camp (Katra) and along the trekking route.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Ponies and Ponny Men</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Ponies are another option for physically handicapped individuals who may find it difficult to trek the entire distance.</li>
+					    <li>Booking: Available for hire at Katra, Banganga, and other key points along the trek.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Helicopter Services</h5>
+					  <ul class="bullet-list">
+					    <li>Service: Helicopter services from Katra to Sanjichhat significantly reduce the physical effort required to reach the temple.</li>
+					    <li>Distance from Sanjichhat to Bhawan: The remaining distance (about 2.5 kilometers) from Sanjichhat to Bhawan can be covered on foot, using ponies, or in palanquins.</li>
+					    <li>Booking: Available online and at designated counters in Katra.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Wheelchairs</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: Wheelchairs are available for use by physically handicapped pilgrims at various points including Katra, Banganga, and Bhawan.</li>
+					    <li>Booking: Available at the cloakroom or medical aid centers.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Medical Aid Centers</h5>
+					  <ul class="bullet-list">
+					    <li>Locations: Medical aid centers are available along the trekking route and at Bhawan to provide necessary medical assistance and support to pilgrims, especially those with physical challenges.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <h5 class="section__sub-b">Availability of Wheelchairs</h5>
+					  <ul class="bullet-list">
+					    <li>Wheelchairs are available at various points along the route to Vaishno Devi Temple, including Katra, Banganga, and Bhawan. These facilities are provided to assist elderly and physically challenged pilgrims in making the pilgrimage more comfortable.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Locations of Wheelchair Facilities</h5>
+					  <h5 class="section__sub-b">1. Katra (Base Camp)</h5>
+					  <ul class="bullet-list">
+					    <li>Wheelchairs can be obtained at the starting point of the pilgrimage in Katra.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Banganga</h5>
+					  <ul class="bullet-list">
+					    <li>Wheelchairs are available at Banganga, which is the first major checkpoint on the trekking route from Katra.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Adhkuwari</h5>
+					  <ul class="bullet-list">
+					    <li>Pilgrims can also find wheelchair services at Adhkuwari, which is approximately halfway along the trekking route.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Sanjichhat</h5>
+					  <ul class="bullet-list">
+					    <li>Sanjichhat, where the helicopter service lands, also provides wheelchair facilities for pilgrims.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Bhawan (Temple Complex)</h5>
+					  <ul class="bullet-list">
+					    <li>Wheelchairs are available at Bhawan, near the temple complex, to help with the final stretch to the sanctum.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Obtain a Wheelchair</h5>
+					  <ul class="bullet-list">
+					    <li>On-Site Request:</li>
+					    <li>Wheelchairs can be requested at the designated cloakroom facilities and medical aid centers along the pilgrimage route.</li>
+					    <li>Pre-Booking and Inquiry:</li>
+					    <li>For more information or to ensure availability, pilgrims can contact the Shri Mata Vaishno Devi Shrine Board in advance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Facilities for Physically Challenged Pilgrims</h5>
+					  <ul class="bullet-list">
+					    <li>Battery-Operated Vehicles:</li>
+					    <li>Available from Adhkuwari to Bhawan to assist those who may find the trek challenging.</li>
+					    <li>Palkis and Ponies:</li>
+					    <li>Can be hired to carry pilgrims who have difficulty walking.</li>
+					    <li>Helicopter Services:</li>
+					    <li>Reduces the trekking distance significantly and provides a more comfortable way to reach near the Bhawan.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <h5 class="section__sub-b">Special Entry Facilities</h5>
+					  <h5 class="section__sub-b">1. Priority Darshan Pass</h5>
+					  <ul class="bullet-list">
+					    <li>The Shri Mata Vaishno Devi Shrine Board (SMVDSB) provides priority darshan passes for senior citizens, physically challenged individuals, and those with severe medical conditions.</li>
+					    <li>Procedure: To avail of this facility, pilgrims need to present valid identification and medical certificates (if applicable) at the Yatra Registration Counter in Katra.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Dedicated Access Points</h5>
+					  <ul class="bullet-list">
+					    <li>Special access points and dedicated queues are available at various checkpoints along the pilgrimage route to facilitate easy movement and reduced waiting times for eligible pilgrims.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Special Timing and Arrangements</h5>
+					  <h5 class="section__sub-b">1. Morning and Evening Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Special arrangements can be made for senior citizens and physically challenged individuals to participate in the morning and evening aarti, which are conducted daily.</li>
+					    <li>Morning Aarti: Approximately 6:20 AM to 8:00 AM</li>
+					    <li>Evening Aarti: Approximately 6:20 PM to 8:00 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Helicopter Services</h5>
+					  <ul class="bullet-list">
+					    <li>Senior citizens and physically challenged pilgrims can avail themselves of helicopter services from Katra to Sanjichhat. This service significantly reduces the physical strain of the pilgrimage.</li>
+					    <li>Booking: Helicopter services can be booked online or at designated counters in Katra.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Battery-Operated Vehicles</h5>
+					  <ul class="bullet-list">
+					    <li>Available from Adhkuwari to Bhawan to assist those who have difficulty walking.</li>
+					    <li>Booking: These vehicles can be arranged at Adhkuwari or through advance booking online.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>Yes, vehicle pooja is performed at the Vaishno Devi Temple. Pilgrims can have their vehicles blessed as part of the ritual services offered by the temple authorities.</p>
+					  <h5 class="section__sub-b">Timings and Cost</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: The vehicle pooja is generally conducted during temple hours, which are from early morning until evening. Specific timings can be confirmed by contacting the temple authorities or checking at the pooja booking counters in Katra.</li>
+					    <li>Cost: The cost for vehicle pooja can vary. It is advisable to check with the Shri Mata Vaishno Devi Shrine Board for the current rates.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Advance Booking Procedure</h5>
+					  <h5 class="section__sub-b">1. On-Site Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Pilgrims can book the vehicle pooja directly at the designated counters near the temple or at the Shrine Board offices in Katra.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>Yes, the Vaishno Devi Temple provides various accommodation facilities for pilgrims. These accommodations are managed by the Shri Mata Vaishno Devi Shrine Board (SMVDSB).</p>
+					  <p>Types of Accommodation Facilities</p>
+					  <h5 class="section__sub-b">1. Niharika Complex</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Katra</li>
+					    <li>Facilities: Rooms with attached bathrooms, canteen, and other amenities.</li>
+					    <li>Cost: Approximately INR 500 - 1500 per night (subject to change based on room type and season).</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Shakti Bhawan</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Katra</li>
+					    <li>Facilities: Dormitory-style accommodation with shared facilities.</li>
+					    <li>Cost: Approximately INR 100 - 200 per bed per night.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Ashirwad Bhawan</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Katra</li>
+					    <li>Facilities: Budget rooms and dormitories.</li>
+					    <li>Cost: Approximately INR 200 - 500 per night.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Gauri Bhawan</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Near Bhawan</li>
+					    <li>Facilities: Basic accommodation facilities for pilgrims close to the temple.</li>
+					    <li>Cost: Approximately INR 500 - 1000 per night.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Saraswati Bhawan</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Near Bhawan</li>
+					    <li>Facilities: Budget accommodation with essential amenities.</li>
+					    <li>Cost: Approximately INR 200 - 500 per night.</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Vaishnavi Dham and Kalika Dham</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Jammu</li>
+					    <li>Facilities: Convenient for pilgrims arriving at or departing from Jammu.</li>
+					    <li>Cost: Approximately INR 500 - 1000 per night.</li>
+					  </ul>
+					  <p>How to Book in Advance</p>
+					  <h5 class="section__sub-b">Online Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Website: Pilgrims can book accommodations in advance through the official Shri Mata Vaishno Devi Shrine Board website.</li>
+					    <li>Accommodation Booking</li>
+					  </ul>
+					  <h5 class="section__sub-b">On-Site Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Booking Counters: Pilgrims can also book accommodations at the Shrine Board’s booking counters in Katra, Jammu, and other locations.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <h5 class="section__sub-b">1. Parking for Cars and Two-Wheelers</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Designated parking areas are available in Katra, near the Yatra Registration Office and the base camp.</li>
+					    <li>Capacity: There are ample parking spaces to accommodate a large number of cars and two-wheelers.</li>
+					    <li>Security: The parking lots are secured and monitored to ensure the safety of the vehicles.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Parking for Mini Buses</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Special parking areas are designated for larger vehicles like mini buses. These are typically located slightly away from the main entrance to manage space and traffic flow efficiently.</li>
+					    <li>Facilities: These parking areas are also secured and monitored, ensuring the safety of larger vehicles.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Specific Parking Locations</h5>
+					  <h5 class="section__sub-b">1. Yatra Registration Office Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Convenient for pilgrims starting their trek from Katra.</li>
+					    <li>Located near the base camp and the main entry point for the trek.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Multi-Level Parking Complex</h5>
+					  <ul class="bullet-list">
+					    <li>A multi-level parking facility is available in Katra, providing additional space for vehicles.</li>
+					    <li>Suitable for both cars and two-wheelers.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Designated Bus Parking</h5>
+					  <ul class="bullet-list">
+					    <li>Larger vehicles, such as mini buses, have designated parking areas to ensure smooth flow and accommodation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Important Points</h5>
+					  <ul class="bullet-list">
+					    <li>Charges: Parking charges may apply. It is advisable to check the latest rates at the parking facility.</li>
+					    <li>Accessibility: The parking areas are easily accessible from the main routes leading to Katra and are well connected to the starting points of the pilgrimage.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking and Information</h5>
+					  <p>For the latest information on parking availability and to ensure a smooth pilgrimage experience, you can contact the Shri Mata Vaishno Devi Shrine Board.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Prashad Services</h3>
+					  <h5 class="section__sub-b">Types of Prashad</h5>
+					  <h5 class="section__sub-b">1. Panchmeva Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>A mix of five dry fruits, considered sacred and blessed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Box Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>Packaged prashad which includes items like sweets and dry fruits, often sent as a gift.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure to Obtain Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>On-Site Purchase:</li>
+					    <li>Prashad can be bought at designated counters near the temple complex and at various points in Katra.</li>
+					    <li>Online Booking:</li>
+					    <li>Pilgrims can book prashad online through the official Shri Mata Vaishno Devi Shrine Board website.</li>
+					    <li>Book Prashad Online</li>
+					  </ul>
+					  <h5 class="section__sub-b">Payments</h5>
+					  <ul class="bullet-list">
+					    <li>Prashad items are usually purchased, and the cost varies depending on the type and quantity.</li>
+					    <li>Payments can be made in cash or through digital modes at the purchase counters or online.</li>
+					  </ul>
+					  <p>Meals Services</p>
+					  <h5 class="section__sub-b">Langar Services (Free Meals)</h5>
+					  <ul class="bullet-list">
+					    <li>Locations:</li>
+					    <li>Free langar (community kitchen) services are provided at several points:</li>
+					    <li>Tarakote Marg</li>
+					    <li>Sanjichhat</li>
+					    <li>Bhairon ji</li>
+					    <li>Timings:</li>
+					    <li>Langar services operate round the clock to ensure that all pilgrims have access to free meals during their pilgrimage.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>No tickets or prior booking is required for the langar services.</li>
+					    <li>Pilgrims can simply visit the langar halls and partake in the meals served.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Paid Bhojanalayas (Restaurants)</h5>
+					  <ul class="bullet-list">
+					    <li>Locations:</li>
+					    <li>Various bhojanalayas are available along the route from Katra to Bhawan.</li>
+					    <li>Key locations include Adhkuwari, Sanjichhat, and Bhawan.</li>
+					    <li>Types of Meals:</li>
+					    <li>These eateries provide vegetarian meals, snacks, and beverages.</li>
+					    <li>Procedure and Payments:</li>
+					    <li>Meals at these bhojanalayas are paid services. Pilgrims can order and pay directly at these facilities.</li>
+					    <li>Prices vary depending on the menu items chosen.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <h5 class="section__sub-b">Types of Carry Home Prashad</h5>
+					  <h5 class="section__sub-b">1. Panchmeva Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>A mix of five dry fruits, which is considered sacred and blessed by the deity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Box Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>Includes a combination of sweets, dry fruits, and other sacred offerings, packaged for easy transport and gifting.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cost of Carry Home Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>The cost of carry home prashad varies depending on the type and quantity. Here are approximate prices:</li>
+					    <li>Panchmeva Prashad: Typically ranges from INR 50 to INR 200 per packet, depending on the quantity.</li>
+					    <li>Box Prashad: The prices can range from INR 100 to INR 500, depending on the size and contents of the box.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Where to Purchase</h5>
+					  <ul class="bullet-list">
+					    <li>On-Site Purchase:</li>
+					    <li>Prashad can be bought at designated counters near the temple complex and at various points in Katra.</li>
+					    <li>Online Booking:</li>
+					    <li>Pilgrims can also book prashad online through the official Shri Mata Vaishno Devi Shrine Board website.</li>
+					    <li>Book Prashad Online</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure and Payment</h5>
+					  <ul class="bullet-list">
+					    <li>On-Site:</li>
+					    <li>Payments can be made in cash or through digital modes at the purchase counters.</li>
+					    <li>Online:</li>
+					    <li>Payments can be made through various online payment methods available on the official website.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <h5 class="section__sub-b">1. Retrace Your Steps</h5>
+					  <ul class="bullet-list">
+					    <li>First, try to retrace your steps within the temple premises to check if you can locate the lost item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Inform Temple Staff</h5>
+					  <ul class="bullet-list">
+					    <li>Inform any nearby temple staff, security personnel, or volunteers about the lost item. Provide them with a detailed description of the item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Visit the Lost and Found Office</h5>
+					  <ul class="bullet-list">
+					    <li>The Shri Mata Vaishno Devi Shrine Board (SMVDSB) has a designated Lost and Found office.</li>
+					    <li>Location: The Lost and Found office is located near the Bhawan and at the main entry points in Katra and other key locations.</li>
+					    <li>Procedure:</li>
+					    <li>Report the lost item at the Lost and Found office.</li>
+					    <li>Provide a detailed description, including the type, color, size, and any unique identifiers of the lost item.</li>
+					    <li>Fill out a Lost Item Report form if required.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Contact the Shrine Board</h5>
+					  <ul class="bullet-list">
+					    <li>If you are unable to visit the Lost and Found office in person, you can contact the Shrine Board through the following means:</li>
+					    <li>Phone: +91-1991-232092</li>
+					    <li>Helpline: 1800-180-7123 (Toll-Free)</li>
+					    <li>Email: ceo@maavaishnodevi.net</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Follow Up</h5>
+					  <ul class="bullet-list">
+					    <li>Regularly follow up with the Lost and Found office to check if your item has been recovered.</li>
+					    <li>Leave your contact details with the office so they can reach you if the item is found.</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Online Inquiry</h5>
+					  <ul class="bullet-list">
+					    <li>For more convenience, you can also inquire online through the official website of the Shri Mata Vaishno Devi Shrine Board.</li>
+					    <li>Website: Maa Vaishno Devi</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <h5 class="section__sub-b">1. Retrace Your Steps</h5>
+					  <ul class="bullet-list">
+					    <li>First, try to retrace your steps within the temple premises to check if you can locate the lost item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Inform Temple Staff</h5>
+					  <ul class="bullet-list">
+					    <li>Inform any nearby temple staff, security personnel, or volunteers about the lost item. Provide them with a detailed description of the item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Visit the Lost and Found Office</h5>
+					  <ul class="bullet-list">
+					    <li>The Shri Mata Vaishno Devi Shrine Board (SMVDSB) has a designated Lost and Found office.</li>
+					    <li>Location: The Lost and Found office is located near the Bhawan and at the main entry points in Katra and other key locations.</li>
+					    <li>Procedure:</li>
+					    <li>Report the lost item at the Lost and Found office.</li>
+					    <li>Provide a detailed description, including the type, color, size, and any unique identifiers of the lost item.</li>
+					    <li>Fill out a Lost Item Report form if required.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Contact the Shrine Board</h5>
+					  <ul class="bullet-list">
+					    <li>If you are unable to visit the Lost and Found office in person, you can contact the Shrine Board through the following means:</li>
+					    <li>Phone: +91-1991-232092</li>
+					    <li>Helpline: 1800-180-7123 (Toll-Free)</li>
+					    <li>Email: ceo@maavaishnodevi.net</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Follow Up</h5>
+					  <ul class="bullet-list">
+					    <li>Regularly follow up with the Lost and Found office to check if your item has been recovered.</li>
+					    <li>Leave your contact details with the office so they can reach you if the item is found.</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Online Inquiry</h5>
+					  <ul class="bullet-list">
+					    <li>For more convenience, you can also inquire online through the official website of the Shri Mata Vaishno Devi Shrine Board.</li>
+					    <li>Website: Maa Vaishno Devi</li>
+					  </ul>
+					  <h5 class="section__sub-b">References</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">YatraDham - Vaishno Devi</h3>
+					  <p>These resources provide detailed information and can be contacted for specific queries related to lost items at Vaishno Devi Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <h5 class="section__sub-b">Steps to Report a Missing Person</h5>
+					  <h5 class="section__sub-b">1. Stay Calm and Gather Information</h5>
+					  <ul class="bullet-list">
+					    <li>Gather important details about the missing person, such as their name, age, physical description, what they were wearing, and any distinctive features.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Inform Temple Staff or Security Personnel:</h3>
+					  <ul class="bullet-list">
+					    <li>Immediately inform the nearest temple staff, security personnel, or volunteers about the missing person. Provide them with all the gathered details.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Visit the Police Assistance Booth</h5>
+					  <ul class="bullet-list">
+					    <li>There are police assistance booths and help desks located at key points like Katra, Banganga, Adhkuwari, Sanjichhat, and Bhawan.</li>
+					    <li>Report the missing person at these booths. The police will assist in searching for the missing individual and making announcements if necessary.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Make an Announcement</h5>
+					  <ul class="bullet-list">
+					    <li>Request the authorities to make an announcement over the public address system. Provide them with a detailed description of the missing person to facilitate the announcement.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Designate a Meeting Point</h5>
+					  <ul class="bullet-list">
+					    <li>Choose a central and easily recognizable location within the temple premises or Katra as a meeting point. Inform all group members about this location in case they get separated.</li>
+					    <li>Common waiting areas include the Yatra Registration Office in Katra or the main entry gate at Bhawan.</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Stay at the Designated Meeting Point</h5>
+					  <ul class="bullet-list">
+					    <li>It is advisable for at least one member of the group to stay at the designated meeting point while others search for the missing person or coordinate with the authorities.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
+					  <p>The Vaishno Devi Temple is registered and managed under a specific statutory framework established by the state government. Here are the key details:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Shri Mata Vaishno Devi Shrine Board (SMVDSB):</h3>
+					  <ul class="bullet-list">
+					    <li>The temple is administered by the Shri Mata Vaishno Devi Shrine Board (SMVDSB), which was established in August 1986.</li>
+					    <li>The SMVDSB operates under the provisions of the Jammu and Kashmir Shri Mata Vaishno Devi Shrine Act, 1988.</li>
+					    <li>The Shrine Board is the statutory and legal authority responsible for the management and governance of the Holy Shrine.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Oversight and Administration</h5>
+					  <ul class="bullet-list">
+					    <li>The Board is headed by the Hon’ble Lt. Governor of Jammu and Kashmir, who serves as the Chairman of the Shrine Board.</li>
+					    <li>The Shrine Board ensures the administration, management, and development of the temple and its associated facilities, including the lands and buildings.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>Apart from traditional Hundi offerings at the temple, donations can be made to the Shri Mata Vaishno Devi Shrine Board through various means. Here are the details:</p>
+					  <h5 class="section__sub-b">1. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Official Website: Donations can be made online through the official Shri Mata Vaishno Devi Shrine Board website.</li>
+					    <li>Link: Donate Online</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Bank Transfers</h5>
+					  <ul class="bullet-list">
+					    <li>Bank Account Details for Donations:</li>
+					    <li>Account Name: Shri Mata Vaishno Devi Shrine Board</li>
+					    <li>Account Number: 50100592301571</li>
+					    <li>Bank: HDFC Bank Ltd.</li>
+					    <li>Branch: Katra</li>
+					    <li>IFSC Code: HDFC002344</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Donation Purposes</h5>
+					  <ul class="bullet-list">
+					    <li>General Donations: Contribute to the overall development and maintenance of the temple and its facilities.</li>
+					    <li>Specific Causes:</li>
+					    <li>Langar Seva: Supports the free meals (langar) provided to pilgrims.</li>
+					    <li>Medical Facilities: Funds the healthcare services offered to pilgrims.</li>
+					    <li>Educational Initiatives: Supports the Shri Mata Vaishno Devi University and other educational projects.</li>
+					    <li>Environmental Conservation: Aids in various environmental and sustainability projects.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Donations in Kind</h5>
+					  <ul class="bullet-list">
+					    <li>Items: Pilgrims can also donate items such as food, clothing, and other essentials.</li>
+					    <li>Procedure: Donations in kind can be made by contacting the Shrine Board directly to ensure proper processing and utilization.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>While the Shri Mata Vaishno Devi Shrine Board (SMVDSB) does accept donations for various causes, specific privileges or benefits associated with these donations are not explicitly detailed on the official website as they are for some other temples like Tirupati or Shirdi. However, here is what is known about donation practices and potential benefits:</p>
+					  <ul class="bullet-list">
+					    <li>*1. General Donations and Privileges:</li>
+					    <li>Usage of Donations: Donations to SMVDSB support a wide range of activities including the maintenance of the shrine, langar seva (free meals), medical facilities, educational initiatives, and environmental conservation projects.</li>
+					    <li>Recognition: High-value donors may receive acknowledgment or certificates from the Shrine Board, though this is not specifically mentioned as a standard practice.</li>
+					    <li>*2. Specific Donation Schemes:</li>
+					    <li>Langar Seva: Donations towards the langar (community kitchen) help in providing free meals to thousands of pilgrims daily.</li>
+					    <li>Medical and Educational Support: Contributions can also support the Shri Mata Vaishno Devi Narayana Superspeciality Hospital and the Shri Mata Vaishno Devi University.</li>
+					    <li>*3. Corporate Social Responsibility (CSR) Contributions:</li>
+					    <li>Shri Mata Vaishno Devi Charitable Society: Registered for receiving CSR funds, supporting various social, educational, and healthcare initiatives.</li>
+					    <li>Privileges for Corporate Donors: Large corporate donors contributing through CSR may receive special acknowledgments or plaques, though specific benefits are not listed.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple ?</h3>
+					  <h5 class="section__sub-b">Construction Details</h5>
+					  <h5 class="section__sub-b">1. Location</h5>
+					  <ul class="bullet-list">
+					    <li>The Vaishno Devi Temple is located in the Trikuta Mountains, near the town of Katra in the Reasi district of Jammu and Kashmir, India.</li>
+					    <li>Elevation: The temple is situated at an altitude of approximately 5,200 feet (1,585 meters) above sea level.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Structure</h5>
+					  <ul class="bullet-list">
+					    <li>Main Shrine: The primary shrine consists of a natural cave where the three rock formations (Pindies) representing the three forms of Goddess Vaishno Devi (Maha Kali, Maha Lakshmi, and Maha Saraswati) are housed.</li>
+					    <li>Access Route: Pilgrims undertake a 13.5-kilometer trek from Katra to reach the temple. The route is well-paved and includes shelters, refreshment stalls, and medical facilities.</li>
+					    <li>Alternative Transport: Facilities such as ponies, palkis (palanquins), and battery-operated vehicles are available for those unable to walk the entire distance. Helicopter services are also provided from Katra to Sanjichhat, reducing the trek distance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Modern Enhancements</h5>
+					  <ul class="bullet-list">
+					    <li>Infrastructure: Continuous improvements have been made to the infrastructure, including widening of pathways, installation of railings, and construction of rest houses and viewpoints along the trek.</li>
+					    <li>Safety Measures: The temple complex and the trekking route are equipped with CCTV cameras, and security personnel are deployed to ensure the safety of pilgrims.</li>
+					    <li>Environmental Initiatives: Efforts are made to maintain cleanliness and manage waste effectively, including the installation of bio-toilets and proper waste disposal systems.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Scientific Aspects</h5>
+					  <h5 class="section__sub-b">1. Seismic Safety</h5>
+					  <ul class="bullet-list">
+					    <li>The region is prone to seismic activity. The temple and its associated infrastructure are designed to withstand potential earthquakes. The construction uses modern engineering techniques to ensure the stability and safety of the structures.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Water Management</h5>
+					  <ul class="bullet-list">
+					    <li>Sources: Water for the temple and pilgrims is sourced from natural springs and supplemented by rainwater harvesting systems.</li>
+					    <li>Distribution: An efficient distribution network ensures that water is available at various points along the pilgrimage route and within the temple complex.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Environmental Sustainability</h5>
+					  <ul class="bullet-list">
+					    <li>The Shrine Board has implemented several green initiatives to minimize environmental impact. This includes afforestation projects, maintaining green cover, and using eco-friendly materials in construction and maintenance activities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Technological Integration</h5>
+					  <ul class="bullet-list">
+					    <li>RFID System: Pilgrims are issued RFID cards for tracking and managing the flow of visitors, enhancing security and providing real-time data on the number of pilgrims at different points.</li>
+					    <li>Online Services: The Shrine Board offers online services for yatra registration, donation, booking of accommodations, and helicopter services, leveraging technology to provide convenience and improve management efficiency.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>The Vaishno Devi Temple holds immense spiritual and cultural significance for millions of devotees, but it does not have any known geomagnetic or paramagnetic properties like the Kasar Devi Temple in Uttarakhand. Instead, its significance is rooted in its deep spiritual and mythological history.</p>
+					  <h5 class="section__sub-b">Spiritual and Mythological Significance</h5>
+					  <h5 class="section__sub-b">1. Holy Cave and Pindies</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is dedicated to Goddess Vaishno Devi, who is considered a manifestation of the Hindu Mother Goddess Durga. Inside the temple, there are three naturally formed rock formations known as Pindies, which represent the three forms of the Goddess: Maha Kali, Maha Lakshmi, and Maha Saraswati.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Legends</h5>
+					  <ul class="bullet-list">
+					    <li>According to Hindu mythology, Goddess Vaishno Devi was born to rid the world of evil and protect righteousness. The legends narrate her journey and penance in the Trikuta Mountains, culminating in her merging with the astral form of her creators, the three Supreme Energies.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Pilgrimage Importance</h5>
+					  <ul class="bullet-list">
+					    <li>The pilgrimage to Vaishno Devi is considered one of the holiest journeys in Hinduism. Pilgrims believe that undertaking this yatra (journey) and seeking the blessings of the Goddess fulfills their wishes and grants them spiritual liberation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cultural and Religious Events</h5>
+					  <h5 class="section__sub-b">1. Navratri Festival</h5>
+					  <ul class="bullet-list">
+					    <li>Navratri is a major festival celebrated with great fervor at Vaishno Devi. During this time, special prayers, rituals, and events are organized, attracting a large number of devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Aarti and Poojas</h5>
+					  <ul class="bullet-list">
+					    <li>Daily aarti (prayer rituals) and special poojas (worship ceremonies) are conducted, creating an atmosphere of devotion and spiritual energy.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Environmental and Natural Significance</h5>
+					  <h5 class="section__sub-b">1. Scenic Location</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is situated in the picturesque Trikuta Mountains, surrounded by natural beauty and tranquility. The trek to the temple offers stunning views and a serene environment, adding to the spiritual experience.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Comparison to Kasar Devi</h5>
+					  <ul class="bullet-list">
+					    <li>Unlike Kasar Devi Temple, which is known for its geomagnetic and cosmic energy, the special significance of Vaishno Devi Temple lies more in its spiritual, mythological, and cultural aspects rather than any scientific or cosmic properties.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <p>Overview: Vaishno Devi Temple, nestled in the Trikuta Mountains near Katra, Jammu and Kashmir, is one of India&#x27;s most revered pilgrimage sites. It attracts millions of devotees and tourists annually, seeking spiritual solace and divine blessings.</p>
+					  <h5 class="section__sub-b">Spiritual Experience</h5>
+					  <h5 class="section__sub-b">1. Journey and Pilgrimage</h5>
+					  <ul class="bullet-list">
+					    <li>The trek to the Vaishno Devi Temple is more than just a physical journey; it is a spiritual path that symbolizes faith, devotion, and perseverance. The 13.5-kilometer trek from Katra to the Holy Cave offers pilgrims a chance to reflect, meditate, and connect with the divine amidst the serene natural surroundings.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Natural Beauty and Serenity</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is set against the backdrop of the Trikuta Mountains, providing breathtaking views and a tranquil environment. The natural beauty of the region enhances the spiritual ambiance, making it an ideal place for meditation and introspection.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Sacred Cave</h5>
+					  <ul class="bullet-list">
+					    <li>The Holy Cave houses three naturally formed rock formations, known as Pindies, representing the three forms of the Goddess Vaishno Devi: Maha Kali, Maha Lakshmi, and Maha Saraswati. This unique formation is central to the spiritual significance of the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Daily Rituals and Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>The daily aarti (prayer ritual) is a spiritually uplifting experience. It involves the chanting of hymns and prayers, creating a divine atmosphere that envelops the devotees in a sense of peace and sanctity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cultural Insights</h5>
+					  <h5 class="section__sub-b">1. Symbolism and Mythology</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is steeped in Hindu mythology and legend. Understanding the stories and symbols associated with Vaishno Devi can enrich the spiritual experience. According to legend, the Goddess Vaishno Devi embodies the combined energies of Maha Kali, Maha Lakshmi, and Maha Saraswati, symbolizing strength, wealth, and knowledge.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Festivals and Celebrations</h5>
+					  <ul class="bullet-list">
+					    <li>Festivals like Navratri bring the temple to life with vibrant celebrations, special poojas, and cultural performances. These events offer a glimpse into the rich cultural heritage and spiritual fervor of the region.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Practical Information</h5>
+					  <h5 class="section__sub-b">1. Accessibility</h5>
+					  <ul class="bullet-list">
+					    <li>The pilgrimage is accessible to people of all ages and physical abilities. For those unable to undertake the trek, options like ponies, palanquins, and battery-operated vehicles are available. Helicopter services from Katra to Sanjichhat significantly reduce the physical effort required to reach the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>The Shri Mata Vaishno Devi Shrine Board provides various facilities to ensure a comfortable pilgrimage experience. These include rest houses, medical facilities, free meals (langar), and cloakroom services.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Connection with Nature</h5>
+					  <h5 class="section__sub-b">1. Eco-Friendly Initiatives</h5>
+					  <ul class="bullet-list">
+					    <li>The temple administration emphasizes environmental conservation. Initiatives like afforestation projects, waste management, and the use of eco-friendly materials ensure that the natural beauty of the region is preserved.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Meditative Environment</h5>
+					  <ul class="bullet-list">
+					    <li>The serene surroundings and the peaceful trek provide an ideal environment for meditation and spiritual practices. Pilgrims often use the journey to engage in deep contemplation and personal reflection.</li>
+					  </ul>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Donation ( link)</p>
+					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>Call to Action and Interaction Links for Vaishno Devi Temple</p>
+					  <p>a. Puja Services</p>
+					  <p>For booking pujas at Vaishno Devi Temple, you can tie up with the temple&#x27;s official website. Here&#x27;s a link for puja booking:</p>
+					  <ul class="bullet-list">
+					    <li>Puja Booking: Book Puja at Vaishno Devi</li>
+					  </ul>
+					  <p>b. Donation</p>
+					  <p>Support the temple and its associated services through donations. Contributions can be made easily online.</p>
+					  <ul class="bullet-list">
+					    <li>Donation Link: Donate to Vaishno Devi</li>
+					    <li>Tax Exemption: Donations are eligible for tax exemptions under Section 80G of the Income Tax Act.</li>
+					  </ul>
+					  <p>c. Accommodation</p>
+					  <p>Explore various accommodation options suitable for all types of travelers. For more details and to make an inquiry, visit the link below:</p>
+					  <ul class="bullet-list">
+					    <li>Accommodation Enquiry: Accommodation Options (Replace with the actual link to your site)</li>
+					  </ul>
+					  <p>d. Tax Exemption Information</p>
+					  <p>Learn about the tax benefits available for donations under the Income Tax Act. Contributions to Vaishno Devi Shrine Board are eligible for exemptions under Section 80G.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event of Vaishno Devi Temple</h3>
+					  <p>The most significant annual event at Vaishno Devi Temple is the Navratri Festival. This festival, dedicated to the worship of the Goddess Vaishno Devi, is celebrated twice a year during the periods of Chaitra Navratri (March-April) and Sharad Navratri (September-October).</p>
+					  <h5 class="section__sub-b">Navratri Festival</h5>
+					  <ul class="bullet-list">
+					    <li>Duration: Nine days</li>
+					    <li>Significance: The festival is marked by special prayers, rituals, and festivities. The first three days are dedicated to Goddess Kali, the next three to Goddess Lakshmi, and the final three to Goddess Saraswati.</li>
+					    <li>Activities: The temple is beautifully decorated, and a large number of devotees participate in the special aartis and poojas conducted during these days. Cultural programs and events are also organized by the Jammu &amp; Kashmir State Tourism Department during Navratri to enhance the spiritual and cultural experience of the pilgrims​ (Wikipedia)​​ (AstroVed)​​ (Veena World)​.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event of the temple - day and date?</h3>
+					  <p>Vaishno Devi Temple does not have a specific monthly event that is celebrated on a fixed day each month. However, several significant rituals and practices take place regularly that may interest devotees visiting the temple.</p>
+					  <h5 class="section__sub-b">Full Moon Day (Purnima)</h5>
+					  <ul class="bullet-list">
+					    <li>Significance: Purnima is considered highly auspicious in Hinduism. On this day, special prayers and rituals are conducted at the temple.</li>
+					    <li>Activities: Devotees often visit the temple to seek blessings on Purnima. The temple sees an increase in pilgrims who come to participate in the special aarti and poojas.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Amavasya (New Moon Day)</h5>
+					  <ul class="bullet-list">
+					    <li>Significance: Amavasya is another significant day in the Hindu lunar calendar, often associated with specific rituals and offerings to deities.</li>
+					    <li>Activities: Similar to Purnima, special prayers and rituals are conducted. Devotees visit the temple to perform poojas and seek blessings.</li>
+					  </ul>
+					  <p>Special Monthly Poojas</p>
+					  <h5 class="section__sub-b">Monthly Aarti and Poojas</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: Daily aarti is performed twice a day—once in the morning and once in the evening. These aartis are significant spiritual events for devotees.</li>
+					    <li>Morning Aarti: Around 6:20 AM to 8:00 AM</li>
+					    <li>Evening Aarti: Around 6:20 PM to 8:00 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking and Participation</h5>
+					  <ul class="bullet-list">
+					    <li>Booking: Pilgrims can book aarti and pooja slots online through the official website of the Shri Mata Vaishno Devi Shrine Board.</li>
+					    <li>Link: Book Pooja at Vaishno Devi</li>
+					    <li>-------------</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -1343,89 +1102,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

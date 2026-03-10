@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -95,7 +42,7 @@
 				<h1 class="hero-title">﻿Guruvayur Temple - Kerala</h1>
 
 							<div class="img-placeholder">
-					<div class="img-placeholder__icon">&#128341;</div>
+					<div class="img-placeholder__icon">🕉️</div>
 					<div class="img-placeholder__gradient"></div>
 					<div class="img-placeholder__text">Image of ﻿Guruvayur Temple - Kerala</div>
 				</div>
@@ -107,13 +54,6 @@
 							<div>
 								<div class="key-info__label">Main Deity</div>
 								<div class="key-info__value">Lord Guruvayurappan (a form of Lord Krishna)</div>
-							</div>
-						</div>
-						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Opening: 3:00 AM | Closing: 9:15 PM</div>
 							</div>
 						</div>
 						<div class="key-info__item">
@@ -134,605 +74,518 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Full Address: Guruvayur Devaswom, East Nada, Guruvayur, Kerala, India</h3>
-  <p>Phone(s)/Contact number(s): +91 487 255 6335</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Condensed Information about the Temple:</h3>
-  <ul class="bullet-list">
-    <li>A. Main Deity: Lord Guruvayurappan (a form of Lord Krishna)</li>
-    <li>B. Other Deities: The temple complex also houses shrines for Ganapathi, Ayyappa, and Bhagavati.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <ul class="bullet-list">
-    <li>(a) general</li>
-    <li>(b) on special days like festivals and utsavas</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timings of Guruvayur Temple:</h3>
-  <h5 class="section__sub-b">(a) General</h5>
-  <ul class="bullet-list">
-    <li>Opening: 3:00 AM</li>
-    <li>Closing: 9:15 PM</li>
-  </ul>
-  <h5 class="section__sub-b">(b) Special Days (Festivals and Utsavas)</h5>
-  <ul class="bullet-list">
-    <li>Timings may vary, often extending to accommodate additional rituals and increased visitor flow. Specific adjustments are made during major festivals like Ekadasi, Vishu, and Guruvayur Ekadasi.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <ul class="bullet-list">
-    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Fees:</h3>
-  <ul class="bullet-list">
-    <li>General Entry: There is no entry fee for visiting the Guruvayur Temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Privileges</h5>
-  <ul class="bullet-list">
-    <li>Special Darshan: There are specific arrangements for quick darshan and special poojas, but details should be confirmed with the temple administration.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Restrictions:</h3>
-  <ul class="bullet-list">
-    <li>Foreigners: Non-Hindus are not allowed inside the sanctum sanctorum.</li>
-    <li>Dress Code: Traditional attire is mandatory.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- whatever is available.</h3>
-  <h5 class="section__sub-b">Location and How to Reach Guruvayur Temple</h5>
-  <h5 class="section__sub-b">By Air</h5>
-  <ul class="bullet-list">
-    <li>The nearest airport is Cochin International Airport, about 80 km away.</li>
-  </ul>
-  <h5 class="section__sub-b">By Train</h5>
-  <ul class="bullet-list">
-    <li>The Guruvayur Railway Station is just 1 km from the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">By Bus</h5>
-  <ul class="bullet-list">
-    <li>Regular bus services are available from major cities in Kerala to Guruvayur.</li>
-  </ul>
-  <h5 class="section__sub-b">By Taxi</h5>
-  <ul class="bullet-list">
-    <li>Taxis are readily available from nearby cities and towns.</li>
-  </ul>
-  <h5 class="section__sub-b">By Road</h5>
-  <ul class="bullet-list">
-    <li>Guruvayur is well-connected by road and can be reached by car or bus from various parts of Kerala.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Poojas/Rituals at Guruvayur Temple:</h3>
-  <ul class="bullet-list">
-    <li>Timings:</li>
-    <li>Nirmalyam: 3:00 AM</li>
-    <li>Usha Pooja: 7:30 AM</li>
-    <li>Seeveli: 8:00 AM</li>
-    <li>Athazha Pooja: 9:00 PM</li>
-    <li>Various other poojas throughout the day.</li>
-  </ul>
-  <h5 class="section__sub-b">Rates</h5>
-  <ul class="bullet-list">
-    <li>Poojas have different rates, which can be found on the temple&#x27;s official website or by contacting the administration.</li>
-  </ul>
-  <h5 class="section__sub-b">Advance Booking Procedure</h5>
-  <ul class="bullet-list">
-    <li>Bookings can be made in person at the temple office or through the temple&#x27;s online booking system.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>Yes, the Guruvayur Temple offers several online services for devotees. These include online booking for special poojas, donations, and virtual darshan. These services are managed by the Guruvayur Devaswom.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Dress Code for Guruvayur Temple:</h3>
-  <ul class="bullet-list">
-    <li>Men: Must wear mundu (dhoti) without a shirt. Western-style trousers, shorts, and shirts are not allowed.</li>
-    <li>Women: Should wear traditional attire such as sarees, salwar kameez, or pavada and blouse. Western outfits like skirts, pants, and dresses are not permitted.</li>
-    <li>Special Poojas and Festival Days: The dress code remains traditional and modest.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dress Code for Guruvayur Temple:</h3>
-  <ul class="bullet-list">
-    <li>Men: Mundu (dhoti) without a shirt. Western-style trousers, shorts, and shirts are not allowed.</li>
-    <li>Women: Sarees, salwar kameez, or pavada and blouse. Western outfits like skirts, pants, and dresses are not permitted.</li>
-    <li>Special Poojas and Festival Days: Traditional and modest attire is required.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Electronic Gadgets at Guruvayur Temple:</h3>
-  <ul class="bullet-list">
-    <li>Not Allowed: Mobile phones, cameras, and other electronic gadgets are not permitted inside the temple.</li>
-    <li>Deposit Facility: There are specific counters near the temple entrance where visitors can safely deposit their gadgets.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Photography at Guruvayur Temple:</h3>
-  <ul class="bullet-list">
-    <li>Not Allowed: Photography is strictly prohibited inside the temple premises.</li>
-    <li>Exceptions: Photography may be allowed in specific areas outside the main temple, but it&#x27;s best to check with temple authorities for any specific guidelines.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other facility for physically handicapped?</h3>
-  <h5 class="section__sub-b">Facilities for Physically Handicapped at Guruvayur Temple</h5>
-  <ul class="bullet-list">
-    <li>The Guruvayur Temple provides facilities to assist physically handicapped visitors, including ramps for easier access.</li>
-    <li>However, specific mentions of lifts or elevators are not provided on the official website.</li>
-    <li>Visitors with mobility issues are advised to contact the temple administration for detailed assistance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of Wheelchair for elderly and physically challenged?</h3>
-  <h5 class="section__sub-b">Wheelchair Facility at Guruvayur Temple</h5>
-  <p>The Guruvayur Temple provides wheelchair facilities for elderly and physically challenged visitors to assist with mobility within the temple premises.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
-  <h5 class="section__sub-b">pecial Entry/Special Timing for Darshan at Guruvayur Temple</h5>
-  <p>The Guruvayur Temple provides special entry and timing arrangements for sick, senior citizens, and physically challenged persons to ensure a smoother and more comfortable darshan experience. These arrangements often include prioritized entry and designated timings to avoid the rush.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Vehicle Pooja at Guruvayur Temple:</h3>
-  <ul class="bullet-list">
-    <li>Performed: Yes, vehicle pooja is performed.</li>
-    <li>Timings: Usually conducted during temple operating hours. Specific times can vary.</li>
-    <li>Cost: The cost can vary based on the type of vehicle and the specific pooja. It&#x27;s best to inquire directly with the temple administration for the current rates.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
-  <p>Yes, the Guruvayur Temple provides accommodation facilities for pilgrims, offering a range of options to suit different needs and budgets.</p>
-  <h5 class="section__sub-b">Types of Accommodation</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Kousthubham Rest House:</h3>
-  <ul class="bullet-list">
-    <li>Room Options: 2-bed non-AC, 4-bed non-AC, 6-bed non-AC, 2-bed AC, and a Dormitory Hall.</li>
-    <li>Cost: Ranges from ₹300 for a 2-bed non-AC room to ₹2000 for a dormitory hall. AC rooms cost around ₹635 for 2 beds.</li>
-    <li>Booking: You need to send the full room rent and reservation charges via Demand Draft or Money Order well in advance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Panchajanyam Rest House:</h3>
-  <ul class="bullet-list">
-    <li>Room Options: 3-bed AC, 5-bed non-AC, 3-bed non-AC.</li>
-    <li>Cost: Starts at ₹600 for a 3-bed non-AC room up to ₹1200 for a 3-bed AC room, plus applicable taxes and a caution deposit.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sreevalsam Guest House:</h3>
-  <ul class="bullet-list">
-    <li>Room Options: Air-conditioned suites.</li>
-    <li>Cost: Ranges from ₹1500 to ₹2200, plus tax.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Sreevalsam Extension:</h3>
-  <ul class="bullet-list">
-    <li>Offers deluxe accommodations with prices starting at ₹1600 plus GST.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Book</h5>
-  <ul class="bullet-list">
-    <li>Advance Booking: For most accommodations, advance booking is required by sending a Demand Draft or Money Order to the Administrator of Guruvayur Devaswom.</li>
-    <li>Contact Details: It&#x27;s best to contact the respective rest house directly for the most current availability and specific booking procedures. Phone numbers are provided for each facility.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
-  <p>For those planning to visit the Guruvayur Temple in Kerala by different modes of transportation, such as cars, mini buses, and two-wheelers, here are some general guidelines on parking:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
-  <p>For prasadam and meal services at the Guruvayur Temple in Kerala, here are some key details:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <p>The Guruvayur Temple in Kerala offers various types of prasadam that devotees can carry home. Some of the common types of prasadam available at the temple include:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Panchamritam: A mixture of five ingredients, typically banana, sugar, honey, ghee, and cardamom.</h3>
-  <h5 class="section__sub-b">Costs</h5>
-  <ul class="bullet-list">
-    <li>The cost of these prasadams can vary. Typically, prices are very reasonable and aimed at covering the cost of ingredients and preparation.</li>
-    <li>Prices might range from a few rupees for small quantities to slightly higher amounts for larger packages intended for carrying home.</li>
-  </ul>
-  <h5 class="section__sub-b">Procedure to Purchase</h5>
-  <ul class="bullet-list">
-    <li>Prasadam can be purchased directly at the temple from specific counters dedicated to selling these holy offerings.</li>
-    <li>During peak times, the temple might also set up additional counters or stalls to accommodate the large number of devotees.</li>
-  </ul>
-  <p>For the most accurate information on the types of prasadam currently available, their costs, and where exactly to purchase them within the temple complex, you can check the Guruvayur Temple&#x27;s official website or contact the temple administration directly. They can provide the latest updates and details on prasadam services.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <p>If you lose an item in a temple, such as the Guruvayur Temple in Kerala, here’s a general procedure you can follow to report and possibly recover your lost belongings:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Website or Contact Number: For significant items or in cases where you’ve left the temple premises, use the temple’s official website or contact number to reach out to the lost and found department remotely.</h3>
-  <p>Following these steps increases the likelihood of recovering your lost item. Always take care of your belongings in crowded places and keep valuable items securely and minimally as you visit busy public places like temples.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>If a member of your group goes missing while visiting a place like the Guruvayur Temple or any similar crowded location, it&#x27;s important to follow a structured approach to locate them safely and efficiently:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Stay Calm and Organize:</h3>
-  <ul class="bullet-list">
-    <li>Keep calm and gather the rest of your group in one place.</li>
-    <li>Try calling the missing person&#x27;s cell phone if they have one.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Report to Temple Security or Management:</h3>
-  <ul class="bullet-list">
-    <li>Inform the temple security or management about the missing person.</li>
-    <li>Provide a detailed description of the missing person, including their name, age, physical appearance, clothing, and any other distinctive features.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Designate a Meeting Point:</h3>
-  <ul class="bullet-list">
-    <li>Establish a central and easily identifiable meeting point where the missing person can return if they realize they are separated from the group. This could be a prominent temple entrance, a specific temple hall, or near major landmarks within the temple grounds.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Use Public Announcement Systems:</h3>
-  <ul class="bullet-list">
-    <li>Ask the temple authorities if they can make a public announcement over their PA system to help locate the missing person.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Check with the Lost and Found or Information Center:</h3>
-  <ul class="bullet-list">
-    <li>Visit the temple’s lost and found or any designated information center to see if the missing person has reported themselves as lost.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Wait and Keep Checking:</h3>
-  <ul class="bullet-list">
-    <li>Stay at the designated meeting point while members of your group periodically check with the temple authorities and nearby locations where the person might go.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Provide Contact Information:</h3>
-  <ul class="bullet-list">
-    <li>Leave your contact information with the temple security and any other relevant personnel so they can reach you if they receive any updates.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Local Authorities:</h3>
-  <ul class="bullet-list">
-    <li>If there’s no sign of the person after a considerable amount of time, consider reporting to local law enforcement as they may be able to provide further assistance.</li>
-  </ul>
-  <p>Always ensure that all group members know the meeting point in advance, especially in large and crowded venues, and consider strategies such as buddy systems or group check-ins to minimize the chances of anyone getting lost.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.?</h3>
-  <p>The Guruvayur Temple in Kerala is managed by the Guruvayur Devaswom Board, which is a government-appointed body. The administration and management of the temple are overseen by this board under the guidelines of the Government of Kerala. The Devaswom Board is responsible for maintaining the temple&#x27;s activities, facilities, and religious offerings in accordance with traditional customs and legal stipulations.</p>
-  <p>The temple&#x27;s administration involves not just the religious aspects but also includes managing the financial affairs, public facilities, and welfare activities sponsored by the temple. This setup ensures that the temple operations are in line with the legal and cultural expectations of the community and the state.</p>
-  <p>For more detailed and specific information regarding the registration and administrative details of the Guruvayur Temple, you can visit their official website or contact the temple administration directly. The website, which you provided earlier (https://guruvayurdevaswom.in/), is a reliable source for current information and any formal declarations about their governance and affiliations with state or district administrative bodies.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
-  <p>To make donations to the Guruvayur Temple, apart from direct offerings into the temple Hundi, there are several structured ways to contribute financially for various religious and social purposes. Here’s how you can proceed:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>The Guruvayur Temple allows for online donations through their official website. This can include donations for general temple services, annadanam (free meals for devotees), and specific religious offerings.</li>
-    <li>The website will typically provide a secure payment gateway where you can complete your donation using various methods such as credit/debit cards, net banking, etc.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Direct Bank Transfer:</h3>
-  <ul class="bullet-list">
-    <li>The temple’s official website often lists their bank account details for direct transfers. This includes the bank name, account number, IFSC code, and the account name (usually something like Guruvayur Devaswom Donation Fund).</li>
-    <li>Donations can be specified for various purposes such as temple maintenance, feeding programs, education for the needy, medical facilities, and other charity works managed by the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cheque or Demand Draft:</h3>
-  <ul class="bullet-list">
-    <li>You can also send a cheque or demand draft made out to the specified account of the Guruvayur Devaswom. These should be sent to the temple’s official address, which can be found on their website.</li>
-    <li>Ensure to mention the purpose of the donation on the back of the cheque or in an accompanying letter.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">In Person:</h3>
-  <ul class="bullet-list">
-    <li>If you are visiting the temple, you can make a donation at the designated donation counters where receipts will be issued for the same.</li>
-    <li>Special counters or offices often handle larger donations or contributions towards specific causes.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Donation for Specific Projects or Events:</h3>
-  <ul class="bullet-list">
-    <li>Sometimes, the temple initiates special projects or events which require funding. Details about these can be found on their official website or through temple notices, where you can contribute directly to these causes.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-  <p>Always ensure that you are using the official Guruvayur Temple website or verified contact points for donations to avoid scams or fraudulent activities. Official receipts should be provided for all donations, which can be useful for tax exemption purposes under applicable laws.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Recognition: Temples often acknowledge major donors by listing their names on plaques or boards within the temple complex or in their publications.</h3>
-  <p>To understand the specific benefits and privileges associated with donations to the Guruvayur Temple, it would be best to consult directly with the temple&#x27;s donation management office or check their official website. These sources can provide the most accurate and up-to-date information on how donations are utilized and what donors can expect in return. This ensures transparency and helps donors make informed decisions about their contributions.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple?</h3>
-  <p>The Guruvayur Temple, dedicated to Lord Krishna, is one of the most important and ancient temples in Kerala. Here&#x27;s a detailed look at the construction and some scientific aspects of the temple:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Main Structures:</h3>
-  <ul class="bullet-list">
-    <li>Sreekovil: The sanctum sanctorum where the idol of Lord Krishna is placed. It is built in traditional Kerala style with a conical roof.</li>
-    <li>Nalambalam: The inner courtyard that surrounds the sanctum sanctorum.</li>
-    <li>Balikkalpura: The altar for offerings.</li>
-    <li>Koothambalam: The hall for performing arts.</li>
-    <li>Deepastambham: The light tower, often covered with brass or gold plating.</li>
-    <li>Gopuram: The monumental tower at the entrance, decorated with sculptures.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Idol: The main deity, Lord Krishna, is depicted as a child (Bala Krishna). The idol is made of a unique stone called Patala Anjana, believed to have medicinal properties and the ability to purify the surroundings.</h3>
-  <p>Scientific Aspects</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Scientific Healing: The idol of Lord Krishna is made of Patala Anjana Stone, which is known for its medicinal properties. Devotees believe that the very presence in the temple and sight of the idol can have healing effects.</h3>
-  <p>Historical and Cultural Significance</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural Hub: Guruvayur Temple is not only a place of worship but also a cultural center where traditional art forms like Kathakali, Carnatic music, and other classical dances are regularly performed.</h3>
-  <p>For more detailed information, architectural plans, and scientific research related to the temple, it is advisable to consult scholarly articles, official publications from the Guruvayur Devaswom Board, or directly contact the temple administration through their official website Guruvayur Devaswom.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-  <p>Yes, the Guruvayur Temple in Kerala holds special significance, both spiritually and historically. While it may not have the same type of geomagnetic or cosmic energy significance as the Kasar Devi Temple in Uttarakhand, it is revered for several unique attributes:</p>
-  <p>Spiritual Significance</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Lord Krishna&#x27;s Presence:</h3>
-  <ul class="bullet-list">
-    <li>The temple is dedicated to Lord Krishna, who is worshipped here as Guruvayurappan. The idol is believed to be over 5,000 years old, making it one of the oldest and most significant representations of Lord Krishna in India.</li>
-    <li>It is said that the idol was worshipped by Lord Krishna’s parents, Vasudeva and Devaki, and was later brought to Kerala by Guru (Brihaspati) and Vayu (the wind god), hence the name Guruvayur.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Miraculous Powers:</h3>
-  <ul class="bullet-list">
-    <li>Devotees believe that the temple and the deity possess miraculous powers. Many stories of healing, fulfillment of wishes, and divine interventions are associated with the temple.</li>
-    <li>The temple is also considered an important center for Bhakti (devotional worship), attracting millions of devotees seeking blessings and spiritual solace.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural Hub:</h3>
-  <ul class="bullet-list">
-    <li>Guruvayur Temple is a center for classical arts, particularly Carnatic music and traditional dance forms like Kathakali. It hosts numerous cultural events and festivals, contributing to the preservation and promotion of Indian culture and heritage.</li>
-  </ul>
-  <p>Architectural and Historical Significance</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Unique Idol:</h3>
-  <ul class="bullet-list">
-    <li>The idol of Lord Krishna is made from a sacred stone called Patala Anjana. This stone is believed to have special properties and is considered extremely holy.</li>
-    <li>The idol&#x27;s posture and features are unique, depicting Krishna as a child with a conch, a discus, a mace, and a lotus.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ancient Temple:</h3>
-  <ul class="bullet-list">
-    <li>The temple is said to have been built by Vishwakarma, the divine architect, in the traditional Kerala style. It has stood the test of time and continues to be a major pilgrimage site.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Connection to Mahabharata:</h3>
-  <ul class="bullet-list">
-    <li>According to legend, the idol at Guruvayur was worshipped by Lord Krishna&#x27;s parents and was brought to Kerala by the sage Parashurama. This historical connection to the Mahabharata period adds to the temple’s significance.</li>
-  </ul>
-  <p>Festivals and Rituals</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Ekadasi Festival:</h3>
-  <ul class="bullet-list">
-    <li>The Vrishchika Ekadasi is the most important festival celebrated at Guruvayur. It marks the day when Lord Krishna revealed the Bhagavad Gita to Arjuna. The temple sees a massive influx of devotees during this time.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Chembai Sangeetholsavam:</h3>
-  <ul class="bullet-list">
-    <li>This annual music festival held at the temple honors the late Carnatic music maestro Chembai Vaidyanatha Bhagavatar. It is one of the largest music festivals in South India.</li>
-  </ul>
-  <p>Divine Experiences</p>
-  <p>While Guruvayur does not have a scientifically documented geomagnetic field like Kasar Devi, the temple is considered a powerful spiritual center where devotees often report feeling a deep sense of peace, fulfillment, and divine presence. The religious rituals, the sanctity of the place, and the collective devotion of millions contribute to the temple&#x27;s powerful spiritual ambiance.</p>
-  <p>For more detailed information about the temple&#x27;s significance, special attributes, and historical legends, you can visit the official website of the Guruvayur Devaswom Board or refer to scholarly articles and books dedicated to the temple&#x27;s rich history and cultural impact.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
-  <p>Guruvayur Temple, located in Kerala, India, is not just a religious site but also a center of deep spiritual significance. For foreigners interested in spirituality rather than the specifics of religious practice, here&#x27;s a comprehensive guide focusing on the spiritual aspects of the temple.</p>
-  <p>Spiritual Significance</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Sacred Atmosphere:</h3>
-  <ul class="bullet-list">
-    <li>The temple exudes a serene and sacred atmosphere that is conducive to meditation, reflection, and inner peace. The rhythmic chanting of hymns and the aroma of incense create a spiritually uplifting environment.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Energy Centers:</h3>
-  <ul class="bullet-list">
-    <li>The sanctum sanctorum, where the idol of Lord Krishna is housed, is considered a powerful energy center. Many visitors report feeling a sense of calm and rejuvenation in this space, making it an ideal spot for silent meditation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Rituals and Ceremonies:</h3>
-  <ul class="bullet-list">
-    <li>The daily rituals, including the early morning Nirmalyam (removal of previous day&#x27;s decorations) and the Deeparadhana (lamp offering), are performed with precision and devotion, creating a spiritually charged atmosphere. Observing these rituals can provide insights into the devotion and discipline that underpin the temple’s spiritual practices.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bhakti (Devotion):</h3>
-  <ul class="bullet-list">
-    <li>The temple is a hub of Bhakti Yoga, the path of devotion. Witnessing the devotion of the thousands of pilgrims can inspire a sense of universal love and spiritual connection, transcending the boundaries of religion.</li>
-  </ul>
-  <p>Spiritual Practices</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Meditation:</h3>
-  <ul class="bullet-list">
-    <li>Visitors can meditate in the temple premises, especially in the early morning or late evening when the atmosphere is most tranquil. The temple&#x27;s architecture and layout are designed to enhance spiritual practices like meditation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Music and Dance:</h3>
-  <ul class="bullet-list">
-    <li>The temple hosts various classical music and dance performances, which are not only religious but also deeply spiritual experiences. The vibrations from the traditional instruments and the expressive movements of the dancers aim to elevate the soul.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Annadanam (Free Meals):</h3>
-  <ul class="bullet-list">
-    <li>Participating in or contributing to the temple&#x27;s annadanam program, where free meals are served to devotees, is a form of selfless service (Seva) that is highly regarded in spiritual traditions. It fosters a sense of community and compassion.</li>
-  </ul>
-  <p>Cultural and Historical Insights</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Ancient Traditions:</h3>
-  <ul class="bullet-list">
-    <li>The temple follows traditions that are thousands of years old. Learning about these traditions can provide insights into the ancient Indian way of life, which integrates spirituality into daily living.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Festivals:</h3>
-  <ul class="bullet-list">
-    <li>Attending temple festivals, like the Ekadasi festival, can be a spiritually enriching experience. These festivals are marked by elaborate rituals, music, and dance, symbolizing various aspects of life and spirituality.</li>
-  </ul>
-  <p>Practical Information for Foreign Visitors</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Dress Code:</h3>
-  <ul class="bullet-list">
-    <li>Visitors are required to wear traditional attire. Men should wear dhotis and women should wear sarees or salwar kameez. This dress code helps maintain the sanctity and spiritual ambiance of the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Entry Restrictions:</h3>
-  <ul class="bullet-list">
-    <li>Non-Hindus may not be allowed inside the inner sanctum. However, they can explore the outer premises, participate in spiritual activities, and observe rituals from designated areas.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Language Assistance:</h3>
-  <ul class="bullet-list">
-    <li>English-speaking guides are available to help foreign visitors understand the spiritual and cultural significance of the temple and its rituals.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation:</h3>
-  <ul class="bullet-list">
-    <li>The temple town offers various accommodation options ranging from budget to luxury hotels. Staying close to the temple allows visitors to immerse themselves in the spiritual ambiance.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Health and Wellness:</h3>
-  <ul class="bullet-list">
-    <li>The region around Guruvayur is known for Ayurvedic treatments and wellness centers. Combining a temple visit with Ayurvedic therapies can be a holistic spiritual and health experience.</li>
-  </ul>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
-  <p>b.Donation ( link)</p>
-  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
-  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-  <p>Call to Action and Interaction Links for Guruvayur Temple</p>
-  <p>If you&#x27;re looking to provide interactive links for various activities and facilities related to Guruvayur Temple on your platform, here’s how you can structure them:</p>
-  <p>a. Puja Booking</p>
-  <p>Experience the Divine with Our Puja Services</p>
-  <ul class="bullet-list">
-    <li>Book special pujas and rituals at Guruvayur Temple to seek blessings for you and your family. Click the link below to book a puja through the temple’s official website.</li>
-    <li>Book a Puja at Guruvayur Temple</li>
-  </ul>
-  <p>b. Donation</p>
-  <p>Contribute to the Sacred Services</p>
-  <ul class="bullet-list">
-    <li>Your generous donations help in maintaining the temple’s sacred services and supporting various charitable activities. Make a donation today and be a part of the divine legacy.</li>
-    <li>Donate to Guruvayur Temple</li>
-  </ul>
-  <p>c. Accommodation</p>
-  <p>Stay Close to the Divine</p>
-  <ul class="bullet-list">
-    <li>Find a range of accommodations near Guruvayur Temple, from budget stays to luxury hotels. Submit an enquiry form to get the best options tailored to your needs.</li>
-    <li>View and Book Accommodation</li>
-  </ul>
-  <p>d. Tax Exemption for Donations</p>
-  <p>Maximize Your Contribution with Tax Benefits</p>
-  <ul class="bullet-list">
-    <li>Donations made to Guruvayur Temple, such as contributions to the Annadanam program, are eligible for tax exemptions under Section 80G of the Income Tax Act. Ensure your donations are tax-efficient.</li>
-    <li>Learn More About Tax Exemptions</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event of the temple day and date?</h3>
-  <p>Guruvayur Temple hosts several important annual events and festivals that attract devotees from all over the world. The most significant ones include:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Guruvayur Ekadasi:</h3>
-  <ul class="bullet-list">
-    <li>Date: This festival is observed on the Ekadasi (11th day) of the waxing moon in the Malayalam month of Vrischikam (November-December).</li>
-    <li>Significance: Guruvayur Ekadasi is considered the most auspicious day at the temple. It marks the day when Lord Krishna revealed the Bhagavad Gita to Arjuna. The day is filled with special rituals, offerings, and a grand procession.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Chembai Sangeetholsavam:</h3>
-  <ul class="bullet-list">
-    <li>Date: This annual music festival starts on the 14th of November and lasts for about 11-15 days.</li>
-    <li>Significance: It is one of the largest Carnatic music festivals in India, held in honor of the late Chembai Vaidyanatha Bhagavatar. Musicians from all over the country participate in this grand event.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Ulsavam (Annual Festival):</h3>
-  <ul class="bullet-list">
-    <li>Date: The festival lasts for 10 days and usually takes place in the month of Kumbham (February-March).</li>
-    <li>Significance: The annual festival includes a series of rituals and processions. The highlight is the ‘Anayottam’ or elephant race, marking the beginning of the festivities.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Events at Guruvayur Temple</h3>
-  <p>Guruvayur Temple hosts several important monthly events that are significant to the devotees. Here are the details:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Ekadasi:</h3>
-  <ul class="bullet-list">
-    <li>Date: Ekadasi is observed on the 11th day of each lunar fortnight, both waxing (Shukla Paksha) and waning (Krishna Paksha) phases of the moon. This means it occurs twice a month.</li>
-    <li>Significance: Ekadasi is considered highly auspicious and is dedicated to Lord Vishnu. Devotees observe fasting and participate in special prayers and rituals at the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Thiruvonam (Shravana Nakshatra):</h3>
-  <ul class="bullet-list">
-    <li>Date: Thiruvonam Nakshatra (star) day is celebrated every month. The exact date varies according to the Malayalam calendar.</li>
-    <li>Significance: Thiruvonam is believed to be the birth star of Lord Vishnu. Special poojas and rituals are performed on this day, and it holds a significant place in the temple’s monthly calendar.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Pournami (Full Moon Day):</h3>
-  <ul class="bullet-list">
-    <li>Date: Pournami is observed on the full moon day of every month.</li>
-    <li>Significance: The full moon day is considered very auspicious, and many devotees perform special prayers and rituals. The temple sees a larger number of visitors on this day.</li>
-    <li>---------</li>
-  </ul>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Full Address: Guruvayur Devaswom, East Nada, Guruvayur, Kerala, India</h3>
+					  <p>Phone(s)/Contact number(s): +91 487 255 6335</p>
+					  <h5 class="section__sub-b">Condensed Information about the Temple</h5>
+					  <ul class="bullet-list">
+					    <li>A. Main Deity: Lord Guruvayurappan (a form of Lord Krishna)</li>
+					    <li>B. Other Deities: The temple complex also houses shrines for Ganapathi, Ayyappa, and Bhagavati.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <ul class="bullet-list">
+					    <li>(a) general</li>
+					    <li>(b) on special days like festivals and utsavas</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timings of Guruvayur Temple:</h3>
+					  <h5 class="section__sub-b">(a) General</h5>
+					  <ul class="bullet-list">
+					    <li>Opening: 3:00 AM</li>
+					    <li>Closing: 9:15 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">(b) Special Days (Festivals and Utsavas)</h5>
+					  <ul class="bullet-list">
+					    <li>Timings may vary, often extending to accommodate additional rituals and increased visitor flow. Specific adjustments are made during major festivals like Ekadasi, Vishu, and Guruvayur Ekadasi.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <ul class="bullet-list">
+					    <li>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Entry Fees</h5>
+					  <ul class="bullet-list">
+					    <li>General Entry: There is no entry fee for visiting the Guruvayur Temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Privileges</h5>
+					  <ul class="bullet-list">
+					    <li>Special Darshan: There are specific arrangements for quick darshan and special poojas, but details should be confirmed with the temple administration.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Restrictions</h5>
+					  <ul class="bullet-list">
+					    <li>Foreigners: Non-Hindus are not allowed inside the sanctum sanctorum.</li>
+					    <li>Dress Code: Traditional attire is mandatory.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- whatever is available.</h3>
+					  <h5 class="section__sub-b">Location and How to Reach Guruvayur Temple</h5>
+					  <h5 class="section__sub-b">By Air</h5>
+					  <ul class="bullet-list">
+					    <li>The nearest airport is Cochin International Airport, about 80 km away.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Train</h5>
+					  <ul class="bullet-list">
+					    <li>The Guruvayur Railway Station is just 1 km from the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Bus</h5>
+					  <ul class="bullet-list">
+					    <li>Regular bus services are available from major cities in Kerala to Guruvayur.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Taxi</h5>
+					  <ul class="bullet-list">
+					    <li>Taxis are readily available from nearby cities and towns.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Road</h5>
+					  <ul class="bullet-list">
+					    <li>Guruvayur is well-connected by road and can be reached by car or bus from various parts of Kerala.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special Poojas/Rituals at Guruvayur Temple:</h3>
+					  <ul class="bullet-list">
+					    <li>Timings:</li>
+					    <li>Nirmalyam: 3:00 AM</li>
+					    <li>Usha Pooja: 7:30 AM</li>
+					    <li>Seeveli: 8:00 AM</li>
+					    <li>Athazha Pooja: 9:00 PM</li>
+					    <li>Various other poojas throughout the day.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Rates</h5>
+					  <ul class="bullet-list">
+					    <li>Poojas have different rates, which can be found on the temple&#x27;s official website or by contacting the administration.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Advance Booking Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>Bookings can be made in person at the temple office or through the temple&#x27;s online booking system.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Yes, the Guruvayur Temple offers several online services for devotees. These include online booking for special poojas, donations, and virtual darshan. These services are managed by the Guruvayur Devaswom.</p>
+					  <h5 class="section__sub-b">Dress Code for Guruvayur Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Men: Must wear mundu (dhoti) without a shirt. Western-style trousers, shorts, and shirts are not allowed.</li>
+					    <li>Women: Should wear traditional attire such as sarees, salwar kameez, or pavada and blouse. Western outfits like skirts, pants, and dresses are not permitted.</li>
+					    <li>Special Poojas and Festival Days: The dress code remains traditional and modest.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <h5 class="section__sub-b">Dress Code for Guruvayur Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Men: Mundu (dhoti) without a shirt. Western-style trousers, shorts, and shirts are not allowed.</li>
+					    <li>Women: Sarees, salwar kameez, or pavada and blouse. Western outfits like skirts, pants, and dresses are not permitted.</li>
+					    <li>Special Poojas and Festival Days: Traditional and modest attire is required.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <h5 class="section__sub-b">Electronic Gadgets at Guruvayur Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Not Allowed: Mobile phones, cameras, and other electronic gadgets are not permitted inside the temple.</li>
+					    <li>Deposit Facility: There are specific counters near the temple entrance where visitors can safely deposit their gadgets.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <h5 class="section__sub-b">Photography at Guruvayur Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Not Allowed: Photography is strictly prohibited inside the temple premises.</li>
+					    <li>Exceptions: Photography may be allowed in specific areas outside the main temple, but it&#x27;s best to check with temple authorities for any specific guidelines.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other facility for physically handicapped?</h3>
+					  <h5 class="section__sub-b">Facilities for Physically Handicapped at Guruvayur Temple</h5>
+					  <ul class="bullet-list">
+					    <li>The Guruvayur Temple provides facilities to assist physically handicapped visitors, including ramps for easier access.</li>
+					    <li>However, specific mentions of lifts or elevators are not provided on the official website.</li>
+					    <li>Visitors with mobility issues are advised to contact the temple administration for detailed assistance.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of Wheelchair for elderly and physically challenged?</h3>
+					  <h5 class="section__sub-b">Wheelchair Facility at Guruvayur Temple</h5>
+					  <p>The Guruvayur Temple provides wheelchair facilities for elderly and physically challenged visitors to assist with mobility within the temple premises.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <h5 class="section__sub-b">pecial Entry/Special Timing for Darshan at Guruvayur Temple</h5>
+					  <p>The Guruvayur Temple provides special entry and timing arrangements for sick, senior citizens, and physically challenged persons to ensure a smoother and more comfortable darshan experience. These arrangements often include prioritized entry and designated timings to avoid the rush.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <h5 class="section__sub-b">Vehicle Pooja at Guruvayur Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Performed: Yes, vehicle pooja is performed.</li>
+					    <li>Timings: Usually conducted during temple operating hours. Specific times can vary.</li>
+					    <li>Cost: The cost can vary based on the type of vehicle and the specific pooja. It&#x27;s best to inquire directly with the temple administration for the current rates.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>Yes, the Guruvayur Temple provides accommodation facilities for pilgrims, offering a range of options to suit different needs and budgets.</p>
+					  <h5 class="section__sub-b">Types of Accommodation</h5>
+					  <h5 class="section__sub-b">1. Kousthubham Rest House</h5>
+					  <ul class="bullet-list">
+					    <li>Room Options: 2-bed non-AC, 4-bed non-AC, 6-bed non-AC, 2-bed AC, and a Dormitory Hall.</li>
+					    <li>Cost: Ranges from ₹300 for a 2-bed non-AC room to ₹2000 for a dormitory hall. AC rooms cost around ₹635 for 2 beds.</li>
+					    <li>Booking: You need to send the full room rent and reservation charges via Demand Draft or Money Order well in advance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Panchajanyam Rest House</h5>
+					  <ul class="bullet-list">
+					    <li>Room Options: 3-bed AC, 5-bed non-AC, 3-bed non-AC.</li>
+					    <li>Cost: Starts at ₹600 for a 3-bed non-AC room up to ₹1200 for a 3-bed AC room, plus applicable taxes and a caution deposit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Sreevalsam Guest House</h5>
+					  <ul class="bullet-list">
+					    <li>Room Options: Air-conditioned suites.</li>
+					    <li>Cost: Ranges from ₹1500 to ₹2200, plus tax.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Sreevalsam Extension</h5>
+					  <ul class="bullet-list">
+					    <li>Offers deluxe accommodations with prices starting at ₹1600 plus GST.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Book</h5>
+					  <ul class="bullet-list">
+					    <li>Advance Booking: For most accommodations, advance booking is required by sending a Demand Draft or Money Order to the Administrator of Guruvayur Devaswom.</li>
+					    <li>Contact Details: It&#x27;s best to contact the respective rest house directly for the most current availability and specific booking procedures. Phone numbers are provided for each facility.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>For those planning to visit the Guruvayur Temple in Kerala by different modes of transportation, such as cars, mini buses, and two-wheelers, here are some general guidelines on parking:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <p>For prasadam and meal services at the Guruvayur Temple in Kerala, here are some key details:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>The Guruvayur Temple in Kerala offers various types of prasadam that devotees can carry home. Some of the common types of prasadam available at the temple include:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Panchamritam: A mixture of five ingredients, typically banana, sugar, honey, ghee, and cardamom.</h3>
+					  <h5 class="section__sub-b">Costs</h5>
+					  <ul class="bullet-list">
+					    <li>The cost of these prasadams can vary. Typically, prices are very reasonable and aimed at covering the cost of ingredients and preparation.</li>
+					    <li>Prices might range from a few rupees for small quantities to slightly higher amounts for larger packages intended for carrying home.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure to Purchase</h5>
+					  <ul class="bullet-list">
+					    <li>Prasadam can be purchased directly at the temple from specific counters dedicated to selling these holy offerings.</li>
+					    <li>During peak times, the temple might also set up additional counters or stalls to accommodate the large number of devotees.</li>
+					  </ul>
+					  <p>For the most accurate information on the types of prasadam currently available, their costs, and where exactly to purchase them within the temple complex, you can check the Guruvayur Temple&#x27;s official website or contact the temple administration directly. They can provide the latest updates and details on prasadam services.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>If you lose an item in a temple, such as the Guruvayur Temple in Kerala, here’s a general procedure you can follow to report and possibly recover your lost belongings:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Website or Contact Number: For significant items or in cases where you’ve left the temple premises, use the temple’s official website or contact number to reach out to the lost and found department remotely.</h3>
+					  <p>Following these steps increases the likelihood of recovering your lost item. Always take care of your belongings in crowded places and keep valuable items securely and minimally as you visit busy public places like temples.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a member of your group goes missing while visiting a place like the Guruvayur Temple or any similar crowded location, it&#x27;s important to follow a structured approach to locate them safely and efficiently:</p>
+					  <h5 class="section__sub-b">1. Stay Calm and Organize</h5>
+					  <ul class="bullet-list">
+					    <li>Keep calm and gather the rest of your group in one place.</li>
+					    <li>Try calling the missing person&#x27;s cell phone if they have one.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Report to Temple Security or Management:</h3>
+					  <ul class="bullet-list">
+					    <li>Inform the temple security or management about the missing person.</li>
+					    <li>Provide a detailed description of the missing person, including their name, age, physical appearance, clothing, and any other distinctive features.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Designate a Meeting Point</h5>
+					  <ul class="bullet-list">
+					    <li>Establish a central and easily identifiable meeting point where the missing person can return if they realize they are separated from the group. This could be a prominent temple entrance, a specific temple hall, or near major landmarks within the temple grounds.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Use Public Announcement Systems</h5>
+					  <ul class="bullet-list">
+					    <li>Ask the temple authorities if they can make a public announcement over their PA system to help locate the missing person.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Check with the Lost and Found or Information Center:</h3>
+					  <ul class="bullet-list">
+					    <li>Visit the temple’s lost and found or any designated information center to see if the missing person has reported themselves as lost.</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Wait and Keep Checking</h5>
+					  <ul class="bullet-list">
+					    <li>Stay at the designated meeting point while members of your group periodically check with the temple authorities and nearby locations where the person might go.</li>
+					  </ul>
+					  <h5 class="section__sub-b">7. Provide Contact Information</h5>
+					  <ul class="bullet-list">
+					    <li>Leave your contact information with the temple security and any other relevant personnel so they can reach you if they receive any updates.</li>
+					  </ul>
+					  <h5 class="section__sub-b">8. Local Authorities</h5>
+					  <ul class="bullet-list">
+					    <li>If there’s no sign of the person after a considerable amount of time, consider reporting to local law enforcement as they may be able to provide further assistance.</li>
+					  </ul>
+					  <p>Always ensure that all group members know the meeting point in advance, especially in large and crowded venues, and consider strategies such as buddy systems or group check-ins to minimize the chances of anyone getting lost.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.?</h3>
+					  <p>The Guruvayur Temple in Kerala is managed by the Guruvayur Devaswom Board, which is a government-appointed body. The administration and management of the temple are overseen by this board under the guidelines of the Government of Kerala. The Devaswom Board is responsible for maintaining the temple&#x27;s activities, facilities, and religious offerings in accordance with traditional customs and legal stipulations.</p>
+					  <p>The temple&#x27;s administration involves not just the religious aspects but also includes managing the financial affairs, public facilities, and welfare activities sponsored by the temple. This setup ensures that the temple operations are in line with the legal and cultural expectations of the community and the state.</p>
+					  <p>For more detailed and specific information regarding the registration and administrative details of the Guruvayur Temple, you can visit their official website or contact the temple administration directly. The website, which you provided earlier (https://guruvayurdevaswom.in/), is a reliable source for current information and any formal declarations about their governance and affiliations with state or district administrative bodies.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>To make donations to the Guruvayur Temple, apart from direct offerings into the temple Hundi, there are several structured ways to contribute financially for various religious and social purposes. Here’s how you can proceed:</p>
+					  <h5 class="section__sub-b">1. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>The Guruvayur Temple allows for online donations through their official website. This can include donations for general temple services, annadanam (free meals for devotees), and specific religious offerings.</li>
+					    <li>The website will typically provide a secure payment gateway where you can complete your donation using various methods such as credit/debit cards, net banking, etc.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Direct Bank Transfer</h5>
+					  <ul class="bullet-list">
+					    <li>The temple’s official website often lists their bank account details for direct transfers. This includes the bank name, account number, IFSC code, and the account name (usually something like Guruvayur Devaswom Donation Fund).</li>
+					    <li>Donations can be specified for various purposes such as temple maintenance, feeding programs, education for the needy, medical facilities, and other charity works managed by the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cheque or Demand Draft</h5>
+					  <ul class="bullet-list">
+					    <li>You can also send a cheque or demand draft made out to the specified account of the Guruvayur Devaswom. These should be sent to the temple’s official address, which can be found on their website.</li>
+					    <li>Ensure to mention the purpose of the donation on the back of the cheque or in an accompanying letter.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. In Person</h5>
+					  <ul class="bullet-list">
+					    <li>If you are visiting the temple, you can make a donation at the designated donation counters where receipts will be issued for the same.</li>
+					    <li>Special counters or offices often handle larger donations or contributions towards specific causes.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Donation for Specific Projects or Events:</h3>
+					  <ul class="bullet-list">
+					    <li>Sometimes, the temple initiates special projects or events which require funding. Details about these can be found on their official website or through temple notices, where you can contribute directly to these causes.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>Always ensure that you are using the official Guruvayur Temple website or verified contact points for donations to avoid scams or fraudulent activities. Official receipts should be provided for all donations, which can be useful for tax exemption purposes under applicable laws.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Recognition: Temples often acknowledge major donors by listing their names on plaques or boards within the temple complex or in their publications.</h3>
+					  <p>To understand the specific benefits and privileges associated with donations to the Guruvayur Temple, it would be best to consult directly with the temple&#x27;s donation management office or check their official website. These sources can provide the most accurate and up-to-date information on how donations are utilized and what donors can expect in return. This ensures transparency and helps donors make informed decisions about their contributions.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.Provide Construction/  scientific  information about the  temple?</h3>
+					  <p>The Guruvayur Temple, dedicated to Lord Krishna, is one of the most important and ancient temples in Kerala. Here&#x27;s a detailed look at the construction and some scientific aspects of the temple:</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Architecture: The temple follows the typical Kerala style of architecture, characterized by sloping roofs, wooden structures, and intricate carvings. The sanctum sanctorum (Sreekovil) is made of granite and is square-shaped with a pyramidal roof covered with copper plates.</h3>
+					  <h5 class="section__sub-b">2. Main Structures</h5>
+					  <ul class="bullet-list">
+					    <li>Sreekovil: The sanctum sanctorum where the idol of Lord Krishna is placed. It is built in traditional Kerala style with a conical roof.</li>
+					    <li>Nalambalam: The inner courtyard that surrounds the sanctum sanctorum.</li>
+					    <li>Balikkalpura: The altar for offerings.</li>
+					    <li>Koothambalam: The hall for performing arts.</li>
+					    <li>Deepastambham: The light tower, often covered with brass or gold plating.</li>
+					    <li>Gopuram: The monumental tower at the entrance, decorated with sculptures.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Idol: The main deity, Lord Krishna, is depicted as a child (Bala Krishna). The idol is made of a unique stone called Patala Anjana, believed to have medicinal properties and the ability to purify the surroundings.</h3>
+					  <p>Scientific Aspects</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Scientific Healing: The idol of Lord Krishna is made of Patala Anjana Stone, which is known for its medicinal properties. Devotees believe that the very presence in the temple and sight of the idol can have healing effects.</h3>
+					  <p>Historical and Cultural Significance</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Cultural Hub: Guruvayur Temple is not only a place of worship but also a cultural center where traditional art forms like Kathakali, Carnatic music, and other classical dances are regularly performed.</h3>
+					  <p>For more detailed information, architectural plans, and scientific research related to the temple, it is advisable to consult scholarly articles, official publications from the Guruvayur Devaswom Board, or directly contact the temple administration through their official website Guruvayur Devaswom.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>Yes, the Guruvayur Temple in Kerala holds special significance, both spiritually and historically. While it may not have the same type of geomagnetic or cosmic energy significance as the Kasar Devi Temple in Uttarakhand, it is revered for several unique attributes:</p>
+					  <p>Spiritual Significance</p>
+					  <h5 class="section__sub-b">1. Lord Krishna&#x27;s Presence</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is dedicated to Lord Krishna, who is worshipped here as Guruvayurappan. The idol is believed to be over 5,000 years old, making it one of the oldest and most significant representations of Lord Krishna in India.</li>
+					    <li>It is said that the idol was worshipped by Lord Krishna’s parents, Vasudeva and Devaki, and was later brought to Kerala by Guru (Brihaspati) and Vayu (the wind god), hence the name Guruvayur.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Miraculous Powers</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees believe that the temple and the deity possess miraculous powers. Many stories of healing, fulfillment of wishes, and divine interventions are associated with the temple.</li>
+					    <li>The temple is also considered an important center for Bhakti (devotional worship), attracting millions of devotees seeking blessings and spiritual solace.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cultural Hub</h5>
+					  <ul class="bullet-list">
+					    <li>Guruvayur Temple is a center for classical arts, particularly Carnatic music and traditional dance forms like Kathakali. It hosts numerous cultural events and festivals, contributing to the preservation and promotion of Indian culture and heritage.</li>
+					  </ul>
+					  <p>Architectural and Historical Significance</p>
+					  <h5 class="section__sub-b">1. Unique Idol</h5>
+					  <ul class="bullet-list">
+					    <li>The idol of Lord Krishna is made from a sacred stone called Patala Anjana. This stone is believed to have special properties and is considered extremely holy.</li>
+					    <li>The idol&#x27;s posture and features are unique, depicting Krishna as a child with a conch, a discus, a mace, and a lotus.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Ancient Temple</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is said to have been built by Vishwakarma, the divine architect, in the traditional Kerala style. It has stood the test of time and continues to be a major pilgrimage site.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Connection to Mahabharata</h5>
+					  <ul class="bullet-list">
+					    <li>According to legend, the idol at Guruvayur was worshipped by Lord Krishna&#x27;s parents and was brought to Kerala by the sage Parashurama. This historical connection to the Mahabharata period adds to the temple’s significance.</li>
+					  </ul>
+					  <p>Festivals and Rituals</p>
+					  <h5 class="section__sub-b">1. Ekadasi Festival</h5>
+					  <ul class="bullet-list">
+					    <li>The Vrishchika Ekadasi is the most important festival celebrated at Guruvayur. It marks the day when Lord Krishna revealed the Bhagavad Gita to Arjuna. The temple sees a massive influx of devotees during this time.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Chembai Sangeetholsavam</h5>
+					  <ul class="bullet-list">
+					    <li>This annual music festival held at the temple honors the late Carnatic music maestro Chembai Vaidyanatha Bhagavatar. It is one of the largest music festivals in South India.</li>
+					  </ul>
+					  <p>Divine Experiences</p>
+					  <p>While Guruvayur does not have a scientifically documented geomagnetic field like Kasar Devi, the temple is considered a powerful spiritual center where devotees often report feeling a deep sense of peace, fulfillment, and divine presence. The religious rituals, the sanctity of the place, and the collective devotion of millions contribute to the temple&#x27;s powerful spiritual ambiance.</p>
+					  <p>For more detailed information about the temple&#x27;s significance, special attributes, and historical legends, you can visit the official website of the Guruvayur Devaswom Board or refer to scholarly articles and books dedicated to the temple&#x27;s rich history and cultural impact.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <p>Guruvayur Temple, located in Kerala, India, is not just a religious site but also a center of deep spiritual significance. For foreigners interested in spirituality rather than the specifics of religious practice, here&#x27;s a comprehensive guide focusing on the spiritual aspects of the temple.</p>
+					  <p>Spiritual Significance</p>
+					  <h5 class="section__sub-b">1. Sacred Atmosphere</h5>
+					  <ul class="bullet-list">
+					    <li>The temple exudes a serene and sacred atmosphere that is conducive to meditation, reflection, and inner peace. The rhythmic chanting of hymns and the aroma of incense create a spiritually uplifting environment.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Energy Centers</h5>
+					  <ul class="bullet-list">
+					    <li>The sanctum sanctorum, where the idol of Lord Krishna is housed, is considered a powerful energy center. Many visitors report feeling a sense of calm and rejuvenation in this space, making it an ideal spot for silent meditation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Rituals and Ceremonies</h5>
+					  <ul class="bullet-list">
+					    <li>The daily rituals, including the early morning Nirmalyam (removal of previous day&#x27;s decorations) and the Deeparadhana (lamp offering), are performed with precision and devotion, creating a spiritually charged atmosphere. Observing these rituals can provide insights into the devotion and discipline that underpin the temple’s spiritual practices.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Bhakti (Devotion)</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is a hub of Bhakti Yoga, the path of devotion. Witnessing the devotion of the thousands of pilgrims can inspire a sense of universal love and spiritual connection, transcending the boundaries of religion.</li>
+					  </ul>
+					  <p>Spiritual Practices</p>
+					  <h5 class="section__sub-b">1. Meditation</h5>
+					  <ul class="bullet-list">
+					    <li>Visitors can meditate in the temple premises, especially in the early morning or late evening when the atmosphere is most tranquil. The temple&#x27;s architecture and layout are designed to enhance spiritual practices like meditation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Music and Dance</h5>
+					  <ul class="bullet-list">
+					    <li>The temple hosts various classical music and dance performances, which are not only religious but also deeply spiritual experiences. The vibrations from the traditional instruments and the expressive movements of the dancers aim to elevate the soul.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Annadanam (Free Meals)</h5>
+					  <ul class="bullet-list">
+					    <li>Participating in or contributing to the temple&#x27;s annadanam program, where free meals are served to devotees, is a form of selfless service (Seva) that is highly regarded in spiritual traditions. It fosters a sense of community and compassion.</li>
+					  </ul>
+					  <p>Cultural and Historical Insights</p>
+					  <h5 class="section__sub-b">1. Ancient Traditions</h5>
+					  <ul class="bullet-list">
+					    <li>The temple follows traditions that are thousands of years old. Learning about these traditions can provide insights into the ancient Indian way of life, which integrates spirituality into daily living.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Festivals</h5>
+					  <ul class="bullet-list">
+					    <li>Attending temple festivals, like the Ekadasi festival, can be a spiritually enriching experience. These festivals are marked by elaborate rituals, music, and dance, symbolizing various aspects of life and spirituality.</li>
+					  </ul>
+					  <p>Practical Information for Foreign Visitors</p>
+					  <h5 class="section__sub-b">1. Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Visitors are required to wear traditional attire. Men should wear dhotis and women should wear sarees or salwar kameez. This dress code helps maintain the sanctity and spiritual ambiance of the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Entry Restrictions</h5>
+					  <ul class="bullet-list">
+					    <li>Non-Hindus may not be allowed inside the inner sanctum. However, they can explore the outer premises, participate in spiritual activities, and observe rituals from designated areas.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Language Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>English-speaking guides are available to help foreign visitors understand the spiritual and cultural significance of the temple and its rituals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Accommodation</h5>
+					  <ul class="bullet-list">
+					    <li>The temple town offers various accommodation options ranging from budget to luxury hotels. Staying close to the temple allows visitors to immerse themselves in the spiritual ambiance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Health and Wellness</h5>
+					  <ul class="bullet-list">
+					    <li>The region around Guruvayur is known for Ayurvedic treatments and wellness centers. Combining a temple visit with Ayurvedic therapies can be a holistic spiritual and health experience.</li>
+					  </ul>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Donation ( link)</p>
+					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>Call to Action and Interaction Links for Guruvayur Temple</p>
+					  <p>If you&#x27;re looking to provide interactive links for various activities and facilities related to Guruvayur Temple on your platform, here’s how you can structure them:</p>
+					  <p>a. Puja Booking</p>
+					  <p>Experience the Divine with Our Puja Services</p>
+					  <ul class="bullet-list">
+					    <li>Book special pujas and rituals at Guruvayur Temple to seek blessings for you and your family. Click the link below to book a puja through the temple’s official website.</li>
+					    <li>Book a Puja at Guruvayur Temple</li>
+					  </ul>
+					  <p>b. Donation</p>
+					  <p>Contribute to the Sacred Services</p>
+					  <ul class="bullet-list">
+					    <li>Your generous donations help in maintaining the temple’s sacred services and supporting various charitable activities. Make a donation today and be a part of the divine legacy.</li>
+					    <li>Donate to Guruvayur Temple</li>
+					  </ul>
+					  <p>c. Accommodation</p>
+					  <p>Stay Close to the Divine</p>
+					  <ul class="bullet-list">
+					    <li>Find a range of accommodations near Guruvayur Temple, from budget stays to luxury hotels. Submit an enquiry form to get the best options tailored to your needs.</li>
+					    <li>View and Book Accommodation</li>
+					  </ul>
+					  <p>d. Tax Exemption for Donations</p>
+					  <p>Maximize Your Contribution with Tax Benefits</p>
+					  <ul class="bullet-list">
+					    <li>Donations made to Guruvayur Temple, such as contributions to the Annadanam program, are eligible for tax exemptions under Section 80G of the Income Tax Act. Ensure your donations are tax-efficient.</li>
+					    <li>Learn More About Tax Exemptions</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event of the temple day and date?</h3>
+					  <p>Guruvayur Temple hosts several important annual events and festivals that attract devotees from all over the world. The most significant ones include:</p>
+					  <h5 class="section__sub-b">1. Guruvayur Ekadasi</h5>
+					  <ul class="bullet-list">
+					    <li>Date: This festival is observed on the Ekadasi (11th day) of the waxing moon in the Malayalam month of Vrischikam (November-December).</li>
+					    <li>Significance: Guruvayur Ekadasi is considered the most auspicious day at the temple. It marks the day when Lord Krishna revealed the Bhagavad Gita to Arjuna. The day is filled with special rituals, offerings, and a grand procession.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Chembai Sangeetholsavam</h5>
+					  <ul class="bullet-list">
+					    <li>Date: This annual music festival starts on the 14th of November and lasts for about 11-15 days.</li>
+					    <li>Significance: It is one of the largest Carnatic music festivals in India, held in honor of the late Chembai Vaidyanatha Bhagavatar. Musicians from all over the country participate in this grand event.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Ulsavam (Annual Festival)</h5>
+					  <ul class="bullet-list">
+					    <li>Date: The festival lasts for 10 days and usually takes place in the month of Kumbham (February-March).</li>
+					    <li>Significance: The annual festival includes a series of rituals and processions. The highlight is the ‘Anayottam’ or elephant race, marking the beginning of the festivities.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Events at Guruvayur Temple</h3>
+					  <p>Guruvayur Temple hosts several important monthly events that are significant to the devotees. Here are the details:</p>
+					  <h5 class="section__sub-b">1. Ekadasi</h5>
+					  <ul class="bullet-list">
+					    <li>Date: Ekadasi is observed on the 11th day of each lunar fortnight, both waxing (Shukla Paksha) and waning (Krishna Paksha) phases of the moon. This means it occurs twice a month.</li>
+					    <li>Significance: Ekadasi is considered highly auspicious and is dedicated to Lord Vishnu. Devotees observe fasting and participate in special prayers and rituals at the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Thiruvonam (Shravana Nakshatra)</h5>
+					  <ul class="bullet-list">
+					    <li>Date: Thiruvonam Nakshatra (star) day is celebrated every month. The exact date varies according to the Malayalam calendar.</li>
+					    <li>Significance: Thiruvonam is believed to be the birth star of Lord Vishnu. Special poojas and rituals are performed on this day, and it holds a significant place in the temple’s monthly calendar.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Pournami (Full Moon Day)</h5>
+					  <ul class="bullet-list">
+					    <li>Date: Pournami is observed on the full moon day of every month.</li>
+					    <li>Significance: The full moon day is considered very auspicious, and many devotees perform special prayers and rituals. The temple sees a larger number of visitors on this day.</li>
+					    <li>---------</li>
+					  </ul>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -746,89 +599,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>

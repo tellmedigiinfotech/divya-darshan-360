@@ -16,63 +16,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<style>
-		*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-		:root{--primary:#c2560a;--primary-light:rgba(194,86,10,0.1);--primary-20:rgba(194,86,10,0.2);--primary-30:rgba(194,86,10,0.3);--accent:#d4af37;--bg:#fdfaf5;--fg:#3b2510;--muted:#8a7260;--card-bg:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.2);--border-solid:#e8ddd0;--radius:24px;--max-w:896px;--font-sans:'Geist Sans','Geist',system-ui,-apple-system,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
-		html{scroll-behavior:smooth}
-		body{font-family:var(--font-sans);background-color:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(194,86,10,0.1),transparent 70%),radial-gradient(circle at 100% 100%,rgba(212,175,55,0.1),transparent 60%),radial-gradient(circle at 0% 100%,rgba(253,250,245,0.5),transparent 60%),url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");background-size:100% 100%,100% 100%,100% 100%,200px 200px;background-attachment:fixed;animation:divine-glow 20s ease-in-out infinite alternate}
-		@keyframes divine-glow{0%{background-position:50% 0%,100% 100%,0% 100%,center top}100%{background-position:50% 10%,90% 90%,10% 90%,center top}}
-		a{color:var(--primary);text-decoration:none;transition:color .3s}a:hover{color:#a04508}img{max-width:100%;display:block}
-		.glow-wrap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1280px;height:100%;pointer-events:none;opacity:.18;z-index:0}
-		.glow-blob{position:absolute;border-radius:50%}
-		.glow-blob--primary{top:80px;left:40px;width:384px;height:384px;background:var(--primary);filter:blur(120px);animation:glow 4s ease-in-out infinite}
-		.glow-blob--accent{bottom:160px;right:40px;width:320px;height:320px;background:var(--accent);filter:blur(100px);animation:glow 4s ease-in-out infinite}
-		@keyframes glow{0%,100%{opacity:.3;filter:blur(40px)}50%{opacity:.6;filter:blur(60px)}}
-		.lotus-bg{position:fixed;pointer-events:none;z-index:0}.lotus-bg--1{top:5%;right:-10%;width:500px;height:500px;opacity:.12}.lotus-bg--2{top:35%;left:-15%;width:420px;height:420px;opacity:.08}.lotus-bg svg{width:100%;height:100%}.lotus-spin{animation:spin-slow 180s linear infinite}.lotus-spin-rev{animation:spin-rev 270s linear infinite}@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes spin-rev{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-		.diya-wrap{position:fixed;pointer-events:none;z-index:0}.diya-wrap--left{top:15%;left:10%}.diya-wrap--right{bottom:20%;right:15%}.diya{animation:diya-float 5s ease-in-out infinite}.diya--left{transform-origin:center center;scale:1.5}.diya--right{transform-origin:center center;scale:1.25}.diya__inner{position:relative;width:64px;height:80px}.diya__ambient{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:96px;background:rgba(251,146,60,0.10);border-radius:50%;filter:blur(24px)}.diya__outer-glow{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:rgba(251,146,60,0.30);border-radius:50%;filter:blur(16px);animation:glow-pulse 2s ease-in-out infinite}.diya__inner-glow{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:28px;height:28px;background:rgba(250,204,21,0.20);border-radius:50%;filter:blur(10px);animation:glow-pulse 1.5s ease-in-out infinite}.diya__flame-outer{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:40px;background:linear-gradient(to top,#ea580c 0%,#f97316 30%,#fb923c 60%,#fdba74 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 20px rgba(249,115,22,.6),0 0 40px rgba(251,146,60,.3);animation:flame-outer .8s ease-in-out infinite}.diya__flame-inner{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:24px;background:linear-gradient(to top,#fbbf24 0%,#fde047 40%,#fef9c3 70%,#fff 100%);clip-path:ellipse(50% 100% at 50% 100%);box-shadow:0 0 10px rgba(253,224,71,.8);animation:flame-inner .6s ease-in-out infinite 0.1s}.diya__flame-tip{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:6px;height:12px;background:#fff;border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,.9),0 0 15px rgba(254,249,195,.6);animation:flame-tip .4s ease-in-out infinite}.diya__wick{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:2px;height:8px;border-radius:2px;background:linear-gradient(to bottom,#1f2937,#111827)}.diya__oil{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:40px;height:12px;background:linear-gradient(to bottom,rgba(120,53,15,.8),rgba(69,26,3,1));border-radius:50%;overflow:hidden}.diya__oil-sheen{position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(217,119,6,.3),transparent);animation:oil-shimmer 3s ease-in-out infinite}.diya__bowl{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:56px;height:24px;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(135deg,#d97706 0%,#b45309 25%,#92400e 50%,#78350f 75%,#451a03 100%);box-shadow:inset 0 -2px 4px rgba(0,0,0,.3),inset 0 2px 4px rgba(251,191,36,.2);overflow:hidden}.diya__bowl-shine{position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(to right,transparent,rgba(251,191,36,.4),transparent)}.diya__bowl-highlight{position:absolute;top:4px;left:4px;width:8px;height:8px;background:rgba(251,191,36,.3);border-radius:50%;filter:blur(2px)}.diya__bowl-dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center;gap:4px}.diya__bowl-dot{width:4px;height:4px;border-radius:50%;background:rgba(251,191,36,.3)}.diya__spout{position:absolute;top:44px;right:-4px;width:12px;height:8px;border-radius:0 50% 50% 0;background:linear-gradient(90deg,#b45309,#d97706)}.diya__stem{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:linear-gradient(180deg,#92400e 0%,#78350f 50%,#451a03 100%);border-radius:0 0 8px 8px;box-shadow:0 2px 4px rgba(0,0,0,.3)}.diya__plate{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:40px;height:4px;background:linear-gradient(180deg,#78350f,#451a03);border-radius:0 0 4px 4px}.diya__reflection{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:12px;border-radius:50%;background:radial-gradient(ellipse,rgba(251,146,60,.3) 0%,transparent 70%);animation:glow-pulse 2s ease-in-out infinite}
-		@keyframes diya-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes flame-outer{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.7)}25%{transform:translateX(-50%) scaleY(1.15) scaleX(0.65)}50%{transform:translateX(-50%) scaleY(0.9) scaleX(0.75)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.68)}}@keyframes flame-inner{0%,100%{transform:translateX(-50%) scaleY(1) scaleX(0.6)}25%{transform:translateX(-50%) scaleY(1.2) scaleX(0.55)}50%{transform:translateX(-50%) scaleY(0.85) scaleX(0.65)}75%{transform:translateX(-50%) scaleY(1.1) scaleX(0.58)}}@keyframes flame-tip{0%,100%{transform:translateX(-50%) scaleY(1);opacity:0.9}25%{transform:translateX(-50%) scaleY(1.3);opacity:1}50%{transform:translateX(-50%) scaleY(0.8);opacity:0.7}75%{transform:translateX(-50%) scaleY(1.15);opacity:0.95}}@keyframes glow-pulse{0%,100%{transform:translateX(-50%) scale(1);opacity:0.3}50%{transform:translateX(-50%) scale(1.2);opacity:0.5}}@keyframes oil-shimmer{0%,100%{transform:translateX(-20px)}50%{transform:translateX(20px)}}
-		.glass{background:var(--card-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.05)}.main{min-height:100vh;position:relative;overflow:hidden}.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-		.back-section{padding:96px 24px 32px}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .3s}.back-link:hover{color:var(--primary)}.back-link svg{width:16px;height:16px}
-		.hero{padding:0 24px 64px;position:relative;z-index:1}.badge{display:inline-block;padding:8px 18px;border-radius:9999px;background:var(--primary-light);color:var(--primary);font-size:.85rem;font-weight:500;border:1px solid var(--primary-20);margin-bottom:24px}.hero-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:32px;color:var(--fg)}
-		.key-info{border-radius:var(--radius);padding:32px;margin-bottom:48px}.key-info__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.key-info__item{display:flex;align-items:flex-start;gap:16px}.key-info__item--full{grid-column:1/-1}.key-info__icon{width:48px;height:48px;border-radius:50%;background:var(--primary-20);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}.key-info__icon svg{width:20px;height:20px;color:var(--primary);stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.key-info__label{font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:2px}.key-info__value{font-size:1.05rem;font-family:var(--font-serif);color:var(--fg)}.key-info__value--sans{font-family:var(--font-sans)}
-		.article{border-radius:var(--radius);padding:32px;margin-bottom:48px}@media(min-width:768px){.article{padding:48px}}
-		.section{margin-bottom:40px}.section__title{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--primary);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--primary-20)}.section__sub-a{font-size:1.1rem;font-weight:600;color:rgba(194,86,10,.75);margin:24px 0 12px}.section__sub-b{font-size:1rem;font-weight:600;color:var(--fg);opacity:.9;margin:20px 0 8px}.section p{color:var(--muted);margin-bottom:12px;line-height:1.8}
-		.num-list{list-style:none;padding:0;margin:16px 0}.num-list li{display:flex;flex-direction:column;margin-bottom:16px}.num-list__row{display:flex;align-items:flex-start;gap:12px}.num-list__badge{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary-20);color:var(--primary);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}.num-list__text{color:var(--fg);opacity:.9;font-weight:500}
-		.bullet-list{list-style:none;padding:0;margin:16px 0}.bullet-list li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);margin-bottom:8px}.bullet-list li::before{content:'\2022';color:var(--primary);margin-top:1px;flex-shrink:0;font-weight:bold}
-		.cta-section{border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:48px}.cta-section h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:16px}.cta-section p{color:var(--muted);margin-bottom:24px}.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--primary);color:#fff;border-radius:9999px;font-weight:500;letter-spacing:.02em;font-family:var(--font-serif);transition:all .3s;border:none;cursor:pointer;font-size:1rem;box-shadow:0 8px 24px rgba(194,86,10,.2)}.cta-btn:hover{background:#a04508;transform:scale(1.05);color:#fff}
-				.img-placeholder{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:linear-gradient(135deg,var(--primary-20),rgba(212,175,55,.15));border:1px solid var(--border)}.img-placeholder__icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;opacity:.25}.img-placeholder__gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}.img-placeholder__text{position:absolute;bottom:24px;left:24px;right:24px;color:rgba(255,255,255,.7);font-size:.85rem}
-				.carousel{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:48px;background:#1a1008;border:1px solid var(--border)}.carousel__track{position:relative;width:100%;aspect-ratio:16/9}.carousel__slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out}.carousel__slide--active{opacity:1;z-index:1}.carousel__slide img{width:100%;height:100%;object-fit:cover}.carousel__btn{position:absolute;top:50%;z-index:5;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.3)}.carousel__btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-50%) scale(1.1)}.carousel__btn--prev{left:16px}.carousel__btn--next{right:16px}.carousel__dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}.carousel__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:1px solid rgba(255,255,255,.2)}.carousel__dot--active{background:var(--primary);transform:scale(1.25);border-color:var(--primary);box-shadow:0 0 8px rgba(194,86,10,.5)}.carousel__counter{position:absolute;top:16px;right:16px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:6px 14px;border-radius:9999px;color:rgba(255,255,255,.85);font-size:.8rem;font-weight:500;border:1px solid rgba(255,255,255,.1)}
-		@media(max-width:768px){.key-info__grid{grid-template-columns:1fr}.back-section{padding:72px 18px 24px}.hero{padding:0 18px 40px}.diya-wrap{display:none}.lotus-bg{display:none}}
-		.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.05)}.nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:64px}.nav-logo img{height:32px;width:auto;transition:transform .3s}.nav-logo img:hover{transform:scale(1.05)}.nav-links{display:flex;align-items:center;gap:32px}.nav-links a{color:#334155;font-weight:600;font-size:.95rem;transition:all .3s;text-decoration:none}.nav-links a:hover{color:#AF7423;transform:scale(1.05)}.nav-btn{display:inline-block !important;padding:8px 20px !important;background:#AF7423 !important;color:#fff !important;border-radius:8px !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:all .3s !important}.nav-btn:hover{background:#9a621d !important;color:#fff !important}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:#1e293b}.mobile-menu{display:none}.mobile-menu.open{display:flex;flex-direction:column;padding:16px;gap:16px;border-top:1px solid #e2e8f0;background:#fff}.mobile-menu a{color:#1e293b;font-weight:500;text-decoration:none;padding:8px 0;transition:color .3s}.mobile-menu a:hover{color:#AF7423}.mobile-menu .nav-btn{text-align:center;margin-top:8px}@media(max-width:768px){.nav-links{display:none}.mobile-toggle{display:block}}
-		.site-footer{background:#04060a;color:#F8F6F3}.footer-inner{max-width:1280px;margin:0 auto;padding:40px 40px 20px}.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.footer-logo img{height:auto;max-width:180px;border-radius:12px;transition:transform .3s}.footer-logo img:hover{transform:scale(1.05)}.footer-desc{margin-top:12px;color:rgba(248,246,243,.9);font-size:.95rem;line-height:1.6}.footer-copy{margin-top:16px;color:rgba(248,246,243,.7);font-size:.85rem}.footer-heading{font-family:var(--font-serif,'Playfair Display',serif);font-size:1.4rem;color:#AF7423;margin-bottom:16px}.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;text-transform:uppercase}.footer-links a{color:rgba(248,246,243,.9);text-decoration:none;transition:color .3s;font-size:.9rem}.footer-links a:hover{color:#AF7423;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#AF7423}.footer-address{margin-top:24px;color:rgba(248,246,243,.85);font-size:.9rem;font-style:normal}.footer-address-label{color:#AF7423;font-weight:500;margin-bottom:4px}.footer-line{margin-top:40px;height:1px;background:linear-gradient(to right,transparent,#AF7423,transparent)}@media(max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-logo{display:flex;justify-content:center}.footer-links{align-items:center}.footer-inner{padding:32px 20px 16px}}
-	</style>
+	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
 </head>
 
 <body>
-  <nav class="site-nav" role="navigation" aria-label="Main Navigation">
-    <div class="nav-inner">
-      <div class="nav-logo">
-        <a href="/" aria-label="Go to Home">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/career-with-us">Careers</a>
-        <a href="/contactus" class="nav-btn">Contact</a>
-      </div>
-      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about-us">About Us</a>
-      <a href="/career-with-us">Careers</a>
-      <a href="/contactus" class="nav-btn">Contact</a>
-    </div>
-  </nav>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
 		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
@@ -95,7 +42,7 @@
 				<h1 class="hero-title">﻿Chidambaram Temple - Tamil Nadu</h1>
 
 							<div class="img-placeholder">
-					<div class="img-placeholder__icon">&#128341;</div>
+					<div class="img-placeholder__icon">🕉️</div>
 					<div class="img-placeholder__gradient"></div>
 					<div class="img-placeholder__text">Image of ﻿Chidambaram Temple - Tamil Nadu</div>
 				</div>
@@ -107,13 +54,6 @@
 							<div>
 								<div class="key-info__label">Main Deity</div>
 								<div class="key-info__value">Lord Shiva, revered here as Nataraja, the Lord of Dance, symbolizing the cosmic cycles of creation and destruction, as well as the daily rhythm of life and death.</div>
-							</div>
-						</div>
-						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-							<div>
-								<div class="key-info__label">Timings</div>
-								<div class="key-info__value key-info__value--sans">Please check temple website for timings</div>
 							</div>
 						</div>
 						<div class="key-info__item">
@@ -134,585 +74,541 @@
 				</div>
 
 				<article class="glass article">
-<div class="section">
-  <h3 class="section__title">Full Address: East Car Street, Chidambaram, Cuddalore District, Tamil Nadu, India - 608001</h3>
-  <p>Contact Number: +91-4144-422674</p>
-  <p>A. Main Deity: Lord Shiva, revered here as Nataraja, the Lord of Dance, symbolizing the cosmic cycles of creation and destruction, as well as the daily rhythm of life and death.</p>
-  <h5 class="section__sub-b">B. Other Deities (Sub Deities)</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-  <p>(a) general</p>
-  <p>(b) on special days like festivals and utsavas</p>
-  <h5 class="section__sub-b">Chidambaram Nataraja Temple Opening &amp; Closing Times</h5>
-  <h5 class="section__sub-b">(a) General Days</h5>
-  <ul class="bullet-list">
-    <li>Morning: 6:00 AM to 12:00 Noon</li>
-    <li>Evening: 5:00 PM to 10:00 PM</li>
-  </ul>
-  <h5 class="section__sub-b">(b) On Special Days (Festivals and Utsavas)</h5>
-  <p>During festivals like Shivaratri and Natyanjali, the temple often remains open throughout the night to accommodate special rituals and performances, though specific timings can vary based on the festival&#x27;s schedule.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there any Entry Fees-</h3>
-  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
-  <p>At the Chidambaram Nataraja Temple, there is generally no entry fee for darshan. However, special services like quick darshan, special rituals, and offerings may incur a fee, which can grant privileges such as quicker access to the deity, special viewing areas, and inclusion of prasad. As for entry restrictions, there are generally no specific restrictions for foreigners, but like all visitors, they must adhere to the dress code and conduct rules.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
-  <h5 class="section__sub-b">Chidambaram is well-connected by various modes of transport</h5>
-  <ul class="bullet-list">
-    <li>By Air: The nearest airport is in Pondicherry, about 67 kilometers away. Another option is the Chennai International Airport, which is approximately 215 kilometers from Chidambaram.</li>
-    <li>By Train: Chidambaram railway station is well-connected to major cities like Chennai, Trichy, and Madurai.</li>
-    <li>By Bus: There are regular bus services from major cities in Tamil Nadu to Chidambaram.</li>
-    <li>By Taxi: Taxis are available from nearby cities and airports.</li>
-  </ul>
-  <p>This connectivity makes it convenient for visitors to reach the temple from various locations.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
-  <p>At the Chidambaram Nataraja Temple, special poojas and rituals are performed daily and on specific festival days. Key rituals include the daily Arudra Darisanam and the annual Margazhi festival pooja. The timings for these poojas can vary, often starting early in the morning and continuing at intervals throughout the day.</p>
-  <p>The rates for these poojas depend on the specific rituals involved, and they can be booked either at the temple premises or, in some cases, online through the temple’s official website. For the most accurate rates and booking procedures, please check directly with the temple’s official resources or visit the temple’s contact center.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
-  <p>Yes, the Chidambaram Nataraja Temple offers online services for devotees. These services typically include online booking for special poojas and rituals. The online services are managed through the temple&#x27;s official website, where devotees can also find information about the temple&#x27;s events, rituals, and other related services.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
-  <p>Yes, the Chidambaram Nataraja Temple prescribes a specific dress code for entry. Men are required to wear traditional attire such as dhotis, with or without a shirt, while women should wear sarees, half-sarees, or churidars. During special poojas and festival days, adherence to this traditional dress code is strictly enforced to maintain the sanctity and tradition of the temple rituals.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
-  <p>At the Chidambaram Nataraja Temple, electronic gadgets such as mobile phones and cameras are generally not allowed inside the temple premises to maintain the sanctity of the worship areas. There are usually facilities near the temple entrance where visitors can securely deposit their gadgets before entering.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
-  <p>The Chidambaram Nataraja Temple does not specifically mention the availability of lifts or elevators for physically handicapped individuals. However, temples in India often have provisions to assist those who need help. It&#x27;s advisable to contact the temple administration directly to inquire about specific facilities like ramps or other accommodations for physically handicapped visitors.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged.</h3>
-  <p>The Chidambaram Nataraja Temple typically offers wheelchair facilities to assist elderly and physically challenged visitors. It&#x27;s recommended to contact the temple authorities directly or check the temple&#x27;s official website for details on how to avail these facilities and any possible arrangements needed prior to your visit.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
-  <p>The Chidambaram Nataraja Temple in Tamil Nadu offers several services to facilitate darshan for senior citizens, physically challenged persons, and those with medical conditions.</p>
-  <h5 class="section__sub-b">Special Entry and Darshan Timings</h5>
-  <ul class="bullet-list">
-    <li>General Timings: The temple is open from 6:00 AM to 12:00 PM and from 5:00 PM to 10:00 PM. These timings are consistent daily, but it is recommended to check for any variations during special occasions or festivals​ (Temple Yatri)​​ (Go Kshetra)​.</li>
-    <li>Special Darshan: While specific details about special timings for senior citizens and physically challenged persons were not explicitly mentioned in the sources, it is advisable to contact the temple administration directly for the most accurate and current information. They typically have provisions to accommodate such devotees to ensure a comfortable and serene darshan experience​ (Darshan Booking)​​ (Go Kshetra)​.</li>
-  </ul>
-  <h5 class="section__sub-b">Online Services</h5>
-  <ul class="bullet-list">
-    <li>The temple provides online booking facilities for special darshan tickets and various poojas. Devotees can book these services through the official temple website, which allows for a more convenient and planned visit​ (Go Kshetra)​​ (Darshan Booking)​.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Dress Code:</h3>
-  <ul class="bullet-list">
-    <li>Men: Required to wear dhoti and angavastram or formal pants and a shirt.</li>
-    <li>Women: Required to wear saree, half saree with blouse, or salwar kameez with dupatta. The temple authorities also provide dhotis and sarees for rent at a nominal fee​ (Go Kshetra)​​ (Darshan Booking)​.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-  <h5 class="section__sub-b">Here are the general temple timings and other relevant details</h5>
-  <ul class="bullet-list">
-    <li>General Darshan Timings: The temple is open from 6:00 AM to 12:00 PM and from 5:00 PM to 10:00 PM every day​ (DarshanBooking)​​ (Go Kshetra)​.</li>
-    <li>Dress Code: Men are required to wear dhoti and angavastram or formal pants and a shirt, while women should wear saree, half saree with blouse, or salwar kameez with dupatta​ (Go Kshetra)​.</li>
-    <li>Online Booking: The temple provides online booking facilities for special darshan and poojas. This can be done through the temple&#x27;s official website​ (Go Kshetra)​.</li>
-  </ul>
-  <p>For further details and specific queries, contacting the temple administration directly is recommended.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
-  <p>The Chidambaram Nataraja Temple provides accommodation facilities for pilgrims. Here are the details:</p>
-  <h5 class="section__sub-b">Types of Accommodation Facilities</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Hotels and Lodges: There are several hotels and lodges near the temple that offer more comfortable stays. Some popular options include:</h3>
-  <ul class="bullet-list">
-    <li>The Grand Palace Stay</li>
-    <li>Hotel Saradharam</li>
-    <li>Hotel Akshaya</li>
-    <li>Hotel S.A.R.S</li>
-    <li>Hotel Aiswarya</li>
-  </ul>
-  <h5 class="section__sub-b">Costs</h5>
-  <ul class="bullet-list">
-    <li>Dharamshalas: These are usually low-cost or free, depending on the facilities provided. Donations are often accepted.</li>
-    <li>Hotels and Lodges: Prices vary based on the type of room and amenities offered. Budget hotels may start from around ₹500 per night, while more comfortable accommodations may range from ₹1000 to ₹3000 per night or more.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking in Advance</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Travel Agencies: Some travel agencies offer packages that include accommodation bookings for pilgrims visiting the Chidambaram Temple.</h3>
-  <h5 class="section__sub-b">How to Book</h5>
-  <ul class="bullet-list">
-    <li>For Dharamshalas: Visit the temple office upon arrival or contact them in advance for reservations.</li>
-    <li>For Hotels and Lodges: Use online travel booking platforms or the official websites of the hotels to make reservations.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact Information</h5>
-  <ul class="bullet-list">
-    <li>Temple Office: You can contact the Chidambaram Nataraja Temple administration for detailed information about Dharamshala bookings and other facilities. Their contact details are usually listed on their official website: Chidambaram Nataraja Temple.</li>
-  </ul>
-  <p>For a smooth and comfortable stay, it is recommended to book your accommodation in advance, especially during peak pilgrimage seasons or festivals.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
-  <p>The Chidambaram Nataraja Temple offers parking facilities for pilgrims arriving by various modes of transportation, including cars, mini-buses, and two-wheelers.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation Facilities:</h3>
-  <h5 class="section__sub-b">The temple provides several accommodation options for pilgrims</h5>
-  <ul class="bullet-list">
-    <li>Dharamshalas: These are basic accommodations managed by the temple trust, often available at low or no cost.</li>
-    <li>Hotels and Lodges: Various hotels and lodges near the temple offer comfortable stays with different amenities. Popular options include The Grand Palace Stay, Hotel Saradharam, and Hotel Akshaya.</li>
-  </ul>
-  <h5 class="section__sub-b">Booking in Advance</h5>
-  <ul class="bullet-list">
-    <li>For Dharamshalas: Contact the temple office directly to make reservations.</li>
-    <li>For Hotels and Lodges: Use online travel booking platforms or the official websites of the hotels.</li>
-  </ul>
-  <p>For more detailed information, you can visit the temple&#x27;s official website Chidambaram Nataraja Temple or contact the temple administration​ (TemplePurohit)​​ (Yatradham)​​ (Temple Yatri)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings.</h3>
-  <p>The Chidambaram Nataraja Temple offers prashad services and meals to pilgrims. Here are the details:</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Prashad Services and Meals:</h3>
-  <ul class="bullet-list">
-    <li>Meals: The temple provides free meals to pilgrims, which are served in the dining hall within the temple complex. These meals are typically offered as part of the temple&#x27;s charitable activities.</li>
-    <li>Procedure and Payment: The meals are generally free for devotees. However, donations are welcomed and can be made at the temple office or donation counters.</li>
-  </ul>
-  <h5 class="section__sub-b">Timings</h5>
-  <ul class="bullet-list">
-    <li>Meals are usually served during specific times in the day. The exact timings can vary, but they generally align with the temple&#x27;s operating hours:</li>
-    <li>Morning: 6:00 AM to 12:00 PM</li>
-    <li>Evening: 5:00 PM to 10:00 PM</li>
-    <li>It is advisable to check with the temple administration for the precise meal serving times on the day of your visit.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Obtain Prashad</h5>
-  <ul class="bullet-list">
-    <li>On-site: You can directly go to the designated area for prashad distribution within the temple complex.</li>
-    <li>Donations: If you wish to contribute, you can make a donation at the temple&#x27;s donation counters.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-  <p>At the Chidambaram Nataraja Temple, devotees can purchase various types of prashad to take home. Here are the details:</p>
-  <h5 class="section__sub-b">Types of Carry-Home Prashad</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Other Sweets and Savories: Depending on the day and special occasions, the temple may offer different types of sweets and snacks.</h3>
-  <h5 class="section__sub-b">Cost</h5>
-  <ul class="bullet-list">
-    <li>The cost of carry-home prashad can vary. Typically, the prices are nominal and are intended to cover the cost of preparation and support the temple&#x27;s activities.</li>
-    <li>Laddu: Approximately ₹10-₹50 per piece, depending on size and ingredients.</li>
-    <li>Puliyodarai and Sweet Pongal: Prices can range from ₹20-₹100 per pack, depending on the quantity.</li>
-  </ul>
-  <h5 class="section__sub-b">How to Purchase</h5>
-  <ul class="bullet-list">
-    <li>Temple Counters: Prashad can be purchased at designated counters within the temple premises.</li>
-    <li>Advance Booking: For large quantities or special occasions, it may be possible to place an advance order by contacting the temple administration.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-  <p>If you lose an item in the Chidambaram Nataraja Temple, here is the typical procedure to report it:</p>
-  <h5 class="section__sub-b">Procedure for Reporting Lost Items</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Temple Office:</h3>
-  <ul class="bullet-list">
-    <li>Go to the temple office, which is usually located within the temple premises. The office staff can assist you in reporting your lost item.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Provide Details:</h3>
-  <ul class="bullet-list">
-    <li>Give a detailed description of the lost item. Include specifics like color, size, unique features, and where you believe it was lost.</li>
-    <li>Provide your contact information so the temple can reach you if the item is found.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Fill Out a Lost Item Form:</h3>
-  <ul class="bullet-list">
-    <li>Some temples have a formal lost item form that you may need to fill out. This form will record the details of your lost item and your contact information.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Check Lost and Found:</h3>
-  <ul class="bullet-list">
-    <li>Inquire if there is a lost and found section where items are kept. Sometimes items found within the temple are kept here for a period before being handed over to local authorities if unclaimed.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Regular Follow-Up:</h3>
-  <ul class="bullet-list">
-    <li>Regularly follow up with the temple office to check if your item has been found. This can be done in person or over the phone if contact details are provided.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact Information</h5>
-  <p>For any assistance, you can contact the Chidambaram Nataraja Temple administration directly. Their contact details are usually available on their official website.</p>
-  <p>By following these steps, you can efficiently report and possibly recover your lost items at the Chidambaram Nataraja Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
-  <p>If a member of your group goes missing at the Chidambaram Nataraja Temple, here is what you should do:</p>
-  <h5 class="section__sub-b">Steps to Report a Missing Person</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Contact Temple Security:</h3>
-  <ul class="bullet-list">
-    <li>Immediately approach the nearest temple security personnel or staff member. Inform them about the missing person, providing a detailed description including age, appearance, clothing, and any other distinguishing features.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visit the Temple Office:</h3>
-  <ul class="bullet-list">
-    <li>Go to the temple office and report the missing person. They will have procedures in place to handle such situations.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Provide Details:</h3>
-  <ul class="bullet-list">
-    <li>Give the temple office a detailed description of the missing person, your contact information, and any other relevant details.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Use Public Announcement System:</h3>
-  <ul class="bullet-list">
-    <li>Request the use of the temple&#x27;s public announcement system to make an announcement about the missing person. This is often an effective way to quickly locate someone within the temple premises.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Wait at a Designated Spot:</h3>
-  <ul class="bullet-list">
-    <li>Temple authorities may have a designated waiting area for those who are separated from their group. Ask the temple staff where this spot is, and wait there. Often, missing persons will be directed to this area.</li>
-  </ul>
-  <h5 class="section__sub-b">Suggested Waiting Areas</h5>
-  <ul class="bullet-list">
-    <li>Main Entrance: Many temples suggest waiting near the main entrance as it is a common meeting point.</li>
-    <li>Temple Office: If there is a specific waiting area near the temple office, this is also a good place to wait.</li>
-    <li>Information Desk: If the temple has an information desk, it is a central place where people often check for information.</li>
-  </ul>
-  <h5 class="section__sub-b">Contact Information</h5>
-  <ul class="bullet-list">
-    <li>Temple Office: Ensure you have the contact number for the temple office or any other emergency contact numbers provided by the temple.</li>
-  </ul>
-  <h5 class="section__sub-b">Preventive Measures</h5>
-  <ul class="bullet-list">
-    <li>Plan a Meeting Point: Before entering the temple, agree on a specific meeting point with your group in case anyone gets separated.</li>
-    <li>Keep Contact Information: Make sure everyone in your group has the contact details of at least one other group member.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
-  <p>The Chidambaram Nataraja Temple is currently managed by the Podu Dikshitars, a community of hereditary priests. Although there have been efforts and legal actions taken by the Tamil Nadu government to bring the temple under the control of the Hindu Religious and Charitable Endowments (HR&amp;CE) Department, the temple administration remains with the Dikshitars. The Supreme Court ruled in favor of the Dikshitars in 2014, recognizing them as a religious denomination with the right to manage the temple’s affairs independently under Article 26 of the Constitution​ (The News Minute)​​ (The New Indian Express)​​ (The New Indian Express)​.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
-  <p>To make donations to the Chidambaram Nataraja Temple apart from Hundi offerings, here are the steps and details:</p>
-  <h5 class="section__sub-b">Donation Methods</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Direct Donations at the Temple Office:</h3>
-  <ul class="bullet-list">
-    <li>You can visit the temple office to make direct donations. The staff will guide you through the process and provide you with the necessary receipts and acknowledgments.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Bank Transfer:</h3>
-  <ul class="bullet-list">
-    <li>Donations can also be made via bank transfer. The specific bank account details for donations can be obtained from the temple office or the official website.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Online Donations:</h3>
-  <ul class="bullet-list">
-    <li>If the temple offers an online donation facility, you can visit their official website and follow the instructions for making an online donation.</li>
-  </ul>
-  <h5 class="section__sub-b">Purposes for Donations</h5>
-  <ul class="bullet-list">
-    <li>Annadanam (Free Meals): Supporting the daily distribution of free meals to pilgrims.</li>
-    <li>Temple Maintenance: Contributions towards the upkeep and renovation of the temple premises.</li>
-    <li>Festivals and Poojas: Funding specific festivals, special poojas, and rituals conducted at the temple.</li>
-    <li>Charitable Activities: Donations for various charitable activities supported by the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc</h3>
-  <p>As of the latest information, the Chidambaram Nataraja Temple does not explicitly mention privileges or special benefits associated with specific donation amounts on their official platforms. However, general practices in many prominent temples might offer some guidance on what could potentially be expected. Here is a possible structure based on common practices in other significant temples like Tirupati and Shirdi:</p>
-  <h5 class="section__sub-b">Possible Privileges Associated with Donations</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Darshan Tickets:</h3>
-  <ul class="bullet-list">
-    <li>Similar to the Tirupati Balaji Temple, large donations might entitle the donor to special darshan tickets, allowing quicker and more convenient access to the deity.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Preferential Accommodation:</h3>
-  <ul class="bullet-list">
-    <li>Donations could potentially provide preferential treatment in the allotment of temple-managed accommodation facilities, ensuring more comfortable and convenient stays for donors.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Participation in Special Poojas and Rituals:</h3>
-  <ul class="bullet-list">
-    <li>Donors might be given the opportunity to participate in or sponsor specific poojas, abhishekams, or rituals, which are performed for the benefit of the devotees and their families.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Special Prashad and Souvenirs:</h3>
-  <ul class="bullet-list">
-    <li>Significant donors might receive special prashad, mementos, or souvenirs as a token of gratitude from the temple.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Recognition:</h3>
-  <ul class="bullet-list">
-    <li>In some cases, the names of significant donors might be displayed on a donor board or mentioned in temple publications as a form of acknowledgment and appreciation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Construction and Scientific Information about the Chidambaram Nataraja Temple</h3>
-  <p>Architectural Significance</p>
-  <p>The Chidambaram Nataraja Temple, also known as Thillai Nataraja Temple, is a significant historical and architectural marvel located in Tamil Nadu, India. It is dedicated to Lord Shiva in his form as Nataraja, the cosmic dancer.</p>
-  <p>Historical Construction</p>
-  <ul class="bullet-list">
-    <li>Origin: The temple&#x27;s construction dates back to the early Chola period, around the 10th century AD. It is believed that the temple was built over several centuries, with significant contributions from the Chola, Pandya, Vijayanagara, and Maratha dynasties.</li>
-    <li>Main Deity: The unique feature of this temple is the representation of Shiva as Nataraja, performing the cosmic dance, Tandava. This anthropomorphic depiction is rare as Shiva is typically represented by a lingam.</li>
-  </ul>
-  <p>Structural Layout</p>
-  <ul class="bullet-list">
-    <li>Temple Complex: The temple complex spans around 50 acres in the heart of Chidambaram. It includes several gopurams (gateway towers), mandapams (halls), and shrines.</li>
-    <li>Gopurams: The temple has four major gopurams, each facing one of the cardinal directions. These gopurams are renowned for their intricate carvings and towering heights.</li>
-    <li>East Gopuram: 40.8 meters tall, contains 108 karanas (dance postures) from the Natya Shastra.</li>
-    <li>West Gopuram: Similar in design, it stands at 42.4 meters.</li>
-    <li>North and South Gopurams: Equally tall and richly decorated.</li>
-  </ul>
-  <p>Scientific Aspects</p>
-  <ul class="bullet-list">
-    <li>Geometry and Astronomy: The temple is known for its precise alignment with the cardinal directions. The gopurams and the sanctum sanctorum (Garbhagriha) are aligned along the Earth&#x27;s magnetic axis.</li>
-    <li>Space and Time: The architecture of the temple is symbolic of space (Akasha) and time (Kala). The central shrine is the Chitsabha (Hall of Consciousness), representing the cosmic space where Lord Nataraja performs his dance.</li>
-    <li>108 Karanas: The 108 karanas depicted in the temple&#x27;s gopurams are significant both in classical Indian dance and in representing the 108 forms of dance.</li>
-  </ul>
-  <p>Materials and Techniques</p>
-  <ul class="bullet-list">
-    <li>Materials Used: The temple is primarily constructed of granite and sandstone, which are abundant in the region. The intricate carvings are a testament to the high level of craftsmanship.</li>
-    <li>Construction Techniques: The temple&#x27;s construction utilized advanced engineering techniques for the time, ensuring durability and resistance to natural elements.</li>
-  </ul>
-  <p>Renovations and Additions</p>
-  <ul class="bullet-list">
-    <li>Historical Renovations: The temple has undergone several renovations and additions over the centuries. Major renovations were carried out by the Chola kings, who added significant architectural features and sculptures.</li>
-    <li>Modern Maintenance: The temple is currently maintained by the Podu Dikshitars, a group of hereditary priests. Regular maintenance and renovations are undertaken to preserve the temple&#x27;s structural integrity and artistic heritage.</li>
-  </ul>
-  <p>Cultural and Religious Significance</p>
-  <ul class="bullet-list">
-    <li>Festivals: The temple hosts several major festivals, including the Natyanjali festival, which celebrates classical Indian dance. The Margazhi Festival and Arudra Darshan are also significant, drawing thousands of devotees.</li>
-    <li>Rituals and Worship: The temple&#x27;s rituals are deeply rooted in the Shaiva traditions, with daily poojas and special ceremonies.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
-  <ul class="bullet-list">
-    <li>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</li>
-  </ul>
-  <p>The Chidambaram Nataraja Temple holds significant religious, cultural, and scientific importance. Here are some unique aspects that contribute to its special significance:</p>
-  <p>Unique Geographical and Scientific Features</p>
-  <h5 class="section__sub-b">Alignment with Magnetic Axis</h5>
-  <ul class="bullet-list">
-    <li>Geomagnetic Alignment: The temple is renowned for its precise alignment with the cardinal directions, which is said to align with the Earth&#x27;s magnetic axis. This alignment is considered significant in both architectural and spiritual contexts, as it is believed to enhance the flow of divine energy.</li>
-  </ul>
-  <h5 class="section__sub-b">Representation of Cosmic Elements</h5>
-  <ul class="bullet-list">
-    <li>Five Elements of Nature: The Chidambaram Temple is part of a group of five temples, each representing one of the five natural elements (Pancha Bhoota Stalas). Chidambaram represents Akasha (space), and the others are:</li>
-    <li>Thiruvanaikaval: Represents water.</li>
-    <li>Kanchipuram: Represents earth.</li>
-    <li>Thiruvannamalai: Represents fire.</li>
-    <li>Kalahasti: Represents air.</li>
-  </ul>
-  <p>Spiritual and Religious Significance</p>
-  <h5 class="section__sub-b">The Chidambara Rahasyam</h5>
-  <ul class="bullet-list">
-    <li>Secret of Chidambaram: The Chidambara Rahasyam (Secret of Chidambaram) is a unique aspect of the temple. It refers to the hidden symbolism of the formless form of Shiva. The main sanctum houses a small, empty space, which signifies the concept of &quot;space&quot; and the idea that the ultimate reality is formless and infinite.</li>
-  </ul>
-  <h5 class="section__sub-b">Nataraja as Cosmic Dancer</h5>
-  <ul class="bullet-list">
-    <li>Symbolism of Dance: The depiction of Shiva as Nataraja performing the cosmic dance (Ananda Tandava) symbolizes the cycle of creation, preservation, and destruction. This is a central theme in Shaivism and highlights the temple&#x27;s importance in the spiritual and cultural life of devotees.</li>
-  </ul>
-  <p>Historical and Cultural Context</p>
-  <h5 class="section__sub-b">Architectural Marvel</h5>
-  <ul class="bullet-list">
-    <li>Intricate Carvings and Sculptures: The temple is a masterpiece of Dravidian architecture with intricate carvings, sculptures, and massive gopurams. The East Gopuram is particularly notable for its 108 karanas (dance postures) from the Natya Shastra.</li>
-  </ul>
-  <h5 class="section__sub-b">Cultural Heritage</h5>
-  <ul class="bullet-list">
-    <li>Classical Dance and Music: Chidambaram is a major center for Bharatanatyam, a classical Indian dance form. The temple hosts the annual Natyanjali dance festival, which attracts dancers from all over the world.</li>
-  </ul>
-  <p>Comparisons to Other Energetic Sites</p>
-  <p>While the Chidambaram Temple is deeply significant in its own right, it does not have documented claims of possessing specific geomagnetic fields like the Kasar Devi Temple in Uttarakhand. However, the alignment with the magnetic axis and the representation of cosmic elements provide a unique blend of spirituality and science that enhances its importance.</p>
-  <h5 class="section__sub-b">For more detailed information, you can refer to</h5>
-  <ul class="bullet-list">
-    <li>Chidambaram Temple Official Website</li>
-    <li>Wikipedia - Chidambaram Temple</li>
-    <li>The News Minute</li>
-    <li>Temple Purohit - Chidambaram Nataraja Temple</li>
-  </ul>
-  <p>These sources provide comprehensive insights into the architectural, scientific, and cultural significance of the Chidambaram Nataraja Temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion</h3>
-  <p>Spiritual Significance of Chidambaram Nataraja Temple for Foreign Visitors</p>
-  <p>The Chidambaram Nataraja Temple offers profound spiritual experiences beyond its religious rituals, appealing to those interested in spirituality, meditation, and the exploration of universal truths.</p>
-  <h5 class="section__sub-b">Key Spiritual Aspects</h5>
-</div>
-<div class="section">
-  <h3 class="section__title">Chidambara Rahasyam (The Secret of Chidambaram):</h3>
-  <ul class="bullet-list">
-    <li>Concept of Space and Formlessness: The temple&#x27;s innermost sanctum represents the concept of &#x27;Akasha&#x27; (space). Unlike most temples with a visible deity, Chidambaram&#x27;s sanctum has an empty space, symbolizing the formlessness of the ultimate reality. This aligns with many spiritual philosophies that stress the importance of understanding the void or the infinite as a source of creation.</li>
-    <li>Spiritual Symbolism: This secret of the empty space encourages devotees to meditate on the vastness of the universe and the presence of the divine in the formless state.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Nataraja&#x27;s Cosmic Dance:</h3>
-  <ul class="bullet-list">
-    <li>Symbolism: The image of Shiva as Nataraja depicts the cosmic dance of creation, preservation, and destruction. This dance, called Ananda Tandava, represents the eternal flow of the universe and the cycles of life. It symbolizes the balance between creation and destruction, reflecting the continuous cycle of birth and rebirth.</li>
-    <li>Meditative Aspect: Observing the Nataraja can be a meditative experience, helping one reflect on the dynamic and ever-changing nature of existence.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Five Elements (Pancha Bhoota Stalas):</h3>
-  <ul class="bullet-list">
-    <li>Elemental Balance: The temple is one of the five sacred Shiva temples, each representing a natural element. Chidambaram represents Akasha (space), highlighting the importance of balance and harmony between the elements in spiritual practices. Understanding these elements can help in achieving spiritual balance and enlightenment.</li>
-    <li>Holistic Perspective: This holistic approach connects the devotee with the natural world, emphasizing the unity between nature and the divine.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Architectural Harmony:</h3>
-  <ul class="bullet-list">
-    <li>Sacred Geometry: The temple&#x27;s design follows ancient principles of Vastu Shastra, focusing on harmony with natural forces. The precise alignment with the cardinal directions and the intricate geometry of the temple layout can provide a sense of peace and balance.</li>
-    <li>Meditative Spaces: The temple&#x27;s architecture offers many serene spots for meditation and reflection, allowing visitors to experience a profound sense of tranquility.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Cultural Integration:</h3>
-  <ul class="bullet-list">
-    <li>Natyanjali Dance Festival: Held annually at the temple, this festival celebrates the art of Bharatanatyam, a classical Indian dance form. It’s a blend of spirituality and art, showcasing how dance can be a form of worship and spiritual expression.</li>
-    <li>Musical Heritage: The temple’s connection to classical music and dance offers a unique cultural experience that transcends religious boundaries, focusing instead on universal expressions of spirituality.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Visitor Experience:</h3>
-  <ul class="bullet-list">
-    <li>Personal Reflection: Foreign visitors often find the temple a place of deep personal reflection. The serene environment and spiritual energy make it an ideal place for introspection and inner peace.</li>
-    <li>Guided Meditations and Tours: Some tours include guided meditations and explanations of the temple&#x27;s spiritual significance, making the visit more enriching and meaningful for those on a spiritual journey.</li>
-  </ul>
-  <h5 class="section__sub-b">Practical Information for Foreign Visitors</h5>
-  <ul class="bullet-list">
-    <li>Dress Code: Adherence to the traditional dress code (dhoti for men and saree or salwar kameez for women) is required, reflecting respect for the sacred space.</li>
-    <li>Visiting Hours: The temple is open from 6:00 AM to 12:00 PM and 5:00 PM to 10:00 PM. It is advisable to visit during quieter times for a more serene experience.</li>
-    <li>Language Assistance: Guides who speak multiple languages can help explain the spiritual and historical significance of the temple.</li>
-    <li>Local Customs: Understanding and respecting local customs and practices can enhance the spiritual experience.</li>
-  </ul>
-  <h5 class="section__sub-b">Sources for Further Exploration</h5>
-  <ul class="bullet-list">
-    <li>Chidambaram Nataraja Temple Official Website</li>
-    <li>Wikipedia - Chidambaram Temple</li>
-    <li>Temple Purohit - Chidambaram Nataraja Temple</li>
-    <li>The News Minute - Row between Dikshithars and TN Government</li>
-  </ul>
-  <p>These sources provide comprehensive insights into the spiritual and cultural significance of the Chidambaram Nataraja Temple, making it a meaningful destination for those seeking spiritual growth and enlightenment.</p>
-  <h5 class="section__sub-b">27 .Call to action  or interaction links- here in it could be for</h5>
-  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
-  <p>b.Donation ( link)</p>
-  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
-  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-  <p>Call to Action and Interaction Links for Chidambaram Nataraja Temple</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Puja Services</h3>
-  <ul class="bullet-list">
-    <li>Puja Booking: To book a puja or participate in temple rituals, visit the Chidambaram Nataraja Temple Puja Booking page. Here you can find detailed information about various puja services and how to book them.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Donations</h3>
-  <ul class="bullet-list">
-    <li>Make a Donation: Support the temple and its activities by making a donation. Visit the Chidambaram Nataraja Temple Donation page to contribute. Donations can be made for different purposes such as Annadanam (free meals), temple maintenance, and festivals.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Accommodation</h3>
-  <ul class="bullet-list">
-    <li>Accommodation Booking: For accommodation options near the Chidambaram Nataraja Temple, visit our Accommodation Page which lists various types of accommodations. Fill out the Enquiry Form for more details or to make a reservation.</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Tax Exemption Information</h3>
-  <ul class="bullet-list">
-    <li>Income Tax Exemption: Donations made to the temple, especially for charitable purposes like Annadanam, may be eligible for tax exemptions under Section 80G of the Income Tax Act. For more information on tax exemptions, visit the Chidambaram Nataraja Temple Tax Exemption page. Ensure to check the specific eligibility and necessary documentation for availing of these benefits.</li>
-  </ul>
-  <p>Additional Information and Sources</p>
-  <ul class="bullet-list">
-    <li>Chidambaram Nataraja Temple Official Website: Visit Here</li>
-    <li>Detailed Temple History and Significance: Temple Purohit - Chidambaram Nataraja Temple</li>
-    <li>Wikipedia Entry: Wikipedia - Chidambaram Temple</li>
-  </ul>
-  <p>These links and information provide a comprehensive guide for visitors, devotees, and donors, enhancing their spiritual experience and facilitating their contributions to the temple.</p>
-</div>
-<div class="section">
-  <h3 class="section__title">Annual Event of the Chidambaram Nataraja Temple</h3>
-  <p>The Chidambaram Nataraja Temple hosts several significant annual events, with the most prominent being the Natyanjali Dance Festival and Maha Shivaratri celebrations.</p>
-  <p>Natyanjali Dance Festival</p>
-  <ul class="bullet-list">
-    <li>Dates: The Natyanjali Dance Festival typically begins on the eve of Maha Shivaratri, which falls around February-March each year. For 2024, the festival is scheduled from March 2 to March 10.</li>
-    <li>Significance: This festival celebrates Lord Nataraja, the cosmic dancer, and attracts classical dancers from across India who perform various dance forms as an offering to the deity.</li>
-    <li>Activities: The festival includes performances in Bharatanatyam, Odissi, Kathak, and other classical dance forms, held in the temple&#x27;s Prakara (outer courtyard) against the backdrop of the historic temple architecture.</li>
-  </ul>
-  <p>Maha Shivaratri</p>
-  <ul class="bullet-list">
-    <li>Date: Maha Shivaratri, one of the most significant Hindu festivals dedicated to Lord Shiva, is celebrated with great fervor at the Chidambaram Nataraja Temple. The exact date varies each year based on the lunar calendar, typically occurring in February or March.</li>
-    <li>Activities: Devotees participate in night-long vigils, special poojas, and abhishekams (ritualistic bathing of the deity) to honor Lord Shiva. The celebrations are marked by a series of religious and cultural events, drawing thousands of devotees from around the world.</li>
-  </ul>
-  <p>Sources</p>
-  <ul class="bullet-list">
-    <li>Holidify - Natyanjali Dance Festival 2024</li>
-    <li>4to40 - Natyanjali Festival</li>
-    <li>The Cultural Heritage of India - Maha Shivaratri Celebrations</li>
-  </ul>
-</div>
-<div class="section">
-  <h3 class="section__title">Monthly Event of the Chidambaram Nataraja Temple</h3>
-  <p>The Chidambaram Nataraja Temple hosts several significant monthly events, with the key one being the Arudra Darshanam. This event is highly revered and draws many devotees.</p>
-  <p>Arudra Darshanam</p>
-  <ul class="bullet-list">
-    <li>Date: Arudra Darshanam is celebrated monthly during the Thiruvathira star, which falls on a different date each month based on the Tamil calendar. It is especially significant during the month of Margazhi (December-January).</li>
-    <li>Significance: This day marks the cosmic dance of Lord Shiva as Nataraja. It is believed that on this day, the energy of Lord Shiva is most accessible to devotees.</li>
-    <li>Activities: The event includes special abhishekams (ritualistic bathing of the deity), elaborate alankarams (decorations), and deep aradhanas (worship) throughout the day and night.</li>
-  </ul>
-  <p>Details and Timings</p>
-  <ul class="bullet-list">
-    <li>Morning Poojas:</li>
-    <li>6:30 AM: Paal Nivedhyam (offering of milk)</li>
-    <li>7:00 AM: Maha Aarthi</li>
-    <li>7:45 AM - 9:00 AM: Kalasandhi Pooja</li>
-    <li>10:00 AM - 11:00 AM: Irandaam Kaalam (second pooja)</li>
-    <li>11:30 AM - 12:00 PM: Uchikaalam (third pooja)</li>
-    <li>Evening Poojas:</li>
-    <li>5:15 PM - 6:00 PM: Saayarakshai (fourth pooja)</li>
-    <li>7:00 PM - 8:00 PM: Irandaam Kaalam (fifth pooja)</li>
-    <li>9:00 PM - 10:00 PM: Ardhajaamam (sixth and last pooja)</li>
-  </ul>
-  <p>For more details about the events and to confirm the specific dates, you can visit the temple&#x27;s official website Chidambaram Nataraja Temple​ (Templesinindiainfo)​​ (HinduPad)​​ (Tripnetra)​.</p>
-  <ul class="bullet-list">
-    <li>-----------</li>
-  </ul>
-  <p>Top of Form</p>
-  <p>Bottom of Form</p>
-</div>
+					<div class="section">
+					  <h3 class="section__title">Full Address: East Car Street, Chidambaram, Cuddalore District, Tamil Nadu, India - 608001</h3>
+					  <p>Contact Number: +91-4144-422674</p>
+					  <p>A. Main Deity: Lord Shiva, revered here as Nataraja, the Lord of Dance, symbolizing the cosmic cycles of creation and destruction, as well as the daily rhythm of life and death.</p>
+					  <h5 class="section__sub-b">B. Other Deities (Sub Deities)</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <p>(a) general</p>
+					  <p>(b) on special days like festivals and utsavas</p>
+					  <h5 class="section__sub-b">Chidambaram Nataraja Temple Opening &amp; Closing Times</h5>
+					  <h5 class="section__sub-b">(a) General Days</h5>
+					  <ul class="bullet-list">
+					    <li>Morning: 6:00 AM to 12:00 Noon</li>
+					    <li>Evening: 5:00 PM to 10:00 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">(b) On Special Days (Festivals and Utsavas)</h5>
+					  <p>During festivals like Shivaratri and Natyanjali, the temple often remains open throughout the night to accommodate special rituals and performances, though specific timings can vary based on the festival&#x27;s schedule.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <p>. What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
+					  <p>At the Chidambaram Nataraja Temple, there is generally no entry fee for darshan. However, special services like quick darshan, special rituals, and offerings may incur a fee, which can grant privileges such as quicker access to the deity, special viewing areas, and inclusion of prasad. As for entry restrictions, there are generally no specific restrictions for foreigners, but like all visitors, they must adhere to the dress code and conduct rules.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
+					  <h5 class="section__sub-b">Chidambaram is well-connected by various modes of transport</h5>
+					  <ul class="bullet-list">
+					    <li>By Air: The nearest airport is in Pondicherry, about 67 kilometers away. Another option is the Chennai International Airport, which is approximately 215 kilometers from Chidambaram.</li>
+					    <li>By Train: Chidambaram railway station is well-connected to major cities like Chennai, Trichy, and Madurai.</li>
+					    <li>By Bus: There are regular bus services from major cities in Tamil Nadu to Chidambaram.</li>
+					    <li>By Taxi: Taxis are available from nearby cities and airports.</li>
+					  </ul>
+					  <p>This connectivity makes it convenient for visitors to reach the temple from various locations.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <p>At the Chidambaram Nataraja Temple, special poojas and rituals are performed daily and on specific festival days. Key rituals include the daily Arudra Darisanam and the annual Margazhi festival pooja. The timings for these poojas can vary, often starting early in the morning and continuing at intervals throughout the day.</p>
+					  <p>The rates for these poojas depend on the specific rituals involved, and they can be booked either at the temple premises or, in some cases, online through the temple’s official website. For the most accurate rates and booking procedures, please check directly with the temple’s official resources or visit the temple’s contact center.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Yes, the Chidambaram Nataraja Temple offers online services for devotees. These services typically include online booking for special poojas and rituals. The online services are managed through the temple&#x27;s official website, where devotees can also find information about the temple&#x27;s events, rituals, and other related services.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <p>Yes, the Chidambaram Nataraja Temple prescribes a specific dress code for entry. Men are required to wear traditional attire such as dhotis, with or without a shirt, while women should wear sarees, half-sarees, or churidars. During special poojas and festival days, adherence to this traditional dress code is strictly enforced to maintain the sanctity and tradition of the temple rituals.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>At the Chidambaram Nataraja Temple, electronic gadgets such as mobile phones and cameras are generally not allowed inside the temple premises to maintain the sanctity of the worship areas. There are usually facilities near the temple entrance where visitors can securely deposit their gadgets before entering.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>The Chidambaram Nataraja Temple does not specifically mention the availability of lifts or elevators for physically handicapped individuals. However, temples in India often have provisions to assist those who need help. It&#x27;s advisable to contact the temple administration directly to inquire about specific facilities like ramps or other accommodations for physically handicapped visitors.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged.</h3>
+					  <p>The Chidambaram Nataraja Temple typically offers wheelchair facilities to assist elderly and physically challenged visitors. It&#x27;s recommended to contact the temple authorities directly or check the temple&#x27;s official website for details on how to avail these facilities and any possible arrangements needed prior to your visit.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <p>The Chidambaram Nataraja Temple in Tamil Nadu offers several services to facilitate darshan for senior citizens, physically challenged persons, and those with medical conditions.</p>
+					  <h5 class="section__sub-b">Special Entry and Darshan Timings</h5>
+					  <ul class="bullet-list">
+					    <li>General Timings: The temple is open from 6:00 AM to 12:00 PM and from 5:00 PM to 10:00 PM. These timings are consistent daily, but it is recommended to check for any variations during special occasions or festivals​ (Temple Yatri)​​ (Go Kshetra)​.</li>
+					    <li>Special Darshan: While specific details about special timings for senior citizens and physically challenged persons were not explicitly mentioned in the sources, it is advisable to contact the temple administration directly for the most accurate and current information. They typically have provisions to accommodate such devotees to ensure a comfortable and serene darshan experience​ (Darshan Booking)​​ (Go Kshetra)​.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Online Services</h5>
+					  <ul class="bullet-list">
+					    <li>The temple provides online booking facilities for special darshan tickets and various poojas. Devotees can book these services through the official temple website, which allows for a more convenient and planned visit​ (Go Kshetra)​​ (Darshan Booking)​.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Men: Required to wear dhoti and angavastram or formal pants and a shirt.</li>
+					    <li>Women: Required to wear saree, half saree with blouse, or salwar kameez with dupatta. The temple authorities also provide dhotis and sarees for rent at a nominal fee​ (Go Kshetra)​​ (Darshan Booking)​.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <h5 class="section__sub-b">Here are the general temple timings and other relevant details</h5>
+					  <ul class="bullet-list">
+					    <li>General Darshan Timings: The temple is open from 6:00 AM to 12:00 PM and from 5:00 PM to 10:00 PM every day​ (DarshanBooking)​​ (Go Kshetra)​.</li>
+					    <li>Dress Code: Men are required to wear dhoti and angavastram or formal pants and a shirt, while women should wear saree, half saree with blouse, or salwar kameez with dupatta​ (Go Kshetra)​.</li>
+					    <li>Online Booking: The temple provides online booking facilities for special darshan and poojas. This can be done through the temple&#x27;s official website​ (Go Kshetra)​.</li>
+					  </ul>
+					  <p>For further details and specific queries, contacting the temple administration directly is recommended.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>The Chidambaram Nataraja Temple provides accommodation facilities for pilgrims. Here are the details:</p>
+					  <h5 class="section__sub-b">Types of Accommodation Facilities</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Hotels and Lodges: There are several hotels and lodges near the temple that offer more comfortable stays. Some popular options include:</h3>
+					  <ul class="bullet-list">
+					    <li>The Grand Palace Stay</li>
+					    <li>Hotel Saradharam</li>
+					    <li>Hotel Akshaya</li>
+					    <li>Hotel S.A.R.S</li>
+					    <li>Hotel Aiswarya</li>
+					  </ul>
+					  <h5 class="section__sub-b">Costs</h5>
+					  <ul class="bullet-list">
+					    <li>Dharamshalas: These are usually low-cost or free, depending on the facilities provided. Donations are often accepted.</li>
+					    <li>Hotels and Lodges: Prices vary based on the type of room and amenities offered. Budget hotels may start from around ₹500 per night, while more comfortable accommodations may range from ₹1000 to ₹3000 per night or more.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking in Advance</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Travel Agencies: Some travel agencies offer packages that include accommodation bookings for pilgrims visiting the Chidambaram Temple.</h3>
+					  <h5 class="section__sub-b">How to Book</h5>
+					  <ul class="bullet-list">
+					    <li>For Dharamshalas: Visit the temple office upon arrival or contact them in advance for reservations.</li>
+					    <li>For Hotels and Lodges: Use online travel booking platforms or the official websites of the hotels to make reservations.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact Information</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Office: You can contact the Chidambaram Nataraja Temple administration for detailed information about Dharamshala bookings and other facilities. Their contact details are usually listed on their official website: Chidambaram Nataraja Temple.</li>
+					  </ul>
+					  <p>For a smooth and comfortable stay, it is recommended to book your accommodation in advance, especially during peak pilgrimage seasons or festivals.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>The Chidambaram Nataraja Temple offers parking facilities for pilgrims arriving by various modes of transportation, including cars, mini-buses, and two-wheelers.</p>
+					  <h5 class="section__sub-b">Parking Facilities</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Two-Wheelers: There is ample space for two-wheeler parking near the temple. Specific spots are allocated to ensure that two-wheelers are parked safely and conveniently.</h3>
+					  <h5 class="section__sub-b">Accommodation Facilities</h5>
+					  <h5 class="section__sub-b">The temple provides several accommodation options for pilgrims</h5>
+					  <ul class="bullet-list">
+					    <li>Dharamshalas: These are basic accommodations managed by the temple trust, often available at low or no cost.</li>
+					    <li>Hotels and Lodges: Various hotels and lodges near the temple offer comfortable stays with different amenities. Popular options include The Grand Palace Stay, Hotel Saradharam, and Hotel Akshaya.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking in Advance</h5>
+					  <ul class="bullet-list">
+					    <li>For Dharamshalas: Contact the temple office directly to make reservations.</li>
+					    <li>For Hotels and Lodges: Use online travel booking platforms or the official websites of the hotels.</li>
+					  </ul>
+					  <p>For more detailed information, you can visit the temple&#x27;s official website Chidambaram Nataraja Temple or contact the temple administration​ (TemplePurohit)​​ (Yatradham)​​ (Temple Yatri)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings.</h3>
+					  <p>The Chidambaram Nataraja Temple offers prashad services and meals to pilgrims. Here are the details:</p>
+					  <h5 class="section__sub-b">Prashad Services and Meals</h5>
+					  <ul class="bullet-list">
+					    <li>Meals: The temple provides free meals to pilgrims, which are served in the dining hall within the temple complex. These meals are typically offered as part of the temple&#x27;s charitable activities.</li>
+					    <li>Procedure and Payment: The meals are generally free for devotees. However, donations are welcomed and can be made at the temple office or donation counters.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Meals are usually served during specific times in the day. The exact timings can vary, but they generally align with the temple&#x27;s operating hours:</li>
+					    <li>Morning: 6:00 AM to 12:00 PM</li>
+					    <li>Evening: 5:00 PM to 10:00 PM</li>
+					    <li>It is advisable to check with the temple administration for the precise meal serving times on the day of your visit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Obtain Prashad</h5>
+					  <ul class="bullet-list">
+					    <li>On-site: You can directly go to the designated area for prashad distribution within the temple complex.</li>
+					    <li>Donations: If you wish to contribute, you can make a donation at the temple&#x27;s donation counters.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>At the Chidambaram Nataraja Temple, devotees can purchase various types of prashad to take home. Here are the details:</p>
+					  <h5 class="section__sub-b">Types of Carry-Home Prashad</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Other Sweets and Savories: Depending on the day and special occasions, the temple may offer different types of sweets and snacks.</h3>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>The cost of carry-home prashad can vary. Typically, the prices are nominal and are intended to cover the cost of preparation and support the temple&#x27;s activities.</li>
+					    <li>Laddu: Approximately ₹10-₹50 per piece, depending on size and ingredients.</li>
+					    <li>Puliyodarai and Sweet Pongal: Prices can range from ₹20-₹100 per pack, depending on the quantity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Purchase</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Counters: Prashad can be purchased at designated counters within the temple premises.</li>
+					    <li>Advance Booking: For large quantities or special occasions, it may be possible to place an advance order by contacting the temple administration.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>If you lose an item in the Chidambaram Nataraja Temple, here is the typical procedure to report it:</p>
+					  <h5 class="section__sub-b">Procedure for Reporting Lost Items</h5>
+					  <h5 class="section__sub-b">1. Visit the Temple Office</h5>
+					  <ul class="bullet-list">
+					    <li>Go to the temple office, which is usually located within the temple premises. The office staff can assist you in reporting your lost item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Provide Details</h5>
+					  <ul class="bullet-list">
+					    <li>Give a detailed description of the lost item. Include specifics like color, size, unique features, and where you believe it was lost.</li>
+					    <li>Provide your contact information so the temple can reach you if the item is found.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Fill Out a Lost Item Form</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples have a formal lost item form that you may need to fill out. This form will record the details of your lost item and your contact information.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Check Lost and Found</h5>
+					  <ul class="bullet-list">
+					    <li>Inquire if there is a lost and found section where items are kept. Sometimes items found within the temple are kept here for a period before being handed over to local authorities if unclaimed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Regular Follow-Up</h5>
+					  <ul class="bullet-list">
+					    <li>Regularly follow up with the temple office to check if your item has been found. This can be done in person or over the phone if contact details are provided.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact Information</h5>
+					  <p>For any assistance, you can contact the Chidambaram Nataraja Temple administration directly. Their contact details are usually available on their official website.</p>
+					  <p>By following these steps, you can efficiently report and possibly recover your lost items at the Chidambaram Nataraja Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a member of your group goes missing at the Chidambaram Nataraja Temple, here is what you should do:</p>
+					  <h5 class="section__sub-b">Steps to Report a Missing Person</h5>
+					  <h5 class="section__sub-b">1. Contact Temple Security</h5>
+					  <ul class="bullet-list">
+					    <li>Immediately approach the nearest temple security personnel or staff member. Inform them about the missing person, providing a detailed description including age, appearance, clothing, and any other distinguishing features.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Visit the Temple Office</h5>
+					  <ul class="bullet-list">
+					    <li>Go to the temple office and report the missing person. They will have procedures in place to handle such situations.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Provide Details</h5>
+					  <ul class="bullet-list">
+					    <li>Give the temple office a detailed description of the missing person, your contact information, and any other relevant details.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Use Public Announcement System</h5>
+					  <ul class="bullet-list">
+					    <li>Request the use of the temple&#x27;s public announcement system to make an announcement about the missing person. This is often an effective way to quickly locate someone within the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Wait at a Designated Spot</h5>
+					  <ul class="bullet-list">
+					    <li>Temple authorities may have a designated waiting area for those who are separated from their group. Ask the temple staff where this spot is, and wait there. Often, missing persons will be directed to this area.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Suggested Waiting Areas</h5>
+					  <ul class="bullet-list">
+					    <li>Main Entrance: Many temples suggest waiting near the main entrance as it is a common meeting point.</li>
+					    <li>Temple Office: If there is a specific waiting area near the temple office, this is also a good place to wait.</li>
+					    <li>Information Desk: If the temple has an information desk, it is a central place where people often check for information.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact Information</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Office: Ensure you have the contact number for the temple office or any other emergency contact numbers provided by the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Preventive Measures</h5>
+					  <ul class="bullet-list">
+					    <li>Plan a Meeting Point: Before entering the temple, agree on a specific meeting point with your group in case anyone gets separated.</li>
+					    <li>Keep Contact Information: Make sure everyone in your group has the contact details of at least one other group member.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site.</h3>
+					  <p>The Chidambaram Nataraja Temple is currently managed by the Podu Dikshitars, a community of hereditary priests. Although there have been efforts and legal actions taken by the Tamil Nadu government to bring the temple under the control of the Hindu Religious and Charitable Endowments (HR&amp;CE) Department, the temple administration remains with the Dikshitars. The Supreme Court ruled in favor of the Dikshitars in 2014, recognizing them as a religious denomination with the right to manage the temple’s affairs independently under Article 26 of the Constitution​ (The News Minute)​​ (The New Indian Express)​​ (The New Indian Express)​.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>To make donations to the Chidambaram Nataraja Temple apart from Hundi offerings, here are the steps and details:</p>
+					  <h5 class="section__sub-b">Donation Methods</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Direct Donations at the Temple Office:</h3>
+					  <ul class="bullet-list">
+					    <li>You can visit the temple office to make direct donations. The staff will guide you through the process and provide you with the necessary receipts and acknowledgments.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Bank Transfer</h5>
+					  <ul class="bullet-list">
+					    <li>Donations can also be made via bank transfer. The specific bank account details for donations can be obtained from the temple office or the official website.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>If the temple offers an online donation facility, you can visit their official website and follow the instructions for making an online donation.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Purposes for Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Annadanam (Free Meals): Supporting the daily distribution of free meals to pilgrims.</li>
+					    <li>Temple Maintenance: Contributions towards the upkeep and renovation of the temple premises.</li>
+					    <li>Festivals and Poojas: Funding specific festivals, special poojas, and rituals conducted at the temple.</li>
+					    <li>Charitable Activities: Donations for various charitable activities supported by the temple.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc</h3>
+					  <p>As of the latest information, the Chidambaram Nataraja Temple does not explicitly mention privileges or special benefits associated with specific donation amounts on their official platforms. However, general practices in many prominent temples might offer some guidance on what could potentially be expected. Here is a possible structure based on common practices in other significant temples like Tirupati and Shirdi:</p>
+					  <h5 class="section__sub-b">Possible Privileges Associated with Donations</h5>
+					  <h5 class="section__sub-b">1. Special Darshan Tickets</h5>
+					  <ul class="bullet-list">
+					    <li>Similar to the Tirupati Balaji Temple, large donations might entitle the donor to special darshan tickets, allowing quicker and more convenient access to the deity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Preferential Accommodation</h5>
+					  <ul class="bullet-list">
+					    <li>Donations could potentially provide preferential treatment in the allotment of temple-managed accommodation facilities, ensuring more comfortable and convenient stays for donors.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Participation in Special Poojas and Rituals:</h3>
+					  <ul class="bullet-list">
+					    <li>Donors might be given the opportunity to participate in or sponsor specific poojas, abhishekams, or rituals, which are performed for the benefit of the devotees and their families.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Special Prashad and Souvenirs</h5>
+					  <ul class="bullet-list">
+					    <li>Significant donors might receive special prashad, mementos, or souvenirs as a token of gratitude from the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Recognition</h5>
+					  <ul class="bullet-list">
+					    <li>In some cases, the names of significant donors might be displayed on a donor board or mentioned in temple publications as a form of acknowledgment and appreciation.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Construction and Scientific Information about the Chidambaram Nataraja Temple</h3>
+					  <p>Architectural Significance</p>
+					  <p>The Chidambaram Nataraja Temple, also known as Thillai Nataraja Temple, is a significant historical and architectural marvel located in Tamil Nadu, India. It is dedicated to Lord Shiva in his form as Nataraja, the cosmic dancer.</p>
+					  <p>Historical Construction</p>
+					  <ul class="bullet-list">
+					    <li>Origin: The temple&#x27;s construction dates back to the early Chola period, around the 10th century AD. It is believed that the temple was built over several centuries, with significant contributions from the Chola, Pandya, Vijayanagara, and Maratha dynasties.</li>
+					    <li>Main Deity: The unique feature of this temple is the representation of Shiva as Nataraja, performing the cosmic dance, Tandava. This anthropomorphic depiction is rare as Shiva is typically represented by a lingam.</li>
+					  </ul>
+					  <p>Structural Layout</p>
+					  <ul class="bullet-list">
+					    <li>Temple Complex: The temple complex spans around 50 acres in the heart of Chidambaram. It includes several gopurams (gateway towers), mandapams (halls), and shrines.</li>
+					    <li>Gopurams: The temple has four major gopurams, each facing one of the cardinal directions. These gopurams are renowned for their intricate carvings and towering heights.</li>
+					    <li>East Gopuram: 40.8 meters tall, contains 108 karanas (dance postures) from the Natya Shastra.</li>
+					    <li>West Gopuram: Similar in design, it stands at 42.4 meters.</li>
+					    <li>North and South Gopurams: Equally tall and richly decorated.</li>
+					  </ul>
+					  <p>Scientific Aspects</p>
+					  <ul class="bullet-list">
+					    <li>Geometry and Astronomy: The temple is known for its precise alignment with the cardinal directions. The gopurams and the sanctum sanctorum (Garbhagriha) are aligned along the Earth&#x27;s magnetic axis.</li>
+					    <li>Space and Time: The architecture of the temple is symbolic of space (Akasha) and time (Kala). The central shrine is the Chitsabha (Hall of Consciousness), representing the cosmic space where Lord Nataraja performs his dance.</li>
+					    <li>108 Karanas: The 108 karanas depicted in the temple&#x27;s gopurams are significant both in classical Indian dance and in representing the 108 forms of dance.</li>
+					  </ul>
+					  <p>Materials and Techniques</p>
+					  <ul class="bullet-list">
+					    <li>Materials Used: The temple is primarily constructed of granite and sandstone, which are abundant in the region. The intricate carvings are a testament to the high level of craftsmanship.</li>
+					    <li>Construction Techniques: The temple&#x27;s construction utilized advanced engineering techniques for the time, ensuring durability and resistance to natural elements.</li>
+					  </ul>
+					  <p>Renovations and Additions</p>
+					  <ul class="bullet-list">
+					    <li>Historical Renovations: The temple has undergone several renovations and additions over the centuries. Major renovations were carried out by the Chola kings, who added significant architectural features and sculptures.</li>
+					    <li>Modern Maintenance: The temple is currently maintained by the Podu Dikshitars, a group of hereditary priests. Regular maintenance and renovations are undertaken to preserve the temple&#x27;s structural integrity and artistic heritage.</li>
+					  </ul>
+					  <p>Cultural and Religious Significance</p>
+					  <ul class="bullet-list">
+					    <li>Festivals: The temple hosts several major festivals, including the Natyanjali festival, which celebrates classical Indian dance. The Margazhi Festival and Arudra Darshan are also significant, drawing thousands of devotees.</li>
+					    <li>Rituals and Worship: The temple&#x27;s rituals are deeply rooted in the Shaiva traditions, with daily poojas and special ceremonies.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">. Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <ul class="bullet-list">
+					    <li>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</li>
+					  </ul>
+					  <p>The Chidambaram Nataraja Temple holds significant religious, cultural, and scientific importance. Here are some unique aspects that contribute to its special significance:</p>
+					  <p>Unique Geographical and Scientific Features</p>
+					  <h5 class="section__sub-b">Alignment with Magnetic Axis</h5>
+					  <ul class="bullet-list">
+					    <li>Geomagnetic Alignment: The temple is renowned for its precise alignment with the cardinal directions, which is said to align with the Earth&#x27;s magnetic axis. This alignment is considered significant in both architectural and spiritual contexts, as it is believed to enhance the flow of divine energy.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Representation of Cosmic Elements</h5>
+					  <ul class="bullet-list">
+					    <li>Five Elements of Nature: The Chidambaram Temple is part of a group of five temples, each representing one of the five natural elements (Pancha Bhoota Stalas). Chidambaram represents Akasha (space), and the others are:</li>
+					    <li>Thiruvanaikaval: Represents water.</li>
+					    <li>Kanchipuram: Represents earth.</li>
+					    <li>Thiruvannamalai: Represents fire.</li>
+					    <li>Kalahasti: Represents air.</li>
+					  </ul>
+					  <p>Spiritual and Religious Significance</p>
+					  <h5 class="section__sub-b">The Chidambara Rahasyam</h5>
+					  <ul class="bullet-list">
+					    <li>Secret of Chidambaram: The Chidambara Rahasyam (Secret of Chidambaram) is a unique aspect of the temple. It refers to the hidden symbolism of the formless form of Shiva. The main sanctum houses a small, empty space, which signifies the concept of &quot;space&quot; and the idea that the ultimate reality is formless and infinite.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Nataraja as Cosmic Dancer</h5>
+					  <ul class="bullet-list">
+					    <li>Symbolism of Dance: The depiction of Shiva as Nataraja performing the cosmic dance (Ananda Tandava) symbolizes the cycle of creation, preservation, and destruction. This is a central theme in Shaivism and highlights the temple&#x27;s importance in the spiritual and cultural life of devotees.</li>
+					  </ul>
+					  <p>Historical and Cultural Context</p>
+					  <h5 class="section__sub-b">Architectural Marvel</h5>
+					  <ul class="bullet-list">
+					    <li>Intricate Carvings and Sculptures: The temple is a masterpiece of Dravidian architecture with intricate carvings, sculptures, and massive gopurams. The East Gopuram is particularly notable for its 108 karanas (dance postures) from the Natya Shastra.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cultural Heritage</h5>
+					  <ul class="bullet-list">
+					    <li>Classical Dance and Music: Chidambaram is a major center for Bharatanatyam, a classical Indian dance form. The temple hosts the annual Natyanjali dance festival, which attracts dancers from all over the world.</li>
+					  </ul>
+					  <p>Comparisons to Other Energetic Sites</p>
+					  <p>While the Chidambaram Temple is deeply significant in its own right, it does not have documented claims of possessing specific geomagnetic fields like the Kasar Devi Temple in Uttarakhand. However, the alignment with the magnetic axis and the representation of cosmic elements provide a unique blend of spirituality and science that enhances its importance.</p>
+					  <h5 class="section__sub-b">For more detailed information, you can refer to</h5>
+					  <ul class="bullet-list">
+					    <li>Chidambaram Temple Official Website</li>
+					    <li>Wikipedia - Chidambaram Temple</li>
+					    <li>The News Minute</li>
+					    <li>Temple Purohit - Chidambaram Nataraja Temple</li>
+					  </ul>
+					  <p>These sources provide comprehensive insights into the architectural, scientific, and cultural significance of the Chidambaram Nataraja Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion</h3>
+					  <p>Spiritual Significance of Chidambaram Nataraja Temple for Foreign Visitors</p>
+					  <p>The Chidambaram Nataraja Temple offers profound spiritual experiences beyond its religious rituals, appealing to those interested in spirituality, meditation, and the exploration of universal truths.</p>
+					  <h5 class="section__sub-b">Key Spiritual Aspects</h5>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Chidambara Rahasyam (The Secret of Chidambaram):</h3>
+					  <ul class="bullet-list">
+					    <li>Concept of Space and Formlessness: The temple&#x27;s innermost sanctum represents the concept of &#x27;Akasha&#x27; (space). Unlike most temples with a visible deity, Chidambaram&#x27;s sanctum has an empty space, symbolizing the formlessness of the ultimate reality. This aligns with many spiritual philosophies that stress the importance of understanding the void or the infinite as a source of creation.</li>
+					    <li>Spiritual Symbolism: This secret of the empty space encourages devotees to meditate on the vastness of the universe and the presence of the divine in the formless state.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Nataraja&#x27;s Cosmic Dance</h5>
+					  <ul class="bullet-list">
+					    <li>Symbolism: The image of Shiva as Nataraja depicts the cosmic dance of creation, preservation, and destruction. This dance, called Ananda Tandava, represents the eternal flow of the universe and the cycles of life. It symbolizes the balance between creation and destruction, reflecting the continuous cycle of birth and rebirth.</li>
+					    <li>Meditative Aspect: Observing the Nataraja can be a meditative experience, helping one reflect on the dynamic and ever-changing nature of existence.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Five Elements (Pancha Bhoota Stalas)</h5>
+					  <ul class="bullet-list">
+					    <li>Elemental Balance: The temple is one of the five sacred Shiva temples, each representing a natural element. Chidambaram represents Akasha (space), highlighting the importance of balance and harmony between the elements in spiritual practices. Understanding these elements can help in achieving spiritual balance and enlightenment.</li>
+					    <li>Holistic Perspective: This holistic approach connects the devotee with the natural world, emphasizing the unity between nature and the divine.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Architectural Harmony</h5>
+					  <ul class="bullet-list">
+					    <li>Sacred Geometry: The temple&#x27;s design follows ancient principles of Vastu Shastra, focusing on harmony with natural forces. The precise alignment with the cardinal directions and the intricate geometry of the temple layout can provide a sense of peace and balance.</li>
+					    <li>Meditative Spaces: The temple&#x27;s architecture offers many serene spots for meditation and reflection, allowing visitors to experience a profound sense of tranquility.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Cultural Integration</h5>
+					  <ul class="bullet-list">
+					    <li>Natyanjali Dance Festival: Held annually at the temple, this festival celebrates the art of Bharatanatyam, a classical Indian dance form. It’s a blend of spirituality and art, showcasing how dance can be a form of worship and spiritual expression.</li>
+					    <li>Musical Heritage: The temple’s connection to classical music and dance offers a unique cultural experience that transcends religious boundaries, focusing instead on universal expressions of spirituality.</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Visitor Experience</h5>
+					  <ul class="bullet-list">
+					    <li>Personal Reflection: Foreign visitors often find the temple a place of deep personal reflection. The serene environment and spiritual energy make it an ideal place for introspection and inner peace.</li>
+					    <li>Guided Meditations and Tours: Some tours include guided meditations and explanations of the temple&#x27;s spiritual significance, making the visit more enriching and meaningful for those on a spiritual journey.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Practical Information for Foreign Visitors</h5>
+					  <ul class="bullet-list">
+					    <li>Dress Code: Adherence to the traditional dress code (dhoti for men and saree or salwar kameez for women) is required, reflecting respect for the sacred space.</li>
+					    <li>Visiting Hours: The temple is open from 6:00 AM to 12:00 PM and 5:00 PM to 10:00 PM. It is advisable to visit during quieter times for a more serene experience.</li>
+					    <li>Language Assistance: Guides who speak multiple languages can help explain the spiritual and historical significance of the temple.</li>
+					    <li>Local Customs: Understanding and respecting local customs and practices can enhance the spiritual experience.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Sources for Further Exploration</h5>
+					  <ul class="bullet-list">
+					    <li>Chidambaram Nataraja Temple Official Website</li>
+					    <li>Wikipedia - Chidambaram Temple</li>
+					    <li>Temple Purohit - Chidambaram Nataraja Temple</li>
+					    <li>The News Minute - Row between Dikshithars and TN Government</li>
+					  </ul>
+					  <p>These sources provide comprehensive insights into the spiritual and cultural significance of the Chidambaram Nataraja Temple, making it a meaningful destination for those seeking spiritual growth and enlightenment.</p>
+					  <h5 class="section__title">Call to action  or interaction links- here in it could be for</h5>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Donation ( link)</p>
+					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>d.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>Call to Action and Interaction Links for Chidambaram Nataraja Temple</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Puja Services</h3>
+					  <ul class="bullet-list">
+					    <li>Puja Booking: To book a puja or participate in temple rituals, visit the Chidambaram Nataraja Temple Puja Booking page. Here you can find detailed information about various puja services and how to book them.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Donations</h3>
+					  <ul class="bullet-list">
+					    <li>Make a Donation: Support the temple and its activities by making a donation. Visit the Chidambaram Nataraja Temple Donation page to contribute. Donations can be made for different purposes such as Annadanam (free meals), temple maintenance, and festivals.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Accommodation</h3>
+					  <ul class="bullet-list">
+					    <li>Accommodation Booking: For accommodation options near the Chidambaram Nataraja Temple, visit our Accommodation Page which lists various types of accommodations. Fill out the Enquiry Form for more details or to make a reservation.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Tax Exemption Information</h3>
+					  <ul class="bullet-list">
+					    <li>Income Tax Exemption: Donations made to the temple, especially for charitable purposes like Annadanam, may be eligible for tax exemptions under Section 80G of the Income Tax Act. For more information on tax exemptions, visit the Chidambaram Nataraja Temple Tax Exemption page. Ensure to check the specific eligibility and necessary documentation for availing of these benefits.</li>
+					  </ul>
+					  <p>Additional Information and Sources</p>
+					  <ul class="bullet-list">
+					    <li>Chidambaram Nataraja Temple Official Website: Visit Here</li>
+					    <li>Detailed Temple History and Significance: Temple Purohit - Chidambaram Nataraja Temple</li>
+					    <li>Wikipedia Entry: Wikipedia - Chidambaram Temple</li>
+					  </ul>
+					  <p>These links and information provide a comprehensive guide for visitors, devotees, and donors, enhancing their spiritual experience and facilitating their contributions to the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event of the Chidambaram Nataraja Temple</h3>
+					  <p>The Chidambaram Nataraja Temple hosts several significant annual events, with the most prominent being the Natyanjali Dance Festival and Maha Shivaratri celebrations.</p>
+					  <p>Natyanjali Dance Festival</p>
+					  <ul class="bullet-list">
+					    <li>Dates: The Natyanjali Dance Festival typically begins on the eve of Maha Shivaratri, which falls around February-March each year. For 2024, the festival is scheduled from March 2 to March 10.</li>
+					    <li>Significance: This festival celebrates Lord Nataraja, the cosmic dancer, and attracts classical dancers from across India who perform various dance forms as an offering to the deity.</li>
+					    <li>Activities: The festival includes performances in Bharatanatyam, Odissi, Kathak, and other classical dance forms, held in the temple&#x27;s Prakara (outer courtyard) against the backdrop of the historic temple architecture.</li>
+					  </ul>
+					  <p>Maha Shivaratri</p>
+					  <ul class="bullet-list">
+					    <li>Date: Maha Shivaratri, one of the most significant Hindu festivals dedicated to Lord Shiva, is celebrated with great fervor at the Chidambaram Nataraja Temple. The exact date varies each year based on the lunar calendar, typically occurring in February or March.</li>
+					    <li>Activities: Devotees participate in night-long vigils, special poojas, and abhishekams (ritualistic bathing of the deity) to honor Lord Shiva. The celebrations are marked by a series of religious and cultural events, drawing thousands of devotees from around the world.</li>
+					  </ul>
+					  <p>Sources</p>
+					  <ul class="bullet-list">
+					    <li>Holidify - Natyanjali Dance Festival 2024</li>
+					    <li>4to40 - Natyanjali Festival</li>
+					    <li>The Cultural Heritage of India - Maha Shivaratri Celebrations</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event of the Chidambaram Nataraja Temple</h3>
+					  <p>The Chidambaram Nataraja Temple hosts several significant monthly events, with the key one being the Arudra Darshanam. This event is highly revered and draws many devotees.</p>
+					  <p>Arudra Darshanam</p>
+					  <ul class="bullet-list">
+					    <li>Date: Arudra Darshanam is celebrated monthly during the Thiruvathira star, which falls on a different date each month based on the Tamil calendar. It is especially significant during the month of Margazhi (December-January).</li>
+					    <li>Significance: This day marks the cosmic dance of Lord Shiva as Nataraja. It is believed that on this day, the energy of Lord Shiva is most accessible to devotees.</li>
+					    <li>Activities: The event includes special abhishekams (ritualistic bathing of the deity), elaborate alankarams (decorations), and deep aradhanas (worship) throughout the day and night.</li>
+					  </ul>
+					  <p>Details and Timings</p>
+					  <ul class="bullet-list">
+					    <li>Morning Poojas:</li>
+					    <li>6:30 AM: Paal Nivedhyam (offering of milk)</li>
+					    <li>7:00 AM: Maha Aarthi</li>
+					    <li>7:45 AM - 9:00 AM: Kalasandhi Pooja</li>
+					    <li>10:00 AM - 11:00 AM: Irandaam Kaalam (second pooja)</li>
+					    <li>11:30 AM - 12:00 PM: Uchikaalam (third pooja)</li>
+					    <li>Evening Poojas:</li>
+					    <li>5:15 PM - 6:00 PM: Saayarakshai (fourth pooja)</li>
+					    <li>7:00 PM - 8:00 PM: Irandaam Kaalam (fifth pooja)</li>
+					    <li>9:00 PM - 10:00 PM: Ardhajaamam (sixth and last pooja)</li>
+					  </ul>
+					  <p>For more details about the events and to confirm the specific dates, you can visit the temple&#x27;s official website Chidambaram Nataraja Temple​ (Templesinindiainfo)​​ (HinduPad)​​ (Tripnetra)​.</p>
+					  <ul class="bullet-list">
+					    <li>-----------</li>
+					  </ul>
+					  <p>Top of Form</p>
+					  <p>Bottom of Form</p>
+					</div>
 				</article>
 
 				<div class="glass cta-section">
@@ -726,89 +622,6 @@
 		</section>
 	</main>
 
-	<script>
-	function carouselNav(btn, dir) {
-		const carousel = btn.closest('.carousel');
-		const slides = carousel.querySelectorAll('.carousel__slide');
-		const dots = carousel.querySelectorAll('.carousel__dot');
-		const counter = carousel.querySelector('.carousel__current');
-		const total = parseInt(carousel.dataset.total);
-		let current = 0;
-		slides.forEach((s, i) => { if (s.classList.contains('carousel__slide--active')) current = i; });
-		slides[current].classList.remove('carousel__slide--active');
-		if (dots[current]) dots[current].classList.remove('carousel__dot--active');
-		current = (current + dir + total) % total;
-		slides[current].classList.add('carousel__slide--active');
-		if (dots[current]) dots[current].classList.add('carousel__dot--active');
-		if (counter) counter.textContent = current + 1;
-	}
-	document.querySelectorAll('.carousel__dot').forEach(dot => {
-		dot.addEventListener('click', function() {
-			const carousel = this.closest('.carousel');
-			const slides = carousel.querySelectorAll('.carousel__slide');
-			const dots = carousel.querySelectorAll('.carousel__dot');
-			const counter = carousel.querySelector('.carousel__current');
-			const idx = parseInt(this.dataset.index);
-			slides.forEach(s => s.classList.remove('carousel__slide--active'));
-			dots.forEach(d => d.classList.remove('carousel__dot--active'));
-			slides[idx].classList.add('carousel__slide--active');
-			this.classList.add('carousel__dot--active');
-			if (counter) counter.textContent = idx + 1;
-		});
-	});
-	// Auto-advance carousel every 5 seconds
-	document.querySelectorAll('.carousel[data-total]').forEach(carousel => {
-		setInterval(() => {
-			const nextBtn = carousel.querySelector('.carousel__btn--next');
-			if (nextBtn) nextBtn.click();
-		}, 5000);
-	});
-	</script>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="/" class="footer-logo">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tellme_logo-RdnPWp6sEWWh3is2Wg5VfyedDVryFs.png" alt="TellMe Logo" />
-          </a>
-          <p class="footer-desc">Delivering Immersive Experiences and Location Insights delighting consumers and empowering enterprises.</p>
-          <p class="footer-copy">&copy; Copyright 2025. Tellme Digiinfotech Pvt. Ltd.</p>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Quick Links</h2>
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-us/">About</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/career-with-us">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="/coffee-table/mandu/index.html">Dynamic Digital Coffee Book</a></li>
-            <li><a href="/newsletter">Newsletter</a></li>
-            <li><a href="/moments">Gallery</a></li>
-            <li><a href="/annual-report">Annual Returns</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Legal</h2>
-          <ul class="footer-links">
-            <li><a href="/terms-and-conditions/">Terms &amp; Conditions</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-          </ul>
-          <div class="footer-address">
-            <p class="footer-address-label">Registered &amp; Corporate office:</p>
-            <p>No. 218, B Wing, Akshay Complex, Dhole Patil Road, Pune - 411001</p>
-            <p>CIN: U72900PN2016PTC217592</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-    </div>
-  </footer>
+	<script src="/blog/assets/blog-script.js"></script>
 </body>
 </html>
