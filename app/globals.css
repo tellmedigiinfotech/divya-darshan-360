@@ -322,7 +322,7 @@
 }
 
 .divine-button {
-	@apply relative overflow-hidden bg-primary text-primary-foreground font-serif tracking-wide transition-all duration-500 hover:scale-105 active:scale-95 shadow-[var(--saffron-glow)];
+	@apply relative overflow-hidden bg-primary text-primary-foreground font-serif tracking-wide transition-all duration-500 hover:scale-105 active:scale-95 shadow-(--saffron-glow);
 }
 
 .divine-button::after {

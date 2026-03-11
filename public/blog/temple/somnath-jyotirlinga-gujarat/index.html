@@ -15,17 +15,105 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="/blog/assets/tailwind-config.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
+	<link rel="stylesheet" href="/blog/assets/diya.css" />
+	
+	<style type="text/tailwindcss">
+		@layer components {
+			.lotus-bg { @apply fixed pointer-events-none z-0 hidden md:block; }
+			.lotus-bg--1 { @apply top-[5%] -right-[10%] w-[500px] h-[500px] opacity-[.12]; }
+			.lotus-bg--2 { @apply top-[35%] -left-[15%] w-[420px] h-[420px] opacity-[.08]; }
+			.lotus-spin { @apply animate-spin-slow; }
+			.lotus-spin-rev { @apply animate-spin-rev; }
+
+			body {
+				@apply min-h-screen relative overflow-x-hidden text-[#3b2510] font-sans;
+				background-color: #fdf1e2;
+				background-image: 
+					radial-gradient(circle at 50% 50%, #fadbcb 0%, transparent 80%),
+					radial-gradient(circle at 50% 0%, rgba(226, 61, 0, 0.05), transparent 70%), 
+					url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+				background-size: 100% 100%, 100% 100%, 200px 200px;
+				background-attachment: fixed;
+				animation: divine-glow 20s ease-in-out infinite alternate;
+			}
+
+			.main { @apply relative z-10; }
+			.glow-wrap { @apply absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-20; }
+			.glow-blob { @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-glow; }
+			.glow-blob--primary { @apply -top-24 -left-24 w-96 h-96 bg-primary/20; }
+			.glow-blob--accent { @apply top-1/2 -right-24 w-80 h-80 bg-accent/20; }
+
+			.section { @apply mb-12 pb-2; }
+			.section__title { @apply font-serif text-2xl font-normal text-primary mb-5 pb-2.5 border-b-2 border-[#e8ddd0]; }
+			.section__sub-b { @apply text-[1.05rem] font-normal text-[#3b2510] opacity-90 mt-6 mb-2.5 pt-1; }
+			.bullet-list { @apply list-none p-0 my-4 mb-5 space-y-3; }
+			.bullet-list li { @apply flex items-start gap-2.5 text-[#8a7260] leading-[1.7]; }
+			.bullet-list li::before { content: "\2022"; @apply text-primary font-bold shrink-0 mt-px; }
+			
+			.num-list { @apply list-none p-0 my-4 mb-5 space-y-4; }
+			.num-list li { @apply flex items-start gap-3 text-[#8a7260] leading-[1.7]; }
+			.num-list__badge { @apply flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-[0.75rem] font-bold shrink-0 mt-0.5; }
+			
+			.article p { @apply text-[#8a7260] mb-4 leading-[1.85]; }
+			
+			.hero { @apply px-6 pb-16 relative z-10; }
+			.hero-title { @apply font-serif text-[2.25rem] leading-[1.1] tracking-tighter mb-8 font-normal md:text-[3.75rem]; }
+			.badge { @apply inline-block px-[18px] py-2 rounded-full bg-primary/10 text-primary text-[0.85rem] font-medium border border-primary/20 mb-6; }
+			
+			.glass { @apply bg-white/60 backdrop-blur-2xl border border-[#e8ddd0] shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[24px]; }
+			.key-info { @apply p-8 mb-12; }
+			.key-info__grid { @apply grid grid-cols-1 md:grid-cols-2 gap-6; }
+			.key-info__item { @apply flex items-start gap-4; }
+			.key-info__item--full { @apply md:col-span-2; }
+			.key-info__icon { @apply w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-[1.3rem]; }
+			.key-info__icon svg { @apply w-5 h-5 stroke-primary; }
+			.key-info__label { @apply text-[0.82rem] font-medium text-[#8a7260] mb-0.5; }
+			.key-info__value { @apply text-[1.05rem] font-serif text-[#3b2510]; }
+			.key-info__value--sans { @apply font-sans; }
+			
+			.article { @apply p-8 mb-12 md:px-12 md:pt-12 md:pb-6; }
+			
+			.carousel { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm; }
+			.carousel__track { @apply absolute inset-0; }
+			.carousel__slide { @apply absolute inset-0 opacity-0 transition-opacity duration-500; }
+			.carousel__slide--active { @apply opacity-100; }
+			.carousel__slide img { @apply w-full h-full object-cover; }
+			.carousel__btn { @apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-black/40; }
+			.carousel:hover .carousel__btn { @apply opacity-100; }
+			.carousel__btn--prev { @apply left-4; }
+			.carousel__btn--next { @apply right-4; }
+			.carousel__dots { @apply absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2; }
+			.carousel__dot { @apply w-2 h-2 rounded-full bg-white/40 cursor-pointer transition-colors; }
+			.carousel__dot--active { @apply bg-white; }
+			.carousel__counter { @apply absolute top-6 right-6 px-3 py-1 rounded-full bg-black/20 backdrop-blur-md text-white text-[0.75rem] font-medium; }
+			
+			.img-placeholder { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm flex items-center justify-center; }
+			.img-placeholder__icon { @apply text-[6rem] opacity-25; }
+			.img-placeholder__text { @apply absolute bottom-6 left-6 right-6 text-[#3b2510]/60 text-[0.85rem]; }
+			
+			.back-section { @apply pt-24 px-6 pb-8; }
+			.back-link { @apply inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary; }
+			.back-link svg { @apply w-4 h-4; }
+			
+			.cta-section { @apply p-12 text-center mb-12; }
+			.cta-section h3 { @apply font-serif text-3xl mb-4 text-[#3b2510]; }
+			.cta-section p { @apply text-[#8a7260] mb-8 max-w-lg mx-auto; }
+			.cta-btn { @apply inline-block px-8 py-4 rounded-full bg-primary text-white font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20; }
+			
+			.container { @apply max-w-[896px] mx-auto; }
+		}
+	</style>
+
 </head>
 
 <body>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
-		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
+		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e23d00" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#e23d00" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
 		<div class="lotus-bg lotus-bg--2"><div class="lotus-spin-rev"><svg viewBox="0 0 800 800"><g transform="rotate(0 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(30 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(60 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(90 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(120 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(150 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(180 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(210 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(240 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(270 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(300 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g></svg></div></div>
-		<div class="diya-wrap diya-wrap--left"><div class="diya diya--left"><div class="diya__inner"><div class="diya__ambient"></div><div class="diya__outer-glow"></div><div class="diya__inner-glow"></div><div class="diya__flame-outer"></div><div class="diya__flame-inner"></div><div class="diya__flame-tip"></div><div class="diya__wick"></div><div class="diya__oil"><div class="diya__oil-sheen"></div></div><div class="diya__bowl"><div class="diya__bowl-shine"></div><div class="diya__bowl-highlight"></div><div class="diya__bowl-dots"><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div></div></div><div class="diya__spout"></div><div class="diya__stem"></div><div class="diya__plate"></div><div class="diya__reflection"></div></div></div></div>
-		<div class="diya-wrap diya-wrap--right"><div class="diya diya--right"><div class="diya__inner"><div class="diya__ambient"></div><div class="diya__outer-glow"></div><div class="diya__inner-glow"></div><div class="diya__flame-outer"></div><div class="diya__flame-inner"></div><div class="diya__flame-tip"></div><div class="diya__wick"></div><div class="diya__oil"><div class="diya__oil-sheen"></div></div><div class="diya__bowl"><div class="diya__bowl-shine"></div><div class="diya__bowl-highlight"></div><div class="diya__bowl-dots"><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div></div></div><div class="diya__spout"></div><div class="diya__stem"></div><div class="diya__plate"></div><div class="diya__reflection"></div></div></div></div>
 
 		<section class="back-section">
 			<div class="container">
@@ -70,14 +158,14 @@
 							</div>
 						</div>
 						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
 							<div>
 								<div class="key-info__label">Contact</div>
 								<div class="key-info__value key-info__value--sans">Please visit temple website</div>
 							</div>
 						</div>
 						<div class="key-info__item key-info__item--full">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
 							<div>
 								<div class="key-info__label">Full Address</div>
 								<div class="key-info__value key-info__value--sans">C12/A, Om Villa Flats, Near Telephone Exchange, Next to Om Tower, F.C.I. Godown Road, Shahibaug, Ahmedabad-380004, Gujarat, India.</div>
@@ -87,6 +175,29 @@
 				</div>
 
 				<article class="glass article">
+					<div class="section">
+					  <h3 class="section__title">Address: C12/A, Om Villa Flats, Near Telephone Exchange, Next to Om Tower, F.C.I. Godown Road, Shahibaug, Ahmedabad-380004, Gujarat, India.</h3>
+					  <h5 class="section__sub-b">Phone Numbers</h5>
+					  <p>Phone and Fax: +91-79-22686335</p>
+					  <p>Phone No.: +91-79-22686442</p>
+					  <p>Condensed   information about the place</p>
+					  <p>Somnath Temple, located in Prabhas Patan near Veraval in Saurashtra on the western coast of Gujarat, India, is a significant pilgrimage and tourist site. This temple is revered as one of the twelve Jyotirlinga shrines of Shiva. Its rich history includes being rebuilt several times after being destroyed by various invaders and rulers through the centuries.</p>
+					  <p>The temple showcases impressive architecture with intricate carvings and a towering shikhara (spire). It is situated by the Arabian sea, offering stunning views and a serene atmosphere. The nearest major airports are at Diu (90 km) and Rajkot (195 km), while the closest railway station is Veraval, just 7 km away. Road connectivity is also excellent, with accessible routes from major cities like Ahmedabad and Rajkot. For those interested in the local culture and history, the temple complex hosts a light and sound show that narrates its storied past.</p>
+					  <p>For more details, you can explore the temple&#x27;s official website or read about travel tips and guides on pages like Travel Triangle and Rome2Rio.</p>
+					  <p>A.MAIN DEITY- B. OTHER DEITIES(Sub deities)-port</p>
+					  <p>The main deity of the Somnath Temple is Lord Shiva, known here as Somnath Mahadev, which translates to &quot;the Lord of the Moon.&quot; This representation of Shiva is highly revered and is one of the twelve Jyotirlingas in India, symbolizing the infinite nature of Shiva​ (Wikipedia)​​ (Ishta Devata)​.</p>
+					  <p>In addition to the main deity, the Somnath Temple complex also houses several other shrines dedicated to various deities, enhancing its spiritual significance. Notable among these are:</p>
+					  <p>Lakshmi Narayan Temple</p>
+					  <p>Gita Mandir</p>
+					  <p>Shree Parshuram Temple</p>
+					  <p>Kamnath Mahadev Temple</p>
+					  <p>Bhalka Tirth</p>
+					  <p>Shri Hanuman Temple</p>
+					  <p>Shri Kapardi Vinayak</p>
+					  <p>Shree Ram Mandir</p>
+					  <p>Each of these temples has its own unique spiritual and architectural significance, contributing to the rich tapestry of worship and tradition at the Somnath complex​ (All World Temple)​.</p>
+					  <p>For more detailed information, you can visit the temple&#x27;s comprehensive guide on Cultural India.</p>
+					</div>
 					<div class="section">
 					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
 					  <p>(a) general</p>
@@ -129,7 +240,7 @@
 					  <p>These routes provide scenic drives and are dotted with various spots ideal for short breaks, making your journey to the temple both enjoyable and spiritually fulfilling.</p>
 					</div>
 					<div class="section">
-					  <h3 class="section__title">.What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <h3 class="section__title">What are the rates associated with it? What is the advance booking procedure?</h3>
 					  <p>At Somnath Temple, a variety of special poojas and rituals are performed, catering to different spiritual needs and occasions. Here’s an overview of some commonly conducted rituals, their timings, rates, and booking procedures:</p>
 					  <h5 class="section__sub-b">Commonly Performed Poojas and Rates</h5>
 					  <h5 class="section__sub-b">Homatmak Atirudra</h5>
@@ -188,7 +299,8 @@
 					  <p>For more detailed information and guidelines regarding the visit, you can check the temple&#x27;s official website or contact their administrative office directly.</p>
 					</div>
 					<div class="section">
-					  <h3 class="section__title">Photography is strictly prohibited within the Somnath Temple premises. This policy is in place to preserve the sacred atmosphere and privacy of the temple and its visitors.</h3>
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <p>Photography is strictly prohibited within the Somnath Temple premises. This policy is in place to preserve the sacred atmosphere and privacy of the temple and its visitors.</p>
 					  <p>However, for those who wish to keep a photographic memory of their visit, the temple offers high-resolution photographs and frames for purchase at the souvenir counter. This allows visitors to have a keepsake of their visit without disrupting the temple&#x27;s environment.</p>
 					  <p>For any specific details or updates on the photography policy, you might want to check the temple&#x27;s official website or contact their administration directly before planning your visit.</p>
 					</div>
@@ -207,8 +319,7 @@
 					  <p>Somnath Temple provides special facilities and accommodations to ensure that senior citizens, physically challenged persons, and those who are unwell can have a smoother and more accessible darshan experience. Here are some of the specific provisions made for such visitors:</p>
 					</div>
 					<div class="section">
-					  <h3 class="section__title">Wheelchair Availability: As mentioned earlier, wheelchairs are available at the main gate for those who require them, enhancing mobility for elderly and physically challenged visitors.</h3>
-					  <p>3.Lift Facilities: Elevators are available inside the temple premises to assist those who have difficulty using stairs, ensuring they can participate in the darshan and other temple activities.</p>
+					  <h3 class="section__title">Lift Facilities: Elevators are available inside the temple premises to assist those who have difficulty using stairs, ensuring they can participate in the darshan and other temple activities.</h3>
 					  <p>While the temple strives to accommodate all visitors, specific timings for special darshan for these groups aren&#x27;t explicitly mentioned in available resources. It&#x27;s recommended to contact the temple administration directly for the most accurate and up-to-date information regarding any special timings or arrangements for darshan. This can be done via their official website or by reaching out to the temple&#x27;s contact numbers provided online.</p>
 					</div>
 					<div class="section">
@@ -238,6 +349,7 @@
 					<div class="section">
 					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
 					  <p>Somnath Temple provides ample parking facilities that cater to different types of vehicles, ensuring convenience for visitors arriving by car, mini-bus, or two-wheelers.</p>
+					  <p>Parking for Cars and Mini-Buses: There is a large parking area located in front of the temple, which is well-maintained and managed to accommodate both cars and mini-buses. The parking is designed to handle large crowds, especially during festival times when the number of visitors increases significantly.</p>
 					</div>
 					<div class="section">
 					  <h3 class="section__title">Special Services: During busy festival periods, the temple administration might expand the parking facilities or arrange additional areas to accommodate the influx of visitors. It’s always a good idea to arrive early during these times to secure a spot due to the higher volume of attendees.</h3>
@@ -288,7 +400,8 @@
 					  <p>page and follow the procedures listed there.</p>
 					</div>
 					<div class="section">
-					  <h3 class="section__title">Donations made to the Somnath Temple do not specifically mention privileges such as special entry tickets or preferential treatment in accommodation that are associated with certain donation schemes at other temples like Tirupati. The Somnath Temple focuses more on the spiritual and religious aspects of donations, which are generally used for the maintenance of the temple, conducting various religious activities, and supporting charitable programs managed by the Shree Somnath Trust.</h3>
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accommodation.</h3>
+					  <p>Donations made to the Somnath Temple do not specifically mention privileges such as special entry tickets or preferential treatment in accommodation that are associated with certain donation schemes at other temples like Tirupati. The Somnath Temple focuses more on the spiritual and religious aspects of donations, which are generally used for the maintenance of the temple, conducting various religious activities, and supporting charitable programs managed by the Shree Somnath Trust.</p>
 					  <p>For those looking to make donations, they can be made online, via cheque, or directly at the temple. Donations are tax-exempt under Section 80G of the Income Tax Act, offering a financial incentive for donors by reducing their taxable income by the amount donated.</p>
 					  <p>To learn more about the specific uses of donations or if any updates on privileges associated with donations exist, it would be best to contact the temple administration directly or check the official Somnath Temple website for the most accurate and up-to-date information.</p>
 					</div>
@@ -339,7 +452,7 @@
 					  <p>For someone focusing on spirituality, Somnath offers a multifaceted experience that transcends the ritualistic and enters the realm of the universally spiritual, inviting reflection on larger existential questions and providing a space to connect with the divine, however one chooses to define it. This makes it a worthwhile visit not just as a tourist but as a spiritual seeker.</p>
 					</div>
 					<div class="section">
-					  <h3 class="section__title">.Call to action  or interaction links- here in it could be for:</h3>
+					  <h3 class="section__title">Call to action  or interaction links- here in it could be for:</h3>
 					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
 					  <p>b.Donation ( link)</p>
 					  <p>c.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
@@ -387,5 +500,6 @@
 	</main>
 
 	<script src="/blog/assets/blog-script.js"></script>
+	<script src="/blog/assets/diya.js"></script>
 </body>
 </html>

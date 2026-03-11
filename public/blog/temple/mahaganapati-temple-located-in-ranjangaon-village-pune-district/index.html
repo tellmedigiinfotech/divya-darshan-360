@@ -5,245 +5,120 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 	<title>﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. | Divya Darshan 360</title>
-	<meta name="description"
-		content="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta name="description" content="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. - Complete guide with timings, location, how to reach, poojas, and more." />
 	<meta property="og:title" content="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district." />
-	<meta property="og:description"
-		content="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta property="og:description" content="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. - Complete guide with timings, location, how to reach, poojas, and more." />
 	<meta property="og:type" content="article" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district." />
-	<meta name="twitter:description"
-		content="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta name="twitter:description" content="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. - Complete guide with timings, location, how to reach, poojas, and more." />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap"
-		rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="/blog/assets/tailwind-config.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
+	<link rel="stylesheet" href="/blog/assets/diya.css" />
+	
+	<style type="text/tailwindcss">
+		@layer components {
+			.lotus-bg { @apply fixed pointer-events-none z-0 hidden md:block; }
+			.lotus-bg--1 { @apply top-[5%] -right-[10%] w-[500px] h-[500px] opacity-[.12]; }
+			.lotus-bg--2 { @apply top-[35%] -left-[15%] w-[420px] h-[420px] opacity-[.08]; }
+			.lotus-spin { @apply animate-spin-slow; }
+			.lotus-spin-rev { @apply animate-spin-rev; }
+
+			body {
+				@apply min-h-screen relative overflow-x-hidden text-[#3b2510] font-sans;
+				background-color: #fdf1e2;
+				background-image: 
+					radial-gradient(circle at 50% 50%, #fadbcb 0%, transparent 80%),
+					radial-gradient(circle at 50% 0%, rgba(226, 61, 0, 0.05), transparent 70%), 
+					url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+				background-size: 100% 100%, 100% 100%, 200px 200px;
+				background-attachment: fixed;
+				animation: divine-glow 20s ease-in-out infinite alternate;
+			}
+
+			.main { @apply relative z-10; }
+			.glow-wrap { @apply absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-20; }
+			.glow-blob { @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-glow; }
+			.glow-blob--primary { @apply -top-24 -left-24 w-96 h-96 bg-primary/20; }
+			.glow-blob--accent { @apply top-1/2 -right-24 w-80 h-80 bg-accent/20; }
+
+			.section { @apply mb-12 pb-2; }
+			.section__title { @apply font-serif text-2xl font-normal text-primary mb-5 pb-2.5 border-b-2 border-[#e8ddd0]; }
+			.section__sub-b { @apply text-[1.05rem] font-normal text-[#3b2510] opacity-90 mt-6 mb-2.5 pt-1; }
+			.bullet-list { @apply list-none p-0 my-4 mb-5 space-y-3; }
+			.bullet-list li { @apply flex items-start gap-2.5 text-[#8a7260] leading-[1.7]; }
+			.bullet-list li::before { content: "\2022"; @apply text-primary font-bold shrink-0 mt-px; }
+			
+			.num-list { @apply list-none p-0 my-4 mb-5 space-y-4; }
+			.num-list li { @apply flex items-start gap-3 text-[#8a7260] leading-[1.7]; }
+			.num-list__badge { @apply flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-[0.75rem] font-bold shrink-0 mt-0.5; }
+			
+			.article p { @apply text-[#8a7260] mb-4 leading-[1.85]; }
+			
+			.hero { @apply px-6 pb-16 relative z-10; }
+			.hero-title { @apply font-serif text-[2.25rem] leading-[1.1] tracking-tighter mb-8 font-normal md:text-[3.75rem]; }
+			.badge { @apply inline-block px-[18px] py-2 rounded-full bg-primary/10 text-primary text-[0.85rem] font-medium border border-primary/20 mb-6; }
+			
+			.glass { @apply bg-white/60 backdrop-blur-2xl border border-[#e8ddd0] shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[24px]; }
+			.key-info { @apply p-8 mb-12; }
+			.key-info__grid { @apply grid grid-cols-1 md:grid-cols-2 gap-6; }
+			.key-info__item { @apply flex items-start gap-4; }
+			.key-info__item--full { @apply md:col-span-2; }
+			.key-info__icon { @apply w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-[1.3rem]; }
+			.key-info__icon svg { @apply w-5 h-5 stroke-primary; }
+			.key-info__label { @apply text-[0.82rem] font-medium text-[#8a7260] mb-0.5; }
+			.key-info__value { @apply text-[1.05rem] font-serif text-[#3b2510]; }
+			.key-info__value--sans { @apply font-sans; }
+			
+			.article { @apply p-8 mb-12 md:px-12 md:pt-12 md:pb-6; }
+			
+			.carousel { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm; }
+			.carousel__track { @apply absolute inset-0; }
+			.carousel__slide { @apply absolute inset-0 opacity-0 transition-opacity duration-500; }
+			.carousel__slide--active { @apply opacity-100; }
+			.carousel__slide img { @apply w-full h-full object-cover; }
+			.carousel__btn { @apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-black/40; }
+			.carousel:hover .carousel__btn { @apply opacity-100; }
+			.carousel__btn--prev { @apply left-4; }
+			.carousel__btn--next { @apply right-4; }
+			.carousel__dots { @apply absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2; }
+			.carousel__dot { @apply w-2 h-2 rounded-full bg-white/40 cursor-pointer transition-colors; }
+			.carousel__dot--active { @apply bg-white; }
+			.carousel__counter { @apply absolute top-6 right-6 px-3 py-1 rounded-full bg-black/20 backdrop-blur-md text-white text-[0.75rem] font-medium; }
+			
+			.img-placeholder { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm flex items-center justify-center; }
+			.img-placeholder__icon { @apply text-[6rem] opacity-25; }
+			.img-placeholder__text { @apply absolute bottom-6 left-6 right-6 text-[#3b2510]/60 text-[0.85rem]; }
+			
+			.back-section { @apply pt-24 px-6 pb-8; }
+			.back-link { @apply inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary; }
+			.back-link svg { @apply w-4 h-4; }
+			
+			.cta-section { @apply p-12 text-center mb-12; }
+			.cta-section h3 { @apply font-serif text-3xl mb-4 text-[#3b2510]; }
+			.cta-section p { @apply text-[#8a7260] mb-8 max-w-lg mx-auto; }
+			.cta-btn { @apply inline-block px-8 py-4 rounded-full bg-primary text-white font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20; }
+			
+			.container { @apply max-w-[896px] mx-auto; }
+		}
+	</style>
+
 </head>
 
 <body>
 	<main class="main">
-		<div class="glow-wrap">
-			<div class="glow-blob glow-blob--primary"></div>
-			<div class="glow-blob glow-blob--accent"></div>
-		</div>
-		<div class="lotus-bg lotus-bg--1">
-			<div class="lotus-spin"><svg viewBox="0 0 800 800">
-					<defs>
-						<linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%">
-							<stop offset="0%" stop-color="#c2560a" stop-opacity="0.6" />
-							<stop offset="50%" stop-color="#d4af37" stop-opacity="0.8" />
-							<stop offset="100%" stop-color="#c2560a" stop-opacity="0.6" />
-						</linearGradient>
-					</defs>
-					<g transform="rotate(0 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(22 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(44 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(66 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(88 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(110 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(132 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(154 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(176 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(198 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(220 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(242 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(264 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(286 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(308 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(330 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(352 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-				</svg></div>
-		</div>
-		<div class="lotus-bg lotus-bg--2">
-			<div class="lotus-spin-rev"><svg viewBox="0 0 800 800">
-					<g transform="rotate(0 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(30 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(60 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(90 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(120 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(150 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(180 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(210 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(240 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(270 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(300 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(330 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-				</svg></div>
-		</div>
-		<div class="diya-wrap diya-wrap--left">
-			<div class="diya diya--left">
-				<div class="diya__inner">
-					<div class="diya__ambient"></div>
-					<div class="diya__outer-glow"></div>
-					<div class="diya__inner-glow"></div>
-					<div class="diya__flame-outer"></div>
-					<div class="diya__flame-inner"></div>
-					<div class="diya__flame-tip"></div>
-					<div class="diya__wick"></div>
-					<div class="diya__oil">
-						<div class="diya__oil-sheen"></div>
-					</div>
-					<div class="diya__bowl">
-						<div class="diya__bowl-shine"></div>
-						<div class="diya__bowl-highlight"></div>
-						<div class="diya__bowl-dots">
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-						</div>
-					</div>
-					<div class="diya__spout"></div>
-					<div class="diya__stem"></div>
-					<div class="diya__plate"></div>
-					<div class="diya__reflection"></div>
-				</div>
-			</div>
-		</div>
-		<div class="diya-wrap diya-wrap--right">
-			<div class="diya diya--right">
-				<div class="diya__inner">
-					<div class="diya__ambient"></div>
-					<div class="diya__outer-glow"></div>
-					<div class="diya__inner-glow"></div>
-					<div class="diya__flame-outer"></div>
-					<div class="diya__flame-inner"></div>
-					<div class="diya__flame-tip"></div>
-					<div class="diya__wick"></div>
-					<div class="diya__oil">
-						<div class="diya__oil-sheen"></div>
-					</div>
-					<div class="diya__bowl">
-						<div class="diya__bowl-shine"></div>
-						<div class="diya__bowl-highlight"></div>
-						<div class="diya__bowl-dots">
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-						</div>
-					</div>
-					<div class="diya__spout"></div>
-					<div class="diya__stem"></div>
-					<div class="diya__plate"></div>
-					<div class="diya__reflection"></div>
-				</div>
-			</div>
-		</div>
+		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
+		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e23d00" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#e23d00" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
+		<div class="lotus-bg lotus-bg--2"><div class="lotus-spin-rev"><svg viewBox="0 0 800 800"><g transform="rotate(0 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(30 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(60 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(90 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(120 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(150 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(180 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(210 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(240 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(270 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(300 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g></svg></div></div>
 
 		<section class="back-section">
 			<div class="container">
 				<a href="/blog" class="back-link">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round">
-						<path d="M19 12H5" />
-						<path d="m12 19-7-7 7-7" />
-					</svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
 					Back to Blog
 				</a>
 			</div>
@@ -254,35 +129,22 @@
 				<div><span class="badge">Astavinayaka Temples</span></div>
 				<h1 class="hero-title">﻿Mahaganapati Temple Located in Ranjangaon village, Pune district.</h1>
 
-				<div class="carousel" data-total="2">
+							<div class="carousel" data-total="2">
 					<div class="carousel__track">
 						<div class="carousel__slide carousel__slide--active" data-index="0">
-							<img src="/blog/images/Astavinayaka Temple/mahaganapati-temple-located-in-ranjangaon-village-pune-district_1.jpg"
-								alt="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. - Image 1"
-								loading="lazy" />
+							<img src="/blog/images/Astavinayaka Temple/mahaganapati-temple-located-in-ranjangaon-village-pune-district_1.jpg" alt="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. - Image 1" loading="lazy" />
 						</div>
 						<div class="carousel__slide" data-index="1">
-							<img src="/blog/images/Astavinayaka Temple/mahaganapati-temple-located-in-ranjangaon-village-pune-district_2.jpg"
-								alt="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. - Image 2"
-								loading="lazy" />
+							<img src="/blog/images/Astavinayaka Temple/mahaganapati-temple-located-in-ranjangaon-village-pune-district_2.jpg" alt="﻿Mahaganapati Temple Located in Ranjangaon village, Pune district. - Image 2" loading="lazy" />
 						</div>
 					</div>
-					<button class="carousel__btn carousel__btn--prev" aria-label="Previous image"
-						onclick="carouselNav(this,-1)">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-							stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="15 18 9 12 15 6"></polyline>
-						</svg>
+					<button class="carousel__btn carousel__btn--prev" aria-label="Previous image" onclick="carouselNav(this,-1)">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
 					</button>
-					<button class="carousel__btn carousel__btn--next" aria-label="Next image"
-						onclick="carouselNav(this,1)">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-							stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="9 18 15 12 9 6"></polyline>
-						</svg>
+					<button class="carousel__btn carousel__btn--next" aria-label="Next image" onclick="carouselNav(this,1)">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
 					</button>
-					<div class="carousel__dots"><span class="carousel__dot carousel__dot--active"
-							data-index="0"></span><span class="carousel__dot" data-index="1"></span></div>
+					<div class="carousel__dots"><span class="carousel__dot carousel__dot--active" data-index="0"></span><span class="carousel__dot" data-index="1"></span></div>
 					<div class="carousel__counter"><span class="carousel__current">1</span> / 2</div>
 				</div>
 
@@ -292,30 +154,21 @@
 							<div class="key-info__icon">🕉️</div>
 							<div>
 								<div class="key-info__label">Main Deity</div>
-								<div class="key-info__value">Here&#x27;s the condensed information about the
-									Mahaganapati Temple in Ranjangaon:</div>
+								<div class="key-info__value">Here&#x27;s the condensed information about the Mahaganapati Temple in Ranjangaon:</div>
 							</div>
 						</div>
 						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24">
-									<path
-										d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-								</svg></div>
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
 							<div>
 								<div class="key-info__label">Contact</div>
-								<div class="key-info__value key-info__value--sans">Landline: 02138-243200,
-									02138-243201</div>
+								<div class="key-info__value key-info__value--sans">* Landline: 02138-243200, 02138-243201</div>
 							</div>
 						</div>
 						<div class="key-info__item key-info__item--full">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24">
-									<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-									<circle cx="12" cy="10" r="3" />
-								</svg></div>
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
 							<div>
 								<div class="key-info__label">Full Address</div>
-								<div class="key-info__value key-info__value--sans">A/P- Ranjangaon Ganapati, Tal-
-									Shirur, Dist-Pune, Maharashtra, PIN-412209</div>
+								<div class="key-info__value key-info__value--sans">A/P- Ranjangaon Ganapati, Tal- Shirur, Dist-Pune, Maharashtra, PIN-412209</div>
 							</div>
 						</div>
 					</div>
@@ -323,593 +176,344 @@
 
 				<article class="glass article">
 					<div class="section">
-						<h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-						<h5 class="section__sub-b">Opening and Closing Timings</h5>
-						<p>a. General Timings: The temple opens at 5:00 AM and closes at 10:00 PM every day.</p>
-						<ul class="bullet-list">
-							<li>Daily Schedule:</li>
-						</ul>
-						<p>i. Abhishek Puja: 5:30 AM</p>
-						<p>ii. Samudaik Aarti: 7:30 AM</p>
-						<p>iii. Mahanaivadya, Mahapuja: 11:30 AM - 12:30 PM</p>
-						<p>iv. Samudaik Evening Aarti: 7:30 PM</p>
-						<p>v. Shej Aarti: 10:30 PM</p>
-						<p>b. Special Days and Festivals: During festivals and special occasions such as Ganesh
-							Chaturthi, the temple remains open for extended hours to accommodate the influx of devotees.
-							Specific pujas and rituals are conducted, and the deity is carried in a flower-bedecked
-							palkhi (palanquin) around the temple premises​ (YatraDham)​​ (TemplePurohit)​​
-							(Templesinindiainfo)​​ (Devotional Yatra)​.</p>
+					  <h3 class="section__title">MAIN DEITY-</h3>
+					  <h5 class="section__sub-b">Here&#x27;s the condensed information about the Mahaganapati Temple in Ranjangaon</h5>
+					  <p>a. Main Deity: The temple is dedicated to Lord Mahaganapati, an incredibly powerful representation of Lord Ganesha. This deity is often depicted with eight, ten, or twelve arms, symbolizing his extensive powers and abilities.</p>
+					  <p>b. Sub Deities (Port): Alongside the main deity, the temple also venerates Riddhi and Siddhi, who are considered to be the consorts of Lord Ganesha. These deities play a crucial role in the spiritual and cultural practices observed at the temple.</p>
+					  <p>This setup enriches the spiritual significance of the temple, making it a vital site for worship and pilgrimage.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is there any Entry Fees-</h3>
-						<p>What privilege does it grant? For eg quick darshan, special gate, longer view of deity,
-							prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to
-							be made? Etc</p>
-						<p>The Mahaganapati Temple in Ranjangaon does not charge any entry fee for general darshan,
-							which allows access to the temple premises and the opportunity to participate in the regular
-							worship schedule. However, if you wish to perform special pujas or rituals like Abhishek,
-							there are additional fees associated with these services​ (Pune Tourism)​​ (Go Kshetra)​.
-						</p>
-						<p>There are no specific entry restrictions for foreigners, and everyone is welcome to visit and
-							participate in temple activities. No special declaration is required for foreign visitors.
-							As for privileges, paying for special pujas can grant you benefits such as participating in
-							the ritual and receiving prasad, but these do not typically include expedited access or a
-							longer viewing of the deity​ (Go Kshetra)​.</p>
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <h5 class="section__sub-b">Opening and Closing Timings</h5>
+					  <p>a. General Timings: The temple opens at 5:00 AM and closes at 10:00 PM every day.</p>
+					  <ul class="bullet-list">
+					    <li>Daily Schedule:</li>
+					  </ul>
+					  <ul class="bullet-list">
+					    <li>Abhishek Puja: 5:30 AM</li>
+					    <li>Samudaik Aarti: 7:30 AM</li>
+					    <li>Mahanaivadya, Mahapuja: 11:30 AM - 12:30 PM</li>
+					    <li>Samudaik Evening Aarti: 7:30 PM</li>
+					    <li>Shej Aarti: 10:30 PM</li>
+					  </ul>
+					  <p>b. Special Days and Festivals: During festivals and special occasions such as Ganesh Chaturthi, the temple remains open for extended hours to accommodate the influx of devotees. Specific pujas and rituals are conducted, and the deity is carried in a flower-bedecked palkhi (palanquin) around the temple premises​ (YatraDham)​​ (TemplePurohit)​​ (Templesinindiainfo)​​ (Devotional Yatra)​.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Location- How to Reach/commuting- Flight/Train/Bus/Taxi
-							Stand/Ferry/Port Air- what ever is available.</h3>
-						<p>The Mahaganapati Temple in Ranjangaon is accessible through various means of transportation:
-						</p>
-						<h5 class="section__sub-b">a. By Air</h5>
-						<p>i. Nearest Airport: Pune International Airport is the closest airport, located about 53 km
-							from the temple. From the airport, you can hire a taxi or take a bus to reach Ranjangaon​
-							(Go Kshetra)​.</p>
-						<h5 class="section__sub-b">b. By Train</h5>
-						<p>i. Nearest Railway Station: The nearest railway station to Ranjangaon Ganapati temple is
-							Yevat, which is about 29.4 km away. From the railway station, local taxis and buses are
-							available to reach the temple​ (TemplePurohit)​.</p>
-						<h5 class="section__sub-b">c. By Road</h5>
-						<p>i. Bus: Regular state transport buses ply from Pune to Ahmednagar, and most of these halt at
-							Ranjangaon. The temple is located just off the Pune-Ahmednagar Highway, making it easily
-							accessible by bus.</p>
-						<p>ii. Taxi/Cab: Taxis and cabs can be hired from major cities like Pune and Mumbai to travel
-							directly to Ranjangaon​ (Go Kshetra)​​ (Pune Tourism)​.</p>
-						<h5 class="section__sub-b">d. By Local Transport</h5>
-						<p>i. Once in Ranjangaon, local transport options like auto-rickshaws and taxis are available to
-							reach the temple from different parts of the village or nearby regions.</p>
-						<p>These multiple options make it convenient for visitors from various parts of the country to
-							access the temple easily.</p>
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <p>What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc</p>
+					  <p>The Mahaganapati Temple in Ranjangaon does not charge any entry fee for general darshan, which allows access to the temple premises and the opportunity to participate in the regular worship schedule. However, if you wish to perform special pujas or rituals like Abhishek, there are additional fees associated with these services​ (Pune Tourism)​​ (Go Kshetra)​.</p>
+					  <p>There are no specific entry restrictions for foreigners, and everyone is welcome to visit and participate in temple activities. No special declaration is required for foreign visitors. As for privileges, paying for special pujas can grant you benefits such as participating in the ritual and receiving prasad, but these do not typically include expedited access or a longer viewing of the deity​ (Go Kshetra)​.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">What are the rates associated with it? What is the advance booking
-							procedure?</h3>
-						<p>The Mahaganapati Temple in Ranjangaon offers several special poojas and rituals, particularly
-							during the festival seasons and on specific days:</p>
-						<h5 class="section__sub-b">a. Daily Pooja Schedule</h5>
-						<p>i. Abhishek Puja: Starts at 5:30 AM.</p>
-						<p>ii. Samudaik Arati: At 7:30 AM.</p>
-						<p>iii. Mahanaivadya, Mahapuja: From 11:30 AM to 12:30 PM.</p>
-						<p>iv. Samudaik Evening Aarti: At 7:30 PM.</p>
-						<p>v. Shej Aarti: At 10:30 PM.</p>
-						<h5 class="section__sub-b">b. Special Festivals and Poojas</h5>
-						<p>i. Vinayak Chaturthi Ganesh Yaag: This is organized by the Devasthan Trust and occurs monthly
-							on the Vinayak Chaturthi day.</p>
-						<p>ii. Bhadrapat Festival: A special six-day festival in the month of Bhadrapad where various
-							rituals and cultural events are held, including Mahabhog on the fifth day.</p>
-						<p>The temple is open from 5:00 AM to 10:00 PM daily, allowing devotees to participate in the
-							daily schedule of rituals.</p>
-						<p>iii. Rates for Special Poojas: The costs for participating in special poojas like the
-							Abhishek and other rituals vary, and you can typically find out about the specific charges
-							either by contacting the temple directly or checking their official website.</p>
-						<h5 class="section__sub-b">c. Advance Booking:</h5> 
-							<p>For special poojas and to avoid long queues, you can book your visit
-							online through the temple&#x27;s official website. This is especially useful during
-							festivals and high visitor days.</p>
-						<p>For further details on booking and exact rates for specific rituals, it&#x27;s recommended to
-							visit the temple&#x27;s official website or contact them directly using the contact details
-							provided on their site. This will ensure you have the most accurate and updated information
-							for planning your visit​ (Myoksha Travels)​​ (Go Kshetra)​​ (Devotional Yatra)​.</p>
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available.</h3>
+					  <p>The Mahaganapati Temple in Ranjangaon is accessible through various means of transportation:</p>
+					  <h5 class="section__sub-b">a. By Air</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Airport: Pune International Airport is the closest airport, located about 53 km from the temple. From the airport, you can hire a taxi or take a bus to reach Ranjangaon​ (Go Kshetra)​.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. By Train</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Railway Station: The nearest railway station to Ranjangaon Ganapati temple is Yevat, which is about 29.4 km away. From the railway station, local taxis and buses are available to reach the temple​ (TemplePurohit)​.</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. By Road</h5>
+					  <ul class="bullet-list">
+					    <li>Bus: Regular state transport buses ply from Pune to Ahmednagar, and most of these halt at Ranjangaon. The temple is located just off the Pune-Ahmednagar Highway, making it easily accessible by bus.</li>
+					    <li>Taxi/Cab: Taxis and cabs can be hired from major cities like Pune and Mumbai to travel directly to Ranjangaon​ (Go Kshetra)​​ (Pune Tourism)​.</li>
+					  </ul>
+					  <h5 class="section__sub-b">d. By Local Transport</h5>
+					  <ul class="bullet-list">
+					    <li>Once in Ranjangaon, local transport options like auto-rickshaws and taxis are available to reach the temple from different parts of the village or nearby regions.</li>
+					  </ul>
+					  <p>These multiple options make it convenient for visitors from various parts of the country to access the temple easily.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Any online service exists for serving the customers? If yes by whom?
-						</h3>
-						<p>Yes, the Mahaganapati Temple in Ranjangaon offers online services for devotees. This includes
-							options for online booking of darshan and special poojas. The online booking system allows
-							devotees to book their visit in advance, which is particularly useful during busy festival
-							times or for special pujas to ensure a smoother and more organized experience.</p>
-						<p>The online services are provided by the temple&#x27;s official management, the Shree Kshetra
-							Ranjangaon Ganapati Devasthan Trust. They manage the temple&#x27;s day-to-day activities and
-							the online portal, where you can also find information about the temple&#x27;s history,
-							pooja schedules, and upcoming events.</p>
-						<p>For more detailed information and to access these online services, you can visit the temple’s
-							official website or contact them directly via their provided contact information. This helps
-							in better planning your visit and participating in temple activities remotely​ (Go
-							Kshetra)​.</p>
+					  <h3 class="section__title">What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <p>The Mahaganapati Temple in Ranjangaon offers several special poojas and rituals, particularly during the festival seasons and on specific days:</p>
+					  <h5 class="section__sub-b">a. Daily Pooja Schedule</h5>
+					  <ul class="bullet-list">
+					    <li>Abhishek Puja: Starts at 5:30 AM.</li>
+					    <li>Samudaik Arati: At 7:30 AM.</li>
+					    <li>Mahanaivadya, Mahapuja: From 11:30 AM to 12:30 PM.</li>
+					    <li>Samudaik Evening Aarti: At 7:30 PM.</li>
+					    <li>Shej Aarti: At 10:30 PM.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Special Festivals and Poojas</h5>
+					  <p>i Vinayak Chaturthi Ganesh Yaag: This is organized by the Devasthan Trust and occurs monthly on the Vinayak Chaturthi day.</p>
+					  <ul class="bullet-list">
+					    <li>Bhadrapat Festival: A special six-day festival in the month of Bhadrapad where various rituals and cultural events are held, including Mahabhog on the fifth day.</li>
+					  </ul>
+					  <p>The temple is open from 5:00 AM to 10:00 PM daily, allowing devotees to participate in the daily schedule of rituals.</p>
+					  <ul class="bullet-list">
+					    <li>Rates for Special Poojas: The costs for participating in special poojas like the Abhishek and other rituals vary, and you can typically find out about the specific charges either by contacting the temple directly or checking their official website.</li>
+					  </ul>
+					  <p>c. Advance Booking: For special poojas and to avoid long queues, you can book your visit online through the temple&#x27;s official website. This is especially useful during festivals and high visitor days.</p>
+					  <p>For further details on booking and exact rates for specific rituals, it&#x27;s recommended to visit the temple&#x27;s official website or contact them directly using the contact details provided on their site. This will ensure you have the most accurate and updated information for planning your visit​ (Myoksha Travels)​​ (Go Kshetra)​​ (Devotional Yatra)​.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men
-							/women/for spl puja and festival days?</h3>
-						<p>Yes, the Mahaganapati Temple in Ranjangaon has a specific dress code that visitors are
-							expected to adhere to, especially during special poojas and festival days.</p>
-						<h5 class="section__sub-b">a. Dress Code for Visitors</h5>
-						<p>i. Men: Traditional attire such as dhoti, kurta, and gamcha is recommended, especially when
-							participating in special poojas or during festival days.</p>
-						<p>ii. Women: It is advisable for women to wear sarees or salwar kameez. Traditional Indian
-							dresses are preferred to maintain the decorum of the temple.</p>
-						<h5 class="section__sub-b">b. General Guidelines</h5>
-						<p>i. Both men and women should avoid wearing shorts, sleeveless tops, and other casual western
-							outfits inside the temple premises. The dress code aims to maintain the sanctity and
-							traditional atmosphere of the temple.</p>
-						<p>Adhering to the dress code is important for all visitors, not only as a sign of respect to
-							the deity and other devotees but also to enhance the spiritual experience during your visit​
-							(Go Kshetra)​.</p>
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Yes, the Mahaganapati Temple in Ranjangaon offers online services for devotees. This includes options for online booking of darshan and special poojas. The online booking system allows devotees to book their visit in advance, which is particularly useful during busy festival times or for special pujas to ensure a smoother and more organized experience.</p>
+					  <p>The online services are provided by the temple&#x27;s official management, the Shree Kshetra Ranjangaon Ganapati Devasthan Trust. They manage the temple&#x27;s day-to-day activities and the online portal, where you can also find information about the temple&#x27;s history, pooja schedules, and upcoming events.</p>
+					  <p>For more detailed information and to access these online services, you can visit the temple’s official website or contact them directly via their provided contact information. This helps in better planning your visit and participating in temple activities remotely​ (Go Kshetra)​.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not
-							allowed where it can be deposited in or near the temple premises?</h3>
-						<p>At the Mahaganapati Temple in Ranjangaon, the use of electronic gadgets such as mobile phones
-							and cameras inside the temple premises is restricted. This is to ensure the sanctity and the
-							peaceful atmosphere of the temple are maintained.</p>
-						<h5 class="section__sub-b">a. Guidelines for Electronic Gadgets</h5>
-						<p>i. Mobile Phones: Typically, mobile phones need to be either switched off or kept in silent
-							mode if they are allowed at all.</p>
-						<p>ii. Cameras: Photography might be restricted within the temple, especially near the idol or
-							during the pooja sessions.</p>
-						<h5 class="section__sub-b">b. Storage for Electronic Gadgets</h5>
-						<p>i. If electronic devices are not allowed inside, the temple may provide facilities where
-							visitors can deposit their gadgets securely before entering. These facilities are usually
-							located near the temple entrance. It&#x27;s advisable to check the availability of such
-							facilities and any potential fees associated with them.</p>
-						<p>ii. For specific details regarding the policies for electronic gadgets and the availability
-							of storage options, it&#x27;s recommended to visit the temple’s official website or contact
-							the temple administration directly. This will provide the most accurate and updated
-							information, helping you to plan your visit accordingly​ (Go Kshetra)​.</p>
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <p>Yes, the Mahaganapati Temple in Ranjangaon has a specific dress code that visitors are expected to adhere to, especially during special poojas and festival days.</p>
+					  <h5 class="section__sub-b">a. Dress Code for Visitors</h5>
+					  <ul class="bullet-list">
+					    <li>Men: Traditional attire such as dhoti, kurta, and gamcha is recommended, especially when participating in special poojas or during festival days.</li>
+					    <li>Women: It is advisable for women to wear sarees or salwar kameez. Traditional Indian dresses are preferred to maintain the decorum of the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. General Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Both men and women should avoid wearing shorts, sleeveless tops, and other casual western outfits inside the temple premises. The dress code aims to maintain the sanctity and traditional atmosphere of the temple.</li>
+					  </ul>
+					  <p>Adhering to the dress code is important for all visitors, not only as a sign of respect to the deity and other devotees but also to enhance the spiritual experience during your visit​ (Go Kshetra)​.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
-							<p>Photography is generally restricted within the Mahaganapati Temple in
-							Ranjangaon, especially during pooja sessions or close to the deity to maintain the sanctity
-							of the temple. If photography is allowed in less restricted areas or during non-pooja times,
-							it may still be subject to certain conditions or fees.</p>
-						<h5 class="section__sub-b">a. Photography Guidelines</h5>
-						<p>i. Inside the Temple: Photography is not allowed inside the temple, particularly near the
-							deity or during the special poojas.</p>
-						<p>ii. Outside or in Designated Areas: Photography might be permitted in less restricted areas
-							of the temple complex.</p>
-						<h5 class="section__sub-b">b. Fees for Photography</h5>
-						<p>i. If allowed, there might be a fee for photography, which is usually specified by the temple
-							administration. This fee can vary depending on the type of photography equipment used.</p>
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>At the Mahaganapati Temple in Ranjangaon, the use of electronic gadgets such as mobile phones and cameras inside the temple premises is restricted. This is to ensure the sanctity and the peaceful atmosphere of the temple are maintained.</p>
+					  <h5 class="section__sub-b">a. Guidelines for Electronic Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Mobile Phones: Typically, mobile phones need to be either switched off or kept in silent mode if they are allowed at all.</li>
+					    <li>Cameras: Photography might be restricted within the temple, especially near the idol or during the pooja sessions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Storage for Electronic Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>If electronic devices are not allowed inside, the temple may provide facilities where visitors can deposit their gadgets securely before entering. These facilities are usually located near the temple entrance. It&#x27;s advisable to check the availability of such facilities and any potential fees associated with them.</li>
+					    <li>For specific details regarding the policies for electronic gadgets and the availability of storage options, it&#x27;s recommended to visit the temple’s official website or contact the temple administration directly. This will provide the most accurate and updated information, helping you to plan your visit accordingly​ (Go Kshetra)​.</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is there a LIFT /Elevator or any other facility for physically
-							handicapped?</h3>
-						<p>The information available does not specifically mention whether the Mahaganapati Temple in
-							Ranjangaon has a lift or elevator for physically handicapped individuals. Temples,
-							particularly those in older or historical sites in India, may not always have modern
-							accessibility features like elevators, but they often provide other accommodations to assist
-							those with mobility issues.</p>
-						<h5 class="section__sub-b">Typical Accessibility Features in Temples</h5>
-						<p>a. Ramps: Some temples have ramps to facilitate wheelchair access.</p>
-						<p>b. Special Entry: There might be special entry points for physically handicapped visitors to
-							bypass long queues.</p>
-						<p>c. Assistance: Temples sometimes offer assistance through temple staff or volunteers to help
-							physically challenged visitors.</p>
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <p>Photography is generally restricted within the Mahaganapati Temple in Ranjangaon, especially during pooja sessions or close to the deity to maintain the sanctity of the temple. If photography is allowed in less restricted areas or during non-pooja times, it may still be subject to certain conditions or fees.</p>
+					  <h5 class="section__sub-b">a. Photography Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Inside the Temple: Photography is not allowed inside the temple, particularly near the deity or during the special poojas.</li>
+					    <li>Outside or in Designated Areas: Photography might be permitted in less restricted areas of the temple complex.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Fees for Photography</h5>
+					  <ul class="bullet-list">
+					    <li>If allowed, there might be a fee for photography, which is usually specified by the temple administration. This fee can vary depending on the type of photography equipment used.</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Facility of WheelChair for elderly and physically challenged.</h3>
-						<p>The available information does not specify whether the Mahaganapati Temple in Ranjangaon
-							offers wheelchairs for elderly and physically challenged visitors. Many temples in India are
-							improving their facilities to accommodate all visitors, including those with mobility
-							issues, but specific amenities like wheelchair availability can vary.</p>
-						<h5 class="section__sub-b">Recommendations</h5>
-						<p>a. Contact the Temple: It&#x27;s advisable for visitors who might need wheelchair assistance
-							to contact the temple administration directly before visiting. This can help ensure that any
-							necessary arrangements can be made or information about available facilities can be
-							provided.</p>
-						<p>b. Plan Ahead: If the temple does not provide wheelchairs, visitors might need to bring their
-							own. Checking in advance allows for better preparation and a smoother visit.</p>
-						<p>For the most accurate and updated information regarding facilities for the physically
-							challenged, reaching out to the temple directly or checking their official website (if
-							available) would be the best approach. This ensures that all visitors can have a comfortable
-							and respectful experience at the temple.</p>
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>The information available does not specifically mention whether the Mahaganapati Temple in Ranjangaon has a lift or elevator for physically handicapped individuals. Temples, particularly those in older or historical sites in India, may not always have modern accessibility features like elevators, but they often provide other accommodations to assist those with mobility issues.</p>
+					  <h5 class="section__sub-b">Typical Accessibility Features in Temples</h5>
+					  <p>a. Ramps: Some temples have ramps to facilitate wheelchair access.</p>
+					  <p>b. Special Entry: There might be special entry points for physically handicapped visitors to bypass long queues.</p>
+					  <p>c. Assistance: Temples sometimes offer assistance through temple staff or volunteers to help physically challenged visitors.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens
-							/Physically Challenged persons?</h3>
-						<p>The information available does not explicitly detail whether the Mahaganapati Temple in
-							Ranjangaon provides special entry or specific darshan timings for sick individuals, senior
-							citizens, or physically challenged persons. However, many temples in India do offer such
-							accommodations to ensure a more accessible and respectful experience for all devotees.</p>
-						<h5 class="section__sub-b">a.Common Practices in Temples for Special Needs Access</h5>
-						<p>i. Special Entry: Temples often have special entry points that allow easier access for the
-							elderly, sick, or physically challenged to avoid long queues.</p>
-						<p>ii. Special Darshan Timings: Some temples designate specific times during the day for darshan
-							(viewing of the deity) specifically for visitors who may need more assistance or time.</p>
-						<p>iii. Assistance from Temple Staff: Temples might provide staff or volunteers to assist
-							visitors in need during their visit.</p>
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged.</h3>
+					  <p>The available information does not specify whether the Mahaganapati Temple in Ranjangaon offers wheelchairs for elderly and physically challenged visitors. Many temples in India are improving their facilities to accommodate all visitors, including those with mobility issues, but specific amenities like wheelchair availability can vary.</p>
+					  <h5 class="section__sub-b">Recommendations</h5>
+					  <p>a. Contact the Temple: It&#x27;s advisable for visitors who might need wheelchair assistance to contact the temple administration directly before visiting. This can help ensure that any necessary arrangements can be made or information about available facilities can be provided.</p>
+					  <p>b. Plan Ahead: If the temple does not provide wheelchairs, visitors might need to bring their own. Checking in advance allows for better preparation and a smoother visit.</p>
+					  <p>For the most accurate and updated information regarding facilities for the physically challenged, reaching out to the temple directly or checking their official website (if available) would be the best approach. This ensures that all visitors can have a comfortable and respectful experience at the temple.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-						<p>Yes, the Mahaganapati Temple in Ranjangaon offers vehicle pooja services. This ritual is
-							quite popular among devotees who wish to seek blessings for their new or existing vehicles.
-							The temple performs these pujas daily.</p>
-						<h5 class="section__sub-b">Timing and Cost</h5>
-						<p>a. The vehicle pooja can be performed any time during the temple&#x27;s operating hours,
-							which are from 5:00 AM to 10:00 PM.</p>
-						<p>b. The cost for conducting a vehicle pooja is not specifically listed in the sources, so it
-							would be best to contact the temple directly for the most accurate pricing information.</p>
-						<p>For more details or to arrange a vehicle pooja, it&#x27;s advisable to contact the temple
-							administration directly or check their official website. This will ensure you have all the
-							necessary information and can make arrangements accordingly.</p>
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <p>The information available does not explicitly detail whether the Mahaganapati Temple in Ranjangaon provides special entry or specific darshan timings for sick individuals, senior citizens, or physically challenged persons. However, many temples in India do offer such accommodations to ensure a more accessible and respectful experience for all devotees.</p>
+					  <h5 class="section__sub-b">a.Common Practices in Temples for Special Needs Access</h5>
+					  <ul class="bullet-list">
+					    <li>Special Entry: Temples often have special entry points that allow easier access for the elderly, sick, or physically challenged to avoid long queues.</li>
+					    <li>Special Darshan Timings: Some temples designate specific times during the day for darshan (viewing of the deity) specifically for visitors who may need more assistance or time.</li>
+					    <li>Assistance from Temple Staff: Temples might provide staff or volunteers to assist visitors in need during their visit.</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If
-							yes, what are the types of such facilities?What is the cost? How to book in advance?</h3>
-						<p>Yes, the Mahaganapati Temple in Ranjangaon offers accommodation facilities for pilgrims
-							through the Shri Kshetra Ranjangaon Ganpati Devasthan Trust. They provide a variety of
-							accommodation options including:</p>
-						<p>a. Community Hall: This has an 80 person capacity and is suitable for larger groups.</p>
-						<p>b. Rooms: There are five-person capacity rooms available, both air-conditioned and
-							non-air-conditioned.</p>
-						<h5 class="section__sub-b">Costs</h5>
-						<p>c. AC Room: Approximately Rs. 1,120 for a five-person room.</p>
-						<p>d. Non-AC Room: Approximately Rs. 560 for a five-person room.</p>
-						<p>e. Community Hall: Approximately Rs. 2,352.</p>
-						<p>f. Booking: To book any of these facilities in advance, you can contact the Shri Kshetra
-							Ranjangaon Ganpati Devasthan Trust directly. They also offer the convenience of flexible
-							check-in and check-out times, which can be helpful for travelers arriving at different
-							times.</p>
-						<p>For more specific details or to make a reservation, you might want to visit the temple&#x27;s
-							accommodation page on YatraDham.org where these facilities are listed, or contact the temple
-							administration directly. This will ensure you have the most accurate and updated information
-							and a comfortable stay during your visit to the temple.</p>
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>Yes, the Mahaganapati Temple in Ranjangaon offers vehicle pooja services. This ritual is quite popular among devotees who wish to seek blessings for their new or existing vehicles. The temple performs these pujas daily.</p>
+					  <h5 class="section__sub-b">Timing and Cost</h5>
+					  <p>a. The vehicle pooja can be performed any time during the temple&#x27;s operating hours, which are from 5:00 AM to 10:00 PM.</p>
+					  <p>b. The cost for conducting a vehicle pooja is not specifically listed in the sources, so it would be best to contact the temple directly for the most accurate pricing information.</p>
+					  <p>For more details or to arrange a vehicle pooja, it&#x27;s advisable to contact the temple administration directly or check their official website. This will ensure you have all the necessary information and can make arrangements accordingly.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and
-							two wheelers ?</h3>
-						<p>The Mahaganapati Temple in Ranjangaon provides ample parking space for visitors who come by
-							various types of vehicles including cars, minibuses, and two-wheelers. The temple is
-							conveniently located on the Ahmednagar-Pune Highway, making it easily accessible via
-							personal or public transportation.</p>
-						<h5 class="section__sub-b">a. Parking Details</h5>
-						<p>i. Two and Four Wheelers: The temple has dedicated parking areas that can accommodate both
-							two-wheelers and four-wheelers.</p>
-						<p>ii. Minibuses: There is also space available for minibuses, which is particularly useful for
-							groups traveling together on pilgrimage or temple visits.</p>
-						<h5 class="section__sub-b">b. Parking Fees</h5>
-						<p>i. It is generally advisable to check if there are any parking fees applicable, as this can
-							vary. However, the basic information does not specify any charges, so it might be free or
-							require a nominal fee depending on the temple&#x27;s current regulations.</p>
-						<p>For the most accurate and updated information regarding parking facilities and fees,
-							it&#x27;s recommended to contact the temple directly before your visit or check their
-							official website if available. This will help ensure that you have the best possible visit
-							with convenient parking arrangements.</p>
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>Yes, the Mahaganapati Temple in Ranjangaon offers accommodation facilities for pilgrims through the Shri Kshetra Ranjangaon Ganpati Devasthan Trust. They provide a variety of accommodation options including:</p>
+					  <p>a. Community Hall: This has an 80 person capacity and is suitable for larger groups.</p>
+					  <p>b. Rooms: There are five-person capacity rooms available, both air-conditioned and non-air-conditioned.</p>
+					  <h5 class="section__sub-b">Costs</h5>
+					  <p>c. AC Room: Approximately Rs. 1,120 for a five-person room.</p>
+					  <p>d. Non-AC Room: Approximately Rs. 560 for a five-person room.</p>
+					  <p>e. Community Hall: Approximately Rs. 2,352.</p>
+					  <p>f. Booking: To book any of these facilities in advance, you can contact the Shri Kshetra Ranjangaon Ganpati Devasthan Trust directly. They also offer the convenience of flexible check-in and check-out times, which can be helpful for travelers arriving at different times.</p>
+					  <p>For more specific details or to make a reservation, you might want to visit the temple&#x27;s accommodation page on YatraDham.org where these facilities are listed, or contact the temple administration directly. This will ensure you have the most accurate and updated information and a comfortable stay during your visit to the temple.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different
-							class/lines? How to buy the ticket, if needed and timings?</h3>
-						<p>The Mahaganapati Temple in Ranjangaon offers prasad services and meals to devotees.
-							Here&#x27;s a breakdown of the services provided:</p>
-						<h5 class="section__sub-b">a. Prasad Services</h5>
-						<p>i. Prasad Counter: The temple has a counter where devotees can purchase prasad such as modak.
-							This is often available during temple operating hours from 5:30 AM to 10:00 PM.</p>
-						<h5 class="section__sub-b">b. Meal Services</h5>
-						<p>i. Annapurna Bhojanalaya: The temple operates a dining hall that provides meals to devotees.
-							The meal service is generally available during lunch hours, and the meals offered are
-							typically vegetarian, keeping with the temple&#x27;s guidelines and practices.</p>
-						<h5 class="section__sub-b">c. Procedure and Payments</h5>
-						<p>i. Tickets for Meals: If the temple charges for meals or special prasad, tickets are usually
-							sold at specific counters within the temple premises. The exact process and location for
-							buying tickets can be verified at the entrance or main counter.</p>
-						<p>ii. Different Classes/Lines: During busy times, such as festivals or weekends, the temple may
-							organize different lines for general visitors, donors, or VIPs to manage the crowd
-							effectively.</p>
-						<p>d. Costs: The cost for meals or special prasad, if applicable, is usually nominal and aimed
-							at covering the basic expenses of ingredients and preparation. Specific costs can be
-							confirmed at the ticket counter or from temple staff.</p>
-						<p>For the most accurate and updated information regarding meal services, prasad, and any
-							associated costs or ticketing procedures, it is recommended to contact the temple directly
-							or check their official website before visiting. This will ensure you have the latest
-							details and can plan your visit accordingly.</p>
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>The Mahaganapati Temple in Ranjangaon provides ample parking space for visitors who come by various types of vehicles including cars, minibuses, and two-wheelers. The temple is conveniently located on the Ahmednagar-Pune Highway, making it easily accessible via personal or public transportation.</p>
+					  <h5 class="section__sub-b">a. Parking Details</h5>
+					  <ul class="bullet-list">
+					    <li>Two and Four Wheelers: The temple has dedicated parking areas that can accommodate both two-wheelers and four-wheelers.</li>
+					    <li>Minibuses: There is also space available for minibuses, which is particularly useful for groups traveling together on pilgrimage or temple visits.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Parking Fees</h5>
+					  <ul class="bullet-list">
+					    <li>It is generally advisable to check if there are any parking fees applicable, as this can vary. However, the basic information does not specify any charges, so it might be free or require a nominal fee depending on the temple&#x27;s current regulations.</li>
+					  </ul>
+					  <p>For the most accurate and updated information regarding parking facilities and fees, it&#x27;s recommended to contact the temple directly before your visit or check their official website if available. This will help ensure that you have the best possible visit with convenient parking arrangements.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
-						<p>The Mahaganapati Temple in Ranjangaon offers carry-home prasad for devotees. Commonly
-							available prasad includes sweets like modak, which are considered auspicious and are
-							traditionally associated with Lord Ganesha. The cost for these prasad items varies, and
-							specific details on prices are typically available at the temple or can be inquired about
-							directly through temple contacts.</p>
-						<p>For purchasing the prasad, devotees can typically do so at designated counters within the
-							temple premises. These counters are usually open during the temple&#x27;s operating hours
-							from morning till evening.</p>
-						<p>For the most accurate and detailed information, including the cost and types of prasad
-							available for carry home, it&#x27;s recommended to visit the temple&#x27;s official website
-							or contact the temple administration directly. This ensures you receive the most updated
-							information and can plan your visit and prasad purchase accordingly.</p>
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <p>The Mahaganapati Temple in Ranjangaon offers prasad services and meals to devotees. Here&#x27;s a breakdown of the services provided:</p>
+					  <h5 class="section__sub-b">a. Prasad Services</h5>
+					  <ul class="bullet-list">
+					    <li>Prasad Counter: The temple has a counter where devotees can purchase prasad such as modak. This is often available during temple operating hours from 5:30 AM to 10:00 PM.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Meal Services</h5>
+					  <ul class="bullet-list">
+					    <li>Annapurna Bhojanalaya: The temple operates a dining hall that provides meals to devotees. The meal service is generally available during lunch hours, and the meals offered are typically vegetarian, keeping with the temple&#x27;s guidelines and practices.</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. Procedure and Payments</h5>
+					  <ul class="bullet-list">
+					    <li>Tickets for Meals: If the temple charges for meals or special prasad, tickets are usually sold at specific counters within the temple premises. The exact process and location for buying tickets can be verified at the entrance or main counter.</li>
+					    <li>Different Classes/Lines: During busy times, such as festivals or weekends, the temple may organize different lines for general visitors, donors, or VIPs to manage the crowd effectively.</li>
+					  </ul>
+					  <p>d. Costs: The cost for meals or special prasad, if applicable, is usually nominal and aimed at covering the basic expenses of ingredients and preparation. Specific costs can be confirmed at the ticket counter or from temple staff.</p>
+					  <p>For the most accurate and updated information regarding meal services, prasad, and any associated costs or ticketing procedures, it is recommended to contact the temple directly or check their official website before visiting. This will ensure you have the latest details and can plan your visit accordingly.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-						<p>If you lose an item at the Mahaganapati Temple in Ranjangaon or any similar temple,
-							there&#x27;s usually a specific procedure to follow to report and potentially retrieve your
-							lost items:</p>
-						<p>a. Report to the Temple Authority: Initially, you should report the lost item to the temple
-							administration or the security office. Most temples have a designated office for lost and
-							found items.</p>
-						<p>b. Provide Details: You will likely need to provide a detailed description of the lost item,
-							including where and when you think it might have been lost. It&#x27;s also helpful to
-							provide your contact information so they can reach you if the item is found.</p>
-						<p>c. Check the Lost and Found Section: Many temples maintain a lost and found section where
-							found items are kept for a certain period. Check there periodically if your item has been
-							turned in.</p>
-						<p>d. Follow Up: If your item isn’t found immediately, keep in touch with the temple’s lost and
-							found department. Sometimes items take a few days to turn up.</p>
-						<p>e. Preventive Measures: For future visits, it’s advisable to keep valuable items secure and
-							minimize what you carry to the temple to reduce the risk of losing something.</p>
-						<p>For specific procedures related to the Mahaganapati Temple, it&#x27;s recommended to check
-							their official website or contact them directly, as procedures can vary between different
-							temples. This approach ensures that you&#x27;re following the correct protocol and increases
-							your chances of recovering your lost item.</p>
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>The Mahaganapati Temple in Ranjangaon offers carry-home prasad for devotees. Commonly available prasad includes sweets like modak, which are considered auspicious and are traditionally associated with Lord Ganesha. The cost for these prasad items varies, and specific details on prices are typically available at the temple or can be inquired about directly through temple contacts.</p>
+					  <p>For purchasing the prasad, devotees can typically do so at designated counters within the temple premises. These counters are usually open during the temple&#x27;s operating hours from morning till evening.</p>
+					  <p>For the most accurate and detailed information, including the cost and types of prasad available for carry home, it&#x27;s recommended to visit the temple&#x27;s official website or contact the temple administration directly. This ensures you receive the most updated information and can plan your visit and prasad purchase accordingly.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">If any one of the group members is missing, how to report and where
-							to wait for?</h3>
-						<p>If a member of your group goes missing at the Mahaganapati Temple in Ranjangaon or any
-							similar crowded location, follow these steps to report and handle the situation:</p>
-						<p>a. Inform Temple Security: Immediately contact the temple security or administration office.
-							Provide them with a detailed description of the missing person, including their last known
-							location, appearance, clothing, and any other distinctive features.</p>
-						<p>b. Designated Meeting Point: Establish a designated meeting spot where your group can
-							reconvene. This should be a well-known and easily accessible location within the temple
-							premises, such as the main entrance, a specific temple hall, or near a prominent statue or
-							feature.</p>
-						<p>c. Use Public Address System: Ask the temple authorities if they can make an announcement
-							over their public address system, if available. This can help in quickly locating the
-							missing person if they are still within the temple area.</p>
-						<p>d. Wait and Re-check: Stay at the designated meeting point and wait. Often, missing
-							individuals will return to the last remembered location. Keep checking with the
-							temple&#x27;s lost and found or the administration to see if there have been any updates.
-						</p>
-						<p>e. Keep Contact Details Handy: Ensure all group members have a copy of each other&#x27;s
-							contact details and a map of the temple if available. This helps in maintaining
-							communication if someone strays from the group.</p>
-						<p>f. Expand the Search: If the missing person does not return within a reasonable time frame,
-							consider expanding the search beyond the temple with the help of local authorities.</p>
-						<p>For the most efficient handling of such situations, it&#x27;s also recommended to familiarize
-							yourself with the temple&#x27;s specific procedures for missing persons, which can usually
-							be found on their official website or by contacting them directly. This preparation helps
-							ensure that you can act quickly and effectively should such a situation arise.</p>
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>If you lose an item at the Mahaganapati Temple in Ranjangaon or any similar temple, there&#x27;s usually a specific procedure to follow to report and potentially retrieve your lost items:</p>
+					  <p>a. Report to the Temple Authority: Initially, you should report the lost item to the temple administration or the security office. Most temples have a designated office for lost and found items.</p>
+					  <p>b. Provide Details: You will likely need to provide a detailed description of the lost item, including where and when you think it might have been lost. It&#x27;s also helpful to provide your contact information so they can reach you if the item is found.</p>
+					  <p>c. Check the Lost and Found Section: Many temples maintain a lost and found section where found items are kept for a certain period. Check there periodically if your item has been turned in.</p>
+					  <p>d. Follow Up: If your item isn’t found immediately, keep in touch with the temple’s lost and found department. Sometimes items take a few days to turn up.</p>
+					  <p>e. Preventive Measures: For future visits, it’s advisable to keep valuable items secure and minimize what you carry to the temple to reduce the risk of losing something.</p>
+					  <p>For specific procedures related to the Mahaganapati Temple, it&#x27;s recommended to check their official website or contact them directly, as procedures can vary between different temples. This approach ensures that you&#x27;re following the correct protocol and increases your chances of recovering your lost item.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is this temple registered under the state govt/District
-							administration? Provide if the information is visible on the site?</h3>
-						<p>The Mahaganapati Temple in Ranjangaon is not explicitly mentioned as being registered under
-							state government or district administration in the sources reviewed. However, the temple is
-							recognized as one of the eight Ashtavinayak temples, which are highly revered and often
-							receive attention and support from local authorities due to their cultural and religious
-							significance. Typically, temples of such prominence have some level of interaction with
-							local or state government bodies, especially in organizing large festivals and managing
-							public infrastructure and safety.</p>
-						<p>For confirmation regarding specific registration and administrative oversight, you might
-							consider directly contacting the temple&#x27;s management or visiting their official website
-							for the most accurate and detailed information.</p>
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a member of your group goes missing at the Mahaganapati Temple in Ranjangaon or any similar crowded location, follow these steps to report and handle the situation:</p>
+					  <p>a. Inform Temple Security: Immediately contact the temple security or administration office. Provide them with a detailed description of the missing person, including their last known location, appearance, clothing, and any other distinctive features.</p>
+					  <p>b. Designated Meeting Point: Establish a designated meeting spot where your group can reconvene. This should be a well-known and easily accessible location within the temple premises, such as the main entrance, a specific temple hall, or near a prominent statue or feature.</p>
+					  <p>c. Use Public Address System: Ask the temple authorities if they can make an announcement over their public address system, if available. This can help in quickly locating the missing person if they are still within the temple area.</p>
+					  <p>d. Wait and Re-check: Stay at the designated meeting point and wait. Often, missing individuals will return to the last remembered location. Keep checking with the temple&#x27;s lost and found or the administration to see if there have been any updates.</p>
+					  <p>e. Keep Contact Details Handy: Ensure all group members have a copy of each other&#x27;s contact details and a map of the temple if available. This helps in maintaining communication if someone strays from the group.</p>
+					  <p>f. Expand the Search: If the missing person does not return within a reasonable time frame, consider expanding the search beyond the temple with the help of local authorities.</p>
+					  <p>For the most efficient handling of such situations, it&#x27;s also recommended to familiarize yourself with the temple&#x27;s specific procedures for missing persons, which can usually be found on their official website or by contacting them directly. This preparation helps ensure that you can act quickly and effectively should such a situation arise.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the
-							temple) to whom and which bank account and for what all purposes?</h3>
-						<p>It seems there was a technical issue with retrieving information online. However, here’s a
-							general guide on how to make donations to places like the Mahaganapati Temple in Ranjangaon:
-						</p>
-						<h5 class="section__sub-b">a. Donation Options</h5>
-						<p>i. Direct Bank Transfer: Temples typically provide bank account details for direct transfers.
-							This information can be found on their official website or by contacting the temple’s
-							administration office directly.</p>
-						<p>ii. Online Donations: Many temples now offer online donation options through their official
-							websites. This method often allows you to specify the purpose of your donation.</p>
-						<p>iii. Cheque or Demand Draft: You can send a cheque or demand draft made out to the
-							temple&#x27;s official trust or committee.</p>
-						<h5 class="section__sub-b">b. Common Purposes for Donations</h5>
-						<p>i. Temple Maintenance: Helping with the upkeep and preservation of the temple facilities.</p>
-						<p>ii. Charitable Activities: Many temples run charitable programs such as feeding the poor,
-							educational scholarships, medical camps, etc.</p>
-						<p>iii. Festivals and Rituals: Supporting the costs associated with conducting various festivals
-							and rituals.</p>
-						<p>iv. Development Projects: Contributing to expansion or renovation projects.</p>
-						<h5 class="section__sub-b">c. How to Proceed</h5>
-						<p>i. Contact the temple’s administrative office for specific details like the bank account
-							number, how to direct the funds correctly, and to ensure that receipts for the donations are
-							issued for tax exemption purposes where applicable.</p>
-						<p>I recommend checking the Mahaganapati Temple&#x27;s official website or contacting them
-							directly for the most accurate and updated donation processes and bank account details.</p>
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
+					  <p>The Mahaganapati Temple in Ranjangaon is not explicitly mentioned as being registered under state government or district administration in the sources reviewed. However, the temple is recognized as one of the eight Ashtavinayak temples, which are highly revered and often receive attention and support from local authorities due to their cultural and religious significance. Typically, temples of such prominence have some level of interaction with local or state government bodies, especially in organizing large festivals and managing public infrastructure and safety.</p>
+					  <p>For confirmation regarding specific registration and administrative oversight, you might consider directly contacting the temple&#x27;s management or visiting their official website for the most accurate and detailed information.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Are there any privileges associated with the donation made? For eg.
-							in Tirupati donations to SriVani trust is used for construction of Balaji temples and for
-							every 10k donation one Spl entry ticket is provided with also access to preferential
-							treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi
-							donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-						<p>The specific privileges associated with donations can vary significantly from temple to
-							temple, depending on the temple’s policies and the nature of the projects they support. For
-							the Mahaganapati Temple in Ranjangaon, common privileges for donations might include:</p>
-						<p>a. Priority Darshan: Similar to Tirupati, donors might receive priority in darshan queues,
-							allowing for a more expedited visit.</p>
-						<p>b. Special Rituals: Donors may be entitled to participate in special pujas or have pujas
-							conducted in their name.</p>
-						<p>c. Accommodation Preferences: Like in Tirupati, higher-level donors could receive
-							preferential treatment regarding accommodations managed by the temple, especially during
-							busy festivals and events.</p>
-						<p>d. Recognition: Some temples acknowledge significant donors by naming parts of the temple
-							infrastructure after them or mentioning them in newsletters and on donor boards.</p>
-						<p>For donations specifically like Annadana (free meals for devotees) or contributions towards
-							educational and healthcare services, privileges might include the satisfaction of supporting
-							a good cause, along with potential tax benefits as per local laws.</p>
-						<p>To confirm the exact privileges associated with donations at the Mahaganapati Temple in
-							Ranjangaon, you would need to contact the temple’s administration directly. They can provide
-							detailed information on how your contributions can be utilized and what benefits you can
-							expect as a donor. This ensures that both your spiritual and material contributions are
-							aligned with your expectations and the temple’s needs.</p>
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>It seems there was a technical issue with retrieving information online. However, here’s a general guide on how to make donations to places like the Mahaganapati Temple in Ranjangaon:</p>
+					  <h5 class="section__sub-b">a. Donation Options</h5>
+					  <ul class="bullet-list">
+					    <li>Direct Bank Transfer: Temples typically provide bank account details for direct transfers. This information can be found on their official website or by contacting the temple’s administration office directly.</li>
+					    <li>Online Donations: Many temples now offer online donation options through their official websites. This method often allows you to specify the purpose of your donation.</li>
+					    <li>Cheque or Demand Draft: You can send a cheque or demand draft made out to the temple&#x27;s official trust or committee.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Common Purposes for Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Maintenance: Helping with the upkeep and preservation of the temple facilities.</li>
+					    <li>Charitable Activities: Many temples run charitable programs such as feeding the poor, educational scholarships, medical camps, etc.</li>
+					    <li>Festivals and Rituals: Supporting the costs associated with conducting various festivals and rituals.</li>
+					    <li>Development Projects: Contributing to expansion or renovation projects.</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. How to Proceed</h5>
+					  <ul class="bullet-list">
+					    <li>Contact the temple’s administrative office for specific details like the bank account number, how to direct the funds correctly, and to ensure that receipts for the donations are issued for tax exemption purposes where applicable.</li>
+					  </ul>
+					  <p>I recommend checking the Mahaganapati Temple&#x27;s official website or contacting them directly for the most accurate and updated donation processes and bank account details.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Provide Construction/ scientific information about the temple?</h3>
-						<p>The Mahaganapati Temple in Ranjangaon features remarkable architectural and scientific
-							elements, particularly noted for its construction period and style. Constructed between the
-							9th and 10th centuries, the temple showcases a distinct Hindu style of architecture. It is
-							designed so that during specific astronomical periods, namely &#x27;Dakshinayan&#x27; and
-							&#x27;Uttarayan&#x27;, the sun&#x27;s rays directly illuminate the deity inside,
-							highlighting its central figure, Lord Mahaganapati, who is accompanied by his consorts
-							Riddhi and Siddhi.</p>
-						<p>The temple structure includes a significant feature called Nagarkhana, situated above the
-							entrance gate, adding to the grand entrance that leads into the temple complex. Notable
-							historical figures, such as Madhavrao Peshwa, have contributed to its construction; the
-							Peshwa added a stone sanctum around the self-manifested idol in the late 18th century. This
-							sanctum houses an idol of Lord Ganesha, referred to as &#x27;Mahotkat&#x27;, which is
-							renowned for its impressive depiction with ten trunks and twenty arms.</p>
-						<p>The temple&#x27;s strategic east-facing orientation and the grand passageway gate are
-							designed not only for aesthetic appeal but also to align with specific celestial and solar
-							transitions, ensuring that the spiritual ambiance is maintained through direct sunlight on
-							the deity at auspicious times.</p>
-						<p>For more detailed architectural insights and historical significance, you might refer to the
-							temple&#x27;s dedicated discussions on platforms like Wikipedia and specialized temple
-							information sites.</p>
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>The specific privileges associated with donations can vary significantly from temple to temple, depending on the temple’s policies and the nature of the projects they support. For the Mahaganapati Temple in Ranjangaon, common privileges for donations might include:</p>
+					  <p>a. Priority Darshan: Similar to Tirupati, donors might receive priority in darshan queues, allowing for a more expedited visit.</p>
+					  <p>b. Special Rituals: Donors may be entitled to participate in special pujas or have pujas conducted in their name.</p>
+					  <p>c. Accommodation Preferences: Like in Tirupati, higher-level donors could receive preferential treatment regarding accommodations managed by the temple, especially during busy festivals and events.</p>
+					  <p>d. Recognition: Some temples acknowledge significant donors by naming parts of the temple infrastructure after them or mentioning them in newsletters and on donor boards.</p>
+					  <p>For donations specifically like Annadana (free meals for devotees) or contributions towards educational and healthcare services, privileges might include the satisfaction of supporting a good cause, along with potential tax benefits as per local laws.</p>
+					  <p>To confirm the exact privileges associated with donations at the Mahaganapati Temple in Ranjangaon, you would need to contact the temple’s administration directly. They can provide detailed information on how your contributions can be utilized and what benefits you can expect as a donor. This ensures that both your spiritual and material contributions are aligned with your expectations and the temple’s needs.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is there any special significance attached to the temple -like for
-							eg. Kasar Devi in Uttar khand- it is said-</h3>
-						<p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or
-							Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with
-							a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <h3 class="section__title">Provide Construction/  scientific  information about the  temple?</h3>
+					  <p>The Mahaganapati Temple in Ranjangaon features remarkable architectural and scientific elements, particularly noted for its construction period and style. Constructed between the 9th and 10th centuries, the temple showcases a distinct Hindu style of architecture. It is designed so that during specific astronomical periods, namely &#x27;Dakshinayan&#x27; and &#x27;Uttarayan&#x27;, the sun&#x27;s rays directly illuminate the deity inside, highlighting its central figure, Lord Mahaganapati, who is accompanied by his consorts Riddhi and Siddhi.</p>
+					  <p>The temple structure includes a significant feature called Nagarkhana, situated above the entrance gate, adding to the grand entrance that leads into the temple complex. Notable historical figures, such as Madhavrao Peshwa, have contributed to its construction; the Peshwa added a stone sanctum around the self-manifested idol in the late 18th century. This sanctum houses an idol of Lord Ganesha, referred to as &#x27;Mahotkat&#x27;, which is renowned for its impressive depiction with ten trunks and twenty arms.</p>
+					  <p>The temple&#x27;s strategic east-facing orientation and the grand passageway gate are designed not only for aesthetic appeal but also to align with specific celestial and solar transitions, ensuring that the spiritual ambiance is maintained through direct sunlight on the deity at auspicious times.</p>
+					  <p>For more detailed architectural insights and historical significance, you might refer to the temple&#x27;s dedicated discussions on platforms like Wikipedia and specialized temple information sites.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Information which a foreigner would like to know- focussing more on
-							spirituality rather than religion.</h3>
-						<p>Special Significance of the Mahaganapati Temple</p>
-						<p>The Mahaganapati Temple in Ranjangaon holds a unique spiritual significance as one of the
-							eight revered temples in the Ashtavinayak circuit of Maharashtra, dedicated to Lord Ganesha.
-							Each temple in this circuit is associated with various legends describing different episodes
-							of Lord Ganesha&#x27;s life as mentioned in Hindu scriptures. The Mahaganapati Temple is
-							particularly noted for its association with the legend of Shiva invoking Ganesha before
-							fighting the demon Tripurasura, making it a site of great mythological importance. The
-							temple is believed to house a &quot;Swayambhu&quot; (self-manifested) idol of Ganesha, which
-							adds to its religious significance.</p>
+					  <h3 class="section__title">Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Information which a foreigner would like to know- focussing more on
-							spirituality rather than religion.</h3>
-						<p>Information for Foreigners Focusing on Spirituality</p>
-						<p>For foreigners interested in the spiritual aspects rather than the religious specifics,
-							Mahaganapati Temple offers a deep dive into the practices of devotion, meditation, and the
-							celebration of Ganesha, who is revered as the remover of obstacles and the deity of wisdom
-							and intelligence. Here are a few points of interest:</p>
-						<p>a. Spiritual Atmosphere: The temple&#x27;s architecture is designed to allow natural light to
-							fall directly on the deity during certain times of the year, creating a serene atmosphere
-							conducive to meditation and reflection.</p>
-						<p>b. Cultural Integration: Participating in or observing the temple rituals can provide
-							insights into Hindu practices and the spiritual significance of devotion. Ganesha is a
-							universally admired deity, known for his ability to remove obstacles in both material and
-							spiritual paths.</p>
-						<p>c. Festivals: Visiting during major festivals like Ganesh Chaturthi can offer a vibrant
-							experience of spiritual joy and community celebration, where the focus is on spiritual
-							upliftment and communal harmony rather than ritualistic worship alone.</p>
-						<p>d. Teachings and Practices: For those interested in spiritual teachings, the stories and
-							legends associated with the temple, such as the defeat of Tripurasur, illustrate moral and
-							philosophical points that transcend the religious context.</p>
-						<p>For a truly immersive experience, visitors can engage with local guides or participate in
-							guided meditation sessions that might be available in or around the temple precincts. This
-							approach not only enhances spiritual understanding but also deepens one’s personal spiritual
-							practice in a culturally rich setting.</p>
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion.</h3>
+					  <p>Special Significance of the Mahaganapati Temple</p>
+					  <p>The Mahaganapati Temple in Ranjangaon holds a unique spiritual significance as one of the eight revered temples in the Ashtavinayak circuit of Maharashtra, dedicated to Lord Ganesha. Each temple in this circuit is associated with various legends describing different episodes of Lord Ganesha&#x27;s life as mentioned in Hindu scriptures. The Mahaganapati Temple is particularly noted for its association with the legend of Shiva invoking Ganesha before fighting the demon Tripurasura, making it a site of great mythological importance. The temple is believed to house a &quot;Swayambhu&quot; (self-manifested) idol of Ganesha, which adds to its religious significance.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Call to action or interaction links- here in it could be for:</h3>
-						<p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back
-							linking)</p>
-						<p>b.Accomodation - here link to our site where we have listed accommodation of all types with
-							an enquiry form</p>
-						<p>c.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation
-							to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-						<p>To create a comprehensive call to action and interaction platform for visitors interested in
-							engaging with the Mahaganapati Temple, you can include the following elements on your
-							website or digital interface:</p>
-						<h5 class="section__sub-b">a. Puja Booking</h5>
-						<p>i. Description: Offer visitors the opportunity to book pujas directly through your platform.
-							This can include a link to the temple’s official puja booking page if you have an agreement
-							with the temple authorities, or your own service once set up.</p>
-						<p>ii. Link: Embed a direct link that says, &quot;Book Your Puja Here,&quot; which would take
-							users either to the temple&#x27;s official puja booking page or to your service page where
-							they can complete their booking.</p>
-						<h5 class="section__sub-b">b. Donation</h5>
-						<p>i. Description: Encourage visitors to contribute to the temple’s various charitable
-							activities or maintenance funds. Clearly describe what the donations will be used for (e.g.,
-							temple upkeep, charitable activities).</p>
-						<p>ii. Link: Include a &quot;Donate Now&quot; button linked to the temple&#x27;s official
-							donation page or to a dedicated donation section on your site that processes donations for
-							the temple.</p>
-						<p>iii. Tax Exemption Information: Inform donors about any tax benefits available, such as
-							deductions under Section 80G of the Income Tax Act for donations made, similar to the
-							exemption available for Annadana at Shirdi.</p>
-						<h5 class="section__sub-b">c. Accommodation</h5>
-						<p>i. Description: Provide details of various accommodation options available near the temple,
-							ranging from budget stays to more luxurious options.</p>
-						<p>ii. Link: Add a link, &quot;Find Accommodations Near Mahaganapati Temple,&quot; that
-							redirects to your site with listed accommodations and an inquiry form for bookings.</p>
-						<h5 class="section__sub-b">d. Interactive Spiritual or Cultural Guide</h5>
-						<p>i. Description: Offer an interactive guide or a virtual tour of the temple for those who
-							might not be able to visit in person. This can be particularly appealing to international
-							visitors interested in the spiritual and cultural aspects.</p>
-						<p>ii. Link: Include a section or a link titled &quot;Explore Mahaganapati Temple
-							Virtually&quot; that provides access to virtual tours or detailed guides about the temple’s
-							history, significance, and rituals.</p>
-						<p>These elements can significantly enhance the user experience by providing practical
-							assistance and enriching the spiritual and cultural engagement of visitors with the
-							Mahaganapati Temple.</p>
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion.</h3>
+					  <p>Information for Foreigners Focusing on Spirituality</p>
+					  <p>For foreigners interested in the spiritual aspects rather than the religious specifics, Mahaganapati Temple offers a deep dive into the practices of devotion, meditation, and the celebration of Ganesha, who is revered as the remover of obstacles and the deity of wisdom and intelligence. Here are a few points of interest:</p>
+					  <p>a. Spiritual Atmosphere: The temple&#x27;s architecture is designed to allow natural light to fall directly on the deity during certain times of the year, creating a serene atmosphere conducive to meditation and reflection.</p>
+					  <p>b. Cultural Integration: Participating in or observing the temple rituals can provide insights into Hindu practices and the spiritual significance of devotion. Ganesha is a universally admired deity, known for his ability to remove obstacles in both material and spiritual paths.</p>
+					  <p>c. Festivals: Visiting during major festivals like Ganesh Chaturthi can offer a vibrant experience of spiritual joy and community celebration, where the focus is on spiritual upliftment and communal harmony rather than ritualistic worship alone.</p>
+					  <p>d. Teachings and Practices: For those interested in spiritual teachings, the stories and legends associated with the temple, such as the defeat of Tripurasur, illustrate moral and philosophical points that transcend the religious context.</p>
+					  <p>For a truly immersive experience, visitors can engage with local guides or participate in guided meditation sessions that might be available in or around the temple precincts. This approach not only enhances spiritual understanding but also deepens one’s personal spiritual practice in a culturally rich setting.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Annual Event of the temple day and date</h3>
-						<p>The Mahaganapati Temple in Ranjangaon hosts its annual festival during the Bhadrapad month
-							(which typically falls in August or September). The highlight of this festival is a six-day
-							celebration with the main event occurring on the fifth day, during which a grand offering,
-							known as Mahabhog, is presented to the deity. This festival is marked by significant
-							community participation, including processions and other cultural activities. It&#x27;s a
-							period when the temple becomes a vibrant hub of spiritual and cultural festivities.</p>
-						<p>For foreigners interested in the spiritual aspect of the temple, this festival, along with
-							daily pujas and rituals, offers a profound glimpse into Hindu worship practices centered
-							around Lord Ganesha, revered as the remover of obstacles and patron of arts and sciences.
-							Engaging in or observing these rituals can provide deep spiritual insights irrespective of
-							religious background.</p>
-						<p>If you plan to visit or participate in the temple&#x27;s events, checking the exact dates for
-							the festival each year and the schedule of events can enhance your experience. For more
-							detailed information, you might want to directly contact the temple administration or visit
-							their official website.</p>
+					  <h3 class="section__title">Call to action  or interaction links- here in it could be for:</h3>
+					  <p>a. Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>b.Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>c.Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>To create a comprehensive call to action and interaction platform for visitors interested in engaging with the Mahaganapati Temple, you can include the following elements on your website or digital interface:</p>
+					  <h5 class="section__sub-b">a. Puja Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Offer visitors the opportunity to book pujas directly through your platform. This can include a link to the temple’s official puja booking page if you have an agreement with the temple authorities, or your own service once set up.</li>
+					    <li>Link: Embed a direct link that says, &quot;Book Your Puja Here,&quot; which would take users either to the temple&#x27;s official puja booking page or to your service page where they can complete their booking.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Donation</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Encourage visitors to contribute to the temple’s various charitable activities or maintenance funds. Clearly describe what the donations will be used for (e.g., temple upkeep, charitable activities).</li>
+					    <li>Link: Include a &quot;Donate Now&quot; button linked to the temple&#x27;s official donation page or to a dedicated donation section on your site that processes donations for the temple.</li>
+					    <li>Tax Exemption Information: Inform donors about any tax benefits available, such as deductions under Section 80G of the Income Tax Act for donations made, similar to the exemption available for Annadana at Shirdi.</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. Accommodation</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Provide details of various accommodation options available near the temple, ranging from budget stays to more luxurious options.</li>
+					    <li>Link: Add a link, &quot;Find Accommodations Near Mahaganapati Temple,&quot; that redirects to your site with listed accommodations and an inquiry form for bookings.</li>
+					  </ul>
+					  <h5 class="section__sub-b">d. Interactive Spiritual or Cultural Guide</h5>
+					  <ul class="bullet-list">
+					    <li>Description: Offer an interactive guide or a virtual tour of the temple for those who might not be able to visit in person. This can be particularly appealing to international visitors interested in the spiritual and cultural aspects.</li>
+					    <li>Link: Include a section or a link titled &quot;Explore Mahaganapati Temple Virtually&quot; that provides access to virtual tours or detailed guides about the temple’s history, significance, and rituals.</li>
+					  </ul>
+					  <p>These elements can significantly enhance the user experience by providing practical assistance and enriching the spiritual and cultural engagement of visitors with the Mahaganapati Temple.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Monthly Event of the temple - day and date.</h3>
-						<p>It looks like there was an issue retrieving the information online. However, based on typical
-							practices in Hindu temples, a significant monthly event at the Mahaganapati Temple in
-							Ranjangaon could be the celebration of Vinayaka Chaturthi. This event is dedicated to Lord
-							Ganesha and occurs every month on the fourth day of the lunar fortnight (Chaturthi), which
-							is considered highly auspicious for Ganesha.</p>
-						<h5 class="section__sub-b">Vinayaka Chaturthi at Mahaganapati Temple</h5>
-						<p>a. Event Description: Vinayaka Chaturthi is celebrated with special pujas, offerings, and
-							sometimes cultural or religious performances. Devotees participate in rituals that may
-							include abhishekam (ritual bathing of the idol), special aartis, and offerings of modak (a
-							sweet dumpling which is a favorite of Ganesha).</p>
-						<p>b. Timing: The event typically occurs once a month on the fourth day after the new moon
-							(Krishna Paksha) and the fourth day after the full moon (Shukla Paksha), depending on the
-							lunar calendar.</p>
-						<p>If you&#x27;re planning a visit or want to participate in these monthly events, it&#x27;s
-							advisable to check the exact date each month as per the lunar calendar, as it shifts
-							slightly each year. For the most accurate and detailed information, you might want to reach
-							out directly to the temple&#x27;s official contact or visit their website, especially if
-							they offer online services like live darshan or event streaming for those unable to attend
-							in person.</p>
+					  <h3 class="section__title">Annual Event of the temple day and date</h3>
+					  <p>The Mahaganapati Temple in Ranjangaon hosts its annual festival during the Bhadrapad month (which typically falls in August or September). The highlight of this festival is a six-day celebration with the main event occurring on the fifth day, during which a grand offering, known as Mahabhog, is presented to the deity. This festival is marked by significant community participation, including processions and other cultural activities. It&#x27;s a period when the temple becomes a vibrant hub of spiritual and cultural festivities.</p>
+					  <p>For foreigners interested in the spiritual aspect of the temple, this festival, along with daily pujas and rituals, offers a profound glimpse into Hindu worship practices centered around Lord Ganesha, revered as the remover of obstacles and patron of arts and sciences. Engaging in or observing these rituals can provide deep spiritual insights irrespective of religious background.</p>
+					  <p>If you plan to visit or participate in the temple&#x27;s events, checking the exact dates for the festival each year and the schedule of events can enhance your experience. For more detailed information, you might want to directly contact the temple administration or visit their official website.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event of the temple - day and date.</h3>
+					  <p>It looks like there was an issue retrieving the information online. However, based on typical practices in Hindu temples, a significant monthly event at the Mahaganapati Temple in Ranjangaon could be the celebration of Vinayaka Chaturthi. This event is dedicated to Lord Ganesha and occurs every month on the fourth day of the lunar fortnight (Chaturthi), which is considered highly auspicious for Ganesha.</p>
+					  <h5 class="section__sub-b">Vinayaka Chaturthi at Mahaganapati Temple</h5>
+					  <p>a. Event Description: Vinayaka Chaturthi is celebrated with special pujas, offerings, and sometimes cultural or religious performances. Devotees participate in rituals that may include abhishekam (ritual bathing of the idol), special aartis, and offerings of modak (a sweet dumpling which is a favorite of Ganesha).</p>
+					  <p>b. Timing: The event typically occurs once a month on the fourth day after the new moon (Krishna Paksha) and the fourth day after the full moon (Shukla Paksha), depending on the lunar calendar.</p>
+					  <p>If you&#x27;re planning a visit or want to participate in these monthly events, it&#x27;s advisable to check the exact date each month as per the lunar calendar, as it shifts slightly each year. For the most accurate and detailed information, you might want to reach out directly to the temple&#x27;s official contact or visit their website, especially if they offer online services like live darshan or event streaming for those unable to attend in person.</p>
 					</div>
 				</article>
 
 				<div class="glass cta-section">
 					<h3>Experience Divine Darshan</h3>
-					<p>Immerse yourself in the spiritual essence of this sacred temple through our 360° VR experience.
-					</p>
-					<a href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
-						target="_blank" class="cta-btn">
+					<p>Immerse yourself in the spiritual essence of this sacred temple through our 360° VR experience.</p>
+					<a href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share" target="_blank" class="cta-btn">
 						Download Divya Darshan 360 App
 					</a>
 				</div>
@@ -918,6 +522,6 @@
 	</main>
 
 	<script src="/blog/assets/blog-script.js"></script>
+	<script src="/blog/assets/diya.js"></script>
 </body>
-
 </html>

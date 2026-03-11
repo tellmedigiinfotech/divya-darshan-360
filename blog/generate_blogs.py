@@ -132,7 +132,7 @@ def parse_content_to_sections(content):
 
     # Skip the first few lines (name, URL, basic info already extracted)
     skip_initial = True
-    question_pattern = re.compile(r'^\s*\d+[\.\)]\s+')
+    question_pattern = re.compile(r'^\s*\d+\s*[\.\)](?:\s+|[A-Za-z]|$)')
 
     for line in lines:
         stripped = line.strip()
@@ -143,11 +143,13 @@ def parse_content_to_sections(content):
 
         # Detect section headers (numbered questions or key headers)
         is_header = False
+        stripped_clean = re.sub(r'^[\*\-\s]*\d*[\.\)]*\s*', '', stripped)
+        
         if question_pattern.match(stripped):
             is_header = True
         elif stripped.endswith('?') and len(stripped) > 20:
             is_header = True
-        elif any(stripped.startswith(kw) for kw in [
+        elif any(stripped_clean.startswith(kw) for kw in [
             'Opening & Closing', 'Entry Fees', 'Location-', 'Special Poojas',
             'Dress Code', 'Electronic Gadgets', 'Photography', 'LIFT', 'Elevator',
             'WheelChair', 'Vehicle Pooja', 'Parking', 'Prashad', 'Prasad',
@@ -155,7 +157,7 @@ def parse_content_to_sections(content):
             'Call to action', 'Annual Event', 'Monthly Event', 'Condensed Information',
             'Making Donations', 'Reporting Lost', 'Missing Group', 'Registration',
             'Carry home', 'Temple Prashad', 'Special entry', 'Restrictions',
-        ]):
+        ]) and len(stripped_clean) < 100:
             is_header = True
 
         # If it looks like a header but it's actually a short sub-item, keep it in current section
@@ -170,7 +172,9 @@ def parse_content_to_sections(content):
                 sections_html.append(build_section(current_section_title, current_lines))
             current_section_title = stripped
             # Clean the title
-            current_section_title = re.sub(r'^\s*\d+[\.\)]\s*', '', current_section_title).strip()
+            current_section_title = re.sub(r'^[\*\-\s]*\d*[\s\.\)]*\s*', '', current_section_title)
+            current_section_title = re.sub(r'^(?:Q\.*|Question\s*\d*[\.\:]?)\s*', '', current_section_title, flags=re.IGNORECASE).strip()
+            current_section_title = re.sub(r'^[*]\s*', '', current_section_title).strip()
             current_lines = []
         else:
             skip_initial = False
@@ -222,6 +226,28 @@ def build_section(title, lines):
             if bullet_items:
                 h.append(f'{indent}  <ul class="bullet-list">')
                 for item in bullet_items:
+                    h.append(f'{indent}    <li>{escape(item)}</li>')
+                h.append(f'{indent}  </ul>')
+            continue
+
+        # Roman numeral items (i., ii., iii., etc.)
+        roman_match = re.match(r'^(i{1,3}|iv|v|vi{1,3}|ix|x)[\.\)]\s+(.+)', line, re.IGNORECASE)
+        if roman_match:
+            roman_items = []
+            while i < len(lines):
+                rl = lines[i].strip()
+                rm = re.match(r'^(i{1,3}|iv|v|vi{1,3}|ix|x)[\.\)]\s+(.+)', rl, re.IGNORECASE)
+                if rm:
+                    roman_items.append(rm.group(2))
+                    i += 1
+                elif not rl:
+                    i += 1
+                    break
+                else:
+                    break
+            if roman_items:
+                h.append(f'{indent}  <ul class="bullet-list">')
+                for item in roman_items:
                     h.append(f'{indent}    <li>{escape(item)}</li>')
                 h.append(f'{indent}  </ul>')
             continue
@@ -323,6 +349,95 @@ def build_image_carousel(images, temple_name):
 \t\t\t\t\t<div class="carousel__counter"><span class="carousel__current">1</span> / {total}</div>
 \t\t\t\t</div>'''
 
+BLOG_STYLE_BLOCK = '''
+	<style type="text/tailwindcss">
+		@layer components {
+			.lotus-bg { @apply fixed pointer-events-none z-0 hidden md:block; }
+			.lotus-bg--1 { @apply top-[5%] -right-[10%] w-[500px] h-[500px] opacity-[.12]; }
+			.lotus-bg--2 { @apply top-[35%] -left-[15%] w-[420px] h-[420px] opacity-[.08]; }
+			.lotus-spin { @apply animate-spin-slow; }
+			.lotus-spin-rev { @apply animate-spin-rev; }
+
+			body {
+				@apply min-h-screen relative overflow-x-hidden text-[#3b2510] font-sans;
+				background-color: #fdf1e2;
+				background-image: 
+					radial-gradient(circle at 50% 50%, #fadbcb 0%, transparent 80%),
+					radial-gradient(circle at 50% 0%, rgba(226, 61, 0, 0.05), transparent 70%), 
+					url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+				background-size: 100% 100%, 100% 100%, 200px 200px;
+				background-attachment: fixed;
+				animation: divine-glow 20s ease-in-out infinite alternate;
+			}
+
+			.main { @apply relative z-10; }
+			.glow-wrap { @apply absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-20; }
+			.glow-blob { @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-glow; }
+			.glow-blob--primary { @apply -top-24 -left-24 w-96 h-96 bg-primary/20; }
+			.glow-blob--accent { @apply top-1/2 -right-24 w-80 h-80 bg-accent/20; }
+
+			.section { @apply mb-12 pb-2; }
+			.section__title { @apply font-serif text-2xl font-normal text-primary mb-5 pb-2.5 border-b-2 border-[#e8ddd0]; }
+			.section__sub-b { @apply text-[1.05rem] font-normal text-[#3b2510] opacity-90 mt-6 mb-2.5 pt-1; }
+			.bullet-list { @apply list-none p-0 my-4 mb-5 space-y-3; }
+			.bullet-list li { @apply flex items-start gap-2.5 text-[#8a7260] leading-[1.7]; }
+			.bullet-list li::before { content: "\\2022"; @apply text-primary font-bold shrink-0 mt-px; }
+			
+			.num-list { @apply list-none p-0 my-4 mb-5 space-y-4; }
+			.num-list li { @apply flex items-start gap-3 text-[#8a7260] leading-[1.7]; }
+			.num-list__badge { @apply flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-[0.75rem] font-bold shrink-0 mt-0.5; }
+			
+			.article p { @apply text-[#8a7260] mb-4 leading-[1.85]; }
+			
+			.hero { @apply px-6 pb-16 relative z-10; }
+			.hero-title { @apply font-serif text-[2.25rem] leading-[1.1] tracking-tighter mb-8 font-normal md:text-[3.75rem]; }
+			.badge { @apply inline-block px-[18px] py-2 rounded-full bg-primary/10 text-primary text-[0.85rem] font-medium border border-primary/20 mb-6; }
+			
+			.glass { @apply bg-white/60 backdrop-blur-2xl border border-[#e8ddd0] shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[24px]; }
+			.key-info { @apply p-8 mb-12; }
+			.key-info__grid { @apply grid grid-cols-1 md:grid-cols-2 gap-6; }
+			.key-info__item { @apply flex items-start gap-4; }
+			.key-info__item--full { @apply md:col-span-2; }
+			.key-info__icon { @apply w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-[1.3rem]; }
+			.key-info__icon svg { @apply w-5 h-5 stroke-primary; }
+			.key-info__label { @apply text-[0.82rem] font-medium text-[#8a7260] mb-0.5; }
+			.key-info__value { @apply text-[1.05rem] font-serif text-[#3b2510]; }
+			.key-info__value--sans { @apply font-sans; }
+			
+			.article { @apply p-8 mb-12 md:px-12 md:pt-12 md:pb-6; }
+			
+			.carousel { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm; }
+			.carousel__track { @apply absolute inset-0; }
+			.carousel__slide { @apply absolute inset-0 opacity-0 transition-opacity duration-500; }
+			.carousel__slide--active { @apply opacity-100; }
+			.carousel__slide img { @apply w-full h-full object-cover; }
+			.carousel__btn { @apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-black/40; }
+			.carousel:hover .carousel__btn { @apply opacity-100; }
+			.carousel__btn--prev { @apply left-4; }
+			.carousel__btn--next { @apply right-4; }
+			.carousel__dots { @apply absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2; }
+			.carousel__dot { @apply w-2 h-2 rounded-full bg-white/40 cursor-pointer transition-colors; }
+			.carousel__dot--active { @apply bg-white; }
+			.carousel__counter { @apply absolute top-6 right-6 px-3 py-1 rounded-full bg-black/20 backdrop-blur-md text-white text-[0.75rem] font-medium; }
+			
+			.img-placeholder { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm flex items-center justify-center; }
+			.img-placeholder__icon { @apply text-[6rem] opacity-25; }
+			.img-placeholder__text { @apply absolute bottom-6 left-6 right-6 text-[#3b2510]/60 text-[0.85rem]; }
+			
+			.back-section { @apply pt-24 px-6 pb-8; }
+			.back-link { @apply inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary; }
+			.back-link svg { @apply w-4 h-4; }
+			
+			.cta-section { @apply p-12 text-center mb-12; }
+			.cta-section h3 { @apply font-serif text-3xl mb-4 text-[#3b2510]; }
+			.cta-section p { @apply text-[#8a7260] mb-8 max-w-lg mx-auto; }
+			.cta-btn { @apply inline-block px-8 py-4 rounded-full bg-primary text-white font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20; }
+			
+			.container { @apply max-w-[896px] mx-auto; }
+		}
+	</style>
+'''
+
 
 def generate_html(temple_name, category, main_deity, address, contact, timings, content_html, image_html):
     """Generate the full HTML page."""
@@ -346,17 +461,18 @@ def generate_html(temple_name, category, main_deity, address, contact, timings, 
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="/blog/assets/tailwind-config.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
+	<link rel="stylesheet" href="/blog/assets/diya.css" />
+	{BLOG_STYLE_BLOCK}
 </head>
 
 <body>
 	<main class="main">
 		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
-		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#c2560a" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#c2560a" stop-opacity="0.6"/></linearGradient></defs>{"".join(f'<g transform="rotate({a} 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g>' for a in range(0,360,int(360/16)))}</svg></div></div>
-		<div class="lotus-bg lotus-bg--2"><div class="lotus-spin-rev"><svg viewBox="0 0 800 800">{"".join(f'<g transform="rotate({a} 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g>' for a in range(0,360,30))}</svg></div></div>
-		<div class="diya-wrap diya-wrap--left"><div class="diya diya--left"><div class="diya__inner"><div class="diya__ambient"></div><div class="diya__outer-glow"></div><div class="diya__inner-glow"></div><div class="diya__flame-outer"></div><div class="diya__flame-inner"></div><div class="diya__flame-tip"></div><div class="diya__wick"></div><div class="diya__oil"><div class="diya__oil-sheen"></div></div><div class="diya__bowl"><div class="diya__bowl-shine"></div><div class="diya__bowl-highlight"></div><div class="diya__bowl-dots"><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div></div></div><div class="diya__spout"></div><div class="diya__stem"></div><div class="diya__plate"></div><div class="diya__reflection"></div></div></div></div>
-		<div class="diya-wrap diya-wrap--right"><div class="diya diya--right"><div class="diya__inner"><div class="diya__ambient"></div><div class="diya__outer-glow"></div><div class="diya__inner-glow"></div><div class="diya__flame-outer"></div><div class="diya__flame-inner"></div><div class="diya__flame-tip"></div><div class="diya__wick"></div><div class="diya__oil"><div class="diya__oil-sheen"></div></div><div class="diya__bowl"><div class="diya__bowl-shine"></div><div class="diya__bowl-highlight"></div><div class="diya__bowl-dots"><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div><div class="diya__bowl-dot"></div></div></div><div class="diya__spout"></div><div class="diya__stem"></div><div class="diya__plate"></div><div class="diya__reflection"></div></div></div></div>
+		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e23d00" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#e23d00" stop-opacity="0.6"/></linearGradient></defs>{"".join('<g transform="rotate(%d 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g>' % a for a in range(0,360,int(360/16)))}</svg></div></div>
+		<div class="lotus-bg lotus-bg--2"><div class="lotus-spin-rev"><svg viewBox="0 0 800 800">{"".join('<g transform="rotate(%d 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g>' % a for a in range(0,360,30))}</svg></div></div>
 
 		<section class="back-section">
 			<div class="container">
@@ -384,14 +500,14 @@ def generate_html(temple_name, category, main_deity, address, contact, timings, 
 							</div>
 						</div>
 						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
 							<div>
 								<div class="key-info__label">Contact</div>
 								<div class="key-info__value key-info__value--sans">{esc(contact) if contact else 'Please visit temple website'}</div>
 							</div>
 						</div>
 						<div class="key-info__item key-info__item--full">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
 							<div>
 								<div class="key-info__label">Full Address</div>
 								<div class="key-info__value key-info__value--sans">{esc(address) if address else 'Please visit temple website for address'}</div>
@@ -416,6 +532,7 @@ def generate_html(temple_name, category, main_deity, address, contact, timings, 
 	</main>
 
 	<script src="/blog/assets/blog-script.js"></script>
+	<script src="/blog/assets/diya.js"></script>
 </body>
 </html>'''
 

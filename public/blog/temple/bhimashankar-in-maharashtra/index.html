@@ -5,245 +5,120 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 	<title>﻿Bhimashankar in Maharashtra | Divya Darshan 360</title>
-	<meta name="description"
-		content="﻿Bhimashankar in Maharashtra - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta name="description" content="﻿Bhimashankar in Maharashtra - Complete guide with timings, location, how to reach, poojas, and more." />
 	<meta property="og:title" content="﻿Bhimashankar in Maharashtra" />
-	<meta property="og:description"
-		content="﻿Bhimashankar in Maharashtra - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta property="og:description" content="﻿Bhimashankar in Maharashtra - Complete guide with timings, location, how to reach, poojas, and more." />
 	<meta property="og:type" content="article" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="﻿Bhimashankar in Maharashtra" />
-	<meta name="twitter:description"
-		content="﻿Bhimashankar in Maharashtra - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta name="twitter:description" content="﻿Bhimashankar in Maharashtra - Complete guide with timings, location, how to reach, poojas, and more." />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap"
-		rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="/blog/assets/tailwind-config.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<link rel="stylesheet" href="/blog/assets/blog-style.css" />
+	<link rel="stylesheet" href="/blog/assets/diya.css" />
+	
+	<style type="text/tailwindcss">
+		@layer components {
+			.lotus-bg { @apply fixed pointer-events-none z-0 hidden md:block; }
+			.lotus-bg--1 { @apply top-[5%] -right-[10%] w-[500px] h-[500px] opacity-[.12]; }
+			.lotus-bg--2 { @apply top-[35%] -left-[15%] w-[420px] h-[420px] opacity-[.08]; }
+			.lotus-spin { @apply animate-spin-slow; }
+			.lotus-spin-rev { @apply animate-spin-rev; }
+
+			body {
+				@apply min-h-screen relative overflow-x-hidden text-[#3b2510] font-sans;
+				background-color: #fdf1e2;
+				background-image: 
+					radial-gradient(circle at 50% 50%, #fadbcb 0%, transparent 80%),
+					radial-gradient(circle at 50% 0%, rgba(226, 61, 0, 0.05), transparent 70%), 
+					url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+				background-size: 100% 100%, 100% 100%, 200px 200px;
+				background-attachment: fixed;
+				animation: divine-glow 20s ease-in-out infinite alternate;
+			}
+
+			.main { @apply relative z-10; }
+			.glow-wrap { @apply absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-20; }
+			.glow-blob { @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-glow; }
+			.glow-blob--primary { @apply -top-24 -left-24 w-96 h-96 bg-primary/20; }
+			.glow-blob--accent { @apply top-1/2 -right-24 w-80 h-80 bg-accent/20; }
+
+			.section { @apply mb-12 pb-2; }
+			.section__title { @apply font-serif text-2xl font-normal text-primary mb-5 pb-2.5 border-b-2 border-[#e8ddd0]; }
+			.section__sub-b { @apply text-[1.05rem] font-normal text-[#3b2510] opacity-90 mt-6 mb-2.5 pt-1; }
+			.bullet-list { @apply list-none p-0 my-4 mb-5 space-y-3; }
+			.bullet-list li { @apply flex items-start gap-2.5 text-[#8a7260] leading-[1.7]; }
+			.bullet-list li::before { content: "\2022"; @apply text-primary font-bold shrink-0 mt-px; }
+			
+			.num-list { @apply list-none p-0 my-4 mb-5 space-y-4; }
+			.num-list li { @apply flex items-start gap-3 text-[#8a7260] leading-[1.7]; }
+			.num-list__badge { @apply flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-[0.75rem] font-bold shrink-0 mt-0.5; }
+			
+			.article p { @apply text-[#8a7260] mb-4 leading-[1.85]; }
+			
+			.hero { @apply px-6 pb-16 relative z-10; }
+			.hero-title { @apply font-serif text-[2.25rem] leading-[1.1] tracking-tighter mb-8 font-normal md:text-[3.75rem]; }
+			.badge { @apply inline-block px-[18px] py-2 rounded-full bg-primary/10 text-primary text-[0.85rem] font-medium border border-primary/20 mb-6; }
+			
+			.glass { @apply bg-white/60 backdrop-blur-2xl border border-[#e8ddd0] shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[24px]; }
+			.key-info { @apply p-8 mb-12; }
+			.key-info__grid { @apply grid grid-cols-1 md:grid-cols-2 gap-6; }
+			.key-info__item { @apply flex items-start gap-4; }
+			.key-info__item--full { @apply md:col-span-2; }
+			.key-info__icon { @apply w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-[1.3rem]; }
+			.key-info__icon svg { @apply w-5 h-5 stroke-primary; }
+			.key-info__label { @apply text-[0.82rem] font-medium text-[#8a7260] mb-0.5; }
+			.key-info__value { @apply text-[1.05rem] font-serif text-[#3b2510]; }
+			.key-info__value--sans { @apply font-sans; }
+			
+			.article { @apply p-8 mb-12 md:px-12 md:pt-12 md:pb-6; }
+			
+			.carousel { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm; }
+			.carousel__track { @apply absolute inset-0; }
+			.carousel__slide { @apply absolute inset-0 opacity-0 transition-opacity duration-500; }
+			.carousel__slide--active { @apply opacity-100; }
+			.carousel__slide img { @apply w-full h-full object-cover; }
+			.carousel__btn { @apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-black/40; }
+			.carousel:hover .carousel__btn { @apply opacity-100; }
+			.carousel__btn--prev { @apply left-4; }
+			.carousel__btn--next { @apply right-4; }
+			.carousel__dots { @apply absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2; }
+			.carousel__dot { @apply w-2 h-2 rounded-full bg-white/40 cursor-pointer transition-colors; }
+			.carousel__dot--active { @apply bg-white; }
+			.carousel__counter { @apply absolute top-6 right-6 px-3 py-1 rounded-full bg-black/20 backdrop-blur-md text-white text-[0.75rem] font-medium; }
+			
+			.img-placeholder { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm flex items-center justify-center; }
+			.img-placeholder__icon { @apply text-[6rem] opacity-25; }
+			.img-placeholder__text { @apply absolute bottom-6 left-6 right-6 text-[#3b2510]/60 text-[0.85rem]; }
+			
+			.back-section { @apply pt-24 px-6 pb-8; }
+			.back-link { @apply inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary; }
+			.back-link svg { @apply w-4 h-4; }
+			
+			.cta-section { @apply p-12 text-center mb-12; }
+			.cta-section h3 { @apply font-serif text-3xl mb-4 text-[#3b2510]; }
+			.cta-section p { @apply text-[#8a7260] mb-8 max-w-lg mx-auto; }
+			.cta-btn { @apply inline-block px-8 py-4 rounded-full bg-primary text-white font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20; }
+			
+			.container { @apply max-w-[896px] mx-auto; }
+		}
+	</style>
+
 </head>
 
 <body>
 	<main class="main">
-		<div class="glow-wrap">
-			<div class="glow-blob glow-blob--primary"></div>
-			<div class="glow-blob glow-blob--accent"></div>
-		</div>
-		<div class="lotus-bg lotus-bg--1">
-			<div class="lotus-spin"><svg viewBox="0 0 800 800">
-					<defs>
-						<linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%">
-							<stop offset="0%" stop-color="#c2560a" stop-opacity="0.6" />
-							<stop offset="50%" stop-color="#d4af37" stop-opacity="0.8" />
-							<stop offset="100%" stop-color="#c2560a" stop-opacity="0.6" />
-						</linearGradient>
-					</defs>
-					<g transform="rotate(0 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(22 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(44 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(66 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(88 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(110 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(132 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(154 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(176 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(198 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(220 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(242 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(264 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(286 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(308 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(330 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-					<g transform="rotate(352 400 400)">
-						<path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none"
-							stroke="url(#ls1)" stroke-width="1.5" opacity=".6" />
-					</g>
-				</svg></div>
-		</div>
-		<div class="lotus-bg lotus-bg--2">
-			<div class="lotus-spin-rev"><svg viewBox="0 0 800 800">
-					<g transform="rotate(0 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(30 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(60 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(90 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(120 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(150 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(180 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(210 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(240 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(270 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(300 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-					<g transform="rotate(330 400 400)">
-						<path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37"
-							stroke-width="2" opacity=".5" />
-						<circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6" />
-					</g>
-				</svg></div>
-		</div>
-		<div class="diya-wrap diya-wrap--left">
-			<div class="diya diya--left">
-				<div class="diya__inner">
-					<div class="diya__ambient"></div>
-					<div class="diya__outer-glow"></div>
-					<div class="diya__inner-glow"></div>
-					<div class="diya__flame-outer"></div>
-					<div class="diya__flame-inner"></div>
-					<div class="diya__flame-tip"></div>
-					<div class="diya__wick"></div>
-					<div class="diya__oil">
-						<div class="diya__oil-sheen"></div>
-					</div>
-					<div class="diya__bowl">
-						<div class="diya__bowl-shine"></div>
-						<div class="diya__bowl-highlight"></div>
-						<div class="diya__bowl-dots">
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-						</div>
-					</div>
-					<div class="diya__spout"></div>
-					<div class="diya__stem"></div>
-					<div class="diya__plate"></div>
-					<div class="diya__reflection"></div>
-				</div>
-			</div>
-		</div>
-		<div class="diya-wrap diya-wrap--right">
-			<div class="diya diya--right">
-				<div class="diya__inner">
-					<div class="diya__ambient"></div>
-					<div class="diya__outer-glow"></div>
-					<div class="diya__inner-glow"></div>
-					<div class="diya__flame-outer"></div>
-					<div class="diya__flame-inner"></div>
-					<div class="diya__flame-tip"></div>
-					<div class="diya__wick"></div>
-					<div class="diya__oil">
-						<div class="diya__oil-sheen"></div>
-					</div>
-					<div class="diya__bowl">
-						<div class="diya__bowl-shine"></div>
-						<div class="diya__bowl-highlight"></div>
-						<div class="diya__bowl-dots">
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-							<div class="diya__bowl-dot"></div>
-						</div>
-					</div>
-					<div class="diya__spout"></div>
-					<div class="diya__stem"></div>
-					<div class="diya__plate"></div>
-					<div class="diya__reflection"></div>
-				</div>
-			</div>
-		</div>
+		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
+		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e23d00" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#e23d00" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
+		<div class="lotus-bg lotus-bg--2"><div class="lotus-spin-rev"><svg viewBox="0 0 800 800"><g transform="rotate(0 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(30 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(60 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(90 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(120 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(150 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(180 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(210 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(240 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(270 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(300 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g></svg></div></div>
 
 		<section class="back-section">
 			<div class="container">
 				<a href="/blog" class="back-link">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round">
-						<path d="M19 12H5" />
-						<path d="m12 19-7-7 7-7" />
-					</svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
 					Back to Blog
 				</a>
 			</div>
@@ -254,33 +129,22 @@
 				<div><span class="badge">Jyotirlinga Temples</span></div>
 				<h1 class="hero-title">﻿Bhimashankar in Maharashtra</h1>
 
-				<div class="carousel" data-total="2">
+							<div class="carousel" data-total="2">
 					<div class="carousel__track">
 						<div class="carousel__slide carousel__slide--active" data-index="0">
-							<img src="/blog/images/Jyothirlinga Temples/bhimashankar-in-maharashtra_1.jpg"
-								alt="﻿Bhimashankar in Maharashtra - Image 1" loading="lazy" />
+							<img src="/blog/images/Jyothirlinga Temples/bhimashankar-in-maharashtra_1.jpg" alt="﻿Bhimashankar in Maharashtra - Image 1" loading="lazy" />
 						</div>
 						<div class="carousel__slide" data-index="1">
-							<img src="/blog/images/Jyothirlinga Temples/bhimashankar-in-maharashtra_2.jpg"
-								alt="﻿Bhimashankar in Maharashtra - Image 2" loading="lazy" />
+							<img src="/blog/images/Jyothirlinga Temples/bhimashankar-in-maharashtra_2.jpg" alt="﻿Bhimashankar in Maharashtra - Image 2" loading="lazy" />
 						</div>
 					</div>
-					<button class="carousel__btn carousel__btn--prev" aria-label="Previous image"
-						onclick="carouselNav(this,-1)">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-							stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="15 18 9 12 15 6"></polyline>
-						</svg>
+					<button class="carousel__btn carousel__btn--prev" aria-label="Previous image" onclick="carouselNav(this,-1)">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
 					</button>
-					<button class="carousel__btn carousel__btn--next" aria-label="Next image"
-						onclick="carouselNav(this,1)">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-							stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="9 18 15 12 9 6"></polyline>
-						</svg>
+					<button class="carousel__btn carousel__btn--next" aria-label="Next image" onclick="carouselNav(this,1)">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
 					</button>
-					<div class="carousel__dots"><span class="carousel__dot carousel__dot--active"
-							data-index="0"></span><span class="carousel__dot" data-index="1"></span></div>
+					<div class="carousel__dots"><span class="carousel__dot carousel__dot--active" data-index="0"></span><span class="carousel__dot" data-index="1"></span></div>
 					<div class="carousel__counter"><span class="carousel__current">1</span> / 2</div>
 				</div>
 
@@ -290,31 +154,21 @@
 							<div class="key-info__icon">🕉️</div>
 							<div>
 								<div class="key-info__label">Main Deity</div>
-								<div class="key-info__value">Lord Shiva: The primary deity worshipped at Bhimashankar
-									Temple is Lord Shiva, in the form of a Jyotirlinga, one of the twelve sacred
-									Jyotirlingas in India. This representation signifies Shiva as the infinite, formless
-									cosmic energy.</div>
+								<div class="key-info__value">Lord Shiva: The primary deity worshipped at Bhimashankar Temple is Lord Shiva, in the form of a Jyotirlinga, one of the twelve sacred Jyotirlingas in India. This representation signifies Shiva as the infinite, formless cosmic energy.</div>
 							</div>
 						</div>
 						<div class="key-info__item">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24">
-									<path
-										d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-								</svg></div>
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
 							<div>
 								<div class="key-info__label">Contact</div>
-								<div class="key-info__value key-info__value--sans">+91-22-20702266 / +91-22-27820418</div>
+								<div class="key-info__value key-info__value--sans">Please visit temple website</div>
 							</div>
 						</div>
 						<div class="key-info__item key-info__item--full">
-							<div class="key-info__icon"><svg viewBox="0 0 24 24">
-									<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-									<circle cx="12" cy="10" r="3" />
-								</svg></div>
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
 							<div>
 								<div class="key-info__label">Full Address</div>
-								<div class="key-info__value key-info__value--sans">Bhimashankar Temple, Bhorgiri
-									Village, Khed Taluka, Pune District, Maharashtra, India - 410509</div>
+								<div class="key-info__value key-info__value--sans">Bhimashankar Temple, Bhorgiri Village, Khed Taluka, Pune District, Maharashtra, India - 410509</div>
 							</div>
 						</div>
 					</div>
@@ -322,790 +176,593 @@
 
 				<article class="glass article">
 					<div class="section">
-						<h3 class="section__title">Main Deity</h3>
-						<p>Lord Shiva: The primary deity worshipped at Bhimashankar
-							Temple is Lord Shiva, in the form of a Jyotirlinga, one of the twelve sacred Jyotirlingas in
-							India. This representation signifies Shiva as the infinite, formless cosmic energy.</p>
-						<h5 class="section__sub-b">Other Deities (Sub Deities)</h5>
-						<p>i. Parvati: Consort of Lord Shiva, also venerated within the temple premises.</p>
-						<p>ii. Nandi: The sacred bull, Shiva&#x27;s mount, often found in temples dedicated to Shiva.
-						</p>
-						<p>iii. Lord Ganesh: Son of Shiva and Parvati, worshipped for removing obstacles.</p>
-						<p>iv. Shakini and Dakini: Divine assistants of Lord Shiva, believed to have aided him in his
-							battle against the demon Tripurasura.</p>
+					  <h3 class="section__title">Main Deity: Lord Shiva: The primary deity worshipped at Bhimashankar Temple is Lord Shiva, in the form of a Jyotirlinga, one of the twelve sacred Jyotirlingas in India. This representation signifies Shiva as the infinite, formless cosmic energy.</h3>
+					  <p>a. Other Deities (Sub Deities)</p>
+					  <ul class="bullet-list">
+					    <li>Parvati: Consort of Lord Shiva, also venerated within the temple premises.</li>
+					    <li>Nandi: The sacred bull, Shiva&#x27;s mount, often found in temples dedicated to Shiva.</li>
+					    <li>Lord Ganesh: Son of Shiva and Parvati, worshipped for removing obstacles.</li>
+					    <li>Shakini and Dakini: Divine assistants of Lord Shiva, believed to have aided him in his battle against the demon Tripurasura.</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Architectural and Cultural Significance</h3>
-						<p>a. Architecture Style: The temple is built in the Nagara style, which is common in northern
-							India and characterized by its tall spires and intricate carvings. The construction dates
-							back to the 13th century, with significant additions made by Nana Phadnavis in the 18th
-							century.</p>
-						<p>b. Historical Context: The temple has been a significant pilgrimage site for centuries and is
-							linked with various legends and historical figures, including the Maratha king Shivaji who
-							made endowments for its upkeep.</p>
-						<p>Natural and Ecological Importance</p>
-						<p>c. Location: Situated in the Sahyadri hills, the temple is surrounded by the Bhimashankar
-							Wildlife Sanctuary, which is rich in biodiversity. The sanctuary is home to the rare Malabar
-							Giant Squirrel (Shekaru).</p>
-						<p>River Bhima: The temple is the source of the Bhima River, which flows southeast and is known
-							as the Chandrabhaga in Pandharpur.</p>
+					  <h3 class="section__title">Architectural and Cultural Significance</h3>
+					  <p>a. Architecture Style: The temple is built in the Nagara style, which is common in northern India and characterized by its tall spires and intricate carvings. The construction dates back to the 13th century, with significant additions made by Nana Phadnavis in the 18th century.</p>
+					  <p>b. Historical Context: The temple has been a significant pilgrimage site for centuries and is linked with various legends and historical figures, including the Maratha king Shivaji who made endowments for its upkeep.</p>
+					  <p>Natural and Ecological Importance</p>
+					  <p>c. Location: Situated in the Sahyadri hills, the temple is surrounded by the Bhimashankar Wildlife Sanctuary, which is rich in biodiversity. The sanctuary is home to the rare Malabar Giant Squirrel (Shekaru).</p>
+					  <p>River Bhima: The temple is the source of the Bhima River, which flows southeast and is known as the Chandrabhaga in Pandharpur.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
-						<h5 class="section__sub-b">a. General Timings</h5>
-						<p>i. Morning Opening: 4:30 AM</p>
-						<p>ii. Kakada Aarti: 4:30 AM</p>
-						<p>iii. Nijarup Darshan: 5:00 AM</p>
-						<p>iv. Regular Pooja and Abhishek: 5:30 AM - 12:00 PM</p>
-						<p>v. Naivedya Pooja: 12:00 PM</p>
-						<p>vi. Regular Pooja and Abhishek: 12:30 PM - 3:00 PM</p>
-						<p>vii. Madhyan Aarti: 3:00 PM (No Darshan for 45 minutes during this time)</p>
-						<p>viii. Shringar Darshan: 4:00 PM - 9:30 PM (No Abhishek inside)</p>
-						<p>ix. Evening Aarti: 7:30 PM</p>
-						<p>x. Temple Closing: 9:30 PM</p>
-						<h5 class="section__sub-b">b. Special Days like Festivals and Utsavas</h5>
-						<p>i. Extended Hours: During special occasions like Mahashivratri, Kartik Poornima, and other
-							significant festivals, the temple remains open longer to accommodate the increased number of
-							devotees.</p>
-						<p>ii. Specific Rituals: Additional poojas, abhishekams, and aartis are performed, often
-							starting earlier and ending later than usual to facilitate special prayers and rituals.</p>
-						<p>iii. References: Temple Purohit</p>
-						<p>Bhimashankar Temple Official Website Wikipedia - Bhimashankar Temple.</p>
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  <h5 class="section__sub-b">a. General Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Morning Opening: 4:30 AM</li>
+					    <li>Kakada Aarti: 4:30 AM</li>
+					    <li>Nijarup Darshan: 5:00 AM</li>
+					    <li>Regular Pooja and Abhishek: 5:30 AM - 12:00 PM</li>
+					    <li>Naivedya Pooja: 12:00 PM</li>
+					    <li>Regular Pooja and Abhishek: 12:30 PM - 3:00 PM</li>
+					    <li>Madhyan Aarti: 3:00 PM (No Darshan for 45 minutes during this time)</li>
+					    <li>Shringar Darshan: 4:00 PM - 9:30 PM (No Abhishek inside)</li>
+					    <li>Evening Aarti: 7:30 PM</li>
+					    <li>Temple Closing: 9:30 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Special Days like Festivals and Utsavas</h5>
+					  <ul class="bullet-list">
+					    <li>Extended Hours: During special occasions like Mahashivratri, Kartik Poornima, and other significant festivals, the temple remains open longer to accommodate the increased number of devotees.</li>
+					    <li>Specific Rituals: Additional poojas, abhishekams, and aartis are performed, often starting earlier and ending later than usual to facilitate special prayers and rituals.</li>
+					    <li>References: Temple Purohit</li>
+					  </ul>
+					  <p>Bhimashankar Temple Official Website Wikipedia - Bhimashankar Temple.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is there any Entry Fees-</h3>
-						<p>What privilege does it grant? For eg quick darshan, special gate, longer view of deity,
-							prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to
-							be made? Etc.</p>
+					  <h3 class="section__title">Is there any Entry Fees-</h3>
+					  <p>What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Entry Fees and Privileges at Bhimashankar Temple</h3>
-						<h5 class="section__sub-b">a. Entry Fees</h5>
-						<p>i. General Entry: There is no entry fee for visiting Bhimashankar Temple. General entry is
-							free for all devotees.</p>
-						<h5 class="section__sub-b">Privileges and Special Services</h5>
-						<p>b. Quick Darshan: The temple may offer special arrangements for quick darshan during peak
-							times and festivals. This typically requires a donation or a special ticket.</p>
-						<p>c. Special Gates: During significant festivals and high-traffic periods, there might be
-							separate entry gates for those who have made special arrangements or donations.</p>
-						<p>d. Longer View of Deity: Special darshan tickets may allow for a longer or closer view of the
-							deity.</p>
+					  <h3 class="section__title">Entry Fees and Privileges at Bhimashankar Temple</h3>
+					  <h5 class="section__sub-b">a. Entry Fees</h5>
+					  <ul class="bullet-list">
+					    <li>General Entry: There is no entry fee for visiting Bhimashankar Temple. General entry is free for all devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Privileges and Special Services</h5>
+					  <p>b. Quick Darshan: The temple may offer special arrangements for quick darshan during peak times and festivals. This typically requires a donation or a special ticket.</p>
+					  <p>c. Special Gates: During significant festivals and high-traffic periods, there might be separate entry gates for those who have made special arrangements or donations.</p>
+					  <p>d. Longer View of Deity: Special darshan tickets may allow for a longer or closer view of the deity.</p>
+					  <p>Prasad and Pooja: Devotees can purchase prasad or book special poojas. These can be arranged through the temple office or online. Specific details about the types of prasad and poojas, as well as their costs, are typically available on the temple&#x27;s official website.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Restrictions and Requirements for Foreigners:</h3>
-						<p>e. No Special Restrictions: Generally, there are no specific restrictions for foreign
-							visitors. They are welcome to visit and participate in temple activities.</p>
-						<p>f. No Special Fees: Foreigners are not charged additional fees beyond what is typically
-							expected for any special services or poojas they choose to participate in.</p>
-						<p>g. Declaration: There is no specific declaration needed for foreigners to enter the temple.
-						</p>
-						<p>h. Booking and More Information: For the most accurate and detailed information regarding
-							entry fees, privileges, and services, it is recommended to visit the official Bhimashankar
-							Temple website or contact the temple administration directly.</p>
+					  <h3 class="section__title">Restrictions and Requirements for Foreigners:</h3>
+					  <p>e. No Special Restrictions: Generally, there are no specific restrictions for foreign visitors. They are welcome to visit and participate in temple activities.</p>
+					  <p>f. No Special Fees: Foreigners are not charged additional fees beyond what is typically expected for any special services or poojas they choose to participate in.</p>
+					  <p>g. Declaration: There is no specific declaration needed for foreigners to enter the temple.</p>
+					  <p>h. Booking and More Information: For the most accurate and detailed information regarding entry fees, privileges, and services, it is recommended to visit the official Bhimashankar Temple website or contact the temple administration directly.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Location- How to Reach/commuting- Flight/Train/Bus/Taxi
-							Stand/Ferry/Port Air- what ever is available.</h3>
-						<p>How to Reach Bhimashankar Temple</p>
-						<h5 class="section__sub-b">a. By Air</h5>
-						<p>i. Nearest Airport: Pune Airport (PNQ)</p>
-						<p>ii. Distance to Bhimashankar: Approximately 125 kilometers</p>
-						<p>iii. Connectivity: Pune Airport is well connected with major Indian cities like Mumbai,
-							Delhi, Bangalore, Hyderabad, Chennai, and Kolkata via airlines such as IndiGo, Air India,
-							and SpiceJet.</p>
-						<p>iv. Travel Time: Roughly a 2.5-hour drive from Pune Airport to Bhimashankar</p>
-						<h5 class="section__sub-b">b. By Train</h5>
-						<p>i. Nearest Railway Station: Pune Railway Station</p>
-						<p>ii. Distance to Bhimashankar: Approximately 111 kilometers</p>
-						<p>iii. Connectivity: Pune Railway Station is connected to major cities such as Mumbai, Delhi,
-							Bangalore, Chennai, and Jaipur via trains like Udyan Express, Pune Shatabdi, and Mahalaxmi
-							Express.</p>
-						<p>iv. Travel Time: The train journey followed by a road trip from Pune to Bhimashankar</p>
-						<h5 class="section__sub-b">c. By Road</h5>
-						<h5 class="section__sub-b">i. From Pune</h5>
-						<ul class="bullet-list">
-							<li>Route: Pune → Rajguru Nagar → Manchar → Bhimashankar</li>
-							<li>Travel Time: Approximately 3 to 4 hours</li>
-							<li>Bus Services: State transport buses and private buses operate from Pune to Bhimashankar.
-							</li>
-							<li>Taxi Services: Available from Pune and can be booked for a direct trip to Bhimashankar.
-							</li>
-						</ul>
-						<h5 class="section__sub-b">ii. From Mumbai</h5>
-						<ul class="bullet-list">
-							<li>Route: Mumbai → Talegaon → Chakan → Manchar → Bhimashankar</li>
-							<li>Travel Time: Approximately 5 to 6 hours</li>
-							<li>Bus Services: Regular buses are available from Mumbai to Bhimashankar.</li>
-							<li>Taxi Services: Taxis can be hired from Mumbai for a direct trip to Bhimashankar.</li>
-						</ul>
-						<h5 class="section__sub-b">d. By Local Transport</h5>
-						<h5 class="section__sub-b">i. From Manchar</h5>
-						<ul class="bullet-list">
-							<li>Distance to Bhimashankar: Approximately 35 kilometers</li>
-							<li>Travel Options: Local buses, shared taxis, and private taxis are available from Manchar
-								to Bhimashankar.</li>
-							<li>Travel Tips: Weather Considerations: The best time to visit is between October and March
-								when the weather is pleasant.</li>
-						</ul>
-						<p>Road Conditions: Roads leading to Bhimashankar can be winding and steep, so it’s advisable to
-							hire experienced drivers or take public transport.</p>
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available.</h3>
+					  <p>How to Reach Bhimashankar Temple</p>
+					  <h5 class="section__sub-b">a. By Air</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Airport: Pune Airport (PNQ)</li>
+					    <li>Distance to Bhimashankar: Approximately 125 kilometers</li>
+					    <li>Connectivity: Pune Airport is well connected with major Indian cities like Mumbai, Delhi, Bangalore, Hyderabad, Chennai, and Kolkata via airlines such as IndiGo, Air India, and SpiceJet.</li>
+					    <li>Travel Time: Roughly a 2.5-hour drive from Pune Airport to Bhimashankar</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. By Train</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Railway Station: Pune Railway Station</li>
+					    <li>Distance to Bhimashankar: Approximately 111 kilometers</li>
+					    <li>Connectivity: Pune Railway Station is connected to major cities such as Mumbai, Delhi, Bangalore, Chennai, and Jaipur via trains like Udyan Express, Pune Shatabdi, and Mahalaxmi Express.</li>
+					    <li>Travel Time: The train journey followed by a road trip from Pune to Bhimashankar</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. By Road</h5>
+					  <h5 class="section__sub-b">i. From Pune</h5>
+					  <ul class="bullet-list">
+					    <li>Route: Pune → Rajguru Nagar → Manchar → Bhimashankar</li>
+					    <li>Travel Time: Approximately 3 to 4 hours</li>
+					    <li>Bus Services: State transport buses and private buses operate from Pune to Bhimashankar.</li>
+					    <li>Taxi Services: Available from Pune and can be booked for a direct trip to Bhimashankar.</li>
+					  </ul>
+					  <h5 class="section__sub-b">ii. From Mumbai</h5>
+					  <ul class="bullet-list">
+					    <li>Route: Mumbai → Talegaon → Chakan → Manchar → Bhimashankar</li>
+					    <li>Travel Time: Approximately 5 to 6 hours</li>
+					    <li>Bus Services: Regular buses are available from Mumbai to Bhimashankar.</li>
+					    <li>Taxi Services: Taxis can be hired from Mumbai for a direct trip to Bhimashankar.</li>
+					  </ul>
+					  <h5 class="section__sub-b">d. By Local Transport</h5>
+					  <h5 class="section__sub-b">i. From Manchar</h5>
+					  <ul class="bullet-list">
+					    <li>Distance to Bhimashankar: Approximately 35 kilometers</li>
+					    <li>Travel Options: Local buses, shared taxis, and private taxis are available from Manchar to Bhimashankar.</li>
+					    <li>Travel Tips: Weather Considerations: The best time to visit is between October and March when the weather is pleasant.</li>
+					  </ul>
+					  <p>Road Conditions: Roads leading to Bhimashankar can be winding and steep, so it’s advisable to hire experienced drivers or take public transport.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Special Poojas and Rituals at Bhimashankar Temple</h3>
-						<h5 class="section__sub-b">Rudrabhishek</h5>
-						<p>i. Description: A ritual involving the offering of milk, honey, curd, ghee, sugar, and water
-							to the Lingam of Lord Shiva. This pooja is believed to purify the atmosphere and remove
-							sins.</p>
-						<p>ii. Timing: Performed daily, especially on Mondays, Pradosham days, and during the month of
-							Shravan.</p>
-						<p>iii. Cost: Approximately INR 150 to INR 1100, depending on the type of Rudrabhishek.</p>
-						<p>iv. Booking: Tickets can be purchased on arrival at the temple.</p>
-						<h5 class="section__sub-b">Laghu Rudra Abhishek</h5>
-						<p>i. Description: Similar to Rudrabhishek but with a more elaborate offering of 121
-							ingredients.</p>
-						<p>ii. Timing: During Shravan Maas and special occasions.</p>
-						<p>iii. Cost: Varies, generally higher than the regular Rudrabhishek.</p>
-						<p>iv. Booking: On-site booking required.</p>
-						<h5 class="section__sub-b">Maha Rudra Abhishek</h5>
-						<p>i. Description: The most elaborate form of Rudrabhishek, involving 1008 ingredients.</p>
-						<p>ii. Timing: Major festivals like Mahashivratri, Kartik Maas.</p>
-						<p>iii. Cost: Higher than Laghu Rudra Abhishek.</p>
-						<p>iv. Booking: Advance booking is recommended through the temple office.</p>
-						<h5 class="section__sub-b">Other Rituals</h5>
-						<p>i. Abhishekam: Offering various liquids to the deity.</p>
-						<p>ii. Archana: Recitation of names and mantras while offering flowers.</p>
-						<p>iii. Aarti: Performed at different times of the day, including Mangala Aarti (morning),
-							Sandhya Aarti (evening), and Shej Aarti (night).</p>
-						<p>iv. Pradakshina: Circumambulation of the deity.</p>
-						<p>v. Pran Pratishtha: Installation of a new Lingam or idol.</p>
-						<h5 class="section__sub-b">e. Advance Booking Procedure</h5>
-						<p>i. On-Site: Most pooja tickets are available for purchase on-site at the temple&#x27;s
-							booking counter.</p>
-						<p>ii. Online: Currently, the temple does not offer online booking facilities for poojas. It is
-							advisable to visit the temple early to secure a ticket for the desired pooja.</p>
+					  <h3 class="section__title">Special Poojas and Rituals at Bhimashankar Temple</h3>
+					  <p>a. Rudrabhishek</p>
+					  <ul class="bullet-list">
+					    <li>Description: A ritual involving the offering of milk, honey, curd, ghee, sugar, and water to the Lingam of Lord Shiva. This pooja is believed to purify the atmosphere and remove sins.</li>
+					    <li>Timing: Performed daily, especially on Mondays, Pradosham days, and during the month of Shravan.</li>
+					    <li>Cost: Approximately INR 150 to INR 1100, depending on the type of Rudrabhishek.</li>
+					    <li>Booking: Tickets can be purchased on arrival at the temple.</li>
+					  </ul>
+					  <p>b. Laghu Rudra Abhishek</p>
+					  <ul class="bullet-list">
+					    <li>Description: Similar to Rudrabhishek but with a more elaborate offering of 121 ingredients.</li>
+					    <li>Timing: During Shravan Maas and special occasions.</li>
+					    <li>Cost: Varies, generally higher than the regular Rudrabhishek.</li>
+					    <li>Booking: On-site booking required.</li>
+					  </ul>
+					  <p>c. Maha Rudra Abhishek</p>
+					  <ul class="bullet-list">
+					    <li>Description: The most elaborate form of Rudrabhishek, involving 1008 ingredients.</li>
+					    <li>Timing: Major festivals like Mahashivratri, Kartik Maas.</li>
+					    <li>Cost: Higher than Laghu Rudra Abhishek.</li>
+					    <li>Booking: Advance booking is recommended through the temple office.</li>
+					  </ul>
+					  <h5 class="section__sub-b">d. Other Rituals</h5>
+					  <ul class="bullet-list">
+					    <li>Abhishekam: Offering various liquids to the deity.</li>
+					    <li>Archana: Recitation of names and mantras while offering flowers.</li>
+					    <li>Aarti: Performed at different times of the day, including Mangala Aarti (morning), Sandhya Aarti (evening), and Shej Aarti (night).</li>
+					    <li>Pradakshina: Circumambulation of the deity.</li>
+					    <li>Pran Pratishtha: Installation of a new Lingam or idol.</li>
+					  </ul>
+					  <h5 class="section__sub-b">e. Advance Booking Procedure</h5>
+					  <ul class="bullet-list">
+					    <li>On-Site: Most pooja tickets are available for purchase on-site at the temple&#x27;s booking counter.</li>
+					    <li>Online: Currently, the temple does not offer online booking facilities for poojas. It is advisable to visit the temple early to secure a ticket for the desired pooja.</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Any online service exists for serving the customers? If yes by whom?
-						</h3>
-						<p>Online Services for Bhimashankar Temple</p>
-						<p>Yes, Bhimashankar Temple offers online services to facilitate the needs of devotees. Here are
-							the available services:</p>
-						<h5 class="section__sub-b">Online Pooja Booking</h5>
-						<p>Devotees who cannot visit the temple in person can still offer their prayers and participate
-							in pooja ceremonies through online registration.</p>
-						<p>Website for Online Pooja Registration: Bhimashankar Online Pooja Registration</p>
-						<p>Payment Methods: Credit/Debit card, internet banking, and online wallets.</p>
-						<p>Details Provided: After registering and completing the payment, devotees will receive an
-							official receipt and the blessed prasad (sacred offering) delivered by post within 20-25
-							days.</p>
-						<p>Donations: Devotees can make donations to support the temple&#x27;s activities and
-							maintenance.</p>
-						<p>Website for Accommodation: Accommodation Options</p>
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Online Services for Bhimashankar Temple</p>
+					  <p>Yes, Bhimashankar Temple offers online services to facilitate the needs of devotees. Here are the available services:</p>
+					  <h5 class="section__sub-b">a. Online Pooja Booking</h5>
+					  <p>Devotees who cannot visit the temple in person can still offer their prayers and participate in pooja ceremonies through online registration.</p>
+					  <p>Website for Online Pooja Registration: Bhimashankar Online Pooja Registration</p>
+					  <p>b. Payment Methods: Credit/Debit card, internet banking, and online wallets.</p>
+					  <p>c. Details Provided: After registering and completing the payment, devotees will receive an official receipt and the blessed prasad (sacred offering) delivered by post within 20-25 days.</p>
+					  <p>d. Donations: Devotees can make donations to support the temple&#x27;s activities and maintenance.</p>
+					  <p>e. Website for Accommodation: Accommodation Options</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Special Poojas and Rituals at Bhimashankar Temple</h3>
-						<h5 class="section__sub-b">i. Rudrabhishek</h3>
-						<ul class="bullet-list">
-							<li>Timing: Daily, especially on Mondays and during Shravan Maas.</li>
-							<li>Cost: INR 549 and above.</li>
-							<li>Booking: On-site booking or through online registration.</li>
-						</ul>
-						<h5 class="section__sub-b">ii. Laghu Rudra Abhishek</h5>
-						<ul class="bullet-list">
-							<li>Timing: Special occasions and Shravan Maas.</li>
-							<li>Cost: INR 6049 and above.</li>
-							<li>Booking: On-site and online booking available.</li>
-						</ul>
-						<h5 class="section__sub-b">iii. Maha Rudra Abhishek</h5>
-						<ul class="bullet-list">
-							<li>Timing: Major festivals like Mahashivratri.</li>
-							<li>Cost: INR 3399 and above.</li>
-							<li>Booking: Advance booking recommended, available on-site and online</li>
-						</ul>
+					  <h3 class="section__title">Special Poojas and Rituals at Bhimashankar Temple</h3>
+					  <ul class="bullet-list">
+					    <li>Rudrabhishek</li>
+					  </ul>
+					  <ul class="bullet-list">
+					    <li>Timing: Daily, especially on Mondays and during Shravan Maas.</li>
+					    <li>Cost: INR 549 and above.</li>
+					    <li>Booking: On-site booking or through online registration.</li>
+					  </ul>
+					  <ul class="bullet-list">
+					    <li>Laghu Rudra Abhishek</li>
+					  </ul>
+					  <ul class="bullet-list">
+					    <li>Timing: Special occasions and Shravan Maas.</li>
+					    <li>Cost: INR 6049 and above.</li>
+					    <li>Booking: On-site and online booking available.</li>
+					  </ul>
+					  <ul class="bullet-list">
+					    <li>Maha Rudra Abhishek</li>
+					  </ul>
+					  <ul class="bullet-list">
+					    <li>Timing: Major festivals like Mahashivratri.</li>
+					    <li>Cost: INR 3399 and above.</li>
+					    <li>Booking: Advance booking recommended, available on-site and online</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Dress Code for Bhimashankar Temple</h3>
-						<h5 class="section__sub-b">a. General Dress Code</h5>
-						<p>i. Men: Traditional attire such as dhoti-kurta or pyjama-kurta is recommended. Avoid wearing
-							shorts, sleeveless shirts, and other casual wear.</p>
-						<p>ii. Women: Traditional outfits like sarees, salwar kameez, or other modest Indian attire are
-							recommended. Avoid wearing shorts, skirts, and sleeveless tops.</p>
-						<h5 class="section__sub-b">iii. Special Pooja and Festival Days</h5>
-						<p>During special poojas and festivals such as Mahashivratri, Kartik Poornima, and other
-							significant religious events, it is especially important to adhere to traditional and modest
-							dress codes to maintain the sanctity and decorum of the temple.</p>
-						<h5 class="section__sub-b">b. Additional Guidelines</h5>
-						<p>i. Footwear: Shoes and other footwear must be removed before entering the temple premises.
-						</p>
-						<p>ii. Accessories: Avoid wearing flashy jewelry or carrying large bags inside the temple.</p>
-						<p>iii. Modesty: Both men and women are encouraged to dress modestly, covering shoulders and
-							knees, to respect the religious customs and traditions.</p>
+					  <h3 class="section__title">Dress Code for Bhimashankar Temple</h3>
+					  <h5 class="section__sub-b">a. General Dress Code</h5>
+					  <ul class="bullet-list">
+					    <li>Men: Traditional attire such as dhoti-kurta or pyjama-kurta is recommended. Avoid wearing shorts, sleeveless shirts, and other casual wear.</li>
+					    <li>Women: Traditional outfits like sarees, salwar kameez, or other modest Indian attire are recommended. Avoid wearing shorts, skirts, and sleeveless tops.</li>
+					    <li>Special Pooja and Festival Days:</li>
+					  </ul>
+					  <p>During special poojas and festivals such as Mahashivratri, Kartik Poornima, and other significant religious events, it is especially important to adhere to traditional and modest dress codes to maintain the sanctity and decorum of the temple.</p>
+					  <h5 class="section__sub-b">b. Additional Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Footwear: Shoes and other footwear must be removed before entering the temple premises.</li>
+					    <li>Accessories: Avoid wearing flashy jewelry or carrying large bags inside the temple.</li>
+					    <li>Modesty: Both men and women are encouraged to dress modestly, covering shoulders and knees, to respect the religious customs and traditions.</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Are Electronic Gadgets Allowed?</h3>
-						<h5 class="section__sub-b">Prohibited</h5>
-						<p>The use of mobile phones, cameras, and other electronic gadgets is strictly
-							prohibited within the Bhimashankar Temple premises. This measure helps maintain the sanctity
-							and safety of the temple, especially during peak times like the Shravan month.</p>
-						<h5 class="section__sub-b">Depositing Gadgets</h5>
-						<p>i. Deposit Facilities: There are designated lockers and deposit counters near the temple
-							where devotees can safely store their electronic devices before entering the temple
-							premises.</p>
-						<h5 class="section__sub-b">Purpose of Ban</h5>
-						<p>i. Safety and Sanctity: The primary aim is to ensure the safety and comfort of devotees by
-							avoiding overcrowding in sacred areas and to facilitate an unhindered darshan experience.
-							The ban also helps in preserving the spiritual atmosphere of the temple.</p>
+					  <h3 class="section__title">Are Electronic Gadgets Allowed?</h3>
+					  <p>a. Prohibited: The use of mobile phones, cameras, and other electronic gadgets is strictly prohibited within the Bhimashankar Temple premises. This measure helps maintain the sanctity and safety of the temple, especially during peak times like the Shravan month.</p>
+					  <h5 class="section__sub-b">b. Depositing Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Deposit Facilities: There are designated lockers and deposit counters near the temple where devotees can safely store their electronic devices before entering the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. Purpose of Ban</h5>
+					  <ul class="bullet-list">
+					    <li>Safety and Sanctity: The primary aim is to ensure the safety and comfort of devotees by avoiding overcrowding in sacred areas and to facilitate an unhindered darshan experience. The ban also helps in preserving the spiritual atmosphere of the temple.</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
-						<h5 class="section__sub-b">Photography and Videography</h5>
-						<p>i. Allowed: Photography is generally allowed in the temple premises.</p>
-						<p>ii. Restrictions: Photography is not permitted inside the sanctum sanctorum (inner sanctum
-							where the deity resides) to maintain the sanctity and privacy of the worship space.</p>
-						<p>iii. Fee: There is no specific fee mentioned for photography within the allowed areas of the
-							temple premises.</p>
-						<p>iv. Storage for Gadgets: While there isn&#x27;t detailed information about specific storage
-							facilities for gadgets at Bhimashankar Temple, it is advisable to check with the temple
-							office upon arrival for any available temporary storage options.</p>
-						<p>For the most accurate and up-to-date information, it is recommended to visit the official
-							Bhimashankar Temple website or contact the temple administration directly.</p>
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <h5 class="section__sub-b">a. Photography and Videography</h5>
+					  <ul class="bullet-list">
+					    <li>Allowed: Photography is generally allowed in the temple premises.</li>
+					    <li>Restrictions: Photography is not permitted inside the sanctum sanctorum (inner sanctum where the deity resides) to maintain the sanctity and privacy of the worship space.</li>
+					    <li>Fee: There is no specific fee mentioned for photography within the allowed areas of the temple premises.</li>
+					    <li>Storage for Gadgets: While there isn&#x27;t detailed information about specific storage facilities for gadgets at Bhimashankar Temple, it is advisable to check with the temple office upon arrival for any available temporary storage options.</li>
+					  </ul>
+					  <p>For the most accurate and up-to-date information, it is recommended to visit the official Bhimashankar Temple website or contact the temple administration directly.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is there a LIFT /Elevator or any other facility for physically
-							handicapped?</h3>
-							<h5 class="section__sub-b">Facilities for Physically Handicapped Visitors</h5>
-						<p> No Lifts or Elevators: Bhimashankar Temple
-							does not have lifts or elevators due to its location on a mountain and the traditional
-							architecture.</p>
-						<h5 class="section__sub-b">Alternative Assistance</h5>
-						<p>i. Palki (Palanquin) Services: For elderly and physically challenged visitors, palki services
-							are available. These are carried by porters and can be hired at the base of the temple or
-							nearby areas.</p>
-						<p>ii. Wheelchair Access: The temple premises and approach paths may not be fully wheelchair
-							accessible due to the terrain.</p>
-						<h5 class="section__sub-b">Tips for Physically Handicapped Visitors</h5>
-						<p>i. Plan Ahead: It is advisable to contact the temple administration in advance to inquire
-							about the best ways to access the temple and any available assistance services.</p>
-						<p>ii. Hire Help: Palki services can be pre-arranged or hired upon arrival to ensure a
-							comfortable visit for those with mobility issues.</p>
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>a. Facilities for Physically Handicapped Visitors: No Lifts or Elevators: Bhimashankar Temple does not have lifts or elevators due to its location on a mountain and the traditional architecture.</p>
+					  <h5 class="section__sub-b">b. Alternative Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Palki (Palanquin) Services: For elderly and physically challenged visitors, palki services are available. These are carried by porters and can be hired at the base of the temple or nearby areas.</li>
+					    <li>Wheelchair Access: The temple premises and approach paths may not be fully wheelchair accessible due to the terrain.</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. Tips for Physically Handicapped Visitors</h5>
+					  <ul class="bullet-list">
+					    <li>Plan Ahead: It is advisable to contact the temple administration in advance to inquire about the best ways to access the temple and any available assistance services.</li>
+					    <li>Hire Help: Palki services can be pre-arranged or hired upon arrival to ensure a comfortable visit for those with mobility issues.</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Facility of WheelChair for elderly and physically challenged.</h3>
-						<h5 class="section__sub-b">Facilities for Physically Handicapped and Elderly at Bhimashankar Temple</h5>
-						<p>i. Wheelchair Facilities: Currently, there are no specific facilities or provisions for
-							wheelchairs directly provided by the Bhimashankar Temple. The temple is located in a hilly
-							region and involves a climb of around 200 steps, which can be challenging for physically
-							handicapped and elderly visitors.</p>
-						<p>ii. Assistance Available: Doly/Palakhi Services: For those who have difficulty walking or
-							climbing stairs, &quot;Doly&quot; or &quot;Palakhi&quot; services are available. These are
-							manual carrying services where individuals are transported in a palanquin by porters. This
-							service can be availed from the bus stand to the temple premises.</p>
-						<p>iii. Transportation and Accessibility: Steps and Elevation: There are about 200 stairs leading
-							up to the temple from the bus stand, making accessibility a challenge for those with
-							mobility issues.</p>
-						<p>iv. No Elevator or Lift: There are no elevators or lifts available at the temple due to the
-							terrain and the traditional structure of the site.</p>
-						<h5 class="section__sub-b">Visitor Recommendations</h5>
-						<p>i. Travel Preparation: It is advisable to bring necessary support equipment and an additional
-							person to assist with movement if you are elderly or physically challenged.</p>
-						<p>ii. Contacting Temple Authorities: For specific queries or assistance, contacting the temple
-							office directly before planning your visit can help arrange any necessary accommodations or
-							provide current information on available services.</p>
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged.</h3>
+					  <p>Facilities for Physically Handicapped and Elderly at Bhimashankar Temple</p>
+					  <p>a. Wheelchair Facilities: Currently, there are no specific facilities or provisions for wheelchairs directly provided by the Bhimashankar Temple. The temple is located in a hilly region and involves a climb of around 200 steps, which can be challenging for physically handicapped and elderly visitors.</p>
+					  <p>b. Assistance Available: Doly/Palakhi Services: For those who have difficulty walking or climbing stairs, &quot;Doly&quot; or &quot;Palakhi&quot; services are available. These are manual carrying services where individuals are transported in a palanquin by porters. This service can be availed from the bus stand to the temple premises.</p>
+					  <p>c. Transportation and Accessibility: Steps and Elevation: There are about 200 stairs leading up to the temple from the bus stand, making accessibility a challenge for those with mobility issues.</p>
+					  <p>d. No Elevator or Lift: There are no elevators or lifts available at the temple due to the terrain and the traditional structure of the site.</p>
+					  <h5 class="section__sub-b">e. Visitor Recommendations</h5>
+					  <ul class="bullet-list">
+					    <li>Travel Preparation: It is advisable to bring necessary support equipment and an additional person to assist with movement if you are elderly or physically challenged.</li>
+					    <li>Contacting Temple Authorities: For specific queries or assistance, contacting the temple office directly before planning your visit can help arrange any necessary accommodations or provide current information on available services.</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens
-							/Physically Challenged persons.</h3>
-						<p>Special Entry and Timing of Darshan at Bhimashankar Temple</p>
-						<h5 class="section__sub-b">Special Entry for Sick, Senior Citizens, and Physically Challenged
-							Persons</h5>
-						<h5 class="section__sub-b">a. Priority Access</h5>
-						<p>i. Special Darshan Lines: The temple management offers special darshan lines for sick, senior
-							citizens, and physically challenged persons to avoid long queues and ensure a smoother
-							darshan experience.</p>
-						<p>ii. Assistance: Temple staff are available to assist those in need of special care and help
-							them navigate through the temple premises.</p>
-						<h5 class="section__sub-b">b. Special Timings</h5>
-						<p>i. Early Morning Hours: It is often recommended for elderly and physically challenged
-							individuals to visit the temple during early morning hours when the crowd is minimal.</p>
-						<p>ii. Non-Peak Hours: Visiting during non-peak hours, such as late afternoons or post-noon, can
-							also provide a more comfortable experience.</p>
-						<h5 class="section__sub-b">c. Advance Arrangement</h5>
-						<p>i. Contact Temple Authorities: It is advisable to contact the temple authorities in advance
-							to inform them about any special needs. This can help in making necessary arrangements to
-							facilitate the darshan.</p>
-						<p>Phone Numbers: +91-22-20702266 / +91-22-27820418</p>
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons.</h3>
+					  <p>Special Entry and Timing of Darshan at Bhimashankar Temple</p>
+					  <h5 class="section__sub-b">Special Entry for Sick, Senior Citizens, and Physically Challenged Persons</h5>
+					  <h5 class="section__sub-b">a. Priority Access</h5>
+					  <ul class="bullet-list">
+					    <li>Special Darshan Lines: The temple management offers special darshan lines for sick, senior citizens, and physically challenged persons to avoid long queues and ensure a smoother darshan experience.</li>
+					    <li>Assistance: Temple staff are available to assist those in need of special care and help them navigate through the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Special Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Early Morning Hours: It is often recommended for elderly and physically challenged individuals to visit the temple during early morning hours when the crowd is minimal.</li>
+					    <li>Non-Peak Hours: Visiting during non-peak hours, such as late afternoons or post-noon, can also provide a more comfortable experience.</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. Advance Arrangement</h5>
+					  <ul class="bullet-list">
+					    <li>Contact Temple Authorities: It is advisable to contact the temple authorities in advance to inform them about any special needs. This can help in making necessary arrangements to facilitate the darshan.</li>
+					  </ul>
+					  <p>Phone Numbers: +91-22-20702266 / +91-22-27820418</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
-						<h5 class="section__sub-b">Vehicle Pooja</h5>
-						<p>i. Availability: Yes, Bhimashankar Temple offers a vehicle pooja service.</p>
-						<p>ii. Timings: Generally available during the temple&#x27;s opening hours from 4:30 AM to 9:30
-							PM.</p>
-						<p>iii. Cost: Approximately INR 300 to INR 500 depending on the type and size of the vehicle.
-						</p>
-						<p>iv. Booking: No advance booking is required; tickets can be purchased at the temple&#x27;s
-							pooja counter upon arrival.</p>
-						<h5 class="section__sub-b">Accessibility and Special Facilities</h5>
-						<p>i. No Lifts or Elevators: Due to the temple&#x27;s location and structure, there are no lifts
-							or elevators available.</p>
-						<p>ii. Wheelchair Facilities: The temple does not have dedicated wheelchair facilities. However,
-							palki (palanquin) services are available for elderly and physically challenged individuals
-							to help them navigate the steps leading to the temple.</p>
-						<p>iii. Special Entry for Darshan: Special arrangements are made for sick, senior citizens, and
-							physically challenged persons to facilitate a smoother darshan experience. It is advisable
-							to contact the temple authorities upon arrival for assistance.</p>
-						<h5 class="section__sub-b">Photography</h5>
-						<p>i. Allowed: Photography is permitted in the temple premises but not inside the sanctum
-							sanctorum.</p>
-						<p>ii. Fee: No specific fee is prescribed for photography within the allowed areas.</p>
-						<h5 class="section__sub-b">Contact Information</h5>
-						<p>i. Name: Shri Bhimashankar Jyotirlinga Temple</p>
-						<p>ii. Full Address: Bhimashankar Temple, Bhorgiri Village, Khed Taluka, Pune District,
-							Maharashtra, India - 410509</p>
-						<p>iii. Phone Number: +91-22-20702266 / +91-22-27820418</p>
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <h5 class="section__sub-b">a. Vehicle Pooja</h5>
+					  <ul class="bullet-list">
+					    <li>Availability: Yes, Bhimashankar Temple offers a vehicle pooja service.</li>
+					    <li>Timings: Generally available during the temple&#x27;s opening hours from 4:30 AM to 9:30 PM.</li>
+					    <li>Cost: Approximately INR 300 to INR 500 depending on the type and size of the vehicle.</li>
+					    <li>Booking: No advance booking is required; tickets can be purchased at the temple&#x27;s pooja counter upon arrival.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Accessibility and Special Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>No Lifts or Elevators: Due to the temple&#x27;s location and structure, there are no lifts or elevators available.</li>
+					    <li>Wheelchair Facilities: The temple does not have dedicated wheelchair facilities. However, palki (palanquin) services are available for elderly and physically challenged individuals to help them navigate the steps leading to the temple.</li>
+					    <li>Special Entry for Darshan: Special arrangements are made for sick, senior citizens, and physically challenged persons to facilitate a smoother darshan experience. It is advisable to contact the temple authorities upon arrival for assistance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Photography</h5>
+					  <ul class="bullet-list">
+					    <li>Allowed: Photography is permitted in the temple premises but not inside the sanctum sanctorum.</li>
+					    <li>Fee: No specific fee is prescribed for photography within the allowed areas.</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. Contact Information</h5>
+					  <ul class="bullet-list">
+					    <li>Name: Shri Bhimashankar Jyotirlinga Temple</li>
+					    <li>Full Address: Bhimashankar Temple, Bhorgiri Village, Khed Taluka, Pune District, Maharashtra, India - 410509</li>
+					    <li>Phone Number: +91-22-20702266 / +91-22-27820418</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If
-							yes, what are the types of such facilities?What is the cost? How to book in advance?</h3>
-						<p>Special Entry and Timing of Darshan for Sick, Senior Citizens, and Physically Challenged
-							Persons at Bhimashankar Temple</p>
-						<h5 class="section__sub-b">a. Special Entry</h5>
-						<p>i. Priority Access: The temple management provides special arrangements for sick, senior
-							citizens, and physically challenged individuals to ensure they can have a smooth and
-							comfortable darshan.</p>
-						<p>ii. Assistance: Temple staff are available to assist those in need. It is advisable to inform
-							the temple authorities about any special needs upon arrival.</p>
-						<h5 class="section__sub-b">b. Special Timings</h5>
-						<p>i. Early Morning Hours: Visiting the temple during early morning hours when the crowd is
-							minimal can be beneficial for elderly and physically challenged individuals.</p>
-						<p>ii. Non-Peak Hours: Non-peak hours, such as late afternoons, are also suitable for a more
-							comfortable darshan experience.</p>
-						<p>c. Accommodation Facilities: Bhimashankar Temple provides various accommodation options for
-							pilgrims. Here are the types and details:</p>
-						<h5 class="section__sub-b">i. Types of Accommodation</h5>
-						<ul class="bullet-list">
-							<li>Temple Guest Houses: Basic amenities, affordable rates.</li>
-							<li>Nearby Hotels and Resorts: Various options ranging from budget to mid-range, providing
-								more comfort and facilities.</li>
-						</ul>
-						<h5 class="section__sub-b">ii. Cost</h5>
-						<ul class="bullet-list">
-							<li>Temple Guest Houses: Generally affordable, around INR 200 to INR 1000 per night.</li>
-							<li>Hotels and Resorts: Rates vary, typically ranging from INR 1000 to INR 5000 per night
-								depending on the facilities offered.</li>
-						</ul>
-						<h5 class="section__sub-b">iii. Booking</h5>
-						<ul class="bullet-list">
-							<li>Advance Booking: It is advisable to book accommodation in advance, especially during
-								peak pilgrimage seasons and festivals. Bookings can be made through associated travel
-								websites or directly at the accommodation facilities.</li>
-						</ul>
-						<p>For more detailed information on accommodation and to make bookings, you can refer to travel
-							websites like YatraDham and TripNetra.</p>
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>Special Entry and Timing of Darshan for Sick, Senior Citizens, and Physically Challenged Persons at Bhimashankar Temple</p>
+					  <h5 class="section__sub-b">a. Special Entry</h5>
+					  <ul class="bullet-list">
+					    <li>Priority Access: The temple management provides special arrangements for sick, senior citizens, and physically challenged individuals to ensure they can have a smooth and comfortable darshan.</li>
+					    <li>Assistance: Temple staff are available to assist those in need. It is advisable to inform the temple authorities about any special needs upon arrival.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Special Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Early Morning Hours: Visiting the temple during early morning hours when the crowd is minimal can be beneficial for elderly and physically challenged individuals.</li>
+					    <li>Non-Peak Hours: Non-peak hours, such as late afternoons, are also suitable for a more comfortable darshan experience.</li>
+					  </ul>
+					  <p>c. Accommodation Facilities: Bhimashankar Temple provides various accommodation options for pilgrims. Here are the types and details:</p>
+					  <h5 class="section__sub-b">i. Types of Accommodation</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Guest Houses: Basic amenities, affordable rates.</li>
+					    <li>Nearby Hotels and Resorts: Various options ranging from budget to mid-range, providing more comfort and facilities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">ii. Cost</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Guest Houses: Generally affordable, around INR 200 to INR 1000 per night.</li>
+					    <li>Hotels and Resorts: Rates vary, typically ranging from INR 1000 to INR 5000 per night depending on the facilities offered.</li>
+					  </ul>
+					  <h5 class="section__sub-b">iii. Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Advance Booking: It is advisable to book accommodation in advance, especially during peak pilgrimage seasons and festivals. Bookings can be made through associated travel websites or directly at the accommodation facilities.</li>
+					  </ul>
+					  <p>For more detailed information on accommodation and to make bookings, you can refer to travel websites like YatraDham and TripNetra.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and
-							two wheelers ?</h3>
-						<h5 class="section__sub-b">Parking Facilities</h5>
-						<p>i. Location: Parking is available near the temple premises.</p>
-						<p>ii. Cars: Designated parking areas for private cars.</p>
-						<p>iii. Mini Buses and Two-Wheelers: Specific parking spaces for larger vehicles and
-							two-wheelers.</p>
-						<p>iv. Security: The parking areas are generally safe, but it is advisable to check for any
-							specific instructions or security measures with the temple authorities upon arrival.</p>
-						<p>For more detailed and specific information, you can visit the official Bhimashankar Temple
-							website or contact the temple administration directly.</p>
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <h5 class="section__sub-b">a. Parking Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Parking is available near the temple premises.</li>
+					    <li>Cars: Designated parking areas for private cars.</li>
+					    <li>Mini Buses and Two-Wheelers: Specific parking spaces for larger vehicles and two-wheelers.</li>
+					    <li>Security: The parking areas are generally safe, but it is advisable to check for any specific instructions or security measures with the temple authorities upon arrival.</li>
+					  </ul>
+					  <p>For more detailed and specific information, you can visit the official Bhimashankar Temple website or contact the temple administration directly.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different
-							class/lines? How to buy the ticket, if needed and timings.</h3>
-						<p>Procedure: Devotees can partake in the meals served at the temple or community kitchen
-							(Annadanam).</p>
-						<p>Payments: Some meals may be free, while others might require a nominal donation.</p>
-						<p>Different Classes/Lines: Generally, there are no separate lines; all devotees are served
-							equally.</p>
-						<h5 class="section__sub-b">Ticket Purchase</h5>
-						<p>i. On-Site: Tickets for special prashad or meal services can be bought at the temple.</p>
-						<p>ii. Timing: Meals are typically served during specific hours, usually after major pooja
-							timings.</p>
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings.</h3>
+					  <p>a. Procedure: Devotees can partake in the meals served at the temple or community kitchen (Annadanam).</p>
+					  <p>b. Payments: Some meals may be free, while others might require a nominal donation.</p>
+					  <p>c. Different Classes/Lines: Generally, there are no separate lines; all devotees are served equally.</p>
+					  <h5 class="section__sub-b">d. Ticket Purchase</h5>
+					  <ul class="bullet-list">
+					    <li>On-Site: Tickets for special prashad or meal services can be bought at the temple.</li>
+					    <li>Timing: Meals are typically served during specific hours, usually after major pooja timings.</li>
+					  </ul>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Carry home prashad( types) if any… Cost ?</h3>
-						<p>At Bhimashankar Temple, devotees can receive different types of prasad depending on the puja
-							or ritual performed. Common offerings include Panchamrit, a sacred mixture typically made of
-							milk, curd, honey, sugar, and ghee, which is used in rituals like Rudrabhishek.
-							Additionally, offerings such as fruits, flowers, and traditional sweets may be distributed
-							as prasad. The cost for these prasad items is generally included in the puja packages, with
-							specific rituals having fixed prices.</p>
-						<p>For example, the Rudrabhishek puja, a popular ritual at Bhimashankar, involves offerings like
-							Panchamrit, fruits, and flowers, which are used during the worship of Lord Shiva. The cost
-							for this puja starts at approximately ₹549, and it includes the necessary items for the
-							ritual​ (YatraDham)​.</p>
+					  <h3 class="section__title">Carry home prashad( types) if any… Cost ?</h3>
+					  <p>At Bhimashankar Temple, devotees can receive different types of prasad depending on the puja or ritual performed. Common offerings include Panchamrit, a sacred mixture typically made of milk, curd, honey, sugar, and ghee, which is used in rituals like Rudrabhishek. Additionally, offerings such as fruits, flowers, and traditional sweets may be distributed as prasad. The cost for these prasad items is generally included in the puja packages, with specific rituals having fixed prices.</p>
+					  <p>For example, the Rudrabhishek puja, a popular ritual at Bhimashankar, involves offerings like Panchamrit, fruits, and flowers, which are used during the worship of Lord Shiva. The cost for this puja starts at approximately ₹549, and it includes the necessary items for the ritual​ (YatraDham)​.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
-						<p>Currently, there doesn&#x27;t seem to be a specific online system or procedure outlined for
-							reporting lost items at Bhimashankar Temple. Generally, in such cases, it&#x27;s advisable
-							to contact the temple management or the nearest information center directly to report and
-							inquire about lost items. You may also check with local police if the temple has a tie-up
-							with them for lost and found items.</p>
-						<p>If you lose something during your visit, try visiting the temple&#x27;s main office or the
-							security desk where a lost and found section is usually maintained. It&#x27;s also a good
-							idea to provide a detailed description of the lost item, which can help in identifying and
-							retrieving it more efficiently.</p>
-						<p>For further assistance, you can reach out directly to the temple&#x27;s administrative office
-							or check their official website for any updates on lost and found procedures.</p>
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>Currently, there doesn&#x27;t seem to be a specific online system or procedure outlined for reporting lost items at Bhimashankar Temple. Generally, in such cases, it&#x27;s advisable to contact the temple management or the nearest information center directly to report and inquire about lost items. You may also check with local police if the temple has a tie-up with them for lost and found items.</p>
+					  <p>If you lose something during your visit, try visiting the temple&#x27;s main office or the security desk where a lost and found section is usually maintained. It&#x27;s also a good idea to provide a detailed description of the lost item, which can help in identifying and retrieving it more efficiently.</p>
+					  <p>For further assistance, you can reach out directly to the temple&#x27;s administrative office or check their official website for any updates on lost and found procedures.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">If any one of the group members is missing, how to report and where
-							to wait for?</h3>
-						<p>If a member of your group goes missing at Bhimashankar Temple, the first step is to report
-							the situation to the temple authorities or the security staff immediately. Most temples have
-							a designated help desk or office for handling such situations. Here are the steps you might
-							follow:</p>
-						<p>a. Report the Missing Person: Go to the temple&#x27;s main office or the nearest help desk.
-							Provide a clear description of the missing person, including their name, age, and last known
-							location or attire.</p>
-						<p>b. Stay in a Central Location: Choose a central and well-known location within the temple
-							premises to wait. This could be near the main entrance, the information center, or another
-							significant landmark within the temple area that is easily accessible and visible.</p>
-						<p>c. Make Use of Public Address Systems: If the temple has a public address system, you can
-							request the authorities to make an announcement. This can be effective in large temple
-							complexes where a person can easily get lost in the crowd.</p>
-						<p>d. Keep Contact Information Handy: Make sure all group members have a way to contact each
-							other, such as mobile phones. It’s also a good idea to have a list of all group
-							members&#x27; contact information.</p>
-						<p>e. Contact Local Police: If the person cannot be found after a reasonable amount of time and
-							you suspect they may be in danger, contact the local police station to file a missing person
-							report.</p>
-						<p>Waiting at a predetermined meeting point that all members of your group are aware of can also
-							help in quickly resolving situations where someone gets separated from the group. Always
-							plan ahead and agree on such a spot when you first arrive at large venues like temples.</p>
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a member of your group goes missing at Bhimashankar Temple, the first step is to report the situation to the temple authorities or the security staff immediately. Most temples have a designated help desk or office for handling such situations. Here are the steps you might follow:</p>
+					  <p>a. Report the Missing Person: Go to the temple&#x27;s main office or the nearest help desk. Provide a clear description of the missing person, including their name, age, and last known location or attire.</p>
+					  <p>b. Stay in a Central Location: Choose a central and well-known location within the temple premises to wait. This could be near the main entrance, the information center, or another significant landmark within the temple area that is easily accessible and visible.</p>
+					  <p>c. Make Use of Public Address Systems: If the temple has a public address system, you can request the authorities to make an announcement. This can be effective in large temple complexes where a person can easily get lost in the crowd.</p>
+					  <p>d. Keep Contact Information Handy: Make sure all group members have a way to contact each other, such as mobile phones. It’s also a good idea to have a list of all group members&#x27; contact information.</p>
+					  <p>e. Contact Local Police: If the person cannot be found after a reasonable amount of time and you suspect they may be in danger, contact the local police station to file a missing person report.</p>
+					  <p>Waiting at a predetermined meeting point that all members of your group are aware of can also help in quickly resolving situations where someone gets separated from the group. Always plan ahead and agree on such a spot when you first arrive at large venues like temples.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is this temple registered under the state govt/District
-							administration? Provide if the information is visible on the site?</h3>
-						<p>The Bhimashankar Temple, being one of the 12 Jyotirlingas and a significant pilgrimage site,
-							operates under the oversight of various administrative bodies which may include local or
-							state government entities. Temples of such historical and religious importance often work in
-							conjunction with district or state religious affairs departments to manage the facilities,
-							conduct and maintenance.</p>
-						<p>However, specific details about its registration with the state government or district
-							administration aren&#x27;t clearly provided in the commonly available online resources or
-							the temple&#x27;s official communications. For the most accurate and detailed information
-							regarding the administrative oversight of Bhimashankar Temple, you might consider directly
-							contacting the temple&#x27;s administration or checking with the Maharashtra state
-							government&#x27;s religious affairs or tourism department.</p>
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
+					  <p>The Bhimashankar Temple, being one of the 12 Jyotirlingas and a significant pilgrimage site, operates under the oversight of various administrative bodies which may include local or state government entities. Temples of such historical and religious importance often work in conjunction with district or state religious affairs departments to manage the facilities, conduct and maintenance.</p>
+					  <p>However, specific details about its registration with the state government or district administration aren&#x27;t clearly provided in the commonly available online resources or the temple&#x27;s official communications. For the most accurate and detailed information regarding the administrative oversight of Bhimashankar Temple, you might consider directly contacting the temple&#x27;s administration or checking with the Maharashtra state government&#x27;s religious affairs or tourism department.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the
-							temple) to whom and which bank account and for what all purposes?</h3>
-						<p>a. You can make donations to the Bhimashankar Temple through various methods including bank
-							transfer or using digital payment platforms like Google Pay. Here are the details for making
-							a donation:</p>
-						<p>i. Bank Name: State Bank of India</p>
-						<p>ii. Account Name: Shrishetra Bhimashankar Sansthan</p>
-						<p>iii. Account Number: 11587553841</p>
-						<p>iv. IFSC Code: SBIN0000410</p>
-						<p>v. Google Pay Business Name: Shri Kshetra Bhimashankar Sansthan</p>
-						<p>vi. UPI ID: bhimashankarsansthan@sbi</p>
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>a. You can make donations to the Bhimashankar Temple through various methods including bank transfer or using digital payment platforms like Google Pay. Here are the details for making a donation:</p>
+					  <ul class="bullet-list">
+					    <li>Bank Name: State Bank of India</li>
+					    <li>Account Name: Shrishetra Bhimashankar Sansthan</li>
+					    <li>Account Number: 11587553841</li>
+					    <li>IFSC Code: SBIN0000410</li>
+					    <li>Google Pay Business Name: Shri Kshetra Bhimashankar Sansthan</li>
+					    <li>UPI ID: bhimashankarsansthan@sbi</li>
+					  </ul>
+					  <p>Donations can be made for various temple activities, maintenance, and special events. You can specify the purpose of your donation when making the transfer or contact the temple administration for more specific allocation of your funds.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Are there any privileges associated with the donation made? For eg.
-							in Tirupati donations to SriVani trust is used for construction of Balaji temples and for
-							every 10k donation one Spl entry ticket is provided with also access to preferential
-							treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi
-							donation can be made for Annadana( free meals) and for hospitals etc.</h3>
-						<p>Currently, there is no specific information available regarding privileges or specific
-							benefits offered to donors at Bhimashankar Temple similar to those provided at Tirupati or
-							Shirdi for donations made towards specific causes or amounts. At many significant temples,
-							donations might be used for various temple activities, maintenance, community services, or
-							cultural programs, but specific privileges like priority darshan or accommodation based on
-							donation amount are not typically advertised openly for Bhimashankar Temple.</p>
-						<p>If you are interested in making a donation and want to know if there are any specific
-							benefits or privileges associated with it, I would recommend directly contacting the
-							temple&#x27;s administration. They could provide the most accurate and up-to-date
-							information on how donations are utilized and any recognition or benefits offered to donors.
-							This direct contact could also ensure that your donation is used for a purpose that is
-							important to you.</p>
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>Currently, there is no specific information available regarding privileges or specific benefits offered to donors at Bhimashankar Temple similar to those provided at Tirupati or Shirdi for donations made towards specific causes or amounts. At many significant temples, donations might be used for various temple activities, maintenance, community services, or cultural programs, but specific privileges like priority darshan or accommodation based on donation amount are not typically advertised openly for Bhimashankar Temple.</p>
+					  <p>If you are interested in making a donation and want to know if there are any specific benefits or privileges associated with it, I would recommend directly contacting the temple&#x27;s administration. They could provide the most accurate and up-to-date information on how donations are utilized and any recognition or benefits offered to donors. This direct contact could also ensure that your donation is used for a purpose that is important to you.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Construction and Scientific Information about Bhimashankar Temple
-						</h3>
-						<p>Architectural Style: Bhimashankar Temple, one of the twelve Jyotirlingas, is an excellent
-							example of ancient Indian temple architecture. The temple showcases a blend of the Nagara
-							style, common in northern India, and the Indo-Aryan style. These architectural styles are
-							characterized by intricate carvings, a prominent tower (shikhara), and a sanctum sanctorum
-							(garbhagriha).</p>
-						<p>i. Nagara Style: This style is marked by its beehive-shaped tower (shikhara) made of several
-							horizontal layers. The temple tower is adorned with intricate carvings of deities, mythical
-							creatures, and floral patterns.</p>
-						<p>ii. Indo-Aryan Influence: The influence is visible in the temple&#x27;s use of elaborate and
-							intricate carvings, which depict various gods, goddesses, and scenes from Hindu mythology.
-						</p>
-						<h5 class="section__sub-b">Historical Contributions</h5>
-						<p>The temple has seen contributions from various historical periods,
-							notably</p>
-						<p>i. Chalukya Dynasty (6th-12th Century): The Chalukyas are credited with initiating the
-							temple&#x27;s original construction. They left behind intricate carvings and in scriptions
-							on the temple walls.</p>
-						<p>Maratha Period (17th-18th Century): The temple was significantly renovated and expanded under
-							the Marathas. Nana Phadnavis, a prominent Maratha statesman, built the temple&#x27;s
-							shikhara (tower) and expanded the temple complex​ (Shree Kshetra Bhimashankar Sansthan)​​
-							(PilgrimageTour)​.</p>
-						<h5 class="section__sub-b">Structural Features</h5>
-						<p>ii. Sanctum Sanctorum (Garbhagriha): The garbhagriha, which houses the self-emanated
-							Jyotirlinga, is built at a lower level. This area is constructed using indigenous stone and
-							features elaborate carvings.</p>
-						<p>iii. Sabhamandap (Assembly Hall): Added by Nana Phadnavis, this hall provides space for
-							devotees to gather. The pillars and door frames are adorned with carvings of deities and
-							human figures.</p>
-						<p>iv. Intricate Carvings: The temple&#x27;s interiors and exteriors are adorned with detailed
-							sculptures and carvings depicting various scenes from Hindu mythology, adding to its
-							cultural and artistic significance​ (Indian Culture)​​ (Behind Every Temple)​.</p>
-						<h5 class="section__sub-b">Scientific Aspects</h5>
-						<p>v. Location and Environment: Bhimashankar Temple is situated in the Sahyadri hills, within
-							the Bhimashankar Wildlife Sanctuary. This location is rich in biodiversity, featuring rare
-							species of flora and fauna, including the Malabar Giant Squirrel (Shekaru). The
-							temple&#x27;s location in the Western Ghats contributes to its scenic beauty and
-							environmental significance​ (Bhimashankar temple)​​ (Home | AlightIndia)​.</p>
-						<p>vi. Conservation Efforts: Efforts are ongoing to conserve the local environment and
-							biodiversity. Programs include ecological studies, conservation of traditional knowledge,
-							and promoting sustainable livelihoods through eco-tourism​ (Kalpavriksh)​.</p>
-						<h5 class="section__sub-b">Legends and Cultural Significance</h5>
-						<p>vii. Legend of Tripurasura: The temple is linked to the legend of the demon Tripurasura, who
-							was defeated by Lord Shiva. This battle is believed to have led to the formation of the
-							Bhima River from Lord Shiva’s sweat​ (Bhimashankar temple)​​ (Shree Kshetra Bhimashankar
-							Sansthan)​.</p>
-						<p>viii. Spiritual Importance: The temple is a major pilgrimage site, attracting devotees from
-							all over India. It is celebrated for its spiritual ambiance and the annual festivals,
-							particularly during Mahashivratri and Kartik Purnima​ (Temple Info)​.</p>
-						<h5 class="section__sub-b">Conservation and Management</h5>
-						<p>The temple management is involved in various activities to preserve the temple’s structure
-							and its surrounding environment. This includes maintaining the temple’s architectural
-							integrity, promoting eco-friendly practices, and supporting the local community through
-							various initiatives​ (Kalpavriksh)​​ (Shree Kshetra Bhimashankar Sansthan)​.</p>
+					  <h3 class="section__title">Construction and Scientific Information about Bhimashankar Temple</h3>
+					  <p>a. Architectural Style: Bhimashankar Temple, one of the twelve Jyotirlingas, is an excellent example of ancient Indian temple architecture. The temple showcases a blend of the Nagara style, common in northern India, and the Indo-Aryan style. These architectural styles are characterized by intricate carvings, a prominent tower (shikhara), and a sanctum sanctorum (garbhagriha).</p>
+					  <ul class="bullet-list">
+					    <li>Nagara Style: This style is marked by its beehive-shaped tower (shikhara) made of several horizontal layers. The temple tower is adorned with intricate carvings of deities, mythical creatures, and floral patterns.</li>
+					    <li>Indo-Aryan Influence: The influence is visible in the temple&#x27;s use of elaborate and intricate carvings, which depict various gods, goddesses, and scenes from Hindu mythology.</li>
+					  </ul>
+					  <p>b. Historical Contributions</p>
+					  <h5 class="section__sub-b">The temple has seen contributions from various historical periods, notably</h5>
+					  <ul class="bullet-list">
+					    <li>Chalukya Dynasty (6th-12th Century): The Chalukyas are credited with initiating the temple&#x27;s original construction. They left behind intricate carvings and in scriptions on the temple walls.</li>
+					  </ul>
+					  <p>Maratha Period (17th-18th Century): The temple was significantly renovated and expanded under the Marathas. Nana Phadnavis, a prominent Maratha statesman, built the temple&#x27;s shikhara (tower) and expanded the temple complex​ (Shree Kshetra Bhimashankar Sansthan)​​ (PilgrimageTour)​.</p>
+					  <p>Structural Features</p>
+					  <ul class="bullet-list">
+					    <li>Sanctum Sanctorum (Garbhagriha): The garbhagriha, which houses the self-emanated Jyotirlinga, is built at a lower level. This area is constructed using indigenous stone and features elaborate carvings.</li>
+					    <li>Sabhamandap (Assembly Hall): Added by Nana Phadnavis, this hall provides space for devotees to gather. The pillars and door frames are adorned with carvings of deities and human figures.</li>
+					    <li>Intricate Carvings: The temple&#x27;s interiors and exteriors are adorned with detailed sculptures and carvings depicting various scenes from Hindu mythology, adding to its cultural and artistic significance​ (Indian Culture)​​ (Behind Every Temple)​.</li>
+					  </ul>
+					  <p>Scientific Aspects</p>
+					  <ul class="bullet-list">
+					    <li>Location and Environment: Bhimashankar Temple is situated in the Sahyadri hills, within the Bhimashankar Wildlife Sanctuary. This location is rich in biodiversity, featuring rare species of flora and fauna, including the Malabar Giant Squirrel (Shekaru). The temple&#x27;s location in the Western Ghats contributes to its scenic beauty and environmental significance​ (Bhimashankar temple)​​ (Home | AlightIndia)​.</li>
+					    <li>Conservation Efforts: Efforts are ongoing to conserve the local environment and biodiversity. Programs include ecological studies, conservation of traditional knowledge, and promoting sustainable livelihoods through eco-tourism​ (Kalpavriksh)​.</li>
+					  </ul>
+					  <p>Legends and Cultural Significance</p>
+					  <ul class="bullet-list">
+					    <li>Legend of Tripurasura: The temple is linked to the legend of the demon Tripurasura, who was defeated by Lord Shiva. This battle is believed to have led to the formation of the Bhima River from Lord Shiva’s sweat​ (Bhimashankar temple)​​ (Shree Kshetra Bhimashankar Sansthan)​.</li>
+					    <li>Spiritual Importance: The temple is a major pilgrimage site, attracting devotees from all over India. It is celebrated for its spiritual ambiance and the annual festivals, particularly during Mahashivratri and Kartik Purnima​ (Temple Info)​.</li>
+					  </ul>
+					  <p>c. Conservation and Management</p>
+					  <p>The temple management is involved in various activities to preserve the temple’s structure and its surrounding environment. This includes maintaining the temple’s architectural integrity, promoting eco-friendly practices, and supporting the local community through various initiatives​ (Kalpavriksh)​​ (Shree Kshetra Bhimashankar Sansthan)​.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Is there any special significance attached to the temple -like for
-							eg. Kasar Devi in Uttar khand- it is said-</h3>
-						<p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or
-							Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with
-							a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
-						<p>While Bhimashankar Temple is renowned for its religious and historical significance, there is
-							no widely recognized scientific or geomagnetic phenomenon similar to that of Kasar Devi
-							Temple in Uttarakhand. Bhimashankar&#x27;s primary significance lies in its religious
-							importance as one of the twelve Jyotirlingas dedicated to Lord Shiva and its location within
-							a biodiversity-rich area, the Bhimashankar Wildlife Sanctuary.</p>
-						<h5 class="section__sub-b">Key Points of Significance for Bhimashankar Temple</h5>
-						<p>i. Religious Importance: Bhimashankar is one of the twelve Jyotirlingas, which are considered
-							the holiest shrines of Lord Shiva. The Jyotirlingas are revered in Hinduism and attract
-							millions of devotees every year.</p>
-						<p>The temple is associated with the legend of Lord Shiva&#x27;s battle with the demon
-							Tripurasura, which is a significant mythological event in Hindu tradition.</p>
-						<p>ii. Historical Contributions: The temple&#x27;s construction has seen contributions from
-							various historical periods, notably from the Chalukya dynasty and the Maratha rulers,
-							especially Nana Phadnavis.</p>
-						<p>Intricate carvings and architectural elements from different eras showcase the temple&#x27;s
-							rich historical and cultural heritage​ (PilgrimageTour)​​ (Shree Kshetra Bhimashankar
-							Sansthan)​.</p>
-						<p>iii. Environmental Significance: The temple is situated in the Bhimashankar Wildlife
-							Sanctuary, which is part of the Western Ghats, a UNESCO World Heritage site known for its
-							rich biodiversity.</p>
-						<p>The sanctuary is home to rare species, including the Malabar Giant Squirrel (Shekaru), and
-							features a mix of flora and fauna unique to the region​ (Bhimashankar temple)​​ (Home |
-							AlightIndia)​.</p>
-						<h5 class="section__sub-b">Geomagnetic or Scientific Phenomena</h5>
-						<p>Unlike the Kasar Devi Temple in Uttarakhand, which is noted for its geomagnetic field due to
-							gaps in the Van Allen radiation belts, Bhimashankar Temple does not have any documented or
-							scientifically recognized geomagnetic phenomena associated with it. The temple&#x27;s
-							significance is primarily spiritual, religious, and ecological.</p>
-						<h5 class="section__sub-b">Summary</h5>
-						<p>Bhimashankar Temple&#x27;s importance is largely rooted in its spiritual, historical, and
-							ecological context rather than any geomagnetic phenomena. It stands as a testament to
-							ancient Indian architectural prowess and continues to be a major pilgrimage site for
-							devotees of Lord Shiva.</p>
-						<p>For further reading and detailed information, you may visit the official Bhimashankar Temple
-							website or check sources like Wikipedia and Pilgrimage Tour.</p>
+					  <h3 class="section__title">Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>While Bhimashankar Temple is renowned for its religious and historical significance, there is no widely recognized scientific or geomagnetic phenomenon similar to that of Kasar Devi Temple in Uttarakhand. Bhimashankar&#x27;s primary significance lies in its religious importance as one of the twelve Jyotirlingas dedicated to Lord Shiva and its location within a biodiversity-rich area, the Bhimashankar Wildlife Sanctuary.</p>
+					  <p>a. Key Points of Significance for Bhimashankar Temple</p>
+					  <ul class="bullet-list">
+					    <li>Religious Importance: Bhimashankar is one of the twelve Jyotirlingas, which are considered the holiest shrines of Lord Shiva. The Jyotirlingas are revered in Hinduism and attract millions of devotees every year.</li>
+					  </ul>
+					  <p>The temple is associated with the legend of Lord Shiva&#x27;s battle with the demon Tripurasura, which is a significant mythological event in Hindu tradition.</p>
+					  <ul class="bullet-list">
+					    <li>Historical Contributions: The temple&#x27;s construction has seen contributions from various historical periods, notably from the Chalukya dynasty and the Maratha rulers, especially Nana Phadnavis.</li>
+					  </ul>
+					  <p>Intricate carvings and architectural elements from different eras showcase the temple&#x27;s rich historical and cultural heritage​ (PilgrimageTour)​​ (Shree Kshetra Bhimashankar Sansthan)​.</p>
+					  <ul class="bullet-list">
+					    <li>Environmental Significance: The temple is situated in the Bhimashankar Wildlife Sanctuary, which is part of the Western Ghats, a UNESCO World Heritage site known for its rich biodiversity.</li>
+					  </ul>
+					  <p>The sanctuary is home to rare species, including the Malabar Giant Squirrel (Shekaru), and features a mix of flora and fauna unique to the region​ (Bhimashankar temple)​​ (Home | AlightIndia)​.</p>
+					  <p>b. Geomagnetic or Scientific Phenomena</p>
+					  <p>Unlike the Kasar Devi Temple in Uttarakhand, which is noted for its geomagnetic field due to gaps in the Van Allen radiation belts, Bhimashankar Temple does not have any documented or scientifically recognized geomagnetic phenomena associated with it. The temple&#x27;s significance is primarily spiritual, religious, and ecological.</p>
+					  <p>c. Summary</p>
+					  <p>Bhimashankar Temple&#x27;s importance is largely rooted in its spiritual, historical, and ecological context rather than any geomagnetic phenomena. It stands as a testament to ancient Indian architectural prowess and continues to be a major pilgrimage site for devotees of Lord Shiva.</p>
+					  <p>For further reading and detailed information, you may visit the official Bhimashankar Temple website or check sources like Wikipedia and Pilgrimage Tour.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Information which a foreigner would like to know- focussing more on
-							spirituality rather than religion.</h3>
-						<h5 class="section__sub-b">For a foreigner interested in the spirituality of Bhimashankar Temple rather than its
-							religious aspects, the following points can provide a meaningful and enriching perspective:
-						</h5>
-						<p>i. Spiritual Atmosphere</p>
-						<p>Bhimashankar Temple is situated in the serene and pristine environment of the Sahyadri hills.
-							The tranquility of the surroundings and the lush greenery of the Bhimashankar Wildlife
-							Sanctuary create a perfect setting for meditation and introspection. The temple&#x27;s
-							location, amidst dense forests and the source of the Bhima River, offers a peaceful retreat
-							from the bustle of daily life.</p>
-						<p>ii. Significance of the Jyotirlinga</p>
-						<p>The Jyotirlinga at Bhimashankar is considered a manifestation of Lord Shiva&#x27;s infinite
-							light. It symbolizes the eternal and all-encompassing nature of the divine, which transcends
-							physical forms and manifests as pure consciousness. This concept resonates with the
-							universal spiritual pursuit of understanding the eternal light within oneself.</p>
-						<p>iii. Connection to Nature</p>
-						<p>Bhimashankar Temple’s location in a wildlife sanctuary highlights the deep connection between
-							spirituality and nature in Indian tradition. Visitors can experience the harmony between the
-							natural environment and spiritual practices, promoting ecological consciousness and the idea
-							that preserving nature is integral to spiritual well-being.</p>
-						<p>iv. Architectural Harmony</p>
-						<p>The temple’s architecture, blending Nagara and Indo-Aryan styles, reflects the integration of
-							art, spirituality, and history. The intricate carvings and detailed sculptures provide a
-							visual representation of mythological stories and spiritual teachings, offering insights
-							into ancient Indian spiritual art forms and their significance.</p>
-						<p>v. Legend and Mythology</p>
-						<p>The legend of Lord Shiva’s battle with the demon Tripurasura at Bhimashankar symbolizes the
-							triumph of good over evil and the restoration of cosmic order. This story, while religious,
-							also conveys universal themes of inner conflict, righteousness, and the quest for harmony,
-							which can be appreciated by anyone on a spiritual journey.</p>
-						<p>vi. Meditation and Introspection</p>
-						<p>The temple and its surroundings are ideal for meditation and introspective practices. The
-							serene environment, combined with the spiritual energy believed to be present at this
-							ancient site, makes it a conducive place for personal growth, mindfulness, and inner peace.
-						</p>
-						<p>vii. Cultural and Historical Insight</p>
-						<p>Understanding the cultural and historical context of Bhimashankar Temple enriches the
-							spiritual experience. The temple’s history, patronage by various dynasties, and its role in
-							the local community offer a broader perspective on how spirituality has been integrated into
-							the daily lives of people over centuries.</p>
-						<h5 class="section__sub-b">Practical Information for Visitors</h5>
-						<p>i. Visiting Hours: The temple is open from 5:00 AM to 9:30 PM, with specific times for
-							different rituals.</p>
-						<p>ii. Best Time to Visit: The monsoon (June to August) and winter (November to February)
-							seasons are ideal for visiting due to the pleasant weather and the vibrant natural
-							surroundings.</p>
-						<p>iii. Accommodation: Various guesthouses and resorts near the temple cater to different
-							budgets, ensuring a comfortable stay for visitors.</p>
-						<p>iv. For more detailed information, you can visit</p>
-						<ul class="bullet-list">
-							<li>Bhimashankar Temple Official Website</li>
-							<li>Wikipedia - Bhimashankar Temple</li>
-							<li>Pilgrimage Tour - Bhimashankar Temple</li>
-							<li>AlightIndia - Bhimashankar Jyotirlinga</li>
-						</ul>
-						<p>This information should provide a foreign visitor with a holistic and enriching understanding
-							of the spiritual essence of Bhimashankar Temple.</p>
-						<h3 class="section__title">Call to action or interaction links- here in it could be for</h3>
-						<p>Puja( as and when we tie up) or link to the puja facility on the temple web site( back
-							linking)</p>
-						<p>Accomodation - here link to our site where we have listed accommodation of all types with an
-							enquiry form</p>
-						<p>Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to
-							the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
-						<p>To make the information accessible and encourage interaction with Bhimashankar Temple, here
-							are some call-to-action links and details:</p>
-						<h5 class="section__sub-b">Puja Booking</h5>
-						<p>To book a puja or find more information about the various rituals offered at Bhimashankar
-							Temple, you can visit the temple&#x27;s official puja facility page. If there is a tie-up,
-							ensure to provide the link to the specific booking page on your site.</p>
-						<p>i. Book Puja: Bhimashankar Temple Puja Booking</p>
-						<h5 class="section__sub-b">Donation</h5>
-						<p>Support the temple by making a donation. Contributions help in maintaining the temple and
-							supporting various community services.</p>
-						<p>i. Donate Now: Bhimashankar Temple Donation</p>
-						<h5 class="section__sub-b">Accommodation</h5>
-						<p>For accommodation options near Bhimashankar Temple, ranging from budget to premium stays,
-							please visit our dedicated accommodation page. Here, you can find detailed information and
-							fill out an enquiry form for bookings.</p>
-						<p>i. Find Accommodation: Accommodation Near Bhimashankar Temple</p>
-						<h5 class="section__sub-b">Tax Exemption</h5>
-						<p>Donations made to Bhimashankar Temple may be eligible for tax
-							exemptions under Section 80G of the Income Tax Act. Check the specific details and benefits
-							available for your contributions.</p>
-						<p>i. Tax Exemption Details: Income Tax Exemption under Section 80G</p>
-						<h5 class="section__sub-b"> Contact Information</h5>
-						<p>For any further inquiries or detailed information, you can contact the temple administration
-							directly.</p>
-						<p>i. Contact Us: Bhimashankar Temple Contact</p>
-						<p>By using these links, visitors can easily navigate to the relevant sections and engage more
-							effectively with Bhimashankar Temple and its offerings.</p>
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion.</h3>
+					  <p>a. For a foreigner interested in the spirituality of Bhimashankar Temple rather than its religious aspects, the following points can provide a meaningful and enriching perspective:</p>
+					  <ul class="bullet-list">
+					    <li>Spiritual Atmosphere</li>
+					  </ul>
+					  <p>Bhimashankar Temple is situated in the serene and pristine environment of the Sahyadri hills. The tranquility of the surroundings and the lush greenery of the Bhimashankar Wildlife Sanctuary create a perfect setting for meditation and introspection. The temple&#x27;s location, amidst dense forests and the source of the Bhima River, offers a peaceful retreat from the bustle of daily life.</p>
+					  <ul class="bullet-list">
+					    <li>Significance of the Jyotirlinga</li>
+					  </ul>
+					  <p>The Jyotirlinga at Bhimashankar is considered a manifestation of Lord Shiva&#x27;s infinite light. It symbolizes the eternal and all-encompassing nature of the divine, which transcends physical forms and manifests as pure consciousness. This concept resonates with the universal spiritual pursuit of understanding the eternal light within oneself.</p>
+					  <ul class="bullet-list">
+					    <li>Connection to Nature</li>
+					  </ul>
+					  <p>Bhimashankar Temple’s location in a wildlife sanctuary highlights the deep connection between spirituality and nature in Indian tradition. Visitors can experience the harmony between the natural environment and spiritual practices, promoting ecological consciousness and the idea that preserving nature is integral to spiritual well-being.</p>
+					  <ul class="bullet-list">
+					    <li>Architectural Harmony</li>
+					  </ul>
+					  <p>The temple’s architecture, blending Nagara and Indo-Aryan styles, reflects the integration of art, spirituality, and history. The intricate carvings and detailed sculptures provide a visual representation of mythological stories and spiritual teachings, offering insights into ancient Indian spiritual art forms and their significance.</p>
+					  <ul class="bullet-list">
+					    <li>Legend and Mythology</li>
+					  </ul>
+					  <p>The legend of Lord Shiva’s battle with the demon Tripurasura at Bhimashankar symbolizes the triumph of good over evil and the restoration of cosmic order. This story, while religious, also conveys universal themes of inner conflict, righteousness, and the quest for harmony, which can be appreciated by anyone on a spiritual journey.</p>
+					  <ul class="bullet-list">
+					    <li>Meditation and Introspection</li>
+					  </ul>
+					  <p>The temple and its surroundings are ideal for meditation and introspective practices. The serene environment, combined with the spiritual energy believed to be present at this ancient site, makes it a conducive place for personal growth, mindfulness, and inner peace.</p>
+					  <ul class="bullet-list">
+					    <li>Cultural and Historical Insight</li>
+					  </ul>
+					  <p>Understanding the cultural and historical context of Bhimashankar Temple enriches the spiritual experience. The temple’s history, patronage by various dynasties, and its role in the local community offer a broader perspective on how spirituality has been integrated into the daily lives of people over centuries.</p>
+					  <p>b. Practical Information for Visitors</p>
+					  <ul class="bullet-list">
+					    <li>Visiting Hours: The temple is open from 5:00 AM to 9:30 PM, with specific times for different rituals.</li>
+					    <li>Best Time to Visit: The monsoon (June to August) and winter (November to February) seasons are ideal for visiting due to the pleasant weather and the vibrant natural surroundings.</li>
+					    <li>Accommodation: Various guesthouses and resorts near the temple cater to different budgets, ensuring a comfortable stay for visitors.</li>
+					  </ul>
+					  <p>Resources</p>
+					  <h5 class="section__sub-b">iv. For more detailed information, you can visit</h5>
+					  <ul class="bullet-list">
+					    <li>Bhimashankar Temple Official Website</li>
+					    <li>Wikipedia - Bhimashankar Temple</li>
+					    <li>Pilgrimage Tour - Bhimashankar Temple</li>
+					    <li>AlightIndia - Bhimashankar Jyotirlinga</li>
+					  </ul>
+					  <p>This information should provide a foreign visitor with a holistic and enriching understanding of the spiritual essence of Bhimashankar Temple.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Annual Event of the temple day and date.</h3>
-						<p>Bhimashankar Temple hosts several significant annual events that attract numerous devotees
-							and visitors. The most prominent among these is the celebration of Mahashivratri and
-							Tripurari Purnima.</p>
-						<p>Key Annual Events at Bhimashankar Temple</p>
-						<h5 class="section__sub-b">Mahashivratri</h5>
-						<p>i. Date: The date of Mahashivratri varies each year as it is based on the lunar calendar, but
-							it generally falls in February or March.</p>
-						<p>ii. Significance: Mahashivratri is one of the most important festivals dedicated to Lord
-							Shiva. It marks the night when Shiva performed the &quot;Tandava,&quot; the cosmic dance of
-							creation, preservation, and destruction. Devotees observe fasting, perform night-long
-							vigils, and engage in special puja and abhishek (ritual bathing of the lingam) ceremonies.
-						</p>
-						<p>iii. Activities: The temple is beautifully decorated, and various rituals, cultural programs,
-							and bhajans (devotional songs) are conducted throughout the night.</p>
-						<h5 class="section__sub-b">Tripurari Purnima</h5>
-						<p>i. Date: Tripurari Purnima is celebrated on the full moon day of the Hindu month of Kartik,
-							which typically falls in November.</p>
-						<p>ii. Significance: This festival commemorates Lord Shiva’s victory over the demon Tripurasura,
-							which is a key event in the temple&#x27;s mythology. It is believed that Shiva vanquished
-							the demon on this day, making it a night of divine triumph and celebration.</p>
-						<p>iii. Activities: The temple organizes special pujas and celebrations. The day is marked by
-							deepa dana (offering of lamps), where devotees light lamps and float them on water bodies as
-							a symbol of enlightenment and victory of good over evil.</p>
-						<h5 class="section__sub-b">Additional Information and Resources</h5>
-						<p>i. Official Temple Website: For exact dates and details about the celebrations, visitors can
-							check the official Bhimashankar Temple website.</p>
-						<p>ii. Pilgrimage Tour: Detailed descriptions of the temple&#x27;s events and their significance
-							can be found on pilgrimage tour websites such as Pilgrimage Tour - Bhimashankar Temple.</p>
-						<p>These events offer a profound spiritual experience and a deep connection to the ancient
-							traditions and mythology associated with Lord Shiva and Bhimashankar Temple.</p>
+					  <h3 class="section__title">Call to action  or interaction links- here in it could be for:</h3>
+					  <p>Puja( as and when we tie up) or link to the puja facility on the temple web site( back linking)</p>
+					  <p>Accomodation - here link to our site where we have listed accommodation of all types with an enquiry form</p>
+					  <p>Exemption available under Income tax act - 80G etc for the donation made. For eg. Donation to the Anna dana at Shirdi is eligible for 100%/50% exemption.</p>
+					  <p>To make the information accessible and encourage interaction with Bhimashankar Temple, here are some call-to-action links and details:</p>
+					  <p>a. Puja Booking</p>
+					  <p>To book a puja or find more information about the various rituals offered at Bhimashankar Temple, you can visit the temple&#x27;s official puja facility page. If there is a tie-up, ensure to provide the link to the specific booking page on your site.</p>
+					  <ul class="bullet-list">
+					    <li>Book Puja: Bhimashankar Temple Puja Booking</li>
+					  </ul>
+					  <p>b. Donation</p>
+					  <p>Support the temple by making a donation. Contributions help in maintaining the temple and supporting various community services.</p>
+					  <ul class="bullet-list">
+					    <li>Donate Now: Bhimashankar Temple Donation</li>
+					  </ul>
+					  <p>c. Accommodation</p>
+					  <p>For accommodation options near Bhimashankar Temple, ranging from budget to premium stays, please visit our dedicated accommodation page. Here, you can find detailed information and fill out an enquiry form for bookings.</p>
+					  <ul class="bullet-list">
+					    <li>Find Accommodation: Accommodation Near Bhimashankar Temple</li>
+					  </ul>
+					  <p>d. Tax Exemption</p>
+					  <p>Donations made to Bhimashankar Temple may be eligible for tax exemptions under Section 80G of the Income Tax Act. Check the specific details and benefits available for your contributions.</p>
+					  <ul class="bullet-list">
+					    <li>Tax Exemption Details: Income Tax Exemption under Section 80G</li>
+					  </ul>
+					  <p>e. Contact Information</p>
+					  <p>For any further inquiries or detailed information, you can contact the temple administration directly.</p>
+					  <ul class="bullet-list">
+					    <li>Contact Us: Bhimashankar Temple Contact</li>
+					  </ul>
+					  <p>By using these links, visitors can easily navigate to the relevant sections and engage more effectively with Bhimashankar Temple and its offerings.</p>
 					</div>
 					<div class="section">
-						<h3 class="section__title">Monthly Events at Bhimashankar Temple</h3>
-						<p>Bhimashankar Temple hosts several monthly events that attract devotees regularly. These
-							events are tied to the lunar calendar and significant days dedicated to Lord Shiva. Here are
-							the key monthly events:</p>
-						<h5 class="section__sub-b">Pradosham</h5>
-						<p>i. Date: Pradosham occurs twice a month—on the 13th day (Trayodashi) of both the waxing
-							(Shukla Paksha) and waning (Krishna Paksha) phases of the moon.</p>
-						<p>ii. Significance: Pradosham is considered an auspicious time dedicated to Lord Shiva.
-							Devotees believe that worshiping Shiva during this period helps to remove sins and grants
-							moksha (liberation).</p>
-						<p>iii. Activities: Special pujas and abhishekams (ritual bathing of the Shiva Lingam) are
-							conducted. Devotees perform fasting and offer prayers in the evening, which is the most
-							auspicious time for this observance.</p>
-						<h5 class="section__sub-b">Masa Shivaratri</h5>
-						<p>i. Date: Masa Shivaratri is observed on the 14th day of the dark fortnight of every lunar
-							month, a day before the new moon (Amavasya).</p>
-						<p>ii. Significance: This monthly observance is a smaller version of the annual Mahashivratri
-							festival. It is dedicated to Lord Shiva and is believed to be highly beneficial for those
-							seeking his blessings.</p>
-						<p>iii. Activities: Devotees observe fasting, perform night-long vigils, and engage in special
-							prayers and abhishekams to honor Lord Shiva.</p>
-						<h5 class="section__sub-b">Amavasya (New Moon)</h5>
-						<p>i. Date: Amavasya occurs once a month on the new moon day.</p>
-						<p>ii. Significance: The new moon is considered a powerful time for spiritual practices and
-							rituals. It is a day for introspection and honoring ancestors.</p>
-						<p>iii. Activities: Special pujas and offerings are made. Devotees often perform tarpanam
-							(rituals for the departed souls) and seek blessings for peace and prosperity.</p>
-						<h5 class="section__sub-b">Purnima (Full Moon)</h5>
-						<p>i. Date: Purnima occurs once a month on the full moon day.</p>
-						<p>ii. Significance: The full moon is associated with completeness and the fulfillment of
-							wishes. It is an auspicious time for performing various religious activities.</p>
-						<p>iii. Activities: Special prayers, pujas, and abhishekams are conducted. Devotees gather to
-							celebrate and offer prayers to Lord Shiva.</p>
-						<h5 class="section__sub-b">Resources and Contact Information</h5>
-						<p>i. Official Temple Website: For exact dates and details about the monthly events, visitors
-							can check the official Bhimashankar Temple website.</p>
-						<p>ii. Pilgrimage Tour: Detailed descriptions of the temple&#x27;s events and their significance
-							can be found on pilgrimage tour websites such as Pilgrimage Tour - Bhimashankar Temple.</p>
-						<p>These monthly events provide regular opportunities for devotees to engage in spiritual
-							practices and seek the blessings of Lord Shiva, fostering a deeper connection to their faith
-							and the temple.</p>
+					  <h3 class="section__title">Annual Event of the temple day and date.</h3>
+					  <p>Bhimashankar Temple hosts several significant annual events that attract numerous devotees and visitors. The most prominent among these is the celebration of Mahashivratri and Tripurari Purnima.</p>
+					  <p>Key Annual Events at Bhimashankar Temple</p>
+					  <p>a. Mahashivratri</p>
+					  <ul class="bullet-list">
+					    <li>Date: The date of Mahashivratri varies each year as it is based on the lunar calendar, but it generally falls in February or March.</li>
+					    <li>Significance: Mahashivratri is one of the most important festivals dedicated to Lord Shiva. It marks the night when Shiva performed the &quot;Tandava,&quot; the cosmic dance of creation, preservation, and destruction. Devotees observe fasting, perform night-long vigils, and engage in special puja and abhishek (ritual bathing of the lingam) ceremonies.</li>
+					    <li>Activities: The temple is beautifully decorated, and various rituals, cultural programs, and bhajans (devotional songs) are conducted throughout the night.</li>
+					  </ul>
+					  <p>b. Tripurari Purnima</p>
+					  <ul class="bullet-list">
+					    <li>Date: Tripurari Purnima is celebrated on the full moon day of the Hindu month of Kartik, which typically falls in November.</li>
+					    <li>Significance: This festival commemorates Lord Shiva’s victory over the demon Tripurasura, which is a key event in the temple&#x27;s mythology. It is believed that Shiva vanquished the demon on this day, making it a night of divine triumph and celebration.</li>
+					    <li>Activities: The temple organizes special pujas and celebrations. The day is marked by deepa dana (offering of lamps), where devotees light lamps and float them on water bodies as a symbol of enlightenment and victory of good over evil.</li>
+					  </ul>
+					  <p>c. Additional Information and Resources</p>
+					  <ul class="bullet-list">
+					    <li>Official Temple Website: For exact dates and details about the celebrations, visitors can check the official Bhimashankar Temple website.</li>
+					    <li>Pilgrimage Tour: Detailed descriptions of the temple&#x27;s events and their significance can be found on pilgrimage tour websites such as Pilgrimage Tour - Bhimashankar Temple.</li>
+					  </ul>
+					  <p>These events offer a profound spiritual experience and a deep connection to the ancient traditions and mythology associated with Lord Shiva and Bhimashankar Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Events at Bhimashankar Temple</h3>
+					  <p>Bhimashankar Temple hosts several monthly events that attract devotees regularly. These events are tied to the lunar calendar and significant days dedicated to Lord Shiva. Here are the key monthly events:</p>
+					  <p>a. Pradosham</p>
+					  <ul class="bullet-list">
+					    <li>Date: Pradosham occurs twice a month—on the 13th day (Trayodashi) of both the waxing (Shukla Paksha) and waning (Krishna Paksha) phases of the moon.</li>
+					    <li>Significance: Pradosham is considered an auspicious time dedicated to Lord Shiva. Devotees believe that worshiping Shiva during this period helps to remove sins and grants moksha (liberation).</li>
+					    <li>Activities: Special pujas and abhishekams (ritual bathing of the Shiva Lingam) are conducted. Devotees perform fasting and offer prayers in the evening, which is the most auspicious time for this observance.</li>
+					  </ul>
+					  <p>b. Masa Shivaratri</p>
+					  <ul class="bullet-list">
+					    <li>Date: Masa Shivaratri is observed on the 14th day of the dark fortnight of every lunar month, a day before the new moon (Amavasya).</li>
+					    <li>Significance: This monthly observance is a smaller version of the annual Mahashivratri festival. It is dedicated to Lord Shiva and is believed to be highly beneficial for those seeking his blessings.</li>
+					    <li>Activities: Devotees observe fasting, perform night-long vigils, and engage in special prayers and abhishekams to honor Lord Shiva.</li>
+					  </ul>
+					  <p>c. Amavasya (New Moon)</p>
+					  <ul class="bullet-list">
+					    <li>Date: Amavasya occurs once a month on the new moon day.</li>
+					    <li>Significance: The new moon is considered a powerful time for spiritual practices and rituals. It is a day for introspection and honoring ancestors.</li>
+					    <li>Activities: Special pujas and offerings are made. Devotees often perform tarpanam (rituals for the departed souls) and seek blessings for peace and prosperity.</li>
+					  </ul>
+					  <p>d. Purnima (Full Moon)</p>
+					  <ul class="bullet-list">
+					    <li>Date: Purnima occurs once a month on the full moon day.</li>
+					    <li>Significance: The full moon is associated with completeness and the fulfillment of wishes. It is an auspicious time for performing various religious activities.</li>
+					    <li>Activities: Special prayers, pujas, and abhishekams are conducted. Devotees gather to celebrate and offer prayers to Lord Shiva.</li>
+					  </ul>
+					  <p>e. Resources and Contact Information</p>
+					  <ul class="bullet-list">
+					    <li>Official Temple Website: For exact dates and details about the monthly events, visitors can check the official Bhimashankar Temple website.</li>
+					    <li>Pilgrimage Tour: Detailed descriptions of the temple&#x27;s events and their significance can be found on pilgrimage tour websites such as Pilgrimage Tour - Bhimashankar Temple.</li>
+					  </ul>
+					  <p>These monthly events provide regular opportunities for devotees to engage in spiritual practices and seek the blessings of Lord Shiva, fostering a deeper connection to their faith and the temple.</p>
 					</div>
 				</article>
 
 				<div class="glass cta-section">
 					<h3>Experience Divine Darshan</h3>
-					<p>Immerse yourself in the spiritual essence of this sacred temple through our 360° VR experience.
-					</p>
-					<a href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
-						target="_blank" class="cta-btn">
+					<p>Immerse yourself in the spiritual essence of this sacred temple through our 360° VR experience.</p>
+					<a href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share" target="_blank" class="cta-btn">
 						Download Divya Darshan 360 App
 					</a>
 				</div>
@@ -1114,6 +771,6 @@
 	</main>
 
 	<script src="/blog/assets/blog-script.js"></script>
+	<script src="/blog/assets/diya.js"></script>
 </body>
-
 </html>
