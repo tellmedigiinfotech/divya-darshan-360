@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next"
 import { getAllTemples } from "@/lib/blog-server"
+import { categoryFolderMap } from "@/lib/blog-types"
 import { siteUrl } from "@/lib/seo-config"
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -31,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 	// Add all blog posts
 	const temples = getAllTemples()
 	const blogRoutes: MetadataRoute.Sitemap = temples.map((temple) => ({
-		url: `${baseUrl}/blog/temple/${temple.slug}/index.html`,
+		url: `${baseUrl}/blog/temple/${categoryFolderMap[temple.category] || temple.category}/${temple.slug}/index.html`,
 		lastModified: currentDate,
 		changeFrequency: "monthly",
 		priority: 0.6,

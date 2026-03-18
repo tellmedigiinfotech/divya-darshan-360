@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	<title>﻿Pandarapur Vittal Temple | Divya Darshan 360</title>
+	<meta name="description" content="﻿Pandarapur Vittal Temple - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta property="og:title" content="﻿Pandarapur Vittal Temple" />
+	<meta property="og:description" content="﻿Pandarapur Vittal Temple - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta property="og:type" content="article" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="﻿Pandarapur Vittal Temple" />
+	<meta name="twitter:description" content="﻿Pandarapur Vittal Temple - Complete guide with timings, location, how to reach, poojas, and more." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="/blog/assets/tailwind-config.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
+	<link rel="stylesheet" href="/blog/assets/diya.css" />
+	
+	<style type="text/tailwindcss">
+		@layer components {
+			.lotus-bg { @apply fixed pointer-events-none z-0 hidden md:block; }
+			.lotus-bg--1 { @apply top-[5%] -right-[10%] w-[500px] h-[500px] opacity-[.12]; }
+			.lotus-bg--2 { @apply top-[35%] -left-[15%] w-[420px] h-[420px] opacity-[.08]; }
+			.lotus-spin { @apply animate-spin-slow; }
+			.lotus-spin-rev { @apply animate-spin-rev; }
+
+			body {
+				@apply min-h-screen relative overflow-x-hidden text-[#3b2510] font-sans;
+				background-color: #fdf1e2;
+				background-image: 
+					radial-gradient(circle at 50% 50%, #fadbcb 0%, transparent 80%),
+					radial-gradient(circle at 50% 0%, rgba(226, 61, 0, 0.05), transparent 70%), 
+					url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+				background-size: 100% 100%, 100% 100%, 200px 200px;
+				background-attachment: fixed;
+				animation: divine-glow 20s ease-in-out infinite alternate;
+			}
+
+			.main { @apply relative z-10; }
+			.glow-wrap { @apply absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-20; }
+			.glow-blob { @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-glow; }
+			.glow-blob--primary { @apply -top-24 -left-24 w-96 h-96 bg-primary/20; }
+			.glow-blob--accent { @apply top-1/2 -right-24 w-80 h-80 bg-accent/20; }
+
+			.section { @apply mb-12 pb-2; }
+			.section__title { @apply font-serif text-2xl font-normal text-primary mb-5 pb-2.5 border-b-2 border-[#e8ddd0]; }
+			.section__sub-b { @apply text-[1.05rem] font-normal text-[#3b2510] opacity-90 mt-6 mb-2.5 pt-1; }
+			.bullet-list { @apply list-none p-0 my-4 mb-5 space-y-3; }
+			.bullet-list li { @apply flex items-start gap-2.5 text-[#8a7260] leading-[1.7]; }
+			.bullet-list li::before { content: "\2022"; @apply text-primary font-bold shrink-0 mt-px; }
+			
+			.num-list { @apply list-none p-0 my-4 mb-5 space-y-4; }
+			.num-list li { @apply flex items-start gap-3 text-[#8a7260] leading-[1.7]; }
+			.num-list__badge { @apply flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-[0.75rem] font-bold shrink-0 mt-0.5; }
+			
+			.article p { @apply text-[#8a7260] mb-4 leading-[1.85]; }
+			
+			.hero { @apply px-6 pb-16 relative z-10; }
+			.hero-title { @apply font-serif text-[2.25rem] leading-[1.1] tracking-tighter mb-8 font-normal md:text-[3.75rem]; }
+			.badge { @apply inline-block px-[18px] py-2 rounded-full bg-primary/10 text-primary text-[0.85rem] font-medium border border-primary/20 mb-6; }
+			
+			.glass { @apply bg-white/60 backdrop-blur-2xl border border-[#e8ddd0] shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[24px]; }
+			.key-info { @apply p-8 mb-12; }
+			.key-info__grid { @apply grid grid-cols-1 md:grid-cols-2 gap-6; }
+			.key-info__item { @apply flex items-start gap-4; }
+			.key-info__item--full { @apply md:col-span-2; }
+			.key-info__icon { @apply w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-[1.3rem]; }
+			.key-info__icon svg { @apply w-5 h-5 stroke-primary; }
+			.key-info__label { @apply text-[0.82rem] font-medium text-[#8a7260] mb-0.5; }
+			.key-info__value { @apply text-[1.05rem] font-serif text-[#3b2510]; }
+			.key-info__value--sans { @apply font-sans; }
+			
+			.article { @apply p-8 mb-12 md:px-12 md:pt-12 md:pb-6; }
+			
+			.carousel { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm; }
+			.carousel__track { @apply absolute inset-0; }
+			.carousel__slide { @apply absolute inset-0 opacity-0 transition-opacity duration-500; }
+			.carousel__slide--active { @apply opacity-100; }
+			.carousel__slide img { @apply w-full h-full object-cover; }
+			.carousel__btn { @apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-black/40; }
+			.carousel:hover .carousel__btn { @apply opacity-100; }
+			.carousel__btn--prev { @apply left-4; }
+			.carousel__btn--next { @apply right-4; }
+			.carousel__dots { @apply absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2; }
+			.carousel__dot { @apply w-2 h-2 rounded-full bg-white/40 cursor-pointer transition-colors; }
+			.carousel__dot--active { @apply bg-white; }
+			.carousel__counter { @apply absolute top-6 right-6 px-3 py-1 rounded-full bg-black/20 backdrop-blur-md text-white text-[0.75rem] font-medium; }
+			
+			.img-placeholder { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm flex items-center justify-center; }
+			.img-placeholder__icon { @apply text-[6rem] opacity-25; }
+			.img-placeholder__text { @apply absolute bottom-6 left-6 right-6 text-[#3b2510]/60 text-[0.85rem]; }
+			
+			.back-section { @apply pt-24 px-6 pb-8; }
+			.back-link { @apply inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary; }
+			.back-link svg { @apply w-4 h-4; }
+			
+			.cta-section { @apply p-12 text-center mb-12; }
+			.cta-section h3 { @apply font-serif text-3xl mb-4 text-[#3b2510]; }
+			.cta-section p { @apply text-[#8a7260] mb-8 max-w-lg mx-auto; }
+			.cta-btn { @apply inline-block px-8 py-4 rounded-full bg-primary text-white font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20; }
+			
+			.container { @apply max-w-[896px] mx-auto; }
+		}
+	</style>
+
+</head>
+
+<body>
+	<main class="main">
+		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
+		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e23d00" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#e23d00" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
+		<div class="lotus-bg lotus-bg--2"><div class="lotus-spin-rev"><svg viewBox="0 0 800 800"><g transform="rotate(0 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(30 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(60 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(90 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(120 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(150 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(180 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(210 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(240 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(270 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(300 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g></svg></div></div>
+
+		<section class="back-section">
+			<div class="container">
+				<a href="/blog" class="back-link">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+					Back to Blog
+				</a>
+			</div>
+		</section>
+
+		<section class="hero">
+			<div class="container">
+				<div><span class="badge">Popular Famous Temples</span></div>
+				<h1 class="hero-title">﻿Pandarapur Vittal Temple</h1>
+
+							<div class="img-placeholder">
+					<div class="img-placeholder__icon">🕉️</div>
+					<div class="img-placeholder__gradient"></div>
+					<div class="img-placeholder__text">Image of ﻿Pandarapur Vittal Temple</div>
+				</div>
+
+				<div class="glass key-info">
+					<div class="key-info__grid">
+						<div class="key-info__item">
+							<div class="key-info__icon">🕉️</div>
+							<div>
+								<div class="key-info__label">Main Deity</div>
+								<div class="key-info__value">Lord Vitthal (also known as Vithoba or Pandurang)</div>
+							</div>
+						</div>
+						<div class="key-info__item">
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+							<div>
+								<div class="key-info__label">Contact</div>
+								<div class="key-info__value key-info__value--sans"> (02186) 224466, 223550</div>
+							</div>
+						</div>
+						<div class="key-info__item key-info__item--full">
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+							<div>
+								<div class="key-info__label">Full Address</div>
+								<div class="key-info__value key-info__value--sans">Shri Vitthal Rukmini Mandir Samiti, Near Vitthal Mandir Temple, Pandharpur - 413304, Dist. Solapur, Maharashtra, India</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<article class="glass article">
+					<div class="section">
+					  <h3 class="section__title">Condensed information about the place</h3>
+					  <ul class="bullet-list">
+					    <li>Main Deity: Lord Vitthal (also known as Vithoba or Pandurang)</li>
+					    <li>Other Deities: Mata Rukmini</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Information</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is a major pilgrimage site, known for its unique worship practices and significant events like the Ashadhi and Kartiki Ekadashi pilgrimages, attracting millions of devotees.</li>
+					    <li>The temple offers various services including online darshan, donation facilities, and accommodations for devotees.</li>
+					  </ul>
+					</div>
+					
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple</h3>
+					  <h5 class="section__sub-b">General</h5>
+					  <ul class="bullet-list">
+					    <li>Opening Time: 4:00 AM</li>
+					    <li>Closing Time: 11:00 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">On Special Days like Festivals and Utsavas</h5>
+					  <ul class="bullet-list">
+					    <li>During special festivals like Ashadhi Ekadashi and Kartiki Ekadashi, the temple remains open for extended hours to accommodate the large influx of devotees. Specific timings may vary and are typically announced closer to the festival dates.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					   <h3 class="section__title">Is there any Entry Fees- What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? Etc.</h3>
+					
+					  <h3 class="section__sub-b">Entry Fees and Privileges</h3>
+					  <ul class="bullet-list">
+					    <li>Entry Fees:</li>
+					    <li>General darshan is free for all devotees.</li>
+					    <li>Special darshan passes are available for a fee, providing privileges like quicker access through a special gate and a longer view of the deity.</li>
+					    <li>Privileges:</li>
+					    <li>Quick darshan access through a special gate.</li>
+					    <li>Longer viewing time of the deity.</li>
+					    <li>Additional offerings like prasad and special puja services are available for an extra fee.</li>
+					    <li>Entry Restrictions for Foreigners:</li>
+					    <li>There are no specific entry restrictions for foreigners.</li>
+					    <li>No special fees or declarations are required for foreign visitors.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available?</h3>
+					  <p>Location - How to Reach</p>
+					  <h5 class="section__sub-b">By Air</h5>
+					  <ul class="bullet-list">
+					    <li>The nearest airport is Pune International Airport, approximately 210 km from Pandharpur. From Pune, you can take a taxi or bus to reach the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Train</h5>
+					  <ul class="bullet-list">
+					    <li>Pandharpur Railway Station is well-connected to major cities like Mumbai, Pune, and Solapur. Regular trains are available, making it convenient for pilgrims.</li>
+					    <li>The nearest convenient railway station is Kurduwadi Junction, which is 52 KMs away.</li>
+					    <li>By Bus:</li>
+					    <li>State transport buses and private buses run frequently from Pune, Mumbai, and Solapur to Pandharpur.</li>
+					    <li>The nearest major city is Pandharpur, which is 42KMs away</li>
+					  </ul>
+					  <h5 class="section__sub-b">By Taxi</h5>
+					  <ul class="bullet-list">
+					    <li>Taxis and auto-rickshaws are readily available from the railway station and bus stand to the temple.</li>
+					  </ul>
+					
+					  <h3 class="section__title">Special Poojas/ rituals  being performed: provide   the Days & Timing of these Poojas. What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <h5 class="section__sub-b">Days &amp; Timings</h5>
+					  <h5 class="section__sub-b">1. Kakad Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timings: 3:30 AM</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Madhyan Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timings: 11:00 AM</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Dhoop Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timings: 6:30 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Shej Aarti</h5>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timings: 10:00 PM</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Ekadashi Pooja</h5>
+					  <ul class="bullet-list">
+					    <li>Days: Every Ekadashi</li>
+					    <li>Timings: Throughout the day</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Abhishek</h5>
+					  <ul class="bullet-list">
+					    <li>Days: Daily</li>
+					    <li>Timings: 4:00 AM to 6:00 AM</li>
+					  </ul>
+					  <h5 class="section__sub-b">Rates for Special Poojas</h5>
+					  <ul class="bullet-list">
+					    <li>Kakad Aarti: ₹500</li>
+					    <li>Madhyan Aarti: ₹500</li>
+					    <li>Dhoop Aarti: ₹500</li>
+					    <li>Shej Aarti: ₹500</li>
+					    <li>Ekadashi Pooja: ₹1000</li>
+					    <li>Abhishek: ₹2000</li>
+					  </ul>
+					  <h5 class="section__sub-b">Advance Booking Procedure</h5>
+					  <h5 class="section__sub-b">1. Online Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Visit the official website: Pandharpur Vittal Temple Booking</li>
+					    <li>Navigate to the &quot;Online Booking&quot; section.</li>
+					    <li>Select the desired pooja/ritual.</li>
+					    <li>Fill in the required details and make the payment online.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. In-Person Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Visit the temple booking counter.</li>
+					    <li>Provide the necessary details and make the payment.</li>
+					    <li>Collect the booking receipt.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Information</h5>
+					  <ul class="bullet-list">
+					    <li>Contact: For any inquiries or assistance with booking, you can contact the temple administration through the contact details provided on the official website.</li>
+					    <li>Note: It is advisable to book in advance, especially for Ekadashi and other special occasions, due to high demand.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any online service exists for serving the customers? If yes by whom?</h3>
+					  <p>Yes, the Pandharpur Vittal Temple offers online services for devotees. The services include booking for poojas and rituals, donations, and darshan tickets. These services are managed by the Shri Vitthal-Rukmini Mandir Samiti.</p>
+					  <h5 class="section__sub-b">Online Services</h5>
+					  <h5 class="section__sub-b">1. Online Pooja Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees can book various poojas and rituals online through the official temple website.</li>
+					    <li>The online booking system allows selection of specific poojas, dates, and times.</li>
+					    <li>Payments can be made securely through the website.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Online Donation</h5>
+					  <ul class="bullet-list">
+					    <li>Devotees can make donations online to the temple through the official website.</li>
+					    <li>The donation process is straightforward, with various payment options available.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Darshan Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Online booking for darshan is available to manage the flow of devotees and reduce waiting times.</li>
+					    <li>Special darshan tickets can also be booked online for a more convenient and organized experience.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Access Online Services</h5>
+					  <ul class="bullet-list">
+					    <li>Website: Visit the official Pandharpur Vittal Temple website at Pandharpur Vittal Temple.</li>
+					    <li>Booking Section: Navigate to the &quot;Online Booking&quot; or &quot;Online Services&quot; section on the website.</li>
+					    <li>Login/Register: Users may need to register or log in to access the booking and donation services.</li>
+					    <li>Select Service: Choose the desired service (pooja booking, donation, darshan booking).</li>
+					    <li>Fill Details: Provide the required details such as name, date, time, and any specific requirements.</li>
+					    <li>Payment: Complete the payment process using the available payment methods.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Managed By</h5>
+					  <p>The online services are managed by the Shri Vitthal-Rukmini Mandir Samiti, which is responsible for the administration and maintenance of the temple and its activities.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <p>Yes, there is a specific dress code prescribed for entry to the Pandharpur Vittal Temple, especially for special poojas and festival days. The dress code is intended to maintain the sanctity and decorum of the temple premises.</p>
+					  <h5 class="section__sub-b">Dress Code for Men</h5>
+					  <ul class="bullet-list">
+					    <li>General Entry:</li>
+					    <li>Traditional attire is preferred.</li>
+					    <li>Men are encouraged to wear dhoti, kurta, or any traditional Indian attire.</li>
+					    <li>Avoid wearing shorts, sleeveless shirts, or any revealing clothing.</li>
+					    <li>Special Pooja/Festival Days:</li>
+					    <li>White or light-colored traditional clothes are recommended.</li>
+					    <li>Dhoti and kurta or veshti are preferred for special poojas and during festival days.</li>
+					    <li>Men are required to remove shirts and wear an upper cloth (angavastram) during certain rituals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Dress Code for Women</h5>
+					  <ul class="bullet-list">
+					    <li>General Entry:</li>
+					    <li>Traditional attire such as sarees, salwar kameez, or churidars is preferred.</li>
+					    <li>Women should avoid wearing western outfits like jeans, skirts, or shorts.</li>
+					    <li>Sleeveless tops, revealing clothes, or tight-fitting dresses are not allowed.</li>
+					    <li>Special Pooja/Festival Days:</li>
+					    <li>Sarees or traditional Indian attire are recommended.</li>
+					    <li>Light-colored or white traditional dresses are encouraged during special poojas and festivals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Footwear: No footwear is allowed inside the temple premises. Devotees must leave their shoes/slippers outside in the designated area.</li>
+					    <li>Head Covering: In some areas of the temple, covering the head with a cloth or scarf may be required, especially during specific rituals.</li>
+					    <li>Ornaments: Devotees are advised to avoid wearing excessive jewelry or flashy ornaments.</li>
+					  </ul>
+					  <p>The dress code ensures a respectful and serene environment for all devotees and helps maintain the spiritual atmosphere of the temple. It is advisable to adhere to these guidelines to avoid any inconvenience during your visit.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>Electronic gadgets have restrictions at the Pandharpur Vittal Temple to ensure the sanctity and security of the temple premises.</p>
+					  <h5 class="section__sub-b">Electronic Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Mobile Phones: Generally not allowed inside the temple premises.</li>
+					    <li>Cameras: Not permitted inside the temple.</li>
+					    <li>Other Electronic Devices: Items such as tablets, laptops, and other electronic gadgets are also not allowed inside the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Deposit Facility</h5>
+					  <ul class="bullet-list">
+					    <li>Cloak Room/Locker Facility: The temple provides a cloakroom or locker facility where devotees can safely deposit their electronic gadgets before entering the temple.</li>
+					    <li>Location: These facilities are typically located near the main entrance of the temple.</li>
+					    <li>Process: Devotees can deposit their belongings and receive a token or receipt. They can collect their items after the temple visit by presenting the token.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Secure Storage: Ensure that you securely store your electronic devices and other valuables in the provided lockers.</li>
+					    <li>Avoid Bringing Valuables: It is advisable to avoid bringing unnecessary electronic devices or valuables to the temple to prevent any inconvenience.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <p>Photography inside the Pandharpur Vittal Temple is generally not allowed. This restriction is in place to maintain the sanctity and spiritual atmosphere of the temple. Here are the details:</p>
+					  <h5 class="section__sub-b">Photography Guidelines</h5>
+					  <ul class="bullet-list">
+					    <li>Inside the Temple: Photography is strictly prohibited inside the temple premises, including the sanctum sanctorum and other inner areas.</li>
+					    <li>Outside the Temple: Photography may be allowed in the outer premises or surrounding areas, but it is advisable to check with the temple authorities for specific guidelines.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Fees for Photography</h5>
+					  <ul class="bullet-list">
+					    <li>Inside the Temple: No photography is permitted, so there is no fee applicable.</li>
+					    <li>Outside the Temple: If photography is allowed in the outer areas, there might be specific rules and fees, which should be confirmed with the temple administration.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Recommendations</h5>
+					  <ul class="bullet-list">
+					    <li>Respect Guidelines: Adhere to the temple’s rules regarding photography to avoid any inconvenience or penalties.</li>
+					    <li>Check with Authorities: For any special permissions or detailed information, it is best to directly contact the temple authorities or refer to the official website.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>Yes, the Pandharpur Vittal Temple does have facilities to assist physically handicapped devotees to ensure they can have a comfortable and accessible visit.</p>
+					  <h5 class="section__sub-b">Facilities for Physically Handicapped</h5>
+					  <h5 class="section__sub-b">1. Wheelchair Accessibility</h5>
+					  <ul class="bullet-list">
+					    <li>The temple provides wheelchairs for physically handicapped devotees.</li>
+					    <li>Ramps are available at various points to facilitate movement within the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Lift/Elevator</h5>
+					  <ul class="bullet-list">
+					    <li>There is an elevator facility available for physically handicapped individuals to help them access different levels of the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Dedicated Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Temple staff and volunteers are available to assist physically handicapped devotees.</li>
+					    <li>Special arrangements can be made for darshan to avoid long queues and waiting times.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Special Darshan Lines</h5>
+					  <ul class="bullet-list">
+					    <li>There are separate queues and special darshan arrangements for elderly and physically handicapped individuals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Access These Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Contact Temple Authorities: It is advisable to contact the temple administration in advance to inform them of any specific requirements.</li>
+					    <li>On-Site Assistance: On arrival, you can approach the temple&#x27;s help desk or information center to request assistance and access to these facilities.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>Yes, the Pandharpur Vittal Temple provides facilities to assist elderly and physically challenged devotees, including the availability of wheelchairs.</p>
+					  <h5 class="section__sub-b">Wheelchair Facility</h5>
+					  <h5 class="section__sub-b">1. Availability</h5>
+					  <ul class="bullet-list">
+					    <li>The temple offers wheelchairs for elderly and physically challenged devotees to help them navigate the temple premises comfortably.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. How to Access</h5>
+					  <ul class="bullet-list">
+					    <li>On Arrival: You can request a wheelchair at the temple&#x27;s entrance or the help desk.</li>
+					    <li>Assistance: Temple staff and volunteers are available to assist in providing and operating the wheelchairs if needed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Special Arrangements</h5>
+					  <ul class="bullet-list">
+					    <li>The temple has ramps and smooth pathways to ensure wheelchair accessibility.</li>
+					    <li>Separate queues and special darshan arrangements are available to avoid long waiting times and provide a hassle-free experience.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <p>The Pandharpur Vittal Temple provides special arrangements to accommodate sick, senior citizens, and physically challenged individuals to ensure they have a comfortable and convenient darshan experience.</p>
+					  <h5 class="section__sub-b">Special Entry/Special Timing of Darshan</h5>
+					  <h5 class="section__sub-b">1. Special Entry</h5>
+					  <ul class="bullet-list">
+					    <li>Dedicated Queue: There is a separate queue for senior citizens, physically challenged individuals, and those who are sick to minimize waiting times and avoid the rush.</li>
+					    <li>Priority Access: These individuals are given priority access to the temple to ensure they do not have to wait in long lines.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Special Timing</h5>
+					  <ul class="bullet-list">
+					    <li>While the temple may not have fixed special timings specifically for these groups, they are generally accommodated with priority during regular darshan hours.</li>
+					    <li>During peak times or festivals, it is advisable to contact the temple administration to inquire about any specific arrangements or timings that may be in place.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Avail Special Entry</h5>
+					  <h5 class="section__sub-b">1. On Arrival</h5>
+					  <ul class="bullet-list">
+					    <li>Approach the help desk or information center at the temple entrance.</li>
+					    <li>Inform the staff about your need for special entry and assistance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Advance Coordination</h5>
+					  <ul class="bullet-list">
+					    <li>It is recommended to contact the temple administration in advance, especially if you are planning a visit during peak times or festivals, to ensure that all necessary arrangements are made.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>Yes, the Pandharpur Vittal Temple does perform vehicle pooja. Here are the details:</p>
+					  <h5 class="section__sub-b">Vehicle Pooja</h5>
+					  <h5 class="section__sub-b">1. Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Daily: Vehicle pooja can be performed every day.</li>
+					    <li>Timings: Typically, vehicle poojas are conducted from early morning to evening. The exact timings might vary, so it is advisable to check with the temple authorities or the official website for specific hours.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Cost</h5>
+					  <ul class="bullet-list">
+					    <li>The cost for vehicle pooja generally varies depending on the type of vehicle (two-wheeler, four-wheeler, etc.).</li>
+					    <li>As of the latest available information, the cost for vehicle pooja at the Pandharpur Vittal Temple is approximately ₹300-₹500. However, it is best to confirm the exact fee with the temple administration.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Procedure for Vehicle Pooja</h5>
+					  <h5 class="section__sub-b">1. Booking/Registration</h5>
+					  <ul class="bullet-list">
+					    <li>On-site: You can book the vehicle pooja on the day of your visit by approaching the temple&#x27;s pooja counter.</li>
+					    <li>Advance Booking: For convenience, especially during peak times or festivals, it is advisable to contact the temple in advance to check if advance booking is available.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. On the Day of Pooja</h5>
+					  <ul class="bullet-list">
+					    <li>Arrive at the designated area for vehicle pooja within the temple premises.</li>
+					    <li>Follow the instructions provided by the temple staff for the pooja process.</li>
+					    <li>The temple priests will perform the rituals and bless the vehicle.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>Yes, the Pandharpur Vittal Temple provides accommodation facilities to pilgrims. These facilities cater to a range of needs and preferences, ensuring a comfortable stay for visitors.</p>
+					  <h5 class="section__sub-b">Types of Accommodation Facilities</h5>
+					<p>Dharamshalas: For budget-conscious pilgrims, there are dharamshalas that offer more economical lodging options.</p>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>Guest Houses: Prices vary based on the type of room and amenities provided. They generally range from ₹500 to ₹2000 per night.</li>
+					    <li>Dharamshalas: These are typically very affordable, with prices ranging from ₹200 to ₹500 per night.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking Process</h5>
+					  <h5 class="section__sub-b">1. Online Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Some accommodations may offer the option to book online through the temple’s official website or a dedicated booking platform.</li>
+					    <li>Check the official website Pandharpur Vittal Temple Accommodations for any online booking facilities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Telephone Booking</h5>
+					  <ul class="bullet-list">
+					    <li>You can book accommodation by calling the temple’s accommodation office. Contact details are usually provided on the temple&#x27;s official website.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. On-site Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Depending on availability, you can also book accommodation directly at the temple’s accommodation office upon arrival.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Recommendations</h5>
+					  <ul class="bullet-list">
+					    <li>Advance Booking: Especially during festival times and peak pilgrimage seasons, it is advisable to book your accommodation well in advance to ensure availability.</li>
+					    <li>Verify Costs and Facilities: Before booking, confirm the cost, amenities, and rules (like check-in and check-out times) directly with the accommodation provider.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>The Pandharpur Vittal Temple provides parking facilities to accommodate the needs of visitors arriving by various modes of transportation, including cars, minibuses, and two-wheelers.</p>
+					  <h5 class="section__sub-b">Parking Facilities</h5>
+					  <h5 class="section__sub-b">1. Designated Parking Areas</h5>
+					  <ul class="bullet-list">
+					    <li>Separate areas are typically designated for different types of vehicles to ensure orderly parking and traffic flow.</li>
+					    <li>Cars and Minibuses: There are specific lots for four-wheelers and minibuses, often located near the temple premises but in a way that does not disrupt the pedestrian movement.</li>
+					    <li>Two-wheelers: Exclusive parking areas for motorcycles and scooters are available, providing convenience and security for two-wheeler users.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Capacity and Management</h5>
+					  <ul class="bullet-list">
+					    <li>The parking facilities are managed to handle a significant number of vehicles, especially during peak times like festivals and special pooja days.</li>
+					    <li>Staff and volunteers are usually present to manage the parking logistics and assist pilgrims in parking their vehicles safely.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Security</h5>
+					  <ul class="bullet-list">
+					    <li>The parking areas are typically monitored to ensure the safety and security of the vehicles.</li>
+					    <li>However, it&#x27;s advisable for visitors to ensure their vehicles are locked and any valuables are not left in plain sight.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Parking Fees</h5>
+					  <ul class="bullet-list">
+					    <li>Fees: There might be a nominal fee for parking, depending on the type of vehicle.</li>
+					    <li>Mode of Payment: Payments are usually made at the entrance of the parking lot, either to a manned booth or via electronic payment methods if available.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Access</h5>
+					  <ul class="bullet-list">
+					    <li>Location: Parking areas are usually well-signposted, directing visitors from major access roads to the appropriate parking lots.</li>
+					    <li>Assistance on Arrival: Staff or signage will direct drivers to the correct parking area based on the type of vehicle.</li>
+					  </ul>
+					  <p>For more detailed information, such as the exact location of the parking areas, fees, and any specific policies, it is advisable to check the temple&#x27;s official website or contact the temple administration directly prior to your visit. This ensures you have the most current information and can plan your visit accordingly.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <p>The Pandharpur Vittal Temple offers prasad services, including meals to devotees, which are an integral part of the temple&#x27;s hospitality. Here&#x27;s how these services are typically managed:</p>
+					  <h5 class="section__sub-b">Temple Prasad Services</h5>
+					  <h5 class="section__sub-b">1. Meals Offered</h5>
+					  <ul class="bullet-list">
+					    <li>The temple provides meals as prasad, which are generally simple, vegetarian dishes prepared in the temple kitchen following strict hygiene and purity standards.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Procedure and Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Timings: Meals are typically served during lunch and dinner times. Exact timings can vary, so checking the temple&#x27;s schedule is advisable.</li>
+					    <li>Procedure: Devotees line up in designated areas where temple staff serve the meals. The service is usually efficient to accommodate the large number of pilgrims.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Payments</h5>
+					  <ul class="bullet-list">
+					    <li>In many temples, the prasad or meals are offered free as a part of the temple&#x27;s service to devotees. However, some temples might charge a nominal fee to cover the costs.</li>
+						<li>Donations: Devotees are often encouraged to make a voluntary donation, but it is not mandatory.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Different Classes/Lines</h5>
+					  <ul class="bullet-list">
+					    <li>General Line: For all visitors, without any charge or with a nominal fee.</li>
+					    <li>Special Line: For those who pay for a special prasad service, which might include a more elaborate meal or a less crowded dining area. This service is usually quicker and may offer added comfort.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. How to Buy Tickets</h5>
+					  <ul class="bullet-list">
+					    <li>On-site: If the temple charges for meals or has a special prasad line, tickets can typically be purchased on-site at designated counters.</li>
+					    <li>Online: Some temples may offer the option to book meals online through their official website.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Recommendations</h5>
+					  <ul class="bullet-list">
+					    <li>Check Official Sources: For the most accurate and updated information regarding meal services, it is best to consult the temple’s official website or contact the temple administration directly.</li>
+					    <li>Arrive Early: For meals, especially during busy periods like festivals, arriving early can help avoid long waits.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>The Pandharpur Vittal Temple offers various types of prasad that devotees can carry home. These prasads are typically blessed and considered auspicious. Here are the details:</p>
+					  <h5 class="section__sub-b">Types of Carry Home Prasad</h5>
+					<p>Dry Fruits and Nuts: Sometimes included in special prasad packages.</p>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>The cost of carry home prasad can vary depending on the type and quantity. Typically, costs might range from a nominal fee to higher prices for larger or special prasad packages.</li>
+					    <li>Free Distribution: Some basic forms of prasad like tulsi leaves and vibhuti might be distributed free of cost.</li>
+					    <li>Purchased Prasad: Sweet offerings and special prasad packages usually come with a cost. They can range from ₹10 to ₹100 or more, depending on the contents and packaging.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Purchase</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Counters: Prasad is generally available at specific counters within the temple premises where devotees can buy directly.</li>
+					    <li>Online: Some temples also offer the option to order prasad online through their official website, which can be collected as you exit or sent to your home.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Recommendations</h5>
+					  <ul class="bullet-list">
+					    <li>Check Availability: It’s a good idea to check the availability of specific types of prasad during your visit, as some might be seasonally or occasionally available.</li>
+					    <li>Official Website: For accurate information on the types of prasad available, their costs, and how to purchase them, please visit the temple’s official website or contact the temple administration directly.</li>
+					  </ul>
+					  <p>Carry home prasad from the Pandharpur Vittal Temple serves as a spiritual keepsake and is also often shared with family and friends as a blessing. For any detailed queries or to arrange for specific prasad, checking the temple&#x27;s resources directly would provide the most reliable information.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>Reporting lost items in a temple like the Pandharpur Vittal Temple involves a few straightforward steps to help you retrieve your belongings efficiently:</p>
+					  <h5 class="section__sub-b">Procedure for Reporting Lost Items</h5>
+					  <h5 class="section__sub-b">1. Visit the Lost and Found Section</h5>
+					  <ul class="bullet-list">
+					    <li>Most temples, including the Pandharpur Vittal Temple, have a dedicated lost and found office or section where lost items are collected and stored.</li>
+					    <li>Locate this office, often near the main entrance or the security office, and report your lost item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Provide Details</h5>
+					  <ul class="bullet-list">
+					    <li>Describe the lost item in detail to the staff, including any distinctive features, the approximate time and location where it was last seen, and your contact information.</li>
+					    <li>The more details you provide, the easier it will be for the temple staff to identify and return your item if it has been found.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Check Back Regularly</h5>
+					  <ul class="bullet-list">
+					    <li>If your item isn’t immediately found, leave your contact information with the lost and found office. Ask if you can call back or if they will notify you when the item is found.</li>
+					    <li>It may be helpful to check back periodically, especially if the item is valuable or essential.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Identification Requirement</h5>
+					  <ul class="bullet-list">
+					    <li>Be prepared to describe or show proof of ownership for the lost item when claiming it. This could include describing hidden features, showing a receipt, or identifying photos stored on a lost electronic device.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Lost and Found Policy</h5>
+					  <ul class="bullet-list">
+					    <li>Familiarize yourself with the temple’s lost and found policy. Some items may only be held for a limited time before being donated or disposed of if unclaimed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Contact Immediately: The sooner you report the lost item, the higher the chances of recovering it, as items can be moved or claimed incorrectly by others.</li>
+					    <li>Be Polite and Patient: Temple staff often handle multiple tasks, especially in large temples like Pandharpur Vittal. Being polite and patient can facilitate better assistance.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a member of your group goes missing during a visit to a temple like the Pandharpur Vittal Temple, here are the steps you can take to report the situation and facilitate a reunion:</p>
+					  <h5 class="section__sub-b">Steps to Report a Missing Group Member</h5>
+					  <h5 class="section__sub-b">1. Inform Temple Security</h5>
+					  <ul class="bullet-list">
+					    <li>Immediately notify the temple security or staff members. They are typically trained to handle such situations and can initiate a quick response.</li>
+					    <li>Provide a detailed description of the missing person, including their clothing, last known location, and any relevant physical or medical details.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Visit the Information Desk</h5>
+					  <ul class="bullet-list">
+					    <li>Most temples have an information or help desk. Go there to report the missing person and ask for assistance.</li>
+					    <li>They may have protocols in place for announcing missing persons or conducting a search within the temple premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Utilize Public Address System</h5>
+					  <ul class="bullet-list">
+					    <li>Request to use the temple’s public address system if available. A staff member may make an announcement about the missing person to alert other visitors and temple personnel.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Waiting Location</h5>
+					  <ul class="bullet-list">
+					    <li>Designate a Meeting Point:</li>
+					    <li>Establish a common meeting point where your group initially agreed to meet in case anyone got separated. If no prior spot was determined, choose an easily recognizable and accessible location within the temple premises.</li>
+					    <li>Inform the temple staff about this location so they can direct the missing person there once found.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
+					  <p>The Pandharpur Vittal Temple, like many significant religious sites in India, is typically managed under a temple trust or committee that may be overseen or regulated by state government or district administration to some extent. These entities ensure that the operations, maintenance, and various activities of the temple are conducted appropriately and transparently.</p>
+					  <h5 class="section__sub-b">Registration and Oversight</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Trust: The Pandharpur Vittal Temple is managed by the &quot;Shri Vitthal-Rukmini Mandir Samiti&quot;. This trust is responsible for all the administrative, day-to-day, and special activities at the temple.</li>
+					    <li>Government Association: Often, temples of significant cultural and spiritual importance are registered under state government acts that help in governance and regulation. This ensures that temples are maintained properly, and activities are conducted in an organized manner.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Visibility on the Official Site</h5>
+					  <ul class="bullet-list">
+					    <li>The official website or publications from the temple typically provide details about the temple management, including any affiliations with state government or district administration. This information can usually be found in the &#x27;About Us&#x27; section or similar parts of the website.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>Making donations to the Pandharpur Vittal Temple can be done in various ways apart from the traditional Hundi offerings. Here’s a detailed guide on how to proceed:</p>
+					  <h5 class="section__sub-b">Ways to Make Donations</h5>
+					  <h5 class="section__sub-b">1. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>The temple typically offers an online portal through their official website where you can make donations electronically.</li>
+					    <li>Procedure: Visit the temple&#x27;s official website, navigate to the &#x27;Donations&#x27; section, and follow the instructions to donate using credit/debit cards, net banking, or other digital payment methods.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Direct Bank Transfers</h5>
+					  <ul class="bullet-list">
+					    <li>Bank Account Details: The temple provides specific bank account details for direct transfers. This information is usually available on the temple’s official website under the donation section.</li>
+					    <li>Details Needed: Account name (usually in the name of the temple trust), account number, bank name, and IFSC code.</li>
+					    <li>Purpose of Donation: While making the transfer, you can specify the purpose if you wish the donation to be used for a specific cause (like annadanam, education, temple renovation, etc.).</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cheque or Demand Draft</h5>
+					  <ul class="bullet-list">
+					    <li>You can send a cheque or demand draft made payable to the temple trust.</li>
+					    <li>Mailing Address: The details for where to send the cheque or draft can be found on the temple’s official website or by contacting the temple administration.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Purposes for Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Maintenance and Renovation: Helping in the upkeep and restoration of the temple structures.</li>
+					    <li>Annadanam (Free Meals): Funding the daily free meal service provided to pilgrims and visitors.</li>
+					    <li>Educational Activities: Supporting schools or educational programs run by the temple.</li>
+					    <li>Cultural Activities: Funding festivals and cultural programs that the temple organizes.</li>
+					    <li>Social Services: Contributing to various social services and welfare activities conducted by the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Receipts and Tax Benefits</h5>
+					  <ul class="bullet-list">
+					    <li>Receipts: Ensure that you receive a receipt for your donation, which can be useful for tax exemption purposes under relevant sections of the Income Tax Act in India (like Section 80G).</li>
+					    <li>Tax Benefits: Details regarding tax benefits can also be found on the temple’s official website or by consulting with the temple’s donation office.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>The Pandharpur Vittal Temple, like many significant temples in India, may offer certain privileges or benefits to donors depending on the amount and purpose of the donation. While specific privileges similar to those offered by Tirupati or Shirdi may vary, here is a general outline of potential benefits that might be associated with donations at the Pandharpur Vittal Temple:</p>
+					  <h5 class="section__sub-b">Possible Privileges for Donors</h5>
+					<p>Tax Benefits: Donations to the temple are often eligible for tax deductions under Section 80G of the Income Tax Act, providing financial benefits to the donors.</p>
+					  <h5 class="section__sub-b">Specific Programs and Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Annadanam (Free Meals Program): Contributions towards this program might offer the donor the satisfaction of sponsoring meals for a certain number of devotees.</li>
+					    <li>Educational and Healthcare Initiatives: Similar to Shirdi, donations aimed at supporting educational programs or healthcare facilities run by the temple might have associated benefits in terms of recognition or participation in events.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Avail and Verify Privileges</h5>
+					  <ul class="bullet-list">
+					    <li>Consult Official Sources: To understand the specific privileges associated with donations, it is best to consult the temple&#x27;s official website or directly contact the temple administration. They can provide detailed information on how donations are utilized and any associated benefits.</li>
+					    <li>Written Confirmation: When making a significant donation, it may be wise to get a written confirmation of any privileges or benefits promised, to ensure clarity and mutual understanding.</li>
+					  </ul>
+					  <p>Note: Benefits and privileges can vary based on temple policies and the discretion of the temple management committee. Changes can also occur without prior public notification.</p>
+					  <p>To get the most accurate and current information regarding donation privileges at the Pandharpur Vittal Temple, visiting their official website or directly contacting the temple&#x27;s donation office would be advisable. This will help ensure that your generosity is acknowledged appropriately and aligned with your expectations.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Provide Construction/  scientific  information about the  temple?</h3>
+					  <p>The Pandharpur Vittal Temple, dedicated to Lord Vithoba (a form of Lord Krishna), is a prominent site of pilgrimage in Maharashtra, India. It is known for its unique architectural and constructional features that reflect the rich cultural heritage of the region.</p>
+					  <h5 class="section__sub-b">Architectural and Constructional Details</h5>
+					  <h5 class="section__sub-b">1. Style and Structure</h5>
+					  <ul class="bullet-list">
+					    <li>The temple architecture is predominantly influenced by the Maratha style, evident in its design and decorative elements.</li>
+					    <li>The main temple structure includes a spacious inner sanctum (Garbhagriha) where the idol of Lord Vithoba is placed.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Material Used</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is constructed primarily using locally sourced stone, which is typical for many ancient temples in the region. The robustness of the stone ensures the durability and longevity of the structure.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Iconography</h5>
+					  <ul class="bullet-list">
+					    <li>The temple walls and pillars are adorned with carvings and sculptures depicting various episodes from the mythology of Lord Krishna, as well as scenes from daily life in the Maratha period. This serves both a decorative and an instructional purpose, conveying religious stories to the visitors.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Main Idol</h5>
+					  <ul class="bullet-list">
+					    <li>The idol of Vithoba is a black stone image, standing on a brick, which is said to be imbued with divine energy. The uniqueness of the idol lies in its enigmatic smile and the &#x27;Shaligram&#x27; stone used for its crafting, which is highly revered in Hindu tradition.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Scientific Aspects</h5>
+					  <ul class="bullet-list">
+					    <li>Orientation: The temple is strategically oriented to ensure that it receives sunlight at specific times of the day, which is a common feature in temple architecture, aimed at harnessing the spiritual and natural energies.</li>
+					    <li>Acoustics: The temple’s design also considers acoustics, allowing chants and hymns to resonate within the sanctum and the outer halls, enhancing the spiritual atmosphere.</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Cultural Integration</h5>
+					  <ul class="bullet-list">
+					    <li>The temple not only serves as a religious site but also as a cultural hub, integrating various artistic expressions like music, dance, and literature, which are a significant part of the worship rituals, especially during the annual &#x27;Ashadhi Ekadashi&#x27; pilgrimage.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Renovation and Preservation</h5>
+					  <ul class="bullet-list">
+					    <li>The temple has undergone various renovations over the centuries to preserve its structural integrity and historical value. These efforts ensure that the temple remains a testament to the architectural and spiritual heritage of India.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Visitor and Devotee Interaction</h5>
+					  <ul class="bullet-list">
+					    <li>The temple’s layout is designed to manage the flow of the large number of devotees it receives, particularly during special festivals and events, ensuring a smooth and organized darshan process.</li>
+					  </ul>
+					  <p>The Pandharpur Vittal Temple’s architectural and constructional features are not only a showcase of ancient craftsmanship but also a continuation of the living traditions that have been passed down through generations, making it a significant spiritual and cultural landmark.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>The Pandharpur Vittal Temple holds significant spiritual and cultural importance, particularly in the context of the Bhakti movement in India. It is renowned not just for its architectural beauty but also for its deep-rooted religious significance, which draws millions of devotees each year.</p>
+					  <h5 class="section__sub-b">Special Significance of the Pandharpur Vittal Temple</h5>
+					  <h5 class="section__sub-b">1. Center of Bhakti Movement</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is a pivotal center of the Bhakti movement, which emphasized devotion to God irrespective of caste or creed. It has been associated with many of India&#x27;s saint-poets, including Sant Dnyaneshwar, Sant Tukaram, Sant Namdev, and others who were instrumental in spreading the values of devotion and equality through their Abhangs (devotional poetry sung in praise of Lord Vithoba).</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Varkari Tradition</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is the main focus of the Varkari sect—a unique tradition where devotees, known as Varkaris, undertake an annual pilgrimage (Wari) by walking hundreds of kilometers to the temple from various parts of Maharashtra. This pilgrimage culminates at the temple during the auspicious occasions of Ashadhi Ekadashi and Kartiki Ekadashi.</li>
+					    <li>This tradition has been ongoing for centuries and is a vibrant expression of communal harmony and spiritual devotion.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. The Idol’s Unique Position</h5>
+					  <ul class="bullet-list">
+					    <li>The idol of Lord Vithoba in Pandharpur is unique because it stands on a brick, which is believed to represent the legend where the Lord came to wait for his devotee, Pundalik. According to the legend, Pundalik threw a brick outside for Lord Krishna to stand upon while he served his parents. Moved by this act of devotion, Krishna (Vithoba) remained there in the form of an idol.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Cultural Integration</h5>
+					  <ul class="bullet-list">
+					    <li>Beyond its spiritual significance, the temple also serves as a cultural hub, where numerous festivals and religious ceremonies are held. These events showcase the rich traditions of the region, including music, dance, and communal gatherings, which are integral to the worship practices at the temple.</li>
+					  </ul>
+					  <p>While there is no specific mention of a unique geomagnetic field or cosmic energy akin to places like Kasar Devi, the Pandharpur Vittal Temple&#x27;s significance lies more in its profound spiritual impact and its role in promoting values of devotion, equality, and communal harmony through the Varkari tradition. The temple&#x27;s significance is deeply woven into the spiritual fabric of Maharashtra and continues to be a symbol of faith and devotion for millions.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion.</h3>
+					  <p>For a foreigner interested in the spiritual aspects of the Pandharpur Vittal Temple rather than its religious rituals, here are some key elements that might be of particular interest:</p>
+					  <h5 class="section__sub-b">Spiritual Significance of the Temple</h5>
+					  <h5 class="section__sub-b">1. Vithoba as a Symbol of Devotion</h5>
+					  <ul class="bullet-list">
+					    <li>Vithoba, or Lord Vittal, is seen as a manifestation of Lord Vishnu or Krishna. He represents a deity that is accessible to everyone, embodying the principles of equality and unconditional love. The idol&#x27;s unique standing position on a brick symbolizes humility and the importance of service to others, a key tenet of spirituality.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Philosophy of Bhakti</h5>
+					  <ul class="bullet-list">
+					    <li>The temple is a significant center for the Bhakti movement, which emphasizes personal devotion to the divine as a path to spiritual enlightenment. This movement advocates for direct connection with God, bypassing elaborate rituals and caste distinctions, which might appeal to those seeking a more personal and emotional spiritual experience.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Varkari Tradition</h5>
+					  <ul class="bullet-list">
+					    <li>The Varkari sect’s practices involve singing, dancing, and communal living, reflecting a holistic approach to spirituality that integrates joyous living with devout worship. The annual pilgrimage (Wari) to the temple is a journey that many undertake as a form of spiritual cleansing and renewal.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cultural and Spiritual Practices</h5>
+					  <h5 class="section__sub-b">1. Daily and Special Rituals</h5>
+					  <ul class="bullet-list">
+					    <li>While the daily rituals at the temple include aartis and poojas, the focus for a spiritually inclined visitor might be on the meanings behind these rituals, such as the symbolism of light and offerings, which represent the removal of ignorance and the surrender of material possessions to the divine.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Festivals</h5>
+					  <ul class="bullet-list">
+					    <li>Major festivals like Ashadhi Ekadashi and Kartiki Ekadashi are times of great spiritual gathering, where the energy and devotion of thousands of pilgrims can be a profound experience. These festivals are not just religious ceremonies but also times for spiritual reflection and community bonding.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Practical Tips for Spiritual Seekers</h5>
+					  <h5 class="section__sub-b">1. Engaging with the Community</h5>
+					  <ul class="bullet-list">
+					    <li>Interacting with the Varkaris and listening to their stories and songs can provide deeper insights into the spiritual practices and personal devotion paths.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Participation in Rituals</h5>
+					  <ul class="bullet-list">
+					    <li>Participating in the temple&#x27;s activities, such as singing bhajans (devotional songs) or attending spiritual discourses, can enrich the understanding of the philosophical aspects of the practices.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Quiet Reflection</h5>
+					  <ul class="bullet-list">
+					    <li>Spending time in the quieter areas of the temple complex for meditation or reflection can be a way to personally connect with the spiritual energy of the place.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Learning from the Locals</h5>
+					  <ul class="bullet-list">
+					    <li>Guides or local spiritual leaders can provide explanations of the symbols, icons, and architectural elements of the temple that have spiritual meanings.</li>
+					  </ul>
+					  <p>By focusing on these aspects, a foreigner interested in spirituality can gain a meaningful and enriching experience at the Pandharpur Vittal Temple, deepening their understanding of Indian spiritual traditions in a context that transcends the strictly religious framework.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Call to action  or interaction links- here in it could be for:</h3>
+					  
+					  <p>For creating effective call-to-action (CTA) or interaction links for a website or platform that promotes and facilitates services related to the Pandharpur Vittal Temple, here&#x27;s how you might structure and present these links to engage users and encourage participation:</p>
+					  <h5 class="section__sub-b">a. Puja Services</h5>
+					  <ul class="bullet-list">
+					    <li>CTA: &quot;Book Your Puja Now&quot;</li>
+					    <li>Description: Experience the divine by booking a puja at the Pandharpur Vittal Temple. Choose from various pujas to seek blessings for you and your family.</li>
+					    <li>Link: Direct users to the puja booking page on the temple&#x27;s official website, or if you have a tie-up, link to your integrated booking platform where users can perform transactions directly.</li>
+					  </ul>
+					  <h5 class="section__sub-b">b. Donations</h5>
+					  <ul class="bullet-list">
+					    <li>CTA: &quot;Support with Your Generosity&quot;</li>
+					    <li>Description: Help us maintain the sanctity and services of the Pandharpur Vittal Temple. Your donations contribute to temple maintenance, charitable activities, and more.</li>
+					    <li>Link: Include a direct link to the donation page where users can make contributions online. Make sure the donation page provides clear information on how the funds are used and any tax benefits.</li>
+					  </ul>
+					  <h5 class="section__sub-b">c. Accommodation</h5>
+					  <ul class="bullet-list">
+					    <li>CTA: &quot;Find Comfort Near the Divine&quot;</li>
+					    <li>Description: Browse and book from a selection of accommodations near the Pandharpur Vittal Temple. From budget stays to luxury retreats, find the perfect place to enhance your spiritual journey.</li>
+					    <li>Link: Direct users to your website&#x27;s accommodation section with an enquiry form to facilitate easy bookings.</li>
+					  </ul>
+					  <h5 class="section__sub-b">d. Tax Exemption Information</h5>
+					  <ul class="bullet-list">
+					    <li>CTA: &quot;Donate and Save&quot;</li>
+					    <li>Description: Learn how your donations to the Pandharpur Vittal Temple can not only earn you spiritual merit but also financial benefits under the Income Tax Act. Contributions to specific causes like Annadanam are eligible for 100%/50% tax exemption.</li>
+					    <li>Link: Provide a link to a page detailing the tax benefits associated with donations, including necessary certificates or receipts provided by the temple that donors need to claim their exemptions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Implementing These CTAs</h5>
+					<p>Legal Compliance: Make sure all claims, especially related to tax exemptions and donations, comply with legal requirements and are verified by the temple authorities.</p>
+					  <p>These structured CTAs can significantly enhance user engagement and conversion, providing clear pathways for visitors to interact with services related to the Pandharpur Vittal Temple.</p>
+					  <p>The Pandharpur Vittal Temple hosts its most significant annual event, the Ashadhi Ekadashi, which is a major pilgrimage and festival celebrated with great devotion and enthusiasm. This event marks one of the most important dates in the temple&#x27;s calendar.</p>
+					  <h5 class="section__sub-b">Ashadhi Ekadashi</h5>
+					  <ul class="bullet-list">
+					    <li>Timing: Ashadhi Ekadashi occurs on the 11th day (Ekadashi) of the Hindu lunar month of Ashadha, which typically falls in June or July according to the Gregorian calendar.</li>
+					    <li>Date: The specific date varies each year depending on the lunar calendar. For example, in 2023, Ashadhi Ekadashi was celebrated on July 4th. In 2024, it is likely to be around the same time in early July, but checking a current Hindu calendar or the temple&#x27;s official announcements will provide the exact date for that year.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Varkari Pilgrimage: This festival is the culmination of a pilgrimage known as the &#x27;Wari,&#x27; where thousands of devotees, known as Varkaris, walk from their homes to the temple, carrying palanquins (palkhis) of the saints of Maharashtra, including those of Sant Dnyaneshwar and Sant Tukaram.</li>
+					    <li>Spiritual Activities: The festival includes continuous chanting of hymns, kirtans, and devotional dancing. Devotees participate in rituals, prayer services, and listen to readings from the sacred texts.</li>
+					    <li>Cultural Importance: It is not only a time of religious observance but also a period of immense cultural celebrations that showcase the rich traditions of Maharashtra.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Planning to Attend</h5>
+					  <ul class="bullet-list">
+					    <li>Advance Arrangements: Given the large influx of pilgrims, it&#x27;s advisable for visitors to make accommodation and travel arrangements well in advance.</li>
+					    <li>Official Information: For those planning to visit or participate in the festivities, staying updated through the temple’s official website or local tourism boards is recommended for precise details and any special advisories.</li>
+					  </ul>
+					  <p>Ashadhi Ekadashi at the Pandharpur Vittal Temple is a profound expression of devotion and a vibrant cultural event, attracting devotees and tourists from all over the world.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event of the temple - day and date?</h3>
+					  <p>The Pandharpur Vittal Temple hosts a significant monthly event known as Ekadashi, which is celebrated with special fervor. Ekadashi occurs twice a month, on the 11th day of both the waxing and waning phases of the moon in the Hindu lunar calendar.</p>
+					  <h5 class="section__sub-b">Ekadashi Details</h5>
+					  <ul class="bullet-list">
+					    <li>Timing: Ekadashi is observed twice in a lunar month, once during the Shukla Paksha (waxing phase of the moon) and once during the Krishna Paksha (waning phase of the moon).</li>
+					    <li>Dates: The specific dates for each Ekadashi vary each month and year according to the lunar calendar. It’s essential to refer to a current Hindu calendar or the temple&#x27;s official website for the exact dates in a particular year.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Spiritual Activities on Ekadashi</h5>
+					  <ul class="bullet-list">
+					    <li>Fasting and Prayers: Many devotees observe a strict fast on Ekadashi, abstaining from grains and pulses. They spend the day engaged in prayer, meditation, and chanting.</li>
+					    <li>Special Poojas: The temple conducts special poojas and rituals on Ekadashi, drawing devotees for darshan and spiritual activities.</li>
+					    <li>Cultural Programs: Sometimes, cultural or spiritual talks and music programs are organized to mark the occasion, enhancing the spiritual experience for visitors.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Planning Your Visit</h5>
+					  <ul class="bullet-list">
+					    <li>Regular Observance: Given that Ekadashi is a monthly event, it allows for regular opportunities for devotees to engage in temple activities and worship.</li>
+					    <li>Check Official Schedules: For those planning to attend Ekadashi at the Pandharpur Vittal Temple, it is advisable to check the temple&#x27;s official website for any specific schedules or programs planned for these days.</li>
+					  </ul>
+					  <p>Ekadashi is a day of heightened spiritual activity and devotion at the Pandharpur Vittal Temple, providing a deeply enriching experience for those seeking spiritual engagement.</p>
+					
+					  <h3 class="section__sub-b">Pune solapur distance</h3>
+					  <p>The distance between Pune and Solapur is approximately 250 kilometers (155 miles) by road. The travel time can vary based on the mode of transportation and the specific route taken, but by car, it typically takes about 4 to 5 hours to drive from Pune to Solapur via the NH65.</p>
+					
+					  <h3 class="section__sub-b">Near of different temple of Pandharapur</h3>
+					  <p>Pandharpur, located in the Solapur district of Maharashtra, is renowned for its Vittal Temple dedicated to Lord Vithoba, but the region also hosts a variety of other temples that are significant in their own right. Here’s a brief overview of some notable temples near Pandharpur:</p>
+					
+					  <h3 class="section__sub-b">Rukmini Temple: 17.677596955254835, 75.33539021096136</h3>
+					  <ul class="bullet-list">
+					    <li>Located very close to the main Vittal Temple, this temple is dedicated to Rukmini, the consort of Lord Krishna. The temple features exquisite carvings and is an important pilgrimage spot in its own right.</li>
+					  </ul>
+					
+					  <h3 class="section__sub-b">Iskcon NVCC Temple:   17.682005695978322, 75.34162430511888</h3>
+					  <ul class="bullet-list">
+					    <li>Although a bit further away, located in Pune, this temple is part of the International Society for Krishna Consciousness (ISKCON) and is a major spiritual center that attracts devotees from all around the world.</li>
+					  </ul>
+					
+					  <h3 class="section__sub-b">Bhavani Temple:     17.658506970721703, 75.31486062300151</h3>
+					  <ul class="bullet-list">
+					    <li>Situated in Pandharpur itself, this temple is dedicated to Goddess Bhavani. It is one of the Shakthi peeths, making it a significant site for devotees of the goddess.</li>
+					  </ul>
+					
+					  <h3 class="section__sub-b">Pundalik Temple:   17.678017074314262, 75.33903937416535</h3>
+					  <ul class="bullet-list">
+					    <li>This temple is dedicated to Pundalik, who is credited with bringing Lord Vithoba to Pandharpur. It’s located near the bank of the Chandrabhaga River and is integral to the mythology surrounding Lord Vithoba.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Vishnupad Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Located on the banks of the Chandrabhaga River as well, this temple houses a set of footprints believed to belong to Lord Vishnu and is a site of great devotion.</li>
+					  </ul>
+					
+					  <h3 class="section__sub-b">Kala Maruti Temple:    17.6754282776627, 75.3345273538253</h3>
+					  <ul class="bullet-list">
+					    <li>This temple is dedicated to Lord Hanuman and is known for its annual festival which attracts large numbers of devotees. It is located within Pandharpur and holds cultural as well as spiritual significance.</li>
+					  </ul>
+					  <p>These temples not only enrich the spiritual landscape of Pandharpur but also offer diverse architectural and historical perspectives, making the town a comprehensive pilgrimage destination. If you plan to visit, considering the local festivals and peak pilgrimage times can enhance your experience, as these are times when the cultural heritage of the area truly comes alive.</p>
+					
+					  <h3 class="section__sub-b">Saint Dnyaneshwar Darshan Mandap</h3>
+					  <p>The provision of darshan queue system is made in this building during the yatra period. There are eight block of this mandap. Around ten thousand devotees are accommodated here for darshan. All blocks are having the facility of drinking water and sanitation. Daily darshan arrangement is made from the sabhamandap..</p>
+					
+					  <h3 class="section__sub-b">Saint Jagadguru Tukaram Bhavan</h3>
+					  <p>This is another building where arrangement is made to perform kirtan, pravachan, and saptah. In this multipurpose hall there is well maintained stage, viewers, balcony, and good sound system. This hall can accommodate around two thousand audience.</p>
+					
+					  <h3 class="section__sub-b">Aanchatra/Prasadalaya</h3>
+					  <p>This is a free meal service and anyone is welcome here to have the meal. At the basement of Saint Tukaram Bhavan building the annachatra is being run. Every day morning between 12 to 2 o’clock the food is distributed to all those who come there. Around 500 to 700 devotees take benefit of this undertaking. On fasting days the special food is also given.</p>
+					
+					  <h3 class="section__sub-b">Entrance Latlong : 17.67703560578243, 75.33616586709078</h3>
+					 
+					</div>
+				</article>
+
+				<div class="glass cta-section">
+					<h3>Experience Divine Darshan</h3>
+					<p>Immerse yourself in the spiritual essence of this sacred temple through our 360° VR experience.</p>
+					<a href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share" target="_blank" class="cta-btn">
+						Download Divya Darshan 360 App
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script src="/blog/assets/blog-script.js"></script>
+	<script src="/blog/assets/diya.js"></script>
+</body>
+</html>

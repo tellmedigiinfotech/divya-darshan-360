@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Search, MapPin, Clock, Filter } from "lucide-react"
-import { categoryDisplayMap, type TempleBlog } from "@/lib/blog-types"
+import { categoryDisplayMap, categoryFolderMap, type TempleBlog } from "@/lib/blog-types"
 
 interface BlogClientProps {
 	temples: TempleBlog[]
@@ -86,7 +86,7 @@ export function BlogClient({ temples, categories }: BlogClientProps) {
 										animate={{ opacity: 1, y: 0 }}
 										transition={{ delay: index * 0.05 }}
 									>
-										<Link href={`/blog/temple/${temple.slug}/index.html`}>
+										<Link href={`/blog/temple/${categoryFolderMap[temple.category] || temple.category}/${temple.slug}/index.html`}>
 											<article className="group h-full glass rounded-3xl overflow-hidden border border-white/20 hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10">
 												{/* Image */}
 												<div className="relative aspect-video overflow-hidden bg-linear-to-br from-primary/20 to-accent/20">

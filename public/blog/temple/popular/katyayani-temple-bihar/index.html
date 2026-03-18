@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	<title>﻿Katyayani Temple - Bihar | Divya Darshan 360</title>
+	<meta name="description" content="﻿Katyayani Temple - Bihar - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta property="og:title" content="﻿Katyayani Temple - Bihar" />
+	<meta property="og:description" content="﻿Katyayani Temple - Bihar - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta property="og:type" content="article" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="﻿Katyayani Temple - Bihar" />
+	<meta name="twitter:description" content="﻿Katyayani Temple - Bihar - Complete guide with timings, location, how to reach, poojas, and more." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="/blog/assets/tailwind-config.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
+	<link rel="stylesheet" href="/blog/assets/diya.css" />
+	
+	<style type="text/tailwindcss">
+		@layer components {
+			.lotus-bg { @apply fixed pointer-events-none z-0 hidden md:block; }
+			.lotus-bg--1 { @apply top-[5%] -right-[10%] w-[500px] h-[500px] opacity-[.12]; }
+			.lotus-bg--2 { @apply top-[35%] -left-[15%] w-[420px] h-[420px] opacity-[.08]; }
+			.lotus-spin { @apply animate-spin-slow; }
+			.lotus-spin-rev { @apply animate-spin-rev; }
+
+			body {
+				@apply min-h-screen relative overflow-x-hidden text-[#3b2510] font-sans;
+				background-color: #fdf1e2;
+				background-image: 
+					radial-gradient(circle at 50% 50%, #fadbcb 0%, transparent 80%),
+					radial-gradient(circle at 50% 0%, rgba(226, 61, 0, 0.05), transparent 70%), 
+					url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+				background-size: 100% 100%, 100% 100%, 200px 200px;
+				background-attachment: fixed;
+				animation: divine-glow 20s ease-in-out infinite alternate;
+			}
+
+			.main { @apply relative z-10; }
+			.glow-wrap { @apply absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-20; }
+			.glow-blob { @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-glow; }
+			.glow-blob--primary { @apply -top-24 -left-24 w-96 h-96 bg-primary/20; }
+			.glow-blob--accent { @apply top-1/2 -right-24 w-80 h-80 bg-accent/20; }
+
+			.section { @apply mb-12 pb-2; }
+			.section__title { @apply font-serif text-2xl font-normal text-primary mb-5 pb-2.5 border-b-2 border-[#e8ddd0]; }
+			.section__sub-b { @apply text-[1.05rem] font-normal text-[#3b2510] opacity-90 mt-6 mb-2.5 pt-1; }
+			.bullet-list { @apply list-none p-0 my-4 mb-5 space-y-3; }
+			.bullet-list li { @apply flex items-start gap-2.5 text-[#8a7260] leading-[1.7]; }
+			.bullet-list li::before { content: "\2022"; @apply text-primary font-bold shrink-0 mt-px; }
+			
+			.num-list { @apply list-none p-0 my-4 mb-5 space-y-4; }
+			.num-list li { @apply flex items-start gap-3 text-[#8a7260] leading-[1.7]; }
+			.num-list__badge { @apply flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-[0.75rem] font-bold shrink-0 mt-0.5; }
+			
+			.article p { @apply text-[#8a7260] mb-4 leading-[1.85]; }
+			
+			.hero { @apply px-6 pb-16 relative z-10; }
+			.hero-title { @apply font-serif text-[2.25rem] leading-[1.1] tracking-tighter mb-8 font-normal md:text-[3.75rem]; }
+			.badge { @apply inline-block px-[18px] py-2 rounded-full bg-primary/10 text-primary text-[0.85rem] font-medium border border-primary/20 mb-6; }
+			
+			.glass { @apply bg-white/60 backdrop-blur-2xl border border-[#e8ddd0] shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[24px]; }
+			.key-info { @apply p-8 mb-12; }
+			.key-info__grid { @apply grid grid-cols-1 md:grid-cols-2 gap-6; }
+			.key-info__item { @apply flex items-start gap-4; }
+			.key-info__item--full { @apply md:col-span-2; }
+			.key-info__icon { @apply w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-[1.3rem]; }
+			.key-info__icon svg { @apply w-5 h-5 stroke-primary; }
+			.key-info__label { @apply text-[0.82rem] font-medium text-[#8a7260] mb-0.5; }
+			.key-info__value { @apply text-[1.05rem] font-serif text-[#3b2510]; }
+			.key-info__value--sans { @apply font-sans; }
+			
+			.article { @apply p-8 mb-12 md:px-12 md:pt-12 md:pb-6; }
+			
+			.carousel { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm; }
+			.carousel__track { @apply absolute inset-0; }
+			.carousel__slide { @apply absolute inset-0 opacity-0 transition-opacity duration-500; }
+			.carousel__slide--active { @apply opacity-100; }
+			.carousel__slide img { @apply w-full h-full object-cover; }
+			.carousel__btn { @apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-black/40; }
+			.carousel:hover .carousel__btn { @apply opacity-100; }
+			.carousel__btn--prev { @apply left-4; }
+			.carousel__btn--next { @apply right-4; }
+			.carousel__dots { @apply absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2; }
+			.carousel__dot { @apply w-2 h-2 rounded-full bg-white/40 cursor-pointer transition-colors; }
+			.carousel__dot--active { @apply bg-white; }
+			.carousel__counter { @apply absolute top-6 right-6 px-3 py-1 rounded-full bg-black/20 backdrop-blur-md text-white text-[0.75rem] font-medium; }
+			
+			.img-placeholder { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm flex items-center justify-center; }
+			.img-placeholder__icon { @apply text-[6rem] opacity-25; }
+			.img-placeholder__text { @apply absolute bottom-6 left-6 right-6 text-[#3b2510]/60 text-[0.85rem]; }
+			
+			.back-section { @apply pt-24 px-6 pb-8; }
+			.back-link { @apply inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary; }
+			.back-link svg { @apply w-4 h-4; }
+			
+			.cta-section { @apply p-12 text-center mb-12; }
+			.cta-section h3 { @apply font-serif text-3xl mb-4 text-[#3b2510]; }
+			.cta-section p { @apply text-[#8a7260] mb-8 max-w-lg mx-auto; }
+			.cta-btn { @apply inline-block px-8 py-4 rounded-full bg-primary text-white font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20; }
+			
+			.container { @apply max-w-[896px] mx-auto; }
+		}
+	</style>
+
+</head>
+
+<body>
+	<main class="main">
+		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
+		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e23d00" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#e23d00" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
+		<div class="lotus-bg lotus-bg--2"><div class="lotus-spin-rev"><svg viewBox="0 0 800 800"><g transform="rotate(0 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(30 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(60 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(90 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(120 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(150 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(180 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(210 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(240 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(270 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(300 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g></svg></div></div>
+
+		<section class="back-section">
+			<div class="container">
+				<a href="/blog" class="back-link">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+					Back to Blog
+				</a>
+			</div>
+		</section>
+
+		<section class="hero">
+			<div class="container">
+				<div><span class="badge">Popular Famous Temples</span></div>
+				<h1 class="hero-title">﻿Katyayani Temple - Bihar</h1>
+
+							<div class="img-placeholder">
+					<div class="img-placeholder__icon">🕉️</div>
+					<div class="img-placeholder__gradient"></div>
+					<div class="img-placeholder__text">Image of ﻿Katyayani Temple - Bihar</div>
+				</div>
+
+				<div class="glass key-info">
+					<div class="key-info__grid">
+						<div class="key-info__item">
+							<div class="key-info__icon">🕉️</div>
+							<div>
+								<div class="key-info__label">Main Deity</div>
+								<div class="key-info__value">Katyayani - Goddess Katyayani is a manifestation of Goddess Durga, revered as the sixth form among the Navadurga, the nine forms of Hindu goddess Durga. She is worshipped here as the primary deity and is believed to bestow blessings of strength and victory over obstacles.</div>
+							</div>
+						</div>
+						<!-- <div class="key-info__item">
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+							<div>
+								<div class="key-info__label">Contact</div>
+								<div class="key-info__value key-info__value--sans">(Example, please verify for specifics) +91-XXXXXXXXXX</div>
+							</div>
+						</div> -->
+						<div class="key-info__item key-info__item--full">
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+							<div>
+								<div class="key-info__label">Full Address</div>
+								<div class="key-info__value key-info__value--sans">Katyayani Temple, Near Katyayani Sthan, Vidya Pith Road, Buxar, Bihar - 802103, India</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<article class="glass article">
+					<div class="section">
+					  <h3 class="section__title">Condensed Information About the Place</h3>
+					  <ul class="bullet-list">
+					    <li>Main Deity</li>
+					    <li>Katyayani - Goddess Katyayani is a manifestation of Goddess Durga, revered as the sixth form among the Navadurga, the nine forms of Hindu goddess Durga. She is worshipped here as the primary deity and is believed to bestow blessings of strength and victory over obstacles.</li>
+					    <li>Other Deities (Sub-deities)</li>
+					    <li>Lord Shiva - Often temples dedicated to Goddess Durga or her forms include shrines to Lord Shiva, considered her consort in Hindu mythology.</li>
+					    <li>Lord Ganesha - It is common for temples dedicated to major deities to also have a shrine for Lord Ganesha, revered as the remover of obstacles and the god of beginnings.</li>
+					    <li>Navagrahas - The nine planetary deities, commonly worshipped in Hindu temples to pacify celestial influences upon life.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing of the Temple.</h3>
+					  
+					  <p>For detailed and accurate information regarding the opening and closing times of the Katyayani Temple in Bihar, it&#x27;s best to consult the temple&#x27;s official resources. However, I can provide a general outline based on common practices at similar temples:</p>
+					  <h5 class="section__sub-b">General Opening &amp; Closing Timings (a)</h5>
+					  <ul class="bullet-list">
+					    <li>Morning Hours: Typically, temples open early to accommodate morning rituals and prayers. The Katyayani Temple might open around 5:00 AM to 6:00 AM.</li>
+					    <li>Break: There is often a midday break when the temple closes, usually around 12:00 PM to 4:00 PM.</li>
+					    <li>Evening Hours: Temples usually reopen in the late afternoon or early evening, around 4:00 PM, and close after the evening rituals, around 8:00 PM to 9:00 PM.</li>
+					  </ul>
+					</div>
+					
+					
+					<div class="section">
+					  <h3 class="section__title">Is there any Entry Fees- What privilege does it grant? For eg quick darshan, special gate, longer view of deity, prasad, puja etc.Are there any entry restrictions for Foreigners? Spl fees? Declaration to be made? etc.</h3>
+					  <p>For temples like the Katyayani Temple in Bihar, entry is generally free, but there might be options for paid services that offer additional privileges. Here&#x27;s an outline of what you might expect regarding entry fees and special services, along with considerations for foreign visitors:</p>
+					  <h5 class="section__sub-b">Entry Fees and Privileges</h5>
+					  <ul class="bullet-list">
+					    <li>General Entry: Typically, entry to Hindu temples is free of charge. Devotees are allowed to enter and participate in the regular darshan (viewing of the deity) without any cost.</li>
+					    <li>Paid Services:</li>
+					    <li>Special or Quick Darshan: Some temples offer a paid service for a quicker darshan, which allows devotees to bypass the regular queues.</li>
+					    <li>Special Puja Offerings: Devotees can often pay for special pujas where they can personally participate or have the priests perform specific rituals on their behalf.</li>
+					    <li>Prasad: While free prasad might be distributed, there can also be special prasad packages that can be purchased which might include larger quantities or special items.</li>
+					    <li>Longer Viewing of the Deity: In very crowded temples, paying for a special darshan might allow for a more relaxed viewing without the pressure to move quickly.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Entry Restrictions and Considerations for Foreigners</h5>
+					  <ul class="bullet-list">
+					    <li>Entry Restrictions: Generally, there are no restrictions for foreigners entering Hindu temples unless specific temple rules state otherwise. However, certain inner sanctums may have restrictions based on traditional practices.</li>
+					    <li>Special Fees for Foreigners: Some popular temples might have different ticket prices for foreigners, often including additional facilities like a guided tour or a multilingual guide.</li>
+					    <li>Declarations: Foreign visitors might be asked to sign a visitor&#x27;s book or make a declaration regarding adherence to temple rules, such as dress codes and conduct within the temple premises.</li>
+					    <li>Dress Code: Appropriate attire is usually required for entry into Hindu temples. This typically involves covering shoulders and legs. Specific temples might require more traditional dress, such as saris or dhotis.</li>
+					  </ul>
+					  <p>To get the most accurate and specific information regarding entry fees, privileges, and any restrictions for foreigners at the Katyayani Temple, it would be best to visit the temple&#x27;s official website or contact their administration directly. This ensures that you have the latest updates and can plan your visit according to the actual conditions and requirements of the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location- How to Reach/commuting-  Flight/Train/Bus/Taxi Stand/Ferry/Port Air- what ever is available.</h3>
+					  <p>To visit the Katyayani Temple in Bihar, it&#x27;s important to plan your journey considering the various modes of transportation available. Here&#x27;s a general guideline on how you might reach the temple:</p>
+					  <h5 class="section__sub-b">Location</h5>
+					  <p>Katyayani Temple is typically located in a region that may not have a major airport or train station in the immediate vicinity. Confirming the exact location from the temple&#x27;s official website or a reliable travel guide is crucial for accurate travel planning.</p>
+					  <h5 class="section__sub-b">Commuting Options</h5>
+					  <h5 class="section__sub-b">1. By Air</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Airport: The nearest major airport to the temple would typically be in Patna, which is the state capital. Patna Airport (Lok Nayak Jayaprakash Airport) serves both domestic and international flights.</li>
+					    <li>From the Airport: From Patna, you can hire a taxi or take a bus to the temple&#x27;s location. The drive might take a few hours depending on the distance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. By Train</h5>
+					  <ul class="bullet-list">
+					    <li>Nearest Railway Station: The nearest major railway station could also be in Patna or a closer town, depending on the temple&#x27;s location. Indian Railways connects most parts of India, making this a viable option.</li>
+					    <li>From the Railway Station: From the station, you can hire a taxi or take local transport like buses or auto-rickshaws to reach the temple.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. By Bus</h5>
+					  <ul class="bullet-list">
+					    <li>Interstate Bus Terminals: Bihar is well connected by bus to neighboring states. You can take a bus to the nearest city or town and then switch to local transportation to reach the temple.</li>
+					    <li>Local Buses: State-run or private buses might be available directly to the location if it’s a known pilgrimage site.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. By Taxi</h5>
+					  <ul class="bullet-list">
+					    <li>Local Taxis: Hiring a taxi for a direct trip to the temple from major cities like Patna can be more comfortable and flexible. This is especially beneficial if you are traveling in a group or with family.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. By Ferry/Port (if applicable)</h5>
+					  <ul class="bullet-list">
+					    <li>If the temple is near a river or coastal area, there might be options to reach it by boat or ferry, particularly if it’s a part of the local transport system.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for International Travelers</h5>
+					  <ul class="bullet-list">
+					    <li>Local Connectivity: Once in Bihar, local transport options like taxis, auto-rickshaws, and buses are abundant for intra-city or local travel.</li>
+					    <li>Travel Apps: Utilizing travel apps for booking taxis or for navigation can significantly ease the process of commuting in a new region.</li>
+					    <li>Travel Guides: Engaging a local travel guide or joining a tour can provide insightful backgrounds and help manage logistical aspects efficiently.</li>
+					  </ul>
+					  <p>For the most seamless experience, checking up-to-date travel information from reliable sources or travel platforms prior to your journey is recommended.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What are the rates associated with it? What is the advance booking procedure?</h3>
+					  <p>For specific details about special pujas and rituals performed at the Katyayani Temple in Bihar, including the days and timing, associated rates, and advance booking procedures, you would need to consult the temple&#x27;s official sources. However, I can provide a general framework based on common practices at Hindu temples that could help guide your understanding and expectations.</p>
+					  <h5 class="section__sub-b">Special Pujas/Rituals</h5>
+					  <h5 class="section__sub-b">1. Types of Pujas</h5>
+					  <ul class="bullet-list">
+					    <li>Sankatahara Chaturthi Puja: Dedicated to Lord Ganesha to remove obstacles.</li>
+					    <li>Navagraha Puja: To appease the nine planets and attract positive influences.</li>
+					    <li>Mangala Gauri Puja: For the welfare of the family and to bring prosperity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Days &amp; Timing</h5>
+					  <ul class="bullet-list">
+					    <li>Pujas like these are often scheduled on specific days that align with lunar cycles or auspicious days according to the Hindu calendar. For instance:</li>
+					    <li>Sankatahara Chaturthi Puja is performed on the fourth day after the full moon.</li>
+					    <li>Navagraha Puja could be conducted on any Saturday.</li>
+					    <li>The timing for these pujas might vary, but they are generally performed during the temple&#x27;s morning hours (e.g., 6 AM to 8 AM) or evening hours (e.g., 4 PM to 6 PM).</li>
+					  </ul>
+					  <h5 class="section__sub-b">Rates</h5>
+					  <ul class="bullet-list">
+					    <li>The rates for participating in or sponsoring pujas can vary significantly depending on the type of puja, the materials used, and whether it includes elaborate rituals.</li>
+					    <li>Typical rates could range from a few hundred to several thousand rupees, depending on the complexity and duration of the puja.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Advance Booking Procedure</h5>
+					  <h5 class="section__sub-b">1. Online Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Many temples now offer online booking through their official website where you can select the puja, choose a date, and make payment.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Phone Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Temples usually have dedicated phone lines for booking pujas. You can call, inquire about available dates, and book your slot.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. In-Person Booking</h5>
+					  <ul class="bullet-list">
+					    <li>For those who prefer or need to make arrangements directly, visiting the temple’s administration office can be an option. This allows for a more personalized handling of specific needs or queries.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Payment</h5>
+					  <ul class="bullet-list">
+					    <li>Payment methods can include online payment gateways, bank transfers, or direct payment at the temple office.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Plan Ahead: Some pujas require booking well in advance, especially during auspicious days and festivals.</li>
+					    <li>Verify Details: Always confirm the details directly from the temple’s official communication channels to ensure accuracy and completeness of the information.</li>
+					  </ul>
+					  <p>For the most accurate and detailed information, including the specific rituals and their timings, rates, and how to book them, visiting the Katyayani Temple&#x27;s official website or contacting their administrative office directly is recommended.</p>
+					  <p>For temples like Katyayani Temple in Bihar, online services can vary significantly based on the temple&#x27;s management and the technological infrastructure in place. Here’s an overview of what might typically be available and how to find out more:</p>
+					  <h5 class="section__sub-b">Types of Online Services</h5>
+					  <h5 class="section__sub-b">1. Puja Bookings</h5>
+					  <ul class="bullet-list">
+					    <li>Many temples offer online booking for pujas and rituals. This service allows devotees to select and pay for specific pujas to be performed on their behalf, especially beneficial for those who cannot visit in person.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Donation Platforms</h5>
+					  <ul class="bullet-list">
+					    <li>Online donation options are commonly available, enabling devotees to contribute financially to the temple from anywhere. These platforms usually provide options for general donations or for specific projects like temple renovation, feeding programs, etc.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Virtual Darshan</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples provide a virtual darshan service, where live feeds or recorded videos of daily rituals are available online. This helps connect devotees with the temple’s daily activities remotely.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. E-Prasad</h5>
+					  <ul class="bullet-list">
+					    <li>E-Prasad services allow devotees to order prasad (sacred food offered to the deity) online, which is then shipped to their home address.</li>
+					  </ul>
+					
+					  <h5 class="section__sub-b">Spiritual Consultations and Astrology Services:</h5>
+					  <ul class="bullet-list">
+					    <li>Services such as consultations with temple priests or astrology services might be offered online, providing guidance and answering religious queries.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Service Providers</h5>
+					  <ul class="bullet-list">
+					    <li>These services are typically managed by the temple’s own administration or through a partnership with third-party platforms that specialize in religious services.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Any specific Dress Code prescribed for entry to the place - men /women/for spl puja and festival days?</h3>
+					  <p>In Hindu temples, including the Katyayani Temple in Bihar, dress codes are often implemented to maintain the decorum and respect for the sacred environment. Here’s a general overview of typical dress code expectations for visitors:</p>
+					  <h5 class="section__sub-b">General Dress Code for Men and Women</h5>
+					  <h5 class="section__sub-b">1. Modest Attire</h5>
+					  <ul class="bullet-list">
+					    <li>Both men and women are expected to wear modest attire that covers shoulders and knees. Shorts, sleeveless tops, and short skirts are usually discouraged.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Traditional Clothing</h5>
+					  <ul class="bullet-list">
+					    <li>It is often recommended that visitors wear traditional Indian clothing. For men, this might include kurta-pajamas or dhotis. For women, sarees, salwar kameez, or long skirts with tops are advisable.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Dress Code for Special Pujas and Festival Days</h5>
+					  <ul class="bullet-list">
+					    <li>More Formal Traditional Wear:</li>
+					    <li>During special pujas and festival days, devotees are encouraged to wear more formal traditional attire. Men might wear dhotis or sherwanis, while women might opt for formal sarees or anarkalis.</li>
+					    <li>Specific Requirements:</li>
+					    <li>Some rituals or festivals might require specific colors or types of clothing. For instance, during Navaratri, many devotees choose to wear clothes matching the color associated with each day of the festival.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Considerations</h5>
+					  <ul class="bullet-list">
+					    <li>Head Coverings:</li>
+					    <li>In some temples, it might be required or considered respectful for both men and women to cover their heads. This can be checked on the temple’s guidelines.</li>
+					    <li>Footwear:</li>
+					    <li>Footwear is generally not allowed inside the temple sanctum and in many cases, within the temple complex. There will be designated places to leave shoes outside the temple.</li>
+					    <li>Cultural Sensitivity:</li>
+					    <li>Being culturally sensitive and adhering to the temple’s dress code not only shows respect for the religious practices but also enhances the spiritual experience.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Checking Specifics</h5>
+					  <ul class="bullet-list">
+					    <li>Temple’s Official Guidelines:</li>
+					    <li>For the most accurate and specific information, it’s best to refer to the temple’s official guidelines or contact the temple administration directly. They might have detailed descriptions or even pictures illustrating appropriate attire.</li>
+					  </ul>
+					  <p>Following these guidelines ensures that you respect the temple’s customs and contribute to maintaining the sanctity of the place. If planning a visit, especially during a special event, checking the temple’s official communication or website for any specific dress code updates is advisable.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>The policy on electronic gadgets in temples like the Katyayani Temple in Bihar varies widely depending on the temple&#x27;s specific rules and regulations. Here’s a general outline of what you might expect regarding the use of electronic gadgets within temple premises:</p>
+					  <h5 class="section__sub-b">General Policy on Electronic Gadgets</h5>
+					  <h5 class="section__sub-b">1. Mobile Phones</h5>
+					  <ul class="bullet-list">
+					    <li>Many temples allow mobile phones but may request them to be kept on silent or airplane mode to maintain the sanctity and quiet of the temple environment.</li>
+					    <li>In some temples, using mobile phones for photography or recording inside the sanctum sanctorum or main prayer area might be restricted.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Cameras</h5>
+					  <ul class="bullet-list">
+					    <li>Cameras may be allowed in the outer temple areas but often are not permitted inside the main worship area. This is to respect the privacy of the deity and other devotees, and to preserve the sacred atmosphere.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Other Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Items like tablets, laptops, or large electronic devices might generally be discouraged or not allowed inside due to their intrusive nature and potential to disrupt the spiritual ambiance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Storage and Security for Gadgets</h5>
+					  <ul class="bullet-list">
+					    <li>Lockers or Storage Facilities:</li>
+					    <li>Temples that restrict the use of certain gadgets typically provide lockers or secure storage facilities at the entrance or nearby where visitors can deposit their items safely.</li>
+					    <li>There might be a small fee associated with using these facilities, or they may ask for a refundable deposit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Managing Electronics at the Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Check Temple Website or Contact Directly:</li>
+					    <li>Before visiting, it&#x27;s best to check the temple&#x27;s official website or contact them directly to understand their specific policies regarding electronic gadgets. This will help you prepare accordingly and avoid any inconvenience.</li>
+					    <li>Prepare for Storage:</li>
+					    <li>If you need to use a locker or storage facility, ensure you have some change for the locker fee or any deposits required. Also, carry only essential items to the temple to minimize the hassle of securing multiple belongings.</li>
+					    <li>Respect the Rules:</li>
+					    <li>Always follow the temple’s guidelines regarding electronics. These rules are in place to ensure that all visitors have a peaceful and uninterrupted spiritual experience.</li>
+					  </ul>
+					  <p>By understanding and adhering to these guidelines, you can ensure a respectful and fulfilling visit to the temple, keeping in line with the spiritual and cultural norms of the place.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <p>The rules regarding photography in temples like the Katyayani Temple in Bihar can vary, and it&#x27;s crucial to adhere to the specific regulations provided by the temple&#x27;s management to respect the sanctity of the place.</p>
+					  <h5 class="section__sub-b">General Guidelines on Photography</h5>
+					  <h5 class="section__sub-b">1. Inside the Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Many temples allow photography in the outer areas or courtyards but prohibit it inside the sanctum sanctorum or main worship area. This is to maintain the privacy and sacred atmosphere around the deity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Permission Required</h5>
+					  <ul class="bullet-list">
+					    <li>In some temples, you may need to obtain permission or a pass for photography, especially if you are using professional equipment or conducting a photoshoot.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Fees</h5>
+					  <ul class="bullet-list">
+					    <li>If photography is allowed, there might be a fee associated with it, particularly for professional photography or video recording. This fee helps in the maintenance of the temple and in managing the facilities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Steps to Take If Photography Is Allowed</h5>
+					  <ul class="bullet-list">
+					    <li>Check Official Sources:</li>
+					    <li>Before visiting, check the temple&#x27;s official website or contact the temple administration directly to get accurate information about the photography policy.</li>
+					    <li>Understand the Boundaries:</li>
+					    <li>Even if photography is allowed, there are usually specific areas where it is permitted and areas where it is restricted. Make sure you are aware of these boundaries to avoid any disruptions during your visit.</li>
+					    <li>Be Respectful:</li>
+					    <li>When photography is permitted, always be respectful of other devotees and their space. Avoid using flash or any intrusive equipment that might disturb the prayers or the temple environment.</li>
+					  </ul>
+					  <h5 class="section__sub-b">If Photography Is Not Allowed</h5>
+					  <ul class="bullet-list">
+					    <li>Compliance:</li>
+					    <li>If the temple rules do not permit photography, it&#x27;s important to comply fully with these guidelines. Temples are places of worship, and respecting their rules is part of respecting the cultural and spiritual significance of the site.</li>
+					    <li>Deposit Devices:</li>
+					    <li>If required, you might need to deposit your camera and other photography equipment in designated lockers or storage areas provided by the temple.</li>
+					  </ul>
+					  <p>By adhering to these guidelines, you can ensure that your visit is respectful and considerate of the temple&#x27;s cultural and spiritual norms. Always prioritize the sanctity and privacy of the temple and its devotees over the desire to capture photographs.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for physically handicapped?</h3>
+					  <p>In many religious and cultural sites, including temples like the Katyayani Temple in Bihar, provisions for accessibility are increasingly recognized as important. However, the availability of facilities such as lifts, elevators, or other accommodations for the physically handicapped can vary significantly based on the temple&#x27;s infrastructure and management policies.</p>
+					  <h5 class="section__sub-b">Accessibility Facilities That Might Be Available</h5>
+					  <h5 class="section__sub-b">1. Ramps</h5>
+					  <ul class="bullet-list">
+					    <li>Temples often have ramps to facilitate access for wheelchairs or those who cannot navigate stairs. These are usually found at the main entrance and around important areas within the temple complex.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Lifts or Elevators</h5>
+					  <ul class="bullet-list">
+					    <li>In more modern or recently renovated temples, lifts or elevators might be available, especially if the temple has multiple levels or is visited frequently by elderly or disabled devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Wheelchairs</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples offer wheelchairs for use within the premises. These can either be available for free or with a refundable deposit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Special Assistance</h5>
+					  <ul class="bullet-list">
+					    <li>Temples might also provide personnel to assist physically handicapped visitors in moving around the premises.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Designated Seating Areas</h5>
+					  <ul class="bullet-list">
+					    <li>During busy times or special events, some temples arrange designated seating areas for the elderly and physically handicapped to ensure they can participate comfortably.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Checking for Specific Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Official Temple Website:</li>
+					    <li>The temple&#x27;s official website might have information on available facilities for the physically handicapped. This is often found under visitor information or accessibility sections.</li>
+					    <li>Contact Directly:</li>
+					    <li>For the most accurate and up-to-date information, contacting the temple&#x27;s administrative office directly via phone or email can be beneficial. They can provide specific details on what facilities are available and any plans for future enhancements.</li>
+					    <li>Prepare Accordingly:</li>
+					    <li>If the temple has limited facilities for physical accessibility, it might be helpful to prepare by bringing any necessary aids or arranging for personal assistance.</li>
+					  </ul>
+					  <p>Temples are increasingly aware of the need for accessibility, and efforts are typically made to accommodate all devotees. However, the availability of such facilities can be influenced by the temple&#x27;s location, age, and design. Always check ahead to ensure a smooth and accommodating visit.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>For temples like the Katyayani Temple in Bihar, providing facilities for the elderly and physically challenged, including wheelchairs, is increasingly common as part of enhancing accessibility and ensuring that all devotees can participate in religious activities comfortably.</p>
+					  <h5 class="section__sub-b">Wheelchair Accessibility at Temples</h5>
+					  <h5 class="section__sub-b">1. Availability of Wheelchairs</h5>
+					  <ul class="bullet-list">
+					    <li>Many temples now offer wheelchairs for use within the temple premises. These can be borrowed at the entrance or the administrative office, either for free or against a refundable security deposit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Dedicated Paths</h5>
+					  <ul class="bullet-list">
+					    <li>Temples often have dedicated paths that are wheelchair-friendly, especially around the main areas of worship. These paths are typically smoother and wider to accommodate wheelchairs easily.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Assistance by Temple Staff</h5>
+					  <ul class="bullet-list">
+					    <li>Temple staff or volunteers may be available to assist elderly or physically challenged visitors who need help navigating the temple grounds or participating in rituals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Advance Arrangements</h5>
+					  <ul class="bullet-list">
+					    <li>In some cases, it may be possible to arrange for a wheelchair in advance by contacting the temple&#x27;s administration office. This ensures that a wheelchair is reserved and ready upon arrival.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Ensuring a Comfortable Visit</h5>
+					  <ul class="bullet-list">
+					    <li>Check Accessibility Details: Before visiting, it&#x27;s advisable to check the temple’s official website or contact the temple directly to confirm the availability of wheelchairs and understand the layout of accessible paths.</li>
+					    <li>Plan Your Visit: During peak times, such as festivals or special pooja days, it’s beneficial to plan your visit to avoid crowds and ensure that accessibility needs are met more comfortably.</li>
+					    <li>Ask for Help: Don’t hesitate to ask for assistance from temple staff if needed. They are often prepared to help make your visit as smooth as possible.</li>
+					  </ul>
+					  <p>Temples are sacred spaces that strive to be accessible to everyone, and with the growing awareness around the needs of the elderly and physically challenged, more facilities are being introduced to accommodate all visitors.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry /Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <p>For temples like the Katyayani Temple in Bihar, accommodating the needs of sick, senior citizens, and physically challenged persons often includes provisions for special entry or designated darshan timings. These arrangements are designed to ensure that all devotees can have a fulfilling spiritual experience without undue strain or difficulty.</p>
+					  <h5 class="section__sub-b">Special Entry and Darshan Timings</h5>
+					  <h5 class="section__sub-b">1. Special Entry Points</h5>
+					  <ul class="bullet-list">
+					    <li>Many temples provide special entry points for sick, elderly, and physically challenged devotees. These entry points are generally closer to the main worship area and may bypass much of the regular queue.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Designated Darshan Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples set aside specific times during the day for darshan exclusively for senior citizens, the sick, and physically challenged individuals. This allows for a more relaxed and less crowded visit.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Assistance from Temple Staff</h5>
+					  <ul class="bullet-list">
+					    <li>During these special entry times, additional temple staff or volunteers are often available to assist those in need, helping them navigate the temple premises and participate in rituals comfortably.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Avail These Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Advance Notification: It&#x27;s advisable for visitors who may need these special accommodations to contact the temple administration in advance. Providing notice can help the temple staff prepare and offer personalized assistance.</li>
+					    <li>Check Official Information: For accurate details on special entries and timings, checking the temple’s official website or directly contacting them via phone or email is recommended. This ensures you receive the most current information and can plan your visit accordingly.</li>
+					    <li>Arrive Early: Arriving a bit earlier than the designated time can also be helpful, especially on days expected to be busier than usual.</li>
+					  </ul>
+					  <h5 class="section__sub-b">General Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Documentation: In some cases, you might need to show some form of identification or medical documentation to use special entry services, especially if the temple receives a high volume of visitors.</li>
+					    <li>Accessibility Services: Inquire about additional accessibility services like wheelchair access or shuttle services if the temple grounds are extensive.</li>
+					    <li>Comfort Considerations: If you or someone in your group has specific needs, it might also be helpful to inquire about rest areas, first aid, and other comfort-related facilities.</li>
+					  </ul>
+					  <p>Temples are increasingly aware of the needs of all their devotees and strive to accommodate them to ensure a peaceful and inclusive worship experience. Always check ahead to make the most of your visit.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>Vehicle Puja, commonly known as Vahana Puja, is a ritual performed in many Hindu temples to seek blessings for new vehicles. This puja is aimed at ensuring safety, longevity, and protection from negative influences while using the vehicle. Here’s a general outline of what you might expect if Katyayani Temple in Bihar performs such pujas:</p>
+					  <h5 class="section__sub-b">Vehicle Puja at Temples</h5>
+					  <h5 class="section__sub-b">1. Availability</h5>
+					  <ul class="bullet-list">
+					    <li>Not all temples perform Vehicle Puja. It&#x27;s typically done at temples dedicated to Lord Vishnu, Lord Ganesha, or Shani Dev, as these deities are often invoked for blessings related to vehicles and travel.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Timing</h5>
+					  <ul class="bullet-list">
+					    <li>When performed, Vehicle Puja usually takes place during the temple&#x27;s morning hours, often starting around 8:00 AM to 10:00 AM, as mornings are considered auspicious for such rituals. However, some temples might also offer these services throughout the day.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cost</h5>
+					  <ul class="bullet-list">
+					    <li>The cost of Vehicle Puja can vary depending on the temple and the complexity of the rituals involved. Typically, it might range from a few hundred to a few thousand rupees. This fee generally includes the cost of materials (puja items) used during the ceremony.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Arrange for Vehicle Puja</h5>
+					  <ul class="bullet-list">
+					    <li>Advance Booking:</li>
+					    <li>Some temples require advance booking for Vehicle Puja, especially if it&#x27;s a popular service. This can usually be done by contacting the temple&#x27;s administrative office either in person, by phone, or through the temple&#x27;s official website.</li>
+					    <li>Walk-In:</li>
+					    <li>Depending on the temple’s policy and the crowd on any given day, you might be able to arrange for the puja on a walk-in basis. It’s always best to arrive early if you choose to go this route.</li>
+					    <li>Bring Necessary Items:</li>
+					    <li>While most temples provide the basic puja items included in the cost, you may be asked to bring certain specific items. It’s advisable to check this when you book the puja.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Checking Specifics for Katyayani Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Official Sources:</li>
+					    <li>To confirm whether Katyayani Temple offers Vehicle Puja, along with the specific timings and costs, checking the temple&#x27;s official website or contacting them directly would provide the most accurate information.</li>
+					    <li>Cultural Significance:</li>
+					    <li>Understanding the cultural significance of Vehicle Puja might also enhance your experience, as it’s a ritual steeped in gratitude and respect towards the divine for safeguarding the journey of life, represented by the new vehicle.</li>
+					  </ul>
+					  <p>Temples that offer such pujas usually have a structured process in place to facilitate them efficiently, given their popularity, especially on auspicious days and weekends. Always verify current details from the temple&#x27;s official communication channels to ensure a smooth and spiritually fulfilling experience.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facility to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>Many temples provide accommodation facilities for pilgrims, especially those that attract visitors from distant places. These facilities range from basic dormitories to more comfortable guesthouses, aimed at catering to the diverse needs of pilgrims. Here&#x27;s how this might be structured at a temple like Katyayani Temple in Bihar:</p>
+					  <h5 class="section__sub-b">Types of Accommodation Facilities</h5>
+					  <h5 class="section__sub-b">1. Dormitories</h5>
+					  <ul class="bullet-list">
+					    <li>Often the most economical option, dormitories provide basic sleeping arrangements, usually with shared bathrooms. They are ideal for solo travelers or groups looking for a cost-effective stay.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Guesthouses or Rooms</h5>
+					  <ul class="bullet-list">
+					    <li>These are more private accommodations, ranging from basic to moderately comfortable rooms. They may include amenities such as attached bathrooms, air conditioning, and sometimes a small kitchenette.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cottages or Deluxe Rooms</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples offer cottages or deluxe rooms that provide enhanced comfort and privacy. These are often equipped with modern amenities and are suitable for families or those seeking a more relaxing stay.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>The cost of staying at temple accommodations can vary widely based on the type of facility, the season, and the location of the temple.</li>
+					    <li>Dormitories might cost a few hundred rupees per night.</li>
+					    <li>Standard rooms might range from a few hundred to a couple of thousand rupees per night.</li>
+					    <li>Deluxe accommodations could cost more, depending on the facilities provided.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Booking Process</h5>
+					  <h5 class="section__sub-b">1. Online Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Many temples now offer the convenience of online booking through their official website. This allows pilgrims to reserve and pay for their accommodation in advance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Phone Booking</h5>
+					  <ul class="bullet-list">
+					    <li>Accommodation can often be booked by calling the temple’s administration office. This method is useful for those who need to ask specific questions about the facilities or availability.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. In-Person Booking</h5>
+					  <ul class="bullet-list">
+					    <li>For those who do not book in advance, it’s sometimes possible to arrange accommodation upon arrival, though this can be risky during busy festival times or on special occasions.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Booking Temple Accommodation</h5>
+					  <ul class="bullet-list">
+					    <li>Book Early: Especially during peak pilgrimage seasons or festival times, it’s advisable to book as early as possible to ensure availability.</li>
+					    <li>Check Reviews: If the temple’s accommodation facilities are listed on review sites, checking other visitors’ experiences can provide useful insights.</li>
+					    <li>Confirm Details: Double-check what is included in the price, such as meals, linens, and toiletries, and whether there are additional charges for air conditioning or hot water.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Specifics for Katyayani Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Check Official Information: Since the specific details about whether Katyayani Temple provides accommodation facilities, what types are available, their costs, and how to book them might vary, checking the temple&#x27;s official website or directly contacting them would provide the most accurate and up-to-date information.</li>
+					  </ul>
+					  <p>Providing accommodation is part of many temples&#x27; hospitality to support the spiritual journey of pilgrims, making their stay comfortable and conducive to their purpose of visit.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers ?</h3>
+					  <p>Many temples, especially those that attract a significant number of visitors, provide parking facilities to accommodate different types of vehicles including cars, minibuses, and two-wheelers. The extent and organization of these parking facilities can vary based on the temple&#x27;s location, size, and the average number of visitors it receives. Here’s a general outline of what you might expect regarding parking at a temple like the Katyayani Temple in Bihar:</p>
+					  <h5 class="section__sub-b">Parking Facilities</h5>
+					  <h5 class="section__sub-b">1. Designated Parking Areas</h5>
+					  <ul class="bullet-list">
+					    <li>Cars and Two-Wheelers: Temples usually have separate areas designated for cars and two-wheelers. These areas are often marked to ensure orderly parking and to maximize space usage.</li>
+					    <li>Mini Buses: Given their size, minibuses typically have a dedicated section within the parking lot, which might be closer to the main entrance to accommodate groups traveling together.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Parking Capacity and Management</h5>
+					  <ul class="bullet-list">
+					    <li>The capacity of the parking lot usually depends on the temple’s daily influx of visitors. Larger temples might have extensive parking lots, sometimes even with multiple levels or overflow areas used during special events or festivals.</li>
+					    <li>Parking management might include attendants who help in directing traffic and ensuring that vehicles are parked efficiently. During peak times, additional staff might be employed to manage the increased volume of vehicles.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Fees</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples charge a parking fee, which can be based on the duration of the parking or a flat rate per entry. This fee might vary depending on the type of vehicle.</li>
+					    <li>In cases where the temple does not charge for parking, donations might be encouraged to help maintain the parking facilities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Security</h5>
+					  <ul class="bullet-list">
+					    <li>Security in the parking areas can include CCTV surveillance and regular patrols by security personnel to ensure the safety of the vehicles and to manage any issues that arise.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Utilize the Parking Facilities</h5>
+					  <ul class="bullet-list">
+					    <li>Arrive Early: Especially during busy times, arriving early can help you find a better parking spot and avoid congestion.</li>
+					    <li>Follow Signage: Follow the signs and instructions provided for parking to ensure orderly parking and traffic flow.</li>
+					    <li>Secure Your Vehicle: Always ensure your vehicle is locked and valuables are not left in plain sight.</li>
+					    <li>Inquire About Extended Parking: If you plan on leaving your vehicle for a long duration, such as overnight during a festival, inquire with the parking attendants or temple administration about any specific policies or additional security measures.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Specific Information for Katyayani Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Check Official Sources: For the most accurate information about parking facilities at Katyayani Temple, including availability, fees, and any specific rules for larger vehicles like minibuses, checking the temple’s official website or contacting the temple administration directly would be the best approach.</li>
+					  </ul>
+					  <p>Efficient and secure parking is essential for accommodating the needs of all visitors, ensuring that their visit starts and ends conveniently.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <p>Temple Prasad services, which often include meals provided to devotees, are a significant aspect of many temples in India, including potentially at places like the Katyayani Temple in Bihar. These meals not only serve as a form of blessing but also promote a sense of community among visitors. Here’s an outline of what you might expect regarding prasad services at temples:</p>
+					  <h5 class="section__sub-b">Temple Prasad Services and Meals</h5>
+					  <h5 class="section__sub-b">1. Types of Prasad Services</h5>
+					  <ul class="bullet-list">
+					    <li>Simple Prasad: This might include fruits, sweets, or light snacks offered after darshan.</li>
+					    <li>Community Meals (Langar or Annadanam): Some temples provide full meals, which are generally vegetarian and served to all visitors without distinction of caste, creed, or class.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Procedure and Payment</h5>
+					  <ul class="bullet-list">
+					    <li>Free Meals: Many temples offer meals free of charge as a service to the community. Donations, however, are welcome and help sustain these programs.</li>
+					    <li>Paid Meals: In some temples, especially those that offer special or elaborate meals, there may be a nominal charge. Payments are usually made at designated counters where you can purchase meal tickets.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Different Classes/Lines</h5>
+					  <ul class="bullet-list">
+					    <li>While most temples strive to serve meals equitably, during very busy times or special events, there might be different lines or arrangements for donors, VIPs, or those who have paid for special prasad services.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Buying Tickets and Timings</h5>
+					  <ul class="bullet-list">
+					    <li>Where to Buy Tickets:</li>
+					    <li>Tickets for meals (if required) can typically be purchased at the temple itself. There might be clearly marked counters or offices within the temple premises dedicated to this purpose.</li>
+					    <li>Timings:</li>
+					    <li>Meal timings are usually fixed and aligned with temple operation hours. Common meal times are post-morning darshan and early evening. During special events or festivals, additional meal times might be scheduled to accommodate the increased number of devotees.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Check Ahead for Specifics: Before visiting, it&#x27;s beneficial to check the temple&#x27;s official website or contact the temple directly for specific details on prasad services, meal options, costs, and timings. This information can sometimes change based on special events or temple policies.</li>
+					    <li>Arrive Early: Especially if meals are served on a first-come, first-served basis, arriving early can ensure you receive the prasad without having to wait in long lines.</li>
+					    <li>Observe Etiquette: When participating in communal meals, observe local customs and etiquette, such as washing hands before eating, consuming food quietly and respectfully, and not wasting food.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Specific Information for Katyayani Temple</h5>
+					  <p>For precise details on prasad services at the Katyayani Temple, including whether tickets are needed, the cost of meals (if any), and the exact timing of meals, you would need to consult the temple&#x27;s official communication channels. This will ensure that your visit is well planned and in line with the temple’s current practices.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any.. Cost ?</h3>
+					  <p>Carrying home prasad from a temple like the Katyayani Temple is a common practice among devotees. Prasad is considered a divine blessing and often consists of food items that have been offered to the deity during worship. Here&#x27;s an overview of typical types of prasad you might encounter and potential costs associated with them:</p>
+					  <h5 class="section__sub-b">Types of Prasad</h5>
+					  <h5 class="section__sub-b">1. Sweets</h5>
+					  <ul class="bullet-list">
+					    <li>Common sweets include laddus, pedas, or barfi, which are made from ingredients like milk, sugar, ghee (clarified butter), and flour.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Dry Fruits and Nuts</h5>
+					  <ul class="bullet-list">
+					    <li>Almonds, cashews, and raisins often form part of the prasad, especially during special pujas or festivals.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Fruits</h5>
+					  <ul class="bullet-list">
+					    <li>Fresh fruits that have been offered to the deity are also distributed as prasad.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Cooked Food</h5>
+					  <ul class="bullet-list">
+					    <li>In some temples, cooked food such as rice dishes, curry, or special sacramental food like &#x27;Pongal&#x27; or &#x27;Kesari&#x27; is given as prasad.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Cost</h5>
+					  <ul class="bullet-list">
+					    <li>Free Distribution:</li>
+					    <li>Often, prasad is distributed free of cost as it is considered a blessing from the deity. In this case, devotees are welcome to accept it without payment.</li>
+					    <li>Purchased Prasad:</li>
+					    <li>Some temples also sell packaged prasad, which can be purchased by devotees who wish to take a substantial quantity home or as a souvenir. The cost for these can vary from a few rupees to several hundred rupees, depending on the type and quantity of prasad.</li>
+					    <li>Special Packaged Prasad:</li>
+					    <li>During major festivals or special events, temples might offer elaborately packaged prasad that can include a combination of sweets, dry fruits, and other items. These packages are usually priced higher.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Purchase and Carry Home Prasad</h5>
+					  <ul class="bullet-list">
+					    <li>Purchase Points:</li>
+					    <li>Temples usually have designated counters or stores within the premises where packaged prasad can be purchased. These are often located near the exit or in the main hall.</li>
+					    <li>Advance Orders:</li>
+					    <li>For special occasions or in the case of large quantities, some temples allow you to place orders in advance. This ensures that you receive the prasad without any hassle.</li>
+					    <li>Storage and Transport:</li>
+					    <li>When planning to carry prasad home, especially if traveling a long distance, consider how to store it properly. Sweets and cooked food may require cool, dry conditions to prevent spoilage.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Checking Specific Details for Katyayani Temple</h5>
+					  <p>To know the exact types of prasad available, their cost, and how you can purchase them at Katyayani Temple, you should check the temple’s official website or contact their administration directly. This information can help you plan your visit and prasad collection accordingly.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the procedure for reporting items lost in a temple?</h3>
+					  <p>Losing personal items in a temple can be a stressful experience, but most temples have a system in place to assist visitors in recovering lost items. Here’s a general outline of the procedure for reporting lost items in a temple, such as the Katyayani Temple:</p>
+					  <h5 class="section__sub-b">Procedure for Reporting Lost Items</h5>
+					  <h5 class="section__sub-b">1. Report Immediately</h5>
+					  <ul class="bullet-list">
+					    <li>If you realize that you have lost an item, report it as soon as possible to the temple authorities. The sooner you report, the higher the chances of recovering the item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Visit the Lost and Found Office</h5>
+					  <ul class="bullet-list">
+					    <li>Most temples have a designated Lost and Found office or a help desk where lost items are handled. Locate this office and provide a detailed description of your lost item.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Provide Detailed Information</h5>
+					  <ul class="bullet-list">
+					    <li>Describe the item in detail, including its color, size, brand, any distinctive marks, and where and when you last had it. This information will help the staff in identifying your item if it is found.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Fill Out a Lost Item Form</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples require you to fill out a lost item form. This form will ask for your contact information, a description of the lost item, and possibly the location where you believe you lost it.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Check Back Regularly</h5>
+					  <ul class="bullet-list">
+					    <li>After reporting your lost item, check back regularly with the Lost and Found office. Some temples also have an online portal where you can check the status of lost items.</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Claim Your Item</h5>
+					  <ul class="bullet-list">
+					    <li>If your item is found, you may be required to provide identification and possibly sign a form to claim it.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Tips</h5>
+					  <ul class="bullet-list">
+					    <li>Contact Information:</li>
+					    <li>Keep a record of the temple&#x27;s contact information or the Lost and Found office. This can be useful if you need to follow up after leaving the temple premises.</li>
+					    <li>Preventative Measures:</li>
+					    <li>To prevent loss, keep your valuables secure and minimize what you carry into the temple. Use lockers if available, and keep essential items like wallets and phones in a secure pocket.</li>
+					    <li>Security Cameras:</li>
+					    <li>In some cases, temple security may review camera footage to help locate lost items, especially if the item is of high value or importance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Specific Information for Katyayani Temple</h5>
+					  <p>For details specific to Katyayani Temple, such as the location of the Lost and Found office, contact details, or any online services for lost items, it is best to consult the temple’s official website or directly contact their administrative office. This ensures that you have the most accurate and helpful information for your particular situation.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">If any one of the group members is missing, how to report and where to wait for?</h3>
+					  <p>If a member of your group goes missing while visiting a temple like the Katyayani Temple, it is important to stay calm and follow a structured approach to locate the missing individual. Here’s a general procedure you can follow:</p>
+					  <h5 class="section__sub-b">Steps to Report and Locate a Missing Group Member</h5>
+					  <h5 class="section__sub-b">1. Immediate Action</h5>
+					  <ul class="bullet-list">
+					    <li>If you notice someone is missing, immediately inform other group members and try calling the missing person&#x27;s mobile phone if they have one.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Inform Temple Authorities</h5>
+					  <ul class="bullet-list">
+					    <li>Quickly report to the temple authorities or security personnel. Provide a detailed description of the missing person, including their name, age, physical description, and what they were wearing when they were last seen.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Designated Meeting Point</h5>
+					  <ul class="bullet-list">
+					    <li>It’s a good practice to establish a designated meeting point beforehand where members can regroup if someone gets lost. If you haven’t set up a meeting point, choose a prominent and easily accessible location within the temple complex, such as the entrance, main hall, or near an information desk.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Use Public Announcement System</h5>
+					  <ul class="bullet-list">
+					    <li>Request the temple management to make an announcement over their public address system, if available. This can facilitate a quicker reunion by alerting the missing person or others who might have seen them.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Stay Put or Search in Groups</h5>
+					  <ul class="bullet-list">
+					    <li>Decide whether to stay at the designated meeting point or search in small groups. If you choose to search, ensure each group has a way to communicate with the others (e.g., mobile phones).</li>
+					  </ul>
+					  <h5 class="section__sub-b">6. Check With Lost and Found</h5>
+					  <ul class="bullet-list">
+					    <li>Sometimes, especially with children, someone might guide them to a lost and found or a similar safe location within the temple. Check with these services to see if the missing person has been reported there.</li>
+					  </ul>
+					  <h5 class="section__sub-b">After the Incident</h5>
+					  <ul class="bullet-list">
+					    <li>When Found:</li>
+					    <li>Once the missing person is found, ensure they are okay and have not suffered any harm. Reconvene with your group and inform the temple authorities or security that the person has been found.</li>
+					    <li>Review and Adjust:</li>
+					    <li>Discuss what led to the separation and consider strategies to prevent similar situations in the future, such as improved communication, frequent headcounts, or better adherence to the buddy system.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Contact Information and Preparation</h5>
+					  <ul class="bullet-list">
+					    <li>Carry Important Contacts:</li>
+					    <li>Ensure that all group members have a list of important contacts, including each other’s mobile numbers and the contact information for temple security.</li>
+					    <li>Pre-Visit Briefing:</li>
+					    <li>Before visiting, brief all group members on what to do if they get lost, where the designated meeting point is, and how to recognize and approach temple security personnel.</li>
+					  </ul>
+					  <p>By preparing adequately and following these steps, you can minimize the stress and confusion associated with a group member going missing in a large and crowded place like a temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
+					  <p>Temples like the Katyayani Temple in Bihar may be registered under state government or district administration oversight, especially if they are significant cultural or heritage sites. Registration and oversight often depend on the temple&#x27;s historical significance, size, and the scope of its activities.</p>
+					  <h5 class="section__sub-b">Understanding Temple Registration</h5>
+					  <h5 class="section__sub-b">1. State Government Oversight</h5>
+					  <ul class="bullet-list">
+					    <li>Larger and historically important temples are often managed or overseen by state government religious affairs departments. This oversight can involve maintenance, funding, and regulation of activities to ensure that cultural and religious practices are preserved.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. District Administration</h5>
+					  <ul class="bullet-list">
+					    <li>Some temples may also be registered with local district administrations, which help in coordinating security, infrastructure support, and compliance with local laws.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Temple Trusts</h5>
+					  <ul class="bullet-list">
+					    <li>Many temples operate under the management of private trusts or boards that are set up specifically to manage the temple’s affairs. These trusts are usually registered with the state government and are subject to government audit and supervision.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Checking Registration Details</h5>
+					  <ul class="bullet-list">
+					    <li>Official Temple Website: The temple’s official website is a good starting point to check for information about its management and registration. This site might include details about the temple’s administrative body, registration status, and any affiliations with government or religious organizations.</li>
+					    <li>Direct Inquiry: For the most accurate information, contacting the temple directly through official communication channels (phone, email) can provide specific details about the temple&#x27;s registration and administration.</li>
+					    <li>Government Religious Affairs Websites: State or local government websites that handle religious affairs may also list information about registered temples and their management.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Specific Information for Katyayani Temple</h5>
+					  <p>For the Katyayani Temple, to confirm whether it is registered under the state government or district administration, and to understand the nature of this registration or oversight, checking the temple&#x27;s official website or directly contacting the temple administration would provide the most reliable information. If this information is not readily available online, a visit or phone call to the temple office might be necessary to obtain detailed and accurate information.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations , (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>Donating to temples like the Katyayani Temple can typically be done in various ways, beyond just making offerings directly into the temple&#x27;s Hundi (donation box). Here’s how donations can be structured and processed:</p>
+					  <h5 class="section__sub-b">Ways to Make Donations</h5>
+					  <h5 class="section__sub-b">1. Direct Bank Transfer</h5>
+					  <ul class="bullet-list">
+					    <li>Temples often provide bank account details where devotees can transfer funds directly. These details can usually be found on the temple’s official website or obtained by contacting the temple administration. Ensure you verify these details correctly to avoid scams.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Online Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Many temples have set up facilities for online donations through their official website or through a trusted third-party payment gateway. This method allows for quick and secure transactions and can often be done from anywhere in the world.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cheque or Demand Draft</h5>
+					  <ul class="bullet-list">
+					    <li>If you prefer not to make an online payment, sending a cheque or demand draft payable to the temple’s official name is another option. This can be mailed to the temple’s address.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. In-Person</h5>
+					  <ul class="bullet-list">
+					    <li>For those visiting the temple, donations can be made in person at designated counters. These counters might provide receipts and information on how the donations will be used.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Designated Purposes for Donations</h5>
+					  <ul class="bullet-list">
+					    <li>Temple Maintenance and Renovation: Helping to maintain and restore the temple facilities and architecture.</li>
+					    <li>Charitable Programs: Supporting the temple’s outreach and charitable activities such as feeding the poor, educational programs for children, medical camps, etc.</li>
+					    <li>Specific Rituals and Festivals: Funding for special poojas, festivals, and religious events that the temple organizes.</li>
+					    <li>General Fund: Contributions to the temple’s general fund used for day-to-day operations and services.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Obtaining Donation Details</h5>
+					  <ul class="bullet-list">
+					    <li>Check Official Sources: Always refer to the temple’s official communications for accurate and secure donation information. This includes their websites, official notices at the temple, or direct communications from the temple administration.</li>
+					    <li>Receipts and Records: Ensure that you receive a receipt for your donation, especially if it is a significant amount. This is important for your records and for tax deduction purposes where applicable.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tax Considerations</h5>
+					  <ul class="bullet-list">
+					    <li>Tax Deductibility: Donations to many religious organizations are tax-deductible under various laws, depending on the country. In India, for example, donations to registered trusts can be claimed under Section 80G of the Income Tax Act.</li>
+					  </ul>
+					  <p>By following these guidelines, you can ensure that your donations are made securely and used for appropriate purposes that align with your intentions. Always use official channels for making any financial contributions to ensure the security of your transactions and the proper use of your funds.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are there any privileges associated with the donation made? For eg. in Tirupati donations to SriVani trust is used for construction of Balaji temples and for every 10k donation one Spl entry ticket  is provided with also access to preferential treatment in allotment of quality accomodation maintained by the temple.Similarly in Shirdi donation can be made for Annadana( free meals) and for hospitals etc.</h3>
+					  <p>Many temples offer certain privileges or benefits to donors as a way to acknowledge and appreciate their contributions. These privileges can vary widely depending on the temple&#x27;s policies and the specific donation programs they have in place. Here’s a general overview of the types of privileges that might be associated with donations at temples like the Katyayani Temple in Bihar:</p>
+					  <h5 class="section__sub-b">Common Privileges Associated with Temple Donations</h5>
+					<p>Tax Benefits: While not a direct privilege from the temple, donations made to registered religious organizations often qualify for tax deductions under various national tax laws, providing financial benefits to the donor.</p>
+					  <h5 class="section__sub-b">How to Find Out About Donor Privileges</h5>
+					  <ul class="bullet-list">
+					    <li>Official Temple Publications: Temples often publish donor privilege information on their websites, in brochures, or through their fundraising campaigns.</li>
+					    <li>Direct Inquiry: Contacting the temple’s donation office directly can provide the most accurate and detailed information about the types of privileges associated with different levels of donation.</li>
+					    <li>Donor Programs: Some temples have structured donor programs with clearly defined tiers or levels, each associated with specific benefits. These programs are designed to both encourage donations and reward donors in a way that acknowledges their generosity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Example</h5>
+					  <ul class="bullet-list">
+					    <li>If the Katyayani Temple has similar practices, they might offer privileges such as special entry tickets, priority in accommodation, or special participation in temple rituals for certain donation amounts. This information would typically be available through the temple’s fundraising or donor management office.</li>
+					  </ul>
+					  <p>Always verify the details of any donation-related privileges directly with the temple to ensure that your expectations are in line with what is offered, and to confirm that your contributions are used in accordance with your intentions.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Provide Construction/  scientific  information about the  temple ?</h3>
+					  <p>The construction and architectural details of temples like the Katyayani Temple in Bihar often reflect a deep integration of religious significance, cultural practices, and scientific knowledge. While specific details can vary depending on the temple, here’s a general overview of the kind of construction and scientific insights typically involved in the architecture of traditional Hindu temples:</p>
+					  <h5 class="section__sub-b">Architectural and Construction Features</h5>
+					  <h5 class="section__sub-b">1. Vastu Shastra</h5>
+					  <ul class="bullet-list">
+					    <li>Hindu temples are traditionally designed according to Vastu Shastra, the ancient Indian science of architecture and construction that aligns any built structure with the natural energies of the universe. Vastu principles aim to harmonize the temple structure with the directional alignments and elemental forces, promoting spiritual, physical, and psychological well-being.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Sthapatya Veda</h5>
+					  <ul class="bullet-list">
+					    <li>This is another ancient science of construction and architecture that influences temple architecture. It incorporates elements of mathematics, astronomy, and art, ensuring that the temple is not only aesthetically pleasing but also spiritually uplifting and astronomically aligned.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Orientation</h5>
+					  <ul class="bullet-list">
+					    <li>Temples are typically oriented with the main deity facing east, the direction of the rising sun, which is considered auspicious and symbolizes enlightenment and knowledge. The layout is often symmetrical, which is believed to resonate with cosmic principles.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Materials</h5>
+					  <ul class="bullet-list">
+					    <li>Traditional materials used in temple construction include stone, wood, and metals like copper and brass, chosen for their durability, aesthetic qualities, and their cultural and spiritual significances.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Scientific Insights</h5>
+					  <h5 class="section__sub-b">1. Acoustics</h5>
+					  <ul class="bullet-list">
+					    <li>Temples are designed to enhance acoustics, where chants and hymns reverberate through the sanctum sanctorum, creating a resonant and meditative atmosphere. The temple architecture often includes domes, vaults, or corridors that amplify sound naturally.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Light and Shadow Play</h5>
+					  <ul class="bullet-list">
+					    <li>The strategic placement of windows, doors, and other openings in temples often creates dramatic effects with light and shadow, especially during specific times of the day or during solstices, enhancing the spiritual ambiance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Seismic Considerations</h5>
+					  <ul class="bullet-list">
+					    <li>In seismically active regions, ancient temples were constructed with features that allow for flexibility and movement within the structure, a primitive but effective form of seismic design.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Thermal Comfort</h5>
+					  <ul class="bullet-list">
+					    <li>The thick stone walls and high ceilings of temples keep the interiors cool, especially in hot climates typical of many parts of India. The layout often encourages natural ventilation, maintaining comfort without modern technology.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Additional Details Specific to Katyayani Temple</h5>
+					  <p>For precise and detailed information specific to the construction and scientific aspects of the Katyayani Temple, one would need to consult resources that delve into its history and architectural style, or speak to historians or architects familiar with the temple’s design. This can include local scholarly articles, temple management documentation, or cultural heritage publications.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any special significance attached to the temple -like for eg. Kasar Devi in Uttar khand- it is said-</h3>
+					  <p>“ The region surrounding the Kasar Devi Temple has an enormous geomagnetic field or Paramagnetism, thanks to gaps in bands of radiation. As a result, Kasar Devi is endowed with a cosmic energy similar to that of Stonehenge in UK and Machu Picchu in Peru.”</p>
+					  <p>Top of Form</p>
+					  <p>Bottom of Form</p>
+					  <p>The Katyayani Temple, like many temples in India, may have special spiritual, cultural, or historical significance attributed to it, which often influences both the local practices and the wider perceptions of the temple. While specific temples like Kasar Devi in Uttarakhand are noted for their unique geomagnetic properties, the special significance of other temples like Katyayani Temple might be rooted in religious, mythological, or historical aspects rather than scientific phenomena such as geomagnetism.</p>
+					  <h5 class="section__sub-b">Possible Special Significances of Katyayani Temple</h5>
+					  <h5 class="section__sub-b">1. Religious Importance</h5>
+					  <ul class="bullet-list">
+					    <li>The Katyayani Temple is dedicated to Goddess Katyayani, one of the forms of the goddess Durga. This deity is particularly revered during the Navaratri festival, where she is worshipped on the sixth day of the festival. The temple could be a major center for this celebration, attracting devotees seeking blessings for courage and victory over adversities.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Mythological Associations</h5>
+					  <ul class="bullet-list">
+					    <li>The temple may be associated with various legends or mythological stories that highlight its significance. For instance, temples dedicated to Goddess Katyayani might be considered as sites where the deity manifested or performed significant deeds according to Hindu mythology.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Historical Significance</h5>
+					  <ul class="bullet-list">
+					    <li>The temple might be located at a historically important site or have been a center of significant historical events, which can add to its cultural and spiritual importance.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Cultural Center</h5>
+					  <ul class="bullet-list">
+					    <li>It may serve as a key cultural hub in the region, hosting various religious and community events, thus reinforcing its importance beyond just being a place of worship.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Scientific and Cosmic Energy</h5>
+					  <p>While the Katyayani Temple may not specifically be known for its geomagnetic field or cosmic energy similar to Kasar Devi, Stonehenge, or Machu Picchu, many Hindu temples are designed based on Vastu Shastra, which considers cosmic energies and alignment with natural forces. The temple’s architecture and spatial arrangement often aim to harness these energies to create a space conducive to spiritual practices and meditation.</p>
+					  <h5 class="section__sub-b">Exploring the Significance</h5>
+					  <ul class="bullet-list">
+					    <li>Visiting the Temple: One of the best ways to understand the significance of the Katyayani Temple is by visiting the site, participating in the rituals, and engaging with the local community and priests.</li>
+					    <li>Research and Inquiries: Inquiring with local scholars, historians, or the temple management can provide deeper insights into any special significance attached to the temple.</li>
+					  </ul>
+					  <p>If there&#x27;s a particular interest in the cosmic or geomagnetic aspects, it might be worth exploring scholarly articles or scientific studies about the region where the Katyayani Temple is located. Such studies might reveal interesting geographical or environmental features contributing to its significance.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Information which a foreigner would like to know- focussing more on spirituality rather than religion?</h3>
+					  <p>When providing information to foreigners who are more interested in spirituality than the specifics of religious practice, it&#x27;s essential to focus on universal themes, the experiential aspects of visiting the temple, and the broader cultural significance. Here’s how you can frame information about a temple like the Katyayani Temple for those interested in spirituality:</p>
+					  <h5 class="section__sub-b">1. Spiritual Significance of the Temple</h5>
+					  <ul class="bullet-list">
+					    <li>Universal Themes: Explain the universal themes embodied by the deity, such as empowerment, strength, and transformation, which are represented by Goddess Katyayani. Discuss how these themes are relevant to personal growth and spiritual development.</li>
+					    <li>Symbolism: Discuss the symbolism found in the temple’s architecture and iconography, which often reflects deep philosophical and spiritual truths.</li>
+					  </ul>
+					  <h5 class="section__sub-b">2. Meditative and Peaceful Environment</h5>
+					  <ul class="bullet-list">
+					    <li>Describe the temple’s atmosphere, focusing on its tranquility and the sense of peace it offers. Mention spaces within the temple complex that are particularly conducive to meditation or quiet reflection.</li>
+					  </ul>
+					  <h5 class="section__sub-b">3. Cultural and Spiritual Practices</h5>
+					  <ul class="bullet-list">
+					    <li>Highlight practices such as darshan (seeing and being seen by the deity), puja (offerings or rituals), and participation in temple rituals like aarti (a ritual of worship in which light from wicks soaked in ghee or camphor is offered to one or more deities). Explain these practices not just as religious obligations but as ways to connect spiritually and find inner peace.</li>
+					  </ul>
+					  <h5 class="section__sub-b">4. Community Aspects</h5>
+					  <ul class="bullet-list">
+					    <li>Mention how the temple serves as a community center, bringing people together for festivals and daily rituals. Emphasize the communal meal services (like prasad or langar), which underscore principles of equality and charity.</li>
+					  </ul>
+					  <h5 class="section__sub-b">5. Personal Experiences and Stories</h5>
+					  <ul class="bullet-list">
+					    <li>Share anecdotes or stories from pilgrims and visitors about their personal transformations or spiritual insights gained from visiting the temple.</li>
+					  </ul>
+					
+					  <h3 class="section__sub-b">6. Accessibility for Meditation and Retreats:</h3>
+					  <ul class="bullet-list">
+					    <li>If applicable, provide information about opportunities for longer stays or spiritual retreats offered by the temple or nearby facilities. This can be appealing to those looking to deepen their spiritual practice in a sacred environment.</li>
+					  </ul>
+				
+					  <h3 class="section__sub-b">7. Ethical and Environmental Considerations:</h3>
+					  <ul class="bullet-list">
+					    <li>If the temple is involved in any environmental sustainability practices or community welfare programs, highlight these as examples of living spiritual principles through action.</li>
+					  </ul>
+					  <h5 class="section__sub-b">8. Guidelines for Visiting</h5>
+					  <ul class="bullet-list">
+					    <li>Offer practical advice for foreigners visiting the temple:</li>
+					    <li>Dress codes to adhere to (covering shoulders, removing shoes, etc.).</li>
+					    <li>Best times to visit for a quieter experience.</li>
+					    <li>Cultural sensitivities to be aware of to respect the spiritual site and its regular visitors.</li>
+					  </ul>
+					  <h5 class="section__sub-b">9. Language and Tours</h5>
+					  <ul class="bullet-list">
+					    <li>Information about guided tours, availability of information in different languages, or resources where they can learn more about the spiritual practices observed at the temple.</li>
+					  </ul>
+					  <p>By focusing on these aspects, you can cater to foreigners who are looking to understand and experience the spiritual rather than strictly religious dimensions of visiting a temple like the Katyayani Temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Call to action  or interaction links- here in it could be for:</h3>
+					  
+					  <p>Creating effective Calls to Action (CTAs) for a temple&#x27;s website or associated platforms involves clear directives that guide visitors to engage with the temple’s services such as puja bookings, donations, accommodation, and understanding tax exemptions. Here’s how you might set up these CTAs:</p>
+					  <p>a. Puja Bookings</p>
+					  <p>CTA Button Text: &quot;Book Your Puja Now&quot; Description: &quot;Experience divine blessings by booking a puja. Select from various pujas and rituals to seek spiritual solace and blessings. Click here to book your preferred puja.&quot; Link: Direct this CTA to the section of the temple&#x27;s website where visitors can learn more and book pujas. Ensure this is a direct link to the booking page or to a page that provides detailed instructions on how to make a booking.</p>
+					  <p>b. Donations</p>
+					  <p>CTA Button Text: &quot;Support with Your Donation&quot; Description: &quot;Help us maintain the sanctity and services of our temple. Your contributions make a big difference. Donate now to contribute to various temple initiatives.&quot; Link: This should link to the donation page where visitors can choose how to donate, see what projects need funding, and complete their donations online.</p>
+					  <p>c. Accommodation</p>
+					  <p>CTA Button Text: &quot;Find Accommodations Near the Temple&quot; Description: &quot;Looking for a place to stay during your temple visit? Explore a range of accommodation options to suit all budgets. Click here for more information and to book your stay.&quot; Link: Connect this CTA to your site where accommodations are listed, ensuring the link directs to a page with an inquiry form and detailed listings of available accommodations.</p>
+					  <p>d. Tax Exemption Information</p>
+					  <p>CTA Button Text: &quot;Learn About Tax Benefits&quot; Description: &quot;Your donations can benefit you too! Learn how donating to the temple can provide you with tax advantages under Section 80G of the Income Tax Act.&quot; Link: This should direct users to a page providing detailed information about how donations are eligible for tax exemptions. If specific donations have different exemption rates (like 100% or 50% for certain projects), that information should be clearly detailed.</p>
+					  <h5 class="section__sub-b">Tips for Effective CTAs</h5>
+					  <ul class="bullet-list">
+					    <li>Visibility: Place CTAs in prominent locations on your website or platform to ensure they are easily visible to visitors.</li>
+					    <li>Clarity and Conciseness: Keep the language in CTAs clear and concise. Make sure visitors understand exactly what will happen when they click a link.</li>
+					    <li>Design: Use button designs that stand out but are consistent with the overall design of the website. Ensure they are mobile-friendly as well.</li>
+					    <li>Follow-Up: Make sure that after a visitor takes action on a CTA, there is a confirmation page or message that reassures them their action has been successful or received.</li>
+					  </ul>
+					  <p>Implementing these CTAs effectively will not only improve user engagement on your website but also help support the temple’s operations and services comprehensively.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Annual Event of the temple day and date?</h3>
+					  <p>The annual event schedule for a temple like the Katyayani Temple in Bihar can vary based on the specific rituals and celebrations important to the deity and the local community. Temples dedicated to Goddess Katyayani might particularly celebrate events during Navaratri, especially on the sixth day, which is dedicated to Goddess Katyayani, one of the nine forms of Goddess Durga celebrated during the festival.</p>
+					  <h5 class="section__sub-b">Likely Annual Event at Katyayani Temple</h5>
+					  <h5 class="section__sub-b">1. Durga Puja/Navaratri</h5>
+					  <ul class="bullet-list">
+					    <li>Event Description: Navaratri is a major Hindu festival celebrated over nine nights. Temples dedicated to forms of Goddess Durga, like Katyayani, often have special pujas, rituals, cultural programs, and community gatherings during this time. The sixth day, known as &#x27;Katyayani Puja&#x27;, is particularly significant at a Katyayani Temple.</li>
+					    <li>Typical Date: Navaratri occurs twice a year, once in the spring (Chaitra Navaratri) and once in the autumn (Sharad Navaratri). The exact dates vary each year as they are based on the lunar calendar. Sharad Navaratri usually falls in September or October.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Find Specific Dates</h5>
+					  <ul class="bullet-list">
+					    <li>Temple’s Official Website or Calendar: For the most accurate and updated information about the dates of major annual events like Navaratri at the Katyayani Temple, checking the temple&#x27;s official website or contacting the temple directly is recommended. They may provide a calendar of events that includes all significant dates.</li>
+					    <li>Local Cultural Listings: Information about temple events can also often be found in local cultural event listings or tourism guides, especially for larger festivals that attract significant numbers of visitors.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Tips for Visitors</h5>
+					  <ul class="bullet-list">
+					    <li>Plan Ahead: If you&#x27;re planning to visit the temple during a major event like Navaratri, it&#x27;s advisable to plan your trip well in advance due to the larger crowds and more intense activity during these times.</li>
+					    <li>Understand the Rituals: Learning about the specific rituals and the significance of the event can greatly enhance your experience.</li>
+					    <li>Participate Actively: If possible, participating in the temple activities during such events can provide deeper spiritual and cultural insights.</li>
+					  </ul>
+					  <p>By keeping these points in mind, you can ensure a fulfilling visit to the Katyayani Temple during its annual events, fully immersing yourself in the spiritual and communal atmosphere.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Monthly Event of the temple - day and date?</h3>
+					  <p>For a temple like the Katyayani Temple, there might be regular monthly events that hold special significance. While the specific events can vary, a common monthly observance in many Hindu temples is the celebration of Ekadashi, a day dedicated to fasting and worship.</p>
+					  <h5 class="section__sub-b">Monthly Event at Katyayani Temple</h5>
+					  <h5 class="section__sub-b">1. Ekadashi</h5>
+					  <ul class="bullet-list">
+					    <li>Event Description: Ekadashi is observed on the 11th day of each lunar fortnight, making it a bi-monthly event. Devotees fast and participate in special prayers dedicated to Lord Vishnu, and sometimes other deities, seeking spiritual benefits and purification.</li>
+					    <li>Typical Activities: Special pujas, rituals, and community prayers are conducted. Devotees often observe a fast, which can vary from a complete fast to a partial one, depending on individual capability and tradition.</li>
+					    <li>Dates: The dates for Ekadashi vary each month according to the lunar calendar. There are typically two Ekadashis in a month:</li>
+					    <li>Shukla Paksha Ekadashi: The 11th day of the waxing moon.</li>
+					    <li>Krishna Paksha Ekadashi: The 11th day of the waning moon.</li>
+					  </ul>
+					  <h5 class="section__sub-b">How to Find Specific Dates</h5>
+					  <ul class="bullet-list">
+					    <li>Temple’s Official Calendar: The temple’s official website or notice board is the best place to find the exact dates for Ekadashi and other monthly events. Temples often publish a yearly calendar with all significant religious dates.</li>
+					    <li>Hindu Panchang: A Hindu lunar calendar (Panchang) can also be used to find the dates for Ekadashi. These calendars are widely available online and in religious shops.</li>
+					    <li>Local Sources: Local community centers, religious shops, and Hindu organizations often provide information about monthly religious observances.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Participating in Monthly Events</h5>
+					  <ul class="bullet-list">
+					    <li>Plan Your Visit: If you wish to participate in these monthly events, plan your visit according to the published dates.</li>
+					    <li>Understand the Rituals: Familiarize yourself with the specific rituals and practices associated with the event. This can often be done through temple literature or by speaking with the temple priests.</li>
+					    <li>Engage in the Practices: Participating in fasting or special prayers can enhance your spiritual experience and connection with the local community.</li>
+					  </ul>
+					  <h5 class="section__sub-b">Example Schedule for Ekadashi (2024)**</h5>
+					  <ul class="bullet-list">
+					    <li>Shukla Paksha Ekadashi: January 11, February 9, March 10, etc.</li>
+					    <li>Krishna Paksha Ekadashi: January 26, February 24, March 26, etc.</li>
+					  </ul>
+					  <p>(Note: These dates are illustrative. For precise dates, refer to a current Panchang or the temple’s calendar.)</p>
+					  <p>By keeping track of these regular events, you can ensure a more enriching and spiritually fulfilling experience at the Katyayani Temple.</p>
+					  
+					</div>
+				</article>
+
+				<div class="glass cta-section">
+					<h3>Experience Divine Darshan</h3>
+					<p>Immerse yourself in the spiritual essence of this sacred temple through our 360° VR experience.</p>
+					<a href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share" target="_blank" class="cta-btn">
+						Download Divya Darshan 360 App
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script src="/blog/assets/blog-script.js"></script>
+	<script src="/blog/assets/diya.js"></script>
+</body>
+</html>

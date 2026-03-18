@@ -24,3 +24,11 @@ export const categoryDisplayMap: Record<string, string> = {
 	shaktipeet: "Shaktipeet Temples",
 }
 
+// Mapping from category slug (in blogs.json) to actual folder name on disk
+export const categoryFolderMap: Record<string, string> = {
+	astavinayaka: "ashtwinayak",
+	jyothirlinga: "jyothirlinga",
+	popular: "popular",
+	shaktipeet: "shaktipeet",
+}
+
