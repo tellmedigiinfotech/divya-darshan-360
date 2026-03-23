@@ -20,7 +20,7 @@ export interface TempleBlog {
 export const categoryDisplayMap: Record<string, string> = {
 	astavinayaka: "Astavinayaka Temples",
 	jyothirlinga: "Jyothirlinga Temples",
-	popular: "Popular Famous Temples",
+	popular: "Popular Temples",
 	shaktipeet: "Shaktipeet Temples",
 }
 
