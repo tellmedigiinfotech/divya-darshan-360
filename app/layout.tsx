@@ -7,6 +7,7 @@ import "./globals.css"
 import Script from "next/script"
 
 import { seoKeywords, siteUrl, defaultMetadata } from "@/lib/seo-config"
+import { Footer } from "@/components/footer"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
@@ -320,6 +321,7 @@ export default function RootLayout({
 				/>
 
 				{children}
+				<Footer />
 				<Analytics />
 			</body>
 		</html>

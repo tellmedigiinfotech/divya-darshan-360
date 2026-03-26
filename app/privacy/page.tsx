@@ -382,12 +382,6 @@ export default function PrivacyPolicyPage() {
             </div>
           </section>
         </div>
-
-        <footer className="mt-20 pt-8 border-t border-white/5 text-center">
-          <p className="text-sm text-muted-foreground italic">
-            © 2025 TellMe Digi Infotech Pvt Ltd. All rights reserved.
-          </p>
-        </footer>
       </div>
     </main>
   )
