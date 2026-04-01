@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>{{ temple_name }} | Divya Darshan 360</title>
+  <meta name="description" content="{{ meta_description }}" />
+  <meta property="og:title" content="{{ temple_name }}" />
+  <meta property="og:description" content="{{ meta_description }}" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ temple_name }}" />
+  <meta name="twitter:description" content="{{ meta_description }}" />
+  <meta property="og:url" content="{{ canonical_url }}" />
+  <meta property="og:image" content="{{ og_image_url }}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{{ temple_name }}" />
+  <meta property="og:site_name" content="Divya Darshan 360" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:image" content="{{ og_image_url }}" />
+  <meta name="twitter:site" content="@divyadarshan360" />
+  <meta name="keywords" content="{{ keywords }}" />
+  <meta name="author" content="Divya Darshan 360 - TellMe Digi Infotech Pvt Ltd" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="{{ canonical_url }}" />
+  <link rel="alternate" hreflang="en" href="{{ canonical_url }}" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+  <link rel="icon" type="image/x-icon" href="/icons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#e23d00', accent: '#d4af37' },
+          fontFamily: { sans: ['Geist','sans-serif'], serif: ['Playfair Display','serif'] },
+        }
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"{{ temple_name }}","description":"{{ meta_description }}","image":"{{ og_image_url }}","author":{"@type":"Organization","name":"Divya Darshan 360","url":"https://divyadarshan360.com"},"publisher":{"@type":"Organization","name":"Divya Darshan 360","logo":{"@type":"ImageObject","url":"https://divyadarshan360.com/icons/android-chrome-512x512.png"}},"url":"{{ canonical_url }}","mainEntityOfPage":{"@type":"WebPage","@id":"{{ canonical_url }}"},"datePublished":"{{ date_published }}","dateModified":"{{ date_modified }}"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://divyadarshan360.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://divyadarshan360.com/blog"},{"@type":"ListItem","position":3,"name":"{{ category_display }}","item":"https://divyadarshan360.com/blog"},{"@type":"ListItem","position":4,"name":"{{ temple_name }}","item":"{{ canonical_url }}"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HinduTemple","name":"{{ temple_name }}","description":"{{ meta_description }}","image":"{{ og_image_url }}","url":"{{ canonical_url }}","address":{"@type":"PostalAddress","addressLocality":"{{ stat_location }}","addressCountry":"IN"}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:linear-gradient(135deg,#fdf1e2 0%,#fce5cc 100%);}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+    .tab-content{display:none;animation:fadeIn .3s ease;}
+    .tab-content.active{display:block;}
+    .bullet-ul li::before{content:"\u2022";color:#e23d00;font-weight:bold;flex-shrink:0;margin-top:1px;}
+    .view-more-wrap{overflow:hidden;max-height:0;transition:max-height .5s ease;}
+    .view-more-wrap.expanded{max-height:9999px;}
+    .view-more-btn svg{transition:transform .3s;}
+    .view-more-btn.open svg{transform:rotate(180deg);}
+    .section-divider{height:3px;background:linear-gradient(to right,#e23d00,#d4af37,transparent);margin:40px 0;}
+  </style>
+</head>
+<body class="font-sans text-[#3b2510]">
+  <div class="max-w-7xl mx-auto px-6 pt-8 pb-0">
+    <a href="/blog" class="inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary no-underline">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      Back to Blog
+    </a>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+        <div class="mb-10">
+          <span class="inline-block bg-primary text-white px-4 py-2 rounded-[20px] text-xs font-normal mb-3 uppercase tracking-wider">{{ category_display }}</span>
+          <h1 class="font-serif font-normal text-4xl md:text-5xl my-5 text-[#3b2510] flex items-center gap-4">
+            <span>{{ hero_title_main }} <span class="text-primary">{{ hero_title_highlight }}</span> {{ hero_title_suffix }}</span>
+          </h1>
+          <p class="text-lg leading-normal text-[#5a4030] mb-4" style="line-height:1.85;">{{ hero_intro_para_1 }}</p>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-[0_10px_40px_rgba(226,61,0,0.15)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(226,61,0,0.2)] mb-8">
+          <img src="{{ hero_image_url }}" alt="{{ hero_image_alt }}" class="w-full object-cover h-[420px]" />
+        </div>
+
+        <div class="mb-10 text-[1.05rem] leading-relaxed text-[#5a4030]">
+          <p class="mb-4">{{ hero_intro_para_2 }}</p>
+        </div>
+
+
+
+        <div class="section-divider"></div>
+
+        <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 rounded-xl p-6 md:p-8 mb-12">
+          <div class="flex gap-0 border-b-2 border-[#fdf1e2] mb-8 flex-wrap md:gap-0">
+            <button class="tab-button active py-3.5 px-5 bg-transparent border-none border-b-[3px] border-transparent cursor-pointer font-normal text-[#666] transition-all duration-300 text-sm hover:text-primary" onclick="openTab(event,'overview')">📖 Overview</button>
+            <button class="tab-button py-3.5 px-5 bg-transparent border-none border-b-[3px] border-transparent cursor-pointer font-normal text-[#666] transition-all duration-300 text-sm hover:text-primary" onclick="openTab(event,'facilities')">🏛️ Facilities</button>
+            <button class="tab-button py-3.5 px-5 bg-transparent border-none border-b-[3px] border-transparent cursor-pointer font-normal text-[#666] transition-all duration-300 text-sm hover:text-primary" onclick="openTab(event,'guidelines')">📋 Guidelines</button>
+          </div>
+
+          <div id="overview" class="tab-content active">
+            <h2 class="font-serif font-light text-2xl mb-6 text-[#3b2510]">About the Temple</h2>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3.5 my-3.5 mb-8">
+              <div class="p-4 bg-white rounded-xl border-2 border-[#fdf1e2] transition-all duration-300 hover:border-primary hover:shadow-[0_8px_25px_rgba(226,61,0,0.12)] hover:-translate-y-1">
+                <div class="w-10 h-10 bg-[#fdf1e2] rounded-[10px] flex items-center justify-center text-[22px] mb-2.5">🕉️</div>
+                <h4 class="font-serif font-normal text-base mb-1 text-[#3b2510]">Main Deity</h4>
+                <p class="text-[#3b2510] font-medium text-[.9rem] mb-1.5">{{ main_deity }}</p>
+                {% if main_deity_desc %}<p class="text-[#5a4030] text-[.85rem] leading-[1.6]">{{ main_deity_desc }}</p>{% endif %}
+              </div>
+              <div class="p-4 bg-white rounded-xl border-2 border-[#fdf1e2] transition-all duration-300 hover:border-primary hover:shadow-[0_8px_25px_rgba(226,61,0,0.12)] hover:-translate-y-1">
+                <div class="w-10 h-10 bg-[#fdf1e2] rounded-[10px] flex items-center justify-center text-[22px] mb-2.5">🙏</div>
+                <h4 class="font-serif font-normal text-base mb-1 text-[#3b2510]">Sub Deities</h4>
+                <ul class="bullet-ul list-none p-0 my-1">
+                  {% for deity in sub_deities.split('|') %}<li class="py-1 flex items-start gap-2.5 text-[#3b2510] font-medium text-[.9rem] leading-[1.6]">{% if deity %}{{ deity }}{% endif %}</li>{% endfor %}
+                </ul>
+                {% if sub_deities_desc %}<p class="text-[#5a4030] text-[.85rem] leading-[1.6] mt-2">{{ sub_deities_desc }}</p>{% endif %}
+              </div>
+              <div class="p-4 bg-white rounded-xl border-2 border-[#fdf1e2] transition-all duration-300 hover:border-primary hover:shadow-[0_8px_25px_rgba(226,61,0,0.12)] hover:-translate-y-1">
+                <div class="w-10 h-10 bg-[#fdf1e2] rounded-[10px] flex items-center justify-center text-[22px] mb-2.5">🏛️</div>
+                <h4 class="font-serif font-normal text-base mb-1 text-[#3b2510]">Temple Trust</h4>
+                <p class="text-[#3b2510] font-medium text-[.9rem] mb-1.5">{{ temple_trust }}</p>
+                {% if temple_trust_desc %}<p class="text-[#5a4030] text-[.85rem] leading-[1.6]">{{ temple_trust_desc }}</p>{% endif %}
+              </div>
+            </div>
+
+            <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Historical & Architectural Significance</h3>
+            <p class="text-[#5a4030] leading-[1.85] mb-4">{{ historical_para_1 }}</p>
+            <p class="text-[#5a4030] leading-[1.85] mb-4">{{ historical_para_2 }}</p>
+
+            <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Spiritual Significance</h3>
+            <p class="text-[#5a4030] leading-[1.85] mb-4">{{ spiritual_para_1 }}</p>
+            <p class="text-[#5a4030] leading-[1.85] mb-4">{{ spiritual_para_2 }}</p>
+
+            <div class="view-more-wrap" id="overview-more">
+              <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Entry Fees & Darshan Privileges</h3>
+              <div class="rounded-lg p-5 mb-4 bg-primary/5 border-l-4 border-primary">
+                <div class="py-3 border-b border-[#f0f0f0] flex justify-between items-start gap-3"><span class="text-[#3b2510] font-normal">General Entry</span><span class="text-primary font-normal">{{ entry_fee_general }}</span></div>
+                {% for fee in entry_fee_notes.split('|') %}{% if loop.index0 is even %}<div class="py-3 border-b border-[#f0f0f0] flex justify-between items-start gap-3"><span class="text-[#5a4030]">{{ fee }}</span>{% else %}<span class="text-[#5a4030] text-[.9rem]">{{ fee }}</span></div>{% endif %}{% endfor %}
+              </div>
+              <p class="text-[#5a4030] leading-[1.85] mb-4 text-[.9rem]">No specific restrictions or special fees for foreign visitors.</p>
+
+              <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Annual & Monthly Events</h3>
+              <div class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-3.5 my-3.5">
+                <div class="p-6 bg-white rounded-xl border-2 border-[#fdf1e2] transition-all duration-300 hover:border-primary hover:shadow-[0_8px_25px_rgba(226,61,0,0.12)] hover:-translate-y-1">
+                  <h4 class="font-serif font-light text-base mb-2 text-[#3b2510]">Annual Event</h4>
+                  <p class="text-[#5a4030] text-[.9rem]"><strong>{{ annual_event_name }}</strong> {{ annual_event_desc }}</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl border-2 border-[#fdf1e2] transition-all duration-300 hover:border-primary hover:shadow-[0_8px_25px_rgba(226,61,0,0.12)] hover:-translate-y-1">
+                  <h4 class="font-serif font-light text-base mb-2 text-[#3b2510]">Monthly Event</h4>
+                  <p class="text-[#5a4030] text-[.9rem]"><strong>{{ monthly_event_name }}</strong> {{ monthly_event_desc }}</p>
+                </div>
+              </div>
+
+              <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Donations & Privileges</h3>
+              <p class="text-[#5a4030] leading-[1.85] mb-4">Donations can be made through multiple channels:</p>
+              <ul class="bullet-ul list-none p-0 my-3 mb-4">
+                {% for donation in donation_channels.split('|') %}{% if loop.index0 is even %}<li class="py-2 flex items-start gap-2.5 text-[#5a4030] leading-[1.7]"><strong>{{ donation }}</strong>{% else %}{{ donation }}</li>{% endif %}{% endfor %}
+              </ul>
+            </div>
+            <button class="view-more-btn flex items-center gap-1.5 mx-auto mt-5 mb-1 px-7 py-2.5 bg-primary/10 border-[1.5px] border-primary/25 text-primary rounded-full text-[.88rem] font-normal cursor-pointer transition-all duration-300 font-sans hover:bg-primary/20 hover:border-primary" id="overview-more-btn" onclick="toggleViewMore('overview-more','overview-more-btn')">
+              <span>View More</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+
+          <div id="facilities" class="tab-content">
+            <h2 class="font-serif font-light text-2xl mb-6 text-[#3b2510]">Temple Facilities & Services</h2>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-3.5 my-3.5 mb-8">
+              {% for facility in [facility_1, facility_2, facility_3, facility_4, facility_5, facility_6] %}{% if facility and facility.split('|')|length >= 3 %}
+              <div class="p-6 bg-white rounded-xl border-2 border-[#fdf1e2] transition-all duration-300 hover:border-primary hover:shadow-[0_8px_25px_rgba(226,61,0,0.12)] hover:-translate-y-1">
+                <div class="w-12 h-12 bg-[#fdf1e2] rounded-[10px] flex items-center justify-center text-[26px] mb-3">{{ facility.split('|')[0] }}</div>
+                <h4 class="font-serif font-light text-base mb-2 text-[#3b2510]">{{ facility.split('|')[1] }}</h4>
+                <p class="text-[#5a4030] text-[.9rem]">{{ facility.split('|')[2] }}</p>
+              </div>{% endif %}{% endfor %}
+            </div>
+
+            <div class="view-more-wrap" id="facilities-more">
+              <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Online Services</h3>
+              <div class="rounded-lg p-5 bg-primary/5 border-l-4 border-primary">
+                <ul class="bullet-ul list-none p-0 my-0">
+                  {% for os in online_services.split('|') %}{% if loop.index0 is even %}<li class="py-2 flex items-start gap-2.5 text-[#5a4030] leading-[1.7]"><strong>{{ os }}</strong>{% else %}{{ os }}</li>{% endif %}{% endfor %}
+                </ul>
+              </div>
+              <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Vehicle Pooja</h3>
+              <p class="text-[#5a4030] leading-[1.85] mb-4">{{ vehicle_pooja_desc }}</p>
+              <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Lost & Found / Missing Persons</h3>
+              <p class="text-[#5a4030] leading-[1.85] mb-4">{{ lost_found_desc }}</p>
+            </div>
+            <button class="view-more-btn flex items-center gap-1.5 mx-auto mt-5 mb-1 px-7 py-2.5 bg-primary/10 border-[1.5px] border-primary/25 text-primary rounded-full text-[.88rem] font-normal cursor-pointer transition-all duration-300 font-sans hover:bg-primary/20 hover:border-primary" id="facilities-more-btn" onclick="toggleViewMore('facilities-more','facilities-more-btn')">
+              <span>View More</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+
+          <div id="guidelines" class="tab-content">
+            <h2 class="font-serif font-light text-2xl mb-6 text-[#3b2510]">Temple Guidelines & Code of Conduct</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-0 mb-2.5">Dress Code \u2014 Men</h3>
+                <ul class="list-none p-0 my-3">
+                  {% for d in dress_men_do.split('|') %}<li class="py-2.5 flex items-start gap-3 text-[#5a4030] leading-[1.7]"><span class="text-primary text-[1.1rem] shrink-0">\u2713</span><span>{{ d }}</span></li>{% endfor %}
+                  {% for d in dress_men_dont.split('|') %}<li class="py-2.5 flex items-start gap-3 text-[#5a4030] leading-[1.7]"><span class="text-primary text-[1.1rem] shrink-0">\u2717</span><span>{{ d }}</span></li>{% endfor %}
+                </ul>
+                <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Dress Code \u2014 Women</h3>
+                <ul class="list-none p-0 my-3">
+                  {% for d in dress_women_do.split('|') %}<li class="py-2.5 flex items-start gap-3 text-[#5a4030] leading-[1.7]"><span class="text-primary text-[1.1rem] shrink-0">\u2713</span><span>{{ d }}</span></li>{% endfor %}
+                  {% for d in dress_women_dont.split('|') %}<li class="py-2.5 flex items-start gap-3 text-[#5a4030] leading-[1.7]"><span class="text-primary text-[1.1rem] shrink-0">\u2717</span><span>{{ d }}</span></li>{% endfor %}
+                </ul>
+                <p class="text-[#5a4030] leading-[1.85] mb-4 text-[.88rem]"><strong>Special Pooja & Festival Days:</strong> {{ dress_festival_note }}</p>
+              </div>
+              <div>
+                <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-0 mb-2.5">Temple Etiquette</h3>
+                <ul class="list-none p-0 my-3">
+                  {% for e in etiquette_points.split('|') %}<li class="py-2.5 flex items-start gap-3 text-[#5a4030] leading-[1.7]"><span class="text-primary text-[1.1rem] shrink-0">\u2713</span><span>{{ e }}</span></li>{% endfor %}
+                </ul>
+              </div>
+            </div>
+            <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Photography & Electronic Gadgets</h3>
+            <div class="rounded-lg p-5 mb-6 bg-primary/5 border-l-4 border-primary">
+              <ul class="bullet-ul list-none p-0 my-0">
+                {% for rule in photography_rules.split('|') %}{% if loop.index0 is even %}<li class="py-2 flex items-start gap-2.5 text-[#5a4030] leading-[1.7]"><strong>{{ rule }}</strong>{% else %}{{ rule }}</li>{% endif %}{% endfor %}
+              </ul>
+            </div>
+            <h3 class="font-serif text-[1.1rem] text-[#3b2510] mt-5 mb-2.5">Accessibility & Special Provisions</h3>
+            <ul class="bullet-ul list-none p-0 my-3">
+              {% for rule in accessibility_rules.split('|') %}<li class="py-2 flex items-start gap-2.5 text-[#5a4030] leading-[1.7]">{{ rule }}</li>{% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2 class="font-serif font-light text-3xl mb-8 text-[#3b2510]" id="reach">How to Reach {{ hero_title_highlight }} Temple</h2>
+        <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 rounded-xl p-6 md:p-8 mb-12 text-[#5a4030]">
+          <div class="rounded-xl p-5 mb-8 bg-primary/5 border-l-4 border-primary flex flex-col md:flex-row md:items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 stroke-primary" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p class="text-[#3b2510] font-semibold text-base mb-0.5">{{ temple_name }}</p>
+              <p class="text-[.9rem] mb-1">{{ address_full }}</p>
+              <p class="text-[.9rem]"><strong>Phone:</strong> {{ address_phone }}</p>
+            </div>
+          </div>
+
+          <h3 class="font-serif text-xl text-[#3b2510] mb-5">Transportation Options</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+            <div class="bg-white rounded-xl border-2 border-[#fdf1e2] overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-[0_8px_25px_rgba(226,61,0,0.08)]">
+              <div class="p-5">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center shrink-0"><svg class="w-5 h-5 stroke-blue-500" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
+                  <div><h4 class="font-serif font-normal text-base text-[#3b2510]">By Air</h4><p class="text-[.85rem] text-[#8a7260]">{{ air_airport_name }}</p></div>
+                </div>
+              </div>
+              <div class="h-[200px] border-t border-[#f0e8dc]">
+                <iframe src="{{ air_map_embed }}" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl border-2 border-[#fdf1e2] overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-[0_8px_25px_rgba(226,61,0,0.08)]">
+              <div class="p-5">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center shrink-0"><svg class="w-5 h-5 stroke-green-600" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/></svg></div>
+                  <div><h4 class="font-serif font-normal text-base text-[#3b2510]">By Train</h4><p class="text-[.85rem] text-[#8a7260]">{{ train_station_name }}</p></div>
+                </div>
+              </div>
+              <div class="h-[200px] border-t border-[#f0e8dc]">
+                <iframe src="{{ train_map_embed }}" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl border-2 border-[#fdf1e2] overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-[0_8px_25px_rgba(226,61,0,0.08)]">
+              <div class="p-5">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center shrink-0"><svg class="w-5 h-5 stroke-orange-500" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg></div>
+                  <div><h4 class="font-serif font-normal text-base text-[#3b2510]">By Bus</h4><p class="text-[.85rem] text-[#8a7260]">{{ bus_stand_name }}</p></div>
+                </div>
+              </div>
+              <div class="h-[200px] border-t border-[#f0e8dc]">
+                <iframe src="{{ bus_map_embed }}" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl border-2 border-[#fdf1e2] overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-[0_8px_25px_rgba(226,61,0,0.08)]">
+              <div class="p-5">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-lg bg-yellow-50 flex items-center justify-center shrink-0"><svg class="w-5 h-5 stroke-yellow-600" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+                  <div><h4 class="font-serif font-normal text-base text-[#3b2510]">By Taxi / Auto</h4></div>
+                </div>
+                <p class="text-[.88rem] text-[#5a4030] leading-[1.7]">{{ taxi_desc }}</p>
+              </div>
+            </div>
+          </div>
+          <h3 class="font-serif text-xl text-[#3b2510] mb-4">Parking at Temple</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 bg-white rounded-xl border-2 border-[#fdf1e2] flex items-center gap-3 transition-all duration-300 hover:border-primary/30"><div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0"><svg class="w-5 h-5 stroke-primary" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div><div><p class="font-semibold text-[#3b2510] text-[.9rem]">Cars</p><p class="text-[.82rem] text-[#8a7260]">Designated areas near temple</p></div></div>
+            <div class="p-4 bg-white rounded-xl border-2 border-[#fdf1e2] flex items-center gap-3 transition-all duration-300 hover:border-primary/30"><div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0"><svg class="w-5 h-5 stroke-[#d4af37]" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg></div><div><p class="font-semibold text-[#3b2510] text-[.9rem]">Mini Buses</p><p class="text-[.82rem] text-[#8a7260]">Allocated spots for large vehicles</p></div></div>
+            <div class="p-4 bg-white rounded-xl border-2 border-[#fdf1e2] flex items-center gap-3 transition-all duration-300 hover:border-primary/30"><div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0"><svg class="w-5 h-5 stroke-primary" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg></div><div><p class="font-semibold text-[#3b2510] text-[.9rem]">Two-Wheelers</p><p class="text-[.82rem] text-[#8a7260]">Dedicated parking spaces</p></div></div>
+          </div>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-lg border-2 border-[#fdf1e2] mb-12 mt-4 h-[480px]">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ youtube_video_id }}" title="Temple Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full h-full object-cover"></iframe>
+        </div>
+        <div class="section-divider"></div>
+
+        <h2 class="font-serif font-light text-3xl mb-8 text-[#3b2510]">Visit & Worship Timings</h2>
+        <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 rounded-xl p-8 mb-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h3 class="font-serif font-light text-xl mb-4 flex items-center gap-2 text-[#3b2510]"><span class="inline-block w-2 h-2 bg-primary rounded-full shrink-0"></span>Regular Darshan</h3>
+              <ul class="list-none p-0">
+                <li class="flex justify-between items-center py-3 border-b border-[#f0e8dc]"><span class="text-[#5a4030]">Morning (Sunrise)</span><span class="font-normal text-[#3b2510]">{{ timing_morning }}</span></li>
+                <li class="flex justify-between items-center py-3 border-b border-[#f0e8dc]"><span class="text-[#5a4030]">Midday</span><span class="font-normal text-[#3b2510]">{{ timing_midday }}</span></li>
+                <li class="flex justify-between items-center py-3"><span class="text-[#5a4030]">Evening (Sunset)</span><span class="font-normal text-[#3b2510]">{{ timing_evening }}</span></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-serif font-light text-xl mb-4 flex items-center gap-2 text-[#3b2510]"><span class="inline-block w-2 h-2 bg-accent rounded-full shrink-0"></span>Special Pujas</h3>
+              <ul class="list-none p-0">
+                {% for sp in [special_puja_1, special_puja_2, special_puja_3] %}{% if sp and sp.split('|')|length >= 2 %}
+                <li class="flex justify-between items-center py-3 border-b border-[#f0e8dc]"><span class="text-[#5a4030]">{{ sp.split('|')[0] }}</span><span class="font-normal text-[#3b2510]">{{ sp.split('|')[1] }}</span></li>{% endif %}{% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="view-more-wrap" id="timings-more">
+          <div class="section-divider"></div>
+          <h2 class="font-serif font-light text-3xl mb-8 text-[#3b2510]">Construction & Scientific Information</h2>
+          <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 rounded-xl p-8 mb-12">
+            <p class="text-[#5a4030] leading-[1.85] mb-4"><strong class="text-[#3b2510]">Architectural Style:</strong> {{ arch_style_desc }}</p>
+            <p class="text-[#5a4030] leading-[1.85] mb-4"><strong class="text-[#3b2510]">Material:</strong> {{ arch_material_desc }}</p>
+            <p class="text-[#5a4030] leading-[1.85] mb-4"><strong class="text-[#3b2510]">Scientific Aspects:</strong> {{ arch_scientific_desc }}</p>
+            <p class="text-[#5a4030] leading-[1.85] mb-4"><strong class="text-[#3b2510]">Conservation Efforts:</strong> {{ arch_conservation_desc }}</p>
+          </div>
+          <div class="section-divider"></div>
+          <h2 class="font-serif font-light text-3xl mb-8 text-[#3b2510]">Special Significance of the Temple</h2>
+          <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 rounded-xl p-8 mb-12">
+            <p class="text-[#5a4030] leading-[1.85] mb-4">{{ significance_para_1 }}</p>
+            <p class="text-[#5a4030] leading-[1.85] mb-4">{{ significance_para_2 }}</p>
+            <p class="text-[#5a4030] leading-[1.85] mb-4">{{ significance_para_3 }}</p>
+          </div>
+          <div class="section-divider"></div>
+          <h2 class="font-serif font-light text-3xl mb-8 text-[#3b2510]">For Foreign Visitors \u2014 A Spiritual Perspective</h2>
+          <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 rounded-xl p-8 mb-12">
+            <p class="text-[#5a4030] leading-[1.85] mb-6">For visitors from abroad, the temple offers a journey of spiritual exploration. Here are key perspectives to enrich your visit:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {% for card in [foreign_card_1, foreign_card_2, foreign_card_3, foreign_card_4, foreign_card_5, foreign_card_6] %}{% if card and card.split('|')|length >= 2 %}
+              <div class="p-5 bg-white rounded-xl border-2 border-[#fdf1e2] transition-all duration-300 hover:border-primary hover:shadow-[0_8px_25px_rgba(226,61,0,0.12)] hover:-translate-y-1">
+                <h4 class="font-serif font-normal text-base mb-1 text-[#3b2510]">{{ card.split('|')[0] }}</h4>
+                <p class="text-[#5a4030] text-[.88rem]">{{ card.split('|')[1] }}</p>
+              </div>{% endif %}{% endfor %}
+            </div>
+          </div>
+          <div class="section-divider"></div>
+          <h2 class="font-serif font-light text-3xl mb-8 text-[#3b2510]">Carry Home Prasad</h2>
+          <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 rounded-xl p-8 mb-12">
+            <p class="text-[#5a4030] leading-[1.85] mb-5">Take the blessings home with you:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+              {% for p in prasad_items.split('|') %}{% if loop.index0 is even %}<div class="p-5 bg-white rounded-xl border-2 border-[#fdf1e2] transition-all duration-300 hover:border-primary hover:shadow-[0_8px_25px_rgba(226,61,0,0.12)] hover:-translate-y-1"><h4 class="font-serif font-normal text-base mb-1 text-[#3b2510]">{{ p }}</h4>{% else %}<p class="text-[#5a4030] text-[.88rem]">{{ p }}</p></div>{% endif %}{% endfor %}
+            </div>
+            <div class="rounded-lg p-5 bg-primary/5 border-l-4 border-primary">
+              <p class="text-[#5a4030] text-[.9rem] leading-[1.7] mb-2"><strong class="text-[#3b2510]">Cost:</strong> {{ prasad_cost_note }}</p>
+              <p class="text-[#5a4030] text-[.9rem] leading-[1.7]"><strong class="text-[#3b2510]">Purchase:</strong> {{ prasad_purchase_note }}</p>
+            </div>
+          </div>
+          <div class="section-divider"></div>
+          <h2 class="font-serif font-light text-3xl mb-8 text-[#3b2510]">Advance Puja Booking Procedure</h2>
+          <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 rounded-xl p-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+              <div class="p-5 bg-white rounded-xl border-2 border-[#fdf1e2] transition-all duration-300 hover:border-primary hover:shadow-[0_8px_25px_rgba(226,61,0,0.12)] hover:-translate-y-1"><h4 class="font-serif font-normal text-base mb-1 text-[#3b2510]">Online Booking</h4><p class="text-[#5a4030] text-[.88rem]">{{ booking_online_desc }}</p></div>
+              <div class="p-5 bg-white rounded-xl border-2 border-[#fdf1e2] transition-all duration-300 hover:border-primary hover:shadow-[0_8px_25px_rgba(226,61,0,0.12)] hover:-translate-y-1"><h4 class="font-serif font-normal text-base mb-1 text-[#3b2510]">On-Site Booking</h4><p class="text-[#5a4030] text-[.88rem]">{{ booking_onsite_desc }}</p></div>
+            </div>
+            <div class="rounded-lg p-5 bg-primary/5 border-l-4 border-primary">
+              <p class="text-[#5a4030] text-[.9rem] leading-[1.7] mb-2"><strong class="text-[#3b2510]">Daily Poojas:</strong> {{ booking_daily_timing }}</p>
+              <p class="text-[#5a4030] text-[.9rem] leading-[1.7]"><strong class="text-[#3b2510]">Festival Days:</strong> {{ booking_festival_note }}</p>
+            </div>
+          </div>
+          <div class="section-divider"></div>
+          <h2 class="font-serif font-light text-3xl mb-8 text-[#3b2510]">Temple Administration & Registration</h2>
+          <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 rounded-xl p-8 mb-12">
+            <p class="text-[#5a4030] leading-[1.85] mb-4">The temple is managed by the <strong class="text-[#3b2510]">{{ admin_managing_body }}</strong>.</p>
+            <div class="rounded-lg p-5 bg-primary/5 border-l-4 border-primary">
+              <p class="text-[#5a4030] text-[.9rem] leading-[1.7] mb-2"><strong class="text-[#3b2510]">Managing Body:</strong> {{ admin_managing_body }}</p>
+              <p class="text-[#5a4030] text-[.9rem] leading-[1.7] mb-2"><strong class="text-[#3b2510]">Contact:</strong> {{ admin_contact }}</p>
+              <p class="text-[#5a4030] text-[.9rem] leading-[1.7]"><strong class="text-[#3b2510]">Location:</strong> {{ admin_address }}</p>
+            </div>
+          </div>
+        </div>
+        <button class="view-more-btn flex items-center gap-1.5 mx-auto mt-5 mb-8 px-7 py-2.5 bg-primary/10 border-[1.5px] border-primary/25 text-primary rounded-full text-[.88rem] font-normal cursor-pointer transition-all duration-300 font-sans hover:bg-primary/20 hover:border-primary" id="timings-more-btn" onclick="toggleViewMore('timings-more','timings-more-btn')">
+          <span>View More</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-divider"></div>
+        <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 rounded-xl p-10 text-center mb-8">
+          <h3 class="font-serif font-light text-3xl mb-4 text-[#3b2510]">Experience Divine Darshan</h3>
+          <p class="text-[#5a4030] leading-[1.85] max-w-lg mx-auto mb-8">Immerse yourself in the spiritual essence through our 360° virtual reality experience.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.tellme.tellme360" target="_blank" class="inline-block bg-primary text-white px-8 py-3.5 rounded-full font-bold font-serif text-base no-underline transition-all duration-200 shadow-[0_4px_20px_rgba(226,61,0,0.3)] hover:scale-105 hover:shadow-[0_8px_25px_rgba(226,61,0,0.4)]">Download Divya Darshan 360 App</a>
+        </div>
+      </div>
+      <aside><div class="sticky top-10"><div class="bg-white rounded-xl border border-[#f0e8dc] shadow-sm p-6 mb-6"><h3 class="font-serif font-light text-xl mb-5 text-[#3b2510] flex items-center gap-2.5"><span class="inline-block w-1 h-6 bg-primary rounded-[2px]"></span>Quick Info</h3><div>
+        <div class="pb-3.5 mb-3.5 border-b border-primary/15"><p class="text-[.75rem] font-normal text-primary uppercase tracking-widest mb-1">Main Deity</p><p class="text-[.9rem] text-[#3b2510] font-medium">{{ main_deity }}</p></div>
+        <div class="pb-3.5 mb-3.5 border-b border-primary/15"><p class="text-[.75rem] font-normal text-primary uppercase tracking-widest mb-1">Location</p><p class="text-[.88rem] text-[#3b2510]">{{ admin_address }}</p></div>
+        <div class="pb-3.5 mb-3.5 border-b border-primary/15"><p class="text-[.75rem] font-normal text-primary uppercase tracking-widest mb-1">Contact</p><p class="text-[.88rem] text-[#3b2510]">{{ admin_contact }}</p></div>
+        <div class="pb-3.5 mb-3.5 border-b border-primary/15"><p class="text-[.75rem] font-normal text-primary uppercase tracking-widest mb-1">Temple Timings</p><p class="text-[.88rem] text-[#3b2510]">{{ temple_full_timing }}</p><p class="text-[.8rem] text-[#8a7260]">{{ timing_extended_note }}</p></div>
+        <div class="pb-3.5 mb-3.5 border-b border-primary/15"><p class="text-[.75rem] font-normal text-primary uppercase tracking-widest mb-1">Entry Fees</p><p class="text-[.88rem] text-[#3b2510]">{{ entry_fee_general }} (General Darshan)</p></div>
+        <div class="pb-3.5 mb-3.5 border-b border-primary/15"><p class="text-[.75rem] font-normal text-primary uppercase tracking-widest mb-1">Nearest Railway</p><p class="text-[.88rem] text-[#3b2510]">{{ sidebar_nearest_railway }}</p></div>
+        <div class="pb-3.5 mb-3.5 border-b border-primary/15"><p class="text-[.75rem] font-normal text-primary uppercase tracking-widest mb-1">Nearest Airport</p><p class="text-[.88rem] text-[#3b2510]">{{ sidebar_nearest_airport }}</p></div>
+        <div><p class="text-[.75rem] font-normal text-primary uppercase tracking-widest mb-1">Accessibility</p><p class="text-[.88rem] text-[#3b2510]">{% for a in sidebar_accessibility.split('|') %}{{ a }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p></div>
+      </div></div>
+      <a href="{{ canonical_url }}" class="block w-full bg-primary text-white p-3.5 rounded-lg font-bold font-serif text-base text-center no-underline mb-5 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(226,61,0,0.35)]">Plan Your Visit →</a>
+      <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 p-5 rounded-xl mb-6 shadow-sm"><h3 class="font-serif font-light text-base mb-4 text-[#3b2510]">Temple Guidelines</h3><ul class="list-none p-0 my-0">
+        {% for e in etiquette_points.split('|')[:3] %}<li class="py-2 flex items-start gap-2.5 text-[#5a4030] leading-[1.7]"><span class="text-primary shrink-0 font-bold">\u2713</span><span class="text-[.88rem]">{{ e }}</span></li>{% endfor %}
+      </ul></div>
+      <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 p-5 rounded-xl shadow-sm"><h3 class="font-serif font-light text-base mb-4 text-[#3b2510]">Online Services Available</h3><ul class="list-none p-0 my-0">
+        {% for os in online_services.split('|') %}{% if loop.index0 is even %}<li class="py-2 flex items-start gap-2.5 text-[#5a4030] leading-[1.7]"><span class="text-[.88rem]"><strong>{{ os }}</strong></span>{% else %}<span class="text-[.88rem]">{{ os }}</span></li>{% endif %}{% endfor %}
+      </ul></div>
+    </div></aside>
+  </div></div>
+
+  <script>
+    function openTab(evt, tabName) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+      const tab = document.getElementById(tabName);
+      if (tab) tab.classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+    function toggleViewMore(wrapperId, btnId) {
+      const wrap = document.getElementById(wrapperId);
+      const btn = document.getElementById(btnId);
+      const isOpen = wrap.classList.contains('expanded');
+      wrap.classList.toggle('expanded', !isOpen);
+      btn.classList.toggle('open', !isOpen);
+      btn.querySelector('span').textContent = isOpen ? 'View More' : 'View Less';
+    }
+  </script>
+</body>
+</html>
