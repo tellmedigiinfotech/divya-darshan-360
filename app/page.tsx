@@ -97,7 +97,7 @@ export default function LandingPage() {
 
             {/* Blog Button */}
             <Link
-              href="/blog"
+              href="/blogs"
               className="group inline-flex items-center gap-3 px-8 py-6 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-primary/30"
             >
               <span className="text-lg font-serif tracking-tight">Explore Temple Blog</span>
@@ -280,7 +280,7 @@ export default function LandingPage() {
               </div>
               <div className="flex justify-center">
                 <Link
-                  href="/blog"
+                  href="/blogs"
                   className="group inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
                 >
                   <span>Visit Temple Blog</span>

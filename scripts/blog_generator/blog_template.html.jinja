@@ -70,10 +70,14 @@
   </style>
 </head>
 <body class="font-sans text-[#3b2510]">
-  <div class="max-w-7xl mx-auto px-6 pt-8 pb-0">
+  <div class="max-w-7xl mx-auto px-6 pt-8 pb-0 flex justify-between items-center">
     <a href="/blog" class="inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary no-underline">
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
       Back to Blog
+    </a>
+    <a href="/" class="inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary no-underline">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Home
     </a>
   </div>
 
@@ -415,7 +419,7 @@
         <div class="pb-3.5 mb-3.5 border-b border-primary/15"><p class="text-[.75rem] font-normal text-primary uppercase tracking-widest mb-1">Nearest Airport</p><p class="text-[.88rem] text-[#3b2510]">{{ sidebar_nearest_airport }}</p></div>
         <div><p class="text-[.75rem] font-normal text-primary uppercase tracking-widest mb-1">Accessibility</p><p class="text-[.88rem] text-[#3b2510]">{% for a in sidebar_accessibility.split('|') %}{{ a }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p></div>
       </div></div>
-      <a href="{{ canonical_url }}" class="block w-full bg-primary text-white p-3.5 rounded-lg font-bold font-serif text-base text-center no-underline mb-5 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(226,61,0,0.35)]">Plan Your Visit →</a>
+      <a href="{{ official_website_url if official_website_url else canonical_url }}" target="_blank" class="block w-full bg-primary text-white p-3.5 rounded-lg font-bold font-serif text-base text-center no-underline mb-5 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(226,61,0,0.35)]">Plan Your Visit →</a>
       <div class="bg-white/70 backdrop-blur-[10px] border border-white/50 p-5 rounded-xl mb-6 shadow-sm"><h3 class="font-serif font-light text-base mb-4 text-[#3b2510]">Temple Guidelines</h3><ul class="list-none p-0 my-0">
         {% for e in etiquette_points.split('|')[:3] %}<li class="py-2 flex items-start gap-2.5 text-[#5a4030] leading-[1.7]"><span class="text-primary shrink-0 font-bold">\u2713</span><span class="text-[.88rem]">{{ e }}</span></li>{% endfor %}
       </ul></div>

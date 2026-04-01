@@ -2,6 +2,8 @@ import { getAllTemples } from "@/lib/blog-server"
 import { BackgroundLotus } from "@/components/background-lotus"
 import { FloatingDiya } from "@/components/floating-diya"
 import { BlogClient } from "./blog-client"
+import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
 
 // This will be populated at build time
 const temples = getAllTemples()
@@ -24,6 +26,12 @@ export default function BlogPage() {
       {/* Header */}
       <section className="relative pt-32 pb-16 px-6">
         <div className="max-w-7xl mx-auto text-center">
+          <div className="mb-8">
+            <Link href="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-medium">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+          </div>
           <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-8 backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_var(--primary)]" />
             Sacred Temple Blogs

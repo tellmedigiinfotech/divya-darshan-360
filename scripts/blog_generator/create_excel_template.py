@@ -36,8 +36,9 @@ COLUMNS = [
     ("date_published",    "Date Published (ISO)",         "FF1E3A5F", "2025-01-01T00:00:00+05:30"),
     ("date_modified",     "Date Modified (ISO)",          "FF1E3A5F", "2026-03-24T00:00:00+05:30"),
     ("og_image_url",      "OG Image URL (full URL)",      "FF1E3A5F", "https://divyadarshan360.com/blog/images/Ashtavinayaka Temple/ballaleshwar-temple-found-in-pali-village-raigad-district_1.jpg"),
-    ("canonical_url",     "Canonical URL (full URL)",     "FF1E3A5F", "https://divyadarshan360.com/blog/temple/ashtwinayak/ballaleshwar-temple-found-in-pali-village-raigad-district/index.html"),
-    ("category_display",  "Category Badge Text",          "FF1E3A5F", "Ashtavinayaka Temples"),
+    ("canonical_url",       "Canonical URL (full URL)",          "FF1E3A5F", "https://divyadarshan360.com/blog/temple/ashtwinayak/ballaleshwar-temple-found-in-pali-village-raigad-district/index.html"),
+    ("official_website_url","Temple Official Website URL",       "FF1E3A5F", "https://www.shreeballaleshwarpali.org/"),
+    ("category_display",   "Category Badge Text",               "FF1E3A5F", "Ashtavinayaka Temples"),
 
     # ── SECTION B: Hero ─────────────────────────────────────────────────────
     ("hero_title_main",      "H1 Title Part 1 (plain)",       "FF2D6A4F", "Ashtavinayaka"),
@@ -277,7 +278,7 @@ def create_template():
         "foreign_card_1", "foreign_card_2", "foreign_card_3",
         "foreign_card_4", "foreign_card_5", "foreign_card_6",
         "prasad_items", "booking_online_desc", "booking_onsite_desc", "admin_address",
-        "og_image_url", "canonical_url", "hero_image_url", "address_full",
+        "og_image_url", "canonical_url", "official_website_url", "hero_image_url", "address_full",
     }
 
     for col_idx, key, label, color, example in col_meta:
@@ -332,7 +333,7 @@ def create_template():
     print(f"    - Row 3 : Ballaleshwar EXAMPLE data (light blue)")
     print(f"    - Row 4+: Empty rows — fill one per temple")
     print(f"\n    Total columns : {len(COLUMNS)}")
-    print(f"    Sections      : 14 (A through N)")
+    print(f"    Sections      : 14 (A through N) + official_website_url added to Section A")
     print(f"\n[INFO] Read BLOG_INSTRUCTIONS.md for complete guidance.\n")
 
 

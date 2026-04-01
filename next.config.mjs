@@ -4,9 +4,9 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    unoptimized: true
   },
-
+  trailingSlash: true,
 }
 
 export default nextConfig
