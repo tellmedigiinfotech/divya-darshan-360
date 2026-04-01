@@ -65,7 +65,7 @@ export default function LandingPage() {
             <span className="text-primary font-medium">platform-exclusive</span> spiritual videos.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-32">
+          <div className="flex flex-col items-center justify-center gap-10 mb-32">
             <Link
               href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
               target="_blank"
@@ -93,6 +93,15 @@ export default function LandingPage() {
 
               <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-primary/10 rounded-tr-lg group-hover:border-primary/40 transition-colors" />
               <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-primary/10 rounded-bl-lg group-hover:border-primary/40 transition-colors" />
+            </Link>
+
+            {/* Blog Button */}
+            <Link
+              href="/blog"
+              className="group inline-flex items-center gap-3 px-8 py-6 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-primary/30"
+            >
+              <span className="text-lg font-serif tracking-tight">Explore Temple Blog</span>
+              <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
           </div>
         </div>

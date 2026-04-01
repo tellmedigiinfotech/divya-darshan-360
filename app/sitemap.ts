@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 	// Add all blog posts
 	const temples = getAllTemples()
 	const blogRoutes: MetadataRoute.Sitemap = temples.map((temple) => ({
-		url: `${baseUrl}/blog/temple/${categoryFolderMap[temple.category] || temple.category}/${temple.slug}/index.html`,
+		url: `${baseUrl}/blog/temple/${categoryFolderMap[temple.category] || temple.category}/${temple.slug}`,
 		lastModified: currentDate,
 		changeFrequency: "monthly",
 		priority: 0.6,
