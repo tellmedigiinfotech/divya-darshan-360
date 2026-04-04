@@ -30,7 +30,7 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white">
           <p>© 2025 Divya Darshan 360. All rights reserved.</p>
           <div className="flex gap-6 flex-wrap justify-center">
-            <Link href="/blog" className="hover:text-primary transition-colors">
+            <Link href="/blogs" className="hover:text-primary transition-colors">
               Blog
             </Link>
             <Link href="/privacy#privacy" className="hover:text-foreground">
