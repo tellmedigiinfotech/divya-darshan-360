@@ -1,0 +1,105 @@
+No.   Title                                                                            Path
+--------------------------------------------------------------------------------------------------------------------------------------------
+1     Ashtavinayaka Ballaleshwar Temple | Divya Darshan 360                            ashtavinayak\ballaleshwar-temple-found-in-pali-village-raigad-district\index.html
+2     Chintamani Temple: Situated in Theur village, Pune district. | Divya Darshan 360 ashtavinayak\chintamani-temple-situated-in-theur-village-pune-district\index.html
+3     Girijatmaj Temple, Lenyadri Hill, Pune District | Divya Darshan 360              ashtavinayak\girijatmaj-temple-found-in-lenyadri-hill-pune-district\index.html
+4     Mahaganapati Temple Located in Ranjangaon village, Pune district | Divya Darshan 360 ashtavinayak\mahaganapati-temple-located-in-ranjangaon-village-pune-district\index.html
+5     Siddhivinayak Temple: Situated in Siddhatek village, Ahmednagar district | Divya Darshan 360 ashtavinayak\siddhivinayak-temple-situated-in-siddhatek-village-ahmednagar-district\index.html
+6     Varadvinayak Temple: Located in Mahad village, Raigad district | Divya Darshan 360 ashtavinayak\varadvinayak-temple-located-in-mahad-village-raigad-district\index.html
+7     Vighneshwar Temple: Situated in Ozar village, Pune | Divya Darshan 360           ashtavinayak\vighneshwar-temple-situated-in-ozar-village-pune-district\index.html
+8     Bhimashankar in Maharashtra | Divya Darshan 360                                  jyothirlinga\bhimashankar-in-maharashtra\index.html
+9     Ghrishneshwar Jyotirlinga Temple | Divya Darshan 360                             jyothirlinga\ghrishneshwar-jyotirlinga-aurangabad\index.html
+10    Shri Kashi Vishwanath Temple, Varanasi | Divya Darshan 360                       jyothirlinga\kashi-vishwanath-varanasi\index.html
+11    Kedarnath in Uttarakhand | Divya Darshan 360                                     jyothirlinga\kedarnath-in-uttarakhand\index.html
+12    Mahakaleswar at Ujjain in Madhya Pradesh | Divya Darshan 360                     jyothirlinga\mahakaleswar-at-ujjain-in-madhya-pradesh\index.html
+13    Mallikarjuna at Srisailam in Andhra Pradesh | Divya Darshan 360                  jyothirlinga\mallikarjuna-at-srisailam-in-andhra-pradesh\index.html
+14    Omkareshwar in Madhya Pradesh | Divya Darshan 360                                jyothirlinga\omkareshwar-in-madhya-pradesh\index.html
+15    Rameshwar at Rameswaram in Tamil Nadu | Divya Darshan 360                        jyothirlinga\rameshwar-at-rameswaram-in-tamil-nadu\index.html
+16    Somnath Jyothirlinga Temple in Gujarat ,Website | Divya Darshan 360              jyothirlinga\somnath-jyotirlinga-gujarat\index.html
+17    Trimbakeshwar in Maharashtra’ | Divya Darshan 360                                jyothirlinga\trimbakeshwar-in-maharashtra\index.html
+18    Vaijinath Jyothirling | Divya Darshan 360                                        jyothirlinga\vaijnath-jyotirling-in-maharashtra\index.html
+19    Akilandeswari Temple - Tamil Nadu | Divya Darshan 360                            popular\akilandeswari-temple-tamil-nadu\index.html
+20    Akkalkot Swami Samarth Temple - Maharashtra | Divya Darshan 360                  popular\akkalkot-swami-samarth-temple-maharashtra\index.html
+21    Akshardham Temple - Delhi | Divya Darshan 360                                    popular\akshardham-temple-delhi\index.html
+22    Ayyappa Temple - Sabarimala, Kerala | Divya Darshan 360                          popular\ayyappa-temple-sabarimala-kerala\index.html
+23    Baba Balak Nath Temple - Himachal Pradesh | Divya Darshan 360                    popular\baba-balak-nath-temple-himachal-pradesh\index.html
+24    Baidyanath Jyotirlinga, Deoghar, Jharkhand | Divya Darshan 360                   popular\baidyanath-deoghar-jharkhand\index.html
+25    Chamunda Devi Temple - Himachal Pradesh | Divya Darshan 360                      popular\chamunda-devi-temple-himachal-pradesh\index.html
+26    Chamundeshwari Temple - Mysore, Karnataka | Divya Darshan 360                    popular\chamundeshwari-temple-mysore-karnataka\index.html
+27    Chandrodaya Mandir - Vrindavan, Uttar Pradesh | Divya Darshan 360                popular\chandrodaya-mandir-vrindavan-uttar-pradesh\index.html
+28    Chaturshringi Temple - Pune, Maharashtra | Divya Darshan 360                     popular\chaturshringi-temple-pune-maharashtra\index.html
+29    Chidambaram Temple - Tamil Nadu | Divya Darshan 360                              popular\chidambaram-temple-tamil-nadu\index.html
+30    Chilkur Balaji Temple - Telangana | Divya Darshan 360                            popular\chilkur-balaji-temple-telangana\index.html
+31    Dagadushet Ganapati Temple | Divya Darshan 360                                   popular\dagadushet-ganapati-temple\index.html
+32    Dakshineswar Kali Temple - Kolkata, West Bengal | Divya Darshan 360              popular\dakshineswar-kali-temple-kolkata-west-bengal\index.html
+33    Dwarkadhish Temple - Dwarka, Gujarat | Divya Darshan 360                         popular\dwarkadhish-temple-dwarka-gujarat\index.html
+34    Gokarna Temple(Mahabaleshwara temple) - Gokarna, Karnataka | Divya Darshan 360   popular\gokarna-templemahabaleshwar-gokarna-karnataka\index.html
+35    Golden Temple (Harmandir Sahib) - Amritsar, Punjab | Divya Darshan 360           popular\golden-temple-harmandir-sahib-amritsar-punjab\index.html
+36    Gomateshwara Temple - Karnataka | Divya Darshan 360                              popular\gomateshwara-temple-karnataka\index.html
+37    Govind Dev Ji Temple - Jaipur, Rajasthan | Divya Darshan 360                     popular\govind-dev-ji-temple-jaipur-rajasthan\index.html
+38    Gurdwara Bangla Sahib - Delhi | Divya Darshan 360                                popular\gurdwara-bangla-sahib-delhi\index.html
+39    Guruvayur Temple - Kerala | Divya Darshan 360                                    popular\guruvayur-temple-kerala\index.html
+40    Hemkund Sahib - Uttarakhand | Divya Darshan 360                                  popular\hemkund-sahib-uttarakhand\index.html
+41    Jagannath Temple - Puri, Odisha | Divya Darshan 360                              popular\jagannath-temple-puri-odisha\index.html
+42    Kalahasti Temple - Andhra Pradesh | Divya Darshan 360                            popular\kalahasti-temple-andhra-pradesh\index.html
+43    Kalighat Temple - West Bengal | Divya Darshan 360                                popular\kalighat-temple-west-bengal\index.html
+44    Kamakshi Amman Temple - Kanchipuram, Tamil Nadu | Divya Darshan 360              popular\kamakshi-amman-temple-kanchipuram-tamil-nadu\index.html
+45    Kanaka Durga Temple - Andhra Pradesh | Divya Darshan 360                         popular\kanaka-durga-temple-andhra-pradesh\index.html
+46    Karni Mata Temple - Rajasthan | Divya Darshan 360                                popular\karni-mata-temple-rajasthan\index.html
+47    Kasba Ganapati Temple | Divya Darshan 360                                        popular\kasba-ganapati-temple\index.html
+48    Katyayani Temple - Bihar | Divya Darshan 360                                     popular\katyayani-temple-bihar\index.html
+49    Khandoba Temple - Jejuri, Maharashtra | Divya Darshan 360                        popular\khandoba-temple-jejuri-maharashtra\index.html
+50    Lakshmi Narasimha Temple, Mangalagiri | Divya Darshan 360                        popular\lakshmi-narasimha-temple-mangalagiri-autosaved\index.html
+51    Mahabaleshwar Temple - Maharashtra | Divya Darshan 360                           popular\mahabaleshwar-temple-maharashtra\index.html
+52    Mahabodhi Temple - Bodh Gaya, Bihar | Divya Darshan 360                          popular\mahabodhi-temple-bodh-gaya-bihar\index.html
+53    Mahakali Temple - Uttarakhand | Divya Darshan 360                                popular\mahakali-temple-uttarakhand\index.html
+54    Mahalaxmi Temple - Mumbai, Maharashtra | Divya Darshan 360                       popular\mahalaxmi-temple-mumbai-maharashtra\index.html
+55    Manakkula Vinayagar Temple - Puducherry | Divya Darshan 360                      popular\manakkula-vinayagar-temple-puducherry\index.html
+56    Mangalnath Temple - Madhya Pradesh | Divya Darshan 360                           popular\mangalnath-temple-madhya-pradesh\index.html
+57    Manikarnika Ghat Temple - Varanasi, Uttar Pradesh | Divya Darshan 360            popular\manikarnika-ghat-temple-varanasi-uttar-pradesh\index.html
+58    Meenakshi Temple - Madurai, Tamil Nadu | Divya Darshan 360                       popular\meenakshi-temple-madurai-tamil-nadu\index.html
+59    Mehandipur Balaji Temple - Rajasthan | Divya Darshan 360                         popular\mehandipur-balaji-temple-rajasthan\index.html
+60    Mookambika Temple - Karnataka | Divya Darshan 360                                popular\mookambika-temple-karnataka\index.html
+61    Nageshwar Jyotirlinga in Gujarat | Divya Darshan 360                             popular\nageshwar-jyothirlinga-in-gujarat\index.html
+62    Padmanabhaswamy Temple - Thiruvananthapuram, Kerala | Divya Darshan 360          popular\padmanabhaswamy-temple-thiruvananthapuram-kerala\index.html
+63    Palani Murugan Temple - Tamil Nadu | Divya Darshan 360                           popular\palani-murugan-temple-tamil-nadu\index.html
+64    Pandarapur Vittal Temple | Divya Darshan 360                                     popular\pandarapur-vittal-temple\index.html
+65    Parassinikadavu Muthappan Temple - Kerala | Divya Darshan 360                    popular\parassinikadavu-muthappan-temple-kerala\index.html
+66    Pashupatinath Temple - Kathmandu, Nepal | Divya Darshan 360                      popular\pashupatinath-temple-kathmandu-nepal\index.html
+67    Raghunath Temple - Jammu and Kashmir | Divya Darshan 360                         popular\raghunath-temple-jammu-and-kashmir\index.html
+68    Rajagopalaswamy Temple - Tamil Nadu | Divya Darshan 360                          popular\rajagopalaswamy-temple-tamil-nadu\index.html
+69    Ranakpur Jain Temple - Rajasthan | Divya Darshan 360                             popular\ranakpur-jain-temple-rajasthan\index.html
+70    Rani Sati Temple - Rajasthan | Divya Darshan 360                                 popular\rani-sati-temple-rajasthan\index.html
+71    Sabarimala Temple - Kerala | Divya Darshan 360                                   popular\sabarimala-temple-kerala\index.html
+72    Sai Baba Temple - Shirdi, Maharashtra | Divya Darshan 360                        popular\sai-baba-temple-shirdi-maharashtra\index.html
+73    Saptashrungi Devi Temple - Maharashtra | Divya Darshan 360                       popular\saptashrungi-devi-temple-maharashtra\index.html
+74    Sheetla Mata Temple - Gurugram, Haryana | Divya Darshan 360                      popular\sheetla-mata-temple-gurugram-haryana\index.html
+75    Shoolini Mata Temple - Himachal Pradesh | Divya Darshan 360                      popular\shoolini-mata-temple-himachal-pradesh\index.html
+76    Shree Mahalakshmi Temple - Maharashtra | Divya Darshan 360                       popular\shree-mahalakshmi-temple-maharashtra\index.html
+77    Shree Shantadurga Temple - Goa | Divya Darshan 360                               popular\shree-shantadurga-temple-goa\index.html
+78    Shri Laxmi Narayan Temple (Birla Mandir) | Divya Darshan 360                     popular\shri-laxmi-narayan-temple-birla-mandir\index.html
+79    Shrinathji Temple Shrinathji located in Nathdwara | Divya Darshan 360            popular\shrinathji-temple-shrinathji-located-in-nathdwara\index.html
+80    Siddhivinayak Temple - Mumbai, Maharashtra | Divya Darshan 360                   popular\siddhivinayak-temple-mumbai-maharashtra\index.html
+81    Sri Raghavendra Swamy Matha - Mantralayam, Andhra Pradesh | Divya Darshan 360    popular\sri-raghavendra-swamy-matha-mantralayam-andhra-pradesh\index.html
+82    Sri Ranchhodraiji Maharaj Mandir ;Dakor Temple - Gujarat | Divya Darshan 360     popular\sri-ranchhodraiji-maharaj-mandir-dakor-temple-gujarat\index.html
+83    Sringeri Sharada Peetham - Karnataka | Divya Darshan 360                         popular\sringeri-sharada-peetham-karnataka\index.html
+84    Sun Temple - Konark, Odisha | Divya Darshan 360                                  popular\sun-temple-konark-odisha\index.html
+85    Talakaveri Temple - Karnataka | Divya Darshan 360                                popular\talakaveri-temple-karnataka\index.html
+86    Tiruchendur Murugan Temple - Tamil Nadu | Divya Darshan 360                      popular\tiruchendur-murugan-temple-tamil-nadu\index.html
+87    Tirupati Balaji Temple - Tirumala, Andhra Pradesh | Divya Darshan 360            popular\tirupati-balaji-temple-tirumala-andhra-pradesh\index.html
+88    Udupi Sri Krishna Matha - Karnataka | Divya Darshan 360                          popular\udupi-sri-krishna-matha-karnataka\index.html
+89    Vadakkunnathan Temple - Thrissur, Kerala | Divya Darshan 360                     popular\vadakkunnathan-temple-thrissur-kerala\index.html
+90    Yamunotri Temple - Uttarakhand | Divya Darshan 360                               popular\yamunotri-temple-uttarakhand\index.html
+91    Alampur (Jogulamba devi) - Telangana | Divya Darshan 360                         shaktipeet\alampur-jogulamba-devi-telangana\index.html
+92    Asamai Devi Temple | Divya Darshan 360                                           shaktipeet\asamai-devi-temple\index.html
+93    Chintpurni - Himachal Pradesh | Divya Darshan 360                                shaktipeet\chintpurni-himachal-pradesh\index.html
+94    Danteshwari (Dantewada) - Chhattisgarh | Divya Darshan 360                       shaktipeet\danteshwari-dantewada-chhattisgarh\index.html
+95    Devatalab (Jalandhar) - Punjab | Divya Darshan 360                               shaktipeet\devatalab-jalandhar-punjab\index.html
+96    Devi Patan Mandir at Balrampur distt | Divya Darshan 360                         shaktipeet\devi-patan-mandir-at-balrampur-distt\index.html
+97    Ekaveera (Mahur) - Maharashtra | Divya Darshan 360                               shaktipeet\ekaveera-mahur-maharashtra\index.html
+98    Jogulamba Devi | Divya Darshan 360                                               shaktipeet\jogulamba-devi\index.html
+99    Jwalaji (Jwalamukhi) - Himachal Pradesh | Divya Darshan 360                      shaktipeet\jwalaji-jwalamukhi-himachal-pradesh\index.html
+100   Kanchi Kamakshi (Kanchipuram) - Tamil Nadu | Divya Darshan 360                   shaktipeet\kanchi-kamakshi-kanchipuram-tamil-nadu\index.html
+101   Kangra Devi (Vajreshwari Devi) - Himachal Pradesh | Divya Darshan 360            shaktipeet\kangra-devi-vajreshwari-devi-himachal-pradesh\index.html
+102   Kshir Bhavani (Tulmul) - Kashmir | Divya Darshan 360                             shaktipeet\kshir-bhavani-tulmul-kashmir\index.html
+103   Nainativu Nagapooshani Amman kovil | Divya Darshan 360                           shaktipeet\maha-shakti-nainativu-sri-lanka\index.html
