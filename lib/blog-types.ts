@@ -18,17 +18,17 @@ export interface TempleBlog {
 
 // Reverse mapping for display
 export const categoryDisplayMap: Record<string, string> = {
-	Ashtavinayaka: "Ashtavinayaka Temples",
-	jyothirlinga: "Jyothirlinga Temples",
 	popular: "Popular Temples",
+	jyothirlinga: "Jyothirlinga Temples",
 	shaktipeet: "Shaktipeet Temples",
+	Ashtavinayaka: "Ashtavinayaka Temples",
 }
 
 // Mapping from category slug (in blogs.json) to actual folder name on disk
 export const categoryFolderMap: Record<string, string> = {
-	Ashtavinayaka: "ashtavinayak",
-	jyothirlinga: "jyothirlinga",
 	popular: "popular",
+	jyothirlinga: "jyothirlinga",
 	shaktipeet: "shaktipeet",
+	Ashtavinayaka: "ashtavinayak",
 }
 

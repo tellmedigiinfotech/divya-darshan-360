@@ -9,7 +9,18 @@ import { ArrowLeft } from "lucide-react"
 const temples = getAllTemples()
 
 export default function BlogPage() {
-  const categories = ["all", ...Array.from(new Set(temples.map(t => t.category)))]
+  const categoryOrder = ["popular", "jyothirlinga", "shaktipeet", "Ashtavinayaka"];
+  
+  // Sort temples based on the category order
+  const sortedTemples = [...temples].sort((a, b) => {
+    const aIndex = categoryOrder.indexOf(a.category);
+    const bIndex = categoryOrder.indexOf(b.category);
+    const orderA = aIndex === -1 ? 999 : aIndex;
+    const orderB = bIndex === -1 ? 999 : bIndex;
+    return orderA - orderB;
+  });
+
+  const categories = ["all", ...categoryOrder];
 
   return (
     <main className="min-h-screen relative overflow-hidden">
@@ -46,7 +57,7 @@ export default function BlogPage() {
             spiritual significance, and practical guidance for your pilgrimage journey.
           </p>
 
-          <BlogClient temples={temples} categories={categories} />
+          <BlogClient temples={sortedTemples} categories={categories} />
         </div>
       </section>
     </main>
