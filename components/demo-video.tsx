@@ -29,7 +29,7 @@ export function DemoVideo() {
                 >
                     <iframe
                         className="w-full h-full"
-                        src="https://www.youtube.com/embed/nurtejISB-Q?si=Ujev4p6k0QKiW2Qd"
+                        src="https://youtu.be/tT8Ch2wHRGg?si=QzjbKfhUI9BIyke2"
                         title="Divya Darshan 360 Demo"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
