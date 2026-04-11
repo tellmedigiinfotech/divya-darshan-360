@@ -28,14 +28,14 @@ export function DemoVideo() {
                     className="relative aspect-video max-w-4xl mx-auto rounded-[2rem] overflow-hidden shadow-2xl border border-white/10"
                 >
                     <iframe
-                        className="w-full h-full"
-                        src="https://youtu.be/tT8Ch2wHRGg?si=QzjbKfhUI9BIyke2"
-                        title="Divya Darshan 360 Demo"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen
-                    />
+  className="w-full h-[400px]"
+  src="https://www.youtube.com/embed/nurtejISB-Q"
+  title="Divya Darshan 360 Demo"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerPolicy="strict-origin-when-cross-origin"
+  allowFullScreen
+/>
                 </motion.div>
             </div>
         </section>
