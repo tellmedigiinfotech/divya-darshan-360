@@ -189,7 +189,7 @@ export default function PrivacyPolicyPage() {
               <p>To exercise your rights to access, correction, deletion, withdrawal of consent, or other privacy‑related requests, you may:</p>
               <ul className="list-disc pl-5 space-y-2 mt-2">
                 <li>Use the in‑app settings (where available); or</li>
-                <li>Write to us at <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a> or contact the Grievance Officer with details of your request.</li>
+                <li>Write to us at <a href="mailto:team.divyadarshan@gmail.com" className="text-primary hover:underline">team.divyadarshan@gmail.com</a> or contact the Grievance Officer with details of your request.</li>
               </ul>
               <p className="mt-4">We may request additional information to verify your identity and may retain certain data where required under Indian law (for example, for accounting, tax, or dispute‑resolution purposes).</p>
             </div>
@@ -351,7 +351,7 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2">
                   <span className="font-medium text-foreground">Email:</span>
-                  <a href="mailto:Connect@youtellme.ai" className="text-primary hover:underline">Connect@youtellme.ai</a>
+                  <a href="mailto:team.divyadarshan@gmail.com" className="text-primary hover:underline">team.divyadarshan@gmail.com</a>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2">
                   <span className="font-medium text-foreground">Address:</span>
@@ -376,7 +376,7 @@ export default function PrivacyPolicyPage() {
               <p className="mb-4">If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
               <div className="bg-white/5 rounded-xl p-6 border border-white/5">
                 <p className="text-foreground font-medium mb-2">TellMe Digi Infotech Pvt Ltd</p>
-                <p>Email: <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a></p>
+                <p>Email: <a href="mailto:team.divyadarshan@gmail.com" className="text-primary hover:underline">team.divyadarshan@gmail.com</a></p>
                 <p>Website: <a href="https://youtellme.ai/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://youtellme.ai/</a></p>
               </div>
             </div>
