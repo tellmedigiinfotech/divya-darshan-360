@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Mail, Instagram, Twitter, Facebook } from "lucide-react"
+import { Mail, Instagram, Twitter, Facebook, Phone } from "lucide-react"
 
 export function Footer() {
   return (
@@ -9,10 +9,26 @@ export function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-2xl font-serif mb-2">Divya Darshan 360</h4>
             <p className="text-muted-foreground text-sm">Developed by TellMe Digi Infotech Pvt Ltd</p>
+            <div className="mt-3 flex flex-col gap-2">
+              <a
+                href="tel:9049921850"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors justify-center md:justify-start"
+              >
+                <Phone className="w-4 h-4 shrink-0" />
+                <span>9049921850</span>
+              </a>
+              <a
+                href="mailto:team.divyadarshan@gmail.com"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors justify-center md:justify-start"
+              >
+                <Mail className="w-4 h-4 shrink-0" />
+                <span>team.divyadarshan@gmail.com</span>
+              </a>
+            </div>
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="#" className="p-3 glass rounded-full hover:text-primary transition-colors">
+            <a href="mailto:team.divyadarshan360@gmail.com" className="p-3 glass rounded-full hover:text-primary transition-colors">
               <Mail className="w-5 h-5" />
             </a>
             <a href="https://www.instagram.com/divya_darshan360/" className="p-3 glass rounded-full hover:text-primary transition-colors">
