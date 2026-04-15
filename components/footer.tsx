@@ -18,11 +18,11 @@ export function Footer() {
                 <span>9049921850</span>
               </a>
               <a
-                href="mailto:team.divyadarshan@gmail.com"
+                href="mailto:connect@youtellme.ai "
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors justify-center md:justify-start"
               >
                 <Mail className="w-4 h-4 shrink-0" />
-                <span>team.divyadarshan@gmail.com</span>
+                <span>connect@youtellme.ai </span>
               </a>
             </div>
           </div>
@@ -31,7 +31,7 @@ export function Footer() {
             <a href="tel:9049921850" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Call us">
               <Phone className="w-5 h-5" />
             </a>
-            <a href="mailto:team.divyadarshan@gmail.com" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Email us">
+            <a href="mailto:connect@youtellme.ai " className="p-3 glass rounded-full hover:text-primary transition-colors" title="Email us">
               <Mail className="w-5 h-5" />
             </a>
             <a href="https://www.instagram.com/divya_darshan360/" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Instagram">
