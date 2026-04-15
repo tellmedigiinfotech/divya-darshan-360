@@ -28,16 +28,19 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="mailto:team.divyadarshan360@gmail.com" className="p-3 glass rounded-full hover:text-primary transition-colors">
+            <a href="tel:9049921850" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Call us">
+              <Phone className="w-5 h-5" />
+            </a>
+            <a href="mailto:team.divyadarshan@gmail.com" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Email us">
               <Mail className="w-5 h-5" />
             </a>
-            <a href="https://www.instagram.com/divya_darshan360/" className="p-3 glass rounded-full hover:text-primary transition-colors">
+            <a href="https://www.instagram.com/divya_darshan360/" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Instagram">
               <Instagram className="w-5 h-5" />
             </a>
             {/* <a href="#" className="p-3 glass rounded-full hover:text-primary transition-colors">
               <Twitter className="w-5 h-5" />
             </a> */}
-            <a href="https://www.facebook.com/profile.php?id=61585988071604" className="p-3 glass rounded-full hover:text-primary transition-colors">
+            <a href="https://www.facebook.com/profile.php?id=61585988071604" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Facebook">
               <Facebook className="w-5 h-5" />
             </a>
           </div>
