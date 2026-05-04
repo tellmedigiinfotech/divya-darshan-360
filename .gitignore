@@ -25,3 +25,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+blog_sheet_sync
