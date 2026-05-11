@@ -120,9 +120,9 @@ export const metadata: Metadata = {
 		"apple-mobile-web-app-status-bar-style": "black-translucent",
 	},
 	// Moved `colorScheme` and `themeColor` to `viewport` export (Next.js 16+)
-	//verification: {
-	//google: "UOrO6_Fuc9keS685cxQVjNrYxwPNoFkfCjTsaZXhizA",
-	//},
+	verification: {
+		google: "UOrO6_Fuc9keS685cxQVjNrYxwPNoFkfCjTsaZXhizA",
+	},
 }
 
 export const viewport: Viewport = {

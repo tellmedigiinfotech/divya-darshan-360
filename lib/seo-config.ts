@@ -1,4 +1,4 @@
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.divyadarshan360.com"
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://divyadarshan360.com"
 
 export const seoKeywords = [
     "Divya Darshan 360",

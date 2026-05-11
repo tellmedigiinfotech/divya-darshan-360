@@ -6,7 +6,14 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  trailingSlash: true,
+  async rewrites() {
+    return [
+      {
+        source: '/blog/temple/:category/:slug',
+        destination: '/blog/temple/:category/:slug/index.html',
+      },
+    ]
+  },
 }
 
 export default nextConfig
