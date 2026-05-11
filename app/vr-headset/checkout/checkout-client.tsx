@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import {
@@ -18,17 +18,26 @@ import {
     Copy,
     Check,
     MessageCircle,
+    Loader2,
+    AlertCircle,
+    LogOut,
 } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { useAuth } from "@/components/auth-provider"
+import { PhoneOtpForm } from "@/components/phone-otp-form"
+import { apiFetch, ApiError } from "@/lib/api"
 
+const PRODUCT_SKU = "mobile-vr-box"
 const UNIT_PRICE = 599
 const ORIGINAL_PRICE = 999
-const MERCHANT_PHONE = "919049921850" // wa.me uses no leading + or spaces
+const MERCHANT_PHONE = "919049921850"
 const MERCHANT_EMAIL = "connect@youtellme.ai"
 const MERCHANT_CC = "sairaj@tellmedigi.com"
+
+type PaymentMethod = "razorpay" | "cod_whatsapp"
 
 type Form = {
     fullName: string
@@ -39,7 +48,7 @@ type Form = {
     state: string
     pincode: string
     qty: number
-    payment: "cod" | "upi"
+    payment: PaymentMethod
     notes: string
 }
 
@@ -52,11 +61,26 @@ const initialForm: Form = {
     state: "",
     pincode: "",
     qty: 1,
-    payment: "cod",
+    payment: "razorpay",
     notes: "",
 }
 
 type Errors = Partial<Record<keyof Form, string>>
+
+type Submitted = {
+    orderId: string
+    method: PaymentMethod
+    paymentId?: string
+}
+
+declare global {
+    interface Window {
+        Razorpay?: new (options: Record<string, unknown>) => {
+            open: () => void
+            on: (event: string, handler: (resp: unknown) => void) => void
+        }
+    }
+}
 
 function validate(form: Form): Errors {
     const errors: Errors = {}
@@ -74,7 +98,7 @@ function validate(form: Form): Errors {
     return errors
 }
 
-function generateOrderId() {
+function generateCodOrderId() {
     const stamp = Date.now().toString(36).toUpperCase().slice(-6)
     const rand = Math.floor(Math.random() * 999)
         .toString(36)
@@ -84,10 +108,33 @@ function generateOrderId() {
 }
 
 export function CheckoutClient() {
+    const { user, loading: authLoading, configError, customer, signOut } = useAuth()
     const [form, setForm] = useState<Form>(initialForm)
     const [errors, setErrors] = useState<Errors>({})
-    const [submitted, setSubmitted] = useState<{ orderId: string } | null>(null)
+    const [submitted, setSubmitted] = useState<Submitted | null>(null)
     const [copied, setCopied] = useState(false)
+    const [busy, setBusy] = useState(false)
+    const [serverError, setServerError] = useState<string | null>(null)
+
+    useEffect(() => {
+        if (!user) return
+        setForm((f) => {
+            const patch: Partial<Form> = {}
+            const phoneDigits =
+                user.phoneNumber?.replace(/^\+91/, "").replace(/\D/g, "") || ""
+            if (!f.phone && phoneDigits.length === 10) patch.phone = phoneDigits
+            if (!f.fullName && customer?.full_name) patch.fullName = customer.full_name
+            if (!f.email && customer?.email) patch.email = customer.email
+            const addr = customer?.last_shipping_address
+            if (addr) {
+                if (!f.address && addr.line1) patch.address = addr.line1
+                if (!f.city && addr.city) patch.city = addr.city
+                if (!f.state && addr.state) patch.state = addr.state
+                if (!f.pincode && addr.pincode) patch.pincode = addr.pincode
+            }
+            return Object.keys(patch).length ? { ...f, ...patch } : f
+        })
+    }, [user, customer])
 
     const subtotal = UNIT_PRICE * form.qty
     const youSave = (ORIGINAL_PRICE - UNIT_PRICE) * form.qty
@@ -96,6 +143,7 @@ export function CheckoutClient() {
     const update = <K extends keyof Form>(key: K, value: Form[K]) => {
         setForm((f) => ({ ...f, [key]: value }))
         setErrors((e) => ({ ...e, [key]: undefined }))
+        setServerError(null)
     }
 
     const buildOrderText = (orderId: string) => {
@@ -119,10 +167,131 @@ export function CheckoutClient() {
             `Total: ₹${total}`,
             ``,
             `*Payment*`,
-            form.payment === "cod" ? "Cash on Delivery" : "UPI on Delivery",
+            "Cash on Delivery",
             ...(form.notes.trim() ? [``, `*Notes*`, form.notes.trim()] : []),
         ]
         return lines.join("\n")
+    }
+
+    const placeCodOrder = () => {
+        const orderId = generateCodOrderId()
+        const waUrl = `https://wa.me/${MERCHANT_PHONE}?text=${encodeURIComponent(buildOrderText(orderId))}`
+        window.open(waUrl, "_blank", "noopener,noreferrer")
+        setSubmitted({ orderId, method: "cod_whatsapp" })
+        if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0, behavior: "smooth" })
+        }
+    }
+
+    const placeRazorpayOrder = async () => {
+        if (!window.Razorpay) {
+            setServerError(
+                "Payment library is still loading. Please wait a moment and try again."
+            )
+            return
+        }
+        setBusy(true)
+        setServerError(null)
+        try {
+            const order = await apiFetch<{
+                razorpay_order_id: string
+                razorpay_key_id: string
+                amount: number
+                currency: string
+                receipt: string
+                product_name: string
+            }>("/orders/create_order", {
+                method: "POST",
+                auth: true,
+                body: {
+                    item: { sku: PRODUCT_SKU, quantity: form.qty },
+                    customer: {
+                        full_name: form.fullName,
+                        phone: form.phone,
+                        email: form.email || null,
+                    },
+                    shipping_address: {
+                        line1: form.address,
+                        city: form.city,
+                        state: form.state,
+                        pincode: form.pincode,
+                        country: "IN",
+                        notes: form.notes,
+                    },
+                },
+            })
+
+            const rzp = new window.Razorpay({
+                key: order.razorpay_key_id,
+                amount: order.amount,
+                currency: order.currency,
+                order_id: order.razorpay_order_id,
+                name: "Divya Darshan 360",
+                description: order.product_name,
+                prefill: {
+                    name: form.fullName,
+                    email: form.email || undefined,
+                    contact: form.phone,
+                },
+                notes: { receipt: order.receipt },
+                theme: { color: "#d4af37" },
+                modal: {
+                    ondismiss: () => {
+                        setBusy(false)
+                    },
+                },
+                handler: async (resp: {
+                    razorpay_order_id: string
+                    razorpay_payment_id: string
+                    razorpay_signature: string
+                }) => {
+                    try {
+                        await apiFetch("/orders/verify_payment", {
+                            method: "POST",
+                            auth: true,
+                            body: resp,
+                        })
+                        setSubmitted({
+                            orderId: resp.razorpay_order_id,
+                            method: "razorpay",
+                            paymentId: resp.razorpay_payment_id,
+                        })
+                        if (typeof window !== "undefined") {
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                    } catch (err) {
+                        const message =
+                            err instanceof ApiError
+                                ? err.message
+                                : err instanceof Error
+                                  ? err.message
+                                  : "We could not verify the payment. Please contact support."
+                        setServerError(message)
+                    } finally {
+                        setBusy(false)
+                    }
+                },
+            })
+
+            rzp.on("payment.failed", (resp: unknown) => {
+                const r = resp as { error?: { description?: string } }
+                setServerError(
+                    r?.error?.description || "Payment failed. Please try again."
+                )
+                setBusy(false)
+            })
+
+            rzp.open()
+        } catch (err) {
+            const message =
+                err instanceof ApiError
+                    ? err.message
+                    : err instanceof Error
+                      ? err.message
+                      : "Something went wrong while creating the order."
+            setServerError(message)
+            setBusy(false)
+        }
     }
 
     const placeOrder = (e: React.FormEvent) => {
@@ -136,16 +305,10 @@ export function CheckoutClient() {
             return
         }
 
-        const orderId = generateOrderId()
-        const orderText = buildOrderText(orderId)
-
-        // Open WhatsApp to send the order to the merchant
-        const waUrl = `https://wa.me/${MERCHANT_PHONE}?text=${encodeURIComponent(orderText)}`
-        window.open(waUrl, "_blank", "noopener,noreferrer")
-
-        setSubmitted({ orderId })
-        if (typeof window !== "undefined") {
-            window.scrollTo({ top: 0, behavior: "smooth" })
+        if (form.payment === "razorpay") {
+            placeRazorpayOrder()
+        } else {
+            placeCodOrder()
         }
     }
 
@@ -162,14 +325,59 @@ export function CheckoutClient() {
 
     const mailtoFallback = useMemo(() => {
         if (!submitted) return ""
-        const orderText = buildOrderText(submitted.orderId)
+        const orderText =
+            submitted.method === "cod_whatsapp"
+                ? buildOrderText(submitted.orderId)
+                : `Online order confirmed.\nOrder ID: ${submitted.orderId}${submitted.paymentId ? `\nPayment ID: ${submitted.paymentId}` : ""}`
         return `mailto:${MERCHANT_EMAIL}?cc=${MERCHANT_CC}&subject=${encodeURIComponent(
             `Order ${submitted.orderId} — Mobile VR Box`
         )}&body=${encodeURIComponent(orderText)}`
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [submitted])
 
+    if (configError) {
+        return (
+            <div className="max-w-2xl mx-auto">
+                <div className="flex items-start gap-3 glass rounded-2xl p-5 border border-destructive/40">
+                    <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                    <div className="text-sm">
+                        <p className="font-medium text-destructive mb-1">Sign-in is not available</p>
+                        <p className="text-muted-foreground">
+                            {configError} Set <code className="font-mono">NEXT_PUBLIC_FIREBASE_*</code> in
+                            <code className="font-mono"> .env.local</code> and restart the dev server.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    if (authLoading) {
+        return (
+            <div className="max-w-md mx-auto text-center text-muted-foreground py-16">
+                <Loader2 className="w-6 h-6 animate-spin mx-auto" />
+            </div>
+        )
+    }
+
+    if (!user) {
+        return (
+            <div className="max-w-3xl mx-auto">
+                <div className="text-center mb-8">
+                    <p className="text-sm text-muted-foreground">
+                        Please sign in with your mobile number to place an order.
+                    </p>
+                </div>
+                <PhoneOtpForm
+                    title="Sign in to continue checkout"
+                    description="We'll send a 6-digit OTP to your phone. Your past orders stay linked to your number."
+                />
+            </div>
+        )
+    }
+
     if (submitted) {
+        const isOnline = submitted.method === "razorpay"
         return (
             <div className="max-w-3xl mx-auto">
                 <motion.div
@@ -187,10 +395,12 @@ export function CheckoutClient() {
                         </div>
 
                         <h2 className="text-3xl md:text-5xl font-serif mb-5 leading-tight">
-                            Your order has been placed
+                            {isOnline ? "Payment received" : "Your order has been placed"}
                         </h2>
                         <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
-                            We&apos;ve opened WhatsApp with your order details. Please send the message so our team can confirm your order. We&apos;ll reach out shortly to arrange delivery.
+                            {isOnline
+                                ? "Your payment was successful. We'll arrange delivery and reach out shortly with shipment details."
+                                : "We've opened WhatsApp with your order details. Please send the message so our team can confirm your order. We'll reach out shortly to arrange delivery."}
                         </p>
 
                         <div className="inline-flex items-center gap-3 glass rounded-full px-5 py-3 mb-10">
@@ -210,16 +420,24 @@ export function CheckoutClient() {
                             </button>
                         </div>
 
+                        {submitted.paymentId && (
+                            <p className="text-xs text-muted-foreground mb-8">
+                                Payment ID: <span className="font-mono">{submitted.paymentId}</span>
+                            </p>
+                        )}
+
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <a
-                                href={`https://wa.me/${MERCHANT_PHONE}?text=${encodeURIComponent(buildOrderText(submitted.orderId))}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-3 divine-button rounded-full px-8 py-4 shadow-(--saffron-glow)"
-                            >
-                                <MessageCircle className="w-5 h-5" />
-                                <span className="font-serif tracking-wide">Send via WhatsApp</span>
-                            </a>
+                            {!isOnline && (
+                                <a
+                                    href={`https://wa.me/${MERCHANT_PHONE}?text=${encodeURIComponent(buildOrderText(submitted.orderId))}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-3 divine-button rounded-full px-8 py-4 shadow-(--saffron-glow)"
+                                >
+                                    <MessageCircle className="w-5 h-5" />
+                                    <span className="font-serif tracking-wide">Send via WhatsApp</span>
+                                </a>
+                            )}
                             <a
                                 href={mailtoFallback}
                                 className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300"
@@ -264,11 +482,27 @@ export function CheckoutClient() {
                     transition={{ duration: 0.5 }}
                     className="glass rounded-3xl p-6 md:p-8 ornate-border"
                 >
-                    <div className="flex items-center gap-3 mb-6">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                            <User className="w-5 h-5 text-primary" />
+                    <div className="flex items-center justify-between gap-3 mb-6">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                                <User className="w-5 h-5 text-primary" />
+                            </div>
+                            <h2 className="text-xl md:text-2xl font-serif">Contact details</h2>
                         </div>
-                        <h2 className="text-xl md:text-2xl font-serif">Contact details</h2>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                void signOut()
+                            }}
+                            className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors"
+                            title={user.phoneNumber || "Signed in"}
+                        >
+                            <LogOut className="w-3.5 h-3.5" />
+                            <span className="hidden sm:inline">
+                                {user.phoneNumber ? `Signed in · ${user.phoneNumber}` : "Sign out"}
+                            </span>
+                            <span className="sm:hidden">Sign out</span>
+                        </button>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-5">
@@ -461,46 +695,53 @@ export function CheckoutClient() {
 
                     <RadioGroup
                         value={form.payment}
-                        onValueChange={(v) => update("payment", v as Form["payment"])}
+                        onValueChange={(v) => update("payment", v as PaymentMethod)}
                         className="grid sm:grid-cols-2 gap-4"
                     >
                         <Label
-                            htmlFor="pay-cod"
-                            className={`cursor-pointer rounded-2xl border p-5 transition-all ${form.payment === "cod"
+                            htmlFor="pay-razorpay"
+                            className={`cursor-pointer rounded-2xl border p-5 transition-all ${form.payment === "razorpay"
                                 ? "border-primary/60 bg-primary/10 shadow-md shadow-primary/10"
                                 : "border-primary/15 bg-white/40 hover:border-primary/40"
                                 }`}
                         >
                             <div className="flex items-start gap-3">
-                                <RadioGroupItem value="cod" id="pay-cod" className="mt-1" />
+                                <RadioGroupItem value="razorpay" id="pay-razorpay" className="mt-1" />
                                 <div>
-                                    <p className="font-serif text-base">Cash on Delivery</p>
+                                    <p className="font-serif text-base">Pay online (Razorpay)</p>
                                     <p className="text-xs text-muted-foreground mt-1">
-                                        Pay ₹{total} in cash when your headset arrives.
+                                        UPI, cards, netbanking, wallets. Secure payment via Razorpay.
                                     </p>
                                 </div>
                             </div>
                         </Label>
 
                         <Label
-                            htmlFor="pay-upi"
-                            className={`cursor-pointer rounded-2xl border p-5 transition-all ${form.payment === "upi"
+                            htmlFor="pay-cod"
+                            className={`cursor-pointer rounded-2xl border p-5 transition-all ${form.payment === "cod_whatsapp"
                                 ? "border-primary/60 bg-primary/10 shadow-md shadow-primary/10"
                                 : "border-primary/15 bg-white/40 hover:border-primary/40"
                                 }`}
                         >
                             <div className="flex items-start gap-3">
-                                <RadioGroupItem value="upi" id="pay-upi" className="mt-1" />
+                                <RadioGroupItem value="cod_whatsapp" id="pay-cod" className="mt-1" />
                                 <div>
-                                    <p className="font-serif text-base">UPI on Delivery</p>
+                                    <p className="font-serif text-base">Cash on Delivery</p>
                                     <p className="text-xs text-muted-foreground mt-1">
-                                        Scan & pay via UPI when the headset arrives.
+                                        Order confirmation via WhatsApp. Pay ₹{total} in cash when your headset arrives.
                                     </p>
                                 </div>
                             </div>
                         </Label>
                     </RadioGroup>
                 </motion.section>
+
+                {serverError && (
+                    <div className="flex items-start gap-3 glass rounded-2xl p-4 border border-destructive/40">
+                        <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                        <p className="text-sm text-destructive">{serverError}</p>
+                    </div>
+                )}
             </div>
 
             {/* RIGHT — order summary */}
@@ -593,10 +834,22 @@ export function CheckoutClient() {
 
                         <button
                             type="submit"
-                            className="mt-6 w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full divine-button shadow-(--saffron-glow) text-base"
+                            disabled={busy}
+                            className="mt-6 w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full divine-button shadow-(--saffron-glow) text-base disabled:opacity-60 disabled:cursor-not-allowed"
                         >
-                            <ShoppingBag className="w-4 h-4" />
-                            <span className="font-serif tracking-wide">Place Order · ₹{total}</span>
+                            {busy ? (
+                                <>
+                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                    <span className="font-serif tracking-wide">Processing…</span>
+                                </>
+                            ) : (
+                                <>
+                                    <ShoppingBag className="w-4 h-4" />
+                                    <span className="font-serif tracking-wide">
+                                        {form.payment === "razorpay" ? `Pay ₹${total}` : `Place Order · ₹${total}`}
+                                    </span>
+                                </>
+                            )}
                         </button>
 
                         <div className="mt-5 flex flex-col gap-2.5 text-xs text-muted-foreground">
@@ -607,7 +860,10 @@ export function CheckoutClient() {
                                 <ShieldCheck className="w-3.5 h-3.5 text-primary" /> 7-day replacement guarantee
                             </span>
                             <span className="flex items-center gap-2">
-                                <MessageCircle className="w-3.5 h-3.5 text-primary" /> Order is confirmed via WhatsApp
+                                <MessageCircle className="w-3.5 h-3.5 text-primary" />
+                                {form.payment === "razorpay"
+                                    ? "Payment is secured by Razorpay"
+                                    : "Order is confirmed via WhatsApp"}
                             </span>
                         </div>
                     </div>

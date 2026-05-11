@@ -1,18 +1,16 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import Script from "next/script"
 import { ArrowLeft } from "lucide-react"
 import { siteUrl } from "@/lib/seo-config"
 import { BackgroundLotus } from "@/components/background-lotus"
 import { FloatingDiya } from "@/components/floating-diya"
-import { CheckoutClient } from "./checkout-client"
+import { LoginClient } from "./login-client"
 
-const pageUrl = `${siteUrl}/vr-headset/checkout`
+const pageUrl = `${siteUrl}/login`
 
 export const metadata: Metadata = {
-    title: "Checkout | Mobile VR Box",
-    description:
-        "Complete your Mobile VR Box order. Free shipping in India, 7-day replacement, cash on delivery available.",
+    title: "Sign in | Divya Darshan 360",
+    description: "Sign in with your phone number to manage orders and continue your spiritual journey.",
     alternates: { canonical: pageUrl },
     robots: {
         index: false,
@@ -22,20 +20,16 @@ export const metadata: Metadata = {
         type: "website",
         url: pageUrl,
         siteName: "Divya Darshan 360",
-        title: "Checkout | Mobile VR Box",
-        description: "Complete your Mobile VR Box order — ₹599, free shipping in India.",
+        title: "Sign in | Divya Darshan 360",
+        description: "Phone OTP sign-in for Divya Darshan 360.",
     },
 }
 
-export default function CheckoutPage() {
+export default function LoginPage() {
     return (
         <main className="min-h-screen relative overflow-hidden selection:bg-primary/30">
-            <Script
-                src="https://checkout.razorpay.com/v1/checkout.js"
-                strategy="afterInteractive"
-            />
-            <FloatingDiya className="absolute top-[10%] left-[5%] scale-110 hidden md:block" />
-            <FloatingDiya className="absolute bottom-[10%] right-[8%] scale-90 hidden md:block" />
+            <FloatingDiya className="absolute top-[12%] left-[6%] scale-110 hidden md:block" />
+            <FloatingDiya className="absolute bottom-[14%] right-[8%] scale-90 hidden md:block" />
 
             <BackgroundLotus className="top-[5%] right-[-15%]" size={500} opacity={0.12} duration={200} />
             <BackgroundLotus className="bottom-[5%] left-[-10%]" size={400} opacity={0.1} duration={240} delay={10} />
@@ -47,26 +41,28 @@ export default function CheckoutPage() {
 
             <div className="relative z-10 max-w-6xl mx-auto px-6 pt-8">
                 <Link
-                    href="/vr-headset"
+                    href="/"
                     className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-medium group"
                 >
                     <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-                    Back to Mobile VR Box
+                    Back to Home
                 </Link>
             </div>
 
             <section className="relative pt-10 pb-16 md:pb-24 px-6">
-                <div className="max-w-6xl mx-auto text-center mb-10 md:mb-14">
-                    <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Secure Checkout</span>
+                <div className="max-w-3xl mx-auto text-center mb-10 md:mb-14">
+                    <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">
+                        Sign in
+                    </span>
                     <h1 className="text-4xl md:text-6xl font-serif tracking-tighter leading-tight">
-                        Complete your <span className="text-primary italic">order</span>
+                        Welcome to <span className="text-primary italic">Divya Darshan 360</span>
                     </h1>
                     <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto mt-4">
-                        A few details and your Mobile VR Box will be on its way.
+                        Sign in with your phone number to place orders, view your purchase history, and continue your spiritual journey.
                     </p>
                 </div>
 
-                <CheckoutClient />
+                <LoginClient />
             </section>
         </main>
     )
