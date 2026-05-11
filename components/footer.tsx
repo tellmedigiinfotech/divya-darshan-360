@@ -52,6 +52,9 @@ export function Footer() {
             <Link href="/blogs" className="hover:text-primary transition-colors">
               Blog
             </Link>
+            <Link href="/vr-headset" className="hover:text-primary transition-colors">
+              Buy VR Headset
+            </Link>
             <Link href="/privacy#privacy" className="hover:text-foreground">
               Privacy Policy
             </Link>

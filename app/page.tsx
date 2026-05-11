@@ -96,13 +96,23 @@ export default function LandingPage() {
             </Link>
 
             {/* Blog Button */}
-            <Link
-              href="/blogs"
-              className="group inline-flex items-center gap-3 px-8 py-6 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-primary/30"
-            >
-              <span className="text-lg font-serif tracking-tight">Explore Temple Blog</span>
-              <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+              <Link
+                href="/blogs"
+                className="group inline-flex items-center gap-3 px-8 py-6 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-primary/30"
+              >
+                <span className="text-lg font-serif tracking-tight">Explore Temple Blog</span>
+                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </Link>
+
+              <Link
+                href="/vr-headset"
+                className="group inline-flex items-center gap-3 px-8 py-6 rounded-full divine-button shadow-(--saffron-glow)"
+              >
+                <span className="text-lg font-serif tracking-tight">Buy VR Headset</span>
+                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

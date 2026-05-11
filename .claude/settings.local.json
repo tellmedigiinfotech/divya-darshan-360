@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(schtasks /query /fo LIST 2>$null | Select-String -Pattern \"TaskName|Status\" | Select-String -Pattern \"blog|Blog|BLOG|DivyaDarshan|divya\"; Write-Output \"---all tasknames---\"; Get-ScheduledTask -ErrorAction SilentlyContinue | Where-Object { $_.TaskName -match \"blog|divya|sync|darshan\" -or $_.Description -match \"blog|divya\" } | Select-Object TaskName, TaskPath, State)",
+      "PowerShell(Get-ScheduledTask -ErrorAction SilentlyContinue | ForEach-Object { $task = $_; $_.Actions | ForEach-Object { if \\($_.Execute -match \"run-sync|blog_sheet_sync\" -or $_.Arguments -match \"run-sync|blog_sheet_sync\"\\) { [PSCustomObject]@{ Name = $task.TaskName; Path = $task.TaskPath; Exec = $_.Execute; Args = $_.Arguments } } } })",
+      "Bash(cmd //c \"scripts\\\\\\\\blog_sheet_sync\\\\\\\\run-sync-scheduled.bat\")",
+      "Bash(powershell -NoProfile -Command \"Get-Content 'd:\\\\pratik\\\\divya_darshan\\\\divya-darshan-360\\\\scripts\\\\blog_sheet_sync\\\\sync.log' -Tail 25\")",
+      "PowerShell(python --version)",
+      "PowerShell(python -c \"import sys; print\\(sys.executable\\)\")",
+      "Bash(python -m pip install --user -r \"d:\\\\\\\\pratik\\\\\\\\divya_darshan\\\\\\\\divya-darshan-360\\\\\\\\scripts\\\\\\\\blog_sheet_sync\\\\\\\\requirements.txt\" google-api-python-client requests)",
+      "PowerShell($found = Get-ScheduledTask -ErrorAction SilentlyContinue | ForEach-Object { $task = $_; foreach \\($a in $_.Actions\\) { if \\(\\($a.Execute + \" \" + $a.Arguments\\) -match \"blog_sheet|run-sync|divya\"\\) { [PSCustomObject]@{ Name = $task.TaskName; Path = $task.TaskPath; State = $task.State; Action = \"$\\($a.Execute\\) $\\($a.Arguments\\)\" } } } }; if \\($found\\) { $found | Format-List } else { \"No matching scheduled task found.\" })",
+      "PowerShell($t = Get-ScheduledTask -TaskName 'DivyaDarshan Blog Sheet Sync'; \"TaskName : $\\($t.TaskName\\)\"; \"State    : $\\($t.State\\)\"; \"User     : $\\($t.Principal.UserId\\)\"; \"LogonType: $\\($t.Principal.LogonType\\)\"; \"Trigger  : Daily at $\\($t.Triggers[0].StartBoundary\\)\"; \"Action   : $\\($t.Actions[0].Execute\\) $\\($t.Actions[0].Arguments\\)\"; \"WorkDir  : $\\($t.Actions[0].WorkingDirectory\\)\"; $info = $t | Get-ScheduledTaskInfo; \"NextRun  : $\\($info.NextRunTime\\)\")",
+      "Bash(npx tsc *)",
+      "Bash(mkdir -p \"d:/pratik/divya_darshan/divya-darshan-360/docs/diagrams\")",
+      "Bash(node -e ' *)",
+      "Bash(git config *)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(python -c ' *)"
+    ],
+    "additionalDirectories": [
+      "d:\\pratik\\divya_darshan\\divya-darshan-360\\docs"
+    ]
+  }
+}
