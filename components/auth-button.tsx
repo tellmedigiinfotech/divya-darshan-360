@@ -45,13 +45,10 @@ export function AuthButton() {
         )
     }
 
-    const phone = user.phoneNumber || ""
-    const shortPhone = phone.replace(/^\+91/, "").replace(/(\d{5})(\d{5})/, "$1 $2")
-
     // If Firebase has a real photo (e.g. from a future Google sign-in), use
     // it. Otherwise generate a stable saffron-themed avatar from the phone
     // via DiceBear — same seed -> same picture forever.
-    const seed = phone || user.uid
+    const seed = user.phoneNumber || user.uid
     const generatedAvatar = `https://api.dicebear.com/9.x/notionists/svg?seed=${encodeURIComponent(seed)}&backgroundColor=fef3c7,fde68a,fcd34d,fbbf24&radius=50`
     const avatarUrl = user.photoURL || generatedAvatar
 
@@ -61,21 +58,18 @@ export function AuthButton() {
                 <DropdownMenuTrigger asChild>
                     <button
                         type="button"
-                        className="inline-flex items-center gap-2 rounded-full glass border border-primary/30 bg-white/60 backdrop-blur-md pl-1 pr-3 py-1 text-sm font-medium text-foreground hover:bg-primary/10 transition-all shadow-lg shadow-primary/10"
+                        className="rounded-full glass border border-primary/30 bg-white/60 backdrop-blur-md p-1 hover:bg-primary/10 transition-all shadow-lg shadow-primary/10"
                         aria-label="Account menu"
                     >
                         <img
                             src={avatarUrl}
                             alt="Profile"
                             referrerPolicy="no-referrer"
-                            className="w-8 h-8 rounded-full ring-1 ring-primary/30 bg-white object-cover"
+                            className="w-9 h-9 rounded-full ring-1 ring-primary/20 bg-white object-cover"
                         />
-                        <span className="hidden sm:inline font-mono text-xs text-muted-foreground">
-                            +91 {shortPhone}
-                        </span>
                     </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-64">
+                <DropdownMenuContent align="end" className="w-56">
                     <DropdownMenuLabel className="flex items-center gap-3 py-3">
                         <img
                             src={avatarUrl}
@@ -83,10 +77,7 @@ export function AuthButton() {
                             referrerPolicy="no-referrer"
                             className="w-10 h-10 rounded-full ring-1 ring-primary/30 bg-white object-cover"
                         />
-                        <div className="flex flex-col leading-tight">
-                            <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Signed in</span>
-                            <span className="font-mono text-sm">{phone || "—"}</span>
-                        </div>
+                        <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Signed in</span>
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem
