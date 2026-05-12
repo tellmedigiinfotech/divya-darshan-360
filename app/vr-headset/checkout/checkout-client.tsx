@@ -426,8 +426,8 @@ export function CheckoutClient() {
                             </p>
                         )}
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            {!isOnline && (
+                        {!isOnline && (
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                 <a
                                     href={`https://wa.me/${MERCHANT_PHONE}?text=${encodeURIComponent(buildOrderText(submitted.orderId))}`}
                                     target="_blank"
@@ -437,15 +437,15 @@ export function CheckoutClient() {
                                     <MessageCircle className="w-5 h-5" />
                                     <span className="font-serif tracking-wide">Send via WhatsApp</span>
                                 </a>
-                            )}
-                            <a
-                                href={mailtoFallback}
-                                className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                            >
-                                <Mail className="w-5 h-5" />
-                                <span className="font-serif tracking-wide">Send via Email</span>
-                            </a>
-                        </div>
+                                <a
+                                    href={mailtoFallback}
+                                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                                >
+                                    <Mail className="w-5 h-5" />
+                                    <span className="font-serif tracking-wide">Send via Email</span>
+                                </a>
+                            </div>
+                        )}
 
                         <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
                             <span className="flex items-center gap-2">

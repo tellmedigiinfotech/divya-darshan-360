@@ -26,7 +26,8 @@ export function PhoneOtpForm({
     description?: string
 }) {
     const { sendOtp, verifyOtp } = useAuth()
-    const recaptchaId = useId().replace(/:/g, "")
+    const rawId = useId()
+    const recaptchaId = `dd-recaptcha-${rawId.replace(/[^a-zA-Z0-9]/g, "")}`
     const [step, setStep] = useState<Step>("phone")
     const [phone, setPhone] = useState("")
     const [code, setCode] = useState("")
@@ -233,6 +234,12 @@ function messageFor(err: unknown, fallback: string): string {
                 return "Network error. Check your connection and try again."
             case "auth/captcha-check-failed":
                 return "reCAPTCHA check failed. Please refresh and try again."
+            case "auth/invalid-app-credential":
+                return "Phone sign-in is not fully enabled for this app. Check Firebase Console: enable the Phone provider, add localhost to Authorized domains, and ensure App Check isn't blocking Auth."
+            case "auth/billing-not-enabled":
+                return "Phone sign-in requires the Firebase Blaze plan, or add your number under Authentication → Phone → Phone numbers for testing."
+            case "auth/operation-not-allowed":
+                return "Phone sign-in is not enabled in Firebase. Enable it under Authentication → Sign-in method → Phone."
         }
         const maybeMsg = (err as { message?: unknown }).message
         if (typeof maybeMsg === "string" && maybeMsg.length > 0) {

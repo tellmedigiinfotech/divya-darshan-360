@@ -128,12 +128,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const sendOtp = useCallback(
         async (phoneE164: string, recaptchaElementId: string) => {
             const auth = getFirebaseAuth()
+            const container = document.getElementById(recaptchaElementId)
+            if (!container) {
+                throw new Error(
+                    `reCAPTCHA container "${recaptchaElementId}" not found in the DOM.`
+                )
+            }
             if (typeof window !== "undefined" && window.recaptchaVerifier) {
                 try {
                     window.recaptchaVerifier.clear()
                 } catch {
                     /* ignore */
                 }
+                container.innerHTML = ""
                 window.recaptchaVerifier = undefined
             }
             const verifier = new RecaptchaVerifier(auth, recaptchaElementId, {
@@ -141,7 +148,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             })
             window.recaptchaVerifier = verifier
             await verifier.render()
-            return signInWithPhoneNumber(auth, phoneE164, verifier)
+            try {
+                return await signInWithPhoneNumber(auth, phoneE164, verifier)
+            } catch (err) {
+                try {
+                    verifier.clear()
+                } catch {
+                    /* ignore */
+                }
+                window.recaptchaVerifier = undefined
+                throw err
+            }
         },
         []
     )
