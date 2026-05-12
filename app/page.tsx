@@ -95,16 +95,7 @@ export default function LandingPage() {
               <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-primary/10 rounded-bl-lg group-hover:border-primary/40 transition-colors" />
             </Link>
 
-            {/* Blog Button */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-              <Link
-                href="/blogs"
-                className="group inline-flex items-center gap-3 px-8 py-6 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-primary/30"
-              >
-                <span className="text-lg font-serif tracking-tight">Explore Temple Blog</span>
-                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </Link>
-
+            <div className="flex items-center justify-center">
               <Link
                 href="/vr-headset"
                 className="group inline-flex items-center gap-3 px-8 py-6 rounded-full divine-button shadow-(--saffron-glow)"
