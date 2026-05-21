@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LogIn, LogOut } from "lucide-react"
+import { LogIn, LogOut, Package } from "lucide-react"
 import { useAuth } from "@/components/auth-provider"
 import {
     DropdownMenu,
@@ -79,6 +79,13 @@ export function AuthButton() {
                         />
                         <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Signed in</span>
                     </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild className="cursor-pointer">
+                        <Link href="/account">
+                            <Package className="w-4 h-4 mr-2" />
+                            My orders
+                        </Link>
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem
                         onClick={() => {
