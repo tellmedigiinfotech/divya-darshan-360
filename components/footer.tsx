@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Mail, Instagram, Twitter, Facebook, Phone } from "lucide-react"
+import { Mail, Instagram, Twitter, Facebook, Phone, Wallet } from "lucide-react"
 
 export function Footer() {
   return (
@@ -46,7 +46,35 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white">
+        <div className="mt-12 pt-8 border-t border-white/5">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 justify-center md:justify-start">
+            <Wallet className="w-3.5 h-3.5" />
+            Payment information
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-2 text-sm text-muted-foreground max-w-3xl">
+            <div className="flex flex-col sm:flex-row sm:gap-3 sm:items-baseline">
+              <span className="text-xs uppercase tracking-wider text-muted-foreground/70 shrink-0 sm:w-28">Beneficiary</span>
+              <span className="text-foreground/90">TELLME DIGIINFOTECH PRIVATE LIMITED</span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:gap-3 sm:items-baseline">
+              <span className="text-xs uppercase tracking-wider text-muted-foreground/70 shrink-0 sm:w-28">Account No.</span>
+              <span className="font-mono text-foreground/90">2223006306876848</span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:gap-3 sm:items-baseline">
+              <span className="text-xs uppercase tracking-wider text-muted-foreground/70 shrink-0 sm:w-28">IFSC</span>
+              <span className="font-mono text-foreground/90">UTIB000RAZP</span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:gap-3 sm:items-baseline">
+              <span className="text-xs uppercase tracking-wider text-muted-foreground/70 shrink-0 sm:w-28">UPI</span>
+              <span className="font-mono text-foreground/90 break-all">rpy.payto000009179099666@icici</span>
+            </div>
+          </div>
+          <p className="text-[11px] text-muted-foreground/60 mt-3 max-w-3xl">
+            Payments processed securely by Razorpay. Use the account or UPI handle above for direct bank/UPI transfers.
+          </p>
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white">
           <p>© 2025 Divya Darshan 360. All rights reserved.</p>
           <div className="flex gap-6 flex-wrap justify-center">
             <Link href="/blogs" className="hover:text-primary transition-colors">
