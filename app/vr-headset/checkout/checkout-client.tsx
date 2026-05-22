@@ -31,8 +31,11 @@ import { PhoneOtpForm } from "@/components/phone-otp-form"
 import { apiFetch, ApiError } from "@/lib/api"
 
 const PRODUCT_SKU = "mobile-vr-box"
-const UNIT_PRICE = 599
-const ORIGINAL_PRICE = 999
+// TEMP: lowered to ₹10 for a live Razorpay test. Revert to 599 / 999 once
+// the live test is verified + refunded. Must match unit_price_paise in
+// backend_dd360/app/products.py.
+const UNIT_PRICE = 10
+const ORIGINAL_PRICE = 15
 const MERCHANT_PHONE = "919049921850"
 const MERCHANT_EMAIL = "connect@youtellme.ai"
 const MERCHANT_CC = "sairaj@tellmedigi.com"
