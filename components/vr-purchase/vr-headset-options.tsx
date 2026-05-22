@@ -8,8 +8,9 @@ import Link from "next/link"
 const product = {
     name: "Mobile VR Box",
     tagline: "One headset · One price · Universal compatibility",
-    price: "₹599",
-    originalPrice: "₹999",
+    // TEMP: ₹10 for live Razorpay smoke test. Revert to ₹599 / ₹999 after.
+    price: "₹10",
+    originalPrice: "₹15",
     images: ["/vr_set2.png", "/vr_set.png"],
     rating: "4.8",
     features: [
