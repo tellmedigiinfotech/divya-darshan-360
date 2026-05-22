@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import {
     ShoppingBag,
@@ -76,14 +77,6 @@ type Submitted = {
     paymentId?: string
 }
 
-declare global {
-    interface Window {
-        Razorpay?: new (options: Record<string, unknown>) => {
-            open: () => void
-            on: (event: string, handler: (resp: unknown) => void) => void
-        }
-    }
-}
 
 function validate(form: Form): Errors {
     const errors: Errors = {}
@@ -111,6 +104,7 @@ function generateCodOrderId() {
 }
 
 export function CheckoutClient() {
+    const router = useRouter()
     const { user, loading: authLoading, configError, customer, signOut } = useAuth()
     const [form, setForm] = useState<Form>(initialForm)
     const [errors, setErrors] = useState<Errors>({})
@@ -187,23 +181,26 @@ export function CheckoutClient() {
     }
 
     const placeRazorpayOrder = async () => {
-        if (!window.Razorpay) {
-            setServerError(
-                "Payment library is still loading. Please wait a moment and try again."
-            )
-            return
-        }
+        // Smart Collect flow: create an awaiting_payment order on the backend,
+        // then redirect to the pay-instructions page where the user pays via
+        // UPI / bank transfer to the Razorpay virtual account. The webhook
+        // (virtual_account.credited) marks the order paid + fires the email
+        // receipt on match.
         setBusy(true)
         setServerError(null)
         try {
             const order = await apiFetch<{
-                razorpay_order_id: string
-                razorpay_key_id: string
-                amount: number
+                order_id: string
+                reference: string
+                amount_paise: number
+                amount_display: string
                 currency: string
-                receipt: string
-                product_name: string
-            }>("/orders/create_order", {
+                upi_id: string
+                account_number: string
+                ifsc: string
+                beneficiary_name: string
+                expires_at_iso: string | null
+            }>("/orders/create_smart_collect", {
                 method: "POST",
                 auth: true,
                 body: {
@@ -224,67 +221,7 @@ export function CheckoutClient() {
                 },
             })
 
-            const rzp = new window.Razorpay({
-                key: order.razorpay_key_id,
-                amount: order.amount,
-                currency: order.currency,
-                order_id: order.razorpay_order_id,
-                name: "Divya Darshan 360",
-                description: order.product_name,
-                prefill: {
-                    name: form.fullName,
-                    email: form.email || undefined,
-                    contact: form.phone,
-                },
-                notes: { receipt: order.receipt },
-                theme: { color: "#d4af37" },
-                modal: {
-                    ondismiss: () => {
-                        setBusy(false)
-                    },
-                },
-                handler: async (resp: {
-                    razorpay_order_id: string
-                    razorpay_payment_id: string
-                    razorpay_signature: string
-                }) => {
-                    try {
-                        await apiFetch("/orders/verify_payment", {
-                            method: "POST",
-                            auth: true,
-                            body: resp,
-                        })
-                        setSubmitted({
-                            orderId: resp.razorpay_order_id,
-                            method: "razorpay",
-                            paymentId: resp.razorpay_payment_id,
-                        })
-                        if (typeof window !== "undefined") {
-                            window.scrollTo({ top: 0, behavior: "smooth" })
-                        }
-                    } catch (err) {
-                        const message =
-                            err instanceof ApiError
-                                ? err.message
-                                : err instanceof Error
-                                  ? err.message
-                                  : "We could not verify the payment. Please contact support."
-                        setServerError(message)
-                    } finally {
-                        setBusy(false)
-                    }
-                },
-            })
-
-            rzp.on("payment.failed", (resp: unknown) => {
-                const r = resp as { error?: { description?: string } }
-                setServerError(
-                    r?.error?.description || "Payment failed. Please try again."
-                )
-                setBusy(false)
-            })
-
-            rzp.open()
+            router.push(`/vr-headset/checkout/pay/${encodeURIComponent(order.order_id)}`)
         } catch (err) {
             const message =
                 err instanceof ApiError
@@ -711,9 +648,9 @@ export function CheckoutClient() {
                             <div className="flex items-start gap-3">
                                 <RadioGroupItem value="razorpay" id="pay-razorpay" className="mt-1" />
                                 <div>
-                                    <p className="font-serif text-base">Pay online (Razorpay)</p>
+                                    <p className="font-serif text-base">Pay via UPI</p>
                                     <p className="text-xs text-muted-foreground mt-1">
-                                        UPI, cards, netbanking, wallets. Secure payment via Razorpay.
+                                        Pay through any UPI app (GPay, PhonePe, Paytm) or bank transfer.
                                     </p>
                                 </div>
                             </div>
@@ -865,7 +802,7 @@ export function CheckoutClient() {
                             <span className="flex items-center gap-2">
                                 <MessageCircle className="w-3.5 h-3.5 text-primary" />
                                 {form.payment === "razorpay"
-                                    ? "Payment is secured by Razorpay"
+                                    ? "Secure UPI payment via Razorpay"
                                     : "Order is confirmed via WhatsApp"}
                             </span>
                         </div>
