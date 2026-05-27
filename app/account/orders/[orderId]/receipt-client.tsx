@@ -38,10 +38,14 @@ type OrderView = {
 
 function formatTimestamp(value: string | null): string {
     if (!value) return "—"
-    const numeric = Number.parseInt(value, 10)
-    if (!Number.isNaN(numeric) && numeric > 0) {
-        const ms = numeric < 1e12 ? numeric * 1000 : numeric
-        return new Date(ms).toLocaleString("en-IN", { dateStyle: "long", timeStyle: "short" })
+    if (/^\d+$/.test(value)) {
+        const numeric = Number.parseInt(value, 10)
+        if (numeric > 0) {
+            const ms = numeric < 1e12 ? numeric * 1000 : numeric
+            return new Date(ms).toLocaleString("en-IN", {
+                dateStyle: "long", timeStyle: "short",
+            })
+        }
     }
     const d = new Date(value)
     if (!Number.isNaN(d.getTime())) {

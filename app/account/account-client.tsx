@@ -44,16 +44,22 @@ const PENDING_STATUSES = new Set(["created", "awaiting_payment"])
 
 function formatTimestamp(value: string | null): string {
     if (!value) return ""
-    const numeric = Number.parseInt(value, 10)
-    if (!Number.isNaN(numeric) && numeric > 0) {
-        // Firestore epoch-ms (e.g. "1778859836079") or seconds — be lenient.
-        const ms = numeric < 1e12 ? numeric * 1000 : numeric
-        return new Date(ms).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
+    // Pure-digit string → treat as epoch (seconds or ms).
+    if (/^\d+$/.test(value)) {
+        const numeric = Number.parseInt(value, 10)
+        if (numeric > 0) {
+            const ms = numeric < 1e12 ? numeric * 1000 : numeric
+            return new Date(ms).toLocaleDateString("en-IN", {
+                day: "numeric", month: "short", year: "numeric",
+            })
+        }
     }
-    // ISO-ish strings: take first 10 chars or parse.
+    // Otherwise parse as an ISO / RFC date string.
     const d = new Date(value)
     if (!Number.isNaN(d.getTime())) {
-        return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
+        return d.toLocaleDateString("en-IN", {
+            day: "numeric", month: "short", year: "numeric",
+        })
     }
     return value
 }
