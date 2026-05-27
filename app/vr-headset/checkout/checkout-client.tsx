@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import {
     ShoppingBag,
@@ -114,6 +114,8 @@ function generateCodOrderId() {
 
 export function CheckoutClient() {
     const router = useRouter()
+    const searchParams = useSearchParams()
+    const resumeOrderId = searchParams?.get("resume") || null
     const { user, loading: authLoading, configError, customer, signOut } = useAuth()
     const [form, setForm] = useState<Form>(initialForm)
     const [errors, setErrors] = useState<Errors>({})
@@ -121,6 +123,10 @@ export function CheckoutClient() {
     const [copied, setCopied] = useState(false)
     const [busy, setBusy] = useState(false)
     const [serverError, setServerError] = useState<string | null>(null)
+    const [resumingState, setResumingState] = useState<"idle" | "loading" | "opening" | "error">(
+        resumeOrderId ? "loading" : "idle"
+    )
+    const resumeAttempted = useRef(false)
 
     useEffect(() => {
         if (!user) return
@@ -141,6 +147,120 @@ export function CheckoutClient() {
             return Object.keys(patch).length ? { ...f, ...patch } : f
         })
     }, [user, customer])
+
+    // Resume a previously-pending order: fetch it, then reopen the Razorpay
+    // modal with the same razorpay_order_id. Skips the form entirely.
+    useEffect(() => {
+        if (!resumeOrderId) return
+        if (!user || authLoading) return
+        if (resumeAttempted.current) return
+        resumeAttempted.current = true
+
+        const waitForRazorpay = async (timeoutMs = 5000): Promise<boolean> => {
+            const start = Date.now()
+            while (Date.now() - start < timeoutMs) {
+                if (typeof window !== "undefined" && window.Razorpay) return true
+                await new Promise((r) => setTimeout(r, 150))
+            }
+            return Boolean(typeof window !== "undefined" && window.Razorpay)
+        }
+
+        ;(async () => {
+            try {
+                const order = await apiFetch<{
+                    razorpay_order_id: string
+                    razorpay_key_id: string | null
+                    receipt: string
+                    status: string
+                    amount: number
+                    currency: string
+                    item: { name: string; quantity: number }
+                    customer: { full_name: string; phone: string; email: string | null }
+                    shipping_address: { line1?: string; city?: string; state?: string; pincode?: string }
+                }>(`/orders/${encodeURIComponent(resumeOrderId)}`, { auth: true })
+
+                if (order.status === "paid") {
+                    router.replace("/account")
+                    return
+                }
+                if (order.status === "expired" || order.status === "failed") {
+                    setServerError("This order is no longer payable. Please start a new order.")
+                    setResumingState("error")
+                    return
+                }
+                if (!order.razorpay_key_id) {
+                    setServerError("Payment configuration missing. Please start a new order.")
+                    setResumingState("error")
+                    return
+                }
+
+                setResumingState("opening")
+                const ready = await waitForRazorpay()
+                if (!ready) {
+                    setServerError("Payment library failed to load. Refresh and try again.")
+                    setResumingState("error")
+                    return
+                }
+
+                const rzp = new window.Razorpay!({
+                    key: order.razorpay_key_id,
+                    amount: order.amount,
+                    currency: order.currency,
+                    order_id: order.razorpay_order_id,
+                    name: "Divya Darshan 360",
+                    description: order.item.name,
+                    prefill: {
+                        name: order.customer.full_name,
+                        email: order.customer.email || undefined,
+                        contact: order.customer.phone,
+                    },
+                    notes: { receipt: order.receipt },
+                    theme: { color: "#d4af37" },
+                    modal: {
+                        ondismiss: () => router.replace("/account"),
+                    },
+                    handler: async (resp: {
+                        razorpay_order_id: string
+                        razorpay_payment_id: string
+                        razorpay_signature: string
+                    }) => {
+                        try {
+                            await apiFetch("/orders/verify_payment", {
+                                method: "POST",
+                                auth: true,
+                                body: resp,
+                            })
+                            router.replace("/account")
+                        } catch (err) {
+                            const message =
+                                err instanceof ApiError
+                                    ? err.message
+                                    : err instanceof Error
+                                      ? err.message
+                                      : "We could not verify the payment. Please contact support."
+                            setServerError(message)
+                            setResumingState("error")
+                        }
+                    },
+                })
+                rzp.on("payment.failed", (resp: unknown) => {
+                    const r = resp as { error?: { description?: string } }
+                    setServerError(r?.error?.description || "Payment failed. Please try again.")
+                    setResumingState("error")
+                })
+                rzp.open()
+            } catch (err) {
+                const message =
+                    err instanceof ApiError
+                        ? err.message
+                        : err instanceof Error
+                          ? err.message
+                          : "Could not load the order to resume."
+                setServerError(message)
+                setResumingState("error")
+            }
+        })()
+    }, [resumeOrderId, user, authLoading, router])
 
     const subtotal = UNIT_PRICE * form.qty
     const youSave = (ORIGINAL_PRICE - UNIT_PRICE) * form.qty
@@ -356,6 +476,40 @@ export function CheckoutClient() {
         return (
             <div className="max-w-md mx-auto text-center text-muted-foreground py-16">
                 <Loader2 className="w-6 h-6 animate-spin mx-auto" />
+            </div>
+        )
+    }
+
+    // Resume mode: opening the modal for an existing pending order.
+    if (resumeOrderId && resumingState !== "idle") {
+        return (
+            <div className="max-w-md mx-auto text-center py-16">
+                {resumingState === "error" ? (
+                    <div className="flex items-start gap-3 glass rounded-2xl p-5 border border-destructive/40 text-left">
+                        <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                        <div className="text-sm">
+                            <p className="font-medium text-destructive mb-1">Could not resume order</p>
+                            <p className="text-muted-foreground">
+                                {serverError || "Something went wrong opening this order."}
+                            </p>
+                            <Link
+                                href="/account"
+                                className="text-xs text-primary hover:underline mt-3 inline-block"
+                            >
+                                ← Back to my orders
+                            </Link>
+                        </div>
+                    </div>
+                ) : (
+                    <>
+                        <Loader2 className="w-6 h-6 animate-spin mx-auto text-primary" />
+                        <p className="text-muted-foreground text-sm mt-3">
+                            {resumingState === "loading"
+                                ? "Loading your order…"
+                                : "Opening payment…"}
+                        </p>
+                    </>
+                )}
             </div>
         )
     }

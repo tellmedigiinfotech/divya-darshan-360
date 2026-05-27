@@ -10,8 +10,10 @@ import {
     Calendar,
     CheckCircle2,
     Clock,
+    CreditCard,
     FileText,
     Loader2,
+    PauseCircle,
     XCircle,
 } from "lucide-react"
 import { useAuth } from "@/components/auth-provider"
@@ -31,10 +33,14 @@ type OrderListItem = {
 }
 
 const STATUS_STYLES: Record<string, { label: string; cls: string; icon: typeof CheckCircle2 }> = {
-    paid: { label: "Paid", cls: "bg-green-500/15 text-green-600 dark:text-green-400 border-green-500/20", icon: CheckCircle2 },
+    paid: { label: "Confirmed", cls: "bg-green-500/15 text-green-600 dark:text-green-400 border-green-500/20", icon: CheckCircle2 },
     created: { label: "Pending", cls: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/20", icon: Clock },
+    awaiting_payment: { label: "Pending", cls: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/20", icon: PauseCircle },
     failed: { label: "Failed", cls: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/20", icon: XCircle },
+    expired: { label: "Expired", cls: "bg-gray-500/15 text-gray-500 dark:text-gray-400 border-gray-500/20", icon: XCircle },
 }
+
+const PENDING_STATUSES = new Set(["created", "awaiting_payment"])
 
 function formatTimestamp(value: string | null): string {
     if (!value) return ""
@@ -170,6 +176,21 @@ export function AccountClient() {
                                         <FileText className="w-4 h-4" />
                                         Receipt
                                     </Link>
+                                )}
+                                {PENDING_STATUSES.has(order.status) && (
+                                    <Link
+                                        href={`/vr-headset/checkout?resume=${encodeURIComponent(order.razorpay_order_id)}`}
+                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full divine-button shadow-(--saffron-glow) text-sm font-medium md:order-2"
+                                    >
+                                        <CreditCard className="w-4 h-4" />
+                                        Continue payment
+                                    </Link>
+                                )}
+                                {order.status === "expired" && (
+                                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300/40 text-gray-500 text-sm font-medium md:order-2">
+                                        <XCircle className="w-4 h-4" />
+                                        Order expired
+                                    </span>
                                 )}
                             </div>
                         </div>
