@@ -118,6 +118,10 @@ export function ReceiptClient({ orderId }: { orderId: string }) {
         if (typeof window !== "undefined") window.print()
     }
 
+    const trackMsg = `Hi, I'd like to track my order ${order.razorpay_order_id} (${order.item.name}). Thank you!`
+    const waHref = `https://wa.me/919049921850?text=${encodeURIComponent(trackMsg)}`
+    const mailHref = `mailto:connect@youtellme.ai?subject=${encodeURIComponent(`Track order ${order.razorpay_order_id}`)}&body=${encodeURIComponent(trackMsg)}`
+
     return (
         <main className="min-h-screen py-10 px-4 print:py-0 print:px-0 print:bg-white">
             {/* Toolbar — hidden during print */}
@@ -232,9 +236,28 @@ export function ReceiptClient({ orderId }: { orderId: string }) {
                         </div>
                     </div>
 
-                    <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900">
-                        Ships within 24 hours · 7-day replacement · Free in India.
-                        Questions? Email <span className="font-medium">connect@youtellme.ai</span> or call +91 90499 21850.
+                    <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900 space-y-2">
+                        <p>Ships within 24 hours · 7-day replacement · Free in India.</p>
+                        <div className="flex flex-wrap items-center gap-2 print:hidden">
+                            <span className="font-medium">Track this order:</span>
+                            <a
+                                href={waHref}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-600 text-white font-medium hover:bg-green-700 transition-colors"
+                            >
+                                WhatsApp
+                            </a>
+                            <a
+                                href={mailHref}
+                                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-700 text-white font-medium hover:bg-amber-800 transition-colors"
+                            >
+                                Email
+                            </a>
+                        </div>
+                        <p className="hidden print:block">
+                            Questions? Email <span className="font-medium">connect@youtellme.ai</span> or call +91 90499 21850.
+                        </p>
                     </div>
                 </div>
 

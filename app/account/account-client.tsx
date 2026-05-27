@@ -13,6 +13,8 @@ import {
     CreditCard,
     FileText,
     Loader2,
+    Mail,
+    MessageCircle,
     PauseCircle,
     XCircle,
 } from "lucide-react"
@@ -141,6 +143,9 @@ export function AccountClient() {
                 const status = STATUS_STYLES[order.status] || STATUS_STYLES.created
                 const StatusIcon = status.icon
                 const amountRupees = (order.status === "paid" ? order.amount_paid : order.amount) / 100
+                const trackMsg = `Hi, I'd like to track my order ${order.razorpay_order_id} (${order.product_name}). Thank you!`
+                const waHref = `https://wa.me/919049921850?text=${encodeURIComponent(trackMsg)}`
+                const mailHref = `mailto:connect@youtellme.ai?subject=${encodeURIComponent(`Track order ${order.razorpay_order_id}`)}&body=${encodeURIComponent(trackMsg)}`
                 return (
                     <motion.div
                         key={order.razorpay_order_id}
@@ -200,6 +205,31 @@ export function AccountClient() {
                                 )}
                             </div>
                         </div>
+                        {order.status === "paid" && (
+                            <div className="mt-4 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <p className="text-xs text-muted-foreground">
+                                    Track this order — reach out to us:
+                                </p>
+                                <div className="flex items-center gap-2">
+                                    <a
+                                        href={waHref}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-medium hover:bg-green-500 hover:text-white transition-all"
+                                    >
+                                        <MessageCircle className="w-3.5 h-3.5" />
+                                        WhatsApp
+                                    </a>
+                                    <a
+                                        href={mailHref}
+                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium hover:bg-primary hover:text-primary-foreground transition-all"
+                                    >
+                                        <Mail className="w-3.5 h-3.5" />
+                                        Email
+                                    </a>
+                                </div>
+                            </div>
+                        )}
                     </motion.div>
                 )
             })}

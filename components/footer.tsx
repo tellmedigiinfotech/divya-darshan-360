@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Mail, Instagram, Twitter, Facebook, Phone, Wallet } from "lucide-react"
+import { Mail, Instagram, Twitter, Facebook, Phone } from "lucide-react"
 
 export function Footer() {
   return (
@@ -54,10 +54,6 @@ export function Footer() {
             </Link>
             <Link href="/vr-headset" className="hover:text-primary transition-colors">
               Buy VR Headset
-            </Link>
-            <Link href="/payment-information" className="hover:text-foreground inline-flex items-center gap-1.5">
-              <Wallet className="w-3.5 h-3.5" />
-              Payment Information
             </Link>
             <Link href="/privacy#privacy" className="hover:text-foreground">
               Privacy Policy
