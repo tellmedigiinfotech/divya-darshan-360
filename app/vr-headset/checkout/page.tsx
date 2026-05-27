@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import Link from "next/link"
 import Script from "next/script"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Loader2 } from "lucide-react"
 import { siteUrl } from "@/lib/seo-config"
 import { BackgroundLotus } from "@/components/background-lotus"
 import { FloatingDiya } from "@/components/floating-diya"
@@ -66,7 +67,15 @@ export default function CheckoutPage() {
                     </p>
                 </div>
 
-                <CheckoutClient />
+                <Suspense
+                    fallback={
+                        <div className="max-w-md mx-auto text-center text-muted-foreground py-16">
+                            <Loader2 className="w-6 h-6 animate-spin mx-auto" />
+                        </div>
+                    }
+                >
+                    <CheckoutClient />
+                </Suspense>
             </section>
         </main>
     )
