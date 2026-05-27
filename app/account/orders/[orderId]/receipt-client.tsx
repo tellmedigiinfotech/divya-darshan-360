@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { AlertCircle, ArrowLeft, Loader2, Printer } from "lucide-react"
+import { AlertCircle, ArrowLeft, Loader2, Mail, MessageCircle, Printer, Truck } from "lucide-react"
 import { useAuth } from "@/components/auth-provider"
 import { apiFetch, ApiError } from "@/lib/api"
 
@@ -236,27 +236,47 @@ export function ReceiptClient({ orderId }: { orderId: string }) {
                         </div>
                     </div>
 
-                    <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900 space-y-2">
+                    <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900">
                         <p>Ships within 24 hours · 7-day replacement · Free in India.</p>
-                        <div className="flex flex-wrap items-center gap-2 print:hidden">
-                            <span className="font-medium">Track this order:</span>
+                        <p className="hidden print:block mt-1">
+                            Questions? Email <span className="font-medium">connect@youtellme.ai</span> or call +91 90499 21850.
+                        </p>
+                    </div>
+
+                    <div className="print:hidden rounded-2xl border border-amber-200/80 bg-gradient-to-br from-amber-50 via-orange-50/40 to-amber-50 p-5">
+                        <div className="flex items-start gap-3 mb-4">
+                            <div className="shrink-0 w-10 h-10 rounded-full bg-amber-100 border border-amber-300/60 flex items-center justify-center">
+                                <Truck className="w-5 h-5 text-amber-700" />
+                            </div>
+                            <div>
+                                <p className="font-serif text-base text-amber-900 leading-tight">
+                                    Track this order
+                                </p>
+                                <p className="text-xs text-amber-800/80 mt-1">
+                                    Our team will share shipping & delivery updates. We typically reply within a few hours.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-2.5 pl-13 sm:pl-0">
                             <a
                                 href={waHref}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-600 text-white font-medium hover:bg-green-700 transition-colors"
+                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-medium shadow-lg shadow-green-500/25 hover:shadow-green-500/50 hover:-translate-y-0.5 transition-all"
                             >
-                                WhatsApp
+                                <MessageCircle className="w-4 h-4" />
+                                Chat on WhatsApp
                             </a>
                             <a
                                 href={mailHref}
-                                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-700 text-white font-medium hover:bg-amber-800 transition-colors"
+                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-700 text-white text-sm font-medium shadow-lg shadow-amber-700/25 hover:bg-amber-800 hover:-translate-y-0.5 transition-all"
                             >
-                                Email
+                                <Mail className="w-4 h-4" />
+                                Send an Email
                             </a>
                         </div>
-                        <p className="hidden print:block">
-                            Questions? Email <span className="font-medium">connect@youtellme.ai</span> or call +91 90499 21850.
+                        <p className="text-[11px] text-amber-800/70 mt-4 pt-3 border-t border-amber-200/60">
+                            Or reach us at <span className="font-medium">connect@youtellme.ai</span> · <span className="font-medium">+91 90499 21850</span>
                         </p>
                     </div>
                 </div>

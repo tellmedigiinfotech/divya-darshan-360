@@ -16,6 +16,7 @@ import {
     Mail,
     MessageCircle,
     PauseCircle,
+    Truck,
     XCircle,
 } from "lucide-react"
 import { useAuth } from "@/components/auth-provider"
@@ -206,27 +207,39 @@ export function AccountClient() {
                             </div>
                         </div>
                         {order.status === "paid" && (
-                            <div className="mt-4 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                                <p className="text-xs text-muted-foreground">
-                                    Track this order — reach out to us:
-                                </p>
-                                <div className="flex items-center gap-2">
-                                    <a
-                                        href={waHref}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-medium hover:bg-green-500 hover:text-white transition-all"
-                                    >
-                                        <MessageCircle className="w-3.5 h-3.5" />
-                                        WhatsApp
-                                    </a>
-                                    <a
-                                        href={mailHref}
-                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium hover:bg-primary hover:text-primary-foreground transition-all"
-                                    >
-                                        <Mail className="w-3.5 h-3.5" />
-                                        Email
-                                    </a>
+                            <div className="mt-5 pt-5 border-t border-white/5">
+                                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                                    <div className="flex items-start gap-3">
+                                        <div className="shrink-0 w-9 h-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                                            <Truck className="w-4 h-4 text-primary" />
+                                        </div>
+                                        <div>
+                                            <p className="text-sm font-serif text-foreground leading-tight">
+                                                Track this order
+                                            </p>
+                                            <p className="text-xs text-muted-foreground mt-0.5">
+                                                Our team will share shipping & delivery updates.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <a
+                                            href={waHref}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-green-500 to-green-600 text-white text-sm font-medium shadow-md shadow-green-500/20 hover:shadow-green-500/40 hover:-translate-y-0.5 transition-all"
+                                        >
+                                            <MessageCircle className="w-4 h-4" />
+                                            WhatsApp
+                                        </a>
+                                        <a
+                                            href={mailHref}
+                                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur-md text-primary text-sm font-medium hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 transition-all"
+                                        >
+                                            <Mail className="w-4 h-4" />
+                                            Email
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         )}
