@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { notFound, useRouter } from "next/navigation"
 import {
     AlertCircle,
     ArrowRight,
@@ -20,8 +20,8 @@ import {
     Search,
     Truck,
 } from "lucide-react"
-import { ApiError } from "@/lib/api"
-import { adminFetch, clearAdminPassword, getAdminPassword } from "@/lib/admin-auth"
+import { useAuth } from "@/components/auth-provider"
+import { apiFetch, ApiError } from "@/lib/api"
 
 type AdminOrder = {
     razorpay_order_id: string
@@ -80,21 +80,23 @@ type FulfillmentFilter = "all" | "pending" | "shipped" | "delivered"
 
 export function AdminClient() {
     const router = useRouter()
+    const { user, loading: authLoading, signOut: firebaseSignOut } = useAuth()
     const [orders, setOrders] = useState<AdminOrder[] | null>(null)
     const [error, setError] = useState<string | null>(null)
     const [statusFilter, setStatusFilter] = useState<StatusFilter>("paid")
     const [fulfillmentFilter, setFulfillmentFilter] = useState<FulfillmentFilter>("all")
     const [search, setSearch] = useState("")
 
-    const signOut = () => {
-        clearAdminPassword()
+    const handleSignOut = async () => {
+        await firebaseSignOut()
         router.replace("/admin/login")
     }
 
     useEffect(() => {
-        if (!getAdminPassword()) {
-            router.replace("/admin/login?next=/admin")
-            return
+        if (authLoading) return
+        if (!user) {
+            // Treat unauthenticated /admin visits as if the route doesn't exist.
+            notFound()
         }
         let cancelled = false
         setError(null)
@@ -104,13 +106,12 @@ export function AdminClient() {
                 const qs = new URLSearchParams()
                 if (statusFilter !== "all") qs.set("status", statusFilter)
                 qs.set("limit", "200")
-                const list = await adminFetch<AdminOrder[]>(`/admin/orders?${qs.toString()}`)
+                const list = await apiFetch<AdminOrder[]>(`/admin/orders?${qs.toString()}`, { auth: true })
                 if (!cancelled) setOrders(list)
             } catch (err) {
                 if (cancelled) return
-                if (err instanceof ApiError && (err.status === 401 || err.status === 403)) {
-                    clearAdminPassword()
-                    router.replace("/admin/login?next=/admin")
+                if (err instanceof ApiError && err.status === 404) {
+                    notFound()
                     return
                 }
                 const msg = err instanceof ApiError ? err.message : err instanceof Error ? err.message : "Could not load orders."
@@ -120,7 +121,7 @@ export function AdminClient() {
         return () => {
             cancelled = true
         }
-    }, [router, statusFilter])
+    }, [user, authLoading, statusFilter])
 
     const filtered = useMemo(() => {
         if (!orders) return []
@@ -150,7 +151,7 @@ export function AdminClient() {
         })
     }, [orders, fulfillmentFilter, search])
 
-    if (!error && orders === null) {
+    if (authLoading || (!error && orders === null)) {
         return (
             <div className="max-w-md mx-auto text-center text-muted-foreground py-16">
                 <Loader2 className="w-6 h-6 animate-spin mx-auto" />
@@ -181,7 +182,7 @@ export function AdminClient() {
             <div className="flex justify-end">
                 <button
                     type="button"
-                    onClick={signOut}
+                    onClick={handleSignOut}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors"
                 >
                     <LogOut className="w-3.5 h-3.5" />

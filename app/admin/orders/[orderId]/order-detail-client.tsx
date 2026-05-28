@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
+import { notFound } from "next/navigation"
 import {
     AlertCircle,
     CheckCircle2,
@@ -15,8 +15,8 @@ import {
     Truck,
     User,
 } from "lucide-react"
-import { ApiError } from "@/lib/api"
-import { adminFetch, clearAdminPassword, getAdminPassword } from "@/lib/admin-auth"
+import { useAuth } from "@/components/auth-provider"
+import { apiFetch, ApiError } from "@/lib/api"
 
 type Address = {
     line1?: string
@@ -64,7 +64,7 @@ function formatTimestamp(value: string | null): string {
 }
 
 export function OrderDetailClient({ orderId }: { orderId: string }) {
-    const router = useRouter()
+    const { user, loading: authLoading } = useAuth()
     const [order, setOrder] = useState<OrderView | null>(null)
     const [error, setError] = useState<string | null>(null)
 
@@ -76,15 +76,14 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
 
     const load = async () => {
         try {
-            const data = await adminFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}`)
+            const data = await apiFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}`, { auth: true })
             setOrder(data)
             setTrackingNumber(data.tracking_number || "")
             setCourier(data.courier || "")
             setNotes(data.admin_notes || "")
         } catch (err) {
-            if (err instanceof ApiError && (err.status === 401 || err.status === 403)) {
-                clearAdminPassword()
-                router.replace(`/admin/login?next=/admin/orders/${encodeURIComponent(orderId)}`)
+            if (err instanceof ApiError && err.status === 404) {
+                notFound()
                 return
             }
             const msg = err instanceof ApiError ? err.message : err instanceof Error ? err.message : "Could not load order."
@@ -93,15 +92,15 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
     }
 
     useEffect(() => {
-        if (!getAdminPassword()) {
-            router.replace(`/admin/login?next=/admin/orders/${encodeURIComponent(orderId)}`)
-            return
+        if (authLoading) return
+        if (!user) {
+            notFound()
         }
         load()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [router, orderId])
+    }, [user, authLoading, orderId])
 
-    if (!error && !order) {
+    if (authLoading || (!error && !order)) {
         return (
             <div className="max-w-md mx-auto text-center py-16">
                 <Loader2 className="w-6 h-6 animate-spin mx-auto text-muted-foreground" />
@@ -128,8 +127,9 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
         setActionError(null)
         setSubmitting("ship")
         try {
-            const updated = await adminFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}/ship`, {
+            const updated = await apiFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}/ship`, {
                 method: "POST",
+                auth: true,
                 body: {
                     tracking_number: trackingNumber.trim(),
                     courier: courier.trim(),
@@ -148,8 +148,9 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
         setActionError(null)
         setSubmitting("deliver")
         try {
-            const updated = await adminFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}/deliver`, {
+            const updated = await apiFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}/deliver`, {
                 method: "POST",
+                auth: true,
                 body: { notes: notes.trim() || null },
             })
             setOrder(updated)
