@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: pageUrl,
         siteName: "Divya Darshan 360",
         title: "Checkout | Mobile VR Box",
-        description: "Complete your Mobile VR Box order — ₹599, free shipping in India.",
+        description: "Complete your Mobile VR Box order — ₹699, free shipping in India.",
     },
 }
 

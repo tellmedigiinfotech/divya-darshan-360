@@ -45,7 +45,7 @@ export function VrFinalCta() {
                                 className="group divine-button rounded-full px-9 py-5 inline-flex items-center gap-3 text-lg shadow-(--saffron-glow)"
                             >
                                 <ShoppingBag className="w-5 h-5" />
-                                <span className="font-serif tracking-wide">Buy Now · ₹10</span>
+                                <span className="font-serif tracking-wide">Buy Now · ₹699</span>
                             </Link>
 
                             <Link
