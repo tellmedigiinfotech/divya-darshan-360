@@ -601,7 +601,7 @@ export function CheckoutClient() {
 
                         <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
                             <span className="flex items-center gap-2">
-                                <Truck className="w-4 h-4 text-primary" /> Ships within 24 hours
+                                <Truck className="w-4 h-4 text-primary" /> Ships in 2–3 business days
                             </span>
                             <span className="flex items-center gap-2">
                                 <ShieldCheck className="w-4 h-4 text-primary" /> 7-day replacement
@@ -1006,7 +1006,7 @@ export function CheckoutClient() {
 
                         <div className="mt-5 flex flex-col gap-2.5 text-xs text-muted-foreground">
                             <span className="flex items-center gap-2">
-                                <Truck className="w-3.5 h-3.5 text-primary" /> Ships within 24 hours · Free in India
+                                <Truck className="w-3.5 h-3.5 text-primary" /> Ships in 2–3 business days · Free in India
                             </span>
                             <span className="flex items-center gap-2">
                                 <ShieldCheck className="w-3.5 h-3.5 text-primary" /> 7-day replacement guarantee

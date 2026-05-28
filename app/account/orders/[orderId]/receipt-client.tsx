@@ -237,7 +237,7 @@ export function ReceiptClient({ orderId }: { orderId: string }) {
                     </div>
 
                     <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900">
-                        <p>Ships within 24 hours · 7-day replacement · Free in India.</p>
+                        <p>Ships in 2–3 business days · 7-day replacement · Free in India.</p>
                         <p className="hidden print:block mt-1">
                             Questions? Email <span className="font-medium">connect@youtellme.ai</span> or call +91 90499 21850.
                         </p>

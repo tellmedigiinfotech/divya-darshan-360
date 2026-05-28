@@ -21,6 +21,6 @@ export const vrFaqs = [
     },
     {
         q: "How long does shipping take?",
-        a: "We ship within 24 hours of order confirmation. Delivery takes 3–5 business days across India and is free for all orders. International shipping is available on request.",
+        a: "We ship in 2–3 business days from order confirmation. Delivery takes 3–5 business days across India and is free for all orders. International shipping is available on request.",
     },
 ]
