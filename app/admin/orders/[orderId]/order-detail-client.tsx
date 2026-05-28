@@ -97,7 +97,7 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
     useEffect(() => {
         if (authLoading) return
         if (!user) {
-            router.replace(`/login?next=/admin/orders/${encodeURIComponent(orderId)}`)
+            router.replace(`/admin/login?next=/admin/orders/${encodeURIComponent(orderId)}`)
             return
         }
         load()

@@ -91,7 +91,7 @@ export function AdminClient() {
     useEffect(() => {
         if (authLoading) return
         if (!user) {
-            router.replace("/login?next=/admin")
+            router.replace("/admin/login?next=/admin")
             return
         }
         let cancelled = false
