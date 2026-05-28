@@ -7,7 +7,6 @@ import {
     CheckCircle2,
     Copy,
     Loader2,
-    Lock,
     Mail,
     MapPin,
     MessageCircle,
@@ -16,8 +15,8 @@ import {
     Truck,
     User,
 } from "lucide-react"
-import { useAuth } from "@/components/auth-provider"
-import { apiFetch, ApiError } from "@/lib/api"
+import { ApiError } from "@/lib/api"
+import { adminFetch, clearAdminPassword, getAdminPassword } from "@/lib/admin-auth"
 
 type Address = {
     line1?: string
@@ -66,10 +65,8 @@ function formatTimestamp(value: string | null): string {
 
 export function OrderDetailClient({ orderId }: { orderId: string }) {
     const router = useRouter()
-    const { user, loading: authLoading } = useAuth()
     const [order, setOrder] = useState<OrderView | null>(null)
     const [error, setError] = useState<string | null>(null)
-    const [forbidden, setForbidden] = useState(false)
 
     const [trackingNumber, setTrackingNumber] = useState("")
     const [courier, setCourier] = useState("")
@@ -79,14 +76,15 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
 
     const load = async () => {
         try {
-            const data = await apiFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}`, { auth: true })
+            const data = await adminFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}`)
             setOrder(data)
             setTrackingNumber(data.tracking_number || "")
             setCourier(data.courier || "")
             setNotes(data.admin_notes || "")
         } catch (err) {
-            if (err instanceof ApiError && err.status === 403) {
-                setForbidden(true)
+            if (err instanceof ApiError && (err.status === 401 || err.status === 403)) {
+                clearAdminPassword()
+                router.replace(`/admin/login?next=/admin/orders/${encodeURIComponent(orderId)}`)
                 return
             }
             const msg = err instanceof ApiError ? err.message : err instanceof Error ? err.message : "Could not load order."
@@ -95,28 +93,18 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
     }
 
     useEffect(() => {
-        if (authLoading) return
-        if (!user) {
+        if (!getAdminPassword()) {
             router.replace(`/admin/login?next=/admin/orders/${encodeURIComponent(orderId)}`)
             return
         }
         load()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user, authLoading, router, orderId])
+    }, [router, orderId])
 
-    if (authLoading || (!error && !forbidden && !order)) {
+    if (!error && !order) {
         return (
             <div className="max-w-md mx-auto text-center py-16">
                 <Loader2 className="w-6 h-6 animate-spin mx-auto text-muted-foreground" />
-            </div>
-        )
-    }
-
-    if (forbidden) {
-        return (
-            <div className="max-w-md mx-auto text-center glass rounded-3xl p-10 border border-destructive/30">
-                <Lock className="w-10 h-10 text-destructive mx-auto mb-4" />
-                <h2 className="text-xl font-serif mb-2">Admin access required</h2>
             </div>
         )
     }
@@ -140,9 +128,8 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
         setActionError(null)
         setSubmitting("ship")
         try {
-            const updated = await apiFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}/ship`, {
+            const updated = await adminFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}/ship`, {
                 method: "POST",
-                auth: true,
                 body: {
                     tracking_number: trackingNumber.trim(),
                     courier: courier.trim(),
@@ -161,9 +148,8 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
         setActionError(null)
         setSubmitting("deliver")
         try {
-            const updated = await apiFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}/deliver`, {
+            const updated = await adminFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}/deliver`, {
                 method: "POST",
-                auth: true,
                 body: { notes: notes.trim() || null },
             })
             setOrder(updated)

@@ -3,55 +3,49 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
-import { AlertCircle, ArrowLeft, Loader2, ShieldCheck } from "lucide-react"
-import { useAuth } from "@/components/auth-provider"
-import { getFirebaseAuth } from "@/lib/firebase"
+import { AlertCircle, ArrowLeft, Eye, EyeOff, Loader2, ShieldCheck } from "lucide-react"
+import {
+    getAdminPassword,
+    setAdminPassword,
+    verifyAdminPassword,
+} from "@/lib/admin-auth"
 
 export function AdminLoginClient() {
     const router = useRouter()
     const params = useSearchParams()
-    const { user, loading } = useAuth()
-    const [signingIn, setSigningIn] = useState(false)
+    const [password, setPassword] = useState("")
+    const [showPw, setShowPw] = useState(false)
+    const [submitting, setSubmitting] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
     const next = params.get("next") || "/admin"
 
     useEffect(() => {
-        if (!loading && user) router.replace(next)
-    }, [user, loading, next, router])
+        if (getAdminPassword()) router.replace(next)
+    }, [next, router])
 
-    const signInGoogle = async () => {
-        setError(null)
-        setSigningIn(true)
-        try {
-            const auth = getFirebaseAuth()
-            const provider = new GoogleAuthProvider()
-            provider.setCustomParameters({ prompt: "select_account" })
-            await signInWithPopup(auth, provider)
-            // The useEffect above will redirect once `user` populates.
-        } catch (err) {
-            const code = (err as { code?: string })?.code
-            if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") {
-                setError(null)
-            } else if (code === "auth/operation-not-allowed") {
-                setError(
-                    "Google sign-in isn't enabled for this project yet. Enable it in Firebase Console → Authentication → Sign-in method.",
-                )
-            } else {
-                setError(err instanceof Error ? err.message : "Sign-in failed.")
-            }
-        } finally {
-            setSigningIn(false)
+    const submit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        const pw = password.trim()
+        if (!pw) {
+            setError("Enter the admin password.")
+            return
         }
-    }
-
-    if (loading) {
-        return (
-            <div className="text-center text-muted-foreground">
-                <Loader2 className="w-6 h-6 animate-spin mx-auto" />
-            </div>
-        )
+        setError(null)
+        setSubmitting(true)
+        try {
+            const ok = await verifyAdminPassword(pw)
+            if (!ok) {
+                setError("Incorrect password.")
+                return
+            }
+            setAdminPassword(pw)
+            router.replace(next)
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "Could not verify password.")
+        } finally {
+            setSubmitting(false)
+        }
     }
 
     return (
@@ -64,55 +58,64 @@ export function AdminLoginClient() {
                 Back to site
             </Link>
 
-            <div className="glass rounded-3xl p-8 ornate-border text-center">
-                <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mx-auto mb-5">
-                    <ShieldCheck className="w-6 h-6 text-primary" />
-                </div>
-                <span className="text-primary tracking-[0.3em] uppercase text-xs block mb-2">Admin</span>
-                <h1 className="text-2xl font-serif mb-2">Sign in</h1>
-                <p className="text-sm text-muted-foreground mb-6">
-                    Use a Google account that's on the admin allowlist.
-                </p>
-
-                <button
-                    type="button"
-                    onClick={signInGoogle}
-                    disabled={signingIn}
-                    className="w-full inline-flex items-center justify-center gap-3 px-5 py-3 rounded-full bg-white text-gray-800 text-sm font-medium border border-gray-200 hover:bg-gray-50 hover:-translate-y-0.5 transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                >
-                    {signingIn ? (
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                    ) : (
-                        <svg className="w-5 h-5" viewBox="0 0 48 48" aria-hidden="true">
-                            <path
-                                fill="#FFC107"
-                                d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"
-                            />
-                            <path
-                                fill="#FF3D00"
-                                d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"
-                            />
-                            <path
-                                fill="#4CAF50"
-                                d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"
-                            />
-                            <path
-                                fill="#1976D2"
-                                d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571.001-.001.002-.001.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"
-                            />
-                        </svg>
-                    )}
-                    {signingIn ? "Signing in…" : "Sign in with Google"}
-                </button>
-
-                {error && (
-                    <div className="mt-4 flex items-start gap-2 text-xs text-destructive text-left">
-                        <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-                        <p>{error}</p>
+            <div className="glass rounded-3xl p-8 ornate-border">
+                <div className="text-center mb-6">
+                    <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mx-auto mb-5">
+                        <ShieldCheck className="w-6 h-6 text-primary" />
                     </div>
-                )}
+                    <span className="text-primary tracking-[0.3em] uppercase text-xs block mb-2">Admin</span>
+                    <h1 className="text-2xl font-serif mb-2">Sign in</h1>
+                    <p className="text-sm text-muted-foreground">
+                        Enter the shared admin password.
+                    </p>
+                </div>
 
-                <p className="text-[11px] text-muted-foreground mt-6">
+                <form onSubmit={submit} className="space-y-4">
+                    <div>
+                        <label htmlFor="admin-password" className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5 block">
+                            Password
+                        </label>
+                        <div className="relative">
+                            <input
+                                id="admin-password"
+                                type={showPw ? "text" : "password"}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                autoFocus
+                                autoComplete="current-password"
+                                className="w-full px-4 py-3 pr-11 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-colors"
+                                placeholder="••••••••"
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPw((s) => !s)}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                                tabIndex={-1}
+                                aria-label={showPw ? "Hide password" : "Show password"}
+                            >
+                                {showPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                            </button>
+                        </div>
+                    </div>
+
+                    {error && (
+                        <div className="flex items-start gap-2 text-xs text-destructive">
+                            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                            <p>{error}</p>
+                        </div>
+                    )}
+
+                    <button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full divine-button shadow-(--saffron-glow) text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        {submitting && <Loader2 className="w-4 h-4 animate-spin" />}
+                        {submitting ? "Verifying…" : "Sign in"}
+                    </button>
+                </form>
+
+                <p className="text-[11px] text-muted-foreground text-center mt-6">
                     Customers sign in via{" "}
                     <Link href="/login" className="underline hover:text-primary">
                         phone OTP

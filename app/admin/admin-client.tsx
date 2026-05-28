@@ -10,7 +10,7 @@ import {
     ClipboardList,
     Filter,
     Loader2,
-    Lock,
+    LogOut,
     Mail,
     MapPin,
     MessageCircle,
@@ -20,8 +20,8 @@ import {
     Search,
     Truck,
 } from "lucide-react"
-import { useAuth } from "@/components/auth-provider"
-import { apiFetch, ApiError } from "@/lib/api"
+import { ApiError } from "@/lib/api"
+import { adminFetch, clearAdminPassword, getAdminPassword } from "@/lib/admin-auth"
 
 type AdminOrder = {
     razorpay_order_id: string
@@ -80,35 +80,37 @@ type FulfillmentFilter = "all" | "pending" | "shipped" | "delivered"
 
 export function AdminClient() {
     const router = useRouter()
-    const { user, loading: authLoading } = useAuth()
     const [orders, setOrders] = useState<AdminOrder[] | null>(null)
     const [error, setError] = useState<string | null>(null)
-    const [forbidden, setForbidden] = useState(false)
     const [statusFilter, setStatusFilter] = useState<StatusFilter>("paid")
     const [fulfillmentFilter, setFulfillmentFilter] = useState<FulfillmentFilter>("all")
     const [search, setSearch] = useState("")
 
+    const signOut = () => {
+        clearAdminPassword()
+        router.replace("/admin/login")
+    }
+
     useEffect(() => {
-        if (authLoading) return
-        if (!user) {
+        if (!getAdminPassword()) {
             router.replace("/admin/login?next=/admin")
             return
         }
         let cancelled = false
         setError(null)
-        setForbidden(false)
         setOrders(null)
         ;(async () => {
             try {
                 const qs = new URLSearchParams()
                 if (statusFilter !== "all") qs.set("status", statusFilter)
                 qs.set("limit", "200")
-                const list = await apiFetch<AdminOrder[]>(`/admin/orders?${qs.toString()}`, { auth: true })
+                const list = await adminFetch<AdminOrder[]>(`/admin/orders?${qs.toString()}`)
                 if (!cancelled) setOrders(list)
             } catch (err) {
                 if (cancelled) return
-                if (err instanceof ApiError && err.status === 403) {
-                    setForbidden(true)
+                if (err instanceof ApiError && (err.status === 401 || err.status === 403)) {
+                    clearAdminPassword()
+                    router.replace("/admin/login?next=/admin")
                     return
                 }
                 const msg = err instanceof ApiError ? err.message : err instanceof Error ? err.message : "Could not load orders."
@@ -118,7 +120,7 @@ export function AdminClient() {
         return () => {
             cancelled = true
         }
-    }, [user, authLoading, router, statusFilter])
+    }, [router, statusFilter])
 
     const filtered = useMemo(() => {
         if (!orders) return []
@@ -148,22 +150,10 @@ export function AdminClient() {
         })
     }, [orders, fulfillmentFilter, search])
 
-    if (authLoading || (!error && !forbidden && orders === null)) {
+    if (!error && orders === null) {
         return (
             <div className="max-w-md mx-auto text-center text-muted-foreground py-16">
                 <Loader2 className="w-6 h-6 animate-spin mx-auto" />
-            </div>
-        )
-    }
-
-    if (forbidden) {
-        return (
-            <div className="max-w-md mx-auto text-center glass rounded-3xl p-10 border border-destructive/30">
-                <Lock className="w-10 h-10 text-destructive mx-auto mb-4" />
-                <h2 className="text-xl font-serif mb-2">Admin access required</h2>
-                <p className="text-sm text-muted-foreground">
-                    Your account isn't on the admin allowlist. If you believe this is a mistake, contact the maintainer to be added.
-                </p>
             </div>
         )
     }
@@ -188,6 +178,17 @@ export function AdminClient() {
 
     return (
         <div className="max-w-7xl mx-auto space-y-6">
+            <div className="flex justify-end">
+                <button
+                    type="button"
+                    onClick={signOut}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors"
+                >
+                    <LogOut className="w-3.5 h-3.5" />
+                    Sign out
+                </button>
+            </div>
+
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 <StatCard label="Total" value={total} Icon={ClipboardList} />
