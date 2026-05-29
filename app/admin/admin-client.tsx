@@ -51,6 +51,7 @@ const STATUS_STYLES: Record<string, { label: string; cls: string }> = {
     created: { label: "Pending", cls: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30" },
     awaiting_payment: { label: "Awaiting UPI", cls: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30" },
     cod_pending: { label: "COD", cls: "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30" },
+    refunded: { label: "Refunded", cls: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30" },
     failed: { label: "Failed", cls: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30" },
     expired: { label: "Expired", cls: "bg-gray-500/15 text-gray-500 dark:text-gray-400 border-gray-500/30" },
 }
@@ -77,7 +78,7 @@ function formatDate(value: string | null): string {
     return value
 }
 
-type StatusFilter = "all" | "paid" | "created" | "awaiting_payment" | "cod_pending" | "failed" | "expired"
+type StatusFilter = "all" | "paid" | "created" | "awaiting_payment" | "cod_pending" | "refunded" | "failed" | "expired"
 type FulfillmentFilter = "all" | "pending" | "shipped" | "delivered"
 
 export function AdminClient() {
@@ -211,6 +212,7 @@ export function AdminClient() {
                     <FilterChip active={statusFilter === "paid"} onClick={() => setStatusFilter("paid")}>Paid</FilterChip>
                     <FilterChip active={statusFilter === "cod_pending"} onClick={() => setStatusFilter("cod_pending")}>COD</FilterChip>
                     <FilterChip active={statusFilter === "created"} onClick={() => setStatusFilter("created")}>Pending</FilterChip>
+                    <FilterChip active={statusFilter === "refunded"} onClick={() => setStatusFilter("refunded")}>Refunded</FilterChip>
                     <FilterChip active={statusFilter === "failed"} onClick={() => setStatusFilter("failed")}>Failed</FilterChip>
                     <FilterChip active={statusFilter === "expired"} onClick={() => setStatusFilter("expired")}>Expired</FilterChip>
                 </div>

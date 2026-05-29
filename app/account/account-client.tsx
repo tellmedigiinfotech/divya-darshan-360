@@ -17,6 +17,7 @@ import {
     Mail,
     MessageCircle,
     PauseCircle,
+    RotateCcw,
     Truck,
     XCircle,
 } from "lucide-react"
@@ -41,6 +42,7 @@ const STATUS_STYLES: Record<string, { label: string; cls: string; icon: typeof C
     created: { label: "Pending", cls: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/20", icon: Clock },
     awaiting_payment: { label: "Pending", cls: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/20", icon: PauseCircle },
     cod_pending: { label: "Cash on Delivery", cls: "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/20", icon: Banknote },
+    refunded: { label: "Refunded", cls: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/20", icon: RotateCcw },
     failed: { label: "Failed", cls: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/20", icon: XCircle },
     expired: { label: "Expired", cls: "bg-gray-500/15 text-gray-500 dark:text-gray-400 border-gray-500/20", icon: XCircle },
 }

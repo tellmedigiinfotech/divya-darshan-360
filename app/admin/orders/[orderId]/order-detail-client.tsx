@@ -12,6 +12,7 @@ import {
     MessageCircle,
     PackageCheck,
     Phone,
+    RotateCcw,
     Truck,
     User,
 } from "lucide-react"
@@ -46,6 +47,12 @@ type OrderView = {
     delivered_at: string | null
     admin_notes: string | null
     payment_method: string | null
+    razorpay_payment_id: string | null
+    refund_id: string | null
+    refund_amount: number | null
+    refund_status: string | null
+    refunded_at: string | null
+    refund_reason: string | null
 }
 
 function formatTimestamp(value: string | null): string {
@@ -72,8 +79,13 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
     const [trackingNumber, setTrackingNumber] = useState("")
     const [courier, setCourier] = useState("")
     const [notes, setNotes] = useState("")
-    const [submitting, setSubmitting] = useState<"ship" | "deliver" | null>(null)
+    const [submitting, setSubmitting] = useState<"ship" | "deliver" | "refund" | null>(null)
     const [actionError, setActionError] = useState<string | null>(null)
+
+    const [refundAmount, setRefundAmount] = useState("")
+    const [refundReason, setRefundReason] = useState("")
+    const [refundInstant, setRefundInstant] = useState(false)
+    const [refundConfirm, setRefundConfirm] = useState(false)
 
     const load = async () => {
         try {
@@ -162,6 +174,43 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
         }
     }
 
+    const refund = async () => {
+        if (!order) return
+        if (refundReason.trim().length < 2) {
+            setActionError("Please enter a reason for the refund.")
+            return
+        }
+        const rupees = refundAmount.trim() ? Number(refundAmount.trim()) : NaN
+        const fullRupees = order.amount_paid / 100
+        const amount_paise =
+            refundAmount.trim() === "" || rupees === fullRupees
+                ? null
+                : Math.round(rupees * 100)
+        if (amount_paise !== null && (Number.isNaN(rupees) || rupees < 1 || rupees * 100 > order.amount_paid)) {
+            setActionError(`Refund amount must be between Re 1 and Rs ${fullRupees}.`)
+            return
+        }
+        setActionError(null)
+        setSubmitting("refund")
+        try {
+            const updated = await apiFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}/refund`, {
+                method: "POST",
+                auth: true,
+                body: {
+                    amount_paise,
+                    reason: refundReason.trim(),
+                    instant: refundInstant,
+                },
+            })
+            setOrder(updated)
+            setRefundConfirm(false)
+        } catch (err) {
+            setActionError(err instanceof ApiError ? err.message : err instanceof Error ? err.message : "Refund failed.")
+        } finally {
+            setSubmitting(null)
+        }
+    }
+
     const isPaid = order.status === "paid"
     const isCod = order.status === "cod_pending"
     const isFulfillable = isPaid || isCod
@@ -184,7 +233,7 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                     <div className="text-right">
                         <p className="text-3xl font-serif text-primary">₹{amountRupees.toLocaleString("en-IN")}</p>
                         <div className="mt-2 flex flex-wrap gap-1.5 justify-end">
-                            <Badge tone={isPaid ? "green" : isCod ? "blue" : "amber"}>
+                            <Badge tone={order.status === "refunded" ? "red" : isPaid ? "green" : isCod ? "blue" : "amber"}>
                                 {isCod ? "COD" : order.status.toUpperCase()}
                             </Badge>
                             {ff && <Badge tone={ff === "delivered" ? "emerald" : ff === "shipped" ? "blue" : "orange"}>{ff.toUpperCase()}</Badge>}
@@ -358,6 +407,175 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                     )}
                 </div>
             )}
+
+            {/* Refund panel — only meaningful for Razorpay-paid orders.
+                Already-refunded orders show the refund summary instead. */}
+            {order.razorpay_payment_id && order.status !== "cod_pending" && (
+                <RefundPanel
+                    order={order}
+                    refundAmount={refundAmount}
+                    setRefundAmount={setRefundAmount}
+                    refundReason={refundReason}
+                    setRefundReason={setRefundReason}
+                    refundInstant={refundInstant}
+                    setRefundInstant={setRefundInstant}
+                    refundConfirm={refundConfirm}
+                    setRefundConfirm={setRefundConfirm}
+                    submitting={submitting}
+                    actionError={actionError}
+                    onRefund={refund}
+                />
+            )}
+        </div>
+    )
+}
+
+function RefundPanel({
+    order,
+    refundAmount,
+    setRefundAmount,
+    refundReason,
+    setRefundReason,
+    refundInstant,
+    setRefundInstant,
+    refundConfirm,
+    setRefundConfirm,
+    submitting,
+    actionError,
+    onRefund,
+}: {
+    order: OrderView
+    refundAmount: string
+    setRefundAmount: (v: string) => void
+    refundReason: string
+    setRefundReason: (v: string) => void
+    refundInstant: boolean
+    setRefundInstant: (v: boolean) => void
+    refundConfirm: boolean
+    setRefundConfirm: (v: boolean) => void
+    submitting: "ship" | "deliver" | "refund" | null
+    actionError: string | null
+    onRefund: () => void
+}) {
+    const fullRupees = order.amount_paid / 100
+    const alreadyRefunded = order.status === "refunded" || !!order.refund_id
+
+    return (
+        <div className="glass rounded-3xl p-6 md:p-8">
+            <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                    <RotateCcw className="w-5 h-5 text-red-500" />
+                </div>
+                <div>
+                    <h2 className="font-serif text-lg leading-tight">Refund</h2>
+                    <p className="text-xs text-muted-foreground">
+                        Issue a Razorpay refund to the customer's original payment method.
+                    </p>
+                </div>
+            </div>
+
+            {alreadyRefunded ? (
+                <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.06] p-4 text-sm">
+                    <div className="flex items-center gap-2 text-emerald-500 font-medium mb-1.5">
+                        <CheckCircle2 className="w-4 h-4" />
+                        Refund processed
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-muted-foreground">
+                        <p>Amount: <span className="text-foreground">₹{((order.refund_amount || 0) / 100).toLocaleString("en-IN")}</span></p>
+                        <p>Status: <span className="text-foreground">{order.refund_status || "—"}</span></p>
+                        {order.refund_id && <p className="font-mono text-[11px] break-all sm:col-span-2">Refund ID: {order.refund_id}</p>}
+                        {order.refunded_at && <p className="sm:col-span-2">When: {formatTimestamp(order.refunded_at)}</p>}
+                        {order.refund_reason && <p className="sm:col-span-2 italic">Reason: {order.refund_reason}</p>}
+                    </div>
+                </div>
+            ) : (
+                <>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <Field label={`Amount (₹) — leave blank for full ₹${fullRupees}`}>
+                            <input
+                                type="number"
+                                inputMode="decimal"
+                                min="1"
+                                max={fullRupees}
+                                value={refundAmount}
+                                onChange={(e) => setRefundAmount(e.target.value)}
+                                placeholder={`${fullRupees}`}
+                                className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-red-500/50"
+                            />
+                        </Field>
+                        <label className="flex items-center gap-2 self-end pb-2 text-xs text-muted-foreground cursor-pointer select-none">
+                            <input
+                                type="checkbox"
+                                checked={refundInstant}
+                                onChange={(e) => setRefundInstant(e.target.checked)}
+                                className="accent-red-500"
+                            />
+                            Instant refund (if eligible — UPI/cards only)
+                        </label>
+                        <div className="md:col-span-2">
+                            <Field label="Reason (visible internally, sent to Razorpay notes)">
+                                <textarea
+                                    value={refundReason}
+                                    onChange={(e) => setRefundReason(e.target.value)}
+                                    rows={2}
+                                    placeholder="e.g. Customer requested cancellation"
+                                    className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-red-500/50 resize-none"
+                                />
+                            </Field>
+                        </div>
+                    </div>
+
+                    {actionError && (
+                        <div className="mt-3 flex items-start gap-2 text-xs text-destructive">
+                            <AlertCircle className="w-4 h-4 shrink-0" />
+                            <p>{actionError}</p>
+                        </div>
+                    )}
+
+                    {!refundConfirm ? (
+                        <div className="mt-5">
+                            <button
+                                type="button"
+                                onClick={() => setRefundConfirm(true)}
+                                disabled={submitting !== null}
+                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-linear-to-r from-red-500 to-red-600 text-white text-sm font-medium shadow-md shadow-red-500/20 hover:shadow-red-500/40 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                            >
+                                <RotateCcw className="w-4 h-4" />
+                                Issue refund…
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/[0.05] p-4">
+                            <p className="text-sm font-medium mb-1">Confirm refund</p>
+                            <p className="text-xs text-muted-foreground mb-3">
+                                ₹{refundAmount.trim() ? Number(refundAmount).toLocaleString("en-IN") : fullRupees.toLocaleString("en-IN")} will be
+                                refunded to the customer&apos;s original payment method via Razorpay
+                                {refundInstant ? " (attempted instantly)" : " (5–7 business days)"}.
+                                This cannot be undone.
+                            </p>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    type="button"
+                                    onClick={onRefund}
+                                    disabled={submitting !== null}
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-600 text-white text-sm font-medium hover:bg-red-700 transition-colors disabled:opacity-50"
+                                >
+                                    {submitting === "refund" ? <Loader2 className="w-4 h-4 animate-spin" /> : <RotateCcw className="w-4 h-4" />}
+                                    Yes, refund now
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setRefundConfirm(false)}
+                                    disabled={submitting === "refund"}
+                                    className="px-4 py-2 rounded-full text-xs text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                </>
+            )}
         </div>
     )
 }
@@ -371,13 +589,14 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
     )
 }
 
-function Badge({ tone, children }: { tone: "green" | "amber" | "blue" | "orange" | "emerald"; children: React.ReactNode }) {
+function Badge({ tone, children }: { tone: "green" | "amber" | "blue" | "orange" | "emerald" | "red"; children: React.ReactNode }) {
     const cls = {
         green: "bg-green-500/15 text-green-600 dark:text-green-400 border-green-500/30",
         amber: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30",
         blue: "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30",
         orange: "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30",
         emerald: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
+        red: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30",
     }[tone]
     return (
         <span className={`inline-flex items-center text-[10px] font-medium px-2 py-0.5 rounded-full border ${cls}`}>
