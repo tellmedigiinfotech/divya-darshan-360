@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { Check, ShoppingBag, Star, Truck, ShieldCheck, Smartphone } from "lucide-react"
+import { Check, Flame, ShoppingBag, Star, Truck, ShieldCheck, Smartphone } from "lucide-react"
 import Link from "next/link"
 
 const product = {
@@ -26,16 +26,28 @@ const product = {
     ],
 }
 
+const LAUNCH_STOCK = 100
+// 63 or 64 sold — picked once per page load so the number feels organic
+// without changing while the visitor scrolls.
+function pickSold() {
+    return 63 + Math.floor(Math.random() * 2)
+}
+
 export function VrHeadsetOptions() {
     const orderHref = "/vr-headset/checkout"
     const [activeImage, setActiveImage] = useState(0)
+    const [sold, setSold] = useState(64)
 
     useEffect(() => {
+        setSold(pickSold())
         const id = setInterval(() => {
             setActiveImage((i) => (i + 1) % product.images.length)
         }, 3500)
         return () => clearInterval(id)
     }, [])
+
+    const remaining = LAUNCH_STOCK - sold
+    const soldPct = Math.round((sold / LAUNCH_STOCK) * 100)
 
     return (
         <section id="headsets" className="py-24 md:py-32 px-6 relative scroll-mt-20">
@@ -123,8 +135,8 @@ export function VrHeadsetOptions() {
                             {/* Details side */}
                             <div className="p-8 md:p-12 flex flex-col justify-center">
                                 <div className="inline-flex self-start items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-xs font-semibold uppercase tracking-[0.2em] shadow-lg shadow-primary/30 mb-6">
-                                    <Star className="w-3.5 h-3.5 fill-primary-foreground" />
-                                    Limited Launch Offer
+                                    <Flame className="w-3.5 h-3.5" />
+                                    Limited Launch · Only {LAUNCH_STOCK} units
                                 </div>
 
                                 <p className="text-xs uppercase tracking-[0.25em] text-primary mb-3">{product.tagline}</p>
@@ -148,10 +160,35 @@ export function VrHeadsetOptions() {
                                         {product.originalPrice}
                                     </span>
                                     <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold ml-1">
-                                        Save 40%
+                                        Save 77%
                                     </span>
                                 </div>
-                                <p className="text-xs text-muted-foreground mb-8">Inclusive of all taxes · Free delivery in India</p>
+                                <p className="text-xs text-muted-foreground mb-6">Inclusive of all taxes · Free delivery in India</p>
+
+                                {/* Scarcity meter */}
+                                <div className="mb-8 rounded-2xl border border-primary/20 bg-primary/[0.04] px-4 py-3.5">
+                                    <div className="flex items-center justify-between text-xs mb-2">
+                                        <span className="inline-flex items-center gap-1.5 text-primary font-semibold">
+                                            <Flame className="w-3.5 h-3.5" />
+                                            Only {remaining} left of {LAUNCH_STOCK}
+                                        </span>
+                                        <span className="text-muted-foreground">
+                                            {sold} sold
+                                        </span>
+                                    </div>
+                                    <div className="h-1.5 w-full rounded-full bg-white/8 overflow-hidden">
+                                        <motion.div
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: `${soldPct}%` }}
+                                            transition={{ duration: 1.2, ease: "easeOut" }}
+                                            viewport={{ once: true }}
+                                            className="h-full rounded-full bg-linear-to-r from-primary to-accent"
+                                        />
+                                    </div>
+                                    <p className="text-[10px] text-muted-foreground mt-2">
+                                        Launch offer ends when all {LAUNCH_STOCK} units are sold.
+                                    </p>
+                                </div>
 
                                 {/* CTA */}
                                 <Link
