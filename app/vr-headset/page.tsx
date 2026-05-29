@@ -70,7 +70,7 @@ export default function VrHeadsetPage() {
         image: `${siteUrl}/vr-divine-experience.png`,
         offers: {
             "@type": "Offer",
-            price: "599",
+            price: "699",
             priceCurrency: "INR",
             availability: "https://schema.org/InStock",
             url: pageUrl,
@@ -154,9 +154,9 @@ export default function VrHeadsetPage() {
             </div>
 
             {/* Sections */}
+            <VrHeadsetOptions />
             <VrHero />
             <VrFeatureCards />
-            <VrHeadsetOptions />
             <VrHowItWorks />
             <VrTestimonials />
             <VrFaq />

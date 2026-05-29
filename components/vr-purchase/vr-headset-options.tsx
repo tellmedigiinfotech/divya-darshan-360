@@ -9,7 +9,7 @@ const product = {
     name: "Mobile VR Box",
     tagline: "One headset · One price · Universal compatibility",
     price: "₹699",
-    originalPrice: "₹999",
+    originalPrice: "₹2999",
     images: ["/vr_set2.png", "/vr_set.png"],
     rating: "4.8",
     features: [
