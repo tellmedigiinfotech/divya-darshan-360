@@ -28,6 +28,7 @@ type AdminOrder = {
     receipt: string
     status: string
     fulfillment_status: string | null
+    payment_method: string | null
     amount: number
     amount_paid: number
     currency: string
@@ -49,6 +50,7 @@ const STATUS_STYLES: Record<string, { label: string; cls: string }> = {
     paid: { label: "Paid", cls: "bg-green-500/15 text-green-600 dark:text-green-400 border-green-500/30" },
     created: { label: "Pending", cls: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30" },
     awaiting_payment: { label: "Awaiting UPI", cls: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30" },
+    cod_pending: { label: "COD", cls: "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30" },
     failed: { label: "Failed", cls: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30" },
     expired: { label: "Expired", cls: "bg-gray-500/15 text-gray-500 dark:text-gray-400 border-gray-500/30" },
 }
@@ -75,7 +77,7 @@ function formatDate(value: string | null): string {
     return value
 }
 
-type StatusFilter = "all" | "paid" | "created" | "awaiting_payment" | "failed" | "expired"
+type StatusFilter = "all" | "paid" | "created" | "awaiting_payment" | "cod_pending" | "failed" | "expired"
 type FulfillmentFilter = "all" | "pending" | "shipped" | "delivered"
 
 export function AdminClient() {
@@ -207,6 +209,7 @@ export function AdminClient() {
                 <div className="flex flex-wrap gap-1.5">
                     <FilterChip active={statusFilter === "all"} onClick={() => setStatusFilter("all")}>All status</FilterChip>
                     <FilterChip active={statusFilter === "paid"} onClick={() => setStatusFilter("paid")}>Paid</FilterChip>
+                    <FilterChip active={statusFilter === "cod_pending"} onClick={() => setStatusFilter("cod_pending")}>COD</FilterChip>
                     <FilterChip active={statusFilter === "created"} onClick={() => setStatusFilter("created")}>Pending</FilterChip>
                     <FilterChip active={statusFilter === "failed"} onClick={() => setStatusFilter("failed")}>Failed</FilterChip>
                     <FilterChip active={statusFilter === "expired"} onClick={() => setStatusFilter("expired")}>Expired</FilterChip>
@@ -304,7 +307,8 @@ function FilterChip({
 
 function OrderRow({ order }: { order: AdminOrder }) {
     const status = STATUS_STYLES[order.status] || STATUS_STYLES.created
-    const ffKey = order.status === "paid" ? order.fulfillment_status || "pending" : null
+    const isFulfillable = order.status === "paid" || order.status === "cod_pending"
+    const ffKey = isFulfillable ? order.fulfillment_status || "pending" : null
     const fulfillment = ffKey ? FULFILLMENT_STYLES[ffKey] : null
     const FfIcon = fulfillment?.Icon
     const amountRupees = (order.status === "paid" ? order.amount_paid : order.amount) / 100

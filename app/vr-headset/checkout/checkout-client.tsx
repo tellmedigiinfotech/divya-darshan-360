@@ -101,14 +101,6 @@ function validate(form: Form): Errors {
     return errors
 }
 
-function generateCodOrderId() {
-    const stamp = Date.now().toString(36).toUpperCase().slice(-6)
-    const rand = Math.floor(Math.random() * 999)
-        .toString(36)
-        .toUpperCase()
-        .padStart(2, "0")
-    return `DD360-${stamp}${rand}`
-}
 
 export function CheckoutClient() {
     const router = useRouter()
@@ -297,13 +289,52 @@ export function CheckoutClient() {
         return lines.join("\n")
     }
 
-    const placeCodOrder = () => {
-        const orderId = generateCodOrderId()
-        const waUrl = `https://wa.me/${MERCHANT_PHONE}?text=${encodeURIComponent(buildOrderText(orderId))}`
-        window.open(waUrl, "_blank", "noopener,noreferrer")
-        setSubmitted({ orderId, method: "cod_whatsapp" })
-        if (typeof window !== "undefined") {
-            window.scrollTo({ top: 0, behavior: "smooth" })
+    const placeCodOrder = async () => {
+        setBusy(true)
+        setServerError(null)
+        try {
+            const order = await apiFetch<{
+                order_id: string
+                receipt: string
+                amount: number
+                currency: string
+                product_name: string
+            }>("/orders/create_cod_order", {
+                method: "POST",
+                auth: true,
+                body: {
+                    item: { sku: PRODUCT_SKU, quantity: form.qty },
+                    customer: {
+                        full_name: form.fullName,
+                        phone: form.phone,
+                        email: form.email || null,
+                    },
+                    shipping_address: {
+                        line1: form.address,
+                        city: form.city,
+                        state: form.state,
+                        pincode: form.pincode,
+                        country: "IN",
+                        notes: form.notes,
+                    },
+                },
+            })
+            const waUrl = `https://wa.me/${MERCHANT_PHONE}?text=${encodeURIComponent(buildOrderText(order.order_id))}`
+            window.open(waUrl, "_blank", "noopener,noreferrer")
+            setSubmitted({ orderId: order.order_id, method: "cod_whatsapp" })
+            if (typeof window !== "undefined") {
+                window.scrollTo({ top: 0, behavior: "smooth" })
+            }
+        } catch (err) {
+            const message =
+                err instanceof ApiError
+                    ? err.message
+                    : err instanceof Error
+                      ? err.message
+                      : "Could not place the COD order. Please try again."
+            setServerError(message)
+        } finally {
+            setBusy(false)
         }
     }
 

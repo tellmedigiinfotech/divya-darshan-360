@@ -45,6 +45,7 @@ type OrderView = {
     shipped_at: string | null
     delivered_at: string | null
     admin_notes: string | null
+    payment_method: string | null
 }
 
 function formatTimestamp(value: string | null): string {
@@ -162,7 +163,9 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
     }
 
     const isPaid = order.status === "paid"
-    const ff = isPaid ? order.fulfillment_status || "pending" : null
+    const isCod = order.status === "cod_pending"
+    const isFulfillable = isPaid || isCod
+    const ff = isFulfillable ? order.fulfillment_status || "pending" : null
     const amountRupees = (isPaid ? order.amount_paid : order.amount) / 100
 
     const shipMsg = `Namaste ${order.customer.full_name || ""}, your Divya Darshan 360 order has been shipped via ${order.courier || "<courier>"}. Tracking: ${order.tracking_number || "<tracking>"}.`
@@ -181,7 +184,9 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                     <div className="text-right">
                         <p className="text-3xl font-serif text-primary">₹{amountRupees.toLocaleString("en-IN")}</p>
                         <div className="mt-2 flex flex-wrap gap-1.5 justify-end">
-                            <Badge tone={isPaid ? "green" : "amber"}>{order.status.toUpperCase()}</Badge>
+                            <Badge tone={isPaid ? "green" : isCod ? "blue" : "amber"}>
+                                {isCod ? "COD" : order.status.toUpperCase()}
+                            </Badge>
                             {ff && <Badge tone={ff === "delivered" ? "emerald" : ff === "shipped" ? "blue" : "orange"}>{ff.toUpperCase()}</Badge>}
                         </div>
                     </div>
@@ -229,7 +234,7 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                 </div>
             </div>
 
-            {isPaid && (
+            {isFulfillable && (
                 <div className="glass rounded-3xl p-6 md:p-8">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
@@ -237,7 +242,11 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                         </div>
                         <div>
                             <h2 className="font-serif text-lg leading-tight">Fulfillment</h2>
-                            <p className="text-xs text-muted-foreground">Mark as shipped or delivered. The customer will see this on their receipt.</p>
+                            <p className="text-xs text-muted-foreground">
+                                {isCod
+                                    ? "Cash on Delivery — marking delivered will also record cash collected and flip status to Paid."
+                                    : "Mark as shipped or delivered. The customer will see this on their receipt."}
+                            </p>
                         </div>
                     </div>
 
@@ -296,7 +305,7 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-linear-to-r from-emerald-500 to-emerald-600 text-white text-sm font-medium shadow-md shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                             >
                                 {submitting === "deliver" ? <Loader2 className="w-4 h-4 animate-spin" /> : <PackageCheck className="w-4 h-4" />}
-                                Mark as delivered
+                                {isCod ? "Mark delivered + cash collected" : "Mark as delivered"}
                             </button>
                         )}
                         {order.tracking_number && (
