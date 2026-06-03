@@ -17,12 +17,13 @@ export function BlogClient({ temples, categories }: BlogClientProps) {
 	const [selectedCategory, setSelectedCategory] = useState<string>("all")
 
 	const filteredTemples = useMemo(() => {
+		const q = searchQuery.toLowerCase()
 		return temples.filter(temple => {
 			const matchesSearch =
-				temple.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				temple.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				temple.location?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				temple.mainDeity?.toLowerCase().includes(searchQuery.toLowerCase())
+				temple.title?.toLowerCase().includes(q) ||
+				temple.excerpt?.toLowerCase().includes(q) ||
+				temple.location?.toLowerCase().includes(q) ||
+				temple.mainDeity?.toLowerCase().includes(q)
 
 			const matchesCategory = selectedCategory === "all" || temple.category === selectedCategory
 
