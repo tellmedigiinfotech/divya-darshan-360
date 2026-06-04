@@ -1159,5 +1159,65 @@
       "/blog/images/Shaktipeet%20Temple%2851%29/Vindhya%20Vasini%20Temple%20%28Vindhyachal%29%20-%20Uttar%20Pradesh.jpg"
     ],
     "location": "Uttar Pradesh"
+  },
+  {
+    "slug": "khajuraho",
+    "title": "Khajuraho Group of Monuments: Complete Visitor's Guide (Western, Eastern & Southern Groups)",
+    "category": "popular",
+    "imageUrl": "/blog/images/Popular%20Famous%20Temple/khajuraho.jpg",
+    "images": [
+      "/blog/images/Popular%20Famous%20Temple/khajuraho.jpg"
+    ],
+    "location": "Khajuraho, Madhya Pradesh"
+  },
+  {
+    "slug": "mamleshwar-temple-omkareshwar",
+    "title": "Mamleshwar Temple, Omkareshwar",
+    "category": "popular",
+    "imageUrl": "/blog/images/Popular%20Famous%20Temple/mamleshwar-temple-omkareshwar.jpg",
+    "images": [
+      "/blog/images/Popular%20Famous%20Temple/mamleshwar-temple-omkareshwar.jpg"
+    ],
+    "location": "Omkareshwar, Madhya Pradesh"
+  },
+  {
+    "slug": "narmada-aarti-holy-narmada",
+    "title": "Narmada Aarti (Holy Narmada)",
+    "category": "popular",
+    "imageUrl": "/blog/images/Popular%20Famous%20Temple/narmada-aarti-holy-narmada.jpg",
+    "images": [
+      "/blog/images/Popular%20Famous%20Temple/narmada-aarti-holy-narmada.jpg"
+    ],
+    "location": "Omkareshwar, Madhya Pradesh"
+  },
+  {
+    "slug": "shree-harsiddhi-mata-shaktipeeth",
+    "title": "Shree Harsiddhi Mata Shaktipeeth",
+    "category": "popular",
+    "imageUrl": "/blog/images/Popular%20Famous%20Temple/shree-harsiddhi-mata-shaktipeeth.jpg",
+    "images": [
+      "/blog/images/Popular%20Famous%20Temple/shree-harsiddhi-mata-shaktipeeth.jpg"
+    ],
+    "location": "Ujjain, Madhya Pradesh"
+  },
+  {
+    "slug": "shri-avanti-parshwanath-jain-shwetambar-tirth-ujjain",
+    "title": "Shri Avanti Parshwanath Jain Shwetambar Tirth- Ujjain",
+    "category": "popular",
+    "imageUrl": "/blog/images/Popular%20Famous%20Temple/shri-avanti-parshwanath-jain-shwetambar-tirth-ujjain.jpg",
+    "images": [
+      "/blog/images/Popular%20Famous%20Temple/shri-avanti-parshwanath-jain-shwetambar-tirth-ujjain.jpg"
+    ],
+    "location": "Ujjain, Madhya Pradesh"
+  },
+  {
+    "slug": "vishnu-temple-omkareshwar",
+    "title": "Vishnu Temple, Omkareshwar",
+    "category": "popular",
+    "imageUrl": "/blog/images/Popular%20Famous%20Temple/vishnu-temple-omkareshwar.jpg",
+    "images": [
+      "/blog/images/Popular%20Famous%20Temple/vishnu-temple-omkareshwar.jpg"
+    ],
+    "location": "Omkareshwar, Madhya Pradesh"
   }
 ]
