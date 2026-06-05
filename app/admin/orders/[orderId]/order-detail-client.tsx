@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { notFound } from "next/navigation"
 import {
     AlertCircle,
+    Ban,
     CheckCircle2,
     Copy,
     Loader2,
@@ -15,6 +16,7 @@ import {
     RotateCcw,
     Truck,
     User,
+    XCircle,
 } from "lucide-react"
 import { useAuth } from "@/components/auth-provider"
 import { apiFetch, ApiError } from "@/lib/api"
@@ -53,6 +55,8 @@ type OrderView = {
     refund_status: string | null
     refunded_at: string | null
     refund_reason: string | null
+    cancelled_at: string | null
+    cancellation_reason: string | null
 }
 
 function formatTimestamp(value: string | null): string {
@@ -79,13 +83,16 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
     const [trackingNumber, setTrackingNumber] = useState("")
     const [courier, setCourier] = useState("")
     const [notes, setNotes] = useState("")
-    const [submitting, setSubmitting] = useState<"ship" | "deliver" | "refund" | null>(null)
+    const [submitting, setSubmitting] = useState<"ship" | "deliver" | "refund" | "cancel" | null>(null)
     const [actionError, setActionError] = useState<string | null>(null)
 
     const [refundAmount, setRefundAmount] = useState("")
     const [refundReason, setRefundReason] = useState("")
     const [refundInstant, setRefundInstant] = useState(false)
     const [refundConfirm, setRefundConfirm] = useState(false)
+
+    const [cancelReason, setCancelReason] = useState("")
+    const [cancelConfirm, setCancelConfirm] = useState(false)
 
     const load = async () => {
         try {
@@ -211,6 +218,28 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
         }
     }
 
+    const cancel = async () => {
+        if (cancelReason.trim().length < 2) {
+            setActionError("Please enter a reason for cancellation.")
+            return
+        }
+        setActionError(null)
+        setSubmitting("cancel")
+        try {
+            const updated = await apiFetch<OrderView>(`/admin/orders/${encodeURIComponent(orderId)}/cancel`, {
+                method: "POST",
+                auth: true,
+                body: { reason: cancelReason.trim() },
+            })
+            setOrder(updated)
+            setCancelConfirm(false)
+        } catch (err) {
+            setActionError(err instanceof ApiError ? err.message : err instanceof Error ? err.message : "Cancel failed.")
+        } finally {
+            setSubmitting(null)
+        }
+    }
+
     const isPaid = order.status === "paid"
     const isCod = order.status === "cod_pending"
     const isFulfillable = isPaid || isCod
@@ -233,7 +262,7 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                     <div className="text-right">
                         <p className="text-3xl font-serif text-primary">₹{amountRupees.toLocaleString("en-IN")}</p>
                         <div className="mt-2 flex flex-wrap gap-1.5 justify-end">
-                            <Badge tone={order.status === "refunded" ? "red" : isPaid ? "green" : isCod ? "blue" : "amber"}>
+                            <Badge tone={order.status === "refunded" || order.status === "cancelled" ? "red" : isPaid ? "green" : isCod ? "blue" : "amber"}>
                                 {isCod ? "COD" : order.status.toUpperCase()}
                             </Badge>
                             {ff && <Badge tone={ff === "delivered" ? "emerald" : ff === "shipped" ? "blue" : "orange"}>{ff.toUpperCase()}</Badge>}
@@ -408,6 +437,21 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                 </div>
             )}
 
+            {/* Cancel panel — only for COD orders that haven't been delivered yet.
+                Cancelled orders show the cancellation summary instead. */}
+            {(isCod || order.status === "cancelled") && (
+                <CancelPanel
+                    order={order}
+                    cancelReason={cancelReason}
+                    setCancelReason={setCancelReason}
+                    cancelConfirm={cancelConfirm}
+                    setCancelConfirm={setCancelConfirm}
+                    submitting={submitting}
+                    actionError={actionError}
+                    onCancel={cancel}
+                />
+            )}
+
             {/* Refund panel — only meaningful for Razorpay-paid orders.
                 Already-refunded orders show the refund summary instead. */}
             {order.razorpay_payment_id && order.status !== "cod_pending" && (
@@ -425,6 +469,117 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                     actionError={actionError}
                     onRefund={refund}
                 />
+            )}
+        </div>
+    )
+}
+
+function CancelPanel({
+    order,
+    cancelReason,
+    setCancelReason,
+    cancelConfirm,
+    setCancelConfirm,
+    submitting,
+    actionError,
+    onCancel,
+}: {
+    order: OrderView
+    cancelReason: string
+    setCancelReason: (v: string) => void
+    cancelConfirm: boolean
+    setCancelConfirm: (v: boolean) => void
+    submitting: "ship" | "deliver" | "refund" | "cancel" | null
+    actionError: string | null
+    onCancel: () => void
+}) {
+    const alreadyCancelled = order.status === "cancelled"
+
+    return (
+        <div className="glass rounded-3xl p-6 md:p-8">
+            <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                    <Ban className="w-5 h-5 text-red-500" />
+                </div>
+                <div>
+                    <h2 className="font-serif text-lg leading-tight">Cancel order</h2>
+                    <p className="text-xs text-muted-foreground">
+                        Use this when the customer doesn&apos;t confirm COD, refuses delivery, or the order can&apos;t be fulfilled.
+                    </p>
+                </div>
+            </div>
+
+            {alreadyCancelled ? (
+                <div className="rounded-2xl border border-red-500/20 bg-red-500/[0.06] p-4 text-sm">
+                    <div className="flex items-center gap-2 text-red-500 font-medium mb-1.5">
+                        <XCircle className="w-4 h-4" />
+                        Order cancelled
+                    </div>
+                    <div className="grid grid-cols-1 gap-1 text-xs text-muted-foreground">
+                        {order.cancelled_at && <p>When: <span className="text-foreground">{formatTimestamp(order.cancelled_at)}</span></p>}
+                        {order.cancellation_reason && <p className="italic">Reason: <span className="text-foreground not-italic">{order.cancellation_reason}</span></p>}
+                    </div>
+                </div>
+            ) : (
+                <>
+                    <Field label="Reason for cancellation (recorded against the order)">
+                        <textarea
+                            value={cancelReason}
+                            onChange={(e) => setCancelReason(e.target.value)}
+                            rows={2}
+                            placeholder="e.g. Customer didn&apos;t confirm on call / refused delivery / out of stock"
+                            className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-red-500/50 resize-none"
+                        />
+                    </Field>
+
+                    {actionError && (
+                        <div className="mt-3 flex items-start gap-2 text-xs text-destructive">
+                            <AlertCircle className="w-4 h-4 shrink-0" />
+                            <p>{actionError}</p>
+                        </div>
+                    )}
+
+                    {!cancelConfirm ? (
+                        <div className="mt-5">
+                            <button
+                                type="button"
+                                onClick={() => setCancelConfirm(true)}
+                                disabled={submitting !== null}
+                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-red-500/40 text-red-500 text-sm font-medium hover:bg-red-500/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                <Ban className="w-4 h-4" />
+                                Cancel this order…
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/[0.05] p-4">
+                            <p className="text-sm font-medium mb-1">Confirm cancellation</p>
+                            <p className="text-xs text-muted-foreground mb-3">
+                                This will mark the order as <b>Cancelled</b> in your dashboard and on the
+                                customer&apos;s /account page. It cannot be reopened.
+                            </p>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    type="button"
+                                    onClick={onCancel}
+                                    disabled={submitting !== null}
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-600 text-white text-sm font-medium hover:bg-red-700 transition-colors disabled:opacity-50"
+                                >
+                                    {submitting === "cancel" ? <Loader2 className="w-4 h-4 animate-spin" /> : <Ban className="w-4 h-4" />}
+                                    Yes, cancel order
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setCancelConfirm(false)}
+                                    disabled={submitting === "cancel"}
+                                    className="px-4 py-2 rounded-full text-xs text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    Keep order
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                </>
             )}
         </div>
     )
@@ -453,7 +608,7 @@ function RefundPanel({
     setRefundInstant: (v: boolean) => void
     refundConfirm: boolean
     setRefundConfirm: (v: boolean) => void
-    submitting: "ship" | "deliver" | "refund" | null
+    submitting: "ship" | "deliver" | "refund" | "cancel" | null
     actionError: string | null
     onRefund: () => void
 }) {
