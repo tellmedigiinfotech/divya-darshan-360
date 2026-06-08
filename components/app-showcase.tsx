@@ -4,10 +4,10 @@ import { motion } from "framer-motion"
 
 export function AppShowcase() {
   const images = [
-    "/screenshots/WhatsApp Image 2025-12-30 at 3.03.17 PM (1).jpeg",
-    "/screenshots/WhatsApp Image 2025-12-30 at 3.03.17 PM.jpeg",
-    "/screenshots/WhatsApp Image 2025-12-30 at 3.03.18 PM (1).jpeg",
-    "/screenshots/WhatsApp Image 2025-12-30 at 3.03.18 PM.jpeg",
+    "/screenshots/1.jpeg",
+    "/screenshots/2.jpeg",
+    "/screenshots/3.jpeg",
+    "/screenshots/4.jpeg",
   ]
 
   return (
