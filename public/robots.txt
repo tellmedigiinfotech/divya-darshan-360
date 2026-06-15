@@ -17,7 +17,15 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
-# Add ClaudeBot / PerplexityBot / Google-Extended below when ready to expand.
+# Google Gemini + Google AI Overview / AI Mode. Separate from regular Googlebot.
+# Without this, Google trains/cites only on what regular Googlebot saw — explicit
+# opt-in tells Gemini specifically that our content is fair to cite.
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Add ClaudeBot / PerplexityBot below when ready to expand.
 
 # Sitemap location
 Sitemap: https://divyadarshan360.com/sitemap.xml
