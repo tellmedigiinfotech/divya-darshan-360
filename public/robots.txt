@@ -10,6 +10,15 @@ Disallow: /_next/
 Allow: /
 Allow: /privacy
 
+# --- AI / Answer Engine crawlers ---
+# ChatGPT browsing + index crawler (used by ChatGPT to fetch and cite pages)
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Add ClaudeBot / PerplexityBot / Google-Extended below when ready to expand.
+
 # Sitemap location
 Sitemap: https://divyadarshan360.com/sitemap.xml
 
