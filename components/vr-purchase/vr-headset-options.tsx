@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { Check, Flame, ShoppingBag, Truck, ShieldCheck, Smartphone } from "lucide-react"
+import { Check, Flame, ShoppingBag, Truck, ShieldCheck } from "lucide-react"
 import Link from "next/link"
 
 const product = {
@@ -18,7 +18,6 @@ const product = {
     perks: [
         { icon: Truck, label: "Free shipping" },
         { icon: ShieldCheck, label: "7-day replacement" },
-        { icon: Smartphone, label: "Works with all phones" },
     ],
 }
 
