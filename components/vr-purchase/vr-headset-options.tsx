@@ -15,8 +15,6 @@ const product = {
         "Works with all Android & iOS smartphones (4.7\"–6.5\")",
         "Cardboard-style viewer with anti-glare lenses",
         "Soft adjustable head strap — comfortable for elderly",
-        "Lightweight & travel-friendly design",
-        "Perfectly tuned for the Divya Darshan 360 app",
     ],
     perks: [
         { icon: Truck, label: "Free shipping" },
