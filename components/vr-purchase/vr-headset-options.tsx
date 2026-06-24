@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { Check, Flame, ShoppingBag, Truck, ShieldCheck } from "lucide-react"
+import { Flame, ShoppingBag, Truck, ShieldCheck } from "lucide-react"
 import Link from "next/link"
 
 const product = {
@@ -11,10 +11,6 @@ const product = {
     price: "₹699",
     originalPrice: "₹2999",
     images: ["/vr_set2.png", "/vr_set.png"],
-    features: [
-        { text: "Works with all Android & iOS smartphones (4.7\"–6.5\")", highlight: false },
-        { text: "Comfortable for elderly", highlight: true },
-    ],
     perks: [
         { icon: Truck, label: "Free shipping" },
         { icon: ShieldCheck, label: "7-day replacement" },
@@ -120,7 +116,7 @@ export function VrHeadsetOptions() {
                                     </span>
                                 </a>
 
-                                {/* Floating spec chip */}
+                                {/* Floating spec chips */}
                                 <motion.div
                                     animate={{ y: [0, -10, 0] }}
                                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -128,6 +124,15 @@ export function VrHeadsetOptions() {
                                 >
                                     <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Compatibility</p>
                                     <p className="font-serif text-base text-primary">All Smartphones</p>
+                                </motion.div>
+
+                                <motion.div
+                                    animate={{ y: [0, -10, 0] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                                    className="absolute bottom-6 right-6 glass rounded-2xl px-4 py-3 shadow-xl z-20 text-right"
+                                >
+                                    <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Comfort</p>
+                                    <p className="font-serif text-base text-primary">Comfortable for elderly</p>
                                 </motion.div>
                             </div>
 
@@ -139,35 +144,7 @@ export function VrHeadsetOptions() {
                                 </div>
 
                                 <p className="text-xs uppercase tracking-[0.25em] text-primary mb-3">{product.tagline}</p>
-                                <h3 className="text-3xl md:text-4xl font-serif mb-6">{product.name}</h3>
-
-                                <ul className="space-y-3 mb-8">
-                                    {product.features.map((feat) => (
-                                        <li
-                                            key={feat.text}
-                                            className={`flex items-start gap-3 text-sm md:text-base ${
-                                                feat.highlight
-                                                    ? "text-primary font-semibold"
-                                                    : "text-muted-foreground"
-                                            }`}
-                                        >
-                                            <span
-                                                className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                                                    feat.highlight
-                                                        ? "bg-primary shadow-(--saffron-glow)"
-                                                        : "bg-primary/15"
-                                                }`}
-                                            >
-                                                <Check
-                                                    className={`w-3 h-3 ${
-                                                        feat.highlight ? "text-primary-foreground" : "text-primary"
-                                                    }`}
-                                                />
-                                            </span>
-                                            <span>{feat.text}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                                <h3 className="text-3xl md:text-4xl font-serif mb-8">{product.name}</h3>
 
                                 {/* Price */}
                                 <div className="flex items-baseline gap-3 mb-3">
