@@ -54,16 +54,6 @@ export function VrHeadsetOptions() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
 
             <div className="max-w-6xl mx-auto relative z-10">
-                <div className="text-center mb-16">
-                    <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Our Headset</span>
-                    <h2 className="text-4xl md:text-6xl font-serif mb-6">
-                        Meet the <span className="text-primary italic">Mobile VR Box</span>
-                    </h2>
-                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        One simple, beautifully crafted headset — built for every devotee, every smartphone, and every divine darshan.
-                    </p>
-                </div>
-
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
