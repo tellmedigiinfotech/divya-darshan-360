@@ -12,9 +12,8 @@ const product = {
     originalPrice: "₹2999",
     images: ["/vr_set2.png", "/vr_set.png"],
     features: [
-        "Works with all Android & iOS smartphones (4.7\"–6.5\")",
-        "Cardboard-style viewer with anti-glare lenses",
-        "Soft adjustable head strap — comfortable for elderly",
+        { text: "Works with all Android & iOS smartphones (4.7\"–6.5\")", highlight: false },
+        { text: "Comfortable for elderly", highlight: true },
     ],
     perks: [
         { icon: Truck, label: "Free shipping" },
@@ -145,11 +144,28 @@ export function VrHeadsetOptions() {
 
                                 <ul className="space-y-3 mb-8">
                                     {product.features.map((feat) => (
-                                        <li key={feat} className="flex items-start gap-3 text-sm md:text-base text-muted-foreground">
-                                            <span className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <Check className="w-3 h-3 text-primary" />
+                                        <li
+                                            key={feat.text}
+                                            className={`flex items-start gap-3 text-sm md:text-base ${
+                                                feat.highlight
+                                                    ? "text-primary font-semibold"
+                                                    : "text-muted-foreground"
+                                            }`}
+                                        >
+                                            <span
+                                                className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                                                    feat.highlight
+                                                        ? "bg-primary shadow-(--saffron-glow)"
+                                                        : "bg-primary/15"
+                                                }`}
+                                            >
+                                                <Check
+                                                    className={`w-3 h-3 ${
+                                                        feat.highlight ? "text-primary-foreground" : "text-primary"
+                                                    }`}
+                                                />
                                             </span>
-                                            <span>{feat}</span>
+                                            <span>{feat.text}</span>
                                         </li>
                                     ))}
                                 </ul>
