@@ -26,3 +26,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 blog_sheet_sync
+
+# Python cache for utility scripts
+scripts/__pycache__/
+__pycache__/
