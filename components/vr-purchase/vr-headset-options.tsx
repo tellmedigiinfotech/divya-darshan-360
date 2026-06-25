@@ -102,17 +102,17 @@ export function VrHeadsetOptions() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Get the Divya Darshan 360 app on Google Play"
-                                    className="absolute top-6 right-6 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-black text-white text-[11px] font-medium shadow-lg shadow-black/30 hover:bg-black/85 hover:-translate-y-0.5 transition-all z-20"
+                                    className="absolute top-6 right-6 inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black text-white text-[13px] font-medium shadow-xl shadow-black/40 hover:bg-black/85 hover:-translate-y-0.5 transition-all z-20"
                                 >
-                                    <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" className="w-8 h-8" aria-hidden="true">
                                         <path fill="#00d7b5" d="M3.6 1.7a1.9 1.9 0 0 0-.9 1.6v17.4a1.9 1.9 0 0 0 .9 1.6l9.9-10.3z"/>
                                         <path fill="#ffce00" d="M16.8 8.6 13.5 12l3.3 3.4 4.6-2.6c1-.6 1-2 0-2.6z"/>
                                         <path fill="#ff6b6b" d="M13.5 12 3.6 22.3a1.9 1.9 0 0 0 2 .1l11.2-6.4z"/>
                                         <path fill="#4d99ff" d="M3.6 1.7a1.9 1.9 0 0 1 2-.1l11.2 6.4-3.3 4z"/>
                                     </svg>
                                     <span className="leading-none">
-                                        <span className="block text-[8.5px] opacity-80 uppercase tracking-wider">Get it on</span>
-                                        <span className="block text-[12px] font-semibold">Google Play</span>
+                                        <span className="block text-[10px] opacity-80 uppercase tracking-wider">Get it on</span>
+                                        <span className="block text-[15px] font-semibold">Google Play</span>
                                     </span>
                                 </a>
 
