@@ -243,6 +243,8 @@ export default function RootLayout({
 						function gtag(){dataLayer.push(arguments);}
 						gtag('js', new Date());
 						gtag('config', 'G-W2TMQG62D2');
+						// Google Ads — purchase conversion tracking.
+						gtag('config', 'AW-11000001902');
 						`}
 				</Script>
 

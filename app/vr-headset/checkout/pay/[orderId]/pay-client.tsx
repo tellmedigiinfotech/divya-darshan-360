@@ -15,6 +15,7 @@ import {
 } from "lucide-react"
 import { useAuth } from "@/components/auth-provider"
 import { apiFetch, ApiError } from "@/lib/api"
+import { trackPurchaseConversion } from "@/lib/gtag"
 
 type OrderStatus = "awaiting_payment" | "created" | "paid" | "failed" | "expired"
 
@@ -102,6 +103,19 @@ export function PayClient({ orderId }: { orderId: string }) {
             if (tickRef.current) window.clearInterval(tickRef.current)
         }
     }, [user, authLoading, router, orderId])
+
+    // Fire the Google Ads purchase conversion once the backend confirms payment.
+    // trackPurchaseConversion guards against double-counting on re-render/refresh.
+    useEffect(() => {
+        if (order?.status === "paid") {
+            trackPurchaseConversion({
+                orderId: order.order_id,
+                transactionId: order.reference ?? order.order_id,
+                value: order.amount_paise / 100,
+                currency: order.currency || "INR",
+            })
+        }
+    }, [order?.status, order?.order_id, order?.reference, order?.amount_paise, order?.currency])
 
     const copy = (key: string, value: string) => {
         if (!navigator?.clipboard) return
