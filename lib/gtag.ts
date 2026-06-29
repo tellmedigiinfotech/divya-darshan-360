@@ -7,9 +7,9 @@
 //
 // The Google Ads global tag is loaded in app/layout.tsx alongside GA4.
 
-export const AW_CONVERSION_ID = "AW-10933884289"
-// Label from the "VR Headset Purchase" conversion action in the AW-10933884289 account.
-export const AW_PURCHASE_LABEL = "AiigCITIzsccEIGr190o"
+export const AW_CONVERSION_ID = "AW-11000001902"
+// Label from the "Purchase" conversion action in the AW-11000001902 account.
+export const AW_PURCHASE_LABEL = "P5XVCMDH9sUcEO7qmv0o"
 
 type GtagFn = (...args: unknown[]) => void
 
