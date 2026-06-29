@@ -244,7 +244,7 @@ export default function RootLayout({
 						gtag('js', new Date());
 						gtag('config', 'G-W2TMQG62D2');
 						// Google Ads — purchase conversion tracking.
-						gtag('config', 'AW-11000001902');
+						gtag('config', 'AW-10933884289');
 						`}
 				</Script>
 
