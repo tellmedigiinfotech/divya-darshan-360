@@ -30,6 +30,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useAuth } from "@/components/auth-provider"
 import { PhoneOtpForm } from "@/components/phone-otp-form"
 import { apiFetch, ApiError } from "@/lib/api"
+import { trackPurchaseConversion } from "@/lib/gtag"
 
 const PRODUCT_SKU = "mobile-vr-box"
 // Must match unit_price_paise in backend_dd360/app/products.py.
@@ -220,6 +221,13 @@ export function CheckoutClient() {
                                 auth: true,
                                 body: resp,
                             })
+                            // Google Ads conversion — verified payment on a resumed order.
+                            trackPurchaseConversion({
+                                orderId: order.razorpay_order_id,
+                                transactionId: resp.razorpay_payment_id || order.razorpay_order_id,
+                                value: order.amount / 100,
+                                currency: order.currency || "INR",
+                            })
                             router.replace("/account")
                         } catch (err) {
                             const message =
@@ -319,6 +327,13 @@ export function CheckoutClient() {
                     },
                 },
             })
+            // Google Ads conversion — count COD orders at placement.
+            trackPurchaseConversion({
+                orderId: order.order_id,
+                transactionId: order.order_id,
+                value: total,
+                currency: "INR",
+            })
             const waUrl = `https://wa.me/${MERCHANT_PHONE}?text=${encodeURIComponent(buildOrderText(order.order_id))}`
             window.open(waUrl, "_blank", "noopener,noreferrer")
             setSubmitted({ orderId: order.order_id, method: "cod_whatsapp" })
@@ -405,6 +420,13 @@ export function CheckoutClient() {
                             method: "POST",
                             auth: true,
                             body: resp,
+                        })
+                        // Google Ads conversion — backend has verified the payment.
+                        trackPurchaseConversion({
+                            orderId: order.razorpay_order_id,
+                            transactionId: resp.razorpay_payment_id || order.razorpay_order_id,
+                            value: total,
+                            currency: "INR",
                         })
                         // Take them to /account where the order now appears.
                         router.push("/account")
