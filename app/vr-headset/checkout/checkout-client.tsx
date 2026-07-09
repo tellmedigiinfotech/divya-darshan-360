@@ -36,6 +36,8 @@ const PRODUCT_SKU = "mobile-vr-box"
 // Must match unit_price_paise in backend_dd360/app/products.py.
 const UNIT_PRICE = 699
 const ORIGINAL_PRICE = 2999
+// Flat COD handling fee. Must match cod_fee_paise in backend_dd360/app/config.py (5000 paise).
+const COD_FEE = 50
 const MERCHANT_PHONE = "919049921850"
 const MERCHANT_EMAIL = "connect@youtellme.ai"
 const MERCHANT_CC = "sairaj@tellmedigi.com"
@@ -262,7 +264,8 @@ export function CheckoutClient() {
 
     const subtotal = UNIT_PRICE * form.qty
     const youSave = (ORIGINAL_PRICE - UNIT_PRICE) * form.qty
-    const total = subtotal
+    const codFee = form.payment === "cod_whatsapp" ? COD_FEE : 0
+    const total = subtotal + codFee
 
     const update = <K extends keyof Form>(key: K, value: Form[K]) => {
         setForm((f) => ({ ...f, [key]: value }))
@@ -288,6 +291,7 @@ export function CheckoutClient() {
             `Mobile VR Box × ${form.qty}`,
             `Subtotal: ₹${subtotal}`,
             `Shipping: Free`,
+            `COD handling: ₹${COD_FEE}`,
             `Total: ₹${total}`,
             ``,
             `*Payment*`,
@@ -933,7 +937,7 @@ export function CheckoutClient() {
                                 <div>
                                     <p className="font-serif text-base">Cash on Delivery</p>
                                     <p className="text-xs text-muted-foreground mt-1">
-                                        Order confirmation via WhatsApp. Pay ₹{total} in cash when your headset arrives.
+                                        Order confirmation via WhatsApp. Pay ₹{subtotal + COD_FEE} in cash when your headset arrives (includes ₹{COD_FEE} handling fee).
                                     </p>
                                 </div>
                             </div>
@@ -1017,6 +1021,19 @@ export function CheckoutClient() {
                                 <span>Shipping</span>
                                 <span className="text-primary font-medium">Free</span>
                             </div>
+                            <AnimatePresence initial={false}>
+                                {codFee > 0 && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="flex justify-between text-muted-foreground"
+                                    >
+                                        <span>COD handling fee</span>
+                                        <span>₹{codFee}</span>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                             <AnimatePresence initial={false}>
                                 {youSave > 0 && (
                                     <motion.div
