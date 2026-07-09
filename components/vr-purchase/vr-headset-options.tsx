@@ -8,7 +8,10 @@ import Link from "next/link"
 const product = {
     name: "Mobile VR Box",
     tagline: "One headset · One price · Universal compatibility",
-    price: "₹699",
+    // Listed price is the Cash-on-Delivery price. Paying online saves the flat
+    // ₹50 COD handling fee (cod_fee_paise in backend_dd360/app/config.py).
+    price: "₹749",
+    onlinePrice: "₹699",
     originalPrice: "₹2999",
     images: ["/vr_set2.png", "/vr_set.png"],
     perks: [
@@ -153,7 +156,15 @@ export function VrHeadsetOptions() {
                                         {product.originalPrice}
                                     </span>
                                     <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold ml-1">
-                                        Save 77%
+                                        Save 75%
+                                    </span>
+                                </div>
+                                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3.5 py-1.5">
+                                    <span className="text-sm font-semibold text-green-600 dark:text-green-400">
+                                        {product.onlinePrice} when you pay online
+                                    </span>
+                                    <span className="text-[11px] uppercase tracking-[0.15em] text-green-700/80 dark:text-green-400/70">
+                                        Save ₹50
                                     </span>
                                 </div>
                                 <p className="text-xs text-muted-foreground mb-6">Inclusive of all taxes · Free delivery in India</p>

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import {
+    BadgeIndianRupee,
     ShoppingBag,
     User,
     MapPin,
@@ -33,11 +34,14 @@ import { apiFetch, ApiError } from "@/lib/api"
 import { trackPurchaseConversion } from "@/lib/gtag"
 
 const PRODUCT_SKU = "mobile-vr-box"
-// Must match unit_price_paise in backend_dd360/app/products.py.
+// Price when paying online. Must match unit_price_paise in backend_dd360/app/products.py.
 const UNIT_PRICE = 699
 const ORIGINAL_PRICE = 2999
-// Flat COD handling fee. Must match cod_fee_paise in backend_dd360/app/config.py (5000 paise).
+// Flat COD handling fee, charged once per order (not per unit).
+// Must match cod_fee_paise in backend_dd360/app/config.py (5000 paise).
 const COD_FEE = 50
+// The listed price customers see on the product pages — a single unit paid COD.
+const COD_PRICE = UNIT_PRICE + COD_FEE
 const MERCHANT_PHONE = "919049921850"
 const MERCHANT_EMAIL = "connect@youtellme.ai"
 const MERCHANT_CC = "sairaj@tellmedigi.com"
@@ -902,6 +906,15 @@ export function CheckoutClient() {
                         <h2 className="text-xl md:text-2xl font-serif">Payment method</h2>
                     </div>
 
+                    {/* Nudge toward prepaid: online skips the COD handling fee. */}
+                    <div className="mb-6 flex items-start gap-3 rounded-2xl border border-green-500/30 bg-green-500/[0.08] px-4 py-3.5">
+                        <BadgeIndianRupee className="w-5 h-5 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
+                        <p className="text-sm text-green-800 dark:text-green-300">
+                            <span className="font-semibold">Pay online and save ₹{COD_FEE}.</span>{" "}
+                            You pay ₹{UNIT_PRICE} instead of ₹{COD_PRICE} — Cash on Delivery adds a ₹{COD_FEE} handling fee.
+                        </p>
+                    </div>
+
                     <RadioGroup
                         value={form.payment}
                         onValueChange={(v) => update("payment", v as PaymentMethod)}
@@ -917,9 +930,14 @@ export function CheckoutClient() {
                             <div className="flex items-start gap-3">
                                 <RadioGroupItem value="razorpay" id="pay-razorpay" className="mt-1" />
                                 <div>
-                                    <p className="font-serif text-base">Pay online (Razorpay)</p>
+                                    <div className="flex items-center gap-2 flex-wrap">
+                                        <p className="font-serif text-base">Pay online (Razorpay)</p>
+                                        <span className="rounded-full border border-green-500/40 bg-green-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-green-700 dark:text-green-400">
+                                            Save ₹{COD_FEE}
+                                        </span>
+                                    </div>
                                     <p className="text-xs text-muted-foreground mt-1">
-                                        UPI, cards, netbanking, wallets. Secure payment via Razorpay.
+                                        UPI, cards, netbanking, wallets. Pay ₹{subtotal} — no handling fee.
                                     </p>
                                 </div>
                             </div>

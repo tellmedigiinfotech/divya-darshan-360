@@ -70,7 +70,8 @@ export default function VrHeadsetPage() {
         image: `${siteUrl}/vr-divine-experience.png`,
         offers: {
             "@type": "Offer",
-            price: "699",
+            // Must match the headline price shown on the page (the COD price).
+            price: "749",
             priceCurrency: "INR",
             availability: "https://schema.org/InStock",
             url: pageUrl,
