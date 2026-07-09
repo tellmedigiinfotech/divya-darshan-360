@@ -248,8 +248,8 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
         setActionError(null)
         setSubmitting("delete")
         try {
-            await apiFetch(`/admin/orders/${encodeURIComponent(orderId)}`, {
-                method: "DELETE",
+            await apiFetch(`/admin/orders/${encodeURIComponent(orderId)}/delete`, {
+                method: "POST",
                 auth: true,
             })
             // Order is gone — return to the dashboard list.
