@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { notFound } from "next/navigation"
+import { notFound, useRouter } from "next/navigation"
 import {
     AlertCircle,
     Ban,
@@ -14,6 +14,7 @@ import {
     PackageCheck,
     Phone,
     RotateCcw,
+    Trash2,
     Truck,
     User,
     XCircle,
@@ -76,6 +77,7 @@ function formatTimestamp(value: string | null): string {
 }
 
 export function OrderDetailClient({ orderId }: { orderId: string }) {
+    const router = useRouter()
     const { user, loading: authLoading } = useAuth()
     const [order, setOrder] = useState<OrderView | null>(null)
     const [error, setError] = useState<string | null>(null)
@@ -83,7 +85,7 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
     const [trackingNumber, setTrackingNumber] = useState("")
     const [courier, setCourier] = useState("")
     const [notes, setNotes] = useState("")
-    const [submitting, setSubmitting] = useState<"ship" | "deliver" | "refund" | "cancel" | null>(null)
+    const [submitting, setSubmitting] = useState<"ship" | "deliver" | "refund" | "cancel" | "delete" | null>(null)
     const [actionError, setActionError] = useState<string | null>(null)
 
     const [refundAmount, setRefundAmount] = useState("")
@@ -93,6 +95,8 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
 
     const [cancelReason, setCancelReason] = useState("")
     const [cancelConfirm, setCancelConfirm] = useState(false)
+
+    const [deleteConfirm, setDeleteConfirm] = useState(false)
 
     const load = async () => {
         try {
@@ -236,6 +240,22 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
         } catch (err) {
             setActionError(err instanceof ApiError ? err.message : err instanceof Error ? err.message : "Cancel failed.")
         } finally {
+            setSubmitting(null)
+        }
+    }
+
+    const remove = async () => {
+        setActionError(null)
+        setSubmitting("delete")
+        try {
+            await apiFetch(`/admin/orders/${encodeURIComponent(orderId)}`, {
+                method: "DELETE",
+                auth: true,
+            })
+            // Order is gone — return to the dashboard list.
+            router.push("/admin")
+        } catch (err) {
+            setActionError(err instanceof ApiError ? err.message : err instanceof Error ? err.message : "Delete failed.")
             setSubmitting(null)
         }
     }
@@ -470,6 +490,71 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                     onRefund={refund}
                 />
             )}
+
+            {/* Danger zone — permanently remove the order from the dashboard.
+                Use for test/spam orders; genuine orders should be cancelled or refunded. */}
+            <div className="glass rounded-3xl p-6 md:p-8 border border-red-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                        <Trash2 className="w-5 h-5 text-red-500" />
+                    </div>
+                    <div>
+                        <h2 className="font-serif text-lg leading-tight">Delete order</h2>
+                        <p className="text-xs text-muted-foreground">
+                            Permanently removes this order and its linked records. This cannot be undone — use only for test or spam orders.
+                        </p>
+                    </div>
+                </div>
+
+                {submitting !== "delete" && actionError && (
+                    <div className="mb-4 flex items-center gap-2 text-sm text-red-500">
+                        <AlertCircle className="w-4 h-4" />
+                        {actionError}
+                    </div>
+                )}
+
+                {!deleteConfirm ? (
+                    <button
+                        type="button"
+                        onClick={() => setDeleteConfirm(true)}
+                        disabled={submitting !== null}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-red-500/40 bg-red-500/10 text-red-500 text-sm font-medium hover:bg-red-500 hover:text-white transition-all disabled:opacity-50"
+                    >
+                        <Trash2 className="w-4 h-4" />
+                        Delete this order
+                    </button>
+                ) : (
+                    <div className="rounded-2xl border border-red-500/30 bg-red-500/[0.06] p-4">
+                        <p className="text-sm font-medium mb-1">Delete order {order.receipt}?</p>
+                        <p className="text-xs text-muted-foreground mb-4">
+                            This permanently removes the order. There is no undo.
+                        </p>
+                        <div className="flex items-center gap-3">
+                            <button
+                                type="button"
+                                onClick={remove}
+                                disabled={submitting !== null}
+                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-all disabled:opacity-50"
+                            >
+                                {submitting === "delete" ? (
+                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                ) : (
+                                    <Trash2 className="w-4 h-4" />
+                                )}
+                                Yes, delete permanently
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setDeleteConfirm(false)}
+                                disabled={submitting !== null}
+                                className="px-5 py-2.5 rounded-full border border-white/15 text-sm text-muted-foreground hover:text-foreground transition-all disabled:opacity-50"
+                            >
+                                Keep order
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
@@ -489,7 +574,7 @@ function CancelPanel({
     setCancelReason: (v: string) => void
     cancelConfirm: boolean
     setCancelConfirm: (v: boolean) => void
-    submitting: "ship" | "deliver" | "refund" | "cancel" | null
+    submitting: "ship" | "deliver" | "refund" | "cancel" | "delete" | null
     actionError: string | null
     onCancel: () => void
 }) {
@@ -608,7 +693,7 @@ function RefundPanel({
     setRefundInstant: (v: boolean) => void
     refundConfirm: boolean
     setRefundConfirm: (v: boolean) => void
-    submitting: "ship" | "deliver" | "refund" | "cancel" | null
+    submitting: "ship" | "deliver" | "refund" | "cancel" | "delete" | null
     actionError: string | null
     onRefund: () => void
 }) {
