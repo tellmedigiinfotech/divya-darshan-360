@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	<title>Hiyangthang Lairembi Temple | Divya Darshan 360</title>
+	<link href="https://divyadarshan360.com/blog/temple/popular/hiyangthang-lairembi-temple-hiyangthang-imphal-west" rel="canonical"/>
+	<meta name="description" content="Hiyangthang Lairembi Temple - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta property="og:title" content="Hiyangthang Lairembi Temple" />
+	<meta property="og:description" content="Hiyangthang Lairembi Temple - Complete guide with timings, location, how to reach, poojas, and more." />
+	<meta property="og:type" content="article" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Hiyangthang Lairembi Temple" />
+	<meta name="twitter:description" content="Hiyangthang Lairembi Temple - Complete guide with timings, location, how to reach, poojas, and more." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="/blog/assets/tailwind-config.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
+	<link rel="stylesheet" href="/blog/assets/diya.css" />
+	
+	<style type="text/tailwindcss">
+		@layer components {
+			.lotus-bg { @apply fixed pointer-events-none z-0 hidden md:block; }
+			.lotus-bg--1 { @apply top-[5%] -right-[10%] w-[500px] h-[500px] opacity-[.12]; }
+			.lotus-bg--2 { @apply top-[35%] -left-[15%] w-[420px] h-[420px] opacity-[.08]; }
+			.lotus-spin { @apply animate-spin-slow; }
+			.lotus-spin-rev { @apply animate-spin-rev; }
+
+			body {
+				@apply min-h-screen relative overflow-x-hidden text-[#3b2510] font-sans;
+				background-color: #fdf1e2;
+				background-image: 
+					radial-gradient(circle at 50% 50%, #fadbcb 0%, transparent 80%),
+					radial-gradient(circle at 50% 0%, rgba(226, 61, 0, 0.05), transparent 70%), 
+					url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+				background-size: 100% 100%, 100% 100%, 200px 200px;
+				background-attachment: fixed;
+				animation: divine-glow 20s ease-in-out infinite alternate;
+			}
+
+			.main { @apply relative z-10; }
+			.glow-wrap { @apply absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-20; }
+			.glow-blob { @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-glow; }
+			.glow-blob--primary { @apply -top-24 -left-24 w-96 h-96 bg-primary/20; }
+			.glow-blob--accent { @apply top-1/2 -right-24 w-80 h-80 bg-accent/20; }
+
+			.section { @apply mb-12 pb-2; }
+			.section__title { @apply font-serif text-2xl font-normal text-primary mb-5 pb-2.5 border-b-2 border-[#e8ddd0]; }
+			.section__sub-b { @apply text-[1.05rem] font-normal text-[#3b2510] opacity-90 mt-6 mb-2.5 pt-1; }
+			.bullet-list { @apply list-none p-0 my-4 mb-5 space-y-3; }
+			.bullet-list li { @apply flex items-start gap-2.5 text-[#8a7260] leading-[1.7]; }
+			.bullet-list li::before { content: "\2022"; @apply text-primary font-bold shrink-0 mt-px; }
+			
+			.num-list { @apply list-none p-0 my-4 mb-5 space-y-4; }
+			.num-list li { @apply flex items-start gap-3 text-[#8a7260] leading-[1.7]; }
+			.num-list__badge { @apply flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-[0.75rem] font-bold shrink-0 mt-0.5; }
+			
+			.article p { @apply text-[#8a7260] mb-4 leading-[1.85]; }
+			
+			.hero { @apply px-6 pb-16 relative z-10; }
+			.hero-title { @apply font-serif text-[2.25rem] leading-[1.1] tracking-tighter mb-8 font-normal md:text-[3.75rem]; }
+			.badge { @apply inline-block px-[18px] py-2 rounded-full bg-primary/10 text-primary text-[0.85rem] font-medium border border-primary/20 mb-6; }
+			
+			.glass { @apply bg-white/60 backdrop-blur-2xl border border-[#e8ddd0] shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[24px]; }
+			.key-info { @apply p-8 mb-12; }
+			.key-info__grid { @apply grid grid-cols-1 md:grid-cols-2 gap-6; }
+			.key-info__item { @apply flex items-start gap-4; }
+			.key-info__item--full { @apply md:col-span-2; }
+			.key-info__icon { @apply w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-[1.3rem]; }
+			.key-info__icon svg { @apply w-5 h-5 stroke-primary; }
+			.key-info__label { @apply text-[0.82rem] font-medium text-[#8a7260] mb-0.5; }
+			.key-info__value { @apply text-[1.05rem] font-serif text-[#3b2510]; }
+			.key-info__value--sans { @apply font-sans; }
+			
+			.article { @apply p-8 mb-12 md:px-12 md:pt-12 md:pb-6; }
+			
+			.carousel { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm; }
+			.carousel__track { @apply absolute inset-0; }
+			.carousel__slide { @apply absolute inset-0 opacity-0 transition-opacity duration-500; }
+			.carousel__slide--active { @apply opacity-100; }
+			.carousel__slide img { @apply w-full h-full object-cover; }
+			.carousel__btn { @apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-black/40; }
+			.carousel:hover .carousel__btn { @apply opacity-100; }
+			.carousel__btn--prev { @apply left-4; }
+			.carousel__btn--next { @apply right-4; }
+			.carousel__dots { @apply absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2; }
+			.carousel__dot { @apply w-2 h-2 rounded-full bg-white/40 cursor-pointer transition-colors; }
+			.carousel__dot--active { @apply bg-white; }
+			.carousel__counter { @apply absolute top-6 right-6 px-3 py-1 rounded-full bg-black/20 backdrop-blur-md text-white text-[0.75rem] font-medium; }
+			
+			.img-placeholder { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm flex items-center justify-center; }
+			.img-placeholder__icon { @apply text-[6rem] opacity-25; }
+			.img-placeholder__text { @apply absolute bottom-6 left-6 right-6 text-[#3b2510]/60 text-[0.85rem]; }
+			
+			.back-section { @apply pt-24 px-6 pb-8; }
+			.back-link { @apply inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary; }
+			.back-link svg { @apply w-4 h-4; }
+			
+			.cta-section { @apply p-12 text-center mb-12; }
+			.cta-section h3 { @apply font-serif text-3xl mb-4 text-[#3b2510]; }
+			.cta-section p { @apply text-[#8a7260] mb-8 max-w-lg mx-auto; }
+			.cta-btn { @apply inline-block px-8 py-4 rounded-full bg-primary text-white font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20; }
+			
+			.container { @apply max-w-[896px] mx-auto; }
+		}
+	</style>
+
+</head>
+
+<body>
+	<main class="main">
+		<div class="glow-wrap"><div class="glow-blob glow-blob--primary"></div><div class="glow-blob glow-blob--accent"></div></div>
+		<div class="lotus-bg lotus-bg--1"><div class="lotus-spin"><svg viewBox="0 0 800 800"><defs><linearGradient id="ls1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e23d00" stop-opacity="0.6"/><stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/><stop offset="100%" stop-color="#e23d00" stop-opacity="0.6"/></linearGradient></defs><g transform="rotate(0 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(22 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(44 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(66 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(88 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(110 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(132 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(154 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(176 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(198 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(220 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(242 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(264 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(286 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(308 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g><g transform="rotate(352 400 400)"><path d="M400 100C430 150 440 220 400 300C360 220 370 150 400 100Z" fill="none" stroke="url(#ls1)" stroke-width="1.5" opacity=".6"/></g></svg></div></div>
+		<div class="lotus-bg lotus-bg--2"><div class="lotus-spin-rev"><svg viewBox="0 0 800 800"><g transform="rotate(0 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(30 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(60 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(90 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(120 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(150 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(180 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(210 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(240 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(270 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(300 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g><g transform="rotate(330 400 400)"><path d="M400 180C440 230 450 300 400 380C350 300 360 230 400 180Z" fill="none" stroke="#d4af37" stroke-width="2" opacity=".5"/><circle cx="400" cy="175" r="4" fill="#d4af37" opacity=".6"/></g></svg></div></div>
+
+		<section class="back-section">
+			<div class="container">
+				<a href="/blog" class="back-link">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+					Back to Blog
+				</a>
+			</div>
+		</section>
+
+		<section class="hero">
+			<div class="container">
+				<div><span class="badge">Popular Temples</span></div>
+				<h1 class="hero-title">Hiyangthang Lairembi Temple</h1>
+
+							<div class="img-placeholder">
+					<div class="img-placeholder__icon">🕉️</div>
+					<div class="img-placeholder__gradient"></div>
+					<div class="img-placeholder__text">Image of Hiyangthang Lairembi Temple</div>
+				</div>
+
+				<div class="glass key-info">
+					<div class="key-info__grid">
+						<div class="key-info__item">
+							<div class="key-info__icon">🕉️</div>
+							<div>
+								<div class="key-info__label">Main Deity</div>
+								<div class="key-info__value">Please visit temple website</div>
+							</div>
+						</div>
+						<div class="key-info__item">
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+							<div>
+								<div class="key-info__label">Contact</div>
+								<div class="key-info__value key-info__value--sans">Please visit temple website</div>
+							</div>
+						</div>
+						<div class="key-info__item key-info__item--full">
+							<div class="key-info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#e23d00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+							<div>
+								<div class="key-info__label">Full Address</div>
+								<div class="key-info__value key-info__value--sans">Hiyangthang Mayai Leikai, Hiyangthang, Imphal West, Manipur, 795009, India.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<article class="glass article">
+					<div class="section">
+					  <h3 class="section__title">Main Deity</h3>
+					  <p>Goddess Hiyangthang Lairembi (also known as Irai Leima), a highly revered traditional goddess of water and nature in Sanamahism (the indigenous Meitei religion).</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Other Deities (Sub Deities)</h3>
+					  <p>Goddess Kamakhya / Durga. In the 18th century during the reign of King Garib Niwaj, the traditional Meitei deity was syncretized with the Hindu goddess Kamakhya (a powerful manifestation of Goddess Durga). As a result, the temple features a unique convergence of both Sanamahi and Hindu</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Opening &amp; Closing Timing</h3>
+					  <h5 class="section__sub-b">The temple generally operates in two shifts daily</h5>
+					  <ul class="bullet-list">
+					    <li>Morning: 5:00 AM – 12:00 PM</li>
+					    <li>Evening: 4:00 PM – 9:00 PM</li>
+					  </ul>
+					  <p>(Timings can extend until 10:00 PM or run throughout the day during major festivals like Durga Puja).</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Entry Fees</h3>
+					  <p>Free. There is no entry fee or mandatory ticket required to visit the temple or the surrounding hillock complex.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Location &amp; Commuting (How to Reach)</h3>
+					  <p>The temple is perched on a scenic hillock called Heibok Ching in Hiyangthang, located roughly 10-11 km south of Imphal’s city center.</p>
+					  <ul class="bullet-list">
+					    <li>By Air: The nearest airport is Bir Tikendrajit International Airport (Imphal Airport), located about 10–15 km away. Taxis and auto-rickshaws are easily available from the airport to the temple.</li>
+					    <li>By Train: Rail connectivity to Imphal is currently limited/under development. The major active railway hub is Dimapur Railway Station (Nagaland), about 215 km away, from where you must take a bus or taxi to Imphal.</li>
+					    <li>By Road (Bus/Taxi/Auto): You can easily hire local auto-rickshaws, private taxis (like local cab apps), or take local intermediate buses running along the Mayai Lambi Road from the main Imphal market/ISBT stand to Hiyangthang.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special Poojas and Rituals</h3>
+					  <p>Bor Puja or Bor Numit</p>
+					  <p>The most important annual observance at the temple is popularly known as Bor, Bor Puja or Bor Numit, meaning the day of receiving a boon or blessing.</p>
+					  <p>It is associated with Sandhi Puja during the Durga Puja period and is observed on the third day of the local Durga Puja celebrations. Thousands of devotees visit the temple believing that prayers offered during the prescribed auspicious period may bring fulfilment of their wishes.</p>
+					  <p>The exact ritual time changes every year according to the lunar calendar. For example, one earlier celebration began at approximately 7:05 PM, while another publicly circulated schedule placed the auspicious period in the early morning. Therefore, the timing should not be treated as fixed and must be confirmed for the relevant year.</p>
+					  <p>Lai Haraoba</p>
+					  <p>The temple is also associated with Lai Haraoba, an important Meitei religious and cultural festival involving ritual worship, music, dance and the ceremonial retelling of traditional narratives. Dates are determined according to the local religious calendar.</p>
+					  <p>Panthoibi Iratpa</p>
+					  <p>Panthoibi Iratpa is another major observance associated with the temple. It falls during the Meitei lunar month of Mera and is often celebrated around the same period as Durga Puja.</p>
+					  <p>Annual Chaklen Katpa</p>
+					  <p>Members of the Sarangthem family traditionally organise an annual ceremonial feast known as Chaklen Katpa in honour of the goddess. This practice is connected with the temple’s origin tradition and the worship of Irai Leima.</p>
+					  <p>Rates for Poojas: No verified rate chart for offerings, special rituals or priestly services is publicly available.</p>
+					  <p>Advance Booking: No official telephone, website or online advance-booking system could be located. Special offerings and ritual arrangements appear to be managed directly at the temple. Visitors should enquire at the temple office or with the managing committee</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Online Services</h3>
+					  <p>None. The temple administration does not provide any online services (such as e-devotion, virtual e-pooja bookings, online prasad delivery, or donation portals). All interactions, offerings, and donations must be handled manually on the temple premises.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Dress Code</h3>
+					  <ul class="bullet-list">
+					    <li>General Days: There is no strictly enforced, rigid dress code protocol, but modest and respectful clothing is highly expected. Shoulders and knees should be covered.</li>
+					    <li>Special Puja &amp; Festival Days: For traditional rituals and major events like Bor Numit, traditional Manipuri attire is highly encouraged and widely preferred by locals.</li>
+					  </ul>
+					  <p>Men: Often wear white or light-colored or Kurta-Pajama. Pheijom Pumyat</p>
+					  <p>Women: Typically wear the traditional Innaphi (shawl wrap) and Phanek (ethnic wrap-around skirt).</p>
+					  <ul class="bullet-list">
+					    <li>General Rule: Footwear must be entirely removed before ascending the main temple steps or entering the inner sanctum area.</li>
+					  </ul>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Are Electronic Gadgets allowed? Which all? If mobile /gadgets are not allowed where it can be deposited in or near the temple premises?</h3>
+					  <p>Yes, allowed on the general temple premises and hillock grounds. Devotees are free to carry their mobile phones and gadgets. There is no cloakroom or specialized electronic locker counter run by the temple trust. If you are entering the innermost prayer spaces where gadgets might be discouraged during high-volume hours, visitors usually keep them inside their personal bags or vehicles.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Photography allowed? If yes, any fee prescribed?</h3>
+					  <p>Photography of the temple architecture, the beautiful Mandapa (hall), the scenic view of the valley from the hillock, and general grounds is allowed and free of charge. Photography and videography inside the inner sanctum (Garbhagriha) directly facing the deities are strictly prohibited to maintain sanctity. There is no prescribed camera ticket or fee; standard smartphone photography outside the inner shrine is free.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there a LIFT /Elevator or any other  facility for the physically handicapped?</h3>
+					  <p>No. The temple is located on top of a small hillock (Heibok Ching). Accessing the main shrine requires climbing a series of concrete stairs. There is no elevator, lift, or escalator facility available on the hillside.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Facility of WheelChair for elderly and physically challenged?</h3>
+					  <p>No wheelchair facility available. While the lower entrance and parking areas are flat, the structural incline up the hillock relies primarily on stairs. The temple administration does not provide an on-site wheelchair renting or pushing service for visitors.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Special entry/Special Timing of Darshan for Sick/Senior Citizens /Physically Challenged persons?</h3>
+					  <p>No automated or ticketed special lines. The temple operates on a standard general queue system. However, during major festivals like Durga Puja or Bor Numit when crowds are immense, local volunteers, police personnel, and temple committee members manually assist senior citizens, visibly ill, or physically challenged individuals by giving them priority access through the crowds out of cultural respect.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is Vehicle Pooja Performed. If yes what time? Cost?</h3>
+					  <p>Yes. New vehicles are frequently brought to the base of the temple for blessings. They are best performed during morning operating hours (6:00 AM-11:00 AM). Devotees typically make a voluntary cash donation to the performing priest (Maiba or local Brahmin) along with offering basic ritual items like sweets, fruits, incense, and flowers purchased from local vendors outside.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Does the temple provide accommodation facilities to the pilgrims? If yes,  what are the types of such facilities?What is the cost? How to book in advance?</h3>
+					  <p>No. The temple complex does not have a Dharamshala, pilgrim guest house, or lodging facilities. Because the temple is just 10 km from the heart of Imphal city, all tourists and pilgrims stay in hotels or homestays within Imphal city and make a day-trip to the temple.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What is the parking place for those who come by 4 cars, mini bus and two wheelers?</h3>
+					  <p>Yes. There is an open, unpaved ground space near the base of the hillock used for vehicle parking. It easily accommodates two-wheelers, private 4-wheeler cars, and medium-sized tourist mini-buses. During the massive Bor Numit festival, local authorities often establish temporary traffic diversions and extended parking zones along the approach roads to handle the thousands of vehicles.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Temple Prashad services- Meals- procedure, payments if any, different class/lines? How to buy the ticket, if needed and timings?</h3>
+					  <p>The temple does not operate a daily ticketed dining facility, so there are no meal tickets, fees, or separate queue classes. Instead, free community feasts (Chaklen Katpa) are organized during major festivals like Durga Puja and Lai Haraoba. During these special occasions, traditional vegetarian meals are served directly to all devotees on a first-come, first-served basis. On regular days, standard prasad like fruits and sweets can simply be purchased from the outside stalls and offered at the shrine.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Carry home prashad( types) if any, Cost ?</h3>
+					  <p>Carry-home prashad can be easily bought from local vendor stalls near the temple steps and base. Options include seasonal fruits, sweets like ladoos, traditional local sweetmeats, puffed rice (kabok), and fresh flowers. Offering baskets range from ₹30 to ₹150, making them very affordable for visitors.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">What should visitors do if they lose a personal item or get separated from a group member on the temple premises?</h3>
+					  <p>If you lose an item or get separated from your group, head straight to the Temple Administration Office near the entrance or inform the on-duty local volunteers and Manipur Police personnel (who are especially active during major events like Bor Numit).</p>
+					  <p>Since there is no electronic lost-and-found system or computerized loudspeaker, the local committee members manually coordinate announcements and help trace missing items or persons. The best strategy is to set a pre-decided landmark before exploring: the large open Mandapa (assembly hall) right in front of the main temple structure is the safest and most visible spot for separated family members to gather and wait.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is this temple registered under the state govt/District administration? Provide if the information is visible on the site?</h3>
+					  <p>The temple is managed primarily via traditional custodianship involving local village authorities and the Sarangthem clan elders, alongside guidance from state religious bodies. The administration is recognized by the local district administration for law, order, and festival management, but it does not function as a direct state-government owned temple corporation. There is no official registration certificate publicly displayed on a digital site.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">How can one make Donations, (apart from Hundi offerings in the temple) to whom and which bank account and for what all purposes?</h3>
+					  <p>Devotees wishing to make contributions beyond the hundi offerings must do so in person at the official Temple Trust or Committee counter on the premises, as the temple does not publicly advertise bank account details or online portals to prevent fraud. Upon making a contribution, donors receive a physical, stamped receipt issued directly by the administration. These funds can be explicitly designated for specific causes, such as general temple maintenance, the organization of major festivals like Durga Puja and Bor Numit, or supporting community feasts (Chaklen Katpa) for pilgrims.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Provide Construction/scientific information about the temple?</h3>
+					  <p>Hiyangthang Lairembi Temple is situated on a small hillock overlooking the surrounding valley. The present temple is a seven-storeyed, east-facing structure with three equal-sized rectangular entrance doors. A large pillared mandapa stands in front of the main shrine and provides space for congregational worship and festival gatherings. The complex includes tiled floors, painted and plastered surfaces, glazed windows, concrete-sheet roofing and a prominent bell structure. Its white, brick-red and blue colour scheme gives the temple a distinctive appearance. The precinct also contains separate spaces for ritual washing, distribution of prasad and handwashing. Although the worship tradition dates back to the fifteenth century, the construction date and different building phases of the existing structure have not been officially documented in publicly available sources. No detailed structural, seismic, geological or conservation study of the temple could be located.</p>
+					</div>
+					<div class="section">
+					  <h3 class="section__title">Is there any special significance attached to the temple- like for eg. Kasar Devi in Uttarkhand</h3>
+					  <p>Hiyangthang Lairembi Temple is regarded as one of the important sacred centres of the Meitei community in Manipur. The presiding goddess, Hiyangthang Lairembi, is traditionally identified as Irai Leima, a deity associated with water, aquatic life, healing and divine protection. The temple is particularly famous for Bor Numit, or the “Day of Boons,” when devotees offer prayers at an auspicious time in the belief that the goddess may fulfil their wishes.</p>
+					  <p>The shrine also reflects the interaction between the indigenous Meitei religious tradition and Hindu worship. Originally revered as Irai Leima, the goddess later came to be associated with Kamakhya or Durga. The temple consequently remains important for both Meitei traditional observances and festivals such as Durga Puja. Lai Haraoba, Panthoibi Iratpa and the annual Chaklen Katpa ceremonial feast further reinforce its religious and cultural importance.</p>
+					  <p>Unlike certain temples associated with claims of geomagnetic or cosmic-energy fields, no scientific study has established any unusual magnetic, geological or energy-related phenomenon at Hiyangthang Lairembi Temple. Its significance is primarily rooted in local belief, the worship of the water goddess, the tradition of seeking divine boons and the preservation of Meitei cultural practices.</p>
+					</div>
+				</article>
+
+				<div class="glass cta-section">
+					<h3>Experience Divine Darshan</h3>
+					<p>Immerse yourself in the spiritual essence of this sacred temple through our 360° VR experience.</p>
+					<a href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share" target="_blank" class="cta-btn">
+						Download Divya Darshan 360 App
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script src="/blog/assets/blog-script.js"></script>
+	<script src="/blog/assets/diya.js"></script>
+</body>
+</html>
