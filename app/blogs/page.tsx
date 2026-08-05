@@ -38,7 +38,7 @@ export default function BlogPage() {
       <section className="relative pt-32 pb-16 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-8">
-            <Link href="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-medium">
+            <Link href="/" className="inline-flex items-center gap-2 py-2 text-muted-foreground hover:text-primary transition-colors font-medium">
               <ArrowLeft className="w-4 h-4" />
               Back to Home
             </Link>

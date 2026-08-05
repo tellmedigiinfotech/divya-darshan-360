@@ -9,20 +9,20 @@ export function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-2xl font-serif mb-2">Divya Darshan 360</h4>
             <p className="text-muted-foreground text-sm">Developed by TellMe Digi Infotech Pvt Ltd</p>
-            <div className="mt-3 flex flex-col gap-2">
+            <div className="mt-2 flex flex-col">
               <a
                 href="tel:9049921850"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors justify-center md:justify-start"
+                className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors justify-center md:justify-start"
               >
                 <Phone className="w-4 h-4 shrink-0" />
                 <span>9049921850</span>
               </a>
               <a
                 href="mailto:connect@youtellme.ai?cc=sairaj@tellmedigi.com"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors justify-center md:justify-start"
+                className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors justify-center md:justify-start"
               >
                 <Mail className="w-4 h-4 shrink-0" />
-                <span>connect@youtellme.ai </span>
+                <span>connect@youtellme.ai</span>
               </a>
             </div>
           </div>
@@ -48,20 +48,22 @@ export function Footer() {
 
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white">
           <p>© 2025 Divya Darshan 360. All rights reserved.</p>
-          <div className="flex gap-6 flex-wrap justify-center">
-            <Link href="/blogs" className="hover:text-primary transition-colors">
+          {/* -my-2 keeps the row's visual height while py-2 gives each link a
+              36px touch target — bare 20px text links are awkward to tap. */}
+          <div className="flex gap-x-6 gap-y-1 flex-wrap justify-center -my-2">
+            <Link href="/blogs" className="py-2 hover:text-primary transition-colors">
               Blog
             </Link>
-            <Link href="/vr-headset" className="hover:text-primary transition-colors">
+            <Link href="/vr-headset" className="py-2 hover:text-primary transition-colors">
               Buy VR Headset
             </Link>
-            <Link href="/privacy#privacy" className="hover:text-foreground">
+            <Link href="/privacy#privacy" className="py-2 hover:text-foreground">
               Privacy Policy
             </Link>
-            <Link href="/privacy#terms" className="hover:text-foreground">
+            <Link href="/privacy#terms" className="py-2 hover:text-foreground">
               Terms of Service
             </Link>
-            <Link href="/privacy#cookies" className="hover:text-foreground">
+            <Link href="/privacy#cookies" className="py-2 hover:text-foreground">
               Cookie Policy
             </Link>
           </div>

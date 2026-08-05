@@ -49,7 +49,7 @@ export default function CheckoutPage() {
             <div className="relative z-10 max-w-6xl mx-auto px-6 pt-8">
                 <Link
                     href="/vr-headset"
-                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-medium group"
+                    className="inline-flex items-center gap-2 py-2 text-muted-foreground hover:text-primary transition-colors font-medium group"
                 >
                     <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                     Back to Mobile VR Box

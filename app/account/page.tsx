@@ -26,7 +26,7 @@ export default function AccountPage() {
             <div className="relative z-10 max-w-5xl mx-auto px-6 pt-8">
                 <Link
                     href="/"
-                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-medium group"
+                    className="inline-flex items-center gap-2 py-2 text-muted-foreground hover:text-primary transition-colors font-medium group"
                 >
                     <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                     Back to Home

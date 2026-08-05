@@ -82,20 +82,28 @@ export function VrHeadsetOptions() {
                                     </AnimatePresence>
                                 </div>
 
-                                {/* Carousel dots */}
-                                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
+                                {/* Carousel dots. The dot itself stays 8px, but the button
+                                    is padded out to a 32px touch target — a bare 8px dot is
+                                    under the 24px WCAG 2.5.8 minimum and hard to hit on a
+                                    phone. */}
+                                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center z-20">
                                     {product.images.map((src, idx) => (
                                         <button
                                             key={src}
                                             type="button"
                                             onClick={() => setActiveImage(idx)}
                                             aria-label={`Show image ${idx + 1}`}
-                                            className={`h-2 rounded-full transition-all duration-300 ${
-                                                activeImage === idx
-                                                    ? "w-8 bg-primary shadow-[0_0_10px_var(--color-primary)]"
-                                                    : "w-2 bg-primary/30 hover:bg-primary/60"
-                                            }`}
-                                        />
+                                            aria-current={activeImage === idx}
+                                            className="grid place-items-center p-3.5 cursor-pointer"
+                                        >
+                                            <span
+                                                className={`block h-2 rounded-full transition-all duration-300 ${
+                                                    activeImage === idx
+                                                        ? "w-8 bg-primary shadow-[0_0_10px_var(--color-primary)]"
+                                                        : "w-2 bg-primary/30 hover:bg-primary/60"
+                                                }`}
+                                            />
+                                        </button>
                                     ))}
                                 </div>
 
