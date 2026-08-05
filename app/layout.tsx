@@ -10,6 +10,7 @@ import { seoKeywords, siteUrl, defaultMetadata } from "@/lib/seo-config"
 import { Footer } from "@/components/footer"
 import { AuthProvider } from "@/components/auth-provider"
 import { AuthButton } from "@/components/auth-button"
+import { SiteLogo } from "@/components/site-logo"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
@@ -325,6 +326,7 @@ export default function RootLayout({
 				/>
 
 				<AuthProvider>
+					<SiteLogo />
 					<AuthButton />
 					{children}
 					<Footer />

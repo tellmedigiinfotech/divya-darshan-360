@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { ShieldCheck, Sparkles, Star, Focus as Lotus } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import { useIsMobile } from "@/hooks/use-mobile"
 import { ExperienceCards } from "@/components/experience-cards"
 
 import { SacredChakra } from "@/components/sacred-chakra"
@@ -13,10 +15,15 @@ import { FloatingDiya } from "@/components/floating-diya"
 
 import { DivineParticles } from "@/components/divine-particles"
 import { BackgroundLotus } from "@/components/background-lotus"
-import { DemoVideo } from "@/components/demo-video"
 import { FaqSection } from "@/components/faq-section"
 
 export default function LandingPage() {
+  const isMobile = useIsMobile()
+  // Only mount the <video> after hydration so we download a single source
+  // (the files are large — we must not fetch both desktop and mobile).
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
   return (
     <main className="min-h-screen relative overflow-hidden selection:bg-primary/30">
       {/* ... (existing code) ... */}
@@ -44,8 +51,39 @@ export default function LandingPage() {
         <div className="absolute bottom-40 right-10 w-80 h-80 bg-secondary blur-[100px] animate-glow" />
       </div>
 
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-32 px-6">
+      {/* Hero Section — full-bleed background video, only the VR CTA on top */}
+      <section className="relative w-full h-screen min-h-[560px] flex items-end justify-center overflow-hidden bg-black">
+        {mounted && (
+          <video
+            key={isMobile ? "mobile" : "desktop"}
+            className="absolute inset-0 w-full h-full object-cover"
+            src={isMobile ? "/Background_video_desktop_mobile.mp4" : "/Background_video_desktop.mp4"}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          />
+        )}
+
+        {/* Scrim so the button stays readable over the footage */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/30 pointer-events-none" />
+
+        {/* The visible headline is commented out below, so keep an H1 for SEO / screen readers */}
+        <h1 className="sr-only">Divya Darshan 360 — Experience Divine VR Darshan</h1>
+
+        <div className="relative z-10 flex items-center justify-center px-6 pb-20 md:pb-28">
+          <Link
+            href="/vr-headset"
+            className="group inline-flex items-center gap-3 px-8 py-6 rounded-full divine-button shadow-(--saffron-glow)"
+          >
+            <span className="text-lg font-serif tracking-tight">Buy VR Headset</span>
+            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </Link>
+        </div>
+
+        {/* --- Hero copy hidden while the video banner is live ---
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -65,51 +103,40 @@ export default function LandingPage() {
             <span className="text-primary font-medium">platform-exclusive</span> spiritual videos.
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-10 mb-32">
-            <Link
-              href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
-              target="_blank"
-              className="group relative flex items-center gap-5 bg-white/80 backdrop-blur-md px-10 py-5 rounded-[15rem] border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
-            >
-              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-shimmer pointer-events-none" />
+          <Link
+            href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
+            target="_blank"
+            className="group relative flex items-center gap-5 bg-white/80 backdrop-blur-md px-10 py-5 rounded-[15rem] border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
+          >
+            <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-shimmer pointer-events-none" />
 
-              <div className="relative z-10 p-2 bg-white/5 rounded-xl border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
-                <img
-                  src="/google-play-icon.png"
-                  alt="Play Store"
-                  className="w-8 h-8 object-contain rounded-md group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-
-              <div className="flex flex-col items-start leading-none relative z-10">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-1">
-                  Available on
-                </span>
-                <span className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors tracking-tight">
-                  Google Play
-                </span>
-              </div>
-
-              <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-primary/10 rounded-tr-lg group-hover:border-primary/40 transition-colors" />
-              <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-primary/10 rounded-bl-lg group-hover:border-primary/40 transition-colors" />
-            </Link>
-
-            <div className="flex items-center justify-center">
-              <Link
-                href="/vr-headset"
-                className="group inline-flex items-center gap-3 px-8 py-6 rounded-full divine-button shadow-(--saffron-glow)"
-              >
-                <span className="text-lg font-serif tracking-tight">Buy VR Headset</span>
-                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </Link>
+            <div className="relative z-10 p-2 bg-white/5 rounded-xl border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
+              <img
+                src="/google-play-icon.png"
+                alt="Play Store"
+                className="w-8 h-8 object-contain rounded-md group-hover:scale-110 transition-transform duration-500"
+              />
             </div>
-          </div>
+
+            <div className="flex flex-col items-start leading-none relative z-10">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-1">
+                Available on
+              </span>
+              <span className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors tracking-tight">
+                Google Play
+              </span>
+            </div>
+
+            <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-primary/10 rounded-tr-lg group-hover:border-primary/40 transition-colors" />
+            <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-primary/10 rounded-bl-lg group-hover:border-primary/40 transition-colors" />
+          </Link>
         </div>
+        --- end hidden hero copy --- */}
       </section>
 
-      {/* Product Demo Video */}
-      <DemoVideo />
+      {/* Product Demo Video ("Experience the Divine") — removed from the page.
+          <DemoVideo /> */}
 
       {/* NEW: Exclusivity Banner - Softened borders and gradient */}
       <section className="py-20 relative overflow-hidden bg-gradient-to-r from-transparent via-primary/5 to-transparent">
@@ -251,6 +278,39 @@ export default function LandingPage() {
       </section>
 
       <section className="py-32 px-6 relative">
+        {/* Play Store CTA — the video hero no longer carries it, so it sits above
+            the app showcase where the phone screens make it relevant. */}
+        <div className="flex justify-center mb-16 relative z-10">
+          <Link
+            href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
+            target="_blank"
+            className="group relative flex items-center gap-5 bg-white/80 backdrop-blur-md px-10 py-5 rounded-[15rem] border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
+          >
+            <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-shimmer pointer-events-none" />
+
+            <div className="relative z-10 p-2 bg-white/5 rounded-xl border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500">
+              <img
+                src="/google-play-icon.png"
+                alt="Play Store"
+                className="w-8 h-8 object-contain rounded-md group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div className="flex flex-col items-start leading-none relative z-10">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-1">
+                Available on
+              </span>
+              <span className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors tracking-tight">
+                Google Play
+              </span>
+            </div>
+
+            <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-primary/10 rounded-tr-lg group-hover:border-primary/40 transition-colors" />
+            <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-primary/10 rounded-bl-lg group-hover:border-primary/40 transition-colors" />
+          </Link>
+        </div>
+
         <div className="max-w-7xl mx-auto mb-16 text-center">
           <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Experience the App</span>
           <h2 className="text-4xl md:text-6xl font-serif mb-6">Immersive Interface</h2>
