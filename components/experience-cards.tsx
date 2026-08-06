@@ -3,6 +3,13 @@
 import { motion } from "framer-motion"
 import { Play, MapPin, Calendar, Star } from "lucide-react"
 
+// Card art lives in public/Sacred Journeys. The folder name has a space, so the
+// paths are percent-encoded here rather than relying on the browser to do it.
+//
+// The "-web" files are downscaled copies. Two of the originals were camera
+// frames (45MB / 18MB) being rendered into a 384x512 box; the full-resolution
+// versions are kept on disk but gitignored, since they are ~64MB of weight for
+// no visible gain.
 const experiences = [
   {
     id: 1,
@@ -10,7 +17,7 @@ const experiences = [
     location: "Sacred India",
     date: "Divine Shiva Darshan",
     rating: "5.0",
-    image: "/sacred-jyotirlinga-shiva-temple-360-view.jpg",
+    image: "/Sacred%20Journeys/Jyotirlingas.jpg",
     color: "from-orange-500/20 to-red-500/20"
   },
   {
@@ -19,7 +26,7 @@ const experiences = [
     location: "Maharashtra",
     date: "Ganesh Blessings",
     rating: "4.9",
-    image: "/ashtavinayak-ganesh-temple-spiritual-darshan.jpg",
+    image: "/Sacred%20Journeys/Ashtavinayak%20Yatra.jpg",
     color: "from-amber-500/20 to-yellow-500/20"
   },
   {
@@ -28,7 +35,7 @@ const experiences = [
     location: "Indian Subcontinent",
     date: "Devi Worship",
     rating: "5.0",
-    image: "/shakti-peeth-divine-goddess-temple-sacred-atmosphe.jpg",
+    image: "/Sacred%20Journeys/Shakti%20Peethas-web.jpg",
     color: "from-rose-500/20 to-pink-500/20"
   },
   {
@@ -37,7 +44,7 @@ const experiences = [
     location: "Shirdi",
     date: "Faith & Patience",
     rating: "4.9",
-    image: "/sai-baba-shirdi.png",
+    image: "/Sacred%20Journeys/Sai%20Baba%20Mandir-web.jpg",
     color: "from-yellow-400/20 to-orange-400/20"
   },
   {
@@ -63,13 +70,15 @@ export function ExperienceCards() {
           viewport={{ once: true }}
           className="group relative w-full md:w-[calc(33.333%-2rem)] aspect-[3/4] rounded-[2.5rem] overflow-hidden cursor-pointer"
         >
-          {/* Background Gradient/Image Placeholder */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${exp.color} opacity-40 group-hover:opacity-60 transition-opacity duration-500`} />
+          {/* Tinted placeholder, visible only while the photo loads */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${exp.color}`} />
           <img
             src={exp.image}
             alt={exp.title}
-            className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-110"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
+          {/* Dark scrim only — carries the white caption text. Nothing lightens
+              the photo, or the pale page background washes it out. */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
           {/* Glass Effect Overlay */}

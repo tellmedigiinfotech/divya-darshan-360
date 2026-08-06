@@ -30,3 +30,9 @@ blog_sheet_sync
 # Python cache for utility scripts
 scripts/__pycache__/
 __pycache__/
+
+# Full-resolution camera originals for the Sacred Journeys cards. The site
+# serves the downscaled "-web" copies next to them; these are ~64MB and are
+# kept locally only so the art can be re-exported at a different size later.
+/public/Sacred Journeys/Shakti Peethas.jpg
+/public/Sacred Journeys/Sai Baba Mandir.jpg
