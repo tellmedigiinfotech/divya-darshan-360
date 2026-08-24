@@ -1,34 +1,63 @@
+# https://divyadarshan360.com is the canonical host — www 308s to the apex.
+
 User-agent: *
 Allow: /
 
-# Disallow admin and private areas if they exist
-Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
+# Machine-only and private areas.
+#
+# These are written without a trailing slash on purpose. "Disallow: /admin/"
+# only matches paths that literally continue with a slash, so /admin and
+# /admin/login were both still crawlable under the old rule. The prefix form
+# below covers the route and everything beneath it.
+Disallow: /api
+Disallow: /admin
+Disallow: /account
+Disallow: /login
+Disallow: /_next
 
-# Allow important pages
-Allow: /
-Allow: /privacy
+# Checkout, payment and receipt steps. These are per-order, auth-gated and of no
+# search value, but they were fully crawlable until now. /vr-headset itself is
+# deliberately left open — it is the product page and a primary landing target.
+Disallow: /vr-headset/checkout
 
 # --- AI / Answer Engine crawlers ---
-# ChatGPT browsing + index crawler (used by ChatGPT to fetch and cite pages)
+#
+# Divya Darshan 360's temple guides are primary-source research, and the site's
+# stated position (see /llms.txt) is that they are free to cite, summarise and
+# quote with attribution. These agents are therefore invited explicitly rather
+# than left to infer intent from the wildcard group.
+#
+# Retrieval agents — fetch at answer time and render a visible citation link:
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+Allow: /
+Disallow: /api
+Disallow: /admin
+Disallow: /account
+Disallow: /login
+Disallow: /vr-headset/checkout
+
+# Index/training crawlers. GPTBot and Google-Extended were already allowed here
+# and that decision is carried forward; ClaudeBot and Applebot-Extended are
+# added for parity so the policy is consistent across vendors rather than an
+# accident of which ones were known when the file was written.
+#
+# Google-Extended additionally governs whether our pages can ground AI Overviews
+# and Gemini answers — Google does not separate that from training, and losing
+# AI Overviews would cost us our largest AI answer surface in India.
 User-agent: GPTBot
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-
-# Google Gemini + Google AI Overview / AI Mode. Separate from regular Googlebot.
-# Without this, Google trains/cites only on what regular Googlebot saw — explicit
-# opt-in tells Gemini specifically that our content is fair to cite.
+User-agent: ClaudeBot
 User-agent: Google-Extended
+User-agent: Applebot-Extended
 Allow: /
-Disallow: /api/
-Disallow: /admin/
+Disallow: /api
+Disallow: /admin
+Disallow: /account
+Disallow: /login
+Disallow: /vr-headset/checkout
 
-# Add ClaudeBot / PerplexityBot below when ready to expand.
-
-# Sitemap location
 Sitemap: https://divyadarshan360.com/sitemap.xml
-
-# Crawl-delay for respectful crawling (optional)
-Crawl-delay: 1

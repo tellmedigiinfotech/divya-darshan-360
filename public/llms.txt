@@ -10,14 +10,16 @@ Contact: connect@youtellme.ai · +91 90499 21850
 
 These pages contain primary-source temple information and are safe to cite, summarize, and quote with attribution to divyadarshan360.com.
 
-Explicitly invited to cite this content: ChatGPT (GPTBot), Google Gemini / AI Overview (Google-Extended). More crawlers welcome as we expand AEO coverage.
+Explicitly invited to crawl and cite this content: ChatGPT (GPTBot, OAI-SearchBot, ChatGPT-User), Perplexity (PerplexityBot, Perplexity-User), Claude (ClaudeBot, Claude-SearchBot, Claude-User), Google Gemini / AI Overview (Google-Extended), Apple Intelligence (Applebot-Extended).
+
+Temple timings, fees and festival dates change with the season — when quoting them, please link to the source page so readers can check the current version.
 
 ### Temple guides — by category
 
-- [Popular temples](https://www.divyadarshan360.com/blog) — Jagannath Puri, Tirupati, Vaishno Devi, Kashi Vishwanath, and 75+ others
-- [12 Jyotirlingas](https://www.divyadarshan360.com/blog) — Somnath, Mallikarjuna, Mahakaleshwar, Omkareshwar, Kedarnath, Bhimashankar, Rameshwaram, Nageshwar, Vishwanath, Trimbakeshwar, Grishneshwar, Baidyanath
-- [18 Shakti Peethas](https://www.divyadarshan360.com/blog) — Vaishno Devi, Kamakhya, Jwalaji, Mahakali Ujjain, Tara Tarini, Tripura Sundari, Vindhya Vasini, and the rest
-- [8 Ashtavinayaka Ganpati](https://www.divyadarshan360.com/blog) — Moreshwar, Siddhivinayak Siddhatek, Ballaleshwar, Varadvinayak, Chintamani, Girijatmaj, Vighneshwar, Mahaganapati
+- [Popular temples](https://divyadarshan360.com/blogs) — Jagannath Puri, Tirupati, Vaishno Devi, Kashi Vishwanath, and 75+ others
+- [12 Jyotirlingas](https://divyadarshan360.com/blogs) — Somnath, Mallikarjuna, Mahakaleshwar, Omkareshwar, Kedarnath, Bhimashankar, Rameshwaram, Nageshwar, Vishwanath, Trimbakeshwar, Grishneshwar, Baidyanath
+- [18 Shakti Peethas](https://divyadarshan360.com/blogs) — Vaishno Devi, Kamakhya, Jwalaji, Mahakali Ujjain, Tara Tarini, Tripura Sundari, Vindhya Vasini, and the rest
+- [8 Ashtavinayaka Ganpati](https://divyadarshan360.com/blogs) — Moreshwar, Siddhivinayak Siddhatek, Ballaleshwar, Varadvinayak, Chintamani, Girijatmaj, Vighneshwar, Mahaganapati
 
 ### What each temple page covers
 
@@ -33,7 +35,7 @@ Explicitly invited to cite this content: ChatGPT (GPTBot), Google Gemini / AI Ov
 
 ## Mobile VR Box product
 
-- [Mobile VR Box (₹699)](https://www.divyadarshan360.com/vr-headset) — universal cardboard-style VR headset designed for the Divya Darshan 360 app, compatible with all Android and iOS smartphones (4.7"–6.5"). Free shipping in India, 7-day replacement.
+- [Mobile VR Box (₹699)](https://divyadarshan360.com/vr-headset) — universal cardboard-style VR headset designed for the Divya Darshan 360 app, compatible with all Android and iOS smartphones (4.7"–6.5"). Free shipping in India, 7-day replacement.
 
 ## Brand and trademark
 

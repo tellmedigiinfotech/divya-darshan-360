@@ -13,100 +13,10 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Vishnu Temple, Omkareshwar" />
 	<meta name="twitter:description" content="Vishnu Temple, Omkareshwar - Complete guide with timings, location, how to reach, poojas, and more." />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
-	<script src="https://cdn.tailwindcss.com"></script>
-	<script src="/blog/assets/tailwind-config.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
-	<link rel="stylesheet" href="/blog/assets/diya.css" />
+<link href="/blog/assets/fonts.css" rel="stylesheet"/>
+<link href="/blog/assets/blog.css" rel="stylesheet"/>
+<link rel="stylesheet" href="/blog/assets/diya.css" />
 	
-	<style type="text/tailwindcss">
-		@layer components {
-			.lotus-bg { @apply fixed pointer-events-none z-0 hidden md:block; }
-			.lotus-bg--1 { @apply top-[5%] -right-[10%] w-[500px] h-[500px] opacity-[.12]; }
-			.lotus-bg--2 { @apply top-[35%] -left-[15%] w-[420px] h-[420px] opacity-[.08]; }
-			.lotus-spin { @apply animate-spin-slow; }
-			.lotus-spin-rev { @apply animate-spin-rev; }
-
-			body {
-				@apply min-h-screen relative overflow-x-hidden text-[#3b2510] font-sans;
-				background-color: #fdf1e2;
-				background-image: 
-					radial-gradient(circle at 50% 50%, #fadbcb 0%, transparent 80%),
-					radial-gradient(circle at 50% 0%, rgba(226, 61, 0, 0.05), transparent 70%), 
-					url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
-				background-size: 100% 100%, 100% 100%, 200px 200px;
-				background-attachment: fixed;
-				animation: divine-glow 20s ease-in-out infinite alternate;
-			}
-
-			.main { @apply relative z-10; }
-			.glow-wrap { @apply absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-20; }
-			.glow-blob { @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-glow; }
-			.glow-blob--primary { @apply -top-24 -left-24 w-96 h-96 bg-primary/20; }
-			.glow-blob--accent { @apply top-1/2 -right-24 w-80 h-80 bg-accent/20; }
-
-			.section { @apply mb-12 pb-2; }
-			.section__title { @apply font-serif text-2xl font-normal text-primary mb-5 pb-2.5 border-b-2 border-[#e8ddd0]; }
-			.section__sub-b { @apply text-[1.05rem] font-normal text-[#3b2510] opacity-90 mt-6 mb-2.5 pt-1; }
-			.bullet-list { @apply list-none p-0 my-4 mb-5 space-y-3; }
-			.bullet-list li { @apply flex items-start gap-2.5 text-[#8a7260] leading-[1.7]; }
-			.bullet-list li::before { content: "\2022"; @apply text-primary font-bold shrink-0 mt-px; }
-			
-			.num-list { @apply list-none p-0 my-4 mb-5 space-y-4; }
-			.num-list li { @apply flex items-start gap-3 text-[#8a7260] leading-[1.7]; }
-			.num-list__badge { @apply flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-[0.75rem] font-bold shrink-0 mt-0.5; }
-			
-			.article p { @apply text-[#8a7260] mb-4 leading-[1.85]; }
-			
-			.hero { @apply px-6 pb-16 relative z-10; }
-			.hero-title { @apply font-serif text-[2.25rem] leading-[1.1] tracking-tighter mb-8 font-normal md:text-[3.75rem]; }
-			.badge { @apply inline-block px-[18px] py-2 rounded-full bg-primary/10 text-primary text-[0.85rem] font-medium border border-primary/20 mb-6; }
-			
-			.glass { @apply bg-white/60 backdrop-blur-2xl border border-[#e8ddd0] shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[24px]; }
-			.key-info { @apply p-8 mb-12; }
-			.key-info__grid { @apply grid grid-cols-1 md:grid-cols-2 gap-6; }
-			.key-info__item { @apply flex items-start gap-4; }
-			.key-info__item--full { @apply md:col-span-2; }
-			.key-info__icon { @apply w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-[1.3rem]; }
-			.key-info__icon svg { @apply w-5 h-5 stroke-primary; }
-			.key-info__label { @apply text-[0.82rem] font-medium text-[#8a7260] mb-0.5; }
-			.key-info__value { @apply text-[1.05rem] font-serif text-[#3b2510]; }
-			.key-info__value--sans { @apply font-sans; }
-			
-			.article { @apply p-8 mb-12 md:px-12 md:pt-12 md:pb-6; }
-			
-			.carousel { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm; }
-			.carousel__track { @apply absolute inset-0; }
-			.carousel__slide { @apply absolute inset-0 opacity-0 transition-opacity duration-500; }
-			.carousel__slide--active { @apply opacity-100; }
-			.carousel__slide img { @apply w-full h-full object-cover; }
-			.carousel__btn { @apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-black/40; }
-			.carousel:hover .carousel__btn { @apply opacity-100; }
-			.carousel__btn--prev { @apply left-4; }
-			.carousel__btn--next { @apply right-4; }
-			.carousel__dots { @apply absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2; }
-			.carousel__dot { @apply w-2 h-2 rounded-full bg-white/40 cursor-pointer transition-colors; }
-			.carousel__dot--active { @apply bg-white; }
-			.carousel__counter { @apply absolute top-6 right-6 px-3 py-1 rounded-full bg-black/20 backdrop-blur-md text-white text-[0.75rem] font-medium; }
-			
-			.img-placeholder { @apply relative aspect-video rounded-[24px] overflow-hidden mb-12 bg-gradient-to-br from-primary/20 to-accent/15 border border-[#e8ddd0] shadow-sm flex items-center justify-center; }
-			.img-placeholder__icon { @apply text-[6rem] opacity-25; }
-			.img-placeholder__text { @apply absolute bottom-6 left-6 right-6 text-[#3b2510]/60 text-[0.85rem]; }
-			
-			.back-section { @apply pt-24 px-6 pb-8; }
-			.back-link { @apply inline-flex items-center gap-2 text-[#8a7260] text-[0.9rem] font-medium transition-colors duration-300 hover:text-primary; }
-			.back-link svg { @apply w-4 h-4; }
-			
-			.cta-section { @apply p-12 text-center mb-12; }
-			.cta-section h3 { @apply font-serif text-3xl mb-4 text-[#3b2510]; }
-			.cta-section p { @apply text-[#8a7260] mb-8 max-w-lg mx-auto; }
-			.cta-btn { @apply inline-block px-8 py-4 rounded-full bg-primary text-white font-bold transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20; }
-			
-			.container { @apply max-w-[896px] mx-auto; }
-		}
-	</style>
 
 <!-- DD360_FAQ_SCHEMA_START -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Vishnupuri temple and where is it located?","acceptedAnswer":{"@type":"Answer","text":"The Vishnupuri Temple (also known as the Vishnu Mandir) is an ancient yet active Hindu temple located in the Vishnupuri area of Omkareshwar. It continues to function as a place of daily worship, where local priests and devotees carry out regular rituals. The temple is part of the traditional division of the town into Brahmapuri, Vishnupuri, and Shivpuri, which together form the sacred landscape of Omkareshwar. It is situated on the southern bank of the Narmada River, within the Mahanirvani Akhada complex near J.P. Chowk in Khandwa district, Madhya Pradesh."}},{"@type":"Question","name":"How can one reach the temple within Omkareshwar?","acceptedAnswer":{"@type":"Answer","text":"By Foot: If you are near the Mamleshwar Temple or the bus stand, the Vishnupuri Temple is just a short 2-5 minute walk through the local lanes. It is located within the Vishnupuri area, and locals can easily guide you if needed. By Auto-Rickshaw: From the bus stand, you can take an auto to Mamleshwar Chowk or nearby areas. From there, the temple is a short walk inside the lanes. From the Island Side (Omkareshwar Temple Area): You can cross the Narmada River either by boat or via Jula Pul. After reaching the mainland, walk towards the Mamleshwar side and continue into the Vishnupuri area to reach the temple."}},{"@type":"Question","name":"Who is the presiding deity of the Prachin Vishnu Mandir","acceptedAnswer":{"@type":"Answer","text":"The main deity of the Vishnupuri temple is Lord Vishnu, worshipped here in his four armed (Chaturbhuja) form. He is accompanied by Goddess Lakshmi, and together they are worshipped as Lakshmi- Narayana. The Vishnu Idol is carved from a single block of highly polished black stone (Shyamala Shila), the deity stands in a graceful posture. In his four hands, he holds the traditional celestial symbols: the Sudarshana Chakra (discus), the Panchajanya Shankha (conch), the Kaumodaki Gada (mace), and a Padma (lotus)."}},{"@type":"Question","name":"Opening and the closing timings of the temple","acceptedAnswer":{"@type":"Answer","text":"The Vishnupuri Temple is generally open from 6:00 AM to 8:30 PM."}},{"@type":"Question","name":"Is there an entry fee for Indian or foreign visitors?","acceptedAnswer":{"@type":"Answer","text":"There is no entry fee to visit the Vishnupuri Temple. The temple is open to all visitors, and no separate charges are applied for Indian or foreign tourists."}},{"@type":"Question","name":"Who manages or operates the temple?","acceptedAnswer":{"@type":"Answer","text":"The Vishnupuri Temple is managed by the Shri Panchayati Akhada Mahanirvani, within whose premises the temple is located. The day-to-day functioning of the temple, including daily pooja, aarti, and general upkeep, is handled by the resident monks and priests associated with the akhada. As an old temple, it also holds heritage value, and any structural conservation is generally guided by archaeological norms to ensure that the original features of the temple are preserved."}},{"@type":"Question","name":"History and Significance of the Temple","acceptedAnswer":{"@type":"Answer","text":"The Vishnupuri Temple appears to belong to the medieval period and can reasonably be placed within the Paramara phase (c. 10th–12th century CE) on the basis of its material, form, and iconography. In the absence of any visible inscription or dated record, this attribution remains based on stylistic assessment rather than firm evidence. The temple is built in stone and follows a simple Nagara layout, with a small, enclosed garbhagriha. The overall scale suggests that it functioned as a local shrine rather than a major commissioned monument. The masonry consists of well-cut stone blocks fitted closely together, a technique commonly seen in temples of this period across the region. Although the Paramara period is often associated with the Bhumija mode, the present structure does not preserve enough of its superstructure to allow a clear stylistic classification in that regard. What…"}},{"@type":"Question","name":"Is the temple crowded or relatively peaceful compared to the other sites in Omkareshwar?","acceptedAnswer":{"@type":"Answer","text":"Compared to the main temples in Omkareshwar, it is usually less crowded and offers a more peaceful experience."}},{"@type":"Question","name":"Are mobile phones allowed inside the temple?","acceptedAnswer":{"@type":"Answer","text":"Yes, mobile phones are allowed inside the temple, though visitors are generally expected to be respectful and avoid using flash or disrupting the rituals while filming."}},{"@type":"Question","name":"Is photography allowed?","acceptedAnswer":{"@type":"Answer","text":"Photography is allowed in the outer areas, but it is best to avoid taking photos inside the sanctum unless permitted."}},{"@type":"Question","name":"What basic etiquette should visitors follow?","acceptedAnswer":{"@type":"Answer","text":"Dress Code: Wear modest clothing that covers the shoulders and knees (traditional Indian attire like sarees, suits, or dhotis is preferred, but simple modest western wear is usually fine). Footwear: Remove your shoes and socks before entering the temple premises; there is usually a designated area outside or near the entrance for this. Physical Conduct: Avoid touching the ancient idols or stone carvings unless specifically permitted, and never sit with your back or feet pointing directly toward the deity. Donations and Offerings: If you wish to make an offering, place it in the designated Hundi (donation box) or hand it to the priest; avoid offering cash directly to the monks unless it's a traditional Dakshina. Monastic Discipline: Since this is an Akhada (monastery), be mindful not to disturb the resident monks (Sadhus) during their private prayers or meditation."}},{"@type":"Question","name":"Can this temple be visited along with other nearby temples in one trip?","acceptedAnswer":{"@type":"Answer","text":"Yes, it can easily be combined with visits to nearby temples in Omkareshwar, especially Mamleshwar and other small shrines in the Vishnupuri area."}},{"@type":"Question","name":"How much time should a visitor plan for this temple?","acceptedAnswer":{"@type":"Answer","text":"Around 10-20 minutes is usually enough for a visit, unless one wishes to sit quietly for some time."}}]}</script>

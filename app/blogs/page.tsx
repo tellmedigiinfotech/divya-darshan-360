@@ -1,12 +1,56 @@
+import type { Metadata } from "next"
 import { getAllTemples } from "@/lib/blog-server"
 import { BackgroundLotus } from "@/components/background-lotus"
 import { FloatingDiya } from "@/components/floating-diya"
 import { BlogClient } from "./blog-client"
+import { siteUrl } from "@/lib/seo-config"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 
 // This will be populated at build time
 const temples = getAllTemples()
+
+/**
+ * This page exported no metadata at all, so the hub for all 122 temple guides
+ * inherited the generic site-wide title and description from the root layout —
+ * the same ones the home page uses. It is the main entry point into our largest
+ * body of content and the target of the /blog -> /blogs redirect, so it needs
+ * its own.
+ */
+export const metadata: Metadata = {
+	title: "Temple Darshan Blog | Guides to 120+ Hindu Temples",
+	description:
+		"Detailed pilgrimage guides to over 120 Hindu temples across India — the 12 Jyotirlingas, 18 Shakti Peethas, 8 Ashtavinayaka and major popular temples. Timings, darshan procedures, dress code, how to reach, special poojas and facilities.",
+	keywords: [
+		"temple guide India",
+		"Jyotirlinga temples list",
+		"Shakti Peetha temples",
+		"Ashtavinayaka darshan",
+		"temple timings India",
+		"how to reach temple",
+		"darshan booking",
+		"pilgrimage guide",
+	],
+	alternates: {
+		// /blog permanently redirects here (see next.config.mjs), so this is the
+		// canonical form of the listing.
+		canonical: `${siteUrl}/blogs`,
+	},
+	openGraph: {
+		type: "website",
+		url: `${siteUrl}/blogs`,
+		siteName: "Divya Darshan 360",
+		title: "Temple Darshan Blog | Guides to 120+ Hindu Temples",
+		description:
+			"Pilgrimage guides to over 120 Hindu temples across India — timings, darshan procedures, dress code, how to reach and special poojas.",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Temple Darshan Blog | Divya Darshan 360",
+		description:
+			"Pilgrimage guides to over 120 Hindu temples across India — timings, darshan, how to reach and more.",
+	},
+}
 
 export default function BlogPage() {
   const categoryOrder = ["popular", "jyothirlinga", "shaktipeet", "Ashtavinayaka"];

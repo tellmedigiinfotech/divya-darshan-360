@@ -76,13 +76,18 @@ export default function VrHeadsetPage() {
             availability: "https://schema.org/InStock",
             url: pageUrl,
         },
-        aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.8",
-            reviewCount: "120",
-            bestRating: "5",
-            worstRating: "1",
-        },
+        // aggregateRating deliberately omitted.
+        //
+        // It previously claimed 4.8 from 120 reviews. The page shows four
+        // testimonials, all written as marketing copy against a shared
+        // placeholder avatar — so there is no collected review data behind that
+        // number. Google requires aggregateRating to reflect ratings genuinely
+        // gathered from users and displayed on the same page; inventing one is
+        // a structured-data policy violation and grounds for a manual action
+        // against the whole domain, not just this page.
+        //
+        // To reinstate legitimately: collect real post-purchase ratings, render
+        // them on this page, and generate this block from that data.
     }
 
     const faqSchema = {

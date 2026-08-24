@@ -5,6 +5,7 @@
   "packageManager": "pnpm@9.15.0",
   "scripts": {
     "build": "next build",
+    "build:blog-css": "npx --yes tailwindcss@3.4.17 -c scripts/blog-css/tailwind.config.js -i scripts/blog-css/input.css -o public/blog/assets/blog.css --minify",
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start"
