@@ -111,7 +111,7 @@ export default function LandingPage() {
           <Link
             href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
             target="_blank"
-            className="group relative flex items-center gap-5 bg-white/80 backdrop-blur-md px-10 py-5 rounded-[15rem] border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
+            className="group relative flex items-center gap-5 bg-white/80 backdrop-blur-md px-10 py-5 rounded-full border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
           >
             <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-shimmer pointer-events-none" />
@@ -256,11 +256,11 @@ export default function LandingPage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative aspect-4/5 glass rounded-[3rem] p-4 ornate-border overflow-hidden group border-0 ring-0">
+              <div className="relative aspect-4/5 glass rounded-3xl p-4 ornate-border overflow-hidden group border-0 ring-0">
                 <img
                   src="/vr-divine-experience.png"
                   alt="Immersive Spiritual VR Experience"
-                  className="w-full h-full object-cover rounded-[2.5rem] group-hover:scale-105 transition-transform duration-1000"
+                  className="w-full h-full object-cover rounded-3xl group-hover:scale-105 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
 
@@ -296,7 +296,7 @@ export default function LandingPage() {
             <Link
               href="https://play.google.com/store/apps/details?id=com.tellme.tellme360&pcampaignid=web_share"
               target="_blank"
-              className="group relative flex items-center gap-5 bg-white/80 backdrop-blur-md px-10 py-5 rounded-[15rem] border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
+              className="group relative flex items-center gap-5 bg-white/80 backdrop-blur-md px-10 py-5 rounded-full border border-primary/20 hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-primary/20"
             >
               <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-shimmer pointer-events-none" />
@@ -333,7 +333,7 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
         <BackgroundLotus className="top-[10%] right-[5%]" size={450} opacity={0.1} duration={240} delay={5} />
         <div className="max-w-7xl mx-auto">
-          <div className="glass rounded-[3rem] p-8 md:p-12 border border-white/20 relative overflow-hidden">
+          <div className="glass rounded-3xl p-8 md:p-12 border border-white/20 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10">
               <div className="text-center mb-8">
@@ -365,7 +365,7 @@ export default function LandingPage() {
       <section className="py-24 px-6 relative">
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[150px] -z-10 animate-pulse-slow" />
         <div className="max-w-4xl mx-auto">
-          <div className="glass rounded-[3rem] p-8 md:p-12 border-white/5">
+          <div className="glass rounded-3xl p-8 md:p-12 border-white/5">
             <h3 className="text-2xl font-serif mb-8">Privacy & Safety Overview</h3>
             <div className="prose prose-invert max-w-none h-64 overflow-y-auto pr-6 custom-scrollbar text-muted-foreground text-sm">
               <h4 className="text-foreground">VR Health Advisory</h4>

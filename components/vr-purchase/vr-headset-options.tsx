@@ -53,9 +53,9 @@ export function VrHeadsetOptions() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="relative rounded-[3rem] p-1 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/20 shadow-2xl shadow-primary/20"
+                    className="relative rounded-3xl p-1 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/20 shadow-2xl shadow-primary/20"
                 >
-                    <div className="glass rounded-[2.8rem] ornate-border overflow-hidden">
+                    <div className="glass rounded-3xl ornate-border overflow-hidden">
                         <div className="grid lg:grid-cols-2 gap-0">
                             {/* Image side */}
                             <div className="relative aspect-square lg:aspect-auto overflow-hidden bg-gradient-to-br from-primary/15 via-accent/10 to-transparent flex items-center justify-center p-10 group">

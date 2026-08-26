@@ -84,7 +84,7 @@ export function PhoneOtpForm({
             transition={{ duration: 0.4 }}
             className="relative w-full max-w-md mx-auto"
         >
-            <div className="glass rounded-[2rem] p-7 md:p-9 ornate-border">
+            <div className="glass rounded-3xl p-7 md:p-9 ornate-border">
                 <div className="text-center mb-6">
                     <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 mb-4">
                         {step === "phone" ? (

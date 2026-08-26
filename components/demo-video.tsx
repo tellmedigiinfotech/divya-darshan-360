@@ -25,7 +25,7 @@ export function DemoVideo() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative aspect-video max-w-4xl mx-auto rounded-[2rem] overflow-hidden shadow-2xl border border-white/10"
+                    className="relative aspect-video max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/10"
                 >
                     <iframe
                         className="absolute inset-0 w-full h-full border-0"

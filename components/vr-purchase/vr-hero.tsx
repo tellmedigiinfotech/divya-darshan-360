@@ -95,7 +95,7 @@ export function VrHero() {
                         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-3xl animate-pulse-slow" />
 
                         {/* Glass plate holding the headset */}
-                        <div className="absolute inset-2 glass rounded-[3rem] ornate-border overflow-hidden flex items-center justify-center group">
+                        <div className="absolute inset-2 glass rounded-3xl ornate-border overflow-hidden flex items-center justify-center group">
                             <video
                                 src="/vr_demo_video.mp4"
                                 autoPlay

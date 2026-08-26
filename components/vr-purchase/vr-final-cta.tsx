@@ -13,7 +13,7 @@ export function VrFinalCta() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative glass rounded-[3rem] p-10 md:p-16 ornate-border overflow-hidden text-center"
+                    className="relative glass rounded-3xl p-10 md:p-16 ornate-border overflow-hidden text-center"
                 >
                     {/* Ambient orbs */}
                     <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 animate-pulse-slow" />

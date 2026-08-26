@@ -597,7 +597,7 @@ export function CheckoutClient() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="relative glass rounded-[3rem] p-10 md:p-16 ornate-border overflow-hidden text-center"
+                    className="relative glass rounded-3xl p-10 md:p-16 ornate-border overflow-hidden text-center"
                 >
                     <div className="absolute top-0 left-1/4 w-80 h-80 bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 animate-pulse-slow" />
                     <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-[120px] translate-y-1/2 animate-pulse-slow" />
@@ -977,9 +977,9 @@ export function CheckoutClient() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="relative rounded-[2.5rem] p-1 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/20 shadow-2xl shadow-primary/20"
+                    className="relative rounded-3xl p-1 bg-gradient-to-br from-primary/40 via-accent/40 to-primary/20 shadow-2xl shadow-primary/20"
                 >
-                    <div className="glass rounded-[2.3rem] p-6 md:p-7 ornate-border">
+                    <div className="glass rounded-3xl p-6 md:p-7 ornate-border">
                         <h2 className="text-xl font-serif mb-5">Your order</h2>
 
                         <div className="flex items-center gap-4 mb-6">

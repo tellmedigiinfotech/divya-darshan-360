@@ -24,7 +24,7 @@ export function AppShowcase() {
               ease: [0.21, 0.47, 0.32, 0.98],
             }}
             viewport={{ once: true }}
-            className={`group relative aspect-[9/19] rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-4 ${i % 2 === 1 ? "md:translate-y-12" : ""
+            className={`group relative aspect-[9/19] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-4 ${i % 2 === 1 ? "md:translate-y-12" : ""
               }`}
           >
             <img
@@ -36,7 +36,7 @@ export function AppShowcase() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Subtle border to define the shape */}
-            <div className="absolute inset-0 rounded-[2rem] border border-white/10 group-hover:border-primary/30 transition-colors pointer-events-none" />
+            <div className="absolute inset-0 rounded-3xl border border-white/10 group-hover:border-primary/30 transition-colors pointer-events-none" />
           </motion.div>
         ))}
       </div>

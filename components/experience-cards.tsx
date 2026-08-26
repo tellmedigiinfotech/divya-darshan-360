@@ -68,7 +68,7 @@ export function ExperienceCards() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.2, duration: 0.8 }}
           viewport={{ once: true }}
-          className="group relative w-full md:w-[calc(33.333%-2rem)] aspect-[3/4] rounded-[2.5rem] overflow-hidden cursor-pointer"
+          className="group relative w-full md:w-[calc(33.333%-2rem)] aspect-[3/4] rounded-3xl overflow-hidden cursor-pointer"
         >
           {/* Tinted placeholder, visible only while the photo loads */}
           <div className={`absolute inset-0 bg-gradient-to-br ${exp.color}`} />
@@ -112,7 +112,7 @@ export function ExperienceCards() {
           </div>
 
           {/* Hover Border Effect */}
-          <div className="absolute inset-0 border-2 border-white/5 rounded-[2.5rem] group-hover:border-primary/30 transition-colors duration-500 pointer-events-none" />
+          <div className="absolute inset-0 border-2 border-white/5 rounded-3xl group-hover:border-primary/30 transition-colors duration-500 pointer-events-none" />
         </motion.div>
       ))}
     </div>

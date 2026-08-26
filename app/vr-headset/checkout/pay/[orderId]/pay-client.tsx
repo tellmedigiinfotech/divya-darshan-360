@@ -163,7 +163,7 @@ export function PayClient({ orderId }: { orderId: string }) {
                     transition={{ duration: 0.5 }}
                     className="max-w-2xl mx-auto"
                 >
-                    <div className="glass rounded-[2.5rem] p-10 md:p-14 ornate-border text-center">
+                    <div className="glass rounded-3xl p-10 md:p-14 ornate-border text-center">
                         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/15 border border-green-500/30 mb-6">
                             <CheckCircle2 className="w-10 h-10 text-green-600" />
                         </div>

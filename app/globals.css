@@ -138,10 +138,19 @@
 	--color-chart-3: var(--chart-3);
 	--color-chart-4: var(--chart-4);
 	--color-chart-5: var(--chart-5);
-	--radius-sm: calc(var(--radius) - 4px);
-	--radius-md: calc(var(--radius) - 2px);
-	--radius-lg: var(--radius);
-	--radius-xl: calc(var(--radius) + 4px);
+	/* Brand System radius scale (Brand System (1).docx) */
+	--radius-sm: 4px;
+	/* small controls / inputs */
+	--radius-md: 8px;
+	/* buttons / standard UI */
+	--radius-lg: 12px;
+	/* cards / containers */
+	--radius-xl: 16px;
+	/* large cards / featured sections */
+	--radius-2xl: 24px;
+	/* prominent hero / large visual containers */
+	--radius-3xl: 24px;
+	/* capped at hero max */
 	--color-sidebar: var(--sidebar);
 	--color-sidebar-foreground: var(--sidebar-foreground);
 	--color-sidebar-primary: var(--sidebar-primary);
