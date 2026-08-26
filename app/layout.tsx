@@ -1,7 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import type { Viewport } from "next"
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google"
+import { Roboto, Geist_Mono, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import Script from "next/script"
@@ -12,9 +12,10 @@ import { AuthProvider } from "@/components/auth-provider"
 import { AuthButton } from "@/components/auth-button"
 import { SiteLogo } from "@/components/site-logo"
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
+// Brand System: Roboto = body/UI/navigation/action; Playfair Display = headings.
+const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-sans" })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" })
+const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "600"], variable: "--font-serif" })
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
@@ -130,8 +131,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
 	colorScheme: "dark light",
 	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "#8b5cf6" },
-		{ media: "(prefers-color-scheme: dark)", color: "#8b5cf6" },
+		{ media: "(prefers-color-scheme: light)", color: "#F7AD3C" },
+		{ media: "(prefers-color-scheme: dark)", color: "#F7AD3C" },
 	],
 }
 
@@ -220,7 +221,7 @@ export default function RootLayout({
 	// static temple pages carry their own.
 
 	return (
-		<html lang="en" className={`${geist.variable} ${geistMono.variable} ${playfair.variable}`}>
+		<html lang="en" className={`${roboto.variable} ${geistMono.variable} ${playfair.variable}`}>
 			<body className={`font-sans antialiased`}>
 
 				{/* Google Analytics */}

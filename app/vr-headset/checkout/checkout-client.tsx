@@ -212,7 +212,7 @@ export function CheckoutClient() {
                         contact: order.customer.phone,
                     },
                     notes: { receipt: order.receipt },
-                    theme: { color: "#d4af37" },
+                    theme: { color: "#F7AD3C" },
                     modal: {
                         ondismiss: () => router.replace("/account"),
                     },
@@ -412,7 +412,7 @@ export function CheckoutClient() {
                     contact: form.phone,
                 },
                 notes: { receipt: order.receipt },
-                theme: { color: "#d4af37" },
+                theme: { color: "#F7AD3C" },
                 modal: {
                     ondismiss: () => {
                         setBusy(false)

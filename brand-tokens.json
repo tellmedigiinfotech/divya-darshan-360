@@ -1,0 +1,149 @@
+{
+  "name": "Divya Darshan 360 — Brand & Design System",
+  "version": "2.0.0",
+  "source": "Brand System (1).docx",
+  "description": "Complete design tokens: typography, colour, radius and accessibility. Playfair Display = brand/emotion/headings; Roboto = information/navigation/action. Text stays black; brand colours are for actions, highlights and accents. Same tokens across web and app; only component usage differs. Designed for senior users + younger family members.",
+
+  "fonts": {
+    "heading": { "family": "Playfair Display", "weights": [600], "italic": "emphasis only (H1–H3); same size/line-height as regular", "use": ["H1–H6", "hero headlines", "spiritual/emotional statements", "temple/destination names"] },
+    "body": { "family": "Roboto", "weights": [400, 500, 700], "avoid": [300], "use": ["body copy", "navigation", "buttons", "forms", "labels", "dates/timings", "captions", "notifications", "error/success messages"] }
+  },
+
+  "typography": {
+    "website": {
+      "heading": {
+        "h1": { "font": "Playfair Display", "sizePx": 48, "lineHeightPx": 58, "letterSpacingPx": -0.5, "weight": 600 },
+        "h2": { "font": "Playfair Display", "sizePx": 40, "lineHeightPx": 50, "letterSpacingPx": -0.4, "weight": 600 },
+        "h3": { "font": "Playfair Display", "sizePx": 32, "lineHeightPx": 42, "letterSpacingPx": -0.2, "weight": 600 },
+        "h4": { "font": "Playfair Display", "sizePx": 28, "lineHeightPx": 36, "letterSpacingPx": 0, "weight": 600 },
+        "h5": { "font": "Playfair Display", "sizePx": 24, "lineHeightPx": 32, "letterSpacingPx": 0, "weight": 600 },
+        "h6": { "font": "Playfair Display", "sizePx": 20, "lineHeightPx": 28, "letterSpacingPx": 0, "weight": 600 }
+      },
+      "text": {
+        "body1": { "font": "Roboto", "sizePx": 18, "lineHeightPx": 29, "letterSpacingPx": 0.1, "weight": 400 },
+        "body2": { "font": "Roboto", "sizePx": 16, "lineHeightPx": 26, "letterSpacingPx": 0.15, "weight": 400 },
+        "body3": { "font": "Roboto", "sizePx": 15, "lineHeightPx": 24, "letterSpacingPx": 0.2, "weight": 400 },
+        "caption": { "font": "Roboto", "sizePx": 14, "lineHeightPx": 21, "letterSpacingPx": 0.25, "weight": 400 },
+        "button": { "font": "Roboto", "sizePx": 16, "lineHeightPx": 24, "letterSpacingPx": 0.1, "weight": 500 },
+        "navigation": { "font": "Roboto", "sizePx": 16, "lineHeightPx": 24, "letterSpacingPx": 0, "weight": 500 },
+        "label": { "font": "Roboto", "sizePx": 14, "lineHeightPx": 20, "letterSpacingPx": 0.2, "weight": 500 }
+      }
+    },
+    "app": {
+      "heading": {
+        "h1": { "font": "Playfair Display", "sizePx": 32, "lineHeightPx": 40, "letterSpacingPx": -0.3, "weight": 600 },
+        "h2": { "font": "Playfair Display", "sizePx": 28, "lineHeightPx": 36, "letterSpacingPx": -0.2, "weight": 600 },
+        "h3": { "font": "Playfair Display", "sizePx": 24, "lineHeightPx": 32, "letterSpacingPx": 0, "weight": 600 },
+        "h4": { "font": "Playfair Display", "sizePx": 22, "lineHeightPx": 30, "letterSpacingPx": 0, "weight": 600 },
+        "h5": { "font": "Playfair Display", "sizePx": 20, "lineHeightPx": 28, "letterSpacingPx": 0, "weight": 600 },
+        "h6": { "font": "Playfair Display", "sizePx": 18, "lineHeightPx": 26, "letterSpacingPx": 0, "weight": 600 }
+      },
+      "text": {
+        "body1": { "font": "Roboto", "sizePx": 18, "lineHeightPx": 28, "letterSpacingPx": 0.1, "weight": 400 },
+        "body2": { "font": "Roboto", "sizePx": 16, "lineHeightPx": 25, "letterSpacingPx": 0.15, "weight": 400 },
+        "body3": { "font": "Roboto", "sizePx": 15, "lineHeightPx": 23, "letterSpacingPx": 0.2, "weight": 400 },
+        "caption": { "font": "Roboto", "sizePx": 14, "lineHeightPx": 21, "letterSpacingPx": 0.25, "weight": 400 },
+        "button": { "font": "Roboto", "sizePx": 16, "lineHeightPx": 24, "letterSpacingPx": 0.1, "weight": 500 },
+        "navigation": { "font": "Roboto", "sizePx": 16, "lineHeightPx": 24, "letterSpacingPx": 0, "weight": 500 },
+        "label": { "font": "Roboto", "sizePx": 14, "lineHeightPx": 20, "letterSpacingPx": 0.2, "weight": 500 }
+      }
+    },
+    "lineHeightRatio": { "headings": "1.2–1.35", "body": "1.45–1.6" }
+  },
+
+  "radius": {
+    "sm": 4,
+    "md": 8,
+    "lg": 12,
+    "xl": 16,
+    "hero": 24,
+    "full": 999,
+    "usage": { "4": "small controls / inputs", "8": "buttons / standard UI", "12": "cards / containers", "16": "large / featured sections", "24": "prominent hero / large visuals", "999": "pills / chips / circular" }
+  },
+
+  "accessibility": {
+    "minBodyPx": 16,
+    "preferredBodyPx": 18,
+    "minCaptionPx": 14,
+    "contrast": { "normalText": "4.5:1", "largeText": "3:1", "uiAndIcons": "3:1" },
+    "touchTargetPx": { "min": 44, "preferred": 48 },
+    "capitalisation": "Sentence case by default; avoid ALL CAPS for important content",
+    "rules": [
+      "Never use colour alone to communicate meaning; statuses need text/icon + colour.",
+      "Provide clear states: Default, Hover, Focus, Active, Disabled, Error, Success.",
+      "Labels must always be visible; do not rely only on placeholder text.",
+      "Error messages must explain what went wrong and how to fix it.",
+      "Avoid thin/light font weights and text over busy imagery (use overlays).",
+      "Golden rule: if a senior user cannot comfortably see, understand or tap it, redesign it."
+    ]
+  },
+
+  "roles": {
+    "primary": "#F7AD3C",
+    "secondary": "#771717",
+    "background": "#FFF8D9",
+    "text": "#000000",
+    "white": "#FFFFFF"
+  },
+
+  "color": {
+    "primary": {
+      "description": "Main brand colour — primary CTAs, selected states, key highlights, active indicators.",
+      "50": "#FFFBF5", "100": "#FEF7EC", "200": "#FDEBCE", "300": "#FCDEB1", "400": "#F9C676",
+      "500": "#F7AD3C", "600": "#D99835", "700": "#B9822D", "800": "#946824", "900": "#6F4E1B"
+    },
+    "secondary": {
+      "description": "Supporting brand colour (deep maroon) — secondary CTAs, accents. Not for body text.",
+      "50": "#F8F3F3", "100": "#F1E8E8", "200": "#DDC5C5", "300": "#C9A2A2", "400": "#A05D5D",
+      "500": "#771717", "600": "#691414", "700": "#591111", "800": "#470E0E", "900": "#360A0A"
+    },
+    "background": {
+      "description": "Primary warm canvas — page backgrounds, sections, brand surfaces.",
+      "50": "#FFFFFD", "100": "#FFFEFB", "200": "#FFFDF6", "300": "#FFFCF0", "400": "#FFFAE4",
+      "500": "#FFF8D9", "600": "#E0DABF", "700": "#BFBAA3", "800": "#999582", "900": "#737062"
+    },
+    "text": {
+      "description": "Neutral text scale. 500 primary; 400 secondary; 300 placeholder; 200 disabled; 50–100 on dark surfaces.",
+      "50": "#F2F2F2", "100": "#E6E6E6", "200": "#BFBFBF", "300": "#999999", "400": "#4C4C4C", "500": "#000000"
+    },
+    "surface": {
+      "description": "Create hierarchy without adding brand colours.",
+      "base": "#FFFFFF", "warm": "#FFF8D9", "muted": "#FFFDF6", "dark": "#000000"
+    },
+    "border": {
+      "description": "Keep borders subtle; avoid thick coloured borders as decoration.",
+      "light": "#F1E8E8", "default": "#D9D9D9", "strong": "#999999", "primary": "#F7AD3C"
+    },
+    "semantic": {
+      "description": "Kept separate from the brand palette; use only for their respective states.",
+      "success": { "500": "#2E7D32", "use": ["Successful booking", "Confirmed status", "Completed actions"] },
+      "error": { "500": "#C62828", "use": ["Errors", "Failed actions", "Validation messages"] },
+      "warning": { "500": "#ED8C00", "use": ["Warnings", "Attention states", "Important notices"] },
+      "information": { "500": "#1565C0", "use": ["Informational messages", "Helpful notices", "System information"] }
+    }
+  },
+
+  "usage": {
+    "primary": ["Primary CTA", "Selected states", "Important highlights", "Active indicators", "Key brand elements", "Emphasis icons"],
+    "secondary": ["Secondary CTA", "Supporting brand elements", "Important accents", "Selected/active states where orange is dominant", "Decorative brand elements"],
+    "background": ["Main page backgrounds", "Sections", "Brand-led surfaces", "Empty states"],
+    "text": ["Headings", "Body text", "Navigation", "Buttons where appropriate", "Form text", "Important information"]
+  },
+
+  "rules": [
+    "Playfair Display = headings/brand/emotion; Roboto = body/UI/navigation/action.",
+    "Never use Playfair for paragraphs, buttons, navigation or forms.",
+    "Body text minimum 16px, preferred 18px; do not shrink text to fit more content.",
+    "Sentence case by default; avoid ALL CAPS for important content.",
+    "Primary #F7AD3C = action colour; Secondary #771717 = accent; Background #FFF8D9 = canvas; Black #000000 = text.",
+    "White #FFFFFF for cards and clean surfaces.",
+    "Do not use primary/secondary for long paragraphs, and do not add random accent colours.",
+    "Semantic colours only for their respective states.",
+    "Never rely on colour alone; pair with text/icon.",
+    "Maintain 4.5:1 contrast for normal text, 3:1 for large text and UI/icons.",
+    "App touch targets at least 44×44px (48 preferred).",
+    "Use approved radius tokens (4/8/12/16/24/full); no random radii.",
+    "Use colour to support hierarchy, not replace typography or spacing.",
+    "Keep the same tokens across web and app; component usage may differ."
+  ]
+}

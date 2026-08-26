@@ -4,65 +4,71 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-	/* Rich Divine Theme - Deep Saffron & Gold */
-	--background: oklch(0.99 0.01 85);
-	/* Warm White/Cream */
-	--foreground: oklch(0.2 0.05 45);
-	/* Deep Brown text */
+	/* Divya Darshan Brand System (Brand System (1).docx) */
+	--background: #FFF8D9;
+	/* Background 500 - warm cream canvas */
+	--foreground: #000000;
+	/* Text 500 - black */
 
-	--card: oklch(1 0 0);
-	/* Pure White */
-	--card-foreground: oklch(0.2 0.05 45);
+	--card: #FFFFFF;
+	/* Surface / Base */
+	--card-foreground: #000000;
 
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.2 0.05 45);
+	--popover: #FFFFFF;
+	--popover-foreground: #000000;
 
-	--primary: oklch(0.6 0.22 45);
-	/* Intense Saffron/Orange */
-	--primary-foreground: oklch(0.98 0.02 95);
-	/* Warm White text */
+	--primary: #F7AD3C;
+	/* Primary 500 - amber */
+	--primary-foreground: #000000;
+	/* Black text keeps contrast on light amber */
 
-	--secondary: oklch(0.96 0.04 85);
-	/* Light Gold tint */
-	--secondary-foreground: oklch(0.6 0.22 45);
+	--secondary: #FEF7EC;
+	/* Warm light surface (Primary 100) so shadcn `secondary` stays light */
+	--secondary-foreground: #000000;
 
-	--muted: oklch(0.97 0.02 85);
-	--muted-foreground: oklch(0.5 0.05 45);
+	--muted: #FFFDF6;
+	/* Surface / Muted */
+	--muted-foreground: #4C4C4C;
+	/* Text 400 - secondary text */
 
-	--accent: oklch(0.92 0.1 85);
-	/* Golden Glow */
-	--accent-foreground: oklch(0.6 0.22 45);
+	--accent: #F9C676;
+	/* Primary 400 - warm gold accent */
+	--accent-foreground: #000000;
 
-	--destructive: oklch(0.5 0.2 25);
-	--destructive-foreground: oklch(0.98 0 0);
+	--destructive: #C62828;
+	/* Semantic / Error */
+	--destructive-foreground: #FFFFFF;
 
-	--border: oklch(0.92 0.04 85);
-	--input: oklch(0.92 0.04 85);
-	--ring: oklch(0.6 0.22 45);
+	--border: #F1E8E8;
+	/* Border / Light */
+	--input: #D9D9D9;
+	/* Border / Default */
+	--ring: #F7AD3C;
+	/* Border / Primary - focus */
 
-	--chart-1: oklch(0.6 0.22 45);
-	--chart-2: oklch(0.75 0.18 65);
-	--chart-3: oklch(0.85 0.15 85);
-	--chart-4: oklch(0.9 0.1 95);
-	--chart-5: oklch(0.95 0.05 105);
+	--chart-1: #F7AD3C;
+	--chart-2: #D99835;
+	--chart-3: #771717;
+	--chart-4: #A05D5D;
+	--chart-5: #F9C676;
 
-	/* RGB variables for glow effects */
-	--primary-rgb: 255, 100, 0;
+	/* RGB of Primary #F7AD3C for glow effects */
+	--primary-rgb: 247, 173, 60;
 
 	--radius: 1rem;
 
-	--sidebar: oklch(0.99 0.01 85);
-	--sidebar-foreground: oklch(0.2 0.05 45);
-	--sidebar-primary: oklch(0.6 0.22 45);
-	--sidebar-primary-foreground: oklch(0.98 0.02 95);
-	--sidebar-accent: oklch(0.96 0.04 85);
-	--sidebar-accent-foreground: oklch(0.6 0.22 45);
-	--sidebar-border: oklch(0.92 0.04 85);
-	--sidebar-ring: oklch(0.6 0.22 45);
+	--sidebar: #FFF8D9;
+	--sidebar-foreground: #000000;
+	--sidebar-primary: #F7AD3C;
+	--sidebar-primary-foreground: #000000;
+	--sidebar-accent: #FEF7EC;
+	--sidebar-accent-foreground: #000000;
+	--sidebar-border: #F1E8E8;
+	--sidebar-ring: #F7AD3C;
 
-	/* Specific glow and shadow tokens */
-	--saffron-glow: 0 0 40px oklch(0.6 0.22 45 / 0.4);
-	--divine-shadow: 0 25px 60px oklch(0.6 0.22 45 / 0.2);
+	/* Specific glow and shadow tokens (amber) */
+	--saffron-glow: 0 0 40px rgb(247 173 60 / 0.4);
+	--divine-shadow: 0 25px 60px rgb(247 173 60 / 0.2);
 }
 
 .dark {
@@ -144,6 +150,48 @@
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
+
+	/* --- Brand System scales (Brand System (1).docx) --- */
+	/* Primary (amber) */
+	--color-primary-50: #FFFBF5;
+	--color-primary-100: #FEF7EC;
+	--color-primary-200: #FDEBCE;
+	--color-primary-300: #FCDEB1;
+	--color-primary-400: #F9C676;
+	--color-primary-500: #F7AD3C;
+	--color-primary-600: #D99835;
+	--color-primary-700: #B9822D;
+	--color-primary-800: #946824;
+	--color-primary-900: #6F4E1B;
+	/* Secondary (maroon) */
+	--color-secondary-50: #F8F3F3;
+	--color-secondary-100: #F1E8E8;
+	--color-secondary-200: #DDC5C5;
+	--color-secondary-300: #C9A2A2;
+	--color-secondary-400: #A05D5D;
+	--color-secondary-500: #771717;
+	--color-secondary-600: #691414;
+	--color-secondary-700: #591111;
+	--color-secondary-800: #470E0E;
+	--color-secondary-900: #360A0A;
+	/* Brand background scale */
+	--color-brand-50: #FFFFFD;
+	--color-brand-100: #FFFEFB;
+	--color-brand-200: #FFFDF6;
+	--color-brand-300: #FFFCF0;
+	--color-brand-400: #FFFAE4;
+	--color-brand-500: #FFF8D9;
+	--color-brand-600: #E0DABF;
+	--color-brand-700: #BFBAA3;
+	--color-brand-800: #999582;
+	--color-brand-900: #737062;
+	/* Semantic */
+	--color-success: #2E7D32;
+	--color-warning: #ED8C00;
+	--color-info: #1565C0;
+	--color-error: #C62828;
+	/* Maroon alias for intentional brand-accent use */
+	--color-maroon: #771717;
 
 	--animate-float: float 6s ease-in-out infinite;
 	--animate-glow: glow 4s ease-in-out infinite;
