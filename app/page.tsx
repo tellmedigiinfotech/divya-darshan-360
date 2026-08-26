@@ -93,19 +93,19 @@ export default function LandingPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-12 backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 bg-primary/10 text-secondary-600 text-sm font-medium mb-12 backdrop-blur-md"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_var(--primary)]" />
             Experiential Spiritual Video Platform
           </motion.div>
 
           <h1 className="text-6xl md:text-[9rem] font-serif tracking-tighter mb-8 leading-[0.9] text-balance">
-            Divya Darshan <span className="text-primary italic block md:inline">360</span>
+            Divya Darshan <span className="text-secondary-600 italic block md:inline">360</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-16 leading-relaxed font-light">
             Transcend physical boundaries. Experience the divine essence through high-fidelity,{" "}
-            <span className="text-primary font-medium">platform-exclusive</span> spiritual videos.
+            <span className="text-secondary-600 font-medium">platform-exclusive</span> spiritual videos.
           </p>
 
           <Link
@@ -128,7 +128,7 @@ export default function LandingPage() {
               <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-1">
                 Available on
               </span>
-              <span className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors tracking-tight">
+              <span className="text-2xl font-serif text-foreground group-hover:text-secondary-600 transition-colors tracking-tight">
                 Google Play
               </span>
             </div>
@@ -148,7 +148,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="flex-1 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 text-primary font-serif italic text-xl mb-4">
+              <div className="inline-flex items-center gap-2 text-secondary-600 font-serif italic text-xl mb-4">
                 <ShieldCheck className="w-6 h-6" />
                 Only on Divya Darshan 360
               </div>
@@ -156,7 +156,7 @@ export default function LandingPage() {
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Our content is captured using proprietary 360° technology during exclusive access periods granted by
                 sacred institutions. These are not just videos; they are digital gateways available{" "}
-                <span className="text-primary underline decoration-primary/30 underline-offset-4">uniquely</span> on
+                <span className="text-secondary-600 underline decoration-secondary-600/30 underline-offset-4">uniquely</span> on
                 this platform.
               </p>
             </div>
@@ -202,7 +202,7 @@ export default function LandingPage() {
         <BackgroundLotus className="top-[10%] right-[5%]" size={450} opacity={0.1} duration={240} delay={5} />
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-24">
-            <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Core Offerings</span>
+            <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Core Offerings</span>
             <h2 className="text-4xl md:text-6xl font-serif mb-6">Divine Features</h2>
           </div>
           <FeaturesGrid />
@@ -224,7 +224,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-6 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-secondary-600 text-xs font-medium mb-6 backdrop-blur-md">
                 <Lotus className="w-4 h-4" />
                 Spiritual Connection
               </div>
@@ -284,7 +284,7 @@ export default function LandingPage() {
 
       <section className="py-32 px-6 relative">
         <div className="max-w-7xl mx-auto mb-16 text-center">
-          <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Experience the App</span>
+          <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Experience the App</span>
           <h2 className="text-4xl md:text-6xl font-serif mb-6">Immersive Interface</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A beautifully crafted mobile experience designed for spiritual seekers
@@ -313,7 +313,7 @@ export default function LandingPage() {
                 <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-1">
                   Available on
                 </span>
-                <span className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors tracking-tight">
+                <span className="text-2xl font-serif text-foreground group-hover:text-secondary-600 transition-colors tracking-tight">
                   Google Play
                 </span>
               </div>
@@ -337,7 +337,7 @@ export default function LandingPage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10">
               <div className="text-center mb-8">
-                <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Temple Knowledge</span>
+                <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Temple Knowledge</span>
                 <h2 className="text-4xl md:text-6xl font-serif mb-6">Explore Sacred Temples</h2>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                   Discover detailed information about sacred temples across India. Learn about their history, 
@@ -389,7 +389,7 @@ export default function LandingPage() {
             </div>
             <div className="mt-8 flex justify-end">
               <Link href="/privacy">
-                <Button variant="link" className="text-primary hover:text-primary/80">
+                <Button variant="link" className="text-secondary-600 hover:text-secondary-700">
                   Read Full Policy & Safety Guidelines →
                 </Button>
               </Link>
