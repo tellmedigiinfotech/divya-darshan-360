@@ -390,3 +390,133 @@
 .divine-button:hover::after {
 	@apply translate-x-full;
 }
+
+/* --- Brand System accessibility (Brand System (1).docx) --- */
+
+/* Body min/preferred size + comfortable line height; heading line height. */
+@layer base {
+
+	body {
+		font-size: 1rem;
+		/* 16px minimum meaningful body size */
+		line-height: 1.55;
+		/* Brand body line height 1.45-1.6 */
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		line-height: 1.25;
+		/* Brand heading line height 1.2-1.35 */
+	}
+}
+
+/* Motion: respect the user's reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+
+	body {
+		animation: none !important;
+	}
+}
+
+/* Brand type scale (website) — apply where an exact brand style is wanted.
+   Playfair Display = headings; Roboto = body/UI. */
+@layer components {
+
+	.dd-h1 {
+		font-family: var(--font-serif), serif;
+		font-weight: 600;
+		font-size: 3rem;
+		line-height: 3.625rem;
+		letter-spacing: -0.5px;
+	}
+
+	.dd-h2 {
+		font-family: var(--font-serif), serif;
+		font-weight: 600;
+		font-size: 2.5rem;
+		line-height: 3.125rem;
+		letter-spacing: -0.4px;
+	}
+
+	.dd-h3 {
+		font-family: var(--font-serif), serif;
+		font-weight: 600;
+		font-size: 2rem;
+		line-height: 2.625rem;
+		letter-spacing: -0.2px;
+	}
+
+	.dd-h4 {
+		font-family: var(--font-serif), serif;
+		font-weight: 600;
+		font-size: 1.75rem;
+		line-height: 2.25rem;
+	}
+
+	.dd-h5 {
+		font-family: var(--font-serif), serif;
+		font-weight: 600;
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+
+	.dd-h6 {
+		font-family: var(--font-serif), serif;
+		font-weight: 600;
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+	}
+
+	.dd-body1 {
+		font-family: var(--font-sans), sans-serif;
+		font-weight: 400;
+		font-size: 1.125rem;
+		line-height: 1.8125rem;
+		letter-spacing: 0.1px;
+	}
+
+	.dd-body2 {
+		font-family: var(--font-sans), sans-serif;
+		font-weight: 400;
+		font-size: 1rem;
+		line-height: 1.625rem;
+		letter-spacing: 0.15px;
+	}
+
+	.dd-caption {
+		font-family: var(--font-sans), sans-serif;
+		font-weight: 400;
+		font-size: 0.875rem;
+		line-height: 1.3125rem;
+		letter-spacing: 0.25px;
+	}
+
+	.dd-button {
+		font-family: var(--font-sans), sans-serif;
+		font-weight: 500;
+		font-size: 1rem;
+		line-height: 1.5rem;
+		letter-spacing: 0.1px;
+	}
+
+	.dd-label {
+		font-family: var(--font-sans), sans-serif;
+		font-weight: 500;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		letter-spacing: 0.2px;
+	}
+}
