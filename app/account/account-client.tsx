@@ -183,13 +183,13 @@ export function AccountClient() {
                                 </p>
                             </div>
                             <div className="flex items-center gap-3 md:gap-5 md:flex-col md:items-end">
-                                <p className="text-xl font-serif text-primary md:order-1">
+                                <p className="text-xl font-serif text-secondary-600 md:order-1">
                                     ₹{amountRupees.toLocaleString("en-IN")}
                                 </p>
                                 {order.status === "paid" && (
                                     <Link
                                         href={`/account/orders/${encodeURIComponent(order.razorpay_order_id)}`}
-                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all md:order-2"
+                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-secondary-600 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all md:order-2"
                                     >
                                         <FileText className="w-4 h-4" />
                                         Receipt
@@ -240,7 +240,7 @@ export function AccountClient() {
                                         </a>
                                         <a
                                             href={mailHref}
-                                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur-md text-primary text-sm font-medium hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 transition-all"
+                                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur-md text-secondary-600 text-sm font-medium hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 transition-all"
                                         >
                                             <Mail className="w-4 h-4" />
                                             Email

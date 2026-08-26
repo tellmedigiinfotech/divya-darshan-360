@@ -49,7 +49,7 @@ export default function CheckoutPage() {
             <div className="relative z-10 max-w-6xl mx-auto px-6 pt-8">
                 <Link
                     href="/vr-headset"
-                    className="inline-flex items-center gap-2 py-2 text-muted-foreground hover:text-primary transition-colors font-medium group"
+                    className="inline-flex items-center gap-2 py-2 text-muted-foreground hover:text-secondary-600 transition-colors font-medium group"
                 >
                     <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                     Back to Mobile VR Box
@@ -58,9 +58,9 @@ export default function CheckoutPage() {
 
             <section className="relative pt-10 pb-16 md:pb-24 px-6">
                 <div className="max-w-6xl mx-auto text-center mb-10 md:mb-14">
-                    <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Secure Checkout</span>
+                    <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Secure Checkout</span>
                     <h1 className="text-4xl md:text-6xl font-serif tracking-tighter leading-tight">
-                        Complete your <span className="text-primary italic">order</span>
+                        Complete your <span className="text-secondary-600 italic">order</span>
                     </h1>
                     <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto mt-4">
                         A few details and your Mobile VR Box will be on its way.

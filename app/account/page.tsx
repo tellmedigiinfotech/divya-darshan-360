@@ -26,7 +26,7 @@ export default function AccountPage() {
             <div className="relative z-10 max-w-5xl mx-auto px-6 pt-8">
                 <Link
                     href="/"
-                    className="inline-flex items-center gap-2 py-2 text-muted-foreground hover:text-primary transition-colors font-medium group"
+                    className="inline-flex items-center gap-2 py-2 text-muted-foreground hover:text-secondary-600 transition-colors font-medium group"
                 >
                     <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                     Back to Home
@@ -35,7 +35,7 @@ export default function AccountPage() {
 
             <section className="relative pt-8 pb-20 px-6">
                 <div className="max-w-5xl mx-auto text-center mb-10">
-                    <span className="text-primary tracking-[0.3em] uppercase text-sm mb-3 block">My Account</span>
+                    <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-3 block">My Account</span>
                     <h1 className="text-4xl md:text-5xl font-serif tracking-tighter">Your orders</h1>
                 </div>
                 <AccountClient />

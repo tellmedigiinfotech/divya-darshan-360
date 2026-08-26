@@ -114,7 +114,7 @@ export function BlogClient({ temples, categories }: BlogClientProps) {
 
 												{/* Content */}
 												<div className="p-6">
-													<h2 className="text-2xl font-serif mb-3 group-hover:text-primary transition-colors line-clamp-2">
+													<h2 className="text-2xl font-serif mb-3 group-hover:text-secondary-600 transition-colors line-clamp-2">
 														{temple.title}
 													</h2>
 
@@ -125,7 +125,7 @@ export function BlogClient({ temples, categories }: BlogClientProps) {
 													<div className="space-y-2 text-sm text-muted-foreground">
 														{temple.mainDeity && (
 															<div className="flex items-center gap-2">
-																<span className="text-primary">●</span>
+																<span className="text-secondary-600">●</span>
 																<span className="line-clamp-1">{temple.mainDeity}</span>
 															</div>
 														)}
@@ -144,7 +144,7 @@ export function BlogClient({ temples, categories }: BlogClientProps) {
 													</div>
 
 													<div className="mt-6 pt-4 border-t border-white/10">
-														<span className="text-primary text-sm font-medium group-hover:gap-2 transition-all inline-flex items-center gap-1">
+														<span className="text-secondary-600 text-sm font-medium group-hover:gap-2 transition-all inline-flex items-center gap-1">
 															Read More
 															<span className="group-hover:translate-x-1 transition-transform">→</span>
 														</span>

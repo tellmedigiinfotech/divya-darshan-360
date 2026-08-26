@@ -26,7 +26,7 @@ export function FaqSection() {
 
             <div className="max-w-4xl mx-auto relative z-10">
                 <div className="text-center mb-16">
-                    <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Common Queries</span>
+                    <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Common Queries</span>
                     <h2 className="text-4xl md:text-6xl font-serif mb-6">Frequently Asked Questions</h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                         Everything you need to know about the Divya Darshan 360 experience.
@@ -47,7 +47,7 @@ export function FaqSection() {
                     <Accordion type="single" collapsible className="w-full">
                         {homeFaqs.map((faq, i) => (
                             <AccordionItem key={faq.question} value={`item-${i + 1}`} className="border-white/10">
-                                <AccordionTrigger className="text-lg md:text-xl font-serif hover:text-primary transition-colors">
+                                <AccordionTrigger className="text-lg md:text-xl font-serif hover:text-secondary-600 transition-colors">
                                     {faq.question}
                                 </AccordionTrigger>
                                 <AccordionContent className="text-muted-foreground text-base leading-relaxed">

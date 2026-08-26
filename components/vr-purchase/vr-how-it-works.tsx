@@ -38,7 +38,7 @@ export function VrHowItWorks() {
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-20">
-                    <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Simple Journey</span>
+                    <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Simple Journey</span>
                     <h2 className="text-4xl md:text-6xl font-serif mb-6">How It Works</h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                         Four gentle steps from order to your first divine darshan in VR.
@@ -70,7 +70,7 @@ export function VrHowItWorks() {
                                     </div>
                                 </div>
 
-                                <h3 className="text-xl font-serif mb-3 group-hover:text-primary transition-colors">
+                                <h3 className="text-xl font-serif mb-3 group-hover:text-secondary-600 transition-colors">
                                     {s.title}
                                 </h3>
                                 <p className="text-muted-foreground leading-relaxed text-sm max-w-xs mx-auto">

@@ -54,7 +54,7 @@ export function VrTestimonials() {
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-20">
-                    <span className="text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Sacred Stories</span>
+                    <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Sacred Stories</span>
                     <h2 className="text-4xl md:text-6xl font-serif mb-6">Voices of Devotion</h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                         From elderly grandparents to growing families — real stories from devotees who brought the divine home.

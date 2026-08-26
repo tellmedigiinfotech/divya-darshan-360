@@ -37,7 +37,7 @@ export function AuthButton() {
         return (
             <Link
                 href={`/login?next=${encodeURIComponent(pathname || "/")}`}
-                className="fixed top-6 right-6 z-50 inline-flex items-center gap-2 rounded-full glass border border-primary/30 bg-primary/10 backdrop-blur-md px-4 py-2 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-all shadow-lg shadow-primary/10"
+                className="fixed top-6 right-6 z-50 inline-flex items-center gap-2 rounded-full glass border border-primary/30 bg-primary/10 backdrop-blur-md px-4 py-2 text-sm font-medium text-secondary-600 hover:bg-primary hover:text-primary-foreground transition-all shadow-lg shadow-primary/10"
             >
                 <LogIn className="w-4 h-4" />
                 <span className="font-serif tracking-wide">Sign in</span>

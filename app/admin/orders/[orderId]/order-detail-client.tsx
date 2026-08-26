@@ -280,7 +280,7 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                         <p className="text-xs text-muted-foreground mt-1">Receipt: {order.receipt}</p>
                     </div>
                     <div className="text-right">
-                        <p className="text-3xl font-serif text-primary">₹{amountRupees.toLocaleString("en-IN")}</p>
+                        <p className="text-3xl font-serif text-secondary-600">₹{amountRupees.toLocaleString("en-IN")}</p>
                         <div className="mt-2 flex flex-wrap gap-1.5 justify-end">
                             <Badge tone={order.status === "refunded" || order.status === "cancelled" ? "red" : isPaid ? "green" : isCod ? "blue" : "amber"}>
                                 {isCod ? "COD" : order.status.toUpperCase()}
@@ -294,11 +294,11 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                     <div>
                         <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-2">Customer</p>
                         <p className="flex items-center gap-2"><User className="w-3.5 h-3.5 text-muted-foreground" />{order.customer.full_name || "—"}</p>
-                        <a href={`tel:${order.customer.phone}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary">
+                        <a href={`tel:${order.customer.phone}`} className="flex items-center gap-2 text-muted-foreground hover:text-secondary-600">
                             <Phone className="w-3.5 h-3.5" />{order.customer.phone}
                         </a>
                         {order.customer.email && (
-                            <a href={`mailto:${order.customer.email}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary">
+                            <a href={`mailto:${order.customer.email}`} className="flex items-center gap-2 text-muted-foreground hover:text-secondary-600">
                                 <Mail className="w-3.5 h-3.5" />{order.customer.email}
                             </a>
                         )}
@@ -438,7 +438,7 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                                 {order.customer.email && (
                                     <a
                                         href={mailHref}
-                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 bg-primary/10 text-primary text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all"
+                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 bg-primary/10 text-secondary-600 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all"
                                     >
                                         <Mail className="w-4 h-4" />
                                         Email customer

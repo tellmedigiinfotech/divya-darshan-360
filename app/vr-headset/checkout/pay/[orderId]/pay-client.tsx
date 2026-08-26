@@ -143,7 +143,7 @@ export function PayClient({ orderId }: { orderId: string }) {
                         <p className="text-xs text-muted-foreground mt-1">{error}</p>
                         <Link
                             href="/vr-headset/checkout"
-                            className="text-xs text-primary hover:underline mt-3 inline-block"
+                            className="text-xs text-secondary-600 hover:underline mt-3 inline-block"
                         >
                             ← Back to checkout
                         </Link>
@@ -175,7 +175,7 @@ export function PayClient({ orderId }: { orderId: string }) {
                             <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                                 Reference
                             </span>
-                            <span className="font-mono font-medium text-primary">{order.reference}</span>
+                            <span className="font-mono font-medium text-secondary-600">{order.reference}</span>
                         </div>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                             <Link
@@ -186,7 +186,7 @@ export function PayClient({ orderId }: { orderId: string }) {
                             </Link>
                             <Link
                                 href="/"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-secondary-600 hover:bg-primary hover:text-primary-foreground transition-all"
                             >
                                 Back to home
                             </Link>
@@ -219,7 +219,7 @@ export function PayClient({ orderId }: { orderId: string }) {
             <div className="max-w-3xl mx-auto mb-6">
                 <Link
                     href="/vr-headset/checkout"
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-secondary-600 transition-colors"
                 >
                     <ArrowLeft className="w-4 h-4" />
                     Back to checkout
@@ -233,7 +233,7 @@ export function PayClient({ orderId }: { orderId: string }) {
                 className="max-w-3xl mx-auto"
             >
                 <div className="text-center mb-8">
-                    <span className="text-primary tracking-[0.3em] uppercase text-sm mb-3 block">
+                    <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-3 block">
                         Pay via UPI
                     </span>
                     <h1 className="text-4xl md:text-5xl font-serif tracking-tighter">

@@ -553,7 +553,7 @@ export function CheckoutClient() {
                             </p>
                             <Link
                                 href="/account"
-                                className="text-xs text-primary hover:underline mt-3 inline-block"
+                                className="text-xs text-secondary-600 hover:underline mt-3 inline-block"
                             >
                                 ← Back to my orders
                             </Link>
@@ -618,7 +618,7 @@ export function CheckoutClient() {
 
                         <div className="inline-flex items-center gap-3 glass rounded-full px-5 py-3 mb-10">
                             <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Order ID</span>
-                            <span className="font-mono font-medium text-primary">{submitted.orderId}</span>
+                            <span className="font-mono font-medium text-secondary-600">{submitted.orderId}</span>
                             <button
                                 type="button"
                                 onClick={copyOrderId}
@@ -652,7 +652,7 @@ export function CheckoutClient() {
                                 </a>
                                 <a
                                     href={mailtoFallback}
-                                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-secondary-600 font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                                 >
                                     <Mail className="w-5 h-5" />
                                     <span className="font-serif tracking-wide">Send via Email</span>
@@ -672,7 +672,7 @@ export function CheckoutClient() {
                         <div className="mt-10">
                             <Link
                                 href="/vr-headset"
-                                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                                className="text-sm text-muted-foreground hover:text-secondary-600 transition-colors"
                             >
                                 ← Continue exploring
                             </Link>
@@ -707,7 +707,7 @@ export function CheckoutClient() {
                             onClick={() => {
                                 void signOut()
                             }}
-                            className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors"
+                            className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-secondary-600 transition-colors"
                             title={user.phoneNumber || "Signed in"}
                         >
                             <LogOut className="w-3.5 h-3.5" />
@@ -995,7 +995,7 @@ export function CheckoutClient() {
                                 <p className="text-xs text-muted-foreground mt-0.5">
                                     Universal · Cardboard-style
                                 </p>
-                                <p className="text-sm text-primary font-medium mt-1">
+                                <p className="text-sm text-secondary-600 font-medium mt-1">
                                     ₹{UNIT_PRICE}{" "}
                                     <span className="text-muted-foreground line-through text-xs ml-1">
                                         ₹{ORIGINAL_PRICE}
@@ -1037,7 +1037,7 @@ export function CheckoutClient() {
                             </div>
                             <div className="flex justify-between text-muted-foreground">
                                 <span>Shipping</span>
-                                <span className="text-primary font-medium">Free</span>
+                                <span className="text-secondary-600 font-medium">Free</span>
                             </div>
                             <AnimatePresence initial={false}>
                                 {codFee > 0 && (
@@ -1058,7 +1058,7 @@ export function CheckoutClient() {
                                         initial={{ opacity: 0, height: 0 }}
                                         animate={{ opacity: 1, height: "auto" }}
                                         exit={{ opacity: 0, height: 0 }}
-                                        className="flex justify-between text-primary"
+                                        className="flex justify-between text-secondary-600"
                                     >
                                         <span>You save</span>
                                         <span>−₹{youSave}</span>
@@ -1067,7 +1067,7 @@ export function CheckoutClient() {
                             </AnimatePresence>
                             <div className="border-t border-white/10 pt-4 flex justify-between items-baseline">
                                 <span className="text-base font-serif">Total</span>
-                                <span className="text-2xl font-serif text-primary">₹{total}</span>
+                                <span className="text-2xl font-serif text-secondary-600">₹{total}</span>
                             </div>
                             <p className="text-[11px] text-muted-foreground">Inclusive of all taxes</p>
                         </div>

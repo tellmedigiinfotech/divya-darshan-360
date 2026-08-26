@@ -15,7 +15,7 @@ export default function AdminPage() {
             <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8">
                 <Link
                     href="/"
-                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-medium group"
+                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-secondary-600 transition-colors font-medium group"
                 >
                     <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                     Back to site
@@ -24,7 +24,7 @@ export default function AdminPage() {
 
             <section className="relative pt-6 pb-20 px-6">
                 <div className="max-w-7xl mx-auto mb-8">
-                    <span className="text-primary tracking-[0.3em] uppercase text-xs mb-2 block">Admin</span>
+                    <span className="text-secondary-600 tracking-[0.3em] uppercase text-xs mb-2 block">Admin</span>
                     <h1 className="text-3xl md:text-4xl font-serif tracking-tighter">Orders dashboard</h1>
                 </div>
                 <AdminClient />

@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-4xl mx-auto px-6 py-12 relative z-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 py-2 text-primary hover:text-primary/80 transition-colors mb-12 group"
+          className="inline-flex items-center gap-2 py-2 text-secondary-600 hover:text-secondary-600/80 transition-colors mb-12 group"
         >
           <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
           Back to Home
@@ -173,7 +173,7 @@ export default function PrivacyPolicyPage() {
                 <li>Razorpay shares with us only the transaction reference ID, payment status (success/failure/pending), payment method (e.g., UPI, Card, Net Banking, Wallet), and the last four digits of the instrument, so we can fulfill your order and assist you with support.</li>
                 <li>
                   Razorpay&rsquo;s use of your information is governed by its own privacy policy, available at{" "}
-                  <a href="https://razorpay.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://razorpay.com/privacy/</a>.
+                  <a href="https://razorpay.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-secondary-600 hover:underline">https://razorpay.com/privacy/</a>.
                 </li>
               </ul>
               <p className="text-sm italic">
@@ -285,7 +285,7 @@ export default function PrivacyPolicyPage() {
               </ul>
               <p>
                 To exercise any of these rights, you may use the in-app settings (where available) or write to us at{" "}
-                <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a>{" "}
+                <a href="mailto:connect@youtellme.ai" className="text-secondary-600 hover:underline">connect@youtellme.ai</a>{" "}
                 or contact our Grievance Officer.
               </p>
               <p>We may request additional information to verify your identity. We may retain certain data where required under Indian law (for example, for accounting, tax, or dispute-resolution purposes).</p>
@@ -363,7 +363,7 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-2">
                   <span className="font-medium text-foreground">Email:</span>
-                  <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a>
+                  <a href="mailto:connect@youtellme.ai" className="text-secondary-600 hover:underline">connect@youtellme.ai</a>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-2">
                   <span className="font-medium text-foreground">Address:</span>
@@ -381,7 +381,7 @@ export default function PrivacyPolicyPage() {
           {/* 15. Contact Us */}
           <section className="glass rounded-3xl p-8 md:p-10 ornate-border">
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-2 rounded-lg bg-primary/10 text-primary">
+              <div className="p-2 rounded-lg bg-primary/10 text-secondary-600">
                 <Mail className="w-6 h-6" />
               </div>
               <h2 className="text-2xl font-serif">15. Contact Us</h2>
@@ -390,8 +390,8 @@ export default function PrivacyPolicyPage() {
               <p className="mb-4">If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
               <div className="bg-white/5 rounded-xl p-6 border border-white/5 space-y-1">
                 <p className="text-foreground font-medium">TellMe Digi Infotech Pvt Ltd</p>
-                <p>Email: <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a></p>
-                <p>Website: <a href="https://youtellme.ai/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://youtellme.ai/</a></p>
+                <p>Email: <a href="mailto:connect@youtellme.ai" className="text-secondary-600 hover:underline">connect@youtellme.ai</a></p>
+                <p>Website: <a href="https://youtellme.ai/" target="_blank" rel="noopener noreferrer" className="text-secondary-600 hover:underline">https://youtellme.ai/</a></p>
                 <p>Address: 218, Akshay Complex, Dhole Patil Road, Pune – 411001, Maharashtra, India</p>
               </div>
               <p className="mt-4 italic text-sm">By using Divya Darshan 360, you acknowledge that you have read and understood this Privacy Policy.</p>
@@ -523,7 +523,7 @@ export default function PrivacyPolicyPage() {
               <p className="font-medium text-foreground">You agree that:</p>
               <ul className="list-disc pl-5 space-y-2 text-sm">
                 <li>All payments are processed securely by Razorpay. We do not collect or store your card number, CVV, UPI PIN, OTP, or net-banking credentials.</li>
-                <li>Your use of Razorpay is subject to Razorpay&rsquo;s own Terms of Service and Privacy Policy, available at <a href="https://razorpay.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://razorpay.com</a>.</li>
+                <li>Your use of Razorpay is subject to Razorpay&rsquo;s own Terms of Service and Privacy Policy, available at <a href="https://razorpay.com" target="_blank" rel="noopener noreferrer" className="text-secondary-600 hover:underline">https://razorpay.com</a>.</li>
                 <li>You are responsible for ensuring sufficient funds and authorisation in your selected payment method.</li>
                 <li>In case of payment failure, the transaction will not be completed, and any debited amount will be refunded by Razorpay/your bank as per their standard timelines (typically 5–7 business days).</li>
                 <li>We are not responsible for any losses arising from incorrect payment details entered by you, payment failures by your bank/wallet, or delays attributable to Razorpay.</li>
@@ -586,7 +586,7 @@ export default function PrivacyPolicyPage() {
                 <h3 className="text-foreground font-medium mb-2">8.1 Order Cancellation by Customer</h3>
                 <p className="text-sm">
                   You may cancel your order at any time before it is dispatched by contacting us at{" "}
-                  <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a>{" "}
+                  <a href="mailto:connect@youtellme.ai" className="text-secondary-600 hover:underline">connect@youtellme.ai</a>{" "}
                   with your order ID. Once an order has been dispatched, it cannot be cancelled, but you may follow our return process below.
                 </p>
               </div>
@@ -605,7 +605,7 @@ export default function PrivacyPolicyPage() {
                 <h3 className="text-foreground font-medium mb-2">8.3 Returns and Replacements</h3>
                 <ul className="list-disc pl-5 space-y-2 text-sm">
                   <li>Returns or replacements are accepted only if the Product is received damaged, defective, or significantly different from the description.</li>
-                  <li>You must notify us within 48 hours of delivery, with photos/videos of the issue and a clear unboxing video (where possible), at <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a>.</li>
+                  <li>You must notify us within 48 hours of delivery, with photos/videos of the issue and a clear unboxing video (where possible), at <a href="mailto:connect@youtellme.ai" className="text-secondary-600 hover:underline">connect@youtellme.ai</a>.</li>
                   <li>Products must be returned in their original packaging, unused, with all tags, accessories, and freebies intact.</li>
                   <li>We do not accept returns for change of mind, buyer&rsquo;s remorse, minor variations in color/appearance, or for hygiene-related items once unsealed.</li>
                   <li>Once we receive and inspect the returned Product, we will notify you of approval or rejection of the return.</li>
@@ -774,7 +774,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-serif mb-6">18. Dispute Resolution</h2>
             <p className="text-muted-foreground leading-relaxed">
               Before initiating any legal action, the parties shall attempt to resolve disputes amicably. You may first contact our Grievance Officer at{" "}
-              <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a>. If the dispute is not resolved within 30 days, either party may pursue remedies available under applicable Indian law, subject to the jurisdiction clause above.
+              <a href="mailto:connect@youtellme.ai" className="text-secondary-600 hover:underline">connect@youtellme.ai</a>. If the dispute is not resolved within 30 days, either party may pursue remedies available under applicable Indian law, subject to the jurisdiction clause above.
             </p>
           </section>
 
@@ -799,7 +799,7 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-2">
                   <span className="font-medium text-foreground">Email:</span>
-                  <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a>
+                  <a href="mailto:connect@youtellme.ai" className="text-secondary-600 hover:underline">connect@youtellme.ai</a>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-2">
                   <span className="font-medium text-foreground">Address:</span>
@@ -844,7 +844,7 @@ export default function PrivacyPolicyPage() {
           {/* T 21. Contact Us */}
           <section className="glass rounded-3xl p-8 md:p-10 ornate-border">
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-2 rounded-lg bg-primary/10 text-primary">
+              <div className="p-2 rounded-lg bg-primary/10 text-secondary-600">
                 <Mail className="w-6 h-6" />
               </div>
               <h2 className="text-2xl font-serif">21. Contact Us</h2>
@@ -853,8 +853,8 @@ export default function PrivacyPolicyPage() {
               <p className="mb-4">For any questions, concerns, or feedback regarding these Terms, please contact us at:</p>
               <div className="bg-white/5 rounded-xl p-6 border border-white/5 space-y-1">
                 <p className="text-foreground font-medium">TellMe Digi Infotech Pvt Ltd</p>
-                <p>Email: <a href="mailto:connect@youtellme.ai" className="text-primary hover:underline">connect@youtellme.ai</a></p>
-                <p>Website: <a href="https://youtellme.ai/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://youtellme.ai/</a></p>
+                <p>Email: <a href="mailto:connect@youtellme.ai" className="text-secondary-600 hover:underline">connect@youtellme.ai</a></p>
+                <p>Website: <a href="https://youtellme.ai/" target="_blank" rel="noopener noreferrer" className="text-secondary-600 hover:underline">https://youtellme.ai/</a></p>
                 <p>Address: 218, Akshay Complex, Dhole Patil Road, Pune – 411001, Maharashtra, India</p>
               </div>
               <p className="mt-4 italic text-sm">By using Divya Darshan 360 or purchasing our Products, you acknowledge that you have read, understood, and agree to be bound by these Terms &amp; Conditions.</p>

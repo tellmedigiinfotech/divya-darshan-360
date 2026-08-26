@@ -19,7 +19,7 @@ export function VrHero() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-10 backdrop-blur-md"
+                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 bg-primary/10 text-secondary-600 text-sm font-medium mb-10 backdrop-blur-md"
                     >
                         <Sparkles className="w-4 h-4" />
                         Immersive Spiritual VR Hardware
@@ -32,7 +32,7 @@ export function VrHero() {
                         className="text-5xl md:text-7xl lg:text-[5.5rem] font-serif tracking-tighter mb-6 leading-[0.95] text-balance"
                     >
                         Bring Divine
-                        <span className="text-primary italic block">Darshan Home in VR</span>
+                        <span className="text-secondary-600 italic block">Darshan Home in VR</span>
                     </motion.h1>
 
                     <motion.p
@@ -42,7 +42,7 @@ export function VrHero() {
                         className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-light"
                     >
                         Experience temples and spiritual journeys in immersive
-                        <span className="text-primary font-medium"> 360° virtual reality</span>.
+                        <span className="text-secondary-600 font-medium"> 360° virtual reality</span>.
                         From the comfort of your home, feel the divine presence — one breath at a time.
                     </motion.p>
 

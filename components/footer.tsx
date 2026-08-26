@@ -12,14 +12,14 @@ export function Footer() {
             <div className="mt-2 flex flex-col">
               <a
                 href="tel:9049921850"
-                className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors justify-center md:justify-start"
+                className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-secondary-600 transition-colors justify-center md:justify-start"
               >
                 <Phone className="w-4 h-4 shrink-0" />
                 <span>9049921850</span>
               </a>
               <a
                 href="mailto:connect@youtellme.ai?cc=sairaj@tellmedigi.com"
-                className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors justify-center md:justify-start"
+                className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-secondary-600 transition-colors justify-center md:justify-start"
               >
                 <Mail className="w-4 h-4 shrink-0" />
                 <span>connect@youtellme.ai</span>
@@ -28,19 +28,19 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="tel:9049921850" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Call us">
+            <a href="tel:9049921850" className="p-3 glass rounded-full hover:text-secondary-600 transition-colors" title="Call us">
               <Phone className="w-5 h-5" />
             </a>
-            <a href="mailto:connect@youtellme.ai?cc=sairaj@tellmedigi.com" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Email us">
+            <a href="mailto:connect@youtellme.ai?cc=sairaj@tellmedigi.com" className="p-3 glass rounded-full hover:text-secondary-600 transition-colors" title="Email us">
               <Mail className="w-5 h-5" />
             </a>
-            <a href="https://www.instagram.com/divya_darshan360/" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Instagram">
+            <a href="https://www.instagram.com/divya_darshan360/" className="p-3 glass rounded-full hover:text-secondary-600 transition-colors" title="Instagram">
               <Instagram className="w-5 h-5" />
             </a>
-            {/* <a href="#" className="p-3 glass rounded-full hover:text-primary transition-colors">
+            {/* <a href="#" className="p-3 glass rounded-full hover:text-secondary-600 transition-colors">
               <Twitter className="w-5 h-5" />
             </a> */}
-            <a href="https://www.facebook.com/profile.php?id=61585988071604" className="p-3 glass rounded-full hover:text-primary transition-colors" title="Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61585988071604" className="p-3 glass rounded-full hover:text-secondary-600 transition-colors" title="Facebook">
               <Facebook className="w-5 h-5" />
             </a>
           </div>
@@ -51,10 +51,10 @@ export function Footer() {
           {/* -my-2 keeps the row's visual height while py-2 gives each link a
               36px touch target — bare 20px text links are awkward to tap. */}
           <div className="flex gap-x-6 gap-y-1 flex-wrap justify-center -my-2">
-            <Link href="/blogs" className="py-2 hover:text-primary transition-colors">
+            <Link href="/blogs" className="py-2 hover:text-secondary-600 transition-colors">
               Blog
             </Link>
-            <Link href="/vr-headset" className="py-2 hover:text-primary transition-colors">
+            <Link href="/vr-headset" className="py-2 hover:text-secondary-600 transition-colors">
               Buy VR Headset
             </Link>
             <Link href="/privacy#privacy" className="py-2 hover:text-foreground">

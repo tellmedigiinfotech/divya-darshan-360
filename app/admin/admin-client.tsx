@@ -271,7 +271,7 @@ function StatCard({
               ? "text-blue-500"
               : tone === "emerald"
                 ? "text-emerald-500"
-                : "text-primary"
+                : "text-secondary-600"
     return (
         <div className="glass rounded-2xl p-4 flex items-center gap-3">
             <div className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center ${toneCls}`}>
@@ -349,7 +349,7 @@ function OrderRow({ order }: { order: AdminOrder }) {
                         </div>
                         <a
                             href={`tel:${order.customer_phone}`}
-                            className="flex items-center gap-1.5 text-muted-foreground hover:text-primary"
+                            className="flex items-center gap-1.5 text-muted-foreground hover:text-secondary-600"
                         >
                             <Phone className="w-3 h-3 shrink-0" />
                             {order.customer_phone}
@@ -357,7 +357,7 @@ function OrderRow({ order }: { order: AdminOrder }) {
                         {order.customer_email && (
                             <a
                                 href={`mailto:${order.customer_email}`}
-                                className="flex items-center gap-1.5 text-muted-foreground hover:text-primary min-w-0"
+                                className="flex items-center gap-1.5 text-muted-foreground hover:text-secondary-600 min-w-0"
                             >
                                 <Mail className="w-3 h-3 shrink-0" />
                                 <span className="truncate">{order.customer_email}</span>
@@ -379,7 +379,7 @@ function OrderRow({ order }: { order: AdminOrder }) {
                 </div>
 
                 <div className="flex items-center justify-between lg:justify-end gap-3 lg:flex-col lg:items-end">
-                    <p className="text-xl font-serif text-primary">₹{amountRupees.toLocaleString("en-IN")}</p>
+                    <p className="text-xl font-serif text-secondary-600">₹{amountRupees.toLocaleString("en-IN")}</p>
                     <div className="flex items-center gap-2">
                         {order.customer_phone && (
                             <a
@@ -396,7 +396,7 @@ function OrderRow({ order }: { order: AdminOrder }) {
                         )}
                         <Link
                             href={`/admin/orders/${encodeURIComponent(order.razorpay_order_id)}`}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/15 border border-primary/40 text-primary text-xs font-medium hover:bg-primary hover:text-primary-foreground transition-all"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/15 border border-primary/40 text-secondary-600 text-xs font-medium hover:bg-primary hover:text-primary-foreground transition-all"
                         >
                             Manage
                             <ArrowRight className="w-3.5 h-3.5" />

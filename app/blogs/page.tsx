@@ -82,18 +82,18 @@ export default function BlogPage() {
       <section className="relative pt-32 pb-16 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-8">
-            <Link href="/" className="inline-flex items-center gap-2 py-2 text-muted-foreground hover:text-primary transition-colors font-medium">
+            <Link href="/" className="inline-flex items-center gap-2 py-2 text-muted-foreground hover:text-secondary-600 transition-colors font-medium">
               <ArrowLeft className="w-4 h-4" />
               Back to Home
             </Link>
           </div>
-          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-8 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-primary/30 bg-primary/10 text-secondary-600 text-sm font-medium mb-8 backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_var(--primary)]" />
             Sacred Temple Blogs
           </div>
 
           <h1 className="text-5xl md:text-7xl font-serif tracking-tighter mb-6 leading-tight">
-            Temple <span className="text-primary italic">Darshan</span> Blog
+            Temple <span className="text-secondary-600 italic">Darshan</span> Blog
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">

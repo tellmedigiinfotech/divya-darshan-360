@@ -98,7 +98,7 @@ export function ReceiptClient({ orderId }: { orderId: string }) {
                     <div>
                         <p className="text-sm text-destructive font-medium">Could not load receipt</p>
                         <p className="text-xs text-muted-foreground mt-1">{error}</p>
-                        <Link href="/account" className="text-xs text-primary hover:underline mt-3 inline-block">
+                        <Link href="/account" className="text-xs text-secondary-600 hover:underline mt-3 inline-block">
                             ← Back to orders
                         </Link>
                     </div>
@@ -128,7 +128,7 @@ export function ReceiptClient({ orderId }: { orderId: string }) {
             <div className="max-w-3xl mx-auto mb-6 flex items-center justify-between print:hidden">
                 <Link
                     href="/account"
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-secondary-600 transition-colors"
                 >
                     <ArrowLeft className="w-4 h-4" />
                     Back to orders

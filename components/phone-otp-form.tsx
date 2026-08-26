@@ -202,7 +202,7 @@ export function PhoneOtpForm({
                                 setCode("")
                                 setError(null)
                             }}
-                            className="w-full inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                            className="w-full inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-secondary-600 transition-colors"
                         >
                             <ArrowLeft className="w-3.5 h-3.5" />
                             Change number

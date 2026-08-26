@@ -134,7 +134,7 @@ export function VrHeadsetOptions() {
                                     className="absolute bottom-6 left-6 glass rounded-2xl px-4 py-3 shadow-xl z-20"
                                 >
                                     <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Compatibility</p>
-                                    <p className="font-serif text-base text-primary">All Smartphones</p>
+                                    <p className="font-serif text-base text-secondary-600">All Smartphones</p>
                                 </motion.div>
 
                                 <motion.div
@@ -143,7 +143,7 @@ export function VrHeadsetOptions() {
                                     className="absolute bottom-6 right-6 glass rounded-2xl px-4 py-3 shadow-xl z-20 text-right"
                                 >
                                     <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Comfort</p>
-                                    <p className="font-serif text-base text-primary">Comfortable for elderly</p>
+                                    <p className="font-serif text-base text-secondary-600">Comfortable for elderly</p>
                                 </motion.div>
                             </div>
 
@@ -154,7 +154,7 @@ export function VrHeadsetOptions() {
                                     Limited Launch · Only {LAUNCH_STOCK} units
                                 </div>
 
-                                <p className="text-xs uppercase tracking-[0.25em] text-primary mb-3">{product.tagline}</p>
+                                <p className="text-xs uppercase tracking-[0.25em] text-secondary-600 mb-3">{product.tagline}</p>
                                 <h3 className="text-3xl md:text-4xl font-serif mb-8">{product.name}</h3>
 
                                 {/* Price */}
@@ -163,7 +163,7 @@ export function VrHeadsetOptions() {
                                     <span className="text-lg text-muted-foreground line-through">
                                         {product.originalPrice}
                                     </span>
-                                    <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold ml-1">
+                                    <span className="text-xs uppercase tracking-[0.2em] text-secondary-600 font-semibold ml-1">
                                         Save 75%
                                     </span>
                                 </div>
@@ -180,7 +180,7 @@ export function VrHeadsetOptions() {
                                 {/* Scarcity meter */}
                                 <div className="mb-8 rounded-2xl border border-primary/20 bg-primary/[0.04] px-4 py-3.5">
                                     <div className="flex items-center justify-between text-xs mb-2">
-                                        <span className="inline-flex items-center gap-1.5 text-primary font-semibold">
+                                        <span className="inline-flex items-center gap-1.5 text-secondary-600 font-semibold">
                                             <Flame className="w-3.5 h-3.5" />
                                             Only {remaining} left of {LAUNCH_STOCK}
                                         </span>

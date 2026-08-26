@@ -57,7 +57,7 @@ export function AdminLoginClient() {
         <div className="w-full max-w-md">
             <Link
                 href="/"
-                className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors mb-6"
+                className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-secondary-600 transition-colors mb-6"
             >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 Back to site
@@ -68,7 +68,7 @@ export function AdminLoginClient() {
                     <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mx-auto mb-5">
                         <ShieldCheck className="w-6 h-6 text-primary" />
                     </div>
-                    <span className="text-primary tracking-[0.3em] uppercase text-xs block mb-2">Admin</span>
+                    <span className="text-secondary-600 tracking-[0.3em] uppercase text-xs block mb-2">Admin</span>
                     <h1 className="text-2xl font-serif mb-2">Sign in</h1>
                     <p className="text-sm text-muted-foreground">
                         Verify your phone number via OTP.
