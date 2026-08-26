@@ -128,7 +128,7 @@ export default function LandingPage() {
               <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-1">
                 Available on
               </span>
-              <span className="text-2xl font-serif text-foreground group-hover:text-secondary-600 transition-colors tracking-tight">
+              <span className="text-2xl font-sans font-medium text-foreground group-hover:text-secondary-600 transition-colors tracking-tight">
                 Google Play
               </span>
             </div>
@@ -152,7 +152,7 @@ export default function LandingPage() {
                 <ShieldCheck className="w-6 h-6" />
                 Only on Divya Darshan 360
               </div>
-              <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">Authenticity Found Nowhere Else</h2>
+              <h2 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-6 leading-tight">Authenticity Found Nowhere Else</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Our content is captured using proprietary 360° technology during exclusive access periods granted by
                 sacred institutions. These are not just videos; they are digital gateways available{" "}
@@ -186,7 +186,7 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent -skew-y-3 translate-y-20 pointer-events-none blur-3xl opacity-50" />
         <BackgroundLotus className="bottom-[10%] left-[-5%]" size={350} opacity={0.08} duration={300} delay={15} />
         <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
-          <h2 className="text-4xl md:text-6xl font-serif mb-6">Sacred Journeys</h2>
+          <h2 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-6">Sacred Journeys</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Choose your path. Each video is captured in stunning detail to transport your soul directly to the divine
             presence.
@@ -203,7 +203,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-24">
             <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Core Offerings</span>
-            <h2 className="text-4xl md:text-6xl font-serif mb-6">Divine Features</h2>
+            <h2 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-6">Divine Features</h2>
           </div>
           <FeaturesGrid />
         </div>
@@ -224,12 +224,12 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-secondary-600 text-xs font-medium mb-6 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-secondary-600 text-sm font-medium mb-6 backdrop-blur-md">
                 <Lotus className="w-4 h-4" />
                 Spiritual Connection
               </div>
-              <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-tight">Deity Wisdom & Blessings</h2>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-10">
+              <h2 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-8 leading-tight">Deity Wisdom & Blessings</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-10">
                 Receive the grace of your favorite deities through experiential wisdom sessions. It's more than
                 information—it's a spiritual connection that transcends the digital realm.
               </p>
@@ -285,7 +285,7 @@ export default function LandingPage() {
       <section className="py-32 px-6 relative">
         <div className="max-w-7xl mx-auto mb-16 text-center">
           <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Experience the App</span>
-          <h2 className="text-4xl md:text-6xl font-serif mb-6">Immersive Interface</h2>
+          <h2 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-6">Immersive Interface</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A beautifully crafted mobile experience designed for spiritual seekers
           </p>
@@ -313,7 +313,7 @@ export default function LandingPage() {
                 <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-1">
                   Available on
                 </span>
-                <span className="text-2xl font-serif text-foreground group-hover:text-secondary-600 transition-colors tracking-tight">
+                <span className="text-2xl font-sans font-medium text-foreground group-hover:text-secondary-600 transition-colors tracking-tight">
                   Google Play
                 </span>
               </div>
@@ -338,7 +338,7 @@ export default function LandingPage() {
             <div className="relative z-10">
               <div className="text-center mb-8">
                 <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Temple Knowledge</span>
-                <h2 className="text-4xl md:text-6xl font-serif mb-6">Explore Sacred Temples</h2>
+                <h2 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-6">Explore Sacred Temples</h2>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                   Discover detailed information about sacred temples across India. Learn about their history, 
                   significance, timings, and plan your spiritual journey.
@@ -366,8 +366,8 @@ export default function LandingPage() {
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[150px] -z-10 animate-pulse-slow" />
         <div className="max-w-4xl mx-auto">
           <div className="glass rounded-3xl p-8 md:p-12 border-white/5">
-            <h3 className="text-2xl font-serif mb-8">Privacy & Safety Overview</h3>
-            <div className="prose prose-invert max-w-none h-64 overflow-y-auto pr-6 custom-scrollbar text-muted-foreground text-sm">
+            <h3 className="text-2xl md:text-[2rem] font-serif mb-8">Privacy & Safety Overview</h3>
+            <div className="prose prose-invert max-w-none h-64 overflow-y-auto pr-6 custom-scrollbar text-muted-foreground text-base">
               <h4 className="text-foreground">VR Health Advisory</h4>
               <p>
                 Please use caution when experiencing VR. Take regular breaks and ensure you are in a safe, static
