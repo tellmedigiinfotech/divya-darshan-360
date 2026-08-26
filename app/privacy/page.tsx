@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
           <div className="inline-flex p-3 rounded-2xl bg-primary/10 border border-primary/20 mb-6">
             <Shield className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-serif mb-4">Privacy Policy &amp; Terms</h1>
+          <h1 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-4">Privacy Policy &amp; Terms</h1>
           <p className="text-lg text-foreground font-medium">Divya Darshan 360</p>
           <p className="text-muted-foreground">TellMe Digi Infotech Pvt Ltd</p>
           <p className="text-muted-foreground">Effective Date: December 26, 2025</p>
@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
         <div className="space-y-12">
           {/* ============== PRIVACY POLICY ============== */}
           <section id="privacy" className="scroll-mt-20">
-            <h2 className="text-3xl md:text-4xl font-serif mb-2">Privacy Policy</h2>
+            <h2 className="text-2xl md:text-[2rem] font-serif mb-2">Privacy Policy</h2>
             <p className="text-sm text-muted-foreground mb-8">
               How we collect, use, and safeguard your information across our App, Website, and Services.
             </p>
@@ -400,7 +400,7 @@ export default function PrivacyPolicyPage() {
 
           {/* ============== TERMS & CONDITIONS ============== */}
           <section id="terms" className="scroll-mt-20 pt-8">
-            <h2 className="text-3xl md:text-4xl font-serif mb-2">Terms &amp; Conditions</h2>
+            <h2 className="text-2xl md:text-[2rem] font-serif mb-2">Terms &amp; Conditions</h2>
             <p className="text-sm text-muted-foreground mb-8">
               The legal agreement governing your use of our App, Website, and purchase of our Products.
             </p>

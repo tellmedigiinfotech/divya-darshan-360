@@ -139,7 +139,7 @@ export function ReceiptClient({ orderId }: { orderId: string }) {
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full divine-button shadow-(--saffron-glow)"
                 >
                     <Printer className="w-4 h-4" />
-                    <span className="font-serif tracking-wide">Print / Save as PDF</span>
+                    <span className="font-sans font-medium tracking-wide">Print / Save as PDF</span>
                 </button>
             </div>
 

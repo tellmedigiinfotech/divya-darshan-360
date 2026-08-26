@@ -39,7 +39,7 @@ export function VrHowItWorks() {
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-20">
                     <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Simple Journey</span>
-                    <h2 className="text-4xl md:text-6xl font-serif mb-6">How It Works</h2>
+                    <h2 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-6">How It Works</h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                         Four gentle steps from order to your first divine darshan in VR.
                     </p>

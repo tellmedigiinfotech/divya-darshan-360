@@ -28,7 +28,7 @@ export function VrFinalCta() {
                     <div className="relative z-10 max-w-3xl mx-auto">
                         <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-6 block">Begin the Journey</span>
 
-                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif mb-8 leading-tight text-balance">
+                        <h2 className="text-[2rem] md:text-[3rem] font-serif mb-8 leading-tight text-balance">
                             Start Your Spiritual{" "}
                             <span className="text-secondary-600 italic">VR Journey</span>{" "}
                             Today
@@ -45,7 +45,7 @@ export function VrFinalCta() {
                                 className="group divine-button rounded-full px-9 py-5 inline-flex items-center gap-3 text-lg shadow-(--saffron-glow)"
                             >
                                 <ShoppingBag className="w-5 h-5" />
-                                <span className="font-serif tracking-wide">Buy Now · ₹749</span>
+                                <span className="font-sans font-medium tracking-wide">Buy Now · ₹749</span>
                             </Link>
 
                             <Link

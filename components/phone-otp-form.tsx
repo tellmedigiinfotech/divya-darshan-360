@@ -143,10 +143,10 @@ export function PhoneOtpForm({
                             {busy ? (
                                 <>
                                     <Loader2 className="w-4 h-4 animate-spin" />
-                                    <span className="font-serif tracking-wide">Sending…</span>
+                                    <span className="font-sans font-medium tracking-wide">Sending…</span>
                                 </>
                             ) : (
-                                <span className="font-serif tracking-wide">Send OTP</span>
+                                <span className="font-sans font-medium tracking-wide">Send OTP</span>
                             )}
                         </button>
                         <p className="text-[11px] text-muted-foreground text-center">
@@ -188,10 +188,10 @@ export function PhoneOtpForm({
                             {busy ? (
                                 <>
                                     <Loader2 className="w-4 h-4 animate-spin" />
-                                    <span className="font-serif tracking-wide">Verifying…</span>
+                                    <span className="font-sans font-medium tracking-wide">Verifying…</span>
                                 </>
                             ) : (
-                                <span className="font-serif tracking-wide">Verify & Continue</span>
+                                <span className="font-sans font-medium tracking-wide">Verify & Continue</span>
                             )}
                         </button>
 

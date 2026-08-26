@@ -54,7 +54,7 @@ export default function LoginPage() {
                     <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">
                         Sign in
                     </span>
-                    <h1 className="text-4xl md:text-6xl font-serif tracking-tighter leading-tight">
+                    <h1 className="text-[1.75rem] md:text-[2.5rem] font-serif tracking-tighter leading-tight">
                         Welcome to <span className="text-secondary-600 italic">Divya Darshan 360</span>
                     </h1>
                     <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto mt-4">

@@ -136,7 +136,7 @@ export function AccountClient() {
                         href="/vr-headset"
                         className="inline-flex items-center gap-2 px-7 py-3 rounded-full divine-button shadow-(--saffron-glow)"
                     >
-                        <span className="font-serif tracking-wide">Browse VR Headset</span>
+                        <span className="font-sans font-medium tracking-wide">Browse VR Headset</span>
                         <span>→</span>
                     </Link>
                 </div>

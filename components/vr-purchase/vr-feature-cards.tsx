@@ -34,7 +34,7 @@ export function VrFeatureCards() {
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-20">
                     <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-4 block">Why VR</span>
-                    <h2 className="text-4xl md:text-6xl font-serif mb-6">Why You Need a VR Headset</h2>
+                    <h2 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-6">Why You Need a VR Headset</h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                         Phones bring the picture. A VR headset brings the presence. This is what truly transforms a 360° video into divine darshan.
                     </p>

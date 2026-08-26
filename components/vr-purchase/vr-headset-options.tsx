@@ -155,11 +155,11 @@ export function VrHeadsetOptions() {
                                 </div>
 
                                 <p className="text-xs uppercase tracking-[0.25em] text-secondary-600 mb-3">{product.tagline}</p>
-                                <h3 className="text-3xl md:text-4xl font-serif mb-8">{product.name}</h3>
+                                <h3 className="text-2xl md:text-[2rem] font-serif mb-8">{product.name}</h3>
 
                                 {/* Price */}
                                 <div className="flex items-baseline gap-3 mb-3">
-                                    <span className="text-5xl font-serif text-foreground">{product.price}</span>
+                                    <span className="text-5xl font-sans font-bold text-foreground">{product.price}</span>
                                     <span className="text-lg text-muted-foreground line-through">
                                         {product.originalPrice}
                                     </span>
@@ -208,7 +208,7 @@ export function VrHeadsetOptions() {
                                     className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full divine-button shadow-(--saffron-glow) text-lg"
                                 >
                                     <ShoppingBag className="w-5 h-5" />
-                                    <span className="font-serif tracking-wide">Buy Now · {product.price}</span>
+                                    <span className="font-sans font-medium tracking-wide">Buy Now · {product.price}</span>
                                 </Link>
 
                                 {/* Perks */}

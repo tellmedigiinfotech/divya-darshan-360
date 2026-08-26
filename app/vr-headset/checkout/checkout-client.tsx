@@ -607,7 +607,7 @@ export function CheckoutClient() {
                             <PartyPopper className="w-10 h-10 text-primary" />
                         </div>
 
-                        <h2 className="text-3xl md:text-5xl font-serif mb-5 leading-tight">
+                        <h2 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-5 leading-tight">
                             {isOnline ? "Payment received" : "Your order has been placed"}
                         </h2>
                         <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
@@ -648,14 +648,14 @@ export function CheckoutClient() {
                                     className="inline-flex items-center gap-3 divine-button rounded-full px-8 py-4 shadow-(--saffron-glow)"
                                 >
                                     <MessageCircle className="w-5 h-5" />
-                                    <span className="font-serif tracking-wide">Send via WhatsApp</span>
+                                    <span className="font-sans font-medium tracking-wide">Send via WhatsApp</span>
                                 </a>
                                 <a
                                     href={mailtoFallback}
                                     className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-secondary-600 font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                                 >
                                     <Mail className="w-5 h-5" />
-                                    <span className="font-serif tracking-wide">Send via Email</span>
+                                    <span className="font-sans font-medium tracking-wide">Send via Email</span>
                                 </a>
                             </div>
                         )}
@@ -1080,12 +1080,12 @@ export function CheckoutClient() {
                             {busy ? (
                                 <>
                                     <Loader2 className="w-4 h-4 animate-spin" />
-                                    <span className="font-serif tracking-wide">Processing…</span>
+                                    <span className="font-sans font-medium tracking-wide">Processing…</span>
                                 </>
                             ) : (
                                 <>
                                     <ShoppingBag className="w-4 h-4" />
-                                    <span className="font-serif tracking-wide">
+                                    <span className="font-sans font-medium tracking-wide">
                                         {form.payment === "razorpay" ? `Pay ₹${total}` : `Place Order · ₹${total}`}
                                     </span>
                                 </>

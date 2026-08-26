@@ -25,7 +25,7 @@ export default function AdminPage() {
             <section className="relative pt-6 pb-20 px-6">
                 <div className="max-w-7xl mx-auto mb-8">
                     <span className="text-secondary-600 tracking-[0.3em] uppercase text-xs mb-2 block">Admin</span>
-                    <h1 className="text-3xl md:text-4xl font-serif tracking-tighter">Orders dashboard</h1>
+                    <h1 className="text-2xl md:text-[2rem] font-serif tracking-tighter">Orders dashboard</h1>
                 </div>
                 <AdminClient />
             </section>

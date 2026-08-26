@@ -167,7 +167,7 @@ export function PayClient({ orderId }: { orderId: string }) {
                         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/15 border border-green-500/30 mb-6">
                             <CheckCircle2 className="w-10 h-10 text-green-600" />
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-serif mb-4">Payment received</h1>
+                        <h1 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-4">Payment received</h1>
                         <p className="text-muted-foreground text-base md:text-lg mb-8">
                             Thank you. Your order is confirmed and a receipt is on its way to your email.
                         </p>
@@ -236,7 +236,7 @@ export function PayClient({ orderId }: { orderId: string }) {
                     <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-3 block">
                         Pay via UPI
                     </span>
-                    <h1 className="text-4xl md:text-5xl font-serif tracking-tighter">
+                    <h1 className="text-[1.75rem] md:text-[2.5rem] font-serif tracking-tighter">
                         ₹{order.amount_display}
                     </h1>
                     <p className="text-muted-foreground text-sm mt-3">
@@ -276,7 +276,7 @@ export function PayClient({ orderId }: { orderId: string }) {
                                     className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full divine-button shadow-(--saffron-glow)"
                                 >
                                     <Smartphone className="w-4 h-4" />
-                                    <span className="font-serif tracking-wide">
+                                    <span className="font-sans font-medium tracking-wide">
                                         Open UPI app
                                     </span>
                                 </a>

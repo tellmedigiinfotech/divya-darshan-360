@@ -36,7 +36,7 @@ export default function AccountPage() {
             <section className="relative pt-8 pb-20 px-6">
                 <div className="max-w-5xl mx-auto text-center mb-10">
                     <span className="text-secondary-600 tracking-[0.3em] uppercase text-sm mb-3 block">My Account</span>
-                    <h1 className="text-4xl md:text-5xl font-serif tracking-tighter">Your orders</h1>
+                    <h1 className="text-[1.75rem] md:text-[2.5rem] font-serif tracking-tighter">Your orders</h1>
                 </div>
                 <AccountClient />
             </section>

@@ -13,7 +13,7 @@ export function DemoVideo() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl md:text-5xl font-serif mb-4">Experience the Divine</h2>
+                        <h2 className="text-[1.75rem] md:text-[2.5rem] font-serif mb-4">Experience the Divine</h2>
                         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                             Watch how Divya Darshan 360 brings the temple directly to your home
                         </p>

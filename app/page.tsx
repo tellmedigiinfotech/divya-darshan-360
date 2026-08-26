@@ -83,7 +83,7 @@ export default function LandingPage() {
             href="/vr-headset"
             className="group inline-flex items-center gap-3 px-8 py-6 rounded-full divine-button shadow-(--saffron-glow)"
           >
-            <span className="text-lg font-serif tracking-tight">Buy VR Headset</span>
+            <span className="text-lg font-sans font-medium tracking-tight">Buy VR Headset</span>
             <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
           </Link>
         </div>

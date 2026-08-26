@@ -29,7 +29,7 @@ export function VrHero() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1, duration: 0.8 }}
-                        className="text-5xl md:text-7xl lg:text-[5.5rem] font-serif tracking-tighter mb-6 leading-[0.95] text-balance"
+                        className="text-[2rem] md:text-[3rem] lg:text-[5.5rem] font-serif tracking-tighter mb-6 leading-[0.95] text-balance"
                     >
                         Bring Divine
                         <span className="text-secondary-600 italic block">Darshan Home in VR</span>
@@ -57,7 +57,7 @@ export function VrHero() {
                             className="group divine-button rounded-full px-9 py-5 inline-flex items-center gap-3 text-lg shadow-(--saffron-glow)"
                         >
                             <ShoppingBag className="w-5 h-5" />
-                            <span className="font-serif tracking-wide">Buy VR Headset</span>
+                            <span className="font-sans font-medium tracking-wide">Buy VR Headset</span>
                         </Link>
                     </motion.div>
 

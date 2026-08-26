@@ -92,7 +92,7 @@ export default function BlogPage() {
             Sacred Temple Blogs
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-serif tracking-tighter mb-6 leading-tight">
+          <h1 className="text-[2rem] md:text-[3rem] font-serif tracking-tighter mb-6 leading-tight">
             Temple <span className="text-secondary-600 italic">Darshan</span> Blog
           </h1>
 
