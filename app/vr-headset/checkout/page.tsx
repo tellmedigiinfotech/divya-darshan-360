@@ -1,12 +1,10 @@
 import type { Metadata } from "next"
-import { Suspense } from "react"
 import Link from "next/link"
-import Script from "next/script"
-import { ArrowLeft, Loader2 } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 import { siteUrl } from "@/lib/seo-config"
 import { BackgroundLotus } from "@/components/background-lotus"
 import { FloatingDiya } from "@/components/floating-diya"
-import { CheckoutClient } from "./checkout-client"
+import { FastrrCheckout } from "@/components/fastrr-checkout"
 
 const pageUrl = `${siteUrl}/vr-headset/checkout`
 
@@ -31,10 +29,6 @@ export const metadata: Metadata = {
 export default function CheckoutPage() {
     return (
         <main className="min-h-screen relative overflow-hidden selection:bg-primary/30">
-            <Script
-                src="https://checkout.razorpay.com/v1/checkout.js"
-                strategy="afterInteractive"
-            />
             <FloatingDiya className="absolute top-[10%] left-[5%] scale-110 hidden md:block" />
             <FloatingDiya className="absolute bottom-[10%] right-[8%] scale-90 hidden md:block" />
 
@@ -67,15 +61,7 @@ export default function CheckoutPage() {
                     </p>
                 </div>
 
-                <Suspense
-                    fallback={
-                        <div className="max-w-md mx-auto text-center text-muted-foreground py-16">
-                            <Loader2 className="w-6 h-6 animate-spin mx-auto" />
-                        </div>
-                    }
-                >
-                    <CheckoutClient />
-                </Suspense>
+                <FastrrCheckout />
             </section>
         </main>
     )
