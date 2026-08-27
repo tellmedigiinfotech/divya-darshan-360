@@ -61,6 +61,8 @@ type OrderView = {
     cancellation_requested: boolean
     cancellation_requested_at: string | null
     cancellation_request_reason: string | null
+    source: string | null
+    fastrr_order_id: string | null
 }
 
 function formatTimestamp(value: string | null): string {
@@ -492,9 +494,9 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
                 />
             )}
 
-            {/* Refund panel — only meaningful for Razorpay-paid orders.
+            {/* Refund panel — for any prepaid order (Razorpay or Fastrr).
                 Already-refunded orders show the refund summary instead. */}
-            {order.razorpay_payment_id && order.status !== "cod_pending" && (
+            {(order.razorpay_payment_id || order.fastrr_order_id) && order.status !== "cod_pending" && (
                 <RefundPanel
                     order={order}
                     refundAmount={refundAmount}
@@ -729,7 +731,9 @@ function RefundPanel({
                 <div>
                     <h2 className="font-serif text-lg leading-tight">Refund</h2>
                     <p className="text-xs text-muted-foreground">
-                        Issue a Razorpay refund to the customer's original payment method.
+                        {order.fastrr_order_id
+                            ? "Issue a Fastrr refund to the customer's original payment method."
+                            : "Issue a Razorpay refund to the customer's original payment method."}
                     </p>
                 </div>
             </div>
@@ -809,7 +813,8 @@ function RefundPanel({
                             <p className="text-sm font-medium mb-1">Confirm refund</p>
                             <p className="text-xs text-muted-foreground mb-3">
                                 ₹{refundAmount.trim() ? Number(refundAmount).toLocaleString("en-IN") : fullRupees.toLocaleString("en-IN")} will be
-                                refunded to the customer&apos;s original payment method via Razorpay
+                                refunded to the customer&apos;s original payment method
+                                {order.fastrr_order_id ? " via Fastrr" : " via Razorpay"}
                                 {refundInstant ? " (attempted instantly)" : " (5–7 business days)"}.
                                 This cannot be undone.
                             </p>
