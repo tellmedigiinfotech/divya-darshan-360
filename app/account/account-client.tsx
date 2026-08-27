@@ -12,7 +12,6 @@ import {
     Calendar,
     CheckCircle2,
     Clock,
-    CreditCard,
     FileText,
     Loader2,
     Mail,
@@ -49,8 +48,6 @@ const STATUS_STYLES: Record<string, { label: string; cls: string; icon: typeof C
     failed: { label: "Failed", cls: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/20", icon: XCircle },
     expired: { label: "Expired", cls: "bg-gray-500/15 text-gray-500 dark:text-gray-400 border-gray-500/20", icon: XCircle },
 }
-
-const PENDING_STATUSES = new Set(["created", "awaiting_payment"])
 
 function formatTimestamp(value: string | null): string {
     if (!value) return ""
@@ -243,15 +240,6 @@ export function AccountClient() {
                                     >
                                         <FileText className="w-4 h-4" />
                                         Receipt
-                                    </Link>
-                                )}
-                                {PENDING_STATUSES.has(order.status) && (
-                                    <Link
-                                        href={`/vr-headset/checkout?resume=${encodeURIComponent(order.razorpay_order_id)}`}
-                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full divine-button shadow-(--saffron-glow) text-sm font-medium md:order-2"
-                                    >
-                                        <CreditCard className="w-4 h-4" />
-                                        Continue payment
                                     </Link>
                                 )}
                                 {order.status === "expired" && (

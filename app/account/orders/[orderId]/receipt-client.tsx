@@ -283,7 +283,7 @@ export function ReceiptClient({ orderId }: { orderId: string }) {
 
                 <footer className="px-8 py-4 bg-gray-900 text-center">
                     <p className="text-[10px] tracking-[0.2em] text-white/60">
-                        DIVYADARSHAN360.COM · TELLME DIGI INFOTECH PVT LTD · Payments by Razorpay
+                        DIVYADARSHAN360.COM · TELLME DIGI INFOTECH PVT LTD · Payments by Shiprocket
                     </p>
                 </footer>
             </article>
