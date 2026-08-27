@@ -78,6 +78,39 @@ export function AccountClient() {
     const { user, loading: authLoading } = useAuth()
     const [orders, setOrders] = useState<OrderListItem[] | null>(null)
     const [error, setError] = useState<string | null>(null)
+    const [confirmId, setConfirmId] = useState<string | null>(null)
+    const [busyId, setBusyId] = useState<string | null>(null)
+    const [actionError, setActionError] = useState<string | null>(null)
+
+    const cancelOrder = async (orderId: string) => {
+        setActionError(null)
+        setBusyId(orderId)
+        try {
+            await apiFetch(`/orders/${encodeURIComponent(orderId)}/cancel`, {
+                method: "POST",
+                auth: true,
+                body: {},
+            })
+            setOrders((prev) =>
+                prev
+                    ? prev.map((o) =>
+                          o.razorpay_order_id === orderId ? { ...o, status: "cancelled" } : o
+                      )
+                    : prev
+            )
+            setConfirmId(null)
+        } catch (err) {
+            setActionError(
+                err instanceof ApiError
+                    ? err.message
+                    : err instanceof Error
+                      ? err.message
+                      : "Could not cancel the order. Please try again."
+            )
+        } finally {
+            setBusyId(null)
+        }
+    }
 
     useEffect(() => {
         if (authLoading) return
@@ -210,8 +243,54 @@ export function AccountClient() {
                                         Order expired
                                     </span>
                                 )}
+                                {order.status === "cod_pending" && confirmId !== order.razorpay_order_id && (
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setActionError(null)
+                                            setConfirmId(order.razorpay_order_id)
+                                        }}
+                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-400/40 bg-red-500/5 text-red-600 dark:text-red-400 text-sm font-medium hover:bg-red-500/10 transition-all md:order-2"
+                                    >
+                                        <Ban className="w-4 h-4" />
+                                        Cancel order
+                                    </button>
+                                )}
+                                {order.status === "cod_pending" && confirmId === order.razorpay_order_id && (
+                                    <div className="flex items-center gap-2 md:order-2">
+                                        <button
+                                            type="button"
+                                            disabled={busyId === order.razorpay_order_id}
+                                            onClick={() => cancelOrder(order.razorpay_order_id)}
+                                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600 text-white text-sm font-medium hover:bg-red-700 transition-all disabled:opacity-60"
+                                        >
+                                            {busyId === order.razorpay_order_id ? (
+                                                <Loader2 className="w-4 h-4 animate-spin" />
+                                            ) : (
+                                                <Ban className="w-4 h-4" />
+                                            )}
+                                            Yes, cancel
+                                        </button>
+                                        <button
+                                            type="button"
+                                            disabled={busyId === order.razorpay_order_id}
+                                            onClick={() => setConfirmId(null)}
+                                            className="inline-flex items-center px-4 py-2 rounded-full border border-primary/30 text-sm font-medium hover:bg-primary/10 transition-all disabled:opacity-60"
+                                        >
+                                            Keep
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
+                        {order.status === "cod_pending" && confirmId === order.razorpay_order_id && (
+                            <p className="mt-3 text-xs text-muted-foreground text-right">
+                                Cancelling stops delivery. This can&apos;t be undone.
+                            </p>
+                        )}
+                        {actionError && confirmId === order.razorpay_order_id && (
+                            <p className="mt-2 text-xs text-destructive text-right">{actionError}</p>
+                        )}
                         {order.status === "paid" && (
                             <div className="mt-5 pt-5 border-t border-white/5">
                                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
