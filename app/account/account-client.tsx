@@ -36,6 +36,7 @@ type OrderListItem = {
     quantity: number
     created_at: string | null
     paid_at: string | null
+    cancellation_requested?: boolean
 }
 
 const STATUS_STYLES: Record<string, { label: string; cls: string; icon: typeof CheckCircle2 }> = {
@@ -78,34 +79,50 @@ export function AccountClient() {
     const { user, loading: authLoading } = useAuth()
     const [orders, setOrders] = useState<OrderListItem[] | null>(null)
     const [error, setError] = useState<string | null>(null)
+    // confirmKind distinguishes a direct COD cancel from a paid-order refund request.
     const [confirmId, setConfirmId] = useState<string | null>(null)
+    const [confirmKind, setConfirmKind] = useState<"cancel" | "request" | null>(null)
     const [busyId, setBusyId] = useState<string | null>(null)
     const [actionError, setActionError] = useState<string | null>(null)
 
-    const cancelOrder = async (orderId: string) => {
+    const openConfirm = (orderId: string, kind: "cancel" | "request") => {
+        setActionError(null)
+        setConfirmId(orderId)
+        setConfirmKind(kind)
+    }
+    const closeConfirm = () => {
+        setConfirmId(null)
+        setConfirmKind(null)
+    }
+
+    const runAction = async (orderId: string, kind: "cancel" | "request") => {
         setActionError(null)
         setBusyId(orderId)
         try {
-            await apiFetch(`/orders/${encodeURIComponent(orderId)}/cancel`, {
-                method: "POST",
-                auth: true,
-                body: {},
-            })
+            const path =
+                kind === "cancel"
+                    ? `/orders/${encodeURIComponent(orderId)}/cancel`
+                    : `/orders/${encodeURIComponent(orderId)}/request-cancellation`
+            await apiFetch(path, { method: "POST", auth: true, body: {} })
             setOrders((prev) =>
                 prev
                     ? prev.map((o) =>
-                          o.razorpay_order_id === orderId ? { ...o, status: "cancelled" } : o
+                          o.razorpay_order_id === orderId
+                              ? kind === "cancel"
+                                  ? { ...o, status: "cancelled" }
+                                  : { ...o, cancellation_requested: true }
+                              : o
                       )
                     : prev
             )
-            setConfirmId(null)
+            closeConfirm()
         } catch (err) {
             setActionError(
                 err instanceof ApiError
                     ? err.message
                     : err instanceof Error
                       ? err.message
-                      : "Could not cancel the order. Please try again."
+                      : "Something went wrong. Please try again."
             )
         } finally {
             setBusyId(null)
@@ -243,25 +260,41 @@ export function AccountClient() {
                                         Order expired
                                     </span>
                                 )}
+                                {/* COD-pending: cancel directly. Paid: request a refund. */}
                                 {order.status === "cod_pending" && confirmId !== order.razorpay_order_id && (
                                     <button
                                         type="button"
-                                        onClick={() => {
-                                            setActionError(null)
-                                            setConfirmId(order.razorpay_order_id)
-                                        }}
+                                        onClick={() => openConfirm(order.razorpay_order_id, "cancel")}
                                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-400/40 bg-red-500/5 text-red-600 dark:text-red-400 text-sm font-medium hover:bg-red-500/10 transition-all md:order-2"
                                     >
                                         <Ban className="w-4 h-4" />
                                         Cancel order
                                     </button>
                                 )}
-                                {order.status === "cod_pending" && confirmId === order.razorpay_order_id && (
-                                    <div className="flex items-center gap-2 md:order-2">
+                                {order.status === "paid" && order.cancellation_requested && (
+                                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/40 bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-medium md:order-2">
+                                        <Clock className="w-4 h-4" />
+                                        Cancellation requested
+                                    </span>
+                                )}
+                                {order.status === "paid" &&
+                                    !order.cancellation_requested &&
+                                    confirmId !== order.razorpay_order_id && (
+                                        <button
+                                            type="button"
+                                            onClick={() => openConfirm(order.razorpay_order_id, "request")}
+                                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-400/40 bg-red-500/5 text-red-600 dark:text-red-400 text-sm font-medium hover:bg-red-500/10 transition-all md:order-3"
+                                        >
+                                            <Ban className="w-4 h-4" />
+                                            Request cancellation
+                                        </button>
+                                    )}
+                                {confirmId === order.razorpay_order_id && confirmKind && (
+                                    <div className="flex items-center gap-2 md:order-4">
                                         <button
                                             type="button"
                                             disabled={busyId === order.razorpay_order_id}
-                                            onClick={() => cancelOrder(order.razorpay_order_id)}
+                                            onClick={() => runAction(order.razorpay_order_id, confirmKind)}
                                             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600 text-white text-sm font-medium hover:bg-red-700 transition-all disabled:opacity-60"
                                         >
                                             {busyId === order.razorpay_order_id ? (
@@ -269,12 +302,12 @@ export function AccountClient() {
                                             ) : (
                                                 <Ban className="w-4 h-4" />
                                             )}
-                                            Yes, cancel
+                                            {confirmKind === "cancel" ? "Yes, cancel" : "Yes, request"}
                                         </button>
                                         <button
                                             type="button"
                                             disabled={busyId === order.razorpay_order_id}
-                                            onClick={() => setConfirmId(null)}
+                                            onClick={closeConfirm}
                                             className="inline-flex items-center px-4 py-2 rounded-full border border-primary/30 text-sm font-medium hover:bg-primary/10 transition-all disabled:opacity-60"
                                         >
                                             Keep
@@ -283,9 +316,14 @@ export function AccountClient() {
                                 )}
                             </div>
                         </div>
-                        {order.status === "cod_pending" && confirmId === order.razorpay_order_id && (
+                        {confirmId === order.razorpay_order_id && confirmKind === "cancel" && (
                             <p className="mt-3 text-xs text-muted-foreground text-right">
                                 Cancelling stops delivery. This can&apos;t be undone.
+                            </p>
+                        )}
+                        {confirmId === order.razorpay_order_id && confirmKind === "request" && (
+                            <p className="mt-3 text-xs text-muted-foreground text-right">
+                                We&apos;ll review your request and refund the paid amount to your original payment method.
                             </p>
                         )}
                         {actionError && confirmId === order.razorpay_order_id && (

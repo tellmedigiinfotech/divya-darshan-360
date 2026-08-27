@@ -58,6 +58,9 @@ type OrderView = {
     refund_reason: string | null
     cancelled_at: string | null
     cancellation_reason: string | null
+    cancellation_requested: boolean
+    cancellation_requested_at: string | null
+    cancellation_request_reason: string | null
 }
 
 function formatTimestamp(value: string | null): string {
@@ -272,6 +275,23 @@ export function OrderDetailClient({ orderId }: { orderId: string }) {
 
     return (
         <div className="max-w-5xl mx-auto space-y-5">
+            {order.cancellation_requested && order.status === "paid" && (
+                <div className="flex items-start gap-3 rounded-2xl border border-amber-400/50 bg-amber-500/10 p-4 md:p-5">
+                    <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                    <div className="text-sm">
+                        <p className="font-medium text-amber-700 dark:text-amber-300">
+                            Customer requested cancellation — refund needed
+                        </p>
+                        <p className="text-muted-foreground mt-0.5">
+                            Requested {formatTimestamp(order.cancellation_requested_at)}
+                            {order.cancellation_request_reason
+                                ? ` · Reason: ${order.cancellation_request_reason}`
+                                : ""}
+                            . Issue a refund below to complete the cancellation.
+                        </p>
+                    </div>
+                </div>
+            )}
             <div className="glass rounded-3xl p-6 md:p-8">
                 <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                     <div>
