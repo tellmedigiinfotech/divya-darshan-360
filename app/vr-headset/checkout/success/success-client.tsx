@@ -50,9 +50,11 @@ export function SuccessClient() {
         const poll = async () => {
             polls += 1
             try {
-                const data = await apiFetch<OrderStatus>(
-                    `/fastrr/order-status/${encodeURIComponent(orderId!)}`
-                )
+                // Pull the order from Fastrr and record it (webhook-independent).
+                const data = await apiFetch<OrderStatus>("/fastrr/sync-order", {
+                    method: "POST",
+                    body: { order_id: orderId },
+                })
                 if (cancelled) return
                 if (data.found) {
                     setOrder(data)
