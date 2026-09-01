@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
-import { CheckCircle2, Loader2, Truck, ShieldCheck } from "lucide-react"
+import { CheckCircle2, Loader2, Truck, ShieldCheck, AlertTriangle } from "lucide-react"
 import { apiFetch } from "@/lib/api"
 import { trackPurchaseConversion } from "@/lib/gtag"
 
@@ -13,6 +13,7 @@ type OrderStatus = {
     payment_method?: string
     amount_paise?: number
     receipt?: string
+    cod_limit_blocked?: boolean
 }
 
 const POLL_INTERVAL_MS = 2500
@@ -59,7 +60,10 @@ export function SuccessClient() {
                 if (data.found) {
                     setOrder(data)
                     setStillWaiting(false)
-                    if (!firedRef.current) {
+                    // Don't count a purchase for a COD order the one-active-COD
+                    // rule auto-cancelled — no sale happened.
+                    const blocked = data.cod_limit_blocked || data.status === "cancelled"
+                    if (!firedRef.current && !blocked) {
                         firedRef.current = true
                         trackPurchaseConversion({
                             orderId: orderId!,
@@ -90,6 +94,41 @@ export function SuccessClient() {
             cancelled = true
         }
     }, [searchParams])
+
+    const blocked = !!order && (order.cod_limit_blocked || order.status === "cancelled")
+
+    if (blocked) {
+        return (
+            <div className="max-w-2xl mx-auto">
+                <div className="glass rounded-[2.5rem] p-10 md:p-14 ornate-border text-center">
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-500/15 border border-amber-500/30 mb-6">
+                        <AlertTriangle className="w-10 h-10 text-amber-600" />
+                    </div>
+                    <h1 className="text-3xl md:text-5xl font-serif mb-4">One COD order at a time</h1>
+                    <p className="text-muted-foreground text-base md:text-lg mb-8">
+                        You already have a Cash-on-Delivery order with us that&apos;s still on the way, so we
+                        couldn&apos;t place this one as COD. Please order again and pay online — there&apos;s no
+                        limit on prepaid orders.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+                        <Link
+                            href="/vr-headset"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full divine-button shadow-(--saffron-glow)"
+                        >
+                            Order &amp; pay online
+                        </Link>
+                        <Link
+                            href="/account"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+                        >
+                            View my orders
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="max-w-2xl mx-auto">
