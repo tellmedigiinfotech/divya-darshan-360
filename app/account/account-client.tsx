@@ -248,17 +248,7 @@ export function AccountClient() {
                                         Order expired
                                     </span>
                                 )}
-                                {/* COD-pending: cancel directly. Paid: request a refund. */}
-                                {order.status === "cod_pending" && confirmId !== order.razorpay_order_id && (
-                                    <button
-                                        type="button"
-                                        onClick={() => openConfirm(order.razorpay_order_id, "cancel")}
-                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-400/40 bg-red-500/5 text-red-600 dark:text-red-400 text-sm font-medium hover:bg-red-500/10 transition-all md:order-2"
-                                    >
-                                        <Ban className="w-4 h-4" />
-                                        Cancel order
-                                    </button>
-                                )}
+                                {/* Paid orders can request a refund. COD orders are managed by our team. */}
                                 {order.status === "paid" && order.cancellation_requested && (
                                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/40 bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-medium md:order-2">
                                         <Clock className="w-4 h-4" />
@@ -304,11 +294,6 @@ export function AccountClient() {
                                 )}
                             </div>
                         </div>
-                        {confirmId === order.razorpay_order_id && confirmKind === "cancel" && (
-                            <p className="mt-3 text-xs text-muted-foreground text-right">
-                                Cancelling stops delivery. This can&apos;t be undone.
-                            </p>
-                        )}
                         {confirmId === order.razorpay_order_id && confirmKind === "request" && (
                             <p className="mt-3 text-xs text-muted-foreground text-right">
                                 We&apos;ll review your request and refund the paid amount to your original payment method.
