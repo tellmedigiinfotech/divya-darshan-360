@@ -241,14 +241,28 @@ body.sheet-full .sos-btn { opacity: 0; pointer-events: none; }
   padding: 0 14px calc(env(safe-area-inset-bottom, 0px) + 18px);
 }
 
-.brand {
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   margin: 0 0 10px;
+}
+
+.brand {
+  margin: 0;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .04em;
   text-transform: uppercase;
   color: var(--saffron);
 }
+
+/* Company and NGO marks, sized by height so their very different aspect ratios
+   (TellMe is ~3.8:1, the foundation mark is square) still line up optically. */
+.brand-logos { display: flex; align-items: center; gap: 9px; flex: none; }
+.brand-logo { display: block; width: auto; height: 21px; }
+.brand-logo:last-child { height: 26px; }
 
 /* Four tabs will not fit side by side on a 360px phone, so the row scrolls. */
 .tabs {
