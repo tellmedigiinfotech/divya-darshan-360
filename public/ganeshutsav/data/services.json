@@ -1,0 +1,131 @@
+{
+  "_sourceNote": "Helpline short codes are national Government of India numbers, stable year to year. Hospital, police and parking coordinates geocoded via OpenStreetMap Nominatim on 2026-09-09. PARKING IS LAST YEAR'S LIST: Pune Police published 27 designated spots for Ganeshotsav 2025 and the 2026 list was not published at the time of writing. Only the entries that geocoded cleanly are included, the rest were dropped rather than guessed. Replace this whole block with the official 2026 police list before launch. There is deliberately no Pune festival control room number here, get that from the authority contact, it changes every year.",
+  "helplines": [
+    {
+      "id": "112",
+      "number": "112",
+      "name": { "en": "Emergency (all services)", "mr": "आपत्कालीन (सर्व सेवा)", "hi": "आपातकाल (सभी सेवाएँ)" },
+      "note": { "en": "One number for police, fire and ambulance", "mr": "पोलीस, अग्निशमन आणि रुग्णवाहिका, एकच नंबर", "hi": "पुलिस, दमकल और एम्बुलेंस, एक ही नंबर" }
+    },
+    {
+      "id": "108",
+      "number": "108",
+      "name": { "en": "Ambulance", "mr": "रुग्णवाहिका", "hi": "एम्बुलेंस" },
+      "note": { "en": "Free emergency ambulance", "mr": "मोफत आपत्कालीन रुग्णवाहिका", "hi": "मुफ़्त आपातकालीन एम्बुलेंस" }
+    },
+    {
+      "id": "100",
+      "number": "100",
+      "name": { "en": "Police", "mr": "पोलीस", "hi": "पुलिस" },
+      "note": { "en": "Police control room", "mr": "पोलीस नियंत्रण कक्ष", "hi": "पुलिस नियंत्रण कक्ष" }
+    },
+    {
+      "id": "101",
+      "number": "101",
+      "name": { "en": "Fire brigade", "mr": "अग्निशमन दल", "hi": "दमकल" },
+      "note": { "en": "Fire and rescue", "mr": "आग आणि बचाव", "hi": "आग और बचाव" }
+    },
+    {
+      "id": "1091",
+      "number": "1091",
+      "name": { "en": "Women's helpline", "mr": "महिला हेल्पलाइन", "hi": "महिला हेल्पलाइन" },
+      "note": { "en": "24 hours", "mr": "२४ तास", "hi": "२४ घंटे" }
+    },
+    {
+      "id": "1098",
+      "number": "1098",
+      "name": { "en": "Child helpline", "mr": "बाल हेल्पलाइन", "hi": "बाल हेल्पलाइन" },
+      "note": { "en": "Lost or distressed children", "mr": "हरवलेली किंवा संकटात असलेली मुले", "hi": "खोए या संकट में बच्चे" }
+    }
+  ],
+  "places": [
+    {
+      "id": "faraskhana",
+      "kind": "police",
+      "name": { "en": "Faraskhana Police Station", "mr": "फरासखाना पोलीस ठाणे", "hi": "फरासखाना पुलिस स्टेशन" },
+      "locality": { "en": "Shivaji Road, Shaniwar Peth", "mr": "शिवाजी रस्ता, शनिवार पेठ", "hi": "शिवाजी रोड, शनिवार पेठ" },
+      "lat": 18.5164429,
+      "lng": 73.8558420,
+      "note": { "en": "The station covering the main mandal area", "mr": "मुख्य मंडळ परिसरातील पोलीस ठाणे", "hi": "मुख्य मंडल क्षेत्र का पुलिस स्टेशन" }
+    },
+    {
+      "id": "poona-hospital",
+      "kind": "hospital",
+      "name": { "en": "Poona Hospital", "mr": "पूना हॉस्पिटल", "hi": "पूना हॉस्पिटल" },
+      "locality": { "en": "Navi Peth", "mr": "नवी पेठ", "hi": "नवी पेठ" },
+      "lat": 18.5106501,
+      "lng": 73.8419019,
+      "note": { "en": "Closest large hospital to the mandal circuit", "mr": "मंडळ मार्गाजवळचे मोठे रुग्णालय", "hi": "मंडल मार्ग के सबसे नज़दीक बड़ा अस्पताल" }
+    },
+    {
+      "id": "sassoon",
+      "kind": "hospital",
+      "name": { "en": "Sassoon General Hospital", "mr": "ससून सर्वोपचार रुग्णालय", "hi": "ससून जनरल अस्पताल" },
+      "locality": { "en": "Somwar Peth", "mr": "सोमवार पेठ", "hi": "सोमवार पेठ" },
+      "lat": 18.5251434,
+      "lng": 73.8695664,
+      "note": { "en": "Government hospital, free treatment", "mr": "सरकारी रुग्णालय, मोफत उपचार", "hi": "सरकारी अस्पताल, मुफ़्त इलाज" }
+    },
+    {
+      "id": "kem",
+      "kind": "hospital",
+      "name": { "en": "KEM Hospital", "mr": "केईएम रुग्णालय", "hi": "केईएम अस्पताल" },
+      "locality": { "en": "Rasta Peth", "mr": "रास्ता पेठ", "hi": "रास्ता पेठ" },
+      "lat": 18.5204732,
+      "lng": 73.8676225,
+      "note": { "en": "", "mr": "", "hi": "" }
+    },
+    {
+      "id": "ruby-hall",
+      "kind": "hospital",
+      "name": { "en": "Ruby Hall Clinic", "mr": "रुबी हॉल क्लिनिक", "hi": "रूबी हॉल क्लिनिक" },
+      "locality": { "en": "Bund Garden Road", "mr": "बंड गार्डन रस्ता", "hi": "बंड गार्डन रोड" },
+      "lat": 18.5327176,
+      "lng": 73.8777486,
+      "note": { "en": "", "mr": "", "hi": "" }
+    },
+    {
+      "id": "deenanath",
+      "kind": "hospital",
+      "name": { "en": "Deenanath Mangeshkar Hospital", "mr": "दीनानाथ मंगेशकर रुग्णालय", "hi": "दीनानाथ मंगेशकर अस्पताल" },
+      "locality": { "en": "Erandwane", "mr": "एरंडवणे", "hi": "एरंडवने" },
+      "lat": 18.5018536,
+      "lng": 73.8327978,
+      "note": { "en": "", "mr": "", "hi": "" }
+    }
+  ],
+  "parking": [
+    {
+      "id": "nes-tilak",
+      "name": { "en": "New English School, Tilak Road", "mr": "न्यू इंग्लिश स्कूल, टिळक रस्ता", "hi": "न्यू इंग्लिश स्कूल, तिलक रोड" },
+      "locality": { "en": "Navi Peth", "mr": "नवी पेठ", "hi": "नवी पेठ" },
+      "lat": 18.5107643,
+      "lng": 73.8445205,
+      "vehicles": "both"
+    },
+    {
+      "id": "garware",
+      "name": { "en": "Babasaheb Garware College", "mr": "बाबासाहेब गरवारे महाविद्यालय", "hi": "बाबासाहेब गरवारे कॉलेज" },
+      "locality": { "en": "Karve Road, Deccan", "mr": "कर्वे रस्ता, डेक्कन", "hi": "कर्वे रोड, डेक्कन" },
+      "lat": 18.5119649,
+      "lng": 73.8380657,
+      "vehicles": "both"
+    },
+    {
+      "id": "fergusson",
+      "name": { "en": "Fergusson College", "mr": "फर्ग्युसन महाविद्यालय", "hi": "फर्ग्युसन कॉलेज" },
+      "locality": { "en": "Model Colony", "mr": "मॉडेल कॉलनी", "hi": "मॉडल कॉलोनी" },
+      "lat": 18.5241485,
+      "lng": 73.8385915,
+      "vehicles": "both"
+    },
+    {
+      "id": "sarasbaug",
+      "name": { "en": "Peshwe Park, Sarasbaug", "mr": "पेशवे पार्क, सारसबाग", "hi": "पेशवे पार्क, सारसबाग" },
+      "locality": { "en": "Swargate", "mr": "स्वारगेट", "hi": "स्वारगेट" },
+      "lat": 18.5004949,
+      "lng": 73.8529037,
+      "vehicles": "two"
+    }
+  ]
+}

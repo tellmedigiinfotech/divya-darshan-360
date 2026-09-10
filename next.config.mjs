@@ -12,6 +12,13 @@ const nextConfig = {
         source: '/blog/temple/:category/:slug',
         destination: '/blog/temple/:category/:slug/index.html',
       },
+      // Ganeshotsav mandal route planner. Static files live in
+      // public/ganeshutsav/ and are never compiled, so nothing here can break
+      // the storefront build.
+      {
+        source: '/ganeshutsav',
+        destination: '/ganeshutsav/index.html',
+      },
     ]
   },
   // Legacy URLs Google still crawls. Search Console reported these as

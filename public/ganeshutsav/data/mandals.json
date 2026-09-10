@@ -1,0 +1,141 @@
+{
+  "_sourceNote": "Names, localities and history from public sources (see README). Coordinates geocoded via OpenStreetMap Nominatim on 2026-09-09. Spot-check on the ground before launch: festival barricades can put the real walkable entrance 50 to 100m from the plain address. Darshan and aarti timings are deliberately not stored here, they change every year and would go stale.",
+  "mandals": [
+    {
+      "id": "kasba",
+      "name": {
+        "en": "Shri Kasba Ganpati",
+        "mr": "श्री कसबा गणपती",
+        "hi": "श्री कसबा गणपति"
+      },
+      "locality": { "en": "Kasba Peth", "mr": "कसबा पेठ", "hi": "कसबा पेठ" },
+      "lat": 18.5190304,
+      "lng": 73.8572406,
+      "rank": 1,
+      "blurb": {
+        "en": "Pune's gramdaivat and the first of the Manache Paach. Every festival procession takes its cue from here.",
+        "mr": "पुण्याचे ग्रामदैवत आणि मानाचा पहिला गणपती. प्रत्येक मिरवणुकीची सुरुवात इथूनच होते.",
+        "hi": "पुणे के ग्रामदैवत और मानाचा पहला गणपति। हर जुलूस की शुरुआत यहीं से होती है।"
+      }
+    },
+    {
+      "id": "tambdi-jogeshwari",
+      "name": {
+        "en": "Tambdi Jogeshwari Ganpati",
+        "mr": "तांबडी जोगेश्वरी गणपती",
+        "hi": "तांबडी जोगेश्वरी गणपति"
+      },
+      "locality": { "en": "Budhwar Peth", "mr": "बुधवार पेठ", "hi": "बुधवार पेठ" },
+      "lat": 18.5165314,
+      "lng": 73.8547653,
+      "rank": 2,
+      "blurb": {
+        "en": "Second of the Manache Paach, started in Lokmanya Tilak's time.",
+        "mr": "मानाचा दुसरा गणपती, लोकमान्य टिळकांच्या काळात सुरू झालेला.",
+        "hi": "मानाचा दूसरा गणपति, लोकमान्य तिलक के समय शुरू हुआ।"
+      }
+    },
+    {
+      "id": "guruji-talim",
+      "name": {
+        "en": "Guruji Talim Ganpati",
+        "mr": "गुरुजी तालीम गणपती",
+        "hi": "गुरुजी तालीम गणपति"
+      },
+      "locality": {
+        "en": "Laxmi Road, Narayan Peth",
+        "mr": "लक्ष्मी रस्ता, नारायण पेठ",
+        "hi": "लक्ष्मी रोड, नारायण पेठ"
+      },
+      "lat": 18.5150471,
+      "lng": 73.8546601,
+      "rank": 3,
+      "blurb": {
+        "en": "Third of the Manache Paach, founded in 1887 by Hindu and Muslim families together.",
+        "mr": "मानाचा तिसरा गणपती, १८८७ मध्ये हिंदू आणि मुस्लिम कुटुंबांनी मिळून सुरू केलेला.",
+        "hi": "मानाचा तीसरा गणपति, १८८७ में हिंदू और मुस्लिम परिवारों ने मिलकर शुरू किया।"
+      }
+    },
+    {
+      "id": "dagdusheth",
+      "name": {
+        "en": "Shreemant Dagdusheth Halwai Ganpati",
+        "mr": "श्रीमंत दगडूशेठ हलवाई गणपती",
+        "hi": "श्रीमंत दगडूशेठ हलवाई गणपति"
+      },
+      "locality": { "en": "Shaniwar Peth", "mr": "शनिवार पेठ", "hi": "शनिवार पेठ" },
+      "lat": 18.5164306,
+      "lng": 73.8561092,
+      "rank": null,
+      "blurb": {
+        "en": "Pune's most visited idol. Long queues, gold ornaments, worth the wait.",
+        "mr": "पुण्यातील सर्वाधिक भेट दिली जाणारी मूर्ती. लांब रांगा, सोन्याचे दागिने.",
+        "hi": "पुणे की सबसे ज़्यादा देखी जाने वाली मूर्ति। लंबी कतारें, सोने के गहने।"
+      }
+    },
+    {
+      "id": "tulshibaug",
+      "name": {
+        "en": "Tulshibaug Ganpati",
+        "mr": "तुळशीबाग गणपती",
+        "hi": "तुलसीबाग गणपति"
+      },
+      "locality": {
+        "en": "Tulshibaug market, Budhwar Peth",
+        "mr": "तुळशीबाग, बुधवार पेठ",
+        "hi": "तुलसीबाग, बुधवार पेठ"
+      },
+      "lat": 18.5137290,
+      "lng": 73.8554969,
+      "rank": 4,
+      "blurb": {
+        "en": "Fourth of the Manache Paach. A 13 foot idol inside the Tulshibaug market.",
+        "mr": "मानाचा चौथा गणपती. तुळशीबाग बाजारातील १३ फूट उंच मूर्ती.",
+        "hi": "मानाचा चौथा गणपति। तुलसीबाग बाज़ार में १३ फुट ऊँची मूर्ति।"
+      }
+    },
+    {
+      "id": "kesariwada",
+      "name": {
+        "en": "Kesariwada Ganpati",
+        "mr": "केसरीवाडा गणपती",
+        "hi": "केसरीवाडा गणपति"
+      },
+      "locality": { "en": "Narayan Peth", "mr": "नारायण पेठ", "hi": "नारायण पेठ" },
+      "lat": 18.5162521,
+      "lng": 73.8490862,
+      "rank": 5,
+      "blurb": {
+        "en": "Fifth of the Manache Paach, at Tilak's Kesari Wada. Carried out in a silver palanquin.",
+        "mr": "मानाचा पाचवा गणपती, टिळकांच्या केसरी वाड्यातील. चांदीच्या पालखीतून मिरवणूक.",
+        "hi": "मानाचा पाँचवाँ गणपति, तिलक के केसरी वाड़ा में। चाँदी की पालकी में जुलूस।"
+      }
+    }
+  ],
+  "circuits": [
+    {
+      "id": "manache-paach",
+      "name": { "en": "Manache Paach", "mr": "मानाचे पाच", "hi": "मानाचे पाँच" },
+      "subtitle": {
+        "en": "Pune's five honoured mandals, in the traditional order",
+        "mr": "पुण्याची पाच मानाची मंडळे, पारंपरिक क्रमाने",
+        "hi": "पुणे के पाँच मानाचे मंडल, पारंपरिक क्रम में"
+      },
+      "stopIds": ["kasba", "tambdi-jogeshwari", "guruji-talim", "tulshibaug", "kesariwada"]
+    },
+    {
+      "id": "manache-paach-plus-dagdusheth",
+      "name": {
+        "en": "Manache Paach + Dagdusheth",
+        "mr": "मानाचे पाच + दगडूशेठ",
+        "hi": "मानाचे पाँच + दगडूशेठ"
+      },
+      "subtitle": {
+        "en": "The traditional five, plus Pune's most famous idol on the way",
+        "mr": "पारंपरिक पाच, आणि वाटेत पुण्यातील सर्वात प्रसिद्ध मूर्ती",
+        "hi": "पारंपरिक पाँच, और रास्ते में पुणे की सबसे प्रसिद्ध मूर्ति"
+      },
+      "stopIds": ["kasba", "tambdi-jogeshwari", "guruji-talim", "dagdusheth", "tulshibaug", "kesariwada"]
+    }
+  ]
+}
