@@ -24,6 +24,89 @@ const tr = (field) => (field && (field[lang] || field.en)) || "";
 const byId = (id) => data.mandals.find((m) => m.id === id);
 const xy = (m) => [m.lat, m.lng];
 
+/* ---------- ad card ----------
+ * Shows the ad in whichever language the user picked, floated over the map when
+ * they select a route or mandal.
+ *
+ * Deliberately NOT a blocking interstitial before the directions. This is a
+ * wayfinding tool people open mid-walk in a crowd on mobile data, and putting a
+ * 12 second gate in front of the route is the fastest way to spike bounces,
+ * which would poison the very numbers the Kumbh pitch depends on. So: muted
+ * picture-in-picture beside the route, tap for sound, dismissable.
+ *
+ * Once per session by default. Flip AD_EVERY_SELECTION if you want it on every
+ * tap instead, but that also multiplies data use per visitor.
+ */
+const AD_EVERY_SELECTION = false;
+const AD_SEEN_KEY = "pgy.ad_seen";
+let adDismissed = false;
+
+function maybeShowAd() {
+  if (adDismissed) return;
+  if (!AD_EVERY_SELECTION) {
+    try { if (sessionStorage.getItem(AD_SEEN_KEY)) return; } catch { /* private mode */ }
+  }
+
+  const el = $("ad");
+  const v = $("ad-video");
+  const src = `assets/ads/ganesh-ad-${lang}.mp4`;
+  if (v.getAttribute("src") !== src) {
+    v.setAttribute("src", src);
+    v.setAttribute("poster", `assets/ads/ganesh-ad-${lang}.jpg`);
+  }
+  el.hidden = false;
+  try { sessionStorage.setItem(AD_SEEN_KEY, "1"); } catch { /* not fatal */ }
+  const trigger = selection ? selection.kind : "unknown";
+
+  // Sound on by default. This is reached synchronously from the user's tap on a
+  // route, so it sits inside a user-activation context and browsers normally
+  // allow it. When they do not (iOS low power, in-app webviews, autoplay
+  // settings) play() rejects, and an unguarded call would leave a dead black
+  // box where the ad should be. So fall back to muted rather than to nothing,
+  // and record which of the two actually happened.
+  v.muted = false;
+  $("ad-sound").classList.add("on");
+  v.play().then(
+    () => track("ad_shown", { language: lang, trigger, sound: "on" }),
+    () => {
+      v.muted = true;
+      $("ad-sound").classList.remove("on");
+      v.play().catch(() => { /* leave the poster showing */ });
+      track("ad_shown", { language: lang, trigger, sound: "blocked" });
+    }
+  );
+}
+
+function hideAd() {
+  $("ad").hidden = true;
+  const v = $("ad-video");
+  v.pause();
+  adDismissed = true;
+  track("ad_dismissed", { language: lang, seconds_watched: Math.round(v.currentTime || 0) });
+}
+
+/* ---------- analytics ----------
+ * Event names are deliberately chosen so each one answers a question an
+ * authority would ask, not to count pageviews:
+ *   maps_handoff   someone actually set off walking. This is the conversion.
+ *   mandal_selected / route_selected   aggregate demand, by destination and hour.
+ *   language_set   whether the thing reached non-English speakers.
+ *   sos_opened / helpline_called   whether it served safety, not just tourism.
+ *   route_failed   reliability, so "99% of route requests succeeded" is provable.
+ * Analytics must never break the page, hence the blanket try/catch.
+ */
+const ANALYTICS_APP = "ganeshutsav";
+
+function track(name, params) {
+  try {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", name, { app: ANALYTICS_APP, ui_lang: lang, ...params });
+    }
+    // Vercel custom events, present only on paid plans. Harmless if absent.
+    if (typeof window.va === "function") window.va("event", { name, ...params });
+  } catch { /* never let instrumentation take the page down */ }
+}
+
 // localStorage throws in some privacy modes, and a throw here would kill the page.
 const store = {
   get(k) { try { return localStorage.getItem(k); } catch { return null; } },
@@ -47,7 +130,8 @@ async function boot() {
   syncSheetHeight();
 
   const saved = store.get(LANG_KEY);
-  setLang(saved && strings[saved] ? saved : detectLang());
+  const known = saved && strings[saved];
+  setLang(known ? saved : detectLang(), known ? "restored" : "detected");
   if (!saved) $("lang-gate").hidden = false;
 
   // Open framed on the mandals themselves, not on a generic view of Pune.
@@ -106,7 +190,7 @@ function renderPins() {
     }).addTo(mandalLayer);
 
     if (!parking && !help) {
-      marker.on("click", (ev) => { L.DomEvent.stopPropagation(ev); selectMandal(item); });
+      marker.on("click", (ev) => { L.DomEvent.stopPropagation(ev); selectMandal(item, "map"); });
     } else {
       marker.on("click", (ev) => L.DomEvent.stopPropagation(ev));
       marker.bindPopup(
@@ -142,14 +226,18 @@ function fitTo(bounds) {
 
 function selectCircuit(c) {
   selection = { kind: "circuit", ref: c, stops: c.stopIds.map(byId) };
+  track("route_selected", { route_id: c.id, stop_count: c.stopIds.length });
   showDetail();
   drawRoute();
+  maybeShowAd();
 }
 
-function selectMandal(m) {
+function selectMandal(m, source = "list") {
   selection = { kind: "mandal", ref: m, stops: [m] };
+  track("mandal_selected", { mandal_id: m.id, locality: m.locality.en, source });
   showDetail();
   drawRoute();
+  maybeShowAd();
 }
 
 // Titles are resolved on read, not stored, so a language switch needs no bookkeeping.
@@ -194,11 +282,20 @@ async function drawRoute() {
     fitTo(line.getBounds());
     setStats(route);
     hideToast();
+    track("route_drawn", {
+      kind: selection.kind,
+      target_id: selection.ref.id,
+      stop_count: stops.length,
+      distance_km: +(route.distance / 1000).toFixed(2),
+      walk_min: Math.round((route.distance / 1000 / WALK_KMPH) * 60),
+      from_location: !!startLatLng,
+    });
   } catch {
     // Route service failed. The pins are still useful, so show those and say so.
     fitTo(L.latLngBounds(points));
     setStats(null);
     toast(t("routeError"));
+    track("route_failed", { kind: selection.kind, target_id: selection.ref.id, stop_count: stops.length });
   }
 }
 
@@ -251,11 +348,16 @@ function setStart(latlng) {
 }
 
 function locateMe() {
-  if (!navigator.geolocation) return askForTap();
+  if (!navigator.geolocation) { track("locate_used", { outcome: "unavailable" }); return askForTap(); }
   toast(t("locating"));
   navigator.geolocation.getCurrentPosition(
-    (pos) => { setStart([pos.coords.latitude, pos.coords.longitude]); hideToast(); if (!selection) map.setView([pos.coords.latitude, pos.coords.longitude], 16); },
-    askForTap,
+    (pos) => {
+      track("locate_used", { outcome: "granted" });
+      setStart([pos.coords.latitude, pos.coords.longitude]);
+      hideToast();
+      if (!selection) map.setView([pos.coords.latitude, pos.coords.longitude], 16);
+    },
+    () => { track("locate_used", { outcome: "denied" }); askForTap(); },
     { enableHighAccuracy: true, timeout: 8000 }
   );
 }
@@ -350,7 +452,9 @@ function renderList() {
     list.innerHTML = `<p class="empty">${t("noResults")}</p>`;
     return;
   }
-  hits.forEach((m) => list.appendChild(card(tr(m.name), tr(m.locality), "", () => selectMandal(m))));
+  hits.forEach((m) =>
+    list.appendChild(card(tr(m.name), tr(m.locality), "", () => selectMandal(m, q ? "search" : "list")))
+  );
 }
 
 function renderEmergency(list) {
@@ -368,6 +472,7 @@ function renderEmergency(list) {
     const a = document.createElement("a");
     a.className = "call-row";
     a.href = `tel:${h.number}`;
+    a.addEventListener("click", () => track("helpline_called", { helpline: h.number }));
     a.innerHTML =
       `<span class="call-num">${h.number}</span>` +
       `<span class="call-text"><span class="call-name">${tr(h.name)}</span>` +
@@ -411,6 +516,9 @@ function placeRow(item, sub) {
   a.innerHTML =
     '<svg class="ico" viewBox="0 0 24 24"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>' +
     `<span>${t("directions")}</span>`;
+  a.addEventListener("click", () =>
+    track("maps_handoff", { kind: item.vehicles ? "parking" : "help", target_id: item.id, stop_count: 1 })
+  );
   wrap.appendChild(a);
   return wrap;
 }
@@ -428,10 +536,11 @@ function card(title, sub, meta, onClick) {
 
 /* ---------- language ---------- */
 
-function setLang(next) {
+function setLang(next, source = "chosen") {
   lang = next;
   store.set(LANG_KEY, next);
   document.documentElement.lang = next;
+  track("language_set", { language: next, source });
 
   document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => { el.placeholder = t(el.dataset.i18nPlaceholder); });
@@ -530,6 +639,7 @@ function wire() {
   document.querySelectorAll(".tab").forEach((b) =>
     b.addEventListener("click", () => {
       setTab(b.dataset.tab);
+      track("tab_changed", { tab: b.dataset.tab });
       showList();
       renderList();
       // Parking sits outside the mandal cluster, so bring it into view.
@@ -540,6 +650,7 @@ function wire() {
   );
 
   $("sos-btn").addEventListener("click", () => {
+    track("sos_opened", {});
     setTab("emergency");
     showList();
     renderList();
@@ -547,8 +658,43 @@ function wire() {
     fitTo(L.latLngBounds(services.places.map((p) => [p.lat, p.lng])));
   });
 
-  $("search").addEventListener("input", () => { showList(); renderList(); });
+  // One event per search, not per keystroke. What people look for and fail to
+  // find is the most useful signal here: it names the mandals we are missing.
+  let searchTimer;
+  $("search").addEventListener("input", () => {
+    showList();
+    renderList();
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      const q = $("search").value.trim();
+      if (q.length < 2) return;
+      track("search_performed", {
+        query: q.slice(0, 60).toLowerCase(),
+        results: data.mandals.filter((m) => searchBlob(m).includes(q.toLowerCase())).length,
+      });
+    }, 900);
+  });
   $("search").addEventListener("focus", () => { applySnap(SNAPS.length - 1); showList(); });
+
+  // The conversion: someone left for Google Maps, meaning they actually set off.
+  $("gmaps-btn").addEventListener("click", () => {
+    if (!selection) return;
+    track("maps_handoff", {
+      kind: selection.kind,
+      target_id: selection.ref.id,
+      stop_count: selection.stops.length,
+      from_location: !!startLatLng,
+    });
+  });
+
+  $("ad-close").addEventListener("click", hideAd);
+  $("ad-sound").addEventListener("click", () => {
+    const v = $("ad-video");
+    v.muted = !v.muted;
+    $("ad-sound").classList.toggle("on", !v.muted);
+    if (!v.muted) { v.play().catch(() => {}); track("ad_unmuted", { language: lang }); }
+  });
+  $("ad-video").addEventListener("ended", () => track("ad_completed", { language: lang }));
 
   $("back-btn").addEventListener("click", showList);
   $("locate-btn").addEventListener("click", locateMe);

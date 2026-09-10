@@ -12,6 +12,21 @@
 <title>Pune Ganpati Yatra</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="style.css">
+
+<!-- GA4, same property as the storefront (G-W2TMQG62D2). This page is static and
+     lives in public/, so it never runs app/layout.tsx and would otherwise be
+     invisible. Every custom event carries app="ganeshutsav" so these numbers can
+     be separated from storefront traffic. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W2TMQG62D2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W2TMQG62D2');
+</script>
+<!-- Vercel Web Analytics: cookieless visitor and pageview counts. Only exists in
+     production, so this 404s harmlessly when serving the folder locally. -->
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -28,7 +43,23 @@
   </button>
 </div>
 
-<button id="sos-btn" class="sos-btn" aria-label="Emergency help">SOS</button>
+<!-- Language-matched ad, floated over the map when a route or mandal is picked.
+     Left side on purpose: SOS and locate own the right. Deliberately not a
+     blocking interstitial, see the note in app.js. -->
+<div id="ad" class="ad" hidden>
+  <video id="ad-video" class="ad-video" muted playsinline preload="none"></video>
+  <button id="ad-sound" class="ad-sound" aria-label="Unmute advert">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>
+  </button>
+  <button id="ad-close" class="ad-close" aria-label="Close advert">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</div>
+
+<button id="sos-btn" class="sos-btn" aria-label="Emergency help">
+  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.25 1z"/></svg>
+  <span>SOS</span>
+</button>
 
 <button id="locate-btn" class="locate-btn" aria-label="My location">
   <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="8"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg>

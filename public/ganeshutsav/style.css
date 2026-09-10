@@ -108,26 +108,95 @@ body {
 }
 .locate-btn.on { background: var(--saffron); color: #fff; }
 
+/* ---------- ad card ---------- */
+
+.ad {
+  position: fixed;
+  z-index: 550;
+  left: 14px;
+  bottom: calc(var(--sheet-h) + 14px);
+  width: 132px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 6px 20px rgba(26, 22, 20, .4);
+  transition: bottom .25s ease;
+  line-height: 0;
+}
+.ad[hidden] { display: none; }
+.ad-video { width: 100%; height: auto; display: block; }
+
+.ad-close, .ad-sound {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, .58);
+  color: #fff;
+  cursor: pointer;
+}
+.ad-close { top: 5px; right: 5px; }
+.ad-sound { bottom: 5px; left: 5px; }
+.ad-close .ico, .ad-sound .ico { width: 16px; height: 16px; }
+.ad-sound.on { background: var(--saffron); }
+
+/* The map is short when the sheet is open wide, so get out of the way. */
+body.sheet-full .ad { opacity: 0; pointer-events: none; }
+
 /* Sits directly above the locate button. Red and always on the map, because in
-   an actual emergency nobody goes hunting through a tab for the number. */
+   an actual emergency nobody goes hunting through a tab for the number.
+   Deliberately a phone glyph, not a medical cross: the red cross on white is a
+   protected emblem under the Geneva Conventions. The handset also says what the
+   button actually does, which is hand you numbers to call. */
 .sos-btn {
   position: fixed;
   z-index: 500;
   right: 14px;
-  bottom: calc(var(--sheet-h) + 74px);
-  width: 52px; height: 52px;
-  border: 0;
-  border-radius: 26px;
-  background: #c62828;
+  bottom: calc(var(--sheet-h) + 76px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 58px; height: 58px;
+  padding: 0;
+  border: 2.5px solid #fff;
+  border-radius: 50%;
+  background: #d32f2f;
   color: #fff;
   font: inherit;
-  font-size: 14px;
+  font-size: 10.5px;
   font-weight: 800;
-  letter-spacing: .02em;
-  box-shadow: 0 3px 14px rgba(198, 40, 40, .45);
+  letter-spacing: .06em;
+  line-height: 1;
+  box-shadow: 0 4px 16px rgba(198, 40, 40, .5);
   cursor: pointer;
   transition: bottom .25s ease;
 }
+.sos-btn .ico { width: 20px; height: 20px; stroke-width: 2.3; margin-bottom: 2px; }
+.sos-btn:active { background: #b71c1c; }
+
+/* A slow halo so the eye finds it on a busy map. Stops for anyone who has
+   asked the OS to reduce motion. */
+.sos-btn::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 3px solid rgba(211, 47, 47, .5);
+  animation: sos-halo 2.6s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes sos-halo {
+  0%   { transform: scale(1);    opacity: .75; }
+  70%  { transform: scale(1.5);  opacity: 0; }
+  100% { transform: scale(1.5);  opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .sos-btn::after { animation: none; } }
 
 /* With the sheet expanded there is barely any map left to sit on. */
 body.sheet-full .locate-btn,
@@ -467,7 +536,8 @@ body.sheet-full .sos-btn { opacity: 0; pointer-events: none; }
   .sheet-handle { display: none; }
   .sheet-body { padding: 18px; }
   .locate-btn { right: 24px; bottom: 24px; }
-  .sos-btn { right: 24px; bottom: 86px; }
+  .sos-btn { right: 21px; bottom: 88px; }
+  .ad { left: 452px; bottom: 24px; width: 156px; }
   .toast { left: calc(50% + 220px); bottom: 32px; }
   .leaflet-bottom.leaflet-right { bottom: 0; }
 }
