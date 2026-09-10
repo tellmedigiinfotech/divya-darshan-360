@@ -78,9 +78,15 @@ function initMap() {
   routeLayer = L.layerGroup().addTo(map);
 
   map.on("click", (e) => {
-    if (!pickingStart) return;
-    setStart([e.latlng.lat, e.latlng.lng]);
-    toast(t("startSet"));
+    if (pickingStart) {
+      setStart([e.latlng.lat, e.latlng.lng]);
+      toast(t("startSet"));
+      return;
+    }
+    // Tap the map to get the map back: drop the sheet to its peek height so
+    // only the tab row is left over it. Marker clicks stop propagation so
+    // selecting a mandal does not immediately collapse the sheet again.
+    applySnap(0);
   });
 }
 
@@ -100,8 +106,9 @@ function renderPins() {
     }).addTo(mandalLayer);
 
     if (!parking && !help) {
-      marker.on("click", () => selectMandal(item));
+      marker.on("click", (ev) => { L.DomEvent.stopPropagation(ev); selectMandal(item); });
     } else {
+      marker.on("click", (ev) => L.DomEvent.stopPropagation(ev));
       marker.bindPopup(
         `<strong>${tr(item.name)}</strong><br>${tr(item.locality)}<br>` +
         `<a href="${gmapsTo(item)}" target="_blank" rel="noopener">${t("directions")}</a>`
@@ -347,6 +354,15 @@ function renderList() {
 }
 
 function renderEmergency(list) {
+  // Emergency is reached from the SOS button on the map, not from a tab, so it
+  // needs its own way back.
+  const back = document.createElement("button");
+  back.className = "back-btn";
+  back.innerHTML =
+    '<svg class="ico" viewBox="0 0 24 24"><path d="M15 19 8 12l7-7"/></svg>' + `<span>${t("back")}</span>`;
+  back.addEventListener("click", () => { setTab("routes"); renderList(); });
+  list.appendChild(back);
+
   list.appendChild(head(t("helplines")));
   services.helplines.forEach((h) => {
     const a = document.createElement("a");
@@ -433,9 +449,17 @@ function setLang(next) {
 // Three snap points: mostly-map, half, mostly-list. Drag follows the finger and
 // snaps to the nearest on release. A tap still works for anyone who does not drag.
 const SNAPS = [0.24, 0.46, 0.86];
+// The collapsed state still has to show the tab row, which is a fixed pixel
+// height, so on a short phone the percentage alone is not enough.
+const PEEK_MIN_PX = 150;
 let snapIdx = 1;
 
 function isDesktop() { return window.innerWidth >= 900; }
+
+function snapPx(i) {
+  const h = window.innerHeight * SNAPS[i];
+  return i === 0 ? Math.max(PEEK_MIN_PX, h) : h;
+}
 
 function setSheetPx(px, animate) {
   $("sheet").style.transition = animate ? "" : "none";
@@ -445,7 +469,7 @@ function setSheetPx(px, animate) {
 function applySnap(i, animate = true) {
   if (isDesktop()) return;
   snapIdx = Math.max(0, Math.min(SNAPS.length - 1, i));
-  setSheetPx(window.innerHeight * SNAPS[snapIdx], animate);
+  setSheetPx(snapPx(snapIdx), animate);
   document.body.classList.toggle("sheet-full", snapIdx === SNAPS.length - 1);
 }
 
@@ -468,9 +492,7 @@ function wireSheetDrag() {
     if (!dragging) return;
     const dy = e.clientY - startY;
     moved = Math.max(moved, Math.abs(dy));
-    const min = window.innerHeight * SNAPS[0];
-    const max = window.innerHeight * SNAPS[SNAPS.length - 1];
-    setSheetPx(Math.max(min, Math.min(max, startH - dy)), false);
+    setSheetPx(Math.max(snapPx(0), Math.min(snapPx(SNAPS.length - 1), startH - dy)), false);
   });
 
   const end = () => {
@@ -481,10 +503,10 @@ function wireSheetDrag() {
       applySnap(snapIdx === SNAPS.length - 1 ? 1 : SNAPS.length - 1);
       return;
     }
-    const frac = $("sheet").getBoundingClientRect().height / window.innerHeight;
+    const h = $("sheet").getBoundingClientRect().height;
     let nearest = 0;
-    SNAPS.forEach((s, i) => {
-      if (Math.abs(s - frac) < Math.abs(SNAPS[nearest] - frac)) nearest = i;
+    SNAPS.forEach((_, i) => {
+      if (Math.abs(snapPx(i) - h) < Math.abs(snapPx(nearest) - h)) nearest = i;
     });
     applySnap(nearest);
   };
@@ -510,12 +532,20 @@ function wire() {
       setTab(b.dataset.tab);
       showList();
       renderList();
-      // Parking and hospitals sit outside the mandal cluster, so bring them into view.
-      const spread = b.dataset.tab === "parking" ? services.parking
-        : b.dataset.tab === "emergency" ? services.places : null;
-      if (spread) fitTo(L.latLngBounds(spread.map((p) => [p.lat, p.lng])));
+      // Parking sits outside the mandal cluster, so bring it into view.
+      if (b.dataset.tab === "parking") {
+        fitTo(L.latLngBounds(services.parking.map((p) => [p.lat, p.lng])));
+      }
     })
   );
+
+  $("sos-btn").addEventListener("click", () => {
+    setTab("emergency");
+    showList();
+    renderList();
+    applySnap(SNAPS.length - 1);
+    fitTo(L.latLngBounds(services.places.map((p) => [p.lat, p.lng])));
+  });
 
   $("search").addEventListener("input", () => { showList(); renderList(); });
   $("search").addEventListener("focus", () => { applySnap(SNAPS.length - 1); showList(); });

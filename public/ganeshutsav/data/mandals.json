@@ -1,5 +1,5 @@
 {
-  "_sourceNote": "Names, localities and history from public sources (see README). Coordinates geocoded via OpenStreetMap Nominatim on 2026-09-09. Spot-check on the ground before launch: festival barricades can put the real walkable entrance 50 to 100m from the plain address. Darshan and aarti timings are deliberately not stored here, they change every year and would go stale.",
+  "_sourceNote": "Manache Paach names and history from public sources (see README). Coordinates for every mandal are OpenStreetMap-mapped positions, pulled via Overpass and Nominatim on 2026-09-10; OSM independently confirms the five Manache Paach pins to within ~15m. Bhausaheb Rangari is placed on Bhau Rangari Path and Akhil Mandai at Mahatma Phule Mandai, so those two are street-level rather than door-level. Festival barricades can move the walkable entrance 50-100m regardless, so walk the route before launch. Darshan and aarti timings are deliberately absent, they change every year and stale timings are worse than none.",
   "mandals": [
     {
       "id": "kasba",
@@ -8,7 +8,11 @@
         "mr": "श्री कसबा गणपती",
         "hi": "श्री कसबा गणपति"
       },
-      "locality": { "en": "Kasba Peth", "mr": "कसबा पेठ", "hi": "कसबा पेठ" },
+      "locality": {
+        "en": "Kasba Peth",
+        "mr": "कसबा पेठ",
+        "hi": "कसबा पेठ"
+      },
       "lat": 18.5190304,
       "lng": 73.8572406,
       "rank": 1,
@@ -25,7 +29,11 @@
         "mr": "तांबडी जोगेश्वरी गणपती",
         "hi": "तांबडी जोगेश्वरी गणपति"
       },
-      "locality": { "en": "Budhwar Peth", "mr": "बुधवार पेठ", "hi": "बुधवार पेठ" },
+      "locality": {
+        "en": "Budhwar Peth",
+        "mr": "बुधवार पेठ",
+        "hi": "बुधवार पेठ"
+      },
       "lat": 18.5165314,
       "lng": 73.8547653,
       "rank": 2,
@@ -63,7 +71,11 @@
         "mr": "श्रीमंत दगडूशेठ हलवाई गणपती",
         "hi": "श्रीमंत दगडूशेठ हलवाई गणपति"
       },
-      "locality": { "en": "Shaniwar Peth", "mr": "शनिवार पेठ", "hi": "शनिवार पेठ" },
+      "locality": {
+        "en": "Shaniwar Peth",
+        "mr": "शनिवार पेठ",
+        "hi": "शनिवार पेठ"
+      },
       "lat": 18.5164306,
       "lng": 73.8561092,
       "rank": null,
@@ -85,7 +97,7 @@
         "mr": "तुळशीबाग, बुधवार पेठ",
         "hi": "तुलसीबाग, बुधवार पेठ"
       },
-      "lat": 18.5137290,
+      "lat": 18.513729,
       "lng": 73.8554969,
       "rank": 4,
       "blurb": {
@@ -101,7 +113,11 @@
         "mr": "केसरीवाडा गणपती",
         "hi": "केसरीवाडा गणपति"
       },
-      "locality": { "en": "Narayan Peth", "mr": "नारायण पेठ", "hi": "नारायण पेठ" },
+      "locality": {
+        "en": "Narayan Peth",
+        "mr": "नारायण पेठ",
+        "hi": "नारायण पेठ"
+      },
       "lat": 18.5162521,
       "lng": 73.8490862,
       "rank": 5,
@@ -110,18 +126,196 @@
         "mr": "मानाचा पाचवा गणपती, टिळकांच्या केसरी वाड्यातील. चांदीच्या पालखीतून मिरवणूक.",
         "hi": "मानाचा पाँचवाँ गणपति, तिलक के केसरी वाड़ा में। चाँदी की पालकी में जुलूस।"
       }
+    },
+    {
+      "id": "bhau-rangari",
+      "name": {
+        "en": "Shrimant Bhausaheb Rangari Ganpati",
+        "mr": "श्रीमंत भाऊसाहेब रंगारी गणपती",
+        "hi": "श्रीमंत भाऊसाहेब रंगारी गणपति"
+      },
+      "locality": {
+        "en": "Bhau Rangari Path, Shaniwar Peth",
+        "mr": "भाऊ रंगारी पथ, शनिवार पेठ",
+        "hi": "भाऊ रंगारी पथ, शनिवार पेठ"
+      },
+      "lat": 18.5179801,
+      "lng": 73.8553855,
+      "rank": null,
+      "blurb": {
+        "en": "India's first sarvajanik Ganpati, started in 1892. The original wood idol is still the one installed.",
+        "mr": "भारतातील पहिला सार्वजनिक गणपती, १८९२ पासून. मूळ लाकडी मूर्ती आजही तीच आहे.",
+        "hi": "भारत का पहला सार्वजनिक गणपति, १८९२ से। मूल लकड़ी की मूर्ति आज भी वही है।"
+      }
+    },
+    {
+      "id": "akhil-mandai",
+      "name": {
+        "en": "Akhil Mandai Mandal",
+        "mr": "अखिल मंडई मंडळ",
+        "hi": "अखिल मंडई मंडल"
+      },
+      "locality": {
+        "en": "Mahatma Phule Mandai, Guruwar Peth",
+        "mr": "महात्मा फुले मंडई, गुरुवार पेठ",
+        "hi": "महात्मा फुले मंडई, गुरुवार पेठ"
+      },
+      "lat": 18.5129102,
+      "lng": 73.8562951,
+      "rank": null,
+      "blurb": {
+        "en": "Founded 1893. Known for an elaborate new theme and decoration every year.",
+        "mr": "१८९३ मध्ये स्थापन. दरवर्षीच्या भव्य देखाव्यांसाठी प्रसिद्ध.",
+        "hi": "१८९३ में स्थापित। हर साल के भव्य देखावों के लिए प्रसिद्ध।"
+      }
+    },
+    {
+      "id": "talyatla",
+      "name": {
+        "en": "Talyatla Ganpati, Sarasbaug",
+        "mr": "तळ्यातला गणपती, सारसबाग",
+        "hi": "तळ्यातला गणपति, सारसबाग"
+      },
+      "locality": {
+        "en": "Sarasbaug, Swargate",
+        "mr": "सारसबाग, स्वारगेट",
+        "hi": "सारसबाग, स्वारगेट"
+      },
+      "lat": 18.500881,
+      "lng": 73.8529504,
+      "rank": null,
+      "blurb": {
+        "en": "Peshwa-era temple set in a lake garden. One of the most visited Ganpatis in the city.",
+        "mr": "पेशवेकालीन तळ्यातले मंदिर. शहरातील सर्वाधिक भेट दिल्या जाणाऱ्या गणपतींपैकी एक.",
+        "hi": "पेशवाकालीन तालाब उद्यान का मंदिर। शहर के सबसे ज़्यादा देखे जाने वाले गणपतियों में से एक।"
+      }
+    },
+    {
+      "id": "trishund",
+      "name": {
+        "en": "Trishund Ganpati Mandir",
+        "mr": "त्रिशुंड गणपती मंदिर",
+        "hi": "त्रिशुंड गणपति मंदिर"
+      },
+      "locality": {
+        "en": "Agarwal Marg, Kasba Peth",
+        "mr": "अगरवाल मार्ग, कसबा पेठ",
+        "hi": "अगरवाल मार्ग, कसबा पेठ"
+      },
+      "lat": 18.5216552,
+      "lng": 73.8618526,
+      "rank": null,
+      "blurb": {
+        "en": "An 18th century stone temple with a rare three-trunked idol and carved walls.",
+        "mr": "अठराव्या शतकातील दगडी मंदिर, तीन सोंडांची दुर्मिळ मूर्ती आणि कोरीव भिंती.",
+        "hi": "अठारहवीं सदी का पत्थर मंदिर, तीन सूंड वाली दुर्लभ मूर्ति और नक़्क़ाशीदार दीवारें।"
+      }
+    },
+    {
+      "id": "nimbalkar-talim",
+      "name": {
+        "en": "Nimbalkar Talim Ganpati",
+        "mr": "निंबाळकर तालीम गणपती",
+        "hi": "निंबालकर तालीम गणपति"
+      },
+      "locality": {
+        "en": "Shukrawar Peth",
+        "mr": "शुक्रवार पेठ",
+        "hi": "शुक्रवार पेठ"
+      },
+      "lat": 18.5119275,
+      "lng": 73.852217,
+      "rank": null,
+      "blurb": {
+        "en": "A talim mandal, among the older Ganeshotsav mandals in the city.",
+        "mr": "तालमीचे मंडळ, शहरातील जुन्या गणेशोत्सव मंडळांपैकी एक.",
+        "hi": "तालीम का मंडल, शहर के पुराने गणेशोत्सव मंडलों में से एक।"
+      }
+    },
+    {
+      "id": "modi-ganpati",
+      "name": {
+        "en": "Modi Ganpati",
+        "mr": "मोदी गणपती",
+        "hi": "मोदी गणपति"
+      },
+      "locality": {
+        "en": "Narayan Peth",
+        "mr": "नारायण पेठ",
+        "hi": "नारायण पेठ"
+      },
+      "lat": 18.5153016,
+      "lng": 73.8477963,
+      "rank": null,
+      "blurb": {
+        "en": "A long-standing neighbourhood Ganpati in Narayan Peth.",
+        "mr": "नारायण पेठेतील जुना परिसरातील गणपती.",
+        "hi": "नारायण पेठ का पुराना मोहल्ला गणपति।"
+      }
+    },
+    {
+      "id": "garud-ganpati",
+      "name": {
+        "en": "Garud Ganpati Mandir",
+        "mr": "गरुड गणपती मंदिर",
+        "hi": "गरुड गणपति मंदिर"
+      },
+      "locality": {
+        "en": "Narayan Peth",
+        "mr": "नारायण पेठ",
+        "hi": "नारायण पेठ"
+      },
+      "lat": 18.5136612,
+      "lng": 73.8456282,
+      "rank": null,
+      "blurb": {
+        "en": "A neighbourhood Ganpati temple in Narayan Peth.",
+        "mr": "नारायण पेठेतील परिसरातील गणपती मंदिर.",
+        "hi": "नारायण पेठ का मोहल्ला गणपति मंदिर।"
+      }
+    },
+    {
+      "id": "hatti-ganpati",
+      "name": {
+        "en": "Hatti Ganpati Mandir",
+        "mr": "हत्ती गणपती मंदिर",
+        "hi": "हत्ती गणपति मंदिर"
+      },
+      "locality": {
+        "en": "Chhatrapati Sambhaji Path, Navi Peth",
+        "mr": "छत्रपती संभाजी पथ, नवी पेठ",
+        "hi": "छत्रपति संभाजी पथ, नवी पेठ"
+      },
+      "lat": 18.5112234,
+      "lng": 73.845858,
+      "rank": null,
+      "blurb": {
+        "en": "A small heritage Ganpati temple on the Navi Peth side.",
+        "mr": "नवी पेठेकडील जुने छोटे गणपती मंदिर.",
+        "hi": "नवी पेठ की ओर का पुराना छोटा गणपति मंदिर।"
+      }
     }
   ],
   "circuits": [
     {
       "id": "manache-paach",
-      "name": { "en": "Manache Paach", "mr": "मानाचे पाच", "hi": "मानाचे पाँच" },
+      "name": {
+        "en": "Manache Paach",
+        "mr": "मानाचे पाच",
+        "hi": "मानाचे पाँच"
+      },
       "subtitle": {
         "en": "Pune's five honoured mandals, in the traditional order",
         "mr": "पुण्याची पाच मानाची मंडळे, पारंपरिक क्रमाने",
         "hi": "पुणे के पाँच मानाचे मंडल, पारंपरिक क्रम में"
       },
-      "stopIds": ["kasba", "tambdi-jogeshwari", "guruji-talim", "tulshibaug", "kesariwada"]
+      "stopIds": [
+        "kasba",
+        "tambdi-jogeshwari",
+        "guruji-talim",
+        "tulshibaug",
+        "kesariwada"
+      ]
     },
     {
       "id": "manache-paach-plus-dagdusheth",
@@ -135,7 +329,14 @@
         "mr": "पारंपरिक पाच, आणि वाटेत पुण्यातील सर्वात प्रसिद्ध मूर्ती",
         "hi": "पारंपरिक पाँच, और रास्ते में पुणे की सबसे प्रसिद्ध मूर्ति"
       },
-      "stopIds": ["kasba", "tambdi-jogeshwari", "guruji-talim", "dagdusheth", "tulshibaug", "kesariwada"]
+      "stopIds": [
+        "kasba",
+        "tambdi-jogeshwari",
+        "guruji-talim",
+        "dagdusheth",
+        "tulshibaug",
+        "kesariwada"
+      ]
     }
   ]
 }

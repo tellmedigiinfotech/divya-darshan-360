@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Served from public/ at the clean URL /ganeshutsav (see the rewrite in
-     next.config.mjs). Next strips trailing slashes, so relative asset URLs would
-     resolve against / and 404. This base makes style.css, app.js and the
-     fetch() calls in app.js resolve under /ganeshutsav/ without touching them. -->
+<!-- Served from public/ at /ganeshutsav (see the rewrite in next.config.mjs).
+     Next strips trailing slashes, so relative asset URLs would resolve against /
+     and 404. This base fixes style.css, app.js and the fetch() calls in app.js
+     without editing any paths. Injected by sync-to-site.sh, do not remove. -->
 <base href="/ganeshutsav/">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#c2540a">
@@ -28,6 +28,8 @@
   </button>
 </div>
 
+<button id="sos-btn" class="sos-btn" aria-label="Emergency help">SOS</button>
+
 <button id="locate-btn" class="locate-btn" aria-label="My location">
   <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="8"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg>
 </button>
@@ -44,7 +46,6 @@
         <button class="tab active" data-tab="routes" data-i18n="tabRoutes">Darshan Routes</button>
         <button class="tab" data-tab="all" data-i18n="tabAll">All Mandals</button>
         <button class="tab" data-tab="parking" data-i18n="tabParking">Parking</button>
-        <button class="tab" data-tab="emergency" data-i18n="tabEmergency">Emergency</button>
       </div>
       <div id="list"></div>
     </div>

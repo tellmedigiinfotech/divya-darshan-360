@@ -107,8 +107,31 @@ body {
   transition: bottom .25s ease;
 }
 .locate-btn.on { background: var(--saffron); color: #fff; }
-/* With the sheet expanded there is barely any map left to recentre. */
-body.sheet-full .locate-btn { opacity: 0; pointer-events: none; }
+
+/* Sits directly above the locate button. Red and always on the map, because in
+   an actual emergency nobody goes hunting through a tab for the number. */
+.sos-btn {
+  position: fixed;
+  z-index: 500;
+  right: 14px;
+  bottom: calc(var(--sheet-h) + 74px);
+  width: 52px; height: 52px;
+  border: 0;
+  border-radius: 26px;
+  background: #c62828;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  box-shadow: 0 3px 14px rgba(198, 40, 40, .45);
+  cursor: pointer;
+  transition: bottom .25s ease;
+}
+
+/* With the sheet expanded there is barely any map left to sit on. */
+body.sheet-full .locate-btn,
+body.sheet-full .sos-btn { opacity: 0; pointer-events: none; }
 
 /* ---------- bottom sheet ---------- */
 
@@ -444,6 +467,7 @@ body.sheet-full .locate-btn { opacity: 0; pointer-events: none; }
   .sheet-handle { display: none; }
   .sheet-body { padding: 18px; }
   .locate-btn { right: 24px; bottom: 24px; }
+  .sos-btn { right: 24px; bottom: 86px; }
   .toast { left: calc(50% + 220px); bottom: 32px; }
   .leaflet-bottom.leaflet-right { bottom: 0; }
 }
