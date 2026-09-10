@@ -36,13 +36,17 @@ const xy = (m) => [m.lat, m.lng];
  *
  * Once per session by default. Flip AD_EVERY_SELECTION if you want it on every
  * tap instead, but that also multiplies data use per visitor.
+ *
+ * Not skippable: no close button, no pause, no native controls. It clears
+ * itself when the clip ends, because the alternative is a card permanently
+ * covering a third of the map on a wayfinding tool. Set AD_STAYS_AFTER_END if
+ * you would rather it sit there for the rest of the visit.
  */
 const AD_EVERY_SELECTION = false;
+const AD_STAYS_AFTER_END = false;
 const AD_SEEN_KEY = "pgy.ad_seen";
-let adDismissed = false;
 
 function maybeShowAd() {
-  if (adDismissed) return;
   if (!AD_EVERY_SELECTION) {
     try { if (sessionStorage.getItem(AD_SEEN_KEY)) return; } catch { /* private mode */ }
   }
@@ -77,12 +81,9 @@ function maybeShowAd() {
   );
 }
 
-function hideAd() {
-  $("ad").hidden = true;
-  const v = $("ad-video");
-  v.pause();
-  adDismissed = true;
-  track("ad_dismissed", { language: lang, seconds_watched: Math.round(v.currentTime || 0) });
+function adFinished() {
+  track("ad_completed", { language: lang, muted: $("ad-video").muted });
+  if (!AD_STAYS_AFTER_END) $("ad").hidden = true;
 }
 
 /* ---------- analytics ----------
@@ -687,14 +688,14 @@ function wire() {
     });
   });
 
-  $("ad-close").addEventListener("click", hideAd);
   $("ad-sound").addEventListener("click", () => {
     const v = $("ad-video");
     v.muted = !v.muted;
     $("ad-sound").classList.toggle("on", !v.muted);
-    if (!v.muted) { v.play().catch(() => {}); track("ad_unmuted", { language: lang }); }
+    if (!v.muted) v.play().catch(() => {});
+    track(v.muted ? "ad_muted" : "ad_unmuted", { language: lang });
   });
-  $("ad-video").addEventListener("ended", () => track("ad_completed", { language: lang }));
+  $("ad-video").addEventListener("ended", adFinished);
 
   $("back-btn").addEventListener("click", showList);
   $("locate-btn").addEventListener("click", locateMe);

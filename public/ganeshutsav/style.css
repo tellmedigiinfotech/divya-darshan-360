@@ -115,7 +115,7 @@ body {
   z-index: 550;
   left: 14px;
   bottom: calc(var(--sheet-h) + 14px);
-  width: 132px;
+  width: 250px;
   border-radius: 14px;
   overflow: hidden;
   background: #000;
@@ -126,22 +126,25 @@ body {
 .ad[hidden] { display: none; }
 .ad-video { width: 100%; height: auto; display: block; }
 
-.ad-close, .ad-sound {
+/* Mute only. There is deliberately no close or pause control: the ad is not
+   skippable, it clears itself when the clip finishes. Mute stays because
+   auto-playing sound with no way to silence it is hostile in a temple queue,
+   and an accessibility problem besides. */
+.ad-sound {
   position: absolute;
+  bottom: 7px; left: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px; height: 30px;
+  width: 34px; height: 34px;
   padding: 0;
   border: 0;
-  border-radius: 15px;
+  border-radius: 17px;
   background: rgba(0, 0, 0, .58);
   color: #fff;
   cursor: pointer;
 }
-.ad-close { top: 5px; right: 5px; }
-.ad-sound { bottom: 5px; left: 5px; }
-.ad-close .ico, .ad-sound .ico { width: 16px; height: 16px; }
+.ad-sound .ico { width: 18px; height: 18px; }
 .ad-sound.on { background: var(--saffron); }
 
 /* The map is short when the sheet is open wide, so get out of the way. */
@@ -537,7 +540,7 @@ body.sheet-full .sos-btn { opacity: 0; pointer-events: none; }
   .sheet-body { padding: 18px; }
   .locate-btn { right: 24px; bottom: 24px; }
   .sos-btn { right: 21px; bottom: 88px; }
-  .ad { left: 452px; bottom: 24px; width: 156px; }
+  .ad { left: 452px; bottom: 24px; width: 300px; }
   .toast { left: calc(50% + 220px); bottom: 32px; }
   .leaflet-bottom.leaflet-right { bottom: 0; }
 }
