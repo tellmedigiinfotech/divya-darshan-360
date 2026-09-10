@@ -1,0 +1,449 @@
+:root {
+  --saffron: #c2540a;
+  --saffron-bright: #e8830c;
+  --ink: #1a1614;
+  --muted: #6b6157;
+  --surface: #fffdfb;
+  --line: #ece3d8;
+  --sheet-h: 48vh;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Noto Sans Devanagari", "Nirmala UI", sans-serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: #f3efe9;
+}
+
+/* Icons are inline SVG so there is no icon-font dependency to load. */
+.ico { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+#map { position: fixed; inset: 0; z-index: 0; }
+
+/* Mute the basemap so the saffron route and pins stay the loudest thing on it. */
+.leaflet-tile-pane { filter: saturate(.45) brightness(1.06) contrast(.94); }
+
+/* Attribution has to stay visible, so it rides above the sheet. */
+.leaflet-bottom.leaflet-right { bottom: var(--sheet-h); transition: bottom .25s ease; }
+.leaflet-control-attribution { font-size: 10px; background: rgba(255, 255, 255, .75); }
+
+/* ---------- top bar: search first, like a map app ---------- */
+
+.topbar {
+  position: fixed;
+  z-index: 500;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  gap: 8px;
+  padding: calc(env(safe-area-inset-top, 0px) + 10px) 12px 10px;
+}
+
+.search-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 54px;
+  padding: 0 14px;
+  background: #fff;
+  border-radius: 27px;
+  box-shadow: 0 3px 14px rgba(26, 22, 20, .18);
+  color: var(--muted);
+}
+
+#search {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: none;
+  background: none;
+  font: inherit;
+  font-size: 17px; /* 16px+ stops iOS zooming on focus */
+  color: var(--ink);
+}
+
+.lang-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  width: 54px; height: 54px;
+  border: 0;
+  border-radius: 27px;
+  background: #fff;
+  box-shadow: 0 3px 14px rgba(26, 22, 20, .18);
+  color: var(--saffron);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.lang-btn .ico { width: 20px; height: 20px; }
+
+.locate-btn {
+  position: fixed;
+  z-index: 500;
+  right: 14px;
+  bottom: calc(var(--sheet-h) + 14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  border: 0;
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 0 3px 14px rgba(26, 22, 20, .22);
+  color: var(--saffron);
+  cursor: pointer;
+  transition: bottom .25s ease;
+}
+.locate-btn.on { background: var(--saffron); color: #fff; }
+/* With the sheet expanded there is barely any map left to recentre. */
+body.sheet-full .locate-btn { opacity: 0; pointer-events: none; }
+
+/* ---------- bottom sheet ---------- */
+
+.sheet {
+  position: fixed;
+  z-index: 600;
+  left: 0; right: 0; bottom: 0;
+  height: var(--sheet-h);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 -4px 24px rgba(26, 22, 20, .2);
+  transition: height .25s ease;
+}
+
+.sheet-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.grabber { width: 44px; height: 5px; border-radius: 3px; background: #d8cec1; }
+
+.sheet-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 14px calc(env(safe-area-inset-bottom, 0px) + 18px);
+}
+
+.brand {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--saffron);
+}
+
+/* Four tabs will not fit side by side on a 360px phone, so the row scrolls. */
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding: 4px;
+  background: #f1ece5;
+  border-radius: 13px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto;
+  min-height: 46px;
+  padding: 6px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  font: inherit;
+  font-size: 15.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--muted);
+  cursor: pointer;
+}
+.tab.active { background: #fff; color: var(--saffron); box-shadow: 0 1px 3px rgba(0, 0, 0, .1); }
+
+/* ---------- cards ---------- */
+
+.card {
+  display: block;
+  width: 100%;
+  min-height: 62px;
+  margin-bottom: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.card:active { background: #fdf3e9; }
+.card-title { display: block; font-size: 17px; font-weight: 700; line-height: 1.3; }
+.card-sub { display: block; margin-top: 4px; font-size: 14.5px; line-height: 1.4; color: var(--muted); }
+.card-meta { display: block; margin-top: 8px; font-size: 13.5px; font-weight: 600; color: var(--saffron); }
+
+.empty { padding: 24px 4px; color: var(--muted); font-size: 16px; }
+
+/* ---------- helplines, places, parking ---------- */
+
+.section-head {
+  margin: 4px 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.warn {
+  margin: 0 0 12px;
+  padding: 11px 13px;
+  border-radius: 11px;
+  background: #fdf0e2;
+  border: 1px solid #f0d6b6;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #8a4a08;
+}
+
+/* A helpline row is one big tel: link, because on a phone the whole point is
+   that a panicking person hits it once and it dials. */
+.call-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 66px;
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+}
+.call-num {
+  flex: none;
+  min-width: 54px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--saffron);
+  font-variant-numeric: tabular-nums;
+}
+.call-text { flex: 1; min-width: 0; }
+.call-name { display: block; font-size: 16.5px; font-weight: 600; line-height: 1.3; }
+.call-note { display: block; margin-top: 2px; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
+.call-icon { flex: none; color: #2e7d32; }
+
+.row-wrap { display: flex; align-items: stretch; gap: 8px; margin-bottom: 10px; }
+.row-wrap .card { flex: 1; margin-bottom: 0; }
+.dir-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex: none;
+  width: 68px;
+  min-height: 62px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--saffron);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* ---------- detail view ---------- */
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  margin: 0 0 4px -6px;
+  padding: 0 6px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--saffron);
+  cursor: pointer;
+}
+
+.detail-title { margin: 0; font-size: 21px; line-height: 1.25; }
+.detail-sub { margin: 6px 0 0; font-size: 15px; line-height: 1.45; color: var(--muted); }
+.detail-stats { margin: 12px 0 0; font-size: 16px; font-weight: 700; color: var(--saffron); }
+.detail-note { margin: 4px 0 0; font-size: 13.5px; color: var(--muted); }
+
+.stops { margin: 16px 0; padding: 0; list-style: none; counter-reset: stop; }
+.stop-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.stop-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--saffron);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+.stop-num.start { background: #2e7d32; }
+.stop-name { display: block; font-size: 16.5px; font-weight: 600; line-height: 1.3; }
+.stop-locality { display: block; margin-top: 2px; font-size: 14px; color: var(--muted); }
+
+.actions { display: flex; flex-direction: column; gap: 10px; }
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 54px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 14px;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-primary { background: var(--saffron); color: #fff; }
+.btn-secondary { background: #fff; color: var(--saffron); border: 1.5px solid var(--saffron); }
+.btn.done { background: #eef6ee; color: #2e7d32; border: 1.5px solid #cfe3cf; }
+
+/* ---------- map pins ---------- */
+
+.pin {
+  width: 19px; height: 19px;
+  border-radius: 50%;
+  background: var(--saffron-bright);
+  border: 3.5px solid #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .5);
+}
+.pin.parking { background: #1565c0; }
+.pin.help { background: #c62828; }
+
+.pin-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--saffron);
+  color: #fff;
+  border: 3px solid #fff;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, .4);
+}
+.pin-num.start { background: #2e7d32; }
+.pin-num.parking { background: #1565c0; }
+.pin-num.help { background: #c62828; }
+
+/* ---------- language gate + toast ---------- */
+
+.lang-gate {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(160deg, #c2540a, #e8830c);
+}
+.lang-gate[hidden] { display: none; }
+.lang-card { width: 100%; max-width: 340px; text-align: center; }
+.lang-title { margin: 0 0 6px; font-size: 27px; font-weight: 700; color: #fff; }
+.lang-sub { margin: 0 0 26px; font-size: 14.5px; color: rgba(255, 255, 255, .9); }
+.lang-choice {
+  display: block;
+  width: 100%;
+  min-height: 62px;
+  margin-bottom: 12px;
+  border: 0;
+  border-radius: 15px;
+  background: #fff;
+  font: inherit;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.toast {
+  position: fixed;
+  z-index: 900;
+  left: 50%;
+  bottom: calc(var(--sheet-h) + 78px);
+  transform: translateX(-50%);
+  max-width: min(86vw, 420px);
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: rgba(26, 22, 20, .93);
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+}
+.toast[hidden] { display: none; }
+
+/* ---------- desktop: sheet becomes a side panel ---------- */
+
+@media (min-width: 900px) {
+  .topbar { width: 420px; padding: 16px; }
+  .sheet {
+    top: 86px; bottom: 16px; left: 16px; right: auto;
+    width: 420px;
+    height: auto;
+    border-radius: 20px;
+  }
+  .sheet-handle { display: none; }
+  .sheet-body { padding: 18px; }
+  .locate-btn { right: 24px; bottom: 24px; }
+  .toast { left: calc(50% + 220px); bottom: 32px; }
+  .leaflet-bottom.leaflet-right { bottom: 0; }
+}
