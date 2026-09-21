@@ -1,11 +1,44 @@
+/* Divya Darshan 360 — Ganesh Utsav route planner.
+ *
+ * Design brief: a navigation interface first, not a festival poster. It gets
+ * used one-handed, outdoors, in direct sun, by people of every age, while
+ * moving through a crowd. So: high contrast, large targets, warm neutral
+ * surfaces that survive both daylight and night, and no decoration that does
+ * not earn its place.
+ *
+ * Colour rules that matter:
+ *   --brand (#F7AD3C) is an ACCENT only. It fails contrast as body text on a
+ *   light surface, so it is used for active states, indicators and icons.
+ *   --brand-dark (#771717) carries every piece of important text.
+ *   Blue is gone entirely, including Leaflet's default popup link colour.
+ */
+
 :root {
-  --saffron: #c2540a;
-  --saffron-bright: #e8830c;
-  --ink: #1a1614;
-  --muted: #6b6157;
-  --surface: #fffdfb;
-  --line: #ece3d8;
+  /* Brand */
+  --brand: #F7AD3C;
+  --brand-dark: #771717;
+  --brand-dark-hi: #8E2020;   /* lifted maroon for pressed/hover */
+
+  /* Warm surface ladder, page darkest through to cards lightest */
+  --bg: #FFF8D9;
+  --sheet: #FFFCF0;
+  --card: #FFFFFF;
+  --card-alt: #FDF7E6;
+  --notice-bg: #FDEFCE;
+  --notice-line: #E3BE73;
+
+  /* Text. Important copy is near-black or maroon, never saffron, never grey. */
+  --text: #16110D;
+  --text-2: #574739;
+  --line: #E6D8B8;
+
   --sheet-h: 48vh;
+  --shadow-float: 0 3px 14px rgba(59, 30, 10, .24);
+  --shadow-sheet: 0 -6px 26px rgba(59, 30, 10, .22);
+
+  --font-head: "Playfair Display", "Noto Serif Devanagari", Georgia, serif;
+  --font-ui: "Roboto", "Noto Sans Devanagari", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Nirmala UI", sans-serif;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -15,48 +48,90 @@ html, body { height: 100%; }
 body {
   margin: 0;
   overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Noto Sans Devanagari", "Nirmala UI", sans-serif;
-  font-size: 16px;
-  color: var(--ink);
-  background: #f3efe9;
+  font-family: var(--font-ui);
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Icons are inline SVG so there is no icon-font dependency to load. */
-.ico { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+/* Consistent stroke icons. 2.1 reads clearly in sunlight without looking heavy. */
+.ico {
+  width: 22px; height: 22px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Visible keyboard focus everywhere, since selection must never be colour-only. */
+:focus-visible { outline: 3px solid var(--brand-dark); outline-offset: 2px; }
 
 #map { position: fixed; inset: 0; z-index: 0; }
 
-/* Mute the basemap so the saffron route and pins stay the loudest thing on it. */
-.leaflet-tile-pane { filter: saturate(.45) brightness(1.06) contrast(.94); }
+/* Mute the basemap so brand pins and the route stay the loudest thing on it. */
+.leaflet-tile-pane { filter: saturate(.42) brightness(1.05) contrast(.95); }
 
-/* Attribution has to stay visible, so it rides above the sheet. */
 .leaflet-bottom.leaflet-right { bottom: var(--sheet-h); transition: bottom .25s ease; }
-.leaflet-control-attribution { font-size: 10px; background: rgba(255, 255, 255, .75); }
+.leaflet-control-attribution {
+  font-size: 10px;
+  background: rgba(255, 252, 240, .82);
+  color: var(--text-2);
+}
+/* Leaflet ships a blue link colour. Override it, including inside popups. */
+.leaflet-container a { color: var(--brand-dark); }
 
-/* ---------- top bar: search first, like a map app ---------- */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--text);
+  box-shadow: var(--shadow-float);
+}
+.leaflet-popup-content { margin: 12px 14px; font-family: var(--font-ui); font-size: 15px; }
+.popup-name { display: block; font-size: 17px; font-weight: 700; color: var(--brand-dark); }
+.popup-area { display: block; margin-top: 2px; color: var(--text-2); }
+.popup-dir {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: var(--brand-dark);
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ---------- top bar ---------- */
 
 .topbar {
   position: fixed;
   z-index: 500;
   top: 0; left: 0; right: 0;
   display: flex;
-  gap: 8px;
-  padding: calc(env(safe-area-inset-top, 0px) + 10px) 12px 10px;
+  gap: 10px;
+  padding: calc(env(safe-area-inset-top, 0px) + 12px) 14px 10px;
 }
 
 .search-wrap {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
   height: 54px;
-  padding: 0 14px;
-  background: #fff;
-  border-radius: 27px;
-  box-shadow: 0 3px 14px rgba(26, 22, 20, .18);
-  color: var(--muted);
+  padding: 0 16px;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-float);
+  color: var(--brand-dark);
 }
+.search-wrap:focus-within { border-color: var(--brand-dark); }
 
 #search {
   flex: 1;
@@ -67,8 +142,11 @@ body {
   background: none;
   font: inherit;
   font-size: 17px; /* 16px+ stops iOS zooming on focus */
-  color: var(--ink);
+  font-weight: 500;
+  color: var(--text);
 }
+/* No pale grey placeholder: it is unreadable in sunlight. */
+#search::placeholder { color: var(--text-2); opacity: 1; }
 
 .lang-btn {
   display: flex;
@@ -77,17 +155,22 @@ body {
   justify-content: center;
   gap: 1px;
   width: 54px; height: 54px;
-  border: 0;
-  border-radius: 27px;
-  background: #fff;
-  box-shadow: 0 3px 14px rgba(26, 22, 20, .18);
-  color: var(--saffron);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: var(--shadow-float);
+  color: var(--brand-dark);
   font: inherit;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
 }
 .lang-btn .ico { width: 20px; height: 20px; }
+
+/* ---------- floating map controls ----------
+   SOS and locate deliberately do not look alike: SOS is a filled red pill with
+   a label and a halo, locate is a quiet light circle. Emergency should never be
+   confusable with a map utility. */
 
 .locate-btn {
   position: fixed;
@@ -98,15 +181,61 @@ body {
   align-items: center;
   justify-content: center;
   width: 52px; height: 52px;
-  border: 0;
+  border: 1.5px solid var(--line);
   border-radius: 26px;
-  background: #fff;
-  box-shadow: 0 3px 14px rgba(26, 22, 20, .22);
-  color: var(--saffron);
+  background: var(--card);
+  box-shadow: var(--shadow-float);
+  color: var(--brand-dark);
   cursor: pointer;
   transition: bottom .25s ease;
 }
-.locate-btn.on { background: var(--saffron); color: #fff; }
+.locate-btn.on { background: var(--brand-dark); border-color: var(--brand-dark); color: #fff; }
+
+.sos-btn {
+  position: fixed;
+  z-index: 500;
+  right: 14px;
+  bottom: calc(var(--sheet-h) + 78px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px; height: 60px;
+  padding: 0;
+  border: 2.5px solid #fff;
+  border-radius: 50%;
+  background: #B01E1E;   /* sits in the brand maroon family, still reads emergency */
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1;
+  box-shadow: 0 4px 16px rgba(119, 23, 23, .5);
+  cursor: pointer;
+  transition: bottom .25s ease;
+}
+.sos-btn .ico { width: 20px; height: 20px; stroke-width: 2.4; margin-bottom: 3px; }
+.sos-btn:active { background: var(--brand-dark); }
+
+.sos-btn::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 3px solid rgba(176, 30, 30, .45);
+  animation: sos-halo 2.6s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes sos-halo {
+  0%   { transform: scale(1);   opacity: .7; }
+  70%  { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .sos-btn::after { animation: none; } }
+
+body.sheet-full .locate-btn,
+body.sheet-full .sos-btn { opacity: 0; pointer-events: none; }
 
 /* ---------- ad card ---------- */
 
@@ -115,95 +244,39 @@ body {
   z-index: 550;
   left: 14px;
   bottom: calc(var(--sheet-h) + 14px);
-  width: 250px;
+  width: 125px;
   border-radius: 14px;
   overflow: hidden;
   background: #000;
-  box-shadow: 0 6px 20px rgba(26, 22, 20, .4);
+  box-shadow: 0 6px 20px rgba(59, 30, 10, .42);
   transition: bottom .25s ease;
   line-height: 0;
 }
 .ad[hidden] { display: none; }
+.ad-link { display: block; }
 .ad-video { width: 100%; height: auto; display: block; }
 
-/* Mute only. There is deliberately no close or pause control: the ad is not
-   skippable, it clears itself when the clip finishes. Mute stays because
-   auto-playing sound with no way to silence it is hostile in a temple queue,
-   and an accessibility problem besides. */
+/* Mute only. No close or pause: the clip is not skippable and clears itself.
+   Mute stays because autoplaying sound with no way to silence it is hostile in
+   a temple queue, and an accessibility problem besides. */
 .ad-sound {
   position: absolute;
-  bottom: 7px; left: 7px;
+  bottom: 6px; left: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px; height: 34px;
+  width: 32px; height: 32px;
   padding: 0;
   border: 0;
-  border-radius: 17px;
-  background: rgba(0, 0, 0, .58);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, .6);
   color: #fff;
   cursor: pointer;
 }
-.ad-sound .ico { width: 18px; height: 18px; }
-.ad-sound.on { background: var(--saffron); }
+.ad-sound .ico { width: 17px; height: 17px; }
+.ad-sound.on { background: var(--brand); color: var(--brand-dark); }
 
-/* The map is short when the sheet is open wide, so get out of the way. */
 body.sheet-full .ad { opacity: 0; pointer-events: none; }
-
-/* Sits directly above the locate button. Red and always on the map, because in
-   an actual emergency nobody goes hunting through a tab for the number.
-   Deliberately a phone glyph, not a medical cross: the red cross on white is a
-   protected emblem under the Geneva Conventions. The handset also says what the
-   button actually does, which is hand you numbers to call. */
-.sos-btn {
-  position: fixed;
-  z-index: 500;
-  right: 14px;
-  bottom: calc(var(--sheet-h) + 76px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  width: 58px; height: 58px;
-  padding: 0;
-  border: 2.5px solid #fff;
-  border-radius: 50%;
-  background: #d32f2f;
-  color: #fff;
-  font: inherit;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: .06em;
-  line-height: 1;
-  box-shadow: 0 4px 16px rgba(198, 40, 40, .5);
-  cursor: pointer;
-  transition: bottom .25s ease;
-}
-.sos-btn .ico { width: 20px; height: 20px; stroke-width: 2.3; margin-bottom: 2px; }
-.sos-btn:active { background: #b71c1c; }
-
-/* A slow halo so the eye finds it on a busy map. Stops for anyone who has
-   asked the OS to reduce motion. */
-.sos-btn::after {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  border: 3px solid rgba(211, 47, 47, .5);
-  animation: sos-halo 2.6s ease-out infinite;
-  pointer-events: none;
-}
-@keyframes sos-halo {
-  0%   { transform: scale(1);    opacity: .75; }
-  70%  { transform: scale(1.5);  opacity: 0; }
-  100% { transform: scale(1.5);  opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) { .sos-btn::after { animation: none; } }
-
-/* With the sheet expanded there is barely any map left to sit on. */
-body.sheet-full .locate-btn,
-body.sheet-full .sos-btn { opacity: 0; pointer-events: none; }
 
 /* ---------- bottom sheet ---------- */
 
@@ -214,9 +287,9 @@ body.sheet-full .sos-btn { opacity: 0; pointer-events: none; }
   height: var(--sheet-h);
   display: flex;
   flex-direction: column;
-  background: var(--surface);
-  border-radius: 22px 22px 0 0;
-  box-shadow: 0 -4px 24px rgba(26, 22, 20, .2);
+  background: var(--sheet);
+  border-radius: 20px 20px 0 0;
+  box-shadow: var(--shadow-sheet);
   transition: height .25s ease;
 }
 
@@ -225,200 +298,286 @@ body.sheet-full .sos-btn { opacity: 0; pointer-events: none; }
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 30px;
+  height: 44px;
   flex: none;
   padding: 0;
   border: 0;
   background: none;
   cursor: pointer;
 }
-.grabber { width: 44px; height: 5px; border-radius: 3px; background: #d8cec1; }
+.grabber { width: 46px; height: 5px; border-radius: 3px; background: #D8C49A; }
 
 .sheet-body {
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 0 14px calc(env(safe-area-inset-bottom, 0px) + 18px);
+  padding: 0 16px calc(env(safe-area-inset-bottom, 0px) + 20px);
 }
+
+/* ---------- sheet header ---------- */
 
 .brand-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin: 0 0 10px;
+  gap: 12px;
+  margin: 0 0 14px;
 }
 
+/* Sentence case, not shouted caps. Playfair carries the brand. */
 .brand {
   margin: 0;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--saffron);
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0;
+  color: var(--brand-dark);
 }
 
-/* Company and NGO marks, sized by height so their very different aspect ratios
-   (TellMe is ~3.8:1, the foundation mark is square) still line up optically. */
-.brand-logos { display: flex; align-items: center; gap: 9px; flex: none; }
-.brand-logo { display: block; width: auto; height: 21px; }
-.brand-logo:last-child { height: 26px; }
+.brand-logos { display: flex; align-items: center; gap: 10px; flex: none; }
+.brand-logo { display: block; width: auto; height: 22px; }
+.brand-logo:last-child { height: 28px; }
 
-/* Four tabs will not fit side by side on a 360px phone, so the row scrolls. */
+/* ---------- tabs ----------
+   Active state is background + weight + underline bar together, never colour
+   alone, so it survives colour-blindness and a sunlit screen. */
+
 .tabs {
   display: flex;
-  gap: 6px;
-  margin: 0 0 14px;
-  padding: 4px;
-  background: #f1ece5;
-  border-radius: 13px;
+  gap: 7px;
+  margin: 0 0 16px;
+  padding: 0;
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
 .tabs::-webkit-scrollbar { display: none; }
+
 .tab {
+  position: relative;
   flex: 0 0 auto;
-  min-height: 46px;
-  padding: 6px 16px;
-  border: 0;
-  border-radius: 10px;
-  background: none;
+  min-height: 48px;
+  padding: 10px 13px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--card-alt);
   font: inherit;
   font-size: 15.5px;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
-  color: var(--muted);
+  color: var(--text);
   cursor: pointer;
 }
-.tab.active { background: #fff; color: var(--saffron); box-shadow: 0 1px 3px rgba(0, 0, 0, .1); }
+.tab.active {
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
+  color: #fff;
+  font-weight: 700;
+}
+.tab.active::after {
+  content: "";
+  position: absolute;
+  left: 13px; right: 13px; bottom: 6px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--brand);
+}
+
+/* Small Androids and the SE: shave the chips so all three still fit without
+   the row scrolling and clipping a label. */
+@media (max-width: 385px) {
+  .tabs { gap: 6px; }
+  .tab { padding: 10px 10px; font-size: 15px; }
+  .tab.active::after { left: 10px; right: 10px; }
+  .sheet-body { padding-left: 13px; padding-right: 13px; }
+}
 
 /* ---------- cards ---------- */
 
 .card {
   display: block;
   width: 100%;
-  min-height: 62px;
-  margin-bottom: 10px;
-  padding: 14px;
-  border: 1px solid var(--line);
+  min-height: 64px;
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--line);
   border-radius: 14px;
-  background: #fff;
+  background: var(--card);
   font: inherit;
   text-align: left;
   cursor: pointer;
 }
-.card:active { background: #fdf3e9; }
-.card-title { display: block; font-size: 17px; font-weight: 700; line-height: 1.3; }
-.card-sub { display: block; margin-top: 4px; font-size: 14.5px; line-height: 1.4; color: var(--muted); }
-.card-meta { display: block; margin-top: 8px; font-size: 13.5px; font-weight: 600; color: var(--saffron); }
+.card:active { background: var(--card-alt); border-color: var(--brand-dark); }
 
-.empty { padding: 24px 4px; color: var(--muted); font-size: 16px; }
+.card-title {
+  display: block;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--brand-dark);
+}
+.card-sub {
+  display: block;
+  margin-top: 5px;
+  font-size: 15.5px;
+  line-height: 1.4;
+  color: var(--text-2);
+}
+.card-meta {
+  display: inline-block;
+  margin-top: 9px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--notice-bg);
+  border: 1px solid var(--notice-line);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.empty { padding: 26px 4px; color: var(--text-2); font-size: 17px; }
 
 /* ---------- helplines, places, parking ---------- */
 
 .section-head {
-  margin: 4px 0 10px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--muted);
+  margin: 6px 0 10px;
+  font-family: var(--font-head);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--brand-dark);
 }
 
+/* Notice, not alarm: amber surface, clear label, readable body. */
 .warn {
-  margin: 0 0 12px;
-  padding: 11px 13px;
-  border-radius: 11px;
-  background: #fdf0e2;
-  border: 1px solid #f0d6b6;
-  font-size: 14px;
+  display: flex;
+  gap: 12px;
+  margin: 0 0 14px;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--notice-bg);
+  border: 1.5px solid var(--notice-line);
+}
+.warn .ico { width: 24px; height: 24px; color: var(--brand-dark); margin-top: 1px; }
+.warn-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--brand-dark);
+}
+.warn-body {
+  display: block;
+  margin-top: 3px;
+  font-size: 15.5px;
   line-height: 1.45;
-  color: #8a4a08;
+  color: var(--text);
 }
 
-/* A helpline row is one big tel: link, because on a phone the whole point is
-   that a panicking person hits it once and it dials. */
+/* A helpline row is one big tel: link, because the whole point is that a
+   panicking person hits it once and it dials. */
 .call-row {
   display: flex;
   align-items: center;
   gap: 14px;
-  min-height: 66px;
-  margin-bottom: 10px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
+  min-height: 72px;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--line);
   border-radius: 14px;
-  background: #fff;
+  background: var(--card);
   text-decoration: none;
   color: inherit;
 }
 .call-num {
   flex: none;
-  min-width: 54px;
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--saffron);
+  min-width: 58px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--brand-dark);
   font-variant-numeric: tabular-nums;
 }
 .call-text { flex: 1; min-width: 0; }
-.call-name { display: block; font-size: 16.5px; font-weight: 600; line-height: 1.3; }
-.call-note { display: block; margin-top: 2px; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
-.call-icon { flex: none; color: #2e7d32; }
+.call-name { display: block; font-size: 17px; font-weight: 700; line-height: 1.3; }
+.call-note { display: block; margin-top: 2px; font-size: 14.5px; color: var(--text-2); line-height: 1.35; }
+.call-icon { flex: none; color: #1B7F3B; }
 
-.row-wrap { display: flex; align-items: stretch; gap: 8px; margin-bottom: 10px; }
+.row-wrap { display: flex; align-items: stretch; gap: 10px; margin-bottom: 12px; }
 .row-wrap .card { flex: 1; margin-bottom: 0; }
+
+/* Directions is one of the two most important actions on the page, so it is a
+   filled button with an icon and a label, not a quiet link. */
 .dir-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 3px;
   flex: none;
-  width: 68px;
-  min-height: 62px;
+  width: 84px;
+  min-height: 64px;
   border-radius: 14px;
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--saffron);
-  font-size: 12px;
+  border: 1.5px solid var(--brand-dark);
+  background: var(--brand-dark);
+  color: #fff;
+  font-size: 14px;
   font-weight: 700;
   text-decoration: none;
   text-align: center;
 }
+.dir-btn .ico { width: 20px; height: 20px; }
+.dir-btn:active { background: var(--brand-dark-hi); }
 
 /* ---------- detail view ---------- */
 
 .back-btn {
   display: flex;
   align-items: center;
-  gap: 4px;
-  min-height: 44px;
-  margin: 0 0 4px -6px;
-  padding: 0 6px;
+  gap: 5px;
+  min-height: 48px;
+  margin: 0 0 6px -8px;
+  padding: 0 8px;
   border: 0;
   background: none;
   font: inherit;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--saffron);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--brand-dark);
   cursor: pointer;
 }
 
-.detail-title { margin: 0; font-size: 21px; line-height: 1.25; }
-.detail-sub { margin: 6px 0 0; font-size: 15px; line-height: 1.45; color: var(--muted); }
-.detail-stats { margin: 12px 0 0; font-size: 16px; font-weight: 700; color: var(--saffron); }
-.detail-note { margin: 4px 0 0; font-size: 13.5px; color: var(--muted); }
+.detail-title {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--brand-dark);
+}
+.detail-sub { margin: 7px 0 0; font-size: 16px; line-height: 1.45; color: var(--text-2); }
 
-.stops { margin: 16px 0; padding: 0; list-style: none; counter-reset: stop; }
+.detail-stats {
+  display: inline-block;
+  margin: 13px 0 0;
+  padding: 7px 13px;
+  border-radius: 10px;
+  background: var(--brand);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+.detail-note { margin: 8px 0 0; font-size: 14.5px; color: var(--text-2); }
+
+.stops { margin: 18px 0; padding: 0; list-style: none; }
 .stop-row {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 14px;
   width: 100%;
-  min-height: 56px;
-  padding: 10px 0;
+  min-height: 60px;
+  padding: 12px 0;
   border: 0;
-  border-top: 1px solid var(--line);
+  border-top: 1.5px solid var(--line);
   background: none;
   font: inherit;
   text-align: left;
@@ -429,69 +588,78 @@ body.sheet-full .sos-btn { opacity: 0; pointer-events: none; }
   align-items: center;
   justify-content: center;
   flex: none;
-  width: 30px; height: 30px;
+  width: 34px; height: 34px;
   border-radius: 50%;
-  background: var(--saffron);
-  color: #fff;
-  font-size: 14px;
+  background: var(--brand);
+  color: var(--brand-dark);
+  font-size: 16px;
   font-weight: 700;
 }
-.stop-num.start { background: #2e7d32; }
-.stop-name { display: block; font-size: 16.5px; font-weight: 600; line-height: 1.3; }
-.stop-locality { display: block; margin-top: 2px; font-size: 14px; color: var(--muted); }
+.stop-name { display: block; font-size: 17.5px; font-weight: 700; line-height: 1.3; color: var(--text); }
+.stop-locality { display: block; margin-top: 2px; font-size: 15px; color: var(--text-2); }
 
-.actions { display: flex; flex-direction: column; gap: 10px; }
+.actions { display: flex; flex-direction: column; gap: 12px; }
 
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 9px;
   width: 100%;
-  min-height: 54px;
-  padding: 8px 16px;
+  min-height: 56px;
+  padding: 10px 18px;
   border: 0;
   border-radius: 14px;
   font: inherit;
-  font-size: 17px;
+  font-size: 17.5px;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
 }
-.btn-primary { background: var(--saffron); color: #fff; }
-.btn-secondary { background: #fff; color: var(--saffron); border: 1.5px solid var(--saffron); }
-.btn.done { background: #eef6ee; color: #2e7d32; border: 1.5px solid #cfe3cf; }
+.btn-primary { background: var(--brand-dark); color: #fff; }
+.btn-primary:active { background: var(--brand-dark-hi); }
+.btn-secondary { background: var(--card); color: var(--brand-dark); border: 2px solid var(--brand-dark); }
+.btn.done { background: #E9F3EA; color: #1B5E23; border: 2px solid #B9D8BD; }
 
-/* ---------- map pins ---------- */
+/* ---------- map pins ----------
+   Category is carried by shape and glyph as well as colour: plain disc for a
+   mandal, "P" for parking, dot-in-ring for help. */
 
 .pin {
-  width: 19px; height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
   border-radius: 50%;
-  background: var(--saffron-bright);
-  border: 3.5px solid #fff;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, .5);
+  background: var(--brand);
+  border: 3px solid var(--brand-dark);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .45);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  line-height: 1;
 }
-.pin.parking { background: #1565c0; }
-.pin.help { background: #c62828; }
+.pin.parking { background: var(--brand-dark); border-color: #fff; color: #fff; }
+.pin.help { background: #B01E1E; border-color: #fff; color: #fff; }
 
 .pin-num {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px; height: 32px;
+  width: 34px; height: 34px;
   border-radius: 50%;
-  background: var(--saffron);
-  color: #fff;
-  border: 3px solid #fff;
+  background: var(--brand);
+  color: var(--brand-dark);
+  border: 3px solid var(--brand-dark);
   font-size: 15px;
   font-weight: 700;
   box-shadow: 0 2px 7px rgba(0, 0, 0, .4);
 }
-.pin-num.start { background: #2e7d32; }
-.pin-num.parking { background: #1565c0; }
-.pin-num.help { background: #c62828; }
+.pin-num.start { background: #1B7F3B; color: #fff; border-color: #fff; }
 
-/* ---------- language gate + toast ---------- */
+/* ---------- language gate ---------- */
 
 .lang-gate {
   position: fixed;
@@ -501,60 +669,75 @@ body.sheet-full .sos-btn { opacity: 0; pointer-events: none; }
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: linear-gradient(160deg, #c2540a, #e8830c);
+  background: linear-gradient(165deg, #771717, #9C2A1E 55%, #C25A18);
 }
 .lang-gate[hidden] { display: none; }
 .lang-card { width: 100%; max-width: 340px; text-align: center; }
-.lang-title { margin: 0 0 6px; font-size: 27px; font-weight: 700; color: #fff; }
-.lang-sub { margin: 0 0 26px; font-size: 14.5px; color: rgba(255, 255, 255, .9); }
+.lang-title {
+  margin: 0 0 8px;
+  font-family: var(--font-head);
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+}
+.lang-sub { margin: 0 0 28px; font-size: 15px; color: rgba(255, 255, 255, .92); }
 .lang-choice {
   display: block;
   width: 100%;
-  min-height: 62px;
-  margin-bottom: 12px;
+  min-height: 64px;
+  margin-bottom: 13px;
   border: 0;
-  border-radius: 15px;
-  background: #fff;
-  font: inherit;
+  border-radius: 14px;
+  background: var(--sheet);
+  font-family: var(--font-ui);
   font-size: 21px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--brand-dark);
   cursor: pointer;
 }
+.lang-choice:active { background: var(--brand); }
+
+/* ---------- toast ---------- */
 
 .toast {
   position: fixed;
   z-index: 900;
   left: 50%;
-  bottom: calc(var(--sheet-h) + 78px);
+  bottom: calc(var(--sheet-h) + 84px);
   transform: translateX(-50%);
-  max-width: min(86vw, 420px);
-  padding: 12px 18px;
+  max-width: min(88vw, 420px);
+  padding: 13px 18px;
   border-radius: 12px;
-  background: rgba(26, 22, 20, .93);
+  background: var(--brand-dark);
   color: #fff;
-  font-size: 15px;
+  font-size: 15.5px;
+  font-weight: 500;
   line-height: 1.4;
   text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+  box-shadow: 0 4px 16px rgba(59, 30, 10, .4);
 }
 .toast[hidden] { display: none; }
 
 /* ---------- desktop: sheet becomes a side panel ---------- */
 
 @media (min-width: 900px) {
-  .topbar { width: 420px; padding: 16px; }
+  .topbar { width: 440px; padding: 18px; }
   .sheet {
-    top: 86px; bottom: 16px; left: 16px; right: auto;
-    width: 420px;
+    top: 92px; bottom: 18px; left: 18px; right: auto;
+    width: 440px;
     height: auto;
-    border-radius: 20px;
+    border-radius: 18px;
+    border: 1.5px solid var(--line);
   }
   .sheet-handle { display: none; }
-  .sheet-body { padding: 18px; }
+  .sheet-body { padding: 20px; }
   .locate-btn { right: 24px; bottom: 24px; }
-  .sos-btn { right: 21px; bottom: 88px; }
-  .ad { left: 452px; bottom: 24px; width: 300px; }
-  .toast { left: calc(50% + 220px); bottom: 32px; }
+  .sos-btn { right: 20px; bottom: 90px; }
+  .ad { left: 478px; bottom: 24px; width: 150px; }
+  .toast { left: calc(50% + 230px); bottom: 32px; }
   .leaflet-bottom.leaflet-right { bottom: 0; }
+  /* Lift zoom clear of the SOS/locate stack, which owns this corner. */
+  .leaflet-control-zoom { margin-bottom: 162px !important; margin-right: 22px !important; }
+  /* Keep card text at a readable measure rather than stretching it. */
+  .card-title, .card-sub { max-width: 46ch; }
 }

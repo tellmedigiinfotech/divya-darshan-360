@@ -34,23 +34,18 @@ const xy = (m) => [m.lat, m.lng];
  * which would poison the very numbers the Kumbh pitch depends on. So: muted
  * picture-in-picture beside the route, tap for sound, dismissable.
  *
- * Once per session by default. Flip AD_EVERY_SELECTION if you want it on every
- * tap instead, but that also multiplies data use per visitor.
+ * Plays from the start on every route or mandal tap, by request, which costs
+ * more mobile data per visitor than once per session did. Tapping the video
+ * opens the VR headset page.
  *
  * Not skippable: no close button, no pause, no native controls. It clears
  * itself when the clip ends, because the alternative is a card permanently
  * covering a third of the map on a wayfinding tool. Set AD_STAYS_AFTER_END if
  * you would rather it sit there for the rest of the visit.
  */
-const AD_EVERY_SELECTION = false;
 const AD_STAYS_AFTER_END = false;
-const AD_SEEN_KEY = "pgy.ad_seen";
 
 function maybeShowAd() {
-  if (!AD_EVERY_SELECTION) {
-    try { if (sessionStorage.getItem(AD_SEEN_KEY)) return; } catch { /* private mode */ }
-  }
-
   const el = $("ad");
   const v = $("ad-video");
   const src = `assets/ads/ganesh-ad-${lang}.mp4`;
@@ -59,7 +54,7 @@ function maybeShowAd() {
     v.setAttribute("poster", `assets/ads/ganesh-ad-${lang}.jpg`);
   }
   el.hidden = false;
-  try { sessionStorage.setItem(AD_SEEN_KEY, "1"); } catch { /* not fatal */ }
+  v.currentTime = 0; // restart even if the last tap's clip is still playing
   const trigger = selection ? selection.kind : "unknown";
 
   // Sound on by default. This is reached synchronously from the user's tap on a
@@ -184,9 +179,12 @@ function renderPins() {
   const items = parking ? services.parking : help ? services.places : data.mandals;
   const cls = parking ? " parking" : help ? " help" : "";
 
+  // Glyph as well as colour, so category survives colour-blindness and sunlight.
+  const glyph = parking ? "P" : help ? "+" : "";
+
   items.forEach((item) => {
     const marker = L.marker([item.lat, item.lng], {
-      icon: L.divIcon({ className: "", html: `<div class="pin${cls}"></div>`, iconSize: [19, 19], iconAnchor: [9, 9] }),
+      icon: L.divIcon({ className: "", html: `<div class="pin${cls}">${glyph}</div>`, iconSize: [22, 22], iconAnchor: [11, 11] }),
       keyboard: false,
     }).addTo(mandalLayer);
 
@@ -195,8 +193,9 @@ function renderPins() {
     } else {
       marker.on("click", (ev) => L.DomEvent.stopPropagation(ev));
       marker.bindPopup(
-        `<strong>${tr(item.name)}</strong><br>${tr(item.locality)}<br>` +
-        `<a href="${gmapsTo(item)}" target="_blank" rel="noopener">${t("directions")}</a>`
+        `<span class="popup-name">${tr(item.name)}</span>` +
+        `<span class="popup-area">${tr(item.locality)}</span>` +
+        `<a class="popup-dir" href="${gmapsTo(item)}" target="_blank" rel="noopener">${t("directions")}</a>`
       );
     }
   });
@@ -278,7 +277,9 @@ async function drawRoute() {
     if (!json.routes || !json.routes.length) throw new Error("no route");
     const route = json.routes[0];
     const line = L.geoJSON(route.geometry, {
-      style: { color: "#c2540a", weight: 6, opacity: 0.9, lineJoin: "round" },
+      // Brand maroon: highest contrast against the desaturated basemap, and it
+      // pairs with the saffron numbered stops rather than competing with them.
+      style: { color: "#771717", weight: 6, opacity: 0.92, lineJoin: "round" },
     }).addTo(routeLayer);
     fitTo(line.getBounds());
     setStats(route);
@@ -487,13 +488,17 @@ function renderEmergency(list) {
 }
 
 function renderParking(list) {
-  const warn = document.createElement("p");
+  const warn = document.createElement("div");
   warn.className = "warn";
-  warn.textContent = t("parkingWarning");
+  warn.innerHTML =
+    '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/>' +
+    '<path d="M12 8v5"/><path d="M12 16.2v.1"/></svg>' +
+    `<span><span class="warn-title">${t("importantLabel")}</span>` +
+    `<span class="warn-body">${t("parkingWarning")}</span></span>`;
   list.appendChild(warn);
   services.parking.forEach((p) => {
     const veh = p.vehicles === "two" ? t("vehTwo") : p.vehicles === "four" ? t("vehFour") : t("vehBoth");
-    list.appendChild(placeRow(p, `${tr(p.locality)} · ${veh}`));
+    list.appendChild(placeRow(p, tr(p.locality), veh));
   });
 }
 
@@ -505,10 +510,10 @@ function head(text) {
 }
 
 // Card centres the map on it, the button beside it hands off to Google Maps.
-function placeRow(item, sub) {
+function placeRow(item, sub, meta = "") {
   const wrap = document.createElement("div");
   wrap.className = "row-wrap";
-  wrap.appendChild(card(tr(item.name), sub, "", () => focusPlace(item)));
+  wrap.appendChild(card(tr(item.name), sub, meta, () => focusPlace(item)));
   const a = document.createElement("a");
   a.className = "dir-btn";
   a.href = gmapsTo(item);
@@ -696,6 +701,7 @@ function wire() {
     track(v.muted ? "ad_muted" : "ad_unmuted", { language: lang });
   });
   $("ad-video").addEventListener("ended", adFinished);
+  $("ad-link").addEventListener("click", () => track("ad_clicked", { language: lang }));
 
   $("back-btn").addEventListener("click", showList);
   $("locate-btn").addEventListener("click", locateMe);

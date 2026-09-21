@@ -8,8 +8,15 @@
      without editing any paths. Injected by sync-to-site.sh, do not remove. -->
 <base href="/ganeshutsav/">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#c2540a">
+<meta name="theme-color" content="#771717">
 <title>Pune Ganpati Yatra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Playfair for headings, Roboto for UI. Noto Devanagari companions because
+     Playfair has no Devanagari glyphs at all and two of the three languages
+     need them. Google subsets by unicode-range, so a Marathi visitor does not
+     pay for the Latin faces or vice versa. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Serif+Devanagari:wght@600&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="style.css">
 
@@ -45,9 +52,12 @@
 
 <!-- Language-matched ad, floated over the map when a route or mandal is picked.
      Left side on purpose: SOS and locate own the right. Deliberately not a
-     blocking interstitial, see the note in app.js. -->
+     blocking interstitial, see the note in app.js. Tapping the video opens the
+     VR headset page. -->
 <div id="ad" class="ad" hidden>
-  <video id="ad-video" class="ad-video" muted playsinline preload="none"></video>
+  <a id="ad-link" class="ad-link" href="https://divyadarshan360.com/vr-headset" aria-label="Divya Darshan 360 VR headset">
+    <video id="ad-video" class="ad-video" muted playsinline preload="none"></video>
+  </a>
   <button id="ad-sound" class="ad-sound" aria-label="Mute advert">
     <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>
   </button>

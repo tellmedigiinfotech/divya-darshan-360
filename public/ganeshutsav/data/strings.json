@@ -33,7 +33,8 @@
     "parkingWarning": "This is last year's police list. Confirm the 2026 spots before relying on it.",
     "vehTwo": "Two-wheelers",
     "vehFour": "Four-wheelers",
-    "vehBoth": "Two and four-wheelers"
+    "vehBoth": "Two and four-wheelers",
+    "importantLabel": "Important"
   },
   "mr": {
     "langName": "मराठी",
@@ -69,7 +70,8 @@
     "parkingWarning": "ही गेल्या वर्षीची पोलीस यादी आहे. २०२६ ची ठिकाणे तपासून घ्या.",
     "vehTwo": "दुचाकी",
     "vehFour": "चारचाकी",
-    "vehBoth": "दुचाकी आणि चारचाकी"
+    "vehBoth": "दुचाकी आणि चारचाकी",
+    "importantLabel": "महत्त्वाचे"
   },
   "hi": {
     "langName": "हिंदी",
@@ -105,6 +107,7 @@
     "parkingWarning": "यह पिछले साल की पुलिस सूची है। २०२६ के स्थान पुष्टि करके ही भरोसा करें।",
     "vehTwo": "दोपहिया",
     "vehFour": "चारपहिया",
-    "vehBoth": "दोपहिया और चारपहिया"
+    "vehBoth": "दोपहिया और चारपहिया",
+    "importantLabel": "महत्वपूर्ण"
   }
 }
